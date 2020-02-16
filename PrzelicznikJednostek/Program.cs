@@ -10,6 +10,7 @@ namespace PrzelicznikJednostek
     {
         static void Main(string[] args)
         {
+            Console.WriteLine("test");
         }
     }
 }
