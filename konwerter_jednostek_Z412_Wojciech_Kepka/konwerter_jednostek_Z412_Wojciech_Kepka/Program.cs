@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -7,13 +8,15 @@ using System.Threading.Tasks;
 
 namespace UnitConverter
 {
+
     class Converter
     {
-        double inp_v, out_v;
-        Unit inp_u, out_u;
+        double inp_v;
+        Unit inp_u;
+        List<Tuple<double, Unit>> out_vals = new List<Tuple<double, Unit>>();
         bool calculated = false;
         bool cmd = false;
-        Dictionary<DateTime, string> history = new Dictionary<DateTime, string> { };
+        Dictionary<DateTime, Record> history = new Dictionary<DateTime, Record> { };
 
         Converter()
         {
@@ -31,7 +34,8 @@ namespace UnitConverter
             Console.WriteLine("\t\tlb\t(Funty)");
             Console.WriteLine("\tTemperatura:");
             Console.WriteLine("\t\tC\t(Stopnie Celsjusza)");
-            Console.WriteLine("\t\tF\t(Stopnie Farenheita)");
+            Console.WriteLine("\t\tF\t(Stopnie Fahrenheita)");
+            Console.WriteLine("\t\tK\t(Stopnie Kelvina)");
             Console.WriteLine("\tOdległość:");
             Console.WriteLine("\t\tkm\t(Kilometry)");
             Console.WriteLine("\t\tmi\t(Mile)");
@@ -61,18 +65,24 @@ namespace UnitConverter
         {
             switch (user_inp.ToLower())
             {
+                // Temperatures
+                case "c":
+                    inp_u = Unit.Celsius;
+                    return true;
+                case "f":
+                    inp_u = Unit.Fahrenheit;
+                    return true;
+                case "k":
+                    inp_u = Unit.Kelvin;
+                    return true;
+                // Mass
                 case "kg":
                     inp_u = Unit.Kilograms;
                     return true;
                 case "lb":
                     inp_u = Unit.Pounds;
                     return true;
-                case "c":
-                    inp_u = Unit.Celsius;
-                    return true;
-                case "f":
-                    inp_u = Unit.Farenheit;
-                    return true;
+                // Distance
                 case "km":
                     inp_u = Unit.Kilometers;
                     return true;
@@ -131,48 +141,60 @@ namespace UnitConverter
                 if (Parse(user_inp)) { break; }
             }
         }
+        void AddOutVal(double val, Unit u)
+        {
+            out_vals.Add(new Tuple<double, Unit>(val, u));
+        }
         void Convert()
         {
             if (!cmd)
             {
                 switch (inp_u)
                 {
+                    // Temperatures
                     case Unit.Celsius:
-                        out_v = CelsiusToFahrenheit(inp_v);
-                        out_u = Unit.Farenheit;
+                        AddOutVal(CelsiusToKelvin(inp_v), Unit.Kelvin);
+                        AddOutVal(CelsiusToFahrenheit(inp_v), Unit.Fahrenheit);
                         break;
-                    case Unit.Farenheit:
-                        out_v = FarenheitToCelsius(inp_v);
-                        out_u = Unit.Celsius;
+                    case Unit.Fahrenheit:
+                        AddOutVal(FahrenheitToCelsius(inp_v), Unit.Celsius);
+                        AddOutVal(FahrenheitToKelvin(inp_v), Unit.Kelvin);
                         break;
+                    case Unit.Kelvin:
+                        AddOutVal(KelvinToCelsius(inp_v), Unit.Celsius);
+                        AddOutVal(KelvinToFahrenheit(inp_v), Unit.Fahrenheit);
+                        break;
+                    // Mass
                     case Unit.Kilograms:
-                        out_v = KilogramsToPounds(inp_v);
-                        out_u = Unit.Pounds;
+                        AddOutVal(KilogramsToPounds(inp_v), Unit.Pounds);
                         break;
                     case Unit.Pounds:
-                        out_v = PoundsToKilograms(inp_v);
-                        out_u = Unit.Kilograms;
+                        AddOutVal(PoundsToKilograms(inp_v), Unit.Kilograms);
                         break;
+                    // Distance
                     case Unit.Kilometers:
-                        out_v = KilometersToMiles(inp_v);
-                        out_u = Unit.Miles;
+                        AddOutVal(KilometersToMiles(inp_v), Unit.Miles);
                         break;
                     case Unit.Miles:
-                        out_v = MilesToKilometers(inp_v);
-                        out_u = Unit.Kilometers;
+                        AddOutVal(MilesToKilometers(inp_v), Unit.Kilometers);
                         break;
                     default:
                         break;
 
                 }
                 calculated = true;
-                history.Add(DateTime.Now, OutStr());
+                history.Add(DateTime.Now, new Record(inp_v, inp_u, new List<Tuple<double, Unit>>(out_vals)));
             }
 
         }
         string OutStr()
         {
-            return $"{inp_v} {UnitName(inp_u)} = {out_v} {UnitName(out_u)}";
+            StringBuilder s = new StringBuilder();
+            foreach(Tuple<double, Unit> out_ in out_vals)
+            {
+                s.Append($"{inp_v} {UnitName(inp_u)} = {out_.Item1} {UnitName(out_.Item2)}\n");
+            }
+            return s.ToString().Trim('\n');
         }
         void PrintOut()
         {
@@ -184,25 +206,71 @@ namespace UnitConverter
         }
         void PrintHistory()
         {
-            foreach (KeyValuePair<DateTime, String> entry in history)
+            foreach (KeyValuePair<DateTime, Record> entry in history)
             {
-                Console.WriteLine($"{entry.Key} - '{entry.Value}'");
+                Console.WriteLine($"{entry.Key}");
+                Record r = entry.Value;
+                Console.Write($"{r.inp_v} {UnitName(r.inp_u)} =");
+                foreach (Tuple<double, Unit> out_ in r)
+                {
+                    Console.WriteLine($"\t{out_.Item1} {UnitName(out_.Item2)}");
+                }
             }
         }
         void Clear()
         {
-            inp_v = default; inp_u = default; out_v = default; out_u = default;
+            inp_v = default; inp_u = default;
+            out_vals.Clear();
             calculated = false;
         }
         //################################################
+        public class Record : IEnumerable<Tuple<double, Unit>>
+        {
+            public double inp_v; public Unit inp_u;
+            public List<Tuple<double, Unit>> out_v;
+            public Record(double v, Unit u, List<Tuple<double, Unit>> out_v)
+            {
+                inp_v = v;
+                inp_u = u;
+                this.out_v = out_v;
+            }
+
+            public IEnumerator<Tuple<double, Unit>> GetEnumerator()
+            {
+                return out_v.GetEnumerator();
+            }
+            IEnumerator IEnumerable.GetEnumerator()
+            {
+                return out_v.GetEnumerator();
+            }
+        }
+        //################################################
+        // Temperatures
         static double CelsiusToFahrenheit(double inp) 
         {
             return inp * (9 / 5) + 32;
         }
-        static double FarenheitToCelsius(double inp)
+        static double CelsiusToKelvin(double inp)
+        {
+            return inp + 273.15;
+        }
+        static double FahrenheitToCelsius(double inp)
         {
             return (inp - 32) * 5 / 9;
         }
+        static double FahrenheitToKelvin(double inp)
+        {
+            return (inp + 459.67) * 5 / 9;
+        }
+        static double KelvinToCelsius(double inp)
+        {
+            return inp - 273.15;
+        }
+        static double KelvinToFahrenheit(double inp)
+        {
+            return (inp * 9 / 5) - 459.67;
+        }
+        // Mass
         static double KilogramsToPounds(double inp)
         {
             return inp * 2.2046;
@@ -211,6 +279,7 @@ namespace UnitConverter
         {
             return inp / 2.2046;
         }
+        // Distance
         static double KilometersToMiles(double inp)
         {
             return inp * 0.621371192;
@@ -220,23 +289,26 @@ namespace UnitConverter
             return inp / 0.621371192;
         }
         //################################################
-        enum Unit
+        public enum Unit
         {
             Celsius,
-            Farenheit,
+            Fahrenheit,
+            Kelvin,
             Kilometers,
             Miles,
             Kilograms,
             Pounds
         }
-        static string UnitName(Unit unit)
+        public static string UnitName(Unit unit)
         {
             switch (unit)
             {
                 case Unit.Celsius:
                     return "C";
-                case Unit.Farenheit:
+                case Unit.Fahrenheit:
                     return "F";
+                case Unit.Kelvin:
+                    return "K";
                 case Unit.Kilograms:
                     return "kg";
                 case Unit.Pounds:
@@ -249,7 +321,6 @@ namespace UnitConverter
                     return "";
             }
         }
-
         static void Main(string[] args)
         {
             Converter conv = new Converter();
