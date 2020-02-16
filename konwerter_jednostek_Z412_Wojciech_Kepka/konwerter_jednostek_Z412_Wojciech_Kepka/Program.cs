@@ -5,17 +5,17 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace KonwerterJednostek
+namespace UnitConverter
 {
 
-    class Konwerter
+    class Converter
     {
         double inp_v, out_v;
-        Jednostka inp_u, out_u;
+        Unit inp_u, out_u;
         bool calculated = false;
         bool cmd = false;
 
-        Konwerter()
+        Converter()
         {
             Console.WriteLine("Konwerter jednostek");
             Console.WriteLine("\nKonwertuje wybraną jednostkę na jej odpowiednik");
@@ -61,22 +61,22 @@ namespace KonwerterJednostek
             switch (user_inp)
             {
                 case "kg":
-                    inp_u = Jednostka.Kilogramy;
+                    inp_u = Unit.Kilograms;
                     return true;
                 case "lb":
-                    inp_u = Jednostka.Funty;
+                    inp_u = Unit.Pounds;
                     return true;
                 case "c":
-                    inp_u = Jednostka.Celsjusz;
+                    inp_u = Unit.Celsius;
                     return true;
                 case "f":
-                    inp_u = Jednostka.Farenheit;
+                    inp_u = Unit.Farenheit;
                     return true;
                 case "km":
-                    inp_u = Jednostka.Kilometry;
+                    inp_u = Unit.Kilometers;
                     return true;
                 case "mi":
-                    inp_u = Jednostka.Mile;
+                    inp_u = Unit.Miles;
                     return true;
                 default:
                     Console.WriteLine($"Podana jednostka '{user_inp}' jest nieobsługiwana. Spróbuj ponownie.");
@@ -84,7 +84,7 @@ namespace KonwerterJednostek
             }
         }
         bool Parse(string user_inp)
-        // Parsuje input w formie '10 kg', '15.5 c'...
+        // Parses input like '10 kg', '15.5 c'...
         {
             switch (user_inp)
             {
@@ -132,29 +132,29 @@ namespace KonwerterJednostek
             {
                 switch (inp_u)
                 {
-                    case Jednostka.Celsjusz:
+                    case Unit.Celsius:
                         out_v = CelsiusToFahrenheit(inp_v);
-                        out_u = Jednostka.Farenheit;
+                        out_u = Unit.Farenheit;
                         break;
-                    case Jednostka.Farenheit:
+                    case Unit.Farenheit:
                         out_v = FarenheitToCelsius(inp_v);
-                        out_u = Jednostka.Celsjusz;
+                        out_u = Unit.Celsius;
                         break;
-                    case Jednostka.Kilogramy:
+                    case Unit.Kilograms:
                         out_v = KilogramsToPounds(inp_v);
-                        out_u = Jednostka.Funty;
+                        out_u = Unit.Pounds;
                         break;
-                    case Jednostka.Funty:
+                    case Unit.Pounds:
                         out_v = PoundsToKilograms(inp_v);
-                        out_u = Jednostka.Kilogramy;
+                        out_u = Unit.Kilograms;
                         break;
-                    case Jednostka.Kilometry:
+                    case Unit.Kilometers:
                         out_v = KilometersToMiles(inp_v);
-                        out_u = Jednostka.Mile;
+                        out_u = Unit.Miles;
                         break;
-                    case Jednostka.Mile:
+                    case Unit.Miles:
                         out_v = MilesToKilometers(inp_v);
-                        out_u = Jednostka.Kilometry;
+                        out_u = Unit.Kilometers;
                         break;
                     default:
                         break;
@@ -177,20 +177,6 @@ namespace KonwerterJednostek
             inp_v = default; inp_u = default; out_v = default; out_u = default;
             calculated = false;
         }
-        static void Main(string[] args)
-        {
-            Konwerter conv = new Konwerter();
-            while (true)
-            {
-
-                conv.GetInp();
-                conv.Convert();
-                conv.PrintOut();
-                conv.Clear();
-            }
-
-        }
-
         //################################################
         static double CelsiusToFahrenheit(double inp) 
         {
@@ -217,34 +203,48 @@ namespace KonwerterJednostek
             return inp / 0.621371192;
         }
         //################################################
-        enum Jednostka
+        enum Unit
         {
-            Celsjusz,
+            Celsius,
             Farenheit,
-            Kilometry,
-            Mile,
-            Kilogramy,
-            Funty
+            Kilometers,
+            Miles,
+            Kilograms,
+            Pounds
         }
-        static string UnitName(Jednostka unit)
+        static string UnitName(Unit unit)
         {
             switch (unit)
             {
-                case Jednostka.Celsjusz:
+                case Unit.Celsius:
                     return "c";
-                case Jednostka.Farenheit:
+                case Unit.Farenheit:
                     return "f";
-                case Jednostka.Kilogramy:
+                case Unit.Kilograms:
                     return "kg";
-                case Jednostka.Funty:
+                case Unit.Pounds:
                     return "lb";
-                case Jednostka.Kilometry:
+                case Unit.Kilometers:
                     return "km";
-                case Jednostka.Mile:
+                case Unit.Miles:
                     return "mi";
                 default:
                     return "";
             }
+        }
+
+        static void Main(string[] args)
+        {
+            Converter conv = new Converter();
+            while (true)
+            {
+
+                conv.GetInp();
+                conv.Convert();
+                conv.PrintOut();
+                conv.Clear();
+            }
+
         }
 
     }
