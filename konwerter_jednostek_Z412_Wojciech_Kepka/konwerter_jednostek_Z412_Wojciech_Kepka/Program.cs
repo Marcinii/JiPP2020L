@@ -11,8 +11,7 @@ namespace UnitConverter
 
     class Converter
     {
-        double inp_v;
-        Unit inp_u;
+        double inp_v; Unit inp_u;
         List<Tuple<double, Unit>> out_vals = new List<Tuple<double, Unit>>();
         bool calculated = false;
         bool cmd = false;
@@ -29,14 +28,15 @@ namespace UnitConverter
         {
             Console.WriteLine("#########################################");
             Console.WriteLine("Dostępne Jednostki:");
-            Console.WriteLine("\tMasa:");
-            Console.WriteLine("\t\tkg\t(Kilogramy)");
-            Console.WriteLine("\t\tlb\t(Funty)");
             Console.WriteLine("\tTemperatura:");
             Console.WriteLine("\t\tC\t(Stopnie Celsjusza)");
             Console.WriteLine("\t\tF\t(Stopnie Fahrenheita)");
             Console.WriteLine("\t\tK\t(Stopnie Kelvina)");
-            Console.WriteLine("\tOdległość:");
+            Console.WriteLine("\tMasa:");
+            Console.WriteLine("\t\tkg\t(Kilogramy)");
+            Console.WriteLine("\t\tlb\t(Funty)");
+            Console.WriteLine("\t\toz\t(Uncje)");
+            Console.WriteLine("\tDystans:");
             Console.WriteLine("\t\tkm\t(Kilometry)");
             Console.WriteLine("\t\tmi\t(Mile)");
             Console.WriteLine("Przykładowy input:");
@@ -81,6 +81,9 @@ namespace UnitConverter
                     return true;
                 case "lb":
                     inp_u = Unit.Pounds;
+                    return true;
+                case "oz":
+                    inp_u = Unit.Ounces;
                     return true;
                 // Distance
                 case "km":
@@ -167,9 +170,15 @@ namespace UnitConverter
                     // Mass
                     case Unit.Kilograms:
                         AddOutVal(KilogramsToPounds(inp_v), Unit.Pounds);
+                        AddOutVal(KilogramsToOunces(inp_v), Unit.Ounces);
                         break;
                     case Unit.Pounds:
                         AddOutVal(PoundsToKilograms(inp_v), Unit.Kilograms);
+                        AddOutVal(PoundsToOunces(inp_v), Unit.Ounces);
+                        break;
+                    case Unit.Ounces:
+                        AddOutVal(OuncesToKilograms(inp_v), Unit.Kilograms);
+                        AddOutVal(OuncesToPounds(inp_v), Unit.Pounds);
                         break;
                     // Distance
                     case Unit.Kilometers:
@@ -275,9 +284,25 @@ namespace UnitConverter
         {
             return inp * 2.2046;
         }
+        static double KilogramsToOunces(double inp)
+        {
+            return inp * 35.2739619496;
+        }
+        static double OuncesToPounds(double inp)
+        {
+            return inp * 0.0625;
+        }
+        static double OuncesToKilograms(double inp)
+        {
+            return inp * 0.0283495231;
+        }
         static double PoundsToKilograms(double inp)
         {
             return inp / 2.2046;
+        }
+        static double PoundsToOunces(double inp)
+        {
+            return inp / 0.0625;
         }
         // Distance
         static double KilometersToMiles(double inp)
@@ -297,7 +322,8 @@ namespace UnitConverter
             Kilometers,
             Miles,
             Kilograms,
-            Pounds
+            Pounds,
+            Ounces
         }
         public static string UnitName(Unit unit)
         {
@@ -313,6 +339,8 @@ namespace UnitConverter
                     return "kg";
                 case Unit.Pounds:
                     return "lb";
+                case Unit.Ounces:
+                    return "oz";
                 case Unit.Kilometers:
                     return "km";
                 case Unit.Miles:
