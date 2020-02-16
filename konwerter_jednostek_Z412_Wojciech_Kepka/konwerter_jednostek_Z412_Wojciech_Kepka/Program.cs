@@ -60,7 +60,7 @@ namespace KonwerterJednostek
             }
             catch (System.FormatException)
             {
-                Console.WriteLine($"{user_inp} nie jest poprawną liczbą. Spróbuj ponownie");
+                Console.WriteLine($"'{user_inp}' nie jest poprawną liczbą. Spróbuj ponownie");
                 return false;
             }
         }
@@ -88,7 +88,7 @@ namespace KonwerterJednostek
                     inp_u = Jednostka.Mile;
                     return true;
                 default:
-                    Console.WriteLine($"Podana jednostka {user_inp} jest nieobsługiwana. Spróbuj ponownie.");
+                    Console.WriteLine($"Podana jednostka '{user_inp}' jest nieobsługiwana. Spróbuj ponownie.");
                     return false;
             }
         }
@@ -121,6 +121,7 @@ namespace KonwerterJednostek
                     }
                     catch (System.IndexOutOfRangeException)
                     {
+                        Console.WriteLine($"Podana komenda '{user_inp}' nie istnieje.");
                         return false;
                     }
             }
