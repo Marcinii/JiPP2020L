@@ -9,8 +9,19 @@ namespace KonwerterJednostek
     class Program
     {
         static void Main(string[] args)
-        {
-            Console.WriteLine("Konwerter");
+        {            
+            UnitConverterService unitConverterService = new UnitConverterService();
+            double result;
+            unitConverterService.welcomeScreen();
+            unitConverterService.displayMainMenu();
+            int option = unitConverterService.getOptionFromUser();
+            while (option != 0)
+            {
+                result = unitConverterService.unitConversion(option);
+                unitConverterService.printResult(result);
+                unitConverterService.displayMainMenu();
+                option = unitConverterService.getOptionFromUser();
+            }
         }
     }
 }
