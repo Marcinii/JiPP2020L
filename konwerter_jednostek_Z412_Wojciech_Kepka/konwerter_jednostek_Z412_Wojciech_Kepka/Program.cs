@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace KonwerterJednostek
@@ -20,20 +21,36 @@ namespace KonwerterJednostek
         double inp_v, out_v;
         Jednostka inp_u, out_u;
         bool calculated = false;
+        bool cmd = false;
 
         Konwerter()
         {
-            Console.WriteLine("Konwerter jednosterk\n#########################################");
-            Console.WriteLine("\nKonwertuje wybraną jednostkę na jej odpowiednik\n");
-            Console.WriteLine("Dostępne Jednostki:");
-            Console.WriteLine("\tkg\t(Kilogramy)");
-            Console.WriteLine("\tlb\t(Funty)");
-            Console.WriteLine("\tc\t(Stopnie Celsjusza)");
-            Console.WriteLine("\tf\t(Stopnie Farenheita)");
-            Console.WriteLine("\tkm\t(Kilometry)");
-            Console.WriteLine("\tmi\t(Mile)");
+            Console.WriteLine("Konwerter jednostek");
+            Console.WriteLine("\nKonwertuje wybraną jednostkę na jej odpowiednik");
+            PrintHelp();
         }
 
+        static void PrintHelp()
+        {
+            Console.WriteLine("#########################################");
+            Console.WriteLine("Dostępne Jednostki:");
+            Console.WriteLine("\tMasa:");
+            Console.WriteLine("\t\tkg\t(Kilogramy)");
+            Console.WriteLine("\t\tlb\t(Funty)");
+            Console.WriteLine("\tTemperatura:");
+            Console.WriteLine("\t\tc\t(Stopnie Celsjusza)");
+            Console.WriteLine("\t\tf\t(Stopnie Farenheita)");
+            Console.WriteLine("\tOdległość:");
+            Console.WriteLine("\t\tkm\t(Kilometry)");
+            Console.WriteLine("\t\tmi\t(Mile)");
+            Console.WriteLine("Przykładowy input:");
+            Console.WriteLine("\t10 kg");
+            Console.WriteLine("\t-3.14 f");
+            Console.WriteLine("Dostępne komendy:");
+            Console.WriteLine("\thelp\tDrukuj pomoc");
+            Console.WriteLine("\tclear\tWyczyść okno");
+            Console.WriteLine("#########################################");
+        }
         bool SetInpVal(string user_inp)
         {
             try
@@ -75,9 +92,51 @@ namespace KonwerterJednostek
                     return false;
             }
         }
-        string OutValUnit()
+        // Parsuje input w formie '10 kg', '15.5 c'...
+        bool Parse(string user_inp)
         {
-            switch (out_u)
+            switch (user_inp)
+            {
+                case "help":
+                    PrintHelp();
+                    cmd = true;
+                    return true;
+                case "clear":
+                    Console.Clear();
+                    cmd = true;
+                    return true;
+                default:
+                    String[] inp = user_inp.Split(' ');
+                    cmd = false;
+                    try
+                    {
+                        if (SetInpVal(inp[0]) && SetInpUnit(inp[1]))
+                        {
+                            return true;
+                        }
+                        else
+                        {
+                            return false;
+                        }
+                    }
+                    catch (System.IndexOutOfRangeException)
+                    {
+                        return false;
+                    }
+            }
+        }
+        void GetInp()
+        {
+            while (true)
+            {
+                Console.Write("=> ");
+                string user_inp = Console.ReadLine();
+                if (Parse(user_inp)) { break; }
+            }
+        }
+        string UnitName(Jednostka unit)
+        {
+            switch (unit)
             {
                 case Jednostka.Celsjusz:
                     return "c";
@@ -97,42 +156,49 @@ namespace KonwerterJednostek
         }
         void Convert()
         {
-            switch (inp_u)
+            if (!cmd)
             {
-                case Jednostka.Celsjusz:
-                    out_v = inp_v * (9 / 5) + 32;
-                    out_u = Jednostka.Farenheit;
-                    break;
-                case Jednostka.Farenheit:
-                    out_v = (inp_v - 32) * 5/9;
-                    out_u = Jednostka.Celsjusz;
-                    break;
-                case Jednostka.Kilogramy:
-                    out_v = inp_v * 2.2046;
-                    out_u = Jednostka.Funty;
-                    break;
-                case Jednostka.Funty:
-                    out_v = inp_v / 2.2046;
-                    out_u = Jednostka.Kilogramy;
-                    break;
-                case Jednostka.Kilometry:
-                    out_v = inp_v * 0.621371192;
-                    out_u = Jednostka.Mile;
-                    break;
-                case Jednostka.Mile:
-                    out_v = inp_v / 0.621371192;
-                    out_u = Jednostka.Kilometry;
-                    break;
-                default:
-                    break;
+                switch (inp_u)
+                {
+                    case Jednostka.Celsjusz:
+                        out_v = inp_v * (9 / 5) + 32;
+                        out_u = Jednostka.Farenheit;
+                        break;
+                    case Jednostka.Farenheit:
+                        out_v = (inp_v - 32) * 5 / 9;
+                        out_u = Jednostka.Celsjusz;
+                        break;
+                    case Jednostka.Kilogramy:
+                        out_v = inp_v * 2.2046;
+                        out_u = Jednostka.Funty;
+                        break;
+                    case Jednostka.Funty:
+                        out_v = inp_v / 2.2046;
+                        out_u = Jednostka.Kilogramy;
+                        break;
+                    case Jednostka.Kilometry:
+                        out_v = inp_v * 0.621371192;
+                        out_u = Jednostka.Mile;
+                        break;
+                    case Jednostka.Mile:
+                        out_v = inp_v / 0.621371192;
+                        out_u = Jednostka.Kilometry;
+                        break;
+                    default:
+                        break;
 
+                }
+                calculated = true;
             }
-            calculated = true;
+
         }
         void PrintOut()
         {
-            if (!calculated) { Convert(); }
-            Console.WriteLine($"{inp_v} {inp_u} = {out_v} {out_u}");
+            if (!cmd)
+            {
+                if (!calculated) { Convert(); }
+                Console.WriteLine($"{inp_v} {UnitName(inp_u)} = {out_v} {UnitName(out_u)}");
+            }
         }
         void Clear()
         {
@@ -142,25 +208,15 @@ namespace KonwerterJednostek
         static void Main(string[] args)
         {
             Konwerter conv = new Konwerter();
-
-            // Ustawiamy wartość wejściową
-            while (true) 
-            {
-                Console.WriteLine("Podaj wartość wejściową: ");
-                string user_inp_v = Console.ReadLine();
-                if (conv.SetInpVal(user_inp_v)) { break; }
-            }
-
-            // Ustawiamy jednostkę wejściową
             while (true)
             {
-                Console.WriteLine("Podaj jednostkę: ");
-                string user_inp_u = Console.ReadLine();
-                if (conv.SetInpUnit(user_inp_u)) { break; }
+
+                conv.GetInp();
+                conv.Convert();
+                conv.PrintOut();
+                conv.Clear();
             }
 
-            conv.Convert();
-            conv.PrintOut();
         }
     }
 }
