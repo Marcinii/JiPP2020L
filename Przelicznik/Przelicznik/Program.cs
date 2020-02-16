@@ -12,6 +12,14 @@ namespace Przelicznik
         {
             Console.WriteLine("TEST");
             Console.ReadKey();
+            Console.WriteLine(2 + 2);
+            Console.ReadKey();
+            int test = 0;
+            do
+            {
+           
+
+            } while (test == 0);
         }
     }
 }
