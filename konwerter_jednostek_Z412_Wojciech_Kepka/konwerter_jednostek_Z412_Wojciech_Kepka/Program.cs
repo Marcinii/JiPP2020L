@@ -30,14 +30,14 @@ namespace UnitConverter
             Console.WriteLine("\t\tkg\t(Kilogramy)");
             Console.WriteLine("\t\tlb\t(Funty)");
             Console.WriteLine("\tTemperatura:");
-            Console.WriteLine("\t\tc\t(Stopnie Celsjusza)");
-            Console.WriteLine("\t\tf\t(Stopnie Farenheita)");
+            Console.WriteLine("\t\tC\t(Stopnie Celsjusza)");
+            Console.WriteLine("\t\tF\t(Stopnie Farenheita)");
             Console.WriteLine("\tOdległość:");
             Console.WriteLine("\t\tkm\t(Kilometry)");
             Console.WriteLine("\t\tmi\t(Mile)");
             Console.WriteLine("Przykładowy input:");
             Console.WriteLine("\t10 kg");
-            Console.WriteLine("\t-3.14 f");
+            Console.WriteLine("\t-3.14 F");
             Console.WriteLine("Dostępne komendy:");
             Console.WriteLine("\thelp\tDrukuj pomoc");
             Console.WriteLine("\tclear\tWyczyść okno");
@@ -59,7 +59,7 @@ namespace UnitConverter
         }
         bool SetInpUnit(string user_inp)
         {
-            switch (user_inp)
+            switch (user_inp.ToLower())
             {
                 case "kg":
                     inp_u = Unit.Kilograms;
@@ -85,7 +85,7 @@ namespace UnitConverter
             }
         }
         bool Parse(string user_inp)
-        // Parses input like '10 kg', '15.5 c'...
+        // Parses input like '10 kg', '15.5 C'...
         {
             switch (user_inp)
             {
@@ -234,9 +234,9 @@ namespace UnitConverter
             switch (unit)
             {
                 case Unit.Celsius:
-                    return "c";
+                    return "C";
                 case Unit.Farenheit:
-                    return "f";
+                    return "F";
                 case Unit.Kilograms:
                     return "kg";
                 case Unit.Pounds:
