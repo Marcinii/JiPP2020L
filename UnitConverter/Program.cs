@@ -10,7 +10,7 @@ namespace UnitConverter
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Konwerter jednostek");
+            Console.WriteLine("Konwerter jednostek - Marcin Iwanowski");
         }
     }
 }
