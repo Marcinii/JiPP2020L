@@ -7,15 +7,7 @@ using System.Threading.Tasks;
 
 namespace KonwerterJednostek
 {
-    enum Jednostka
-    {
-        Celsjusz,
-        Farenheit,
-        Kilometry,
-        Mile,
-        Kilogramy,
-        Funty
-    }
+
     class Konwerter
     {
         double inp_v, out_v;
@@ -64,7 +56,6 @@ namespace KonwerterJednostek
                 return false;
             }
         }
-
         bool SetInpUnit(string user_inp)
         {
             switch (user_inp)
@@ -92,8 +83,8 @@ namespace KonwerterJednostek
                     return false;
             }
         }
-        // Parsuje input w formie '10 kg', '15.5 c'...
         bool Parse(string user_inp)
+        // Parsuje input w formie '10 kg', '15.5 c'...
         {
             switch (user_inp)
             {
@@ -135,26 +126,6 @@ namespace KonwerterJednostek
                 if (Parse(user_inp)) { break; }
             }
         }
-        string UnitName(Jednostka unit)
-        {
-            switch (unit)
-            {
-                case Jednostka.Celsjusz:
-                    return "c";
-                case Jednostka.Farenheit:
-                    return "f";
-                case Jednostka.Kilogramy:
-                    return "kg";
-                case Jednostka.Funty:
-                    return "lb";
-                case Jednostka.Kilometry:
-                    return "km";
-                case Jednostka.Mile:
-                    return "mi";
-                default:
-                    return "";
-            }
-        }
         void Convert()
         {
             if (!cmd)
@@ -162,27 +133,27 @@ namespace KonwerterJednostek
                 switch (inp_u)
                 {
                     case Jednostka.Celsjusz:
-                        out_v = inp_v * (9 / 5) + 32;
+                        out_v = CelsiusToFahrenheit(inp_v);
                         out_u = Jednostka.Farenheit;
                         break;
                     case Jednostka.Farenheit:
-                        out_v = (inp_v - 32) * 5 / 9;
+                        out_v = FarenheitToCelsius(inp_v);
                         out_u = Jednostka.Celsjusz;
                         break;
                     case Jednostka.Kilogramy:
-                        out_v = inp_v * 2.2046;
+                        out_v = KilogramsToPounds(inp_v);
                         out_u = Jednostka.Funty;
                         break;
                     case Jednostka.Funty:
-                        out_v = inp_v / 2.2046;
+                        out_v = PoundsToKilograms(inp_v);
                         out_u = Jednostka.Kilogramy;
                         break;
                     case Jednostka.Kilometry:
-                        out_v = inp_v * 0.621371192;
+                        out_v = KilometersToMiles(inp_v);
                         out_u = Jednostka.Mile;
                         break;
                     case Jednostka.Mile:
-                        out_v = inp_v / 0.621371192;
+                        out_v = MilesToKilometers(inp_v);
                         out_u = Jednostka.Kilometry;
                         break;
                     default:
@@ -219,5 +190,62 @@ namespace KonwerterJednostek
             }
 
         }
+
+        //################################################
+        static double CelsiusToFahrenheit(double inp) 
+        {
+            return inp * (9 / 5) + 32;
+        }
+        static double FarenheitToCelsius(double inp)
+        {
+            return (inp - 32) * 5 / 9;
+        }
+        static double KilogramsToPounds(double inp)
+        {
+            return inp * 2.2046;
+        }
+        static double PoundsToKilograms(double inp)
+        {
+            return inp / 2.2046;
+        }
+        static double KilometersToMiles(double inp)
+        {
+            return inp * 0.621371192;
+        }
+        static double MilesToKilometers(double inp)
+        {
+            return inp / 0.621371192;
+        }
+        //################################################
+        enum Jednostka
+        {
+            Celsjusz,
+            Farenheit,
+            Kilometry,
+            Mile,
+            Kilogramy,
+            Funty
+        }
+        static string UnitName(Jednostka unit)
+        {
+            switch (unit)
+            {
+                case Jednostka.Celsjusz:
+                    return "c";
+                case Jednostka.Farenheit:
+                    return "f";
+                case Jednostka.Kilogramy:
+                    return "kg";
+                case Jednostka.Funty:
+                    return "lb";
+                case Jednostka.Kilometry:
+                    return "km";
+                case Jednostka.Mile:
+                    return "mi";
+                default:
+                    return "";
+            }
+        }
+
     }
 }
