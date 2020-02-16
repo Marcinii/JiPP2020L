@@ -7,13 +7,13 @@ using System.Threading.Tasks;
 
 namespace UnitConverter
 {
-
     class Converter
     {
         double inp_v, out_v;
         Unit inp_u, out_u;
         bool calculated = false;
         bool cmd = false;
+        Dictionary<DateTime, string> history = new Dictionary<DateTime, string> { };
 
         Converter()
         {
@@ -41,6 +41,7 @@ namespace UnitConverter
             Console.WriteLine("Dostępne komendy:");
             Console.WriteLine("\thelp\tDrukuj pomoc");
             Console.WriteLine("\tclear\tWyczyść okno");
+            Console.WriteLine("\thistory\tHistoria wyników");
             Console.WriteLine("#########################################");
         }
         bool SetInpVal(string user_inp)
@@ -94,6 +95,10 @@ namespace UnitConverter
                     return true;
                 case "clear":
                     Console.Clear();
+                    cmd = true;
+                    return true;
+                case "history":
+                    PrintHistory();
                     cmd = true;
                     return true;
                 default:
@@ -161,15 +166,27 @@ namespace UnitConverter
 
                 }
                 calculated = true;
+                history.Add(DateTime.Now, OutStr());
             }
 
+        }
+        string OutStr()
+        {
+            return $"{inp_v} {UnitName(inp_u)} = {out_v} {UnitName(out_u)}";
         }
         void PrintOut()
         {
             if (!cmd)
             {
                 if (!calculated) { Convert(); }
-                Console.WriteLine($"{inp_v} {UnitName(inp_u)} = {out_v} {UnitName(out_u)}");
+                Console.WriteLine(OutStr());
+            }
+        }
+        void PrintHistory()
+        {
+            foreach (KeyValuePair<DateTime, String> entry in history)
+            {
+                Console.WriteLine($"{entry.Key} - '{entry.Value}'");
             }
         }
         void Clear()
@@ -246,6 +263,5 @@ namespace UnitConverter
             }
 
         }
-
     }
 }
