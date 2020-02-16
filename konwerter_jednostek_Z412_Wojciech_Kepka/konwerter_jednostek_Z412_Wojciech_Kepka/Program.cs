@@ -119,14 +119,8 @@ namespace UnitConverter
                     cmd = false;
                     try
                     {
-                        if (SetInpVal(inp[0]) && SetInpUnit(inp[1]))
-                        {
-                            return true;
-                        }
-                        else
-                        {
-                            return false;
-                        }
+                        if (SetInpVal(inp[0]) && SetInpUnit(inp[1])) { return true; }
+                        else { return false; }
                     }
                     catch (System.IndexOutOfRangeException)
                     {
@@ -255,22 +249,22 @@ namespace UnitConverter
         }
         //################################################
         // Temperatures
-        static double CelsiusToFahrenheit(double inp) { return inp * (9 / 5) + 32; }
-        static double CelsiusToKelvin(double inp ) { return inp + 273.15; }
-        static double FahrenheitToCelsius(double inp) { return (inp - 32) * 5 / 9; }
-        static double FahrenheitToKelvin(double inp) { return (inp + 459.67) * 5 / 9; }
-        static double KelvinToCelsius(double inp) { return inp - 273.15; }
-        static double KelvinToFahrenheit(double inp) { return (inp * 9 / 5) - 459.67; }
+        public static double CelsiusToFahrenheit(double inp) { return inp * (9 / 5) + 32; }
+        public static double CelsiusToKelvin(double inp ) { return inp + 273.15; }
+        public static double FahrenheitToCelsius(double inp) { return (inp - 32) * 5 / 9; }
+        public static double FahrenheitToKelvin(double inp) { return (inp + 459.67) * 5 / 9; }
+        public static double KelvinToCelsius(double inp) { return inp - 273.15; }
+        public static double KelvinToFahrenheit(double inp) { return (inp * 9 / 5) - 459.67; }
         // Mass
-        static double KilogramsToPounds(double inp) { return inp * 2.2046; }
-        static double KilogramsToOunces(double inp) { return inp * 35.2739619496; }
-        static double OuncesToPounds(double inp) { return inp * 0.0625; }
-        static double OuncesToKilograms(double inp) { return inp * 0.0283495231; }
-        static double PoundsToKilograms(double inp) { return inp / 2.2046; }
-        static double PoundsToOunces(double inp) { return inp / 0.0625; }
+        public static double KilogramsToPounds(double inp) { return inp * 2.2046; }
+        public static double KilogramsToOunces(double inp) { return inp * 35.2739619496; }
+        public static double OuncesToPounds(double inp) { return inp * 0.0625; }
+        public static double OuncesToKilograms(double inp) { return inp * 0.0283495231; }
+        public static double PoundsToKilograms(double inp) { return inp / 2.2046; }
+        public static double PoundsToOunces(double inp) { return inp / 0.0625; }
         // Distance
-        static double KilometersToMiles(double inp) { return inp * 0.621371192; }
-        static double MilesToKilometers(double inp) {  return inp / 0.621371192; }
+        public static double KilometersToMiles(double inp) { return inp * 0.621371192; }
+        public static double MilesToKilometers(double inp) {  return inp / 0.621371192; }
         //################################################
         public enum Unit
         {
