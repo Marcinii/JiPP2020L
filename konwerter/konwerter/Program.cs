@@ -6,7 +6,7 @@ namespace konwerter
     {
         static void Main(string[] args)
         {
-            double tmp2 = 0; string tmp1 = "brak";
+            double tmp2 = 0; string tmp1;
             Console.WriteLine("======================= KOWERTER JEDNOSTEK =======================");
             Console.WriteLine("+     Program konwertuje nastepne jednostki:                     +");
             Console.WriteLine("+     Kilogramy na Funty / Funty na Kilogramy                    +");
@@ -17,12 +17,6 @@ namespace konwerter
             Console.WriteLine();
             Console.WriteLine("Podaj jednostke z której chcesz przeliczyć: (Km / Mil / C / F / Kg / Funt)");            
             tmp1 = Console.ReadLine();
-            if(tmp1 != "Km" || tmp1 != "Mil" || tmp1 != "C" || tmp1 != "F" || tmp1 != "Kg" || tmp1 != "Funt")
-            {
-                Console.WriteLine("Podano niepoprawną wartość jednostki");
-                Console.WriteLine("Podaj poprawną wartość (Km / Mil / C / F / Kg / Funt)");
-                tmp1 = Console.ReadLine();
-            }
             if (tmp1 == "C")
             {
                 Console.WriteLine("Podaj wartoś do przeliczenia:");
