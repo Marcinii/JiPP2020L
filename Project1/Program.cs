@@ -10,7 +10,7 @@ namespace Project1
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Project 1");
+            Console.WriteLine("Project 1 - Maciej Dziub");
         }
     }
 }
