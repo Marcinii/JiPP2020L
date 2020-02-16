@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29326.143
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Przelicznik", "Przelicznik\Przelicznik.csproj", "{6366B9E3-0095-44E7-9FA4-5B53A507EBAF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6366B9E3-0095-44E7-9FA4-5B53A507EBAF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6366B9E3-0095-44E7-9FA4-5B53A507EBAF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6366B9E3-0095-44E7-9FA4-5B53A507EBAF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6366B9E3-0095-44E7-9FA4-5B53A507EBAF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {7EF52A41-09DA-46A2-A412-BB460BF541C6}
+	EndGlobalSection
+EndGlobal
