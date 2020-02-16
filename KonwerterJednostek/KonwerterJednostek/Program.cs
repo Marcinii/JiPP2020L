@@ -15,6 +15,7 @@ namespace KonwerterJednostek
             Console.WriteLine();
             int choice;
             choice = Convert.ToInt32(Console.ReadLine());
+            //dowolna zmiaana
         }
     }
 }
