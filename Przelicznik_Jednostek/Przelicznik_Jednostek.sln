@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29326.143
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Przelicznik_Jednostek", "Przelicznik_Jednostek\Przelicznik_Jednostek.csproj", "{01EEB459-2188-4214-B27E-886F5A53A1C3}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{01EEB459-2188-4214-B27E-886F5A53A1C3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{01EEB459-2188-4214-B27E-886F5A53A1C3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{01EEB459-2188-4214-B27E-886F5A53A1C3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{01EEB459-2188-4214-B27E-886F5A53A1C3}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {EB0EA638-1734-4D1F-93AF-7EEFB030ABED}
+	EndGlobalSection
+EndGlobal
