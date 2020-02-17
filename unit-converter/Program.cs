@@ -20,33 +20,29 @@ namespace unit_converter
         static void Main(string[] args)
         {
             Console.WriteLine("*** Unit converter ***");
+            Converter converter = new Converter();
             printMenu();
             string oper = Console.ReadLine();
-            string input;
-            double num;
+            
             switch(oper)
             {
                 case "1":
-                    Console.WriteLine("Please enter the value to convert: ");
-                    input = Console.ReadLine();
-                    if (!Double.TryParse(input, out num))
-                    {
-                        Console.WriteLine("Invalid value. Please try again.");
-                    }
-                    else
-                    {
-                        Console.WriteLine($"{num} C equals to {(num * 1.8) + 32} F");
-                    }
+                    converter.celsiusToFahrenheit();
                     break;
                 case "2":
+                    converter.fahrenheitToCelsius();
                     break;
                 case "3":
+                    converter.kilometersToMiles();
                     break;
                 case "4":
+                    converter.milesToKilometers();
                     break;
                 case "5":
+                    converter.kilogramsToPounds();
                     break;
                 case "6":
+                    converter.poundsToKilograms();
                     break;
                 default:
                     break;
