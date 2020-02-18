@@ -51,6 +51,7 @@ namespace unit_converter
                     converter.poundsToKilograms();
                     break;
                 default:
+                    Console.WriteLine("*** Invalid selection ***");
                     break;
             }
         }

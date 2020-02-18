@@ -12,7 +12,7 @@ namespace unit_converter
         private bool isValueValid = false;
 
         public Converter() { }
-        public void enterData()
+        private void enterData()
         {
             Console.WriteLine("Please enter the value to convert: ");
             double inputDouble;            
@@ -20,7 +20,7 @@ namespace unit_converter
 
             if (!Double.TryParse(inputString, out inputDouble))
             {
-                Console.WriteLine("Invalid input value. Please try again.");
+                Console.WriteLine("Invalid input value");
             }
             else
             {
@@ -28,9 +28,10 @@ namespace unit_converter
                 this.isValueValid = true;
             }
         }
-        public void printResult(string inputUnit, string outputUnit)
+        private void printResult(string inputUnit, string outputUnit)
         {
-            Console.WriteLine($"{this.valueToConvert}{inputUnit} is equal to {this.result}{outputUnit}");
+            Console.WriteLine($"{Math.Round(this.valueToConvert, 2, MidpointRounding.AwayFromZero)} {inputUnit} is equal to " +
+                $"{Math.Round(this.result, 2, MidpointRounding.AwayFromZero)} {outputUnit}");
         }
         public void celsiusToFahrenheit()
         {
