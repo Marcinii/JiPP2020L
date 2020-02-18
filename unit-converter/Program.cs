@@ -27,26 +27,31 @@ namespace unit_converter
             switch(oper)
             {
                 case "1":
+                    Console.WriteLine("*** Converting Celsius to Farenheit ***");
                     converter.celsiusToFahrenheit();
                     break;
                 case "2":
+                    Console.WriteLine("*** Converting Farenheit to Celsius ***");
                     converter.fahrenheitToCelsius();
                     break;
                 case "3":
+                    Console.WriteLine("*** Converting Kilometers to Miles ***");
                     converter.kilometersToMiles();
                     break;
                 case "4":
+                    Console.WriteLine("*** Converting Miles to Kilometers ***");
                     converter.milesToKilometers();
                     break;
                 case "5":
+                    Console.WriteLine("*** Converting Kilograms to Pounds ***");
                     converter.kilogramsToPounds();
                     break;
                 case "6":
+                    Console.WriteLine("*** Converting Pounds to Kilograms ***");
                     converter.poundsToKilograms();
                     break;
                 default:
                     break;
-
             }
         }
     }
