@@ -8,7 +8,44 @@ namespace konwerter
     {
         double wartosc, wynik;
         string typ, wyn_typ;
-        public Konwerter() { }
+        public Konwerter()
+        {
+            Console.WriteLine("Podaj jednostke z której chcesz przeliczyć: (Km / Mil / C / F / Kg / Funt)");
+            typ = Console.ReadLine();
+            if (typ == "C")
+            {
+                Console.WriteLine("Podaj wartoś do przeliczenia:");
+                wartosc = double.Parse(Console.ReadLine());
+                while (wartosc < -273.15)
+                {
+                    Console.WriteLine("Błąd wartość nie może być mniejsza od zera absolutnego");
+                    Console.WriteLine("Podaj poprawną wartość");
+                    wartosc = double.Parse(Console.ReadLine());
+                }
+            }
+            if (typ == "F")
+            {
+                Console.WriteLine("Podaj wartoś do przeliczenia:");
+                wartosc = double.Parse(Console.ReadLine());
+                while (wartosc < -459.67)
+                {
+                    Console.WriteLine("Błąd wartość nie może być mniejsza od zera absolutnego");
+                    Console.WriteLine("Podaj poprawną wartość");
+                    wartosc = double.Parse(Console.ReadLine());
+                }
+            }
+            if (typ == "Km" || typ == "Mil" || typ == "Kg" || typ == "Funt")
+            {
+                Console.WriteLine("Podaj wartoś do przeliczenia:");
+                wartosc = double.Parse(Console.ReadLine());
+                while (wartosc <= 0)
+                {
+                    Console.WriteLine("Błąd wartość nie może być mniejsza lub równa 0");
+                    Console.WriteLine("Podaj poprawną wartość większą od zera");
+                    wartosc = double.Parse(Console.ReadLine());
+                }
+            }
+        }
         public void daj_dane(double wartosc, string typ) 
         {
             this.wartosc = wartosc; this.typ = typ;
