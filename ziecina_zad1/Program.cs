@@ -4,6 +4,149 @@ namespace ziecina_zad1
 {
     class Program
     {
+        static public void tempe_conv()
+        {
+            string unit = "";
+            Console.WriteLine("Zamiana jednostek temperatury\nPodaj jednostkę (C/F)");
+            unit = Console.ReadLine();
+            while(!(unit == "C" || unit == "F" || unit == "c" || unit == "f"))
+            {
+                Console.WriteLine("Niepoprawna jednostka. Podaj jednostkę (C/F)");
+                unit = Console.ReadLine();
+            }
+            if(unit == "c" || unit =="C")
+            {
+                Console.WriteLine("Podaj ilość stopni C:");
+                try
+                {
+                    float degreeC = float.Parse(Console.ReadLine());
+                    Console.WriteLine("To " + (1.8 * degreeC + 32) + " stopni Farenheita\n");
+                }
+                catch
+                {
+                    Console.WriteLine("Niepoprawna liczba");
+                    tempe_conv();
+                    return;
+                }
+                
+                //tu można dać pytanie czy chce jeszcze raz zamienieć
+                Menu();
+            }else if(unit == "f" || unit == "F")
+            {
+                Console.WriteLine("Podaj ilość stopni F:");
+                try
+                {
+                    float degreeF = float.Parse(Console.ReadLine());
+                    Console.WriteLine("To " + ((degreeF - 32)/1.8) + " stopni Celcjusza\n");
+                }
+                catch
+                {
+                    Console.WriteLine("Niepoprawna liczba");
+                    tempe_conv();
+                    return;
+                }
+
+                //tu można dać pytanie czy chce jeszcze raz zamienieć
+                Menu();
+            }
+
+        }
+        static public void dist_conv()
+        {
+            string unit = "";
+            Console.WriteLine("Zamiana jednostek odległości\nPodaj jednostkę (km/mi)");
+            unit = Console.ReadLine();
+            while (!(unit == "km" || unit == "mi"))
+            {
+                Console.WriteLine("Niepoprawna jednostka. Podaj jednostkę (km/mi)");
+                unit = Console.ReadLine();
+            }
+            if (unit == "km")
+            {
+                Console.WriteLine("Podaj odległość w km:");
+                try
+                {
+                    float degreeC = float.Parse(Console.ReadLine());
+                    Console.WriteLine("To " + (0.62137 * degreeC) + " mil\n");
+                }
+                catch
+                {
+                    Console.WriteLine("Niepoprawna liczba");
+                    tempe_conv();
+                    return;
+                }
+
+                //tu można dać pytanie czy chce jeszcze raz zamienieć
+                Menu();
+            }
+            else if (unit == "mi")
+            {
+                Console.WriteLine("Podaj odległość w milach:");
+                try
+                {
+                    float degreeF = float.Parse(Console.ReadLine());
+                    Console.WriteLine("To " + (degreeF/ 0.62137) + " kilometrów\n");
+                }
+                catch
+                {
+                    Console.WriteLine("Niepoprawna liczba");
+                    tempe_conv();
+                    return;
+                }
+
+                //tu można dać pytanie czy chce jeszcze raz zamienieć
+                Menu();
+            }
+
+        }
+        static public void mass_conv()
+        {
+            string unit = "";
+            Console.WriteLine("Zamiana jednostek masy\nPodaj jednostkę (kg/lbs)");
+            unit = Console.ReadLine();
+            while (!(unit == "kg" || unit == "lbs" ))
+            {
+                Console.WriteLine("Niepoprawna jednostka. Podaj jednostkę (kg/lbs)");
+                unit = Console.ReadLine();
+            }
+            if (unit == "kg")
+            {
+                Console.WriteLine("Podaj ilość kiogramów");
+                try
+                {
+                    float degreeC = float.Parse(Console.ReadLine());
+                    Console.WriteLine("To " + (2.20462262 * degreeC) + " funtów\n");
+                }
+                catch
+                {
+                    Console.WriteLine("Niepoprawna liczba");
+                    tempe_conv();
+                    return;
+                }
+
+                //tu można dać pytanie czy chce jeszcze raz zamienieć
+                Menu();
+            }
+            else if (unit == "lbs")
+            {
+                Console.WriteLine("Podaj ilość funtów");
+                try
+                {
+                    float degreeF = float.Parse(Console.ReadLine());
+                    Console.WriteLine("To " + (degreeF/ 2.20462262) + " kilogramów\n");
+                }
+                catch
+                {
+                    Console.WriteLine("Niepoprawna liczba");
+                    tempe_conv();
+                    return;
+                }
+
+                //tu można dać pytanie czy chce jeszcze raz zamienieć
+                Menu();
+            }
+
+        }
         static public void Menu()
         {
             string choiceNbr = "";
@@ -22,17 +165,17 @@ namespace ziecina_zad1
                 firstLoop = false;
                 choiceNbr = Console.ReadLine();
             }
-            //Console.WriteLine("Poprawny wybór");
+            //Poprawny wybór
             switch (choiceNbr)
             {
                 case "1":
-                    // code block
+                    tempe_conv();
                     break;
                 case "2":
-                    // code block
+                    dist_conv();
                     break;
                 case "3":
-                    // code block
+                    mass_conv();
                     break;
                 case "4":
                     Environment.Exit(0);
