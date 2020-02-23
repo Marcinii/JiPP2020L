@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{DAFD366C-0305-4176-8A39-9A87AF7AB01A}</ProjectGuid>
+    <ProjectGuid>{03D8CED0-AD47-4BFC-A4E1-6A04B5203CFD}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <RootNamespace>Konwerter_jednostek</RootNamespace>
     <AssemblyName>Konwerter_jednostek</AssemblyName>
@@ -43,6 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Konwertery.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
