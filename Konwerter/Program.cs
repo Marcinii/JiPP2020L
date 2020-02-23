@@ -10,7 +10,9 @@ namespace Konwerter
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Testujemy");
+            Konwerter konwerter1 = new Konwerter();
+
+            Console.ReadKey();
         }
     }
 }
