@@ -28,6 +28,12 @@ namespace konwerter_jednostek
                         wynik = var_1 / var_2;
                     }
                     break;
+                case "e":
+                    wynik = var_1 * 2.204;
+                    break;
+                case "f":
+                    wynik = var_1 * 0.4535;
+                    break;
                 default:
                     break;
             }
@@ -61,13 +67,15 @@ namespace konwerter_jednostek
                     varInput1 = Console.ReadLine();
                     
                 }
-                double cleanvar_2 = 1.61;
+                double cleanvar_2 = 1.61;  // podstawienie wartosci 1.61 pod var_2
                 // wybor konwersji
                 Console.WriteLine("Wybierz co chcesz Zrobic:");
                 Console.WriteLine("\ta - Konwersja Fahrenheita na Celcjusza");
                 Console.WriteLine("\tb - Konwersja celcjusza na Fahrenheita");
                 Console.WriteLine("\tc - Konwersja Mil na Kliometry");
                 Console.WriteLine("\td - Konwersja Kilometrow na Mile");
+                Console.WriteLine("\te - Konwersja Kilogramow na Funty");
+                Console.WriteLine("\tf - Konwersja Funty na Kilogramy");
                 Console.Write("twoja opcja to? ");
 
                 string op = Console.ReadLine();
