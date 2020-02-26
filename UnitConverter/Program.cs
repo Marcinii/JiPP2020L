@@ -65,40 +65,41 @@ namespace UnitConverter
                 case "1":
                     Console.WriteLine("Podaj ile Fahrenhaity na Celcjusze");
                     double wynik1 = ObliczenieCelcjuszy();
-                    Console.WriteLine(wynik1);
+                    Console.WriteLine("Fahrenhaita to "+ wynik1 + " Celcjuszy");
                     break;
 
                 case "2":
                     Console.WriteLine("Podaj ile Celcjuszy na Fahrenhaity");
                     double wynik2 = ObliczFahrenhait();
-                    Console.WriteLine(wynik2);
+                    Console.WriteLine("Celcjusza to " + wynik2 + " Fahrenhaitow");
                     break;
 
                 case "3":
                     Console.WriteLine("Podaj ile Kilometrow na mile");
                     double wynik3 = ObliczKilometry();
-                    Console.WriteLine(wynik3);
+                    Console.WriteLine("Kilometra to " + wynik3 + " mil");
                     break;
 
                 case "4":
                     Console.WriteLine("Podaj ile Mil to kilometrow");
                     double wynik4 = ObliczMile();
-                    Console.WriteLine(wynik4);
+                    Console.WriteLine("Mil to " + wynik4 + " kilometrow");
                     break;
 
                 case "5":
                     Console.WriteLine("Podaj ile kilogramow to funt");
                     double wynik5 = ObliczKilogramy();
-                    Console.WriteLine(wynik5);
+                    Console.WriteLine("Kilogramow to " + wynik5 + " funtow");
                     break;
 
                 case "6":
                     Console.WriteLine("Podaj ile funtow to kilogram");
                     double wynik6 = ObliczFunty();
-                    Console.WriteLine(wynik6);
+                    Console.WriteLine("Funtow to " + wynik6 + " kilogramow");
                     break;
 
                 default:
+                    Console.WriteLine("Zly wybor, wybierz jeszcze raz");
                     break;
             }
 
