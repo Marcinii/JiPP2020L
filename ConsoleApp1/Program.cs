@@ -23,6 +23,8 @@ namespace ConsoleApp1
                     temp = Console.Read();
                     Console.WriteLine("Temperatura Fahrenheit: " + ((temp-32)/(9/5)) + "°F");
                     break;
+
+                    //test!
              
             }
         }
