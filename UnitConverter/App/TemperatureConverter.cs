@@ -2,6 +2,10 @@
 
 namespace UnitConverter.App
 {
+    /// <summary>
+    /// Klasa dziedzicząca klasę Converter, która służy do konwersji jednostek temperatur.
+    /// <see cref="Converter"/>
+    /// </summary>
     class TemperatureConverter : Converter
     {
         public TemperatureConverter(double value, ConvertTo convertTo) : base(value, convertTo) {}

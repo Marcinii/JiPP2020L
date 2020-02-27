@@ -2,6 +2,10 @@
 
 namespace UnitConverter.App
 {
+    /// <summary>
+    /// Klasa dziedzicząca klasę Converter, która służy do konwersji jednostek masy.
+    /// <see cref="Converter"/>
+    /// </summary>
     class WeightConverter : Converter
     {
         public WeightConverter(double value, ConvertTo convertTo) : base(value, convertTo) {}

@@ -2,6 +2,10 @@
 
 namespace UnitConverter.App
 {
+    /// <summary>
+    /// Klasa dziedzicząca klasę Converter, która służy do konwersji jednostek długości.
+    /// <see cref="Converter"/>
+    /// </summary>
     class DistanceConverter : Converter
     {
         public DistanceConverter(double value, ConvertTo convertTo) : base(value, convertTo) {}

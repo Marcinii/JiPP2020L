@@ -4,6 +4,12 @@ using System.Collections.Generic;
 namespace UnitConverter.Core
 {
 
+    /// <summary>
+    /// Klasa służąca do stworzenia mini-formularza,
+    /// do którego będziemy wprowadzali niezbędne dane do konwersji jednostek
+    /// <param name="units">Lista ze wszystkimi możliwymi jednostkami</param>
+    /// <see cref="WizardResult"/>
+    /// </summary>
     class ConverterWizard
     {
         private List<string> units;
@@ -15,6 +21,10 @@ namespace UnitConverter.Core
         }
 
 
+        /// <summary>
+        /// Metoda uruchamiająca cały formularz.
+        /// </summary>
+        /// <returns>Zwraca obiekt klasy WzardResult, która przechowuje dane wpisane w formularzu</returns>
         public WizardResult run()
         {
             WizardResult res = new WizardResult();
@@ -51,6 +61,12 @@ namespace UnitConverter.Core
             return res;
         }
 
+        /// <summary>
+        /// Metoda służąca do umieszczenia nowej jednostki miary w kolekcji {units}
+        /// </summary>
+        /// <param name="step">
+        ///     Nazwa jednostki. Jako argument przkmujemy liste jednostek (wpisywanych po przecinku)
+        /// </param>
         public void addUnitName(params string[] step)
         {
             for(int i = 0; i < step.Length; i++)
