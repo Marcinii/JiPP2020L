@@ -9,7 +9,6 @@ namespace Konwerter_ver01
     class Konwerter
     {
         protected int numer;
-        protected char odp;
         protected double celsjusz;
         protected double fahrenheit;
         protected double km;
@@ -63,7 +62,7 @@ namespace Konwerter_ver01
                     Console.WriteLine(kg.ToString() + " kilogramów to " + funt.ToString() + " funtów.\n");
                     break;
                 case 6:
-                    Console.WriteLine("Podaj odległość w funtach.");
+                    Console.WriteLine("Podaj wagę w funtach.");
                     funt = double.Parse(Console.ReadLine());
                     kg = funt / 2.2046;
                     Console.WriteLine(funt.ToString() + " funtów to " + kg.ToString() + " kilogramów.\n");
