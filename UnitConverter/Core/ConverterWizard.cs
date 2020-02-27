@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text.RegularExpressions;
 
 namespace UnitConverter.Core
 {
@@ -40,13 +41,13 @@ namespace UnitConverter.Core
             Console.WriteLine("#----------------------------------------------------#");
 
             Console.Write("> ");
-            int option = Convert.ToInt32(Console.ReadLine());
+            int option = AppConsole.readInt();
 
-            while (option < 0 && option > this.units.Count)
+            while (option < 0 || option > this.units.Count)
             {
                 Console.WriteLine("!!! Nie rozpoznano komendy. Wprowadź poprawny numer komendy");
                 Console.Write("> ");
-                option = Convert.ToInt32(Console.ReadLine());
+                option = AppConsole.readInt();
             }
 
 
@@ -54,9 +55,7 @@ namespace UnitConverter.Core
 
             Console.WriteLine("#----------------------------------------------------#");
             Console.Write("# Podaj wartość ({0}): ", this.units[(this.units.Count + option) % this.units.Count]);
-            double input = Convert.ToDouble(Console.ReadLine());
-
-            res.value = input;
+            res.value = AppConsole.readDouble();
 
             return res;
         }

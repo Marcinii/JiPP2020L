@@ -23,13 +23,13 @@ namespace UnitConverter
                 Console.WriteLine("# 0. Wyjście z programu");
 
                 Console.Write("> ");
-                int command = Convert.ToInt32(Console.ReadLine());
+                int command = AppConsole.readInt();
 
                 while (command < 0 || command > 3)
                 {
                     Console.WriteLine("!!! Nie rozpoznano komendy. Wprowadź poprawny numer komendy");
                     Console.Write("> ");
-                    command = Convert.ToInt32(Console.ReadLine());
+                    command = AppConsole.readInt();
                 }
 
                 Console.Clear();
