@@ -8,7 +8,7 @@ namespace konwerterjednostekk
 {
     class Program
     {
-        public int temp_conventer()
+        public double temp_conventer()
         {
             Console.WriteLine("1 Celsjusz --> Farenheit");
             Console.WriteLine("2 Farenheit --> Celsjusz");
@@ -17,15 +17,15 @@ namespace konwerterjednostekk
             {
                 case "1":
                     Console.WriteLine("Podaj ilość stopni w celsjusza:");
-                    int celsjusz = int.Parse(Console.ReadLine());
+                    double celsjusz = double.Parse(Console.ReadLine());
                     Console.WriteLine("Tyle wynosi temperatura w farenheitach: ");
-                    return celsjusz + 32;
+                    return (celsjusz * 1.8) + 32;
 
                 case "2":
                     Console.WriteLine("Podaj ilość stopni farenheita");
-                    int farenheita = int.Parse(Console.ReadLine());
+                    double farenheita = double.Parse(Console.ReadLine());
                     Console.WriteLine("Tyle wynosi temperatura w celsjuszach: ");
-                    return farenheita - 32;
+                    return (farenheita - 32) / 1.8;
             }
             return 0;
         }
@@ -83,7 +83,7 @@ namespace konwerterjednostekk
             Console.WriteLine("2  Konwerter długości");
             Console.WriteLine("3  Konwerter masy");
             string kk = Console.ReadLine();
-            int temper = 0;
+            double temper = 0;
             double dlugo = 0;
             double masa = 0;
             Program konwerter = new Program();
