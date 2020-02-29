@@ -1,0 +1,14 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\UnitConverterLogic",
+    "\\UnitConverterLogic\\Migrations",
+    "\\UnitConverterLogic\\Model",
+    "\\UnitConverterLogic\\Properties",
+    "\\UnitConverterWeb",
+    "\\UnitConverterWpf",
+    "\\UnitConverterWpf\\obj"
+  ],
+  "SelectedNode": "\\UnitConverterWpf\\MainWindow.xaml.cs",
+  "PreviewInSolutionExplorer": false
+}

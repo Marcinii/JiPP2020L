@@ -1,0 +1,207 @@
+C:\Users\PC\Documents\studia\Semestr5\MIwanowski\Karol Sawicki UnitConverter\UnitConverterWpf\bin\Debug\netcoreapp3.1\UnitConverterWpf.exe
+C:\Users\PC\Documents\studia\Semestr5\MIwanowski\Karol Sawicki UnitConverter\UnitConverterWpf\bin\Debug\netcoreapp3.1\UnitConverterWpf.deps.json
+C:\Users\PC\Documents\studia\Semestr5\MIwanowski\Karol Sawicki UnitConverter\UnitConverterWpf\bin\Debug\netcoreapp3.1\UnitConverterWpf.runtimeconfig.json
+C:\Users\PC\Documents\studia\Semestr5\MIwanowski\Karol Sawicki UnitConverter\UnitConverterWpf\bin\Debug\netcoreapp3.1\UnitConverterWpf.runtimeconfig.dev.json
+C:\Users\PC\Documents\studia\Semestr5\MIwanowski\Karol Sawicki UnitConverter\UnitConverterWpf\bin\Debug\netcoreapp3.1\UnitConverterWpf.dll
+C:\Users\PC\Documents\studia\Semestr5\MIwanowski\Karol Sawicki UnitConverter\UnitConverterWpf\bin\Debug\netcoreapp3.1\UnitConverterWpf.pdb
+C:\Users\PC\Documents\studia\Semestr5\MIwanowski\Karol Sawicki UnitConverter\UnitConverterWpf\obj\Debug\netcoreapp3.1\UnitConverterWpf.csprojAssemblyReference.cache
+C:\Users\PC\Documents\studia\Semestr5\MIwanowski\Karol Sawicki UnitConverter\UnitConverterWpf\obj\Debug\netcoreapp3.1\MainWindow.g.cs
+C:\Users\PC\Documents\studia\Semestr5\MIwanowski\Karol Sawicki UnitConverter\UnitConverterWpf\obj\Debug\netcoreapp3.1\App.g.cs
+C:\Users\PC\Documents\studia\Semestr5\MIwanowski\Karol Sawicki UnitConverter\UnitConverterWpf\obj\Debug\netcoreapp3.1\UnitConverterWpf_MarkupCompile.cache
+C:\Users\PC\Documents\studia\Semestr5\MIwanowski\Karol Sawicki UnitConverter\UnitConverterWpf\obj\Debug\netcoreapp3.1\UnitConverterWpf_MarkupCompile.lref
+C:\Users\PC\Documents\studia\Semestr5\MIwanowski\Karol Sawicki UnitConverter\UnitConverterWpf\obj\Debug\netcoreapp3.1\MainWindow.baml
+C:\Users\PC\Documents\studia\Semestr5\MIwanowski\Karol Sawicki UnitConverter\UnitConverterWpf\obj\Debug\netcoreapp3.1\UnitConverterWpf.g.resources
+C:\Users\PC\Documents\studia\Semestr5\MIwanowski\Karol Sawicki UnitConverter\UnitConverterWpf\obj\Debug\netcoreapp3.1\UnitConverterWpf.AssemblyInfoInputs.cache
+C:\Users\PC\Documents\studia\Semestr5\MIwanowski\Karol Sawicki UnitConverter\UnitConverterWpf\obj\Debug\netcoreapp3.1\UnitConverterWpf.AssemblyInfo.cs
+C:\Users\PC\Documents\studia\Semestr5\MIwanowski\Karol Sawicki UnitConverter\UnitConverterWpf\obj\Debug\netcoreapp3.1\UnitConverterWpf.dll
+C:\Users\PC\Documents\studia\Semestr5\MIwanowski\Karol Sawicki UnitConverter\UnitConverterWpf\obj\Debug\netcoreapp3.1\UnitConverterWpf.pdb
+C:\Users\PC\Documents\studia\Semestr5\MIwanowski\Karol Sawicki UnitConverter\UnitConverterWpf\bin\Debug\netcoreapp3.1\UnitConverterLogic.dll
+C:\Users\PC\Documents\studia\Semestr5\MIwanowski\Karol Sawicki UnitConverter\UnitConverterWpf\bin\Debug\netcoreapp3.1\UnitConverterLogic.pdb
+C:\Users\PC\Documents\studia\Semestr5\MIwanowski\Karol Sawicki UnitConverter\UnitConverterWpf\obj\Debug\netcoreapp3.1\UnitConverterWpf.csproj.CopyComplete
+C:\Users\PC\Documents\studia\Semestr5\MIwanowski\Karol Sawicki UnitConverter\UnitConverterWpf\bin\Debug\netcoreapp3.1\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\PC\Documents\studia\Semestr5\MIwanowski\Karol Sawicki UnitConverter\UnitConverterWpf\bin\Debug\netcoreapp3.1\Microsoft.Bcl.HashCode.dll
+C:\Users\PC\Documents\studia\Semestr5\MIwanowski\Karol Sawicki UnitConverter\UnitConverterWpf\bin\Debug\netcoreapp3.1\Microsoft.Data.SqlClient.dll
+C:\Users\PC\Documents\studia\Semestr5\MIwanowski\Karol Sawicki UnitConverter\UnitConverterWpf\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.dll
+C:\Users\PC\Documents\studia\Semestr5\MIwanowski\Karol Sawicki UnitConverter\UnitConverterWpf\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Abstractions.dll
+C:\Users\PC\Documents\studia\Semestr5\MIwanowski\Karol Sawicki UnitConverter\UnitConverterWpf\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Design.dll
+C:\Users\PC\Documents\studia\Semestr5\MIwanowski\Karol Sawicki UnitConverter\UnitConverterWpf\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Relational.dll
+C:\Users\PC\Documents\studia\Semestr5\MIwanowski\Karol Sawicki UnitConverter\UnitConverterWpf\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.SqlServer.dll
+C:\Users\PC\Documents\studia\Semestr5\MIwanowski\Karol Sawicki UnitConverter\UnitConverterWpf\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Caching.Abstractions.dll
+C:\Users\PC\Documents\studia\Semestr5\MIwanowski\Karol Sawicki UnitConverter\UnitConverterWpf\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Caching.Memory.dll
+C:\Users\PC\Documents\studia\Semestr5\MIwanowski\Karol Sawicki UnitConverter\UnitConverterWpf\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.dll
+C:\Users\PC\Documents\studia\Semestr5\MIwanowski\Karol Sawicki UnitConverter\UnitConverterWpf\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.Abstractions.dll
+C:\Users\PC\Documents\studia\Semestr5\MIwanowski\Karol Sawicki UnitConverter\UnitConverterWpf\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.Binder.dll
+C:\Users\PC\Documents\studia\Semestr5\MIwanowski\Karol Sawicki UnitConverter\UnitConverterWpf\bin\Debug\netcoreapp3.1\Microsoft.Extensions.DependencyInjection.dll
+C:\Users\PC\Documents\studia\Semestr5\MIwanowski\Karol Sawicki UnitConverter\UnitConverterWpf\bin\Debug\netcoreapp3.1\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\PC\Documents\studia\Semestr5\MIwanowski\Karol Sawicki UnitConverter\UnitConverterWpf\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Logging.dll
+C:\Users\PC\Documents\studia\Semestr5\MIwanowski\Karol Sawicki UnitConverter\UnitConverterWpf\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Logging.Abstractions.dll
+C:\Users\PC\Documents\studia\Semestr5\MIwanowski\Karol Sawicki UnitConverter\UnitConverterWpf\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Options.dll
+C:\Users\PC\Documents\studia\Semestr5\MIwanowski\Karol Sawicki UnitConverter\UnitConverterWpf\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Primitives.dll
+C:\Users\PC\Documents\studia\Semestr5\MIwanowski\Karol Sawicki UnitConverter\UnitConverterWpf\bin\Debug\netcoreapp3.1\Microsoft.Identity.Client.dll
+C:\Users\PC\Documents\studia\Semestr5\MIwanowski\Karol Sawicki UnitConverter\UnitConverterWpf\bin\Debug\netcoreapp3.1\System.Runtime.Caching.dll
+C:\Users\PC\Documents\studia\Semestr5\MIwanowski\Karol Sawicki UnitConverter\UnitConverterWpf\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.1\Microsoft.Data.SqlClient.dll
+C:\Users\PC\Documents\studia\Semestr5\MIwanowski\Karol Sawicki UnitConverter\UnitConverterWpf\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.1\Microsoft.Data.SqlClient.dll
+C:\Users\PC\Documents\studia\Semestr5\MIwanowski\Karol Sawicki UnitConverter\UnitConverterWpf\bin\Debug\netcoreapp3.1\runtimes\win-arm64\native\sni.dll
+C:\Users\PC\Documents\studia\Semestr5\MIwanowski\Karol Sawicki UnitConverter\UnitConverterWpf\bin\Debug\netcoreapp3.1\runtimes\win-x64\native\sni.dll
+C:\Users\PC\Documents\studia\Semestr5\MIwanowski\Karol Sawicki UnitConverter\UnitConverterWpf\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\sni.dll
+C:\Users\PC\Documents\studia\Semestr5\MIwanowski\Karol Sawicki UnitConverter\UnitConverterWpf\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.0\System.Runtime.Caching.dll
+C:\Users\PC\Documents\studia\Semestr5\MIwanowski\Karol Sawicki UnitConverter\UnitConverterWpf\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.0\System.Runtime.Caching.dll
+C:\Users\PC\Documents\studia\Semestr5\MIwanowski\Karol Sawicki UnitConverter\UnitConverterWpf\bin\Debug\netcoreapp3.1\UnitConverterLogic.dll.config
+C:\Users\PC\Documents\studia\Semestr5\MIwanowski\Karol Sawicki UnitConverter\UnitConverterWpf\bin\Debug\netcoreapp3.1\EntityFramework.SqlServer.dll
+C:\Users\PC\Documents\studia\Semestr5\MIwanowski\Karol Sawicki UnitConverter\UnitConverterWpf\bin\Debug\netcoreapp3.1\EntityFramework.dll
+C:\Users\PC\Documents\studia\Semestr5\MIwanowski\Karol Sawicki UnitConverter\UnitConverterWpf\bin\Debug\netcoreapp3.1\System.Data.SqlClient.dll
+C:\Users\PC\Documents\studia\Semestr5\MIwanowski\Karol Sawicki UnitConverter\UnitConverterWpf\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Users\PC\Documents\studia\Semestr5\MIwanowski\Karol Sawicki UnitConverter\UnitConverterWpf\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Users\PC\Documents\studia\Semestr5\MIwanowski\Karol Sawicki UnitConverter.v2\UnitConverterWpf\bin\Debug\netcoreapp3.1\UnitConverterWpf.exe
+C:\Users\PC\Documents\studia\Semestr5\MIwanowski\Karol Sawicki UnitConverter.v2\UnitConverterWpf\bin\Debug\netcoreapp3.1\UnitConverterWpf.deps.json
+C:\Users\PC\Documents\studia\Semestr5\MIwanowski\Karol Sawicki UnitConverter.v2\UnitConverterWpf\bin\Debug\netcoreapp3.1\UnitConverterWpf.runtimeconfig.json
+C:\Users\PC\Documents\studia\Semestr5\MIwanowski\Karol Sawicki UnitConverter.v2\UnitConverterWpf\bin\Debug\netcoreapp3.1\UnitConverterWpf.runtimeconfig.dev.json
+C:\Users\PC\Documents\studia\Semestr5\MIwanowski\Karol Sawicki UnitConverter.v2\UnitConverterWpf\bin\Debug\netcoreapp3.1\UnitConverterWpf.dll
+C:\Users\PC\Documents\studia\Semestr5\MIwanowski\Karol Sawicki UnitConverter.v2\UnitConverterWpf\bin\Debug\netcoreapp3.1\UnitConverterWpf.pdb
+C:\Users\PC\Documents\studia\Semestr5\MIwanowski\Karol Sawicki UnitConverter.v2\UnitConverterWpf\bin\Debug\netcoreapp3.1\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\PC\Documents\studia\Semestr5\MIwanowski\Karol Sawicki UnitConverter.v2\UnitConverterWpf\bin\Debug\netcoreapp3.1\Microsoft.Bcl.HashCode.dll
+C:\Users\PC\Documents\studia\Semestr5\MIwanowski\Karol Sawicki UnitConverter.v2\UnitConverterWpf\bin\Debug\netcoreapp3.1\Microsoft.Data.SqlClient.dll
+C:\Users\PC\Documents\studia\Semestr5\MIwanowski\Karol Sawicki UnitConverter.v2\UnitConverterWpf\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.dll
+C:\Users\PC\Documents\studia\Semestr5\MIwanowski\Karol Sawicki UnitConverter.v2\UnitConverterWpf\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Abstractions.dll
+C:\Users\PC\Documents\studia\Semestr5\MIwanowski\Karol Sawicki UnitConverter.v2\UnitConverterWpf\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Design.dll
+C:\Users\PC\Documents\studia\Semestr5\MIwanowski\Karol Sawicki UnitConverter.v2\UnitConverterWpf\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Relational.dll
+C:\Users\PC\Documents\studia\Semestr5\MIwanowski\Karol Sawicki UnitConverter.v2\UnitConverterWpf\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.SqlServer.dll
+C:\Users\PC\Documents\studia\Semestr5\MIwanowski\Karol Sawicki UnitConverter.v2\UnitConverterWpf\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Caching.Abstractions.dll
+C:\Users\PC\Documents\studia\Semestr5\MIwanowski\Karol Sawicki UnitConverter.v2\UnitConverterWpf\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Caching.Memory.dll
+C:\Users\PC\Documents\studia\Semestr5\MIwanowski\Karol Sawicki UnitConverter.v2\UnitConverterWpf\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.dll
+C:\Users\PC\Documents\studia\Semestr5\MIwanowski\Karol Sawicki UnitConverter.v2\UnitConverterWpf\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.Abstractions.dll
+C:\Users\PC\Documents\studia\Semestr5\MIwanowski\Karol Sawicki UnitConverter.v2\UnitConverterWpf\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.Binder.dll
+C:\Users\PC\Documents\studia\Semestr5\MIwanowski\Karol Sawicki UnitConverter.v2\UnitConverterWpf\bin\Debug\netcoreapp3.1\Microsoft.Extensions.DependencyInjection.dll
+C:\Users\PC\Documents\studia\Semestr5\MIwanowski\Karol Sawicki UnitConverter.v2\UnitConverterWpf\bin\Debug\netcoreapp3.1\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\PC\Documents\studia\Semestr5\MIwanowski\Karol Sawicki UnitConverter.v2\UnitConverterWpf\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Logging.dll
+C:\Users\PC\Documents\studia\Semestr5\MIwanowski\Karol Sawicki UnitConverter.v2\UnitConverterWpf\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Logging.Abstractions.dll
+C:\Users\PC\Documents\studia\Semestr5\MIwanowski\Karol Sawicki UnitConverter.v2\UnitConverterWpf\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Options.dll
+C:\Users\PC\Documents\studia\Semestr5\MIwanowski\Karol Sawicki UnitConverter.v2\UnitConverterWpf\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Primitives.dll
+C:\Users\PC\Documents\studia\Semestr5\MIwanowski\Karol Sawicki UnitConverter.v2\UnitConverterWpf\bin\Debug\netcoreapp3.1\Microsoft.Identity.Client.dll
+C:\Users\PC\Documents\studia\Semestr5\MIwanowski\Karol Sawicki UnitConverter.v2\UnitConverterWpf\bin\Debug\netcoreapp3.1\System.Runtime.Caching.dll
+C:\Users\PC\Documents\studia\Semestr5\MIwanowski\Karol Sawicki UnitConverter.v2\UnitConverterWpf\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.1\Microsoft.Data.SqlClient.dll
+C:\Users\PC\Documents\studia\Semestr5\MIwanowski\Karol Sawicki UnitConverter.v2\UnitConverterWpf\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.1\Microsoft.Data.SqlClient.dll
+C:\Users\PC\Documents\studia\Semestr5\MIwanowski\Karol Sawicki UnitConverter.v2\UnitConverterWpf\bin\Debug\netcoreapp3.1\runtimes\win-arm64\native\sni.dll
+C:\Users\PC\Documents\studia\Semestr5\MIwanowski\Karol Sawicki UnitConverter.v2\UnitConverterWpf\bin\Debug\netcoreapp3.1\runtimes\win-x64\native\sni.dll
+C:\Users\PC\Documents\studia\Semestr5\MIwanowski\Karol Sawicki UnitConverter.v2\UnitConverterWpf\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\sni.dll
+C:\Users\PC\Documents\studia\Semestr5\MIwanowski\Karol Sawicki UnitConverter.v2\UnitConverterWpf\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.0\System.Runtime.Caching.dll
+C:\Users\PC\Documents\studia\Semestr5\MIwanowski\Karol Sawicki UnitConverter.v2\UnitConverterWpf\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.0\System.Runtime.Caching.dll
+C:\Users\PC\Documents\studia\Semestr5\MIwanowski\Karol Sawicki UnitConverter.v2\UnitConverterWpf\bin\Debug\netcoreapp3.1\UnitConverterLogic.dll
+C:\Users\PC\Documents\studia\Semestr5\MIwanowski\Karol Sawicki UnitConverter.v2\UnitConverterWpf\bin\Debug\netcoreapp3.1\UnitConverterLogic.pdb
+C:\Users\PC\Documents\studia\Semestr5\MIwanowski\Karol Sawicki UnitConverter.v2\UnitConverterWpf\bin\Debug\netcoreapp3.1\UnitConverterLogic.dll.config
+C:\Users\PC\Documents\studia\Semestr5\MIwanowski\Karol Sawicki UnitConverter.v2\UnitConverterWpf\obj\Debug\netcoreapp3.1\UnitConverterWpf.csprojAssemblyReference.cache
+C:\Users\PC\Documents\studia\Semestr5\MIwanowski\Karol Sawicki UnitConverter.v2\UnitConverterWpf\obj\Debug\netcoreapp3.1\MainWindow.g.cs
+C:\Users\PC\Documents\studia\Semestr5\MIwanowski\Karol Sawicki UnitConverter.v2\UnitConverterWpf\obj\Debug\netcoreapp3.1\App.g.cs
+C:\Users\PC\Documents\studia\Semestr5\MIwanowski\Karol Sawicki UnitConverter.v2\UnitConverterWpf\obj\Debug\netcoreapp3.1\UnitConverterWpf_MarkupCompile.cache
+C:\Users\PC\Documents\studia\Semestr5\MIwanowski\Karol Sawicki UnitConverter.v2\UnitConverterWpf\obj\Debug\netcoreapp3.1\UnitConverterWpf_MarkupCompile.lref
+C:\Users\PC\Documents\studia\Semestr5\MIwanowski\Karol Sawicki UnitConverter.v2\UnitConverterWpf\obj\Debug\netcoreapp3.1\MainWindow.baml
+C:\Users\PC\Documents\studia\Semestr5\MIwanowski\Karol Sawicki UnitConverter.v2\UnitConverterWpf\obj\Debug\netcoreapp3.1\UnitConverterWpf.g.resources
+C:\Users\PC\Documents\studia\Semestr5\MIwanowski\Karol Sawicki UnitConverter.v2\UnitConverterWpf\obj\Debug\netcoreapp3.1\UnitConverterWpf.AssemblyInfoInputs.cache
+C:\Users\PC\Documents\studia\Semestr5\MIwanowski\Karol Sawicki UnitConverter.v2\UnitConverterWpf\obj\Debug\netcoreapp3.1\UnitConverterWpf.AssemblyInfo.cs
+C:\Users\PC\Documents\studia\Semestr5\MIwanowski\Karol Sawicki UnitConverter.v2\UnitConverterWpf\obj\Debug\netcoreapp3.1\UnitConverterWpf.csproj.CopyComplete
+C:\Users\PC\Documents\studia\Semestr5\MIwanowski\Karol Sawicki UnitConverter.v2\UnitConverterWpf\obj\Debug\netcoreapp3.1\UnitConverterWpf.dll
+C:\Users\PC\Documents\studia\Semestr5\MIwanowski\Karol Sawicki UnitConverter.v2\UnitConverterWpf\obj\Debug\netcoreapp3.1\UnitConverterWpf.pdb
+C:\Users\PC\Documents\studia\Semestr5\MIwanowski\Karol Sawicki UnitConverter.v3\Karol Sawicki UnitConverter.v2\UnitConverterWpf\bin\Debug\netcoreapp3.1\UnitConverterWpf.exe
+C:\Users\PC\Documents\studia\Semestr5\MIwanowski\Karol Sawicki UnitConverter.v3\Karol Sawicki UnitConverter.v2\UnitConverterWpf\bin\Debug\netcoreapp3.1\UnitConverterWpf.deps.json
+C:\Users\PC\Documents\studia\Semestr5\MIwanowski\Karol Sawicki UnitConverter.v3\Karol Sawicki UnitConverter.v2\UnitConverterWpf\bin\Debug\netcoreapp3.1\UnitConverterWpf.runtimeconfig.json
+C:\Users\PC\Documents\studia\Semestr5\MIwanowski\Karol Sawicki UnitConverter.v3\Karol Sawicki UnitConverter.v2\UnitConverterWpf\bin\Debug\netcoreapp3.1\UnitConverterWpf.runtimeconfig.dev.json
+C:\Users\PC\Documents\studia\Semestr5\MIwanowski\Karol Sawicki UnitConverter.v3\Karol Sawicki UnitConverter.v2\UnitConverterWpf\bin\Debug\netcoreapp3.1\UnitConverterWpf.dll
+C:\Users\PC\Documents\studia\Semestr5\MIwanowski\Karol Sawicki UnitConverter.v3\Karol Sawicki UnitConverter.v2\UnitConverterWpf\bin\Debug\netcoreapp3.1\UnitConverterWpf.pdb
+C:\Users\PC\Documents\studia\Semestr5\MIwanowski\Karol Sawicki UnitConverter.v3\Karol Sawicki UnitConverter.v2\UnitConverterWpf\bin\Debug\netcoreapp3.1\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\PC\Documents\studia\Semestr5\MIwanowski\Karol Sawicki UnitConverter.v3\Karol Sawicki UnitConverter.v2\UnitConverterWpf\bin\Debug\netcoreapp3.1\Microsoft.Bcl.HashCode.dll
+C:\Users\PC\Documents\studia\Semestr5\MIwanowski\Karol Sawicki UnitConverter.v3\Karol Sawicki UnitConverter.v2\UnitConverterWpf\bin\Debug\netcoreapp3.1\Microsoft.Data.SqlClient.dll
+C:\Users\PC\Documents\studia\Semestr5\MIwanowski\Karol Sawicki UnitConverter.v3\Karol Sawicki UnitConverter.v2\UnitConverterWpf\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.dll
+C:\Users\PC\Documents\studia\Semestr5\MIwanowski\Karol Sawicki UnitConverter.v3\Karol Sawicki UnitConverter.v2\UnitConverterWpf\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Abstractions.dll
+C:\Users\PC\Documents\studia\Semestr5\MIwanowski\Karol Sawicki UnitConverter.v3\Karol Sawicki UnitConverter.v2\UnitConverterWpf\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Design.dll
+C:\Users\PC\Documents\studia\Semestr5\MIwanowski\Karol Sawicki UnitConverter.v3\Karol Sawicki UnitConverter.v2\UnitConverterWpf\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Relational.dll
+C:\Users\PC\Documents\studia\Semestr5\MIwanowski\Karol Sawicki UnitConverter.v3\Karol Sawicki UnitConverter.v2\UnitConverterWpf\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.SqlServer.dll
+C:\Users\PC\Documents\studia\Semestr5\MIwanowski\Karol Sawicki UnitConverter.v3\Karol Sawicki UnitConverter.v2\UnitConverterWpf\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Caching.Abstractions.dll
+C:\Users\PC\Documents\studia\Semestr5\MIwanowski\Karol Sawicki UnitConverter.v3\Karol Sawicki UnitConverter.v2\UnitConverterWpf\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Caching.Memory.dll
+C:\Users\PC\Documents\studia\Semestr5\MIwanowski\Karol Sawicki UnitConverter.v3\Karol Sawicki UnitConverter.v2\UnitConverterWpf\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.dll
+C:\Users\PC\Documents\studia\Semestr5\MIwanowski\Karol Sawicki UnitConverter.v3\Karol Sawicki UnitConverter.v2\UnitConverterWpf\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.Abstractions.dll
+C:\Users\PC\Documents\studia\Semestr5\MIwanowski\Karol Sawicki UnitConverter.v3\Karol Sawicki UnitConverter.v2\UnitConverterWpf\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.Binder.dll
+C:\Users\PC\Documents\studia\Semestr5\MIwanowski\Karol Sawicki UnitConverter.v3\Karol Sawicki UnitConverter.v2\UnitConverterWpf\bin\Debug\netcoreapp3.1\Microsoft.Extensions.DependencyInjection.dll
+C:\Users\PC\Documents\studia\Semestr5\MIwanowski\Karol Sawicki UnitConverter.v3\Karol Sawicki UnitConverter.v2\UnitConverterWpf\bin\Debug\netcoreapp3.1\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\PC\Documents\studia\Semestr5\MIwanowski\Karol Sawicki UnitConverter.v3\Karol Sawicki UnitConverter.v2\UnitConverterWpf\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Logging.dll
+C:\Users\PC\Documents\studia\Semestr5\MIwanowski\Karol Sawicki UnitConverter.v3\Karol Sawicki UnitConverter.v2\UnitConverterWpf\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Logging.Abstractions.dll
+C:\Users\PC\Documents\studia\Semestr5\MIwanowski\Karol Sawicki UnitConverter.v3\Karol Sawicki UnitConverter.v2\UnitConverterWpf\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Options.dll
+C:\Users\PC\Documents\studia\Semestr5\MIwanowski\Karol Sawicki UnitConverter.v3\Karol Sawicki UnitConverter.v2\UnitConverterWpf\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Primitives.dll
+C:\Users\PC\Documents\studia\Semestr5\MIwanowski\Karol Sawicki UnitConverter.v3\Karol Sawicki UnitConverter.v2\UnitConverterWpf\bin\Debug\netcoreapp3.1\Microsoft.Identity.Client.dll
+C:\Users\PC\Documents\studia\Semestr5\MIwanowski\Karol Sawicki UnitConverter.v3\Karol Sawicki UnitConverter.v2\UnitConverterWpf\bin\Debug\netcoreapp3.1\System.Runtime.Caching.dll
+C:\Users\PC\Documents\studia\Semestr5\MIwanowski\Karol Sawicki UnitConverter.v3\Karol Sawicki UnitConverter.v2\UnitConverterWpf\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.1\Microsoft.Data.SqlClient.dll
+C:\Users\PC\Documents\studia\Semestr5\MIwanowski\Karol Sawicki UnitConverter.v3\Karol Sawicki UnitConverter.v2\UnitConverterWpf\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.1\Microsoft.Data.SqlClient.dll
+C:\Users\PC\Documents\studia\Semestr5\MIwanowski\Karol Sawicki UnitConverter.v3\Karol Sawicki UnitConverter.v2\UnitConverterWpf\bin\Debug\netcoreapp3.1\runtimes\win-arm64\native\sni.dll
+C:\Users\PC\Documents\studia\Semestr5\MIwanowski\Karol Sawicki UnitConverter.v3\Karol Sawicki UnitConverter.v2\UnitConverterWpf\bin\Debug\netcoreapp3.1\runtimes\win-x64\native\sni.dll
+C:\Users\PC\Documents\studia\Semestr5\MIwanowski\Karol Sawicki UnitConverter.v3\Karol Sawicki UnitConverter.v2\UnitConverterWpf\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\sni.dll
+C:\Users\PC\Documents\studia\Semestr5\MIwanowski\Karol Sawicki UnitConverter.v3\Karol Sawicki UnitConverter.v2\UnitConverterWpf\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.0\System.Runtime.Caching.dll
+C:\Users\PC\Documents\studia\Semestr5\MIwanowski\Karol Sawicki UnitConverter.v3\Karol Sawicki UnitConverter.v2\UnitConverterWpf\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.0\System.Runtime.Caching.dll
+C:\Users\PC\Documents\studia\Semestr5\MIwanowski\Karol Sawicki UnitConverter.v3\Karol Sawicki UnitConverter.v2\UnitConverterWpf\bin\Debug\netcoreapp3.1\UnitConverterLogic.dll
+C:\Users\PC\Documents\studia\Semestr5\MIwanowski\Karol Sawicki UnitConverter.v3\Karol Sawicki UnitConverter.v2\UnitConverterWpf\bin\Debug\netcoreapp3.1\UnitConverterLogic.pdb
+C:\Users\PC\Documents\studia\Semestr5\MIwanowski\Karol Sawicki UnitConverter.v3\Karol Sawicki UnitConverter.v2\UnitConverterWpf\bin\Debug\netcoreapp3.1\UnitConverterLogic.dll.config
+C:\Users\PC\Documents\studia\Semestr5\MIwanowski\Karol Sawicki UnitConverter.v3\Karol Sawicki UnitConverter.v2\UnitConverterWpf\obj\Debug\netcoreapp3.1\UnitConverterWpf.csprojAssemblyReference.cache
+C:\Users\PC\Documents\studia\Semestr5\MIwanowski\Karol Sawicki UnitConverter.v3\Karol Sawicki UnitConverter.v2\UnitConverterWpf\obj\Debug\netcoreapp3.1\MainWindow.g.cs
+C:\Users\PC\Documents\studia\Semestr5\MIwanowski\Karol Sawicki UnitConverter.v3\Karol Sawicki UnitConverter.v2\UnitConverterWpf\obj\Debug\netcoreapp3.1\App.g.cs
+C:\Users\PC\Documents\studia\Semestr5\MIwanowski\Karol Sawicki UnitConverter.v3\Karol Sawicki UnitConverter.v2\UnitConverterWpf\obj\Debug\netcoreapp3.1\UnitConverterWpf_MarkupCompile.cache
+C:\Users\PC\Documents\studia\Semestr5\MIwanowski\Karol Sawicki UnitConverter.v3\Karol Sawicki UnitConverter.v2\UnitConverterWpf\obj\Debug\netcoreapp3.1\UnitConverterWpf_MarkupCompile.lref
+C:\Users\PC\Documents\studia\Semestr5\MIwanowski\Karol Sawicki UnitConverter.v3\Karol Sawicki UnitConverter.v2\UnitConverterWpf\obj\Debug\netcoreapp3.1\MainWindow.baml
+C:\Users\PC\Documents\studia\Semestr5\MIwanowski\Karol Sawicki UnitConverter.v3\Karol Sawicki UnitConverter.v2\UnitConverterWpf\obj\Debug\netcoreapp3.1\UnitConverterWpf.g.resources
+C:\Users\PC\Documents\studia\Semestr5\MIwanowski\Karol Sawicki UnitConverter.v3\Karol Sawicki UnitConverter.v2\UnitConverterWpf\obj\Debug\netcoreapp3.1\UnitConverterWpf.AssemblyInfoInputs.cache
+C:\Users\PC\Documents\studia\Semestr5\MIwanowski\Karol Sawicki UnitConverter.v3\Karol Sawicki UnitConverter.v2\UnitConverterWpf\obj\Debug\netcoreapp3.1\UnitConverterWpf.AssemblyInfo.cs
+C:\Users\PC\Documents\studia\Semestr5\MIwanowski\Karol Sawicki UnitConverter.v3\Karol Sawicki UnitConverter.v2\UnitConverterWpf\obj\Debug\netcoreapp3.1\UnitConverterWpf.csproj.CopyComplete
+C:\Users\PC\Documents\studia\Semestr5\MIwanowski\Karol Sawicki UnitConverter.v3\Karol Sawicki UnitConverter.v2\UnitConverterWpf\obj\Debug\netcoreapp3.1\UnitConverterWpf.dll
+C:\Users\PC\Documents\studia\Semestr5\MIwanowski\Karol Sawicki UnitConverter.v3\Karol Sawicki UnitConverter.v2\UnitConverterWpf\obj\Debug\netcoreapp3.1\UnitConverterWpf.pdb
+C:\Users\PC\Documents\studia\Semestr5\MIwanowski\Karol Sawicki UnitConverter.v3\Karol Sawicki UnitConverter.v2\UnitConverterWpf\bin\Debug\netcoreapp3.1\System.Net.Http.Formatting.dll
+C:\Users\PC\Documents\studia\Semestr5\MIwanowski\Karol Sawicki UnitConverter.v3\Karol Sawicki UnitConverter.v2\UnitConverterWpf\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
+C:\Users\PC\Documents\studia\Semestr5\MIwanowski\Karol Sawicki UnitConverter.v3\Karol Sawicki UnitConverter.v2\UnitConverterWpf\bin\Debug\netcoreapp3.1\Newtonsoft.Json.Bson.dll
+C:\Users\PC\Desktop\Karol Sawicki UnitConverter\UnitConverterWpf\bin\Debug\netcoreapp3.1\UnitConverterWpf.exe
+C:\Users\PC\Desktop\Karol Sawicki UnitConverter\UnitConverterWpf\bin\Debug\netcoreapp3.1\UnitConverterWpf.deps.json
+C:\Users\PC\Desktop\Karol Sawicki UnitConverter\UnitConverterWpf\bin\Debug\netcoreapp3.1\UnitConverterWpf.runtimeconfig.json
+C:\Users\PC\Desktop\Karol Sawicki UnitConverter\UnitConverterWpf\bin\Debug\netcoreapp3.1\UnitConverterWpf.runtimeconfig.dev.json
+C:\Users\PC\Desktop\Karol Sawicki UnitConverter\UnitConverterWpf\bin\Debug\netcoreapp3.1\UnitConverterWpf.dll
+C:\Users\PC\Desktop\Karol Sawicki UnitConverter\UnitConverterWpf\bin\Debug\netcoreapp3.1\UnitConverterWpf.pdb
+C:\Users\PC\Desktop\Karol Sawicki UnitConverter\UnitConverterWpf\bin\Debug\netcoreapp3.1\System.Net.Http.Formatting.dll
+C:\Users\PC\Desktop\Karol Sawicki UnitConverter\UnitConverterWpf\bin\Debug\netcoreapp3.1\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\PC\Desktop\Karol Sawicki UnitConverter\UnitConverterWpf\bin\Debug\netcoreapp3.1\Microsoft.Bcl.HashCode.dll
+C:\Users\PC\Desktop\Karol Sawicki UnitConverter\UnitConverterWpf\bin\Debug\netcoreapp3.1\Microsoft.Data.SqlClient.dll
+C:\Users\PC\Desktop\Karol Sawicki UnitConverter\UnitConverterWpf\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.dll
+C:\Users\PC\Desktop\Karol Sawicki UnitConverter\UnitConverterWpf\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Abstractions.dll
+C:\Users\PC\Desktop\Karol Sawicki UnitConverter\UnitConverterWpf\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Design.dll
+C:\Users\PC\Desktop\Karol Sawicki UnitConverter\UnitConverterWpf\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Relational.dll
+C:\Users\PC\Desktop\Karol Sawicki UnitConverter\UnitConverterWpf\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.SqlServer.dll
+C:\Users\PC\Desktop\Karol Sawicki UnitConverter\UnitConverterWpf\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Caching.Abstractions.dll
+C:\Users\PC\Desktop\Karol Sawicki UnitConverter\UnitConverterWpf\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Caching.Memory.dll
+C:\Users\PC\Desktop\Karol Sawicki UnitConverter\UnitConverterWpf\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.dll
+C:\Users\PC\Desktop\Karol Sawicki UnitConverter\UnitConverterWpf\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.Abstractions.dll
+C:\Users\PC\Desktop\Karol Sawicki UnitConverter\UnitConverterWpf\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.Binder.dll
+C:\Users\PC\Desktop\Karol Sawicki UnitConverter\UnitConverterWpf\bin\Debug\netcoreapp3.1\Microsoft.Extensions.DependencyInjection.dll
+C:\Users\PC\Desktop\Karol Sawicki UnitConverter\UnitConverterWpf\bin\Debug\netcoreapp3.1\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\PC\Desktop\Karol Sawicki UnitConverter\UnitConverterWpf\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Logging.dll
+C:\Users\PC\Desktop\Karol Sawicki UnitConverter\UnitConverterWpf\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Logging.Abstractions.dll
+C:\Users\PC\Desktop\Karol Sawicki UnitConverter\UnitConverterWpf\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Options.dll
+C:\Users\PC\Desktop\Karol Sawicki UnitConverter\UnitConverterWpf\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Primitives.dll
+C:\Users\PC\Desktop\Karol Sawicki UnitConverter\UnitConverterWpf\bin\Debug\netcoreapp3.1\Microsoft.Identity.Client.dll
+C:\Users\PC\Desktop\Karol Sawicki UnitConverter\UnitConverterWpf\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
+C:\Users\PC\Desktop\Karol Sawicki UnitConverter\UnitConverterWpf\bin\Debug\netcoreapp3.1\Newtonsoft.Json.Bson.dll
+C:\Users\PC\Desktop\Karol Sawicki UnitConverter\UnitConverterWpf\bin\Debug\netcoreapp3.1\System.Runtime.Caching.dll
+C:\Users\PC\Desktop\Karol Sawicki UnitConverter\UnitConverterWpf\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.1\Microsoft.Data.SqlClient.dll
+C:\Users\PC\Desktop\Karol Sawicki UnitConverter\UnitConverterWpf\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.1\Microsoft.Data.SqlClient.dll
+C:\Users\PC\Desktop\Karol Sawicki UnitConverter\UnitConverterWpf\bin\Debug\netcoreapp3.1\runtimes\win-arm64\native\sni.dll
+C:\Users\PC\Desktop\Karol Sawicki UnitConverter\UnitConverterWpf\bin\Debug\netcoreapp3.1\runtimes\win-x64\native\sni.dll
+C:\Users\PC\Desktop\Karol Sawicki UnitConverter\UnitConverterWpf\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\sni.dll
+C:\Users\PC\Desktop\Karol Sawicki UnitConverter\UnitConverterWpf\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.0\System.Runtime.Caching.dll
+C:\Users\PC\Desktop\Karol Sawicki UnitConverter\UnitConverterWpf\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.0\System.Runtime.Caching.dll
+C:\Users\PC\Desktop\Karol Sawicki UnitConverter\UnitConverterWpf\bin\Debug\netcoreapp3.1\UnitConverterLogic.dll
+C:\Users\PC\Desktop\Karol Sawicki UnitConverter\UnitConverterWpf\bin\Debug\netcoreapp3.1\UnitConverterLogic.pdb
+C:\Users\PC\Desktop\Karol Sawicki UnitConverter\UnitConverterWpf\bin\Debug\netcoreapp3.1\UnitConverterLogic.dll.config
+C:\Users\PC\Desktop\Karol Sawicki UnitConverter\UnitConverterWpf\obj\Debug\netcoreapp3.1\UnitConverterWpf.csprojAssemblyReference.cache
+C:\Users\PC\Desktop\Karol Sawicki UnitConverter\UnitConverterWpf\obj\Debug\netcoreapp3.1\MainWindow.g.cs
+C:\Users\PC\Desktop\Karol Sawicki UnitConverter\UnitConverterWpf\obj\Debug\netcoreapp3.1\App.g.cs
+C:\Users\PC\Desktop\Karol Sawicki UnitConverter\UnitConverterWpf\obj\Debug\netcoreapp3.1\UnitConverterWpf_MarkupCompile.cache
+C:\Users\PC\Desktop\Karol Sawicki UnitConverter\UnitConverterWpf\obj\Debug\netcoreapp3.1\UnitConverterWpf_MarkupCompile.lref
+C:\Users\PC\Desktop\Karol Sawicki UnitConverter\UnitConverterWpf\obj\Debug\netcoreapp3.1\MainWindow.baml
+C:\Users\PC\Desktop\Karol Sawicki UnitConverter\UnitConverterWpf\obj\Debug\netcoreapp3.1\UnitConverterWpf.g.resources
+C:\Users\PC\Desktop\Karol Sawicki UnitConverter\UnitConverterWpf\obj\Debug\netcoreapp3.1\UnitConverterWpf.AssemblyInfoInputs.cache
+C:\Users\PC\Desktop\Karol Sawicki UnitConverter\UnitConverterWpf\obj\Debug\netcoreapp3.1\UnitConverterWpf.AssemblyInfo.cs
+C:\Users\PC\Desktop\Karol Sawicki UnitConverter\UnitConverterWpf\obj\Debug\netcoreapp3.1\UnitConverterWpf.csproj.CopyComplete
+C:\Users\PC\Desktop\Karol Sawicki UnitConverter\UnitConverterWpf\obj\Debug\netcoreapp3.1\UnitConverterWpf.dll
+C:\Users\PC\Desktop\Karol Sawicki UnitConverter\UnitConverterWpf\obj\Debug\netcoreapp3.1\UnitConverterWpf.pdb
