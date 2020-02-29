@@ -1,0 +1,6 @@
+C:\Users\TCHOR\Dropbox\WWSI\2 rok\4 semestr\JiPP\Lab1\Konwerter_jednostek\Konwerter_jednostek\bin\Debug\Konwerter_jednostek.exe.config
+C:\Users\TCHOR\Dropbox\WWSI\2 rok\4 semestr\JiPP\Lab1\Konwerter_jednostek\Konwerter_jednostek\bin\Debug\Konwerter_jednostek.exe
+C:\Users\TCHOR\Dropbox\WWSI\2 rok\4 semestr\JiPP\Lab1\Konwerter_jednostek\Konwerter_jednostek\bin\Debug\Konwerter_jednostek.pdb
+C:\Users\TCHOR\Dropbox\WWSI\2 rok\4 semestr\JiPP\Lab1\Konwerter_jednostek\Konwerter_jednostek\obj\Debug\Konwerter_jednostek.csprojAssemblyReference.cache
+C:\Users\TCHOR\Dropbox\WWSI\2 rok\4 semestr\JiPP\Lab1\Konwerter_jednostek\Konwerter_jednostek\obj\Debug\Konwerter_jednostek.exe
+C:\Users\TCHOR\Dropbox\WWSI\2 rok\4 semestr\JiPP\Lab1\Konwerter_jednostek\Konwerter_jednostek\obj\Debug\Konwerter_jednostek.pdb
