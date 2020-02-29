@@ -1,0 +1,35 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "WebKonwerter";
+}
+
+
+
+<h1>Konwerter Jednostek</h1>
+<form method="post">
+    <select asp-for="Statistic.UnitFrom">
+        <option value="km">km</option>
+        <option value="m">m</option>
+        <option value="cal">cal</option>
+    </select>
+    <input type="text" asp-for="Statistic.RawValue" placeholder="0" />
+    <select asp-for="Statistic.UnitTo">
+        <option value="km">km</option>
+        <option value="m">m</option>
+        <option value="cal">cal</option>
+    </select>
+    <button type="submit"> Konwertuj </button>
+    <label asp-for="Statistic.ConvertedValue" value="Statistic.ConvertedValue" id="Result">0</label>
+</form>
+
+
+
+@*<div>  </div>
+
+    @Html.TextBox("valueToConvert")
+    @Html.DropDownList("unitTo")
+    <button type="submit"> Konwertuj </button>
+    <label id= "result">0</label>*@
+
+
