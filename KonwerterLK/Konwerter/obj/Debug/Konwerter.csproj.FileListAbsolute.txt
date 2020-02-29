@@ -1,6 +1,0 @@
-C:\Users\Brajanek\source\repos\Konwerterek\Konwerterek\bin\Debug\Konwerterek.exe.config
-C:\Users\Brajanek\source\repos\Konwerterek\Konwerterek\bin\Debug\Konwerterek.exe
-C:\Users\Brajanek\source\repos\Konwerterek\Konwerterek\bin\Debug\Konwerterek.pdb
-C:\Users\Brajanek\source\repos\Konwerterek\Konwerterek\obj\Debug\Konwerterek.csprojAssemblyReference.cache
-C:\Users\Brajanek\source\repos\Konwerterek\Konwerterek\obj\Debug\Konwerterek.exe
-C:\Users\Brajanek\source\repos\Konwerterek\Konwerterek\obj\Debug\Konwerterek.pdb
