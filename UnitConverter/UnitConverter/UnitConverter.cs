@@ -46,7 +46,7 @@ namespace UnitConverter
                 case MenuMilesToKm:
                     Console.WriteLine("Insert distance in" + UnitNamesConsts.Miles);
                     double milesDistance = System.Convert.ToDouble(Console.ReadLine());
-                    double km = new DistanceConverter().KilometersToMiles(milesDistance);
+                    double km = new DistanceConverter().MilesToKilometers(milesDistance);
                     LogResultToConsole(UnitNamesConsts.Miles, milesDistance, UnitNamesConsts.Kilometers, km);
                     break;
                 case MenuCelsiusToFh:
