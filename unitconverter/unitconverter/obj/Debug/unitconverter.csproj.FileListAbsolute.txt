@@ -1,0 +1,5 @@
+/Users/kamilrybski/Projects/unitconverter/unitconverter/bin/Debug/unitconverter.exe
+/Users/kamilrybski/Projects/unitconverter/unitconverter/bin/Debug/unitconverter.pdb
+/Users/kamilrybski/Projects/unitconverter/unitconverter/obj/Debug/unitconverter.csprojAssemblyReference.cache
+/Users/kamilrybski/Projects/unitconverter/unitconverter/obj/Debug/unitconverter.exe
+/Users/kamilrybski/Projects/unitconverter/unitconverter/obj/Debug/unitconverter.pdb

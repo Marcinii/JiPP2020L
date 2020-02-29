@@ -1,0 +1,2 @@
+/Users/kamilrybski/Projects/unitconverter/unitconverter/bin/Release/unitconverter.exe
+/Users/kamilrybski/Projects/unitconverter/unitconverter/obj/anycpu/Release/unitconverter.exe
