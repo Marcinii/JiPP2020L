@@ -16,7 +16,7 @@ namespace ZAD_1
             "\n 3. Konwersja masy (Kilogramy na Funty)" +
             "\n 4. Konwersja masy (Funty na Kilogramy)" +
             "\n 5. Konwersja odległości (Mile na Kilometry)" +
-            "\n 6. Konwersja odległości (Kilomerty na Mile)");
+            "\n 6. Konwersja odległości (Kilomerty  na Mile)");
             wybor = int.Parse(Console.ReadLine());
             switch (wybor)
                 {
