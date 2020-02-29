@@ -32,16 +32,16 @@ namespace ZAD_1
             wynik = dana / 2.2046;
             Console.WriteLine(this.dana.ToString() + "Funta" + " = " + wynik.ToString() + "Kg");
         }
+        public void konwertuj_na_Kilometry(double dana)
+        {
+            this.dana = dana;
+            wynik = dana * 1.61;
+            Console.WriteLine(this.dana.ToString() + "Mil" + " = " + wynik.ToString() + "Km");
+        }
         public void konwertuj_na_Mile(double dana)
         {
             this.dana = dana;
             wynik = dana * 0.62137;
-            Console.WriteLine(this.dana.ToString() + "Mil" + " = " + wynik.ToString() + "Km");
-        }
-        public void konwertuj_na_Kilometry(double dana)
-        {
-            this.dana = dana;
-            wynik = dana / 0.62137;
             Console.WriteLine(this.dana.ToString() + "Km" + " = " + wynik.ToString() + "Mil");
         }
     }
