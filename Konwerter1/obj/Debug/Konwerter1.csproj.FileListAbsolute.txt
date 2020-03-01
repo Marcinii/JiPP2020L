@@ -1,0 +1,6 @@
+D:\Studia\Programy\C#\Konwerter1\obj\Debug\Konwerter1.csprojAssemblyReference.cache
+D:\Studia\Programy\C#\Konwerter1\bin\Debug\Konwerter1.exe.config
+D:\Studia\Programy\C#\Konwerter1\bin\Debug\Konwerter1.exe
+D:\Studia\Programy\C#\Konwerter1\bin\Debug\Konwerter1.pdb
+D:\Studia\Programy\C#\Konwerter1\obj\Debug\Konwerter1.exe
+D:\Studia\Programy\C#\Konwerter1\obj\Debug\Konwerter1.pdb
