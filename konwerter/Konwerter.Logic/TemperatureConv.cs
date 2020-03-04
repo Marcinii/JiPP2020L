@@ -54,10 +54,13 @@ namespace konwerter
         }
         public void Data_and_convert(string from_type, string to_type, decimal value)
         {
-            this.From_type = from_type; this.To_type = to_type; this.unit_value = value;
-            Convert();
+            this.From_type = from_type; this.To_type = to_type; this.unit_value = value;            
         }
-        public void Convert()
+        public void GiveResult()
+        {
+            Console.WriteLine(unit_value.ToString() + " " + From_type + " = " + Convert().ToString() + " " + to_type);
+        }
+        public decimal Convert()
         {
             decimal result = 0;
             if (from_type == "C" && to_type == "F")
@@ -84,7 +87,7 @@ namespace konwerter
             {
                 result = ((unit_value - 273.15m) * 1.8m) + 32m;
             }
-            Console.WriteLine(unit_value.ToString() + " " + From_type + " = " + result.ToString() + " " + to_type);
+            return result;
         }        
     }
 }

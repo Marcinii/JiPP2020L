@@ -45,6 +45,7 @@ namespace konwerter
                     intValue = Console.ReadLine();
                 }
                 converters[choice - 1].Data_and_convert(from_type, to_type, value);
+                converters[choice - 1].GiveResult();
                 Console.WriteLine("Czy chcesz kontynuować? (t/n)");
                 string choicecontinue = Console.ReadLine();
                 if(choicecontinue == "n")
