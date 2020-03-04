@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29326.143
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "konwerter", "konwerter\konwerter.csproj", "{A31A1375-C71C-4455-A337-FC596EAEDDC4}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Konwerter.Logic", "Konwerter.Logic\Konwerter.Logic.csproj", "{640ACC0C-77F2-4917-8AA8-4691594AE003}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KonwerterConsole", "KonwerterConsole\KonwerterConsole.csproj", "{6190050B-0E33-4A4A-B3D3-6365F08F720E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,10 +13,14 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{A31A1375-C71C-4455-A337-FC596EAEDDC4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A31A1375-C71C-4455-A337-FC596EAEDDC4}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A31A1375-C71C-4455-A337-FC596EAEDDC4}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A31A1375-C71C-4455-A337-FC596EAEDDC4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{640ACC0C-77F2-4917-8AA8-4691594AE003}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{640ACC0C-77F2-4917-8AA8-4691594AE003}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{640ACC0C-77F2-4917-8AA8-4691594AE003}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{640ACC0C-77F2-4917-8AA8-4691594AE003}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6190050B-0E33-4A4A-B3D3-6365F08F720E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6190050B-0E33-4A4A-B3D3-6365F08F720E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6190050B-0E33-4A4A-B3D3-6365F08F720E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6190050B-0E33-4A4A-B3D3-6365F08F720E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
