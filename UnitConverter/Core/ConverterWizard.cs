@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text.RegularExpressions;
+using UnitConverter.UnitUtil;
 
 namespace UnitConverter.Core
 {
@@ -13,49 +13,58 @@ namespace UnitConverter.Core
     /// </summary>
     class ConverterWizard
     {
-        private List<string> units;
+        private List<Unit> units;
 
-
-        public ConverterWizard()
+        public ConverterWizard(List<Unit> units)
         {
-            this.units = new List<string>();
+            this.units = units;
         }
+
+        public ConverterWizard() : this(new List<Unit>()) {}
 
 
         /// <summary>
-        /// Metoda uruchamiająca cały formularz.
+        /// Metoda uruchamiająca formularz do wprowadzenia niezbędnych danych do konwersji.
         /// </summary>
         /// <returns>Zwraca obiekt klasy WzardResult, która przechowuje dane wpisane w formularzu</returns>
         public WizardResult run()
         {
+            CommandValidator validator = new CommandValidator(this.units.Count);   
             WizardResult res = new WizardResult();
             Console.WriteLine("######################################################");
-            Console.WriteLine("# Na co chcesz skonwertować (wybierz jedną z opcji)?");
+            Console.WriteLine("# Z czego chcesz skonwertować (wybierz jedną z opcji)?");
             Console.WriteLine("#----------------------------------------------------#");
 
             for(int i = 0; i < this.units.Count; i++)
             {
-                Console.WriteLine("# {0}. Na {1}", i + 1, this.units[i]);
+                Console.WriteLine("# {0}. {1}", i + 1, this.units[i].name);
             }
+            Console.WriteLine("#----------------------------------------------------#");
 
+
+            Console.Write("> ");
+            int fromValue = AppConsole.readInt(validator);
+
+
+            Console.WriteLine("######################################################");
+            Console.WriteLine("# Na co chcesz skonwertować (wybierz jedną z opcji)?");
+            Console.WriteLine("#----------------------------------------------------#");
+
+            for (int i = 0; i < this.units.Count; i++)
+            {
+                Console.WriteLine("# {0}. Na {1}", i + 1, this.units[i].name);
+            }
             Console.WriteLine("#----------------------------------------------------#");
 
             Console.Write("> ");
-            int option = AppConsole.readInt();
-
-            while (option < 0 || option > this.units.Count)
-            {
-                Console.WriteLine("!!! Nie rozpoznano komendy. Wprowadź poprawny numer komendy");
-                Console.Write("> ");
-                option = AppConsole.readInt();
-            }
-
-
-            res.setOption(option);
+            int toValue = AppConsole.readInt(validator);
 
             Console.WriteLine("#----------------------------------------------------#");
-            Console.Write("# Podaj wartość ({0}): ", this.units[(this.units.Count + option) % this.units.Count]);
+            Console.Write("# Podaj wartość ({0}): ", this.units[fromValue - 1].name);
+
             res.value = AppConsole.readDouble();
+            res.fromUnit = this.units[fromValue - 1];
+            res.toUnit = this.units[toValue - 1];
 
             return res;
         }
@@ -66,7 +75,7 @@ namespace UnitConverter.Core
         /// <param name="step">
         ///     Nazwa jednostki. Jako argument przkmujemy liste jednostek (wpisywanych po przecinku)
         /// </param>
-        public void addUnitName(params string[] step)
+        public void addUnitName(params Unit[] step)
         {
             for(int i = 0; i < step.Length; i++)
             {

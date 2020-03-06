@@ -1,10 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Text.RegularExpressions;
 
 namespace UnitConverter.Core
 {
+
     /// <summary>
     /// Klasa przechowująca metody statyczne, które zajmują się odczytem danych z konsoli i ich walidacją
     /// </summary>
@@ -26,6 +25,26 @@ namespace UnitConverter.Core
             }
 
             return Convert.ToInt32(rawInput);
+        }
+
+        /// <summary>
+        /// Metoda odczytuje i waliduje wprowadzoną liczbę całkowitą. 
+        /// Dodatkową funkcjonalnością tej metody jest dodanie swojego własnego walidatora.
+        /// </summary>
+        /// <returns>Zwraca w pełni poprawna liczbę całkowitą</returns>
+        /// <see cref="IValidator{T}"/>
+        public static int readInt(IValidator<int> validator)
+        {
+            int result = readInt();
+
+            while(validator.validate(result))
+            {
+                Console.WriteLine("!!! {0}", validator.getMessage());
+                Console.Write("> ");
+                result = readInt();
+            }
+
+            return result;
         }
 
         /// <summary>
