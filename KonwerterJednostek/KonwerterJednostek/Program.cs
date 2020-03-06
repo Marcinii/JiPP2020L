@@ -18,7 +18,7 @@ namespace KonwerterJednostek
             int option = unitConverterService.getOptionFromUser();
             while (option != 0)
             {
-                if (option <= NUMBER_OF_OPTIONS)
+                if (option <= NUMBER_OF_OPTIONS && option>=0)
                 {
                     result = unitConverterService.unitConversion(option);
                     unitConverterService.printResult(result);
