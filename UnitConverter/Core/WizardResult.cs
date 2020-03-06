@@ -9,7 +9,7 @@ namespace UnitConverter.Core
     /// Klasa, która służy do przechowania danych wpisanych w formularz.
     /// <see cref="ConverterWizard"/>
     /// </summary>
-    class WizardResult
+    public class WizardResult
     {
         public double value { get; set; }
         public Unit fromUnit { get; set; }

@@ -5,7 +5,7 @@
     /// Klasa implementująca interfejs {IConverter}, służąca do walidacji wprowadzonej numeru komendy
     /// <see cref="IValidator{T}"/>
     /// </summary>
-    class CommandValidator : IValidator<int>
+    public class CommandValidator : IValidator<int>
     {
 
         public int unitCount { get; private set; }

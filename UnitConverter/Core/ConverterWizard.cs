@@ -11,7 +11,7 @@ namespace UnitConverter.Core
     /// <param name="units">Lista ze wszystkimi możliwymi jednostkami</param>
     /// <see cref="WizardResult"/>
     /// </summary>
-    class ConverterWizard
+    public class ConverterWizard
     {
         private List<Unit> units;
 

@@ -14,7 +14,7 @@ namespace UnitConverter.Core
     /// <see cref="ConverterWizard"/>
     /// <see cref="DefaultConverter"/>
     /// <see cref="WizardResult"/>
-    class Operation
+    public class Operation
     {
         public int id { get; set; }
         public string name { get; set; }

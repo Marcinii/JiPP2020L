@@ -9,7 +9,7 @@ namespace UnitConverter.Core
     /// <param name="units">Lista jednostek miar</param>
     /// </summary>
     /// <see cref="Operation"/>
-    class OperationRepository
+    public class OperationRepository
     {
         public List<Operation> operations;
         

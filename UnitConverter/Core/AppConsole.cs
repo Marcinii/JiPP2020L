@@ -7,7 +7,7 @@ namespace UnitConverter.Core
     /// <summary>
     /// Klasa przechowująca metody statyczne, które zajmują się odczytem danych z konsoli i ich walidacją
     /// </summary>
-    class AppConsole
+    public class AppConsole
     {
         /// <summary>
         /// Metoda odczytuje i waliduje wprowadzoną liczbę całkowitą
