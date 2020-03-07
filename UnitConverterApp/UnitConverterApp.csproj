@@ -55,6 +55,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Util\DoubleUtils.cs" />
+    <Compile Include="Util\MainWindowUtils.cs" />
+    <Compile Include="Util\StatusBarUtils.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -99,6 +102,9 @@
       <Project>{f43ed449-0bcd-4c2c-833c-0ff98cc0dd39}</Project>
       <Name>UnitConverter</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\swap.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
