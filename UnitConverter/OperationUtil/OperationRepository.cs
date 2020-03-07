@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace UnitConverter.Core
+namespace UnitConverter.OperationUtil
 {
     /// <summary>
     /// Klasa przechowująca i zarządzająca listą operacji.

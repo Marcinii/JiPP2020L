@@ -12,7 +12,7 @@
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
-	<TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -53,8 +53,9 @@
     <Compile Include="Core\DefaultConverter.cs" />
     <Compile Include="Core\IConverter.cs" />
     <Compile Include="Core\IValidator.cs" />
-    <Compile Include="Core\Operation.cs" />
-    <Compile Include="Core\OperationRepository.cs" />
+    <Compile Include="OperationUtil\Operation.cs" />
+    <Compile Include="OperationUtil\OperationRepositoryInitializer.cs" />
+    <Compile Include="OperationUtil\OperationRepository.cs" />
     <Compile Include="Core\WizardResult.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

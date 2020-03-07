@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using UnitConverter.Core;
 using UnitConverter.UnitUtil;
 
-namespace UnitConverter.Core
+namespace UnitConverter.OperationUtil
 {
     /// <summary>
     /// Klasa reprezentująca zestaw danych i operacji służących do wykonania podstawowych operacji obliczenowych
