@@ -1,103 +1,65 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace konwerter_jednostek
-
+namespace Konwerter_jednostek
 {
-    class konwerter
-    {
-        public static double DoOperation(double var_1, double var_2, string op)
-        {
-            double wynik = double.NaN;// wynik nie może być = 0
-            
-            switch (op)
-            {
-                case "a":
-                    wynik = (var_1 - 32 )* 5 / 9;
-                    break;
-                case "b":
-                    wynik = (var_1 * 9 / 5) + 32;
-                    break;
-                case "c":
-                    wynik = var_1 * var_2;
-                    break;
-                case "d":
-                        //nie dzielimy przez 0
-                    if (var_2 != 0)
-                    {
-                        
-                        wynik = var_1 / var_2;
-                    }
-                    break;
-                case "e":
-                    wynik = var_1 * 2.204;
-                    break;
-                case "f":
-                    wynik = var_1 * 0.4535;
-                    break;
-                default:
-                    break;
-            }
-            return wynik;
-        }
-    }
-
     class Program
     {
         static void Main(string[] args)
         {
-            bool endApp = false;
+            bool sholdContinue = true;
+            while (sholdContinue)
 
-            Console.WriteLine("Konwerter Jednostek\r");
-            Console.WriteLine("------------------------\n");
-
-            while (!endApp)
             {
-                // zadeklarownaie zmiennej
-                string varInput1 = "";
-                double wynik = 0;
 
-                // zapytanie o zmienna var1
-                Console.Write("Podaj wartosc do konwersji: ");
-                varInput1 = Console.ReadLine();
+                Console.WriteLine("Wybierz jedna z opcji:");
+                Console.WriteLine("(1) Konwersja Fahrenheita na Celcjusza");
+                Console.WriteLine("(2) Konwersja Celcjusza na Fahrenheita");
+                Console.WriteLine("(3) Konwersja Mil na Kliometry");
+                Console.WriteLine("(4) Konwersja Kilometrów na Mile");
+                Console.WriteLine("(5) Konwersja Kilogramów na Funty");
+                Console.WriteLine("(6) Konwersja Funty na Kilogramy");
 
-                double cleanvar_1 = 0;
-                while (!double.TryParse(varInput1, out cleanvar_1))
+                string inputChoice = Console.ReadLine();
+                Console.WriteLine("Podaj liczę do konwersji :");
+                string inputValue = Console.ReadLine();
+
+                double choice = double.Parse(inputChoice);
+                double value = double.Parse(inputValue);
+
+                    switch (choice)
                 {
-                    Console.Write("Wartosc nie moze wynosic 0 podaj inna wartosc: ");
-                    varInput1 = Console.ReadLine();
-                    
+                    case 1:
+                        Console.WriteLine("Wynik Konwersji Fahrenheita na Celcjusza : {0}", (value - 32) * 5 / 9);
+                        break;
+                    case 2:
+                        Console.WriteLine("Wynik Konwersji Celcjusza na Fahrenheita : {0}", (value * 9 / 5) + 32);
+                        break;
+                    case 3:
+                        Console.WriteLine("Wynik Konwersji Mil na Kliometry : {0}", value * 1.61);
+                        break;
+                    case 4:
+                        if (value != 0)
+                        {
+                            Console.WriteLine("Wynik Konwersji Kilometrów na Mile : {0}", value / 1.61);
+                        }
+                        break;
+                    case 5:
+                        Console.WriteLine("Wynik Konwersji Kilogramów na Funty : {0}", value * 2.204);
+                        break;
+                    case 6:
+                        Console.WriteLine("Wynik Konwersji Funty na Kilogramy : {0}", value * 0.4535);
+                        break;
+                    default:
+                        sholdContinue = false;
+                        break;
                 }
-                double cleanvar_2 = 1.61;  // podstawienie wartosci 1.61 pod var_2
-                // wybor konwersji
-                Console.WriteLine("Wybierz co chcesz Zrobic:");
-                Console.WriteLine("\ta - Konwersja Fahrenheita na Celcjusza");
-                Console.WriteLine("\tb - Konwersja celcjusza na Fahrenheita");
-                Console.WriteLine("\tc - Konwersja Mil na Kliometry");
-                Console.WriteLine("\td - Konwersja Kilometrow na Mile");
-                Console.WriteLine("\te - Konwersja Kilogramow na Funty");
-                Console.WriteLine("\tf - Konwersja Funty na Kilogramy");
-                Console.Write("twoja opcja to? ");
-
-                string op = Console.ReadLine();
 
 
-                    wynik = konwerter.DoOperation(cleanvar_1, cleanvar_2, op);
-                    if (double.IsNaN(wynik))
-                    {
-                        Console.WriteLine("blad nie moze byc dzielone przez 0.\n");
-                    }
-                    else Console.WriteLine("Twoj wynik konwersji wynosi: {0:0.##}\n", wynik);
-  
-
-                Console.WriteLine("------------------------\n");
-
-                // Wait for the user to respond before closing.
-                Console.Write("Wcisnij w aby wyjsc z programu: ");
-                if (Console.ReadLine() == "w") endApp = true;
-
-                Console.WriteLine("\n"); // Friendly linespacing.
             }
-            return;
         }
     }
 }
