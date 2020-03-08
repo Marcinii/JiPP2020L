@@ -4,15 +4,14 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{F43ED449-0BCD-4C2C-833C-0FF98CC0DD39}</ProjectGuid>
-    <OutputType>Library</OutputType>
-    <RootNamespace>UnitConverter</RootNamespace>
-    <AssemblyName>UnitConverter</AssemblyName>
+    <ProjectGuid>{AED7D828-48EA-4271-BC42-C70A5D7F5A5C}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>UnitConverter.Terminal</RootNamespace>
+    <AssemblyName>UnitConverter.Terminal</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
-    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -33,9 +32,6 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
-  <PropertyGroup>
-    <StartupObject />
-  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -47,24 +43,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Core\AppConsole.cs" />
-    <Compile Include="Core\CommandValidator.cs" />
-    <Compile Include="Core\ConverterWizard.cs" />
-    <Compile Include="Core\DefaultConverter.cs" />
-    <Compile Include="Core\IConverter.cs" />
-    <Compile Include="Core\IValidator.cs" />
-    <Compile Include="OperationUtil\Operation.cs" />
-    <Compile Include="OperationUtil\OperationRepositoryInitializer.cs" />
-    <Compile Include="OperationUtil\OperationRepository.cs" />
-    <Compile Include="Core\WizardResult.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="UnitUtil\BaseUnit.cs" />
-    <Compile Include="UnitUtil\Unit.cs" />
-    <Compile Include="UnitUtil\UnitFormula.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\UnitConverter.Library\UnitConverter.Library.csproj">
+      <Project>{f43ed449-0bcd-4c2c-833c-0ff98cc0dd39}</Project>
+      <Name>UnitConverter.Library</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

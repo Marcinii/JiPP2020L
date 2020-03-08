@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace UnitConverter.Core
+﻿namespace UnitConverter.Library.Core
 {
     /// <summary>
     /// Interfejs służący do utworzenia podstawowej klasy do konwertowania jednostek miar.

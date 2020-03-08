@@ -1,9 +1,8 @@
 ﻿using System;
-using UnitConverter.Core;
-using UnitConverter.OperationUtil;
-using UnitConverter.UnitUtil;
+using UnitConverter.Library;
+using UnitConverter.Library.OperationUtil;
 
-namespace UnitConverter
+namespace UnitConverter.Terminal
 {
 
     class Program
@@ -11,14 +10,11 @@ namespace UnitConverter
 
         static void Main(string[] args)
         {
-
             OperationRepository repository = new OperationRepository();
             OperationRepositoryInitializer.initializeRepository(repository);
 
 
-
-
-            while(true)
+            while (true)
             {
                 Console.Clear();
                 Console.WriteLine("######################################################");

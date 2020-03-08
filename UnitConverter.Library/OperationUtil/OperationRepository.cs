@@ -1,8 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
 
-namespace UnitConverter.OperationUtil
+namespace UnitConverter.Library.OperationUtil
 {
     /// <summary>
     /// Klasa przechowująca i zarządzająca listą operacji.

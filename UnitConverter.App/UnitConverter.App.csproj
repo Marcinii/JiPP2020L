@@ -34,6 +34,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -55,8 +58,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Util\ComboBoxUtils.cs" />
     <Compile Include="Util\DoubleUtils.cs" />
+    <Compile Include="Util\ListBoxUtils.cs" />
     <Compile Include="Util\MainWindowUtils.cs" />
+    <Compile Include="Util\ISelectorUtils.cs" />
     <Compile Include="Util\StatusBarUtils.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -98,13 +104,13 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\UnitConverter\UnitConverter.csproj">
-      <Project>{f43ed449-0bcd-4c2c-833c-0ff98cc0dd39}</Project>
-      <Name>UnitConverter</Name>
-    </ProjectReference>
+    <Resource Include="img\swap.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="img\swap.png" />
+    <ProjectReference Include="..\UnitConverter.Library\UnitConverter.Library.csproj">
+      <Project>{f43ed449-0bcd-4c2c-833c-0ff98cc0dd39}</Project>
+      <Name>UnitConverter.Library</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

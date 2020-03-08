@@ -1,7 +1,8 @@
 ﻿using System;
 using System.Text.RegularExpressions;
+using UnitConverter.Library.Core;
 
-namespace UnitConverter.Core
+namespace UnitConverter.Library
 {
 
     /// <summary>

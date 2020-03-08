@@ -1,4 +1,4 @@
-﻿namespace UnitConverter.UnitUtil
+﻿namespace UnitConverter.Library.UnitUtil
 {
     /// <summary>
     /// Klasa dziedzicząca klasę {Unit}. Służy ona do przechowywania danych odnośnie jednostki bazowej.

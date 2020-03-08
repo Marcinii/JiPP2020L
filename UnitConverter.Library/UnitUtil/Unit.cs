@@ -1,4 +1,4 @@
-﻿namespace UnitConverter.UnitUtil
+﻿namespace UnitConverter.Library.UnitUtil
 {
 
     /// <summary>

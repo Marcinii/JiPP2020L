@@ -1,7 +1,7 @@
 ﻿using System;
-using UnitConverter.UnitUtil;
+using UnitConverter.Library.UnitUtil;
 
-namespace UnitConverter.Core
+namespace UnitConverter.Library.Core
 {
 
 

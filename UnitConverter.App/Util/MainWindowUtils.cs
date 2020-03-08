@@ -1,12 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Controls;
-using UnitConverter.UnitUtil;
+using System.Windows.Input;
 
-namespace UnitConverterApp.Util
+namespace UnitConverter.App.Util
 {
     /// <summary>
     /// Klasa, która wykonuje podstawowe operacje na kontrolkach w oknie <see cref="MainWindow"/>
@@ -14,10 +11,12 @@ namespace UnitConverterApp.Util
     class MainWindowUtils
     {
         private MainWindow mainWindow;
+        private DoubleUtils doubleUtils;
 
-        public MainWindowUtils(MainWindow mainWindow)
+        public MainWindowUtils(MainWindow mainWindow, DoubleUtils doubleUtils)
         {
             this.mainWindow = mainWindow;
+            this.doubleUtils = doubleUtils;
         }
 
 
@@ -39,6 +38,11 @@ namespace UnitConverterApp.Util
             mainWindow.swapButton.IsEnabled = false;
 
             mainWindow.commaDigitCountComboBox.IsEnabled = false;
+
+            mainWindow.convertedValueGrid.Visibility = Visibility.Hidden;
+
+            mainWindow.formatNumberCheckBox.IsEnabled = false;
+            mainWindow.formatNumberLabel.Cursor = Cursors.Arrow;
         }
 
 
@@ -53,11 +57,15 @@ namespace UnitConverterApp.Util
             {
                 ComboBoxItem selectedItem = (ComboBoxItem)mainWindow.commaDigitCountComboBox.SelectedItem;
 
-                mainWindow.convertedValueLabel.Content = DoubleUtils.roundTo(mainWindow.operation.convert(
+                double res = doubleUtils.roundTo(mainWindow.operation.convert(
                     Convert.ToDouble(mainWindow.providedValueTextBox.Text.Replace(".", ",")),
                     mainWindow.fromUnit,
                     mainWindow.toUnit
                 ), (int)selectedItem.Content);
+
+                mainWindow.convertedValueLabel.Content = ((bool) this.mainWindow.formatNumberCheckBox.IsChecked)
+                    ? this.doubleUtils.toFormattedNumber(res)
+                    : Convert.ToString(res);
             }
         }
     }

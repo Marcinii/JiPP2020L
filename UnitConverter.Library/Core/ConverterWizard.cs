@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using UnitConverter.UnitUtil;
+using UnitConverter.Library.UnitUtil;
 
-namespace UnitConverter.Core
+namespace UnitConverter.Library.Core
 {
 
     /// <summary>

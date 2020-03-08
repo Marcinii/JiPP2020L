@@ -1,4 +1,4 @@
-﻿namespace UnitConverter.Core
+﻿namespace UnitConverter.Library.Core
 {
     /// <summary>
     /// Interfejs służący do tworzenia klas odpowiedzialnych za wprowadzane dane wejściowe
