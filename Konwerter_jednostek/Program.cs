@@ -10,58 +10,52 @@ namespace Konwerter_jednostek
     {
         static void Main(string[] args)
         {
-            char wybor;
-            do
+            List<IKonwerter> konwertery = new List<IKonwerter>()
             {
-                Console.WriteLine("\nKonwerter jednostek");
-                Console.WriteLine("\n1 - temperatury (Skala Celsjusza -> Skala Fahrenheita)\n2 - temperatury (Skala Fahrenheita -> Skala Celsjusza)\n3 - dlugosci (kilometry -> mile)\n4 - dlugosci (mile -> kilometry)\n5 - masy (kilogramy -> funty)\n6 - masy (funty -> kilogramy)\n0 - wyjscie z programu\n");
-                wybor = Convert.ToChar(Console.ReadLine());
-                switch (wybor)
+                new Temperatura(),
+                new Masa(),
+                new Objetosc(),
+                new Odleglosc()
+            };
+
+            bool kont = true;
+            char wyborC;
+
+            //while (shouldContinue)
+            do
                 {
-                    case '1':
-                        CF T1 = new CF();
-                        T1.pobierz_dane();
-                        T1.info();
-                        Console.ReadKey();
-                        break;
-                    case '2':
-                        FC T2 = new FC();
-                        T2.pobierz_dane();
-                        T2.info();
-                        Console.ReadKey();
-                        break;
-                    case '3':
-                        KM D1 = new KM();
-                        D1.pobierz_dane();
-                        D1.info();
-                        Console.ReadKey();
-                        break;
-                    case '4':
-                        MK D2 = new MK();
-                        D2.pobierz_dane();
-                        D2.info();
-                        Console.ReadKey();
-                        break;
-                    case '5':
-                        KF M1 = new KF();
-                        M1.pobierz_dane();
-                        M1.info();
-                        Console.ReadKey();
-                        break;
-                    case '6':
-                        FK M2 = new FK();
-                        M2.pobierz_dane();
-                        M2.info();
-                        Console.ReadKey();
-                        break;
-                    case '0':
-                        System.Environment.Exit(1);
-                        break;
-                    default:
-                        Console.WriteLine("\nNie dokonano wyboru\n");
-                        break;
-                }
-            } while (true);
+                    Console.WriteLine("Wybierz opcje: ");
+
+                    for (int i = 0; i < konwertery.Count; i++)
+                    {
+                        Console.WriteLine("({0}) {1}", i + 1, konwertery[i].Nazwa);
+                    }
+
+                    string opcja = Console.ReadLine();
+                    int wybor = int.Parse(opcja);
+
+
+                    Console.Write("Podaj jednostke z: ");
+                    string JednostkaZ = Console.ReadLine();
+
+                    Console.Write("Podaj jednostkę na: ");
+                    string JednostkaNa = Console.ReadLine();
+
+                    Console.Write("Podaj liczbę do konwersji: ");
+                    string liczba = Console.ReadLine();
+                    double wartosc = double.Parse(liczba);
+
+                //int choice = int.Parse(inputChoice); // TryParse!
+                  //  decimal value = decimal.Parse(inputValue); // TryParse!
+
+                    Console.WriteLine("Wynik konwersji: {0}", konwertery[wybor - 1].Konwerter(JednostkaZ, JednostkaNa, wartosc));
+
+                Console.Write("Dokonac ponownej konwersji (T/N): ");
+                wyborC = Convert.ToChar(Console.ReadLine());
+                if (wyborC=='N' || wyborC=='n') {kont = false;}
+                } while (kont);
         }
     }
+
+    
 }
