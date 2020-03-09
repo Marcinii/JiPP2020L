@@ -21,7 +21,19 @@ namespace Converter
         // Distance
         public static double KilometersToMiles(double inp) { return inp * 0.621371192; }
         public static double MilesToKilometers(double inp) { return inp / 0.621371192; }
-
+        // Speed
+        public static double KphToMps(double inp) { return inp * 0.277778; } // km/h -> m(eters)/s
+        public static double KphToMph(double inp) { return inp * 0.621371; } // km/h -> m(iles)/h
+        public static double KphToKnots(double inp) { return inp * 0.539957; }
+        public static double MphToKph(double inp) { return inp / 0.621371; }
+        public static double MphToMps(double inp) { return inp * 0.447040; } // m(iles)/h -> m(eters)/s
+        public static double MphToKnots(double inp) { return inp * 0.868976; }
+        public static double MpsToKph(double inp) { return inp / 0.277778; }
+        public static double MpsToMph(double inp) { return inp / 0.277778; } //  m(eters)/s -> m(iles)/h
+        public static double MpsToKnots(double inp) { return inp * 1.94384; }
+        public static double KnotsToKph(double inp) { return inp / 0.539957; }
+        public static double KnotsToMph(double inp) { return inp / 0.868976; }
+        public static double KnotsToMps(double inp) { return inp / 1.94384; }
         //################################################
 
     }
@@ -36,7 +48,11 @@ namespace Converter
             Miles,
             Kilograms,
             Pounds,
-            Ounces
+            Ounces,
+            KilometersPerHour, // Kph
+            MilesPerHour, // Mph
+            MetersPerSecond, // Mps
+            Knots
         }
         public static string UnitName(Unit unit)
         {
@@ -58,6 +74,14 @@ namespace Converter
                     return "km";
                 case Unit.Miles:
                     return "mi";
+                case Unit.KilometersPerHour:
+                    return "km/h";
+                case Unit.MilesPerHour:
+                    return "mi/h";
+                case Unit.MetersPerSecond:
+                    return "m/s";
+                case Unit.Knots:
+                    return "knots";
                 default:
                     return "";
             }
