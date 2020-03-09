@@ -1,0 +1,50 @@
+﻿<Window x:Name="Konwerter_Jednostek" x:Class="Konwerter.Desktop.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Konwerter.Desktop"
+        mc:Ignorable="d"
+        Title="Konwerter Jednostek" Height="210.772" Width="403.905">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="0*"/>
+        </Grid.ColumnDefinitions>
+        <TabControl HorizontalAlignment="Left" Height="157" Margin="10,10,0,0" VerticalAlignment="Top" Width="371" SelectionChanged="TabControl_SelectionChanged">
+            <TabItem x:Name="Temp_Tab" Header="Temperatury" IsSelected="True">
+                <Grid Background="#FFE5E5E5">
+                    <TextBox x:Name="InputTempTextBox" HorizontalAlignment="Left" Height="23" Margin="52,36,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="130" TextChanged="InputTextBox_TextChanged" AutomationProperties.HelpText="0" TextAlignment="Right"/>
+                    <TextBlock x:Name="ResultTempTextBlock" HorizontalAlignment="Left" Margin="52,64,0,0" TextWrapping="Wrap" Text="wynik" VerticalAlignment="Top" Height="23" Width="130" TextAlignment="Right"/>
+                    <ComboBox x:Name="From_ChoiseTempUnitComboBox" HorizontalAlignment="Left" Margin="187,36,0,0" VerticalAlignment="Top" Width="61" SelectionChanged="ComboBox_SelectionChanged" Height="23" SelectedIndex="0"/>
+                    <ComboBox x:Name="To_ChoiseTempUnitComboBox" HorizontalAlignment="Left" Margin="187,64,0,0" VerticalAlignment="Top" Width="61" SelectionChanged="ComboBox_SelectionChanged" Height="23" SelectedIndex="0"/>
+                </Grid>
+            </TabItem>
+            <TabItem x:Name="Mass_Tab" Header="Masy">
+                <Grid Background="#FFE5E5E5">
+                    <TextBox x:Name="InputMassTextBox" HorizontalAlignment="Left" Height="23" Margin="52,36,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="130" TextChanged="InputTextBox_TextChanged" AutomationProperties.HelpText="0" TextAlignment="Right"/>
+                    <TextBlock x:Name="ResultMassTextBlock" HorizontalAlignment="Left" Margin="52,64,0,0" TextWrapping="Wrap" Text="wynik" VerticalAlignment="Top" Height="23" Width="130" TextAlignment="Right"/>
+                    <ComboBox x:Name="From_ChoiseMassUnitComboBox" HorizontalAlignment="Left" Margin="187,36,0,0" VerticalAlignment="Top" Width="61" SelectionChanged="ComboBox_SelectionChanged" Height="23" SelectedIndex="0"/>
+                    <ComboBox x:Name="To_ChoiseMassUnitComboBox" HorizontalAlignment="Left" Margin="187,64,0,0" VerticalAlignment="Top" Width="61" SelectionChanged="ComboBox_SelectionChanged" Height="23" SelectedIndex="0"/>
+                </Grid>
+            </TabItem>
+            <TabItem x:Name="Lenhg_Tab" Header="Odległości" HorizontalAlignment="Left" Height="20" VerticalAlignment="Top" Width="77" Margin="-1,0,0,0">
+                <Grid Background="#FFE5E5E5">
+                    <TextBox x:Name="InputLenghTextBox" HorizontalAlignment="Left" Height="23" Margin="52,36,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="130" TextChanged="InputTextBox_TextChanged" AutomationProperties.HelpText="0" TextAlignment="Right"/>
+                    <TextBlock x:Name="ResultLenghTextBlock" HorizontalAlignment="Left" Margin="52,64,0,0" TextWrapping="Wrap" Text="wynik" VerticalAlignment="Top" Height="23" Width="130" TextAlignment="Right"/>
+                    <ComboBox x:Name="From_ChoiseLenghUnitComboBox" HorizontalAlignment="Left" Margin="187,36,0,0" VerticalAlignment="Top" Width="61" SelectionChanged="ComboBox_SelectionChanged" Height="23" SelectedIndex="0"/>
+                    <ComboBox x:Name="To_ChoiseLenghUnitComboBox" HorizontalAlignment="Left" Margin="187,64,0,0" VerticalAlignment="Top" Width="61" SelectionChanged="ComboBox_SelectionChanged" Height="23" SelectedIndex="0"/>
+                </Grid>
+            </TabItem>
+            <TabItem x:Name="Data_Tab" Header="Pojemność Danych" HorizontalAlignment="Left" Height="20" VerticalAlignment="Top" Width="126" Margin="-1,0,-71,0">
+                <Grid Background="#FFE5E5E5">
+                    <TextBox x:Name="InputDataTextBox" HorizontalAlignment="Left" Height="23" Margin="52,36,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="130" TextChanged="InputTextBox_TextChanged" AutomationProperties.HelpText="0" TextAlignment="Right"/>
+                    <TextBlock x:Name="ResultDataTextBlock" HorizontalAlignment="Left" Margin="52,64,0,0" TextWrapping="Wrap" Text="wynik" VerticalAlignment="Top" Height="23" Width="130" TextAlignment="Right"/>
+                    <ComboBox x:Name="From_ChoiseDataUnitComboBox" HorizontalAlignment="Left" Margin="187,36,0,0" VerticalAlignment="Top" Width="61" SelectionChanged="ComboBox_SelectionChanged" Height="23" SelectedIndex="0"/>
+                    <ComboBox x:Name="To_ChoiseDataUnitComboBox" HorizontalAlignment="Left" Margin="187,64,0,0" VerticalAlignment="Top" Width="61" SelectionChanged="ComboBox_SelectionChanged" Height="23" SelectedIndex="0"/>
+                </Grid>
+            </TabItem>
+        </TabControl>
+
+    </Grid>
+</Window>

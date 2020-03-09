@@ -8,6 +8,8 @@ namespace konwerter
 {
     public interface IConverter
     {
+        decimal Convert();
+        List<string> Units { get;}
         void List_unit();
         void GiveResult();
         string name { get; }

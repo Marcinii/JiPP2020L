@@ -14,9 +14,9 @@ namespace konwerter
         decimal unit_value;
         public List<string> Units => new List<string>()
         {
-            "Km - kilometry",
-            "Mi  - mile",
-            "m  - metry"
+            "Km",
+            "Mi",
+            "m"
         };
         public string From_type
         {
@@ -36,7 +36,7 @@ namespace konwerter
             get => to_type;
             set
             {
-                while (value != "Km" && value != "Mi" && value != "m" || value == From_type)
+                while (value != "Km" && value != "Mi" && value != "m")
                 {
                     Console.WriteLine("Podaj poprawną jednostke do: ");
                     value = Console.ReadLine();
@@ -81,11 +81,15 @@ namespace konwerter
             }
             if (from_type == "m" && to_type == "Km")
             {
-                result = unit_value * 1000;
+                result = unit_value / 1000;
             }
             if (from_type == "m" && to_type == "Mi")
             {
                 result = (unit_value / 1000) * 0.62137m;
+            }
+            if (from_type == to_type)
+            {
+                result = unit_value;
             }
             return result;
         } 

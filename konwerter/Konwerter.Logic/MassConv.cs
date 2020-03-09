@@ -14,9 +14,9 @@ namespace konwerter
         decimal unit_value;
         public List<string> Units => new List<string>()
         {
-            "Kg - kilogramy",
-            "F  - funty",
-            "g  - gramy"
+            "Kg",
+            "F",
+            "g"
         };
         public string From_type
         {
@@ -36,7 +36,7 @@ namespace konwerter
             get => to_type;
             set
             {
-                while (value != "Kg" && value != "F" && value != "g" || value == From_type)
+                while (value != "Kg" && value != "F" && value != "g")
                 {
                     Console.WriteLine("Podaj poprawną jednostke do: ");
                     value = Console.ReadLine();
@@ -86,6 +86,10 @@ namespace konwerter
             if (from_type == "g" && to_type == "F")
             {
                 result = (unit_value/1000) * 2.2046m;
+            }
+            if (from_type == to_type)
+            {
+                result = unit_value;
             }
             return result;
         }

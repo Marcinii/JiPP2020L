@@ -14,9 +14,9 @@ namespace konwerter
         decimal unit_value;
         public List<string> Units => new List<string>()
         {
-            "C - skala Celsiusza",
-            "F - skala Fahrenheita",
-            "K - Kelvina"
+            "C",
+            "F",
+            "K"
         };
         public string From_type 
         { 
@@ -36,7 +36,7 @@ namespace konwerter
             get => to_type;
             set
             {
-                while (value != "C" && value != "F" && value != "K" || value == From_type)
+                while (value != "C" && value != "F" && value != "K")
                 {
                     Console.WriteLine("Podaj poprawną jednostke do: ");
                     value = Console.ReadLine();
@@ -86,6 +86,10 @@ namespace konwerter
             if (from_type == "K" && to_type == "F")
             {
                 result = ((unit_value - 273.15m) * 1.8m) + 32m;
+            }
+            if (from_type == to_type)
+            {
+                result = unit_value;
             }
             return result;
         }        

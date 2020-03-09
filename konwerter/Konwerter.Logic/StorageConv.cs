@@ -14,9 +14,9 @@ namespace konwerter
         decimal unit_value;
         public List<string> Units => new List<string>()
         {
-            "Kb - Kilobajty",
-            "Mb - Megabajty",
-            "Gb - Gigabajty"
+            "Kb",
+            "Mb",
+            "Gb"
         };
         public string From_type
         {
@@ -36,7 +36,7 @@ namespace konwerter
             get => to_type;
             set
             {
-                while (value != "Kb" && value != "Mb" && value != "Gb" || value == From_type)
+                while (value != "Kb" && value != "Mb" && value != "Gb")
                 {
                     Console.WriteLine("Podaj poprawną jednostke do: ");
                     value = Console.ReadLine();
@@ -86,6 +86,10 @@ namespace konwerter
             if (from_type == "Gb" && to_type == "Kb")
             {
                 result = (unit_value * 1024m) * 1024m;
+            }
+            if (from_type == to_type)
+            {
+                result = unit_value;
             }
             return result;
         }
