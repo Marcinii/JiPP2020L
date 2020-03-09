@@ -7,6 +7,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using static Converter.Units;
 using static Converter.Formulas;
+using Converter;
 
 namespace UnitConverter
 {
@@ -41,6 +42,11 @@ namespace UnitConverter
             Console.WriteLine("\tDystans:");
             Console.WriteLine("\t\tkm\t(Kilometry)");
             Console.WriteLine("\t\tmi\t(Mile)");
+            Console.WriteLine("\tPredkosc:");
+            Console.WriteLine("\t\tkm/h\t(Kilometry na godzine)");
+            Console.WriteLine("\t\tmi/h\t(Mile na godzine)");
+            Console.WriteLine("\t\tm/s\t(Metry na sekunde)");
+            Console.WriteLine("\t\tknots\t(Wezly)");
             Console.WriteLine("Przykładowy input:");
             Console.WriteLine("\t10 kg");
             Console.WriteLine("\t-3.14 F");
@@ -65,38 +71,15 @@ namespace UnitConverter
         }
         bool SetInpUnit(string user_inp)
         {
-            switch (user_inp.ToLower())
+            try
             {
-                // Temperatures
-                case "c":
-                    inp_u = Unit.Celsius;
-                    return true;
-                case "f":
-                    inp_u = Unit.Fahrenheit;
-                    return true;
-                case "k":
-                    inp_u = Unit.Kelvin;
-                    return true;
-                // Mass
-                case "kg":
-                    inp_u = Unit.Kilograms;
-                    return true;
-                case "lb":
-                    inp_u = Unit.Pounds;
-                    return true;
-                case "oz":
-                    inp_u = Unit.Ounces;
-                    return true;
-                // Distance
-                case "km":
-                    inp_u = Unit.Kilometers;
-                    return true;
-                case "mi":
-                    inp_u = Unit.Miles;
-                    return true;
-                default:
-                    Console.WriteLine($"Podana jednostka '{user_inp}' jest nieobsługiwana. Spróbuj ponownie.");
-                    return false;
+                inp_u = UnitFromString(user_inp);
+                return true;
+            }
+            catch (UnexpectedEnumValueException<Unit> e)
+            {
+                Console.WriteLine($"Podana jednostka '{user_inp}' jest nieobsługiwana - {e}. Spróbuj ponownie.");
+                return false;
             }
         }
         bool Parse(string user_inp)
@@ -182,6 +165,27 @@ namespace UnitConverter
                         break;
                     case Unit.Miles:
                         AddOutVal(MilesToKilometers(inp_v), Unit.Kilometers);
+                        break;
+                    // Speed
+                    case Unit.KilometersPerHour:
+                        AddOutVal(KphToKnots(inp_v), Unit.Knots);
+                        AddOutVal(KphToMph(inp_v), Unit.MilesPerHour);
+                        AddOutVal(KphToMps(inp_v), Unit.MetersPerSecond);
+                        break;
+                    case Unit.MetersPerSecond:
+                        AddOutVal(MpsToKnots(inp_v), Unit.Knots);
+                        AddOutVal(MpsToKph(inp_v), Unit.KilometersPerHour);
+                        AddOutVal(MpsToMph(inp_v), Unit.MilesPerHour);
+                        break;
+                    case Unit.MilesPerHour:
+                        AddOutVal(MphToKnots(inp_v), Unit.Knots);
+                        AddOutVal(MphToKph(inp_v), Unit.KilometersPerHour);
+                        AddOutVal(MphToMps(inp_v), Unit.MetersPerSecond);
+                        break;
+                    case Unit.Knots:
+                        AddOutVal(KnotsToKph(inp_v), Unit.KilometersPerHour);
+                        AddOutVal(KnotsToMph(inp_v), Unit.MilesPerHour);
+                        AddOutVal(KnotsToMps(inp_v), Unit.MetersPerSecond);
                         break;
                     default:
                         break;
