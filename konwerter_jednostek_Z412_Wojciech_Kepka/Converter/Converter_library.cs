@@ -37,6 +37,12 @@ namespace Converter
         //################################################
 
     }
+    public class UnexpectedEnumValueException<T> : Exception
+    {
+        public UnexpectedEnumValueException(string value)
+            : base("Value" + value + " is not supported for " + typeof( T ).Name )
+    {}
+    }
     public class Units
     {
         public enum Unit
@@ -53,6 +59,42 @@ namespace Converter
             MilesPerHour, // Mph
             MetersPerSecond, // Mps
             Knots
+        }
+        public static Unit UnitFromString(String unit)
+        {
+            switch (unit)
+            {
+                // Temperatures
+                case "c":
+                   return Unit.Celsius;
+                case "f":
+                    return Unit.Fahrenheit;
+                case "k":
+                    return Unit.Kelvin;
+                // Mass
+                case "kg":
+                    return Unit.Kilograms;
+                case "lb":
+                    return Unit.Pounds;
+                case "oz":
+                    return Unit.Ounces;
+                // Distance
+                case "km":
+                    return Unit.Kilometers;
+                case "mi":
+                    return Unit.Miles;
+                // Speed
+                case "km/h":
+                    return Unit.KilometersPerHour;
+                case "mi/h":
+                    return Unit.MilesPerHour;
+                case "m/s":
+                    return Unit.MetersPerSecond;
+                case "knots":
+                    return Unit.Knots;
+                default:
+                    throw new UnexpectedEnumValueException<Unit>(unit);
+            }
         }
         public static string UnitName(Unit unit)
         {
