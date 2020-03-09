@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.29326.143
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.779
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "unit-converter", "unit-converter\unit-converter.csproj", "{26A0F535-4EA5-4DB7-8BAF-A4BF8AC80853}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitConverterLib", "UnitConverterLib\UnitConverterLib.csproj", "{C484945B-7E73-4834-A6BA-C57F239B38C4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{26A0F535-4EA5-4DB7-8BAF-A4BF8AC80853}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{26A0F535-4EA5-4DB7-8BAF-A4BF8AC80853}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{26A0F535-4EA5-4DB7-8BAF-A4BF8AC80853}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C484945B-7E73-4834-A6BA-C57F239B38C4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C484945B-7E73-4834-A6BA-C57F239B38C4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C484945B-7E73-4834-A6BA-C57F239B38C4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C484945B-7E73-4834-A6BA-C57F239B38C4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
