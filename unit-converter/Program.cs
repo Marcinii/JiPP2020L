@@ -19,7 +19,7 @@ namespace unit_converter
             string sourceUnit = Console.ReadLine();
             if (converter.AvailableUnits.IndexOf(sourceUnit) == -1)
             {
-                Console.WriteLine("Invalid unit selected");
+                Console.WriteLine("*** Invalid unit selected ***");
             }
             else
             {
@@ -27,7 +27,7 @@ namespace unit_converter
                 string targetUnit = Console.ReadLine();
                 if (converter.AvailableUnits.IndexOf(targetUnit) == -1)
                 {
-                    Console.WriteLine("Invalid unit selected");
+                    Console.WriteLine("*** Invalid unit selected ***");
                 }
                 else
                 {
@@ -35,12 +35,12 @@ namespace unit_converter
                     string strValue = Console.ReadLine();
                     if (!converter.IsInputValid(strValue))
                     {
-                        Console.WriteLine("Invalid value");
+                        Console.WriteLine("*** Invalid value ***");
                     }
                     else
                     {
-                        Console.WriteLine("Conversion result: {0}", converter.Convert(
-                            sourceUnit, targetUnit, double.Parse(strValue)));
+                        double result = converter.Convert(sourceUnit, targetUnit, double.Parse(strValue));
+                        Console.WriteLine($"\nConversion result: {Math.Round(result, 2, MidpointRounding.AwayFromZero)}\n");
                     }
                 }
             }
@@ -56,11 +56,6 @@ namespace unit_converter
             };
 
             Console.WriteLine("*** Unit converter ***");
-            for (int i = 0; i < availableConverters.Count; i++)
-            {
-                Console.WriteLine("{0} - {1}", i + 1, availableConverters[i].Name);
-            }
-
             bool programRunning = true;
             IConverter selectedConverter;
 
@@ -68,6 +63,12 @@ namespace unit_converter
             while (programRunning)
             {
                 Console.WriteLine("Please select a category: ");
+                for (int i = 0; i < availableConverters.Count; i++)
+                {
+                    Console.WriteLine($"{i + 1} - {availableConverters[i].Name}");
+                }
+                Console.WriteLine("0 - Exit");
+
                 oper = Console.ReadLine();
                 switch (oper)
                 {
@@ -86,6 +87,9 @@ namespace unit_converter
                     case "4":
                         selectedConverter = availableConverters[3];
                         EnterData(selectedConverter);
+                        break;
+                    case "0":
+                        programRunning = false;
                         break;
                     default:
                         Console.WriteLine("*** Invalid selection ***");
