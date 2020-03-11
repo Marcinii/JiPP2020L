@@ -49,7 +49,7 @@ namespace unit_converter
         {
             List<IConverter> availableConverters = new List<IConverter>()
             {
-                new LengthConverter(),
+                new DistanceConverter(),
                 new TemperatureConverter(),
                 new WeightConverter(),
                 new TimeConverter(),

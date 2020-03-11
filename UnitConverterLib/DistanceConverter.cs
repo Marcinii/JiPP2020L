@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace unit_converter
 {
-    public class LengthConverter : IConverter
+    public class DistanceConverter : IConverter
     {
         public string Name => "Length";
 
