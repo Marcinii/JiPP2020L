@@ -1,0 +1,30 @@
+﻿<Window x:Class="Project.Desktop.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Project.Desktop"
+        mc:Ignorable="d"
+        Title="Konwerter jednostek" Height="250" Width="300" ResizeMode="NoResize">
+    <Grid>
+        <Grid VerticalAlignment="Top">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"></ColumnDefinition>
+                <ColumnDefinition Width="2*"></ColumnDefinition>
+                <ColumnDefinition Width="1*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30"></RowDefinition>
+                <RowDefinition Height="30"></RowDefinition>
+                <RowDefinition Height="30"></RowDefinition>
+                <RowDefinition Height="30"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Label Height="30" Background="DarkMagenta" Foreground="White" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="3">Konwerter jednostek</Label>
+            <ComboBox x:Name="ConverterListComboBox" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="3" SelectionChanged="ConverterListComboBox_SelectionChanged" Margin="2,2,2,0"></ComboBox>
+            <ComboBox x:Name="ConvertFromListComboBox" Grid.Column="0" Grid.Row="2" SelectionChanged="ConvertFromListComboBox_SelectionChanged" Margin="2,2,0,2"></ComboBox>
+            <TextBox x:Name="ValueToConvertTextBlock" Grid.Column="1" Grid.Row="2" TextChanged="ValueToConvertTextBlock_TextChanged" Margin="2" TextAlignment="Center" VerticalContentAlignment="Center"></TextBox>
+            <ComboBox x:Name="ConvertToListComboBox" Grid.Column="2" Grid.Row="2" SelectionChanged="ConvertToListComboBox_SelectionChanged" Margin="0,2,2,2"></ComboBox>
+            <TextBox x:Name="ResultTextBlock" TextAlignment="Center" IsReadOnly="True" FontSize="18" Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="3" VerticalContentAlignment="Center" Margin="2,0"></TextBox>
+        </Grid>
+    </Grid>
+</Window>
