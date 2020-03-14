@@ -49,5 +49,11 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\unitconverter.logic\unitconverter.logic.csproj">
+      <Project>{1debd1ab-0cb7-40c8-befe-bf9684964021}</Project>
+      <Name>unitconverter.logic</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -1,9 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.29326.143
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.645
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "lesson1", "lesson1\lesson1.csproj", "{A16CC2A5-4C39-4A12-84D6-971C57F779E3}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "unitconverter.console", "lesson1\unitconverter.console.csproj", "{A16CC2A5-4C39-4A12-84D6-971C57F779E3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "unitconverter.logic", "unitconverter.logic\unitconverter.logic.csproj", "{1DEBD1AB-0CB7-40C8-BEFE-BF9684964021}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "unitconverter.desktop", "unitconverter.desktop\unitconverter.desktop.csproj", "{9C7C01F1-173D-47B4-8620-643E6000DC0F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +19,14 @@ Global
 		{A16CC2A5-4C39-4A12-84D6-971C57F779E3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A16CC2A5-4C39-4A12-84D6-971C57F779E3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A16CC2A5-4C39-4A12-84D6-971C57F779E3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1DEBD1AB-0CB7-40C8-BEFE-BF9684964021}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1DEBD1AB-0CB7-40C8-BEFE-BF9684964021}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1DEBD1AB-0CB7-40C8-BEFE-BF9684964021}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1DEBD1AB-0CB7-40C8-BEFE-BF9684964021}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9C7C01F1-173D-47B4-8620-643E6000DC0F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9C7C01F1-173D-47B4-8620-643E6000DC0F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9C7C01F1-173D-47B4-8620-643E6000DC0F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9C7C01F1-173D-47B4-8620-643E6000DC0F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
