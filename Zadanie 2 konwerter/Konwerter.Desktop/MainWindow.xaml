@@ -1,0 +1,40 @@
+﻿<Window x:Class="Konwerter.Desktop.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Konwerter.Desktop"
+        mc:Ignorable="d"
+        Title="KONWERTER JEDNOSTEK" Height="315.909" Width="405.681">
+    <Grid>
+        <TextBox x:Name="TempTextBox_C" HorizontalAlignment="Left" Height="22" Margin="13,40,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="137" TextChanged="TextBox_TextChanged" TextAlignment="Right"/>
+        <TextBox x:Name="TempTextBox_F" HorizontalAlignment="Left" Height="23" Margin="13,67,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="137" TextChanged="TextBox_TextChanged" TextAlignment="Right"/>
+        <TextBox x:Name="TempTextBox_K" HorizontalAlignment="Left" Height="23" Margin="13,95,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="137" TextChanged="TextBox_TextChanged" TextAlignment="Right"/>
+        <Label Content="C" HorizontalAlignment="Left" Height="22" Margin="155,40,0,0" VerticalAlignment="Top" Width="48" FontSize="11"/>
+        <Label Content="K" HorizontalAlignment="Left" Height="22" Margin="155,96,0,0" VerticalAlignment="Top" Width="48" FontSize="11"/>
+        <Label Content="F" HorizontalAlignment="Left" Height="22" Margin="155,67,0,0" VerticalAlignment="Top" Width="48" FontSize="11"/>
+        <Label Content="Temperatury" HorizontalAlignment="Left" Margin="13,9,0,0" VerticalAlignment="Top" Width="190" FontWeight="Bold"/>
+        <TextBox x:Name="MasyTextBox_Kg" HorizontalAlignment="Left" Height="22" Margin="208,40,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="137" TextChanged="TextBox_TextChanged" TextAlignment="Right"/>
+        <TextBox x:Name="MasyTextBox_F" HorizontalAlignment="Left" Height="23" Margin="208,67,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="137" TextChanged="TextBox_TextChanged" TextAlignment="Right"/>
+        <TextBox x:Name="MasyTextBox_dkg" HorizontalAlignment="Left" Height="23" Margin="208,95,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="137" TextChanged="TextBox_TextChanged" TextAlignment="Right"/>
+        <Label Content="Kg" HorizontalAlignment="Left" Height="27" Margin="350,40,0,0" VerticalAlignment="Top" Width="30" FontSize="11"/>
+        <Label Content="dkg" HorizontalAlignment="Left" Height="31" Margin="350,96,0,0" VerticalAlignment="Top" Width="30" FontSize="11"/>
+        <Label Content="F" HorizontalAlignment="Left" Height="22" Margin="350,67,0,0" VerticalAlignment="Top" Width="30" FontSize="11"/>
+        <Label Content="Masy" HorizontalAlignment="Left" Margin="208,9,-11,0" VerticalAlignment="Top" Width="190" FontWeight="Bold"/>
+        <TextBox x:Name="MocTextBox_W" HorizontalAlignment="Left" Height="22" Margin="13,191,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="137" TextChanged="TextBox_TextChanged" TextAlignment="Right"/>
+        <TextBox x:Name="MocTextBox_kW" HorizontalAlignment="Left" Height="23" Margin="13,218,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="137" TextChanged="TextBox_TextChanged" TextAlignment="Right"/>
+        <TextBox x:Name="MocTextBox_KM" HorizontalAlignment="Left" Height="23" Margin="13,246,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="137" TextChanged="TextBox_TextChanged" TextAlignment="Right"/>
+        <Label Content="W" HorizontalAlignment="Left" Height="22" Margin="155,191,0,0" VerticalAlignment="Top" Width="48" FontSize="11"/>
+        <Label Content="KM" HorizontalAlignment="Left" Height="22" Margin="155,247,0,0" VerticalAlignment="Top" Width="48" FontSize="11"/>
+        <Label Content="kW" HorizontalAlignment="Left" Height="22" Margin="155,218,0,0" VerticalAlignment="Top" Width="48" FontSize="11"/>
+        <Label Content="Moc" HorizontalAlignment="Left" Margin="13,160,0,0" VerticalAlignment="Top" Width="190" FontWeight="Bold"/>
+        <TextBox x:Name="OdlegloscTextBox_Km" HorizontalAlignment="Left" Height="22" Margin="208,191,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="137" TextChanged="TextBox_TextChanged" TextAlignment="Right"/>
+        <TextBox x:Name="OdlegloscTextBox_Mi" HorizontalAlignment="Left" Height="23" Margin="208,218,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="137" TextChanged="TextBox_TextChanged" TextAlignment="Right"/>
+        <TextBox x:Name="OdlegloscTextBox_ft" HorizontalAlignment="Left" Height="23" Margin="208,246,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="137" TextChanged="TextBox_TextChanged" TextAlignment="Right"/>
+        <Label Content="Km" HorizontalAlignment="Left" Height="22" Margin="350,191,0,0" VerticalAlignment="Top" Width="30" FontSize="11"/>
+        <Label Content="K" HorizontalAlignment="Left" Height="22" Margin="350,247,0,0" VerticalAlignment="Top" Width="30" FontSize="11"/>
+        <Label Content="Mi" HorizontalAlignment="Left" Height="22" Margin="350,218,0,0" VerticalAlignment="Top" Width="30" FontSize="11"/>
+        <Label Content="Długości" HorizontalAlignment="Left" Margin="208,160,-11,0" VerticalAlignment="Top" Width="190" FontWeight="Bold"/>
+
+    </Grid>
+</Window>
