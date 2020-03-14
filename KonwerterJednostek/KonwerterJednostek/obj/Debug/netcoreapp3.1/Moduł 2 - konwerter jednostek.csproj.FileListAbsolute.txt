@@ -1,0 +1,11 @@
+C:\Users\stead\source\repos\Moduł 2 - konwerter jednostek\Moduł 2 - konwerter jednostek\obj\Debug\netcoreapp3.1\Moduł 2 - konwerter jednostek.csprojAssemblyReference.cache
+C:\Users\stead\source\repos\Moduł 2 - konwerter jednostek\Moduł 2 - konwerter jednostek\obj\Debug\netcoreapp3.1\Moduł 2 - konwerter jednostek.AssemblyInfoInputs.cache
+C:\Users\stead\source\repos\Moduł 2 - konwerter jednostek\Moduł 2 - konwerter jednostek\obj\Debug\netcoreapp3.1\Moduł 2 - konwerter jednostek.AssemblyInfo.cs
+C:\Users\stead\source\repos\Moduł 2 - konwerter jednostek\Moduł 2 - konwerter jednostek\bin\Debug\netcoreapp3.1\Moduł 2 - konwerter jednostek.exe
+C:\Users\stead\source\repos\Moduł 2 - konwerter jednostek\Moduł 2 - konwerter jednostek\bin\Debug\netcoreapp3.1\Moduł 2 - konwerter jednostek.deps.json
+C:\Users\stead\source\repos\Moduł 2 - konwerter jednostek\Moduł 2 - konwerter jednostek\bin\Debug\netcoreapp3.1\Moduł 2 - konwerter jednostek.runtimeconfig.json
+C:\Users\stead\source\repos\Moduł 2 - konwerter jednostek\Moduł 2 - konwerter jednostek\bin\Debug\netcoreapp3.1\Moduł 2 - konwerter jednostek.runtimeconfig.dev.json
+C:\Users\stead\source\repos\Moduł 2 - konwerter jednostek\Moduł 2 - konwerter jednostek\bin\Debug\netcoreapp3.1\Moduł 2 - konwerter jednostek.dll
+C:\Users\stead\source\repos\Moduł 2 - konwerter jednostek\Moduł 2 - konwerter jednostek\bin\Debug\netcoreapp3.1\Moduł 2 - konwerter jednostek.pdb
+C:\Users\stead\source\repos\Moduł 2 - konwerter jednostek\Moduł 2 - konwerter jednostek\obj\Debug\netcoreapp3.1\Moduł 2 - konwerter jednostek.dll
+C:\Users\stead\source\repos\Moduł 2 - konwerter jednostek\Moduł 2 - konwerter jednostek\obj\Debug\netcoreapp3.1\Moduł 2 - konwerter jednostek.pdb

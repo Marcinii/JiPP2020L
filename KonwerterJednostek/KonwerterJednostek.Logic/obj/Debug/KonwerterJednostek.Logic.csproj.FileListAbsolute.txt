@@ -1,0 +1,10 @@
+C:\Users\stead\source\repos\Moduł 2 - konwerter jednostek\KonwerterJednostek.Logic\bin\Debug\KonwerterJednostek.Logic.dll
+C:\Users\stead\source\repos\Moduł 2 - konwerter jednostek\KonwerterJednostek.Logic\bin\Debug\KonwerterJednostek.Logic.pdb
+C:\Users\stead\source\repos\Moduł 2 - konwerter jednostek\KonwerterJednostek.Logic\obj\Debug\KonwerterJednostek.Logic.csprojAssemblyReference.cache
+C:\Users\stead\source\repos\Moduł 2 - konwerter jednostek\KonwerterJednostek.Logic\obj\Debug\KonwerterJednostek.Logic.dll
+C:\Users\stead\source\repos\Moduł 2 - konwerter jednostek\KonwerterJednostek.Logic\obj\Debug\KonwerterJednostek.Logic.pdb
+C:\Users\stead\source\repos\KonwerterJednostek\KonwerterJednostek.Logic\bin\Debug\KonwerterJednostek.Logic.dll
+C:\Users\stead\source\repos\KonwerterJednostek\KonwerterJednostek.Logic\bin\Debug\KonwerterJednostek.Logic.pdb
+C:\Users\stead\source\repos\KonwerterJednostek\KonwerterJednostek.Logic\obj\Debug\KonwerterJednostek.Logic.csprojAssemblyReference.cache
+C:\Users\stead\source\repos\KonwerterJednostek\KonwerterJednostek.Logic\obj\Debug\KonwerterJednostek.Logic.dll
+C:\Users\stead\source\repos\KonwerterJednostek\KonwerterJednostek.Logic\obj\Debug\KonwerterJednostek.Logic.pdb

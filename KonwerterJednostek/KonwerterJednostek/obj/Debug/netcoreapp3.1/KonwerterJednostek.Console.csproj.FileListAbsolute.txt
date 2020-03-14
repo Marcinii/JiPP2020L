@@ -1,0 +1,28 @@
+C:\Users\stead\source\repos\Moduł 2 - konwerter jednostek\Moduł 2 - konwerter jednostek\obj\Debug\netcoreapp3.1\KonwerterJednostek.Console.AssemblyInfoInputs.cache
+C:\Users\stead\source\repos\Moduł 2 - konwerter jednostek\Moduł 2 - konwerter jednostek\obj\Debug\netcoreapp3.1\KonwerterJednostek.Console.AssemblyInfo.cs
+C:\Users\stead\source\repos\Moduł 2 - konwerter jednostek\Moduł 2 - konwerter jednostek\bin\Debug\netcoreapp3.1\KonwerterJednostek.Console.exe
+C:\Users\stead\source\repos\Moduł 2 - konwerter jednostek\Moduł 2 - konwerter jednostek\bin\Debug\netcoreapp3.1\KonwerterJednostek.Console.deps.json
+C:\Users\stead\source\repos\Moduł 2 - konwerter jednostek\Moduł 2 - konwerter jednostek\bin\Debug\netcoreapp3.1\KonwerterJednostek.Console.runtimeconfig.json
+C:\Users\stead\source\repos\Moduł 2 - konwerter jednostek\Moduł 2 - konwerter jednostek\bin\Debug\netcoreapp3.1\KonwerterJednostek.Console.runtimeconfig.dev.json
+C:\Users\stead\source\repos\Moduł 2 - konwerter jednostek\Moduł 2 - konwerter jednostek\bin\Debug\netcoreapp3.1\KonwerterJednostek.Console.dll
+C:\Users\stead\source\repos\Moduł 2 - konwerter jednostek\Moduł 2 - konwerter jednostek\bin\Debug\netcoreapp3.1\KonwerterJednostek.Console.pdb
+C:\Users\stead\source\repos\Moduł 2 - konwerter jednostek\Moduł 2 - konwerter jednostek\obj\Debug\netcoreapp3.1\KonwerterJednostek.Console.dll
+C:\Users\stead\source\repos\Moduł 2 - konwerter jednostek\Moduł 2 - konwerter jednostek\obj\Debug\netcoreapp3.1\KonwerterJednostek.Console.pdb
+C:\Users\stead\source\repos\Moduł 2 - konwerter jednostek\Moduł 2 - konwerter jednostek\bin\Debug\netcoreapp3.1\KonwerterJednostek.Logic.dll
+C:\Users\stead\source\repos\Moduł 2 - konwerter jednostek\Moduł 2 - konwerter jednostek\bin\Debug\netcoreapp3.1\KonwerterJednostek.Logic.pdb
+C:\Users\stead\source\repos\Moduł 2 - konwerter jednostek\Moduł 2 - konwerter jednostek\obj\Debug\netcoreapp3.1\KonwerterJednostek.Console.csprojAssemblyReference.cache
+C:\Users\stead\source\repos\Moduł 2 - konwerter jednostek\Moduł 2 - konwerter jednostek\obj\Debug\netcoreapp3.1\KonwerterJednostek.Console.csproj.CopyComplete
+C:\Users\stead\source\repos\KonwerterJednostek\Moduł 2 - konwerter jednostek\bin\Debug\netcoreapp3.1\KonwerterJednostek.Console.exe
+C:\Users\stead\source\repos\KonwerterJednostek\Moduł 2 - konwerter jednostek\bin\Debug\netcoreapp3.1\KonwerterJednostek.Console.deps.json
+C:\Users\stead\source\repos\KonwerterJednostek\Moduł 2 - konwerter jednostek\bin\Debug\netcoreapp3.1\KonwerterJednostek.Console.runtimeconfig.json
+C:\Users\stead\source\repos\KonwerterJednostek\Moduł 2 - konwerter jednostek\bin\Debug\netcoreapp3.1\KonwerterJednostek.Console.runtimeconfig.dev.json
+C:\Users\stead\source\repos\KonwerterJednostek\Moduł 2 - konwerter jednostek\bin\Debug\netcoreapp3.1\KonwerterJednostek.Console.dll
+C:\Users\stead\source\repos\KonwerterJednostek\Moduł 2 - konwerter jednostek\bin\Debug\netcoreapp3.1\KonwerterJednostek.Console.pdb
+C:\Users\stead\source\repos\KonwerterJednostek\Moduł 2 - konwerter jednostek\bin\Debug\netcoreapp3.1\KonwerterJednostek.Logic.dll
+C:\Users\stead\source\repos\KonwerterJednostek\Moduł 2 - konwerter jednostek\bin\Debug\netcoreapp3.1\KonwerterJednostek.Logic.pdb
+C:\Users\stead\source\repos\KonwerterJednostek\Moduł 2 - konwerter jednostek\obj\Debug\netcoreapp3.1\KonwerterJednostek.Console.csprojAssemblyReference.cache
+C:\Users\stead\source\repos\KonwerterJednostek\Moduł 2 - konwerter jednostek\obj\Debug\netcoreapp3.1\KonwerterJednostek.Console.AssemblyInfoInputs.cache
+C:\Users\stead\source\repos\KonwerterJednostek\Moduł 2 - konwerter jednostek\obj\Debug\netcoreapp3.1\KonwerterJednostek.Console.AssemblyInfo.cs
+C:\Users\stead\source\repos\KonwerterJednostek\Moduł 2 - konwerter jednostek\obj\Debug\netcoreapp3.1\KonwerterJednostek.Console.csproj.CopyComplete
+C:\Users\stead\source\repos\KonwerterJednostek\Moduł 2 - konwerter jednostek\obj\Debug\netcoreapp3.1\KonwerterJednostek.Console.dll
+C:\Users\stead\source\repos\KonwerterJednostek\Moduł 2 - konwerter jednostek\obj\Debug\netcoreapp3.1\KonwerterJednostek.Console.pdb

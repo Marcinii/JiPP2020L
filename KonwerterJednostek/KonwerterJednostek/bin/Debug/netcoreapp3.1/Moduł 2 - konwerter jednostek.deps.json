@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v3.1",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v3.1": {
+      "Moduł 2 - konwerter jednostek/1.0.0": {
+        "runtime": {
+          "Moduł 2 - konwerter jednostek.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Moduł 2 - konwerter jednostek/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
