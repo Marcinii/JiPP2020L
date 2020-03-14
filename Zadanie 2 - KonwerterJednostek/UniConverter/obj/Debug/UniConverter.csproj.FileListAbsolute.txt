@@ -1,0 +1,10 @@
+C:\Users\Admin\source\repos\ConsoleApp17\UniConverter\obj\Debug\UniConverter.csprojAssemblyReference.cache
+C:\Users\Admin\source\repos\ConsoleApp17\UniConverter\obj\Debug\UniConverter.csproj.CoreCompileInputs.cache
+C:\Users\Admin\source\repos\ConsoleApp17\UniConverter\bin\Debug\UniConverter.exe.config
+C:\Users\Admin\source\repos\ConsoleApp17\UniConverter\bin\Debug\UniConverter.exe
+C:\Users\Admin\source\repos\ConsoleApp17\UniConverter\bin\Debug\UniConverter.pdb
+C:\Users\Admin\source\repos\ConsoleApp17\UniConverter\obj\Debug\UniConverter.exe
+C:\Users\Admin\source\repos\ConsoleApp17\UniConverter\obj\Debug\UniConverter.pdb
+C:\Users\Admin\source\repos\ConsoleApp17\UniConverter\bin\Debug\unitConverter.Logic.dll
+C:\Users\Admin\source\repos\ConsoleApp17\UniConverter\bin\Debug\unitConverter.Logic.pdb
+C:\Users\Admin\source\repos\ConsoleApp17\UniConverter\obj\Debug\UniConverter.csproj.CopyComplete
