@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Konwerter_jednostek")]
+[assembly: AssemblyTitle("Konwerter_jednostek_wersja2")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("Konwerter_jednostek")]
+[assembly: AssemblyProduct("Konwerter_jednostek_wersja2")]
 [assembly: AssemblyCopyright("Copyright ©  2020")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("87b05184-b0a8-4bab-9edc-fad5a5e92ae6")]
+[assembly: Guid("be32ebf8-47e6-460c-a2c1-951a0c3804a2")]
 
 // Version information for an assembly consists of the following four values:
 //
