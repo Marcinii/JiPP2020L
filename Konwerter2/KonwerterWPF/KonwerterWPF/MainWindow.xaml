@@ -1,0 +1,27 @@
+﻿<Window x:Class="KonwerterWPF.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:KonwerterWPF"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <StackPanel Margin = "40">
+            
+            <RadioButton x:Name = "CelsjuszFarenheit" Margin = "5" Click = "ZmienKonwerter" GroupName = "Konwerter" Content="Stopnie celsjusza na farenheita" IsChecked="True"/>
+            <RadioButton x:Name = "FarenheitCelsjusz" Margin = "5" Click = "ZmienKonwerter" GroupName = "Konwerter" Content="Stopnie farenheita na celsjusza"/>
+            <RadioButton x:Name = "MetryKilometry" Margin = "5" Click = "ZmienKonwerter" GroupName = "Konwerter" Content="Metry na kilometry"/>
+            <RadioButton x:Name = "KilometryMile" Margin = "5" Click = "ZmienKonwerter" GroupName = "Konwerter" Content="Kilometry na mile"/>
+            <RadioButton x:Name = "MileKilometry" Margin = "5" Click = "ZmienKonwerter" GroupName = "Konwerter" Content="Mile na kilometry"/>
+            <RadioButton x:Name = "GodzinySekund" Margin = "5" Click = "ZmienKonwerter" GroupName = "Konwerter" Content="Godziny na sekundy"/>
+            <RadioButton x:Name = "KilogramyFunty" Margin = "5" Click = "ZmienKonwerter" GroupName = "Konwerter" Content="Kilogramy na funty"/>
+            <RadioButton x:Name = "FuntyKilogramy" Margin = "5" Click = "ZmienKonwerter" GroupName = "Konwerter" Content="Funty na kilogramy"/>
+
+            <Label Content="Wprowadź wartość:"></Label>
+            <TextBox x:Name="Wartosc"/>
+
+            <Button Content="Przelicz" Click="Button_Click"/>
+        </StackPanel>
+    </Grid>
+</Window>
