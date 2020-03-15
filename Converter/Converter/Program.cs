@@ -26,7 +26,7 @@ namespace Converter
             [Option('v', "value", Required = true, HelpText = "Value to convert")]
             public float ConvertValue { get; set; }
 
-            [Option('t', "type", Required = true, HelpText = "Type to convertion (0=Celsius, 1=Farenheit, 2=Kilometer, 3=Mile, 4=Kilograms, 5=Funt)")]
+            [Option('t', "type", Required = true, HelpText = "Type to convertion (0=Celsius, 1=Farenheit, 2=Kilometer, 3=Mile, 4=Kilograms, 5=Funt, 6=Joules, 7=Calories)")]
             public ConverterType ConvertType { get; set; }
 
 
