@@ -33,14 +33,14 @@ namespace unit_converter
                 {
                     Console.WriteLine("Please enter the value to convert: ");
                     string strValue = Console.ReadLine();
-                    if (!converter.IsInputValid(strValue))
+                    if (!converter.IsInputValid(strValue, sourceUnit))
                     {
                         Console.WriteLine("*** Invalid value ***");
                     }
                     else
                     {
-                        double result = converter.Convert(sourceUnit, targetUnit, double.Parse(strValue));
-                        Console.WriteLine($"\nConversion result: {Math.Round(result, 2, MidpointRounding.AwayFromZero)}\n");
+                        string result = converter.Convert(sourceUnit, targetUnit, strValue);
+                        Console.WriteLine($"\nConversion result: {result}\n");
                     }
                 }
             }

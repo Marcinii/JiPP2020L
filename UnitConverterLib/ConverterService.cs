@@ -16,6 +16,7 @@ namespace unit_converter
                 { "Temperature", new TemperatureConverter() },
                 { "Weight", new WeightConverter() },
                 { "Time", new TimeConverter() },
+                { "Clock", new ClockConverter() },
             };
         }
     }

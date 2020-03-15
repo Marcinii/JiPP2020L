@@ -73,13 +73,13 @@ namespace UnitConverterDesktopApp
                     string targetUnit = TargetUnitComboBox.SelectedItem.ToString();
                     string inputValue = InputValueTextBox.Text;
 
-                    if (!SelectedConverter.IsInputValid(inputValue))
+                    if (!SelectedConverter.IsInputValid(inputValue, sourceUnit))
                     {
                         MessageBox.Show("Invalid value!");
                     }
                     else
                     {  
-                        var result = SelectedConverter.Convert(sourceUnit, targetUnit, double.Parse(inputValue));
+                        var result = SelectedConverter.Convert(sourceUnit, targetUnit, inputValue);
                         ResultValueTextBlock.Text = result.ToString();
                     }
                 }

@@ -17,21 +17,21 @@ namespace unit_converter
             "Hours",
         };
 
-        public double Convert(string sourceUnit, string targetUnit, double value)
+        public string Convert(string sourceUnit, string targetUnit, string strValue)
         {
-            double inMinutes = ToBaseUnit(sourceUnit, value);
+            double inMinutes = double.Parse(ToBaseUnit(sourceUnit, strValue));
             if (targetUnit == "Seconds")
             {
-                return inMinutes * 60.0;
+                return (inMinutes * 60.0).ToString();
             }
             else if (targetUnit == "Hours")
             {
-                return inMinutes / 60.0;
+                return (inMinutes / 60.0).ToString();
             }
-            else return inMinutes;
+            else return inMinutes.ToString();
         }
 
-        public bool IsInputValid(string inputValue)
+        public bool IsInputValid(string inputValue, string sourceUnit)
         {
             if (!double.TryParse(inputValue, out double tempValue))
             {
@@ -47,17 +47,18 @@ namespace unit_converter
             }
         }
 
-        public double ToBaseUnit(string sourceUnit, double value)
+        public string ToBaseUnit(string sourceUnit, string strValue)
         {
+            double value = double.Parse(strValue);
             if (sourceUnit == "Seconds")
             {
-                return value / 60.0;
+                return (value / 60.0).ToString();
             }
             else if (sourceUnit == "Hours")
             {
-                return value * 60.0;
+                return (value * 60.0).ToString();
             }
-            else return value;
+            else return value.ToString();
         }
     }
 }

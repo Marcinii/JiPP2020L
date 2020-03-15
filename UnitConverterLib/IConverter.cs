@@ -11,8 +11,8 @@ namespace unit_converter
         string Name { get; }
         List<string> AvailableUnits { get; }
 
-        bool IsInputValid(string inputValue);
-        double ToBaseUnit(string sourceUnit, double value);
-        double Convert(string sourceUnit, string targetUnit, double value);
+        bool IsInputValid(string inputValue, string sourceUnit);
+        string ToBaseUnit(string sourceUnit, string strValue);
+        string Convert(string sourceUnit, string targetUnit, string strValue);
     }
 }

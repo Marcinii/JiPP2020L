@@ -17,21 +17,21 @@ namespace unit_converter
             "Miles",
         };
 
-        public double Convert(string sourceUnit, string targetUnit, double value)
+        public string Convert(string sourceUnit, string targetUnit, string strValue)
         {
-            double inMeters = ToBaseUnit(sourceUnit, value);
+            double inMeters = double.Parse(ToBaseUnit(sourceUnit, strValue));
             if (targetUnit == "Kilometers")
             {
-                return inMeters / 1000.0;
+                return (inMeters / 1000.0).ToString();
             }
             else if (targetUnit == "Miles")
             {
-                return inMeters / 1609.344;
+                return (inMeters / 1609.344).ToString();
             }
-            else return inMeters;
+            else return inMeters.ToString();
         }
 
-        public bool IsInputValid(string inputValue)
+        public bool IsInputValid(string inputValue, string sourceUnit)
         {
             if (!double.TryParse(inputValue, out double tempValue))
             {
@@ -47,17 +47,18 @@ namespace unit_converter
             }
         }
 
-        public double ToBaseUnit(string sourceUnit, double value)
+        public string ToBaseUnit(string sourceUnit, string strValue)
         {
+            double value = double.Parse(strValue);
             if (sourceUnit == "Kilometers")
             {
-                return value * 1000.0;
+                return (value * 1000.0).ToString();
             }
             else if (sourceUnit == "Miles")
             {
-                return value * 1609.344;
+                return (value * 1609.344).ToString();
             }
-            else return value;
+            else return value.ToString();
         }
     }
 }

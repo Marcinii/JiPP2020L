@@ -17,7 +17,7 @@ namespace unit_converter
             "Kelvin",
         };
 
-        public bool IsInputValid(string inputValue)
+        public bool IsInputValid(string inputValue, string sourceUnit)
         {
             if (!double.TryParse(inputValue, out double tempValue))
             {
@@ -26,31 +26,32 @@ namespace unit_converter
             else return true;
         }
 
-        public double ToBaseUnit(string sourceUnit, double value)
+        public string ToBaseUnit(string sourceUnit, string strValue)
         {
+            double value = double.Parse(strValue);
             if (sourceUnit == "Fahrenheit")
             {
-                return (value - 32.0) / 1.80;
+                return ((value - 32.0) / 1.80).ToString();
             }
             else if (sourceUnit == "Kelvin")
             {
-                return value - 273.15;
+                return (value - 273.15).ToString();
             }
-            else return value;
+            else return value.ToString();
         }
 
-        public double Convert(string sourceUnit, string targetUnit, double value)
+        public string Convert(string sourceUnit, string targetUnit, string strValue)
         {
-            double inCelsius = ToBaseUnit(sourceUnit, value);
+            double inCelsius = double.Parse(ToBaseUnit(sourceUnit, strValue));
             if (targetUnit == "Fahrenheit")
             {
-                return (inCelsius * 1.80) + 32.0;
+                return ((inCelsius * 1.80) + 32.0).ToString();
             }
             else if (targetUnit == "Kelvin")
             {
-                return inCelsius + 273.15;
+                return (inCelsius + 273.15).ToString();
             }
-            else return inCelsius;
+            else return inCelsius.ToString();
         }
     }
 }
