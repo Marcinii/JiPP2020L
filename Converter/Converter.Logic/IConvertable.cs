@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Converter
 {
-    interface IConvertable<T>
+    public interface IConvertable<T>
     {
 
         T getValue();

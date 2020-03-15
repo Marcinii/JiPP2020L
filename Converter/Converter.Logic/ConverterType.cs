@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Converter
 {
-    enum ConverterType
+    public enum ConverterType
     {
         [Description("degrees Celsius")]
         CELSIUS,
@@ -18,6 +18,10 @@ namespace Converter
         [Description("kilograms")]
         KILOGRAMS,
         [Description("funts")]
-        FUNT
+        FUNT,
+        [Description("joules")]
+        JOULE,
+        [Description("calories")]
+        CALORIES
     }
 }

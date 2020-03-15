@@ -1,5 +1,7 @@
 ﻿using CommandLine;
+using Converter.Logic;
 using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Globalization;
 using System.Linq;
@@ -9,7 +11,15 @@ namespace Converter
     static class Program
     {
 
-        private static IConverterManager converterManager { get; set; }
+        static readonly Dictionary<ConverterType, IConvert> converterMethods = new Dictionary<ConverterType, IConvert>()
+        {
+            { ConverterType.JOULE, new EnergyConverter() },
+            { ConverterType.CALORIES, new EnergyConverter() },
+            { ConverterType.FARENHEIT, new TemperatureConverter() },
+            { ConverterType.CELSIUS, new TemperatureConverter() },
+            { ConverterType.KILOMETER, new Logic.LengthConverter() },
+            { ConverterType.MILE, new Logic.LengthConverter() },
+        };
 
         public class Options
         {
@@ -25,42 +35,22 @@ namespace Converter
 
         static void Main(string[] args)
         {
-            
+
             CommandLine.Parser.Default.ParseArguments<Options>(args)
                            .WithParsed<Options>(o =>
                            {
-                               converterManager = new ConverterManager();
+                               if (!converterMethods.ContainsKey(o.ConvertType))
+                               {
+                                   Console.WriteLine("This converter is not supported at this moment!");
+                                   return;
+                               }
                                IConvertable<float> convertable = new ConvertValue<float>(o.ConvertValue);
-                               Console.WriteLine("Converted value: " + converterManager.ConvertValue(convertable.getValue(), o.ConvertType) + " " + GetDescription(o.ConvertType));
-                                
+                               IConvert convert = converterMethods[o.ConvertType];
+                               Console.WriteLine("Converted value: " + convert.convertValue(convertable.getValue(), o.ConvertType) + " " + EnumUtil.GetDescription(o.ConvertType));
                            });
         }
-        static string GetDescription<T>(this T e) where T : IConvertible
-        {
-            if (e is Enum)
-            {
-                Type type = e.GetType();
-                Array values = System.Enum.GetValues(type);
 
-                foreach (int val in values)
-                {
-                    if (val == e.ToInt32(CultureInfo.InvariantCulture))
-                    {
-                        var memInfo = type.GetMember(type.GetEnumName(val));
-                        var descriptionAttribute = memInfo[0]
-                            .GetCustomAttributes(typeof(DescriptionAttribute), false)
-                            .FirstOrDefault() as System.ComponentModel.DescriptionAttribute;
-
-                        if (descriptionAttribute != null)
-                        {
-                            return descriptionAttribute.Description;
-                        }
-                    }
-                }
-            }
-
-            return null;
-        }
     }
+
 }
 

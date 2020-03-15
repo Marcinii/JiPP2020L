@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Converter
 {
-    class ConvertValue<T> : IConvertable<T>
+    public class ConvertValue<T> : IConvertable<T>
     {
 
         private readonly T Value;
