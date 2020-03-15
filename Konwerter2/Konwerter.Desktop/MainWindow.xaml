@@ -1,0 +1,19 @@
+﻿<Window x:Class="Konwerter.Desktop.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Konwerter.Desktop"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Label Content="Podaj wartość do konwersji:" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="2.342,3.058" Margin="10,110,0,0" Width="156"/>
+        <Button x:Name="Przycisk" Content="Kliknij" HorizontalAlignment="Left" Height="20" Margin="307,111,0,0" VerticalAlignment="Top" Width="62" Click="Przycisk_Click"/>
+        <TextBlock x:Name="Wynik" HorizontalAlignment="Left" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Margin="386,111,0,0"/>
+        <Label Content="Wybierz konwerter:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="50,36,0,0" Height="25" Width="113"/>
+        <Label Content="Wybierz zamiane:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="50,66,0,0"/>
+        <TextBox x:Name="Zamiana" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="267" Margin="173,70,0,0"/>
+        <TextBox x:Name="Konwersja" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="120" Margin="173,110,0,0"/>
+        <TextBox x:Name="Konwerter" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Margin="173,38,0,0"/>
+    </Grid>
+</Window>
