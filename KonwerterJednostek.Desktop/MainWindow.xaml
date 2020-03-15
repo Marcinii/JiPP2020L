@@ -1,0 +1,31 @@
+﻿<Window x:Class="KonwerterJednostek.Desktop.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:KonwerterJednostek.Desktop"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="auto" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="113*"/>
+            <RowDefinition Height="36*"/>
+            <RowDefinition Height="34*"/>
+            <RowDefinition Height="321*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0*"/>
+            <ColumnDefinition Width="100*"/>
+            <ColumnDefinition Width="100*"/>
+            <ColumnDefinition Width="100*"/>
+            <ColumnDefinition Width="100*"/>
+            <ColumnDefinition Width="150*"/>
+        </Grid.ColumnDefinitions>
+        <TextBox x:Name="textboxWejscie" HorizontalAlignment="Left" Height="23" Margin="0,84,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="94" Grid.Column="2"/>
+        <Button x:Name="przyciskKonwersja" Content="Konwertuj&#xD;&#xA;" HorizontalAlignment="Left" Margin="0,84,0,0" VerticalAlignment="Top" Height="20" Grid.Column="3" Width="144" Background="#FF7FC9F3" Click="przyciskKonwersja_Click"/>
+        <Label Content="Wprowadź tekst&#xD;&#xA;" HorizontalAlignment="Left" Margin="0,38,0,0" VerticalAlignment="Top" Width="104" Grid.Column="2" Height="24"/>
+        <TextBlock x:Name="textblockWynik" Grid.Column="4" HorizontalAlignment="Left" Margin="0,84,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="20" Width="144"/>
+        <ComboBox Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120"/>
+        <ComboBox x:Name="comboboxWybor" Grid.ColumnSpan="2" Grid.Column="3" HorizontalAlignment="Left" Margin="98,65,0,0" Grid.Row="3" VerticalAlignment="Top" Width="120" SelectionChanged="comboboxWybor_SelectionChanged"/>
+    </Grid>
+</Window>
