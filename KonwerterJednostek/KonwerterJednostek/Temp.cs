@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace KonwerterJednostek
 {
@@ -89,7 +91,7 @@ namespace KonwerterJednostek
 
             int choice = Convert.ToInt32(test);
             Console.Write("\tPodaj wartosc temperatury: ");
-            double number = Convert.ToDouble(Console.ReadLine().Replace('.',','));
+            double number = Convert.ToDouble(Console.ReadLine().Replace('.', ','));
             Temp a = new Temp(number);
             switch (choice)
             {

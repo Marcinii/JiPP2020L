@@ -1,16 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace KonwerterJednostek
 {
     interface IConverter
     {
-        public void UnitConv();
-        public double Option1();
-        public double Option2();
-        public void Info();
-        public string Name { get; }
-        public List<string> Units { get; }
+        void UnitConv();
+        double Option1();
+        double Option2();
+        void Info();
+        string Name { get; }
+        List<string> Units { get; }
     }
 }

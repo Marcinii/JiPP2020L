@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("KonwerterJednostek.Logic")]
+[assembly: AssemblyTitle("KonwerterJednostek")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("KonwerterJednostek.Logic")]
+[assembly: AssemblyProduct("KonwerterJednostek")]
 [assembly: AssemblyCopyright("Copyright ©  2020")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("c59c5ffb-abdf-4fbe-b2d5-70791671e775")]
+[assembly: Guid("947930bd-c78c-47a4-9017-8a527df54a14")]
 
 // Version information for an assembly consists of the following four values:
 //
