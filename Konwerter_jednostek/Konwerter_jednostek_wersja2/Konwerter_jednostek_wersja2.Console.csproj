@@ -43,19 +43,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Ikonwenter.cs" />
-    <Compile Include="KonwerterCali.cs" />
-    <Compile Include="KonwerterCelcjusza.cs" />
-    <Compile Include="KonwerterFahrenheita.cs" />
-    <Compile Include="KonwerterFuntow.cs" />
-    <Compile Include="KonwerterKilkometrow.cs" />
-    <Compile Include="KonwerterKilogramow.cs" />
-    <Compile Include="KonwerterMil.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Konwerter_jednostek.Logic\Konwerter_jednostek.Logic.csproj">
+      <Project>{9b5be28a-8abc-41f5-b462-cd32cd282c7f}</Project>
+      <Name>Konwerter_jednostek.Logic</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
