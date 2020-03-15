@@ -4,7 +4,7 @@ using System.Text;
 
 namespace KonwerterJednostek
 {
-    class Length
+    class Length : IConverter
     {
         public double value;
         public double k;
@@ -18,26 +18,39 @@ namespace KonwerterJednostek
         public Length(double value)
         {
             this.value = value;
-            this.m = KtoM();
-            this.k = MtoK();
+            this.m = Option1();
+            this.k = Option2();
         }
-        public double KtoM()
+
+        public string Name => "Długość";
+
+        public List<string> Units => new List<string>
+        {
+            "km",
+            "mi"
+        };
+
+        public double Option1()
         {
             double result = this.value * 0.621371;
             return result;
         }
-        public double MtoK()
+        public double Option2()
         {
             double result = this.value * 1.609344;
             return result;
         }
-        public void LengthConv()
+        public void Info()
         {
             Console.WriteLine("KONWERSJA DLUGOSCI");
             Console.WriteLine("\t(1) Kilometry\t->\tMile");
             Console.WriteLine("\t(2) Mile\t->\tKilometry");
             Console.WriteLine();
             Console.Write("\t");
+        }
+        public void UnitConv()
+        {
+            Info();
             int choice = Convert.ToInt32(Console.ReadLine());
             Console.Write("\tPodaj wartosc odleglosci: ");
             double number = Convert.ToDouble(Console.ReadLine().Replace('.', ','));

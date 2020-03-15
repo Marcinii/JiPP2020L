@@ -4,64 +4,64 @@ using System.Text;
 
 namespace KonwerterJednostek
 {
-    class Weight: IConverter
+    class Energy : IConverter
     {
         public double value;
-        public double kg;
-        public double lb;
-        public Weight()
+        public double jk;
+        public double kj;
+        public Energy()
         {
             this.value = 0;
-            this.lb = 0;
-            this.kg = 0;
+            this.jk = 0;
+            this.kj = 0;
         }
-        public Weight(double value)
+        public Energy(double value)
         {
             this.value = value;
-            this.lb = Option1();
-            this.kg = Option2();
+            this.jk = Option1();
+            this.kj = Option2();
         }
-
-        public string Name => "Waga";
+        public string Name => "Energia";
 
         public List<string> Units => new List<string>
         {
-            "lb",
-            "kg"
+            "kJ",
+            "kWh"
         };
 
-        public double Option1()
-        {
-            double result = this.value * 2.20462262185;
-            return result;
-        }
-        public double Option2()
-        {
-            double result = this.value / 2.20462262185;
-            return result;
-        }
         public void Info()
         {
             Console.WriteLine("KONWERSJA WAGI");
-            Console.WriteLine("\t(1) Kilogramy\t->\tFunty");
-            Console.WriteLine("\t(2) Funty\t->\tKilogramy");
+            Console.WriteLine("\t(1) KiloJoule\t->\tKiloWatoGodziny");
+            Console.WriteLine("\t(2) KiloWatoGodziny\t->\tKiloJoule");
             Console.WriteLine();
             Console.Write("\t");
         }
+
+        public double Option1()
+        {
+            return value / 3600;
+        }
+
+        public double Option2()
+        {
+            return value * 3600;
+        }
+
         public void UnitConv()
         {
             Info();
             int choice = Convert.ToInt32(Console.ReadLine());
             Console.Write("\tPodaj wartosc wagi: ");
             double number = Convert.ToDouble(Console.ReadLine().Replace('.', ','));
-            Weight a = new Weight(number);
+            Energy a = new Energy(number);
             switch (choice)
             {
                 case 1:
-                    Console.WriteLine("\t" + a.value + " kg\t=\t" + a.lb + " lb");
+                    Console.WriteLine("\t" + a.value + " kJ\t=\t" + a.jk + " kWh");
                     break;
                 case 2:
-                    Console.WriteLine("\t" + a.value + " lb\t=\t" + a.kg + " kg");
+                    Console.WriteLine("\t" + a.value + " kWh\t=\t" + a.kj + " kJ");
                     break;
                 default:
                     Console.WriteLine("!!! ERROR !!!");
