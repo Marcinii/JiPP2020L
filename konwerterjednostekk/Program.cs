@@ -3,107 +3,55 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using konwerter.logic;
 
 namespace konwerterjednostekk
 {
     class Program
     {
-        public double temp_conventer()
-        {
-            Console.WriteLine("1 Celsjusz --> Farenheit");
-            Console.WriteLine("2 Farenheit --> Celsjusz");
-            string liczba = Console.ReadLine();
-            switch (liczba)
-            {
-                case "1":
-                    Console.WriteLine("Podaj ilość stopni w celsjusza:");
-                    double celsjusz = double.Parse(Console.ReadLine());
-                    Console.WriteLine("Tyle wynosi temperatura w farenheitach: ");
-                    return (celsjusz * 1.8) + 32;
 
-                case "2":
-                    Console.WriteLine("Podaj ilość stopni farenheita");
-                    double farenheita = double.Parse(Console.ReadLine());
-                    Console.WriteLine("Tyle wynosi temperatura w celsjuszach: ");
-                    return (farenheita - 32) / 1.8;
-            }
-            return 0;
-        }
-
-        public double length_conventer()
-        {
-            Console.WriteLine("1 Kilometry --> Mile");
-            Console.WriteLine("2 Mile --> Kilometry");
-            string liczba = Console.ReadLine();
-
-            switch (liczba)
-            {
-                case "1":
-                    Console.WriteLine("Podaj długość w kilometrach:");
-                    double kilometry = double.Parse(Console.ReadLine());
-                    Console.WriteLine("Tyle wynosi długość w milach: ");
-                    return kilometry * 0.62137;
-
-                case "2":
-                    Console.WriteLine("Podaj długość w milach:");
-                    double mile = double.Parse(Console.ReadLine());
-                    Console.WriteLine("Tyle wynosi długość w kilometrach:");
-                    return mile / 0.62137;
-            }
-            return 0;
-
-        }
-
-        public double weight_conventer()
-        {
-            Console.WriteLine("1 Kilogramy --> Funty");
-            Console.WriteLine("2 Funty --> Kilogramy");
-            string liczba = Console.ReadLine();
-
-            switch (liczba)
-            {
-                case "1":
-                    Console.WriteLine("Podaj mase w kilogramach:");
-                    double kilogramy = double.Parse(Console.ReadLine());
-                    Console.WriteLine("Tyle wynosi masa w funtach:");
-                    return kilogramy * 2.2046;
-                case "2":
-                    Console.WriteLine("Podaj mase w funtach:");
-                    double funty = double.Parse(Console.ReadLine());
-                    Console.WriteLine("Tyle wynosi masa w kilogramach:");
-                    return funty / 2.2046;
-            }
-            return 0;
-        }
+        
 
         static void Main(string[] args)
         {
-            Console.WriteLine("Wybierz rodzaj konwersji:");
-            Console.WriteLine("1  Konwerter temperatury");
-            Console.WriteLine("2  Konwerter długości");
-            Console.WriteLine("3  Konwerter masy");
-            string kk = Console.ReadLine();
-            double temper = 0;
-            double dlugo = 0;
-            double masa = 0;
-            Program konwerter = new Program();
 
-            switch (kk)
+            List<Ikonwerter> converters = new List<Ikonwerter>()
             {
-                case "1":
-                    temper = konwerter.temp_conventer();
-                    Console.WriteLine(temper);
-                    break;
-                case "2":
-                    dlugo = konwerter.length_conventer();
-                    Console.WriteLine(dlugo);
-                    break;
-                case "3":
-                    masa = konwerter.weight_conventer();
-                    Console.WriteLine(masa);
-                    break;
+                new temp_converter(),
+                new length_conventer(),
+                new weight_conventer(),
+                new data_conventer(),
+            };
+
+            Console.WriteLine("Wybierz rodzaj konwersji:");
+
+            for (int i = 0; i < converters.Count; i++)
+            {
+                Console.WriteLine("({0}) {1}", i + 1, converters[i].Name);
+            }
+            
+            int inputChoice = Convert.ToInt32(Console.ReadLine()) - 1;
+
+            for (int i = 0; i < converters[inputChoice].Units.Count; i++)
+            {
+                Console.WriteLine(converters[inputChoice].Units[i].ToString());
             }
 
+
+            Console.WriteLine("Podaj jednostek z: ");
+            string unitFrom = Console.ReadLine();
+
+            Console.WriteLine("Podaj jednostkę do: ");
+            string unitTo = Console.ReadLine();
+
+            Console.WriteLine("Podaj liczbę do konwersji: ");
+            string inputValue = Console.ReadLine();
+
+
+            int choice = inputChoice; // TryParse!
+            decimal value = decimal.Parse(inputValue); // TryParse!
+
+            Console.WriteLine("Wynik konwersji: {0}", converters[choice].Convert(unitFrom, unitTo, value));
 
             System.Console.ReadKey();
         }
