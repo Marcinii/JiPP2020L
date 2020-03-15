@@ -6,47 +6,47 @@ using System.Threading.Tasks;
 
 namespace KonwerterJednostek
 {
-    class Length : IConverter
+    public class Weight : IConverter
     {
         public double value;
-        public double k;
-        public double m;
-        public Length()
+        public double kg;
+        public double lb;
+        public Weight()
         {
             this.value = 0;
-            this.m = 0;
-            this.k = 0;
+            this.lb = 0;
+            this.kg = 0;
         }
-        public Length(double value)
+        public Weight(double value)
         {
             this.value = value;
-            this.m = Option1();
-            this.k = Option2();
+            this.lb = Option1();
+            this.kg = Option2();
         }
 
-        public string Name => "Długość";
+        public string Name => "Waga";
 
         public List<string> Units => new List<string>
         {
-            "km",
-            "mi"
+            "lb",
+            "kg"
         };
 
         public double Option1()
         {
-            double result = this.value * 0.621371;
+            double result = this.value * 2.20462262185;
             return result;
         }
         public double Option2()
         {
-            double result = this.value * 1.609344;
+            double result = this.value / 2.20462262185;
             return result;
         }
         public void Info()
         {
-            Console.WriteLine("KONWERSJA DLUGOSCI");
-            Console.WriteLine("\t(1) Kilometry\t->\tMile");
-            Console.WriteLine("\t(2) Mile\t->\tKilometry");
+            Console.WriteLine("KONWERSJA WAGI");
+            Console.WriteLine("\t(1) Kilogramy\t->\tFunty");
+            Console.WriteLine("\t(2) Funty\t->\tKilogramy");
             Console.WriteLine();
             Console.Write("\t");
         }
@@ -54,16 +54,16 @@ namespace KonwerterJednostek
         {
             Info();
             int choice = Convert.ToInt32(Console.ReadLine());
-            Console.Write("\tPodaj wartosc odleglosci: ");
+            Console.Write("\tPodaj wartosc wagi: ");
             double number = Convert.ToDouble(Console.ReadLine().Replace('.', ','));
-            Length a = new Length(number);
+            Weight a = new Weight(number);
             switch (choice)
             {
                 case 1:
-                    Console.WriteLine("\t" + a.value + " km\t=\t" + a.m + " miles");
+                    Console.WriteLine("\t" + a.value + " kg\t=\t" + a.lb + " lb");
                     break;
                 case 2:
-                    Console.WriteLine("\t" + a.value + " miles\t=\t" + a.k + " km");
+                    Console.WriteLine("\t" + a.value + " lb\t=\t" + a.kg + " kg");
                     break;
                 default:
                     Console.WriteLine("!!! ERROR !!!");

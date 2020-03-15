@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace KonwerterJednostek
 {
-    class Temp : IConverter
+    public class Temp : IConverter
     {
         public double value;
         public double cf;

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace KonwerterJednostek
 {
-    interface IConverter
+    public interface IConverter
     {
         void UnitConv();
         double Option1();
