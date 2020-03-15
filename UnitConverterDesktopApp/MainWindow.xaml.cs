@@ -21,14 +21,8 @@ namespace UnitConverterDesktopApp
     /// Interaction logic for MainWindow.xaml
     /// </summary>
     public partial class MainWindow : Window
-    {  
-        Dictionary<string, IConverter> AvailableConverters => new Dictionary<string, IConverter>()
-            {
-                { "Length", new DistanceConverter() },
-                { "Temperature", new TemperatureConverter() },
-                { "Weight", new WeightConverter() },
-                { "Time", new TimeConverter() },
-            };
+    {
+        Dictionary<string, IConverter> AvailableConverters = new ConverterService().GetConverters();
         
         IConverter SelectedConverter { get; set; }
         public MainWindow()
