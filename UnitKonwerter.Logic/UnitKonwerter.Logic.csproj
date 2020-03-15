@@ -4,17 +4,16 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{0A24767F-D58B-4089-93EC-38FAE5475B1A}</ProjectGuid>
-    <OutputType>Exe</OutputType>
-    <RootNamespace>KonwerterJednostek</RootNamespace>
-    <AssemblyName>KonwerterJednostek</AssemblyName>
+    <ProjectGuid>{832A638A-832C-4286-96F3-066E90531103}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>UnitKonwerter.Logic</RootNamespace>
+    <AssemblyName>UnitKonwerter.Logic</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -24,7 +23,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -43,14 +41,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="convertCeltoFar.cs" />
-    <Compile Include="convertKgtoF.cs" />
-    <Compile Include="convertKmtoM.cs" />
-    <Compile Include="Program.cs" />
+    <Compile Include="IKonwerter.cs" />
+    <Compile Include="KonwerterDlugosci.cs" />
+    <Compile Include="KonwerterMasy.cs" />
+    <Compile Include="KonwerterTemperatury.cs" />
+    <Compile Include="KonwerterPredkosci.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="App.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{0A24767F-D58B-4089-93EC-38FAE5475B1A}</ProjectGuid>
+    <ProjectGuid>{B22986D2-825A-4864-8CB0-797F0D21F45F}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>KonwerterJednostek</RootNamespace>
-    <AssemblyName>KonwerterJednostek</AssemblyName>
+    <RootNamespace>UnitKonwerter</RootNamespace>
+    <AssemblyName>UnitKonwerter</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -43,14 +43,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="convertCeltoFar.cs" />
-    <Compile Include="convertKgtoF.cs" />
-    <Compile Include="convertKmtoM.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\UnitKonwerter.Logic\UnitKonwerter.Logic.csproj">
+      <Project>{832a638a-832c-4286-96f3-066e90531103}</Project>
+      <Name>UnitKonwerter.Logic</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
