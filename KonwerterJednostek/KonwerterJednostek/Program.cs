@@ -10,70 +10,54 @@ namespace KonwerterJednostek
     {
         static void Main(string[] args)
         {
+            List<IConverter> converters = new List<IConverter>()
+            {
+            new WeightConverter(),
+            new VolumeConverter(),
+            new LenghtConverter(),
+            new TemperatureConverter()
+            };
+
             Console.WriteLine("Konwerter jednostek\r");
             Console.WriteLine("------------------------\n");
             char czyKontynuowac = 't';
 
-            while (czyKontynuowac == 't') {
-            Console.WriteLine("Jaką operację chcesz wykonać? Wybierz z poniższej listy:");
-            Console.WriteLine("Konwertowanie temperatury:");
-            Console.WriteLine("\t1 - Z Celsjuszy na Farenheity");
-            Console.WriteLine("\t2 - Z Farenheity na Celsjusze");
-            Console.WriteLine("Konwertowanie dlugości:");
-            Console.WriteLine("\t3 - Z kilometrów na mile");
-            Console.WriteLine("\t4 - Z mili na kilometry");
-            Console.WriteLine("Konwertowanie masy:");
-            Console.WriteLine("\t5 - Z kilogramów na funty");
-            Console.WriteLine("\t6 - Z funtów na kilogramy");
-            Console.Write("Twój wybór? ");
-
-            double liczba = 0;
-            double wynik = 0;
-            
-            switch (Console.ReadLine())
+            while (czyKontynuowac == 't')
             {
-                case "1":
-                    Console.Write("Wpisz temperaturę w stopniach Celsjusza: ");
-                    liczba = Convert.ToDouble(Console.ReadLine());
-                    wynik = (9.0 / 5.0) * liczba + 32;
-                    Console.WriteLine($"Twój wynik: {wynik} stopni Fahrenheita");
-                    break;
-                case "2":
-                    Console.Write("Wpisz temperaturę w stopniach Fahrenheita: ");
-                    liczba = Convert.ToDouble(Console.ReadLine());
-                    wynik = (5.0 / 9.0) * (liczba - 32);
-                    Console.WriteLine($"Twój wynik: {wynik} stopni Celsjusza");
-                    break;
-                case "3":
-                    Console.Write("Wpisz długość w kilometrach: ");
-                    liczba = Convert.ToDouble(Console.ReadLine());
-                    wynik = liczba * 0.62137;
-                    Console.WriteLine($"Twój wynik: {wynik} mil");
-                    break;
-                case "4":
-                    Console.Write("Wpisz długość w milach: ");
-                    liczba = Convert.ToDouble(Console.ReadLine());
-                    wynik = liczba/ 0.62137;
-                    Console.WriteLine($"Twój wynik: {wynik} kilometrów");
-                    break;
-                case "5":
-                    Console.Write("Wpisz masę w kilogramach: ");
-                    liczba = Convert.ToDouble(Console.ReadLine());
-                    wynik = liczba * 2.2046;
-                    Console.WriteLine($"Twój wynik: {wynik} funtów");
-                    break;
-                case "6":
-                    Console.Write("Wpisz masę w funtach: ");
-                    liczba = Convert.ToDouble(Console.ReadLine());
-                    wynik = liczba / 2.2046;
-                    Console.WriteLine($"Twój wynik: {wynik} kilogramów");
-                    break;
-                default:
-                    Console.WriteLine("Wybrałeś spoza zakresu");
-                    break;
-            }
-            Console.Write("Czy chcesz wykonać kolejną konwersję jednostek? (t/n)");
+                Console.WriteLine("Jaką operację chcesz wykonać? Wybierz z poniższej listy:");
+
+                for (int i = 0; i < converters.Count; i++)
+                {
+                    Console.Write("({0}) {1} \n", i + 1, converters[i].Name);
+                }
+
+                string choiceS = Console.ReadLine();
+                int choice = int.Parse(choiceS);
+
+                
+
+                for (int i = 0; i < converters[choice-1].Units.Count; i++)
+                {
+                    Console.WriteLine(converters[choice-1].Units[i].ToString());
+                }
+
+                Console.WriteLine("Jaką jednostkę przekonwertować?");
+                string unitFrom = Console.ReadLine();
+
+                Console.WriteLine("Jaką jednostkę chcesz otrzymać?");
+                string unitTo = Console.ReadLine();
+
+                Console.WriteLine("Podaj ile " + unitFrom + " chcesz przekonwertować");
+                string valueS = Console.ReadLine();
+                decimal value = decimal.Parse(valueS);
+
+                decimal result = converters[choice - 1].Convert(unitFrom, unitTo, value);
+
+                Console.WriteLine("Wynik: " + result + unitTo);
+
+                Console.Write("Czy chcesz wykonać kolejną konwersję jednostek? (t/n)");
                 czyKontynuowac = Convert.ToChar(Console.ReadLine());
+
             }
         }
     }

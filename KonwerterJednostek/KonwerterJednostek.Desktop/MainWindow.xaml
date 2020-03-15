@@ -1,0 +1,32 @@
+﻿<Window x:Class="KonwerterJednostek.Desktop.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:KonwerterJednostek.Desktop"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="517.5" Width="1072.045">
+    <Grid>
+        <Image Margin="400,20,400,382" Source="KonwerterJednostek.png" Stretch="Fill"/>
+        <TextBlock HorizontalAlignment="Left" Height="30" Margin="256,120,0,0" TextWrapping="Wrap" Text="Wybierz dziedzinę konwertera:" VerticalAlignment="Top" Width="172"/>
+        <ComboBox x:Name="dziedzinaCombo" HorizontalAlignment="Left" Height="25" Margin="484,120,0,0" VerticalAlignment="Top" Width="167" 
+         SelectionChanged="dziedzinaCombo_SelectionChanged">
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding Name}" />
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
+        <TextBlock HorizontalAlignment="Left" Height="30" Margin="420,180,0,0" TextWrapping="Wrap" Text="Jednostka z której konwertujesz:" VerticalAlignment="Top" Width="179"/>
+        <ComboBox x:Name="jednFromCombo" HorizontalAlignment="Left" Height="25" Margin="420,210,0,0" VerticalAlignment="Top" Width="167"/>
+        <TextBlock HorizontalAlignment="Left" Height="30" Margin="280,180,0,0" TextWrapping="Wrap" Text="Wartość:" VerticalAlignment="Top" Width="52"/>
+        <TextBox x:Name="wartoscBox" HorizontalAlignment="Left" Height="30" Margin="250,210,0,0" Text="0" VerticalAlignment="Top" Width="125"/>
+        <TextBlock HorizontalAlignment="Left" Height="30" Margin="630,210,0,0" TextWrapping="Wrap" Text="=" VerticalAlignment="Top" Width="52"/>
+        <TextBlock HorizontalAlignment="Left" Height="30" Margin="730,180,0,0" TextWrapping="Wrap" Text="Wynik:" VerticalAlignment="Top" Width="52"/>
+        <TextBlock x:Name="wynikBlock" HorizontalAlignment="Left" Height="30" Margin="713,210,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="103"/>
+        <TextBlock HorizontalAlignment="Left" Height="30" Margin="840,180,0,0" TextWrapping="Wrap" Text="Jednostka na którą konwertujesz:" VerticalAlignment="Top" Width="179"/>
+        <ComboBox x:Name="jednToCombo" HorizontalAlignment="Left" Height="25" Margin="845,210,0,0" VerticalAlignment="Top" Width="167" SelectionChanged="jednToCombo_SelectionChanged"/>
+
+
+    </Grid>
+</Window>
