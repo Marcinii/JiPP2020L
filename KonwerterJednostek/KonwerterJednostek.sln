@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KonwerterJednostek.Console"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KonwerterJednostek.Logic", "KonwerterJednostek.Logic\KonwerterJednostek.Logic.csproj", "{8ECDE6D8-8B8F-48E7-B37E-F121A0B96440}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KonwerterJednostek.Desktop", "KonwerterJednostek.Desktop\KonwerterJednostek.Desktop.csproj", "{61148A5C-1C19-47F7-9E31-D4BFFF68B744}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{8ECDE6D8-8B8F-48E7-B37E-F121A0B96440}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8ECDE6D8-8B8F-48E7-B37E-F121A0B96440}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8ECDE6D8-8B8F-48E7-B37E-F121A0B96440}.Release|Any CPU.Build.0 = Release|Any CPU
+		{61148A5C-1C19-47F7-9E31-D4BFFF68B744}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{61148A5C-1C19-47F7-9E31-D4BFFF68B744}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{61148A5C-1C19-47F7-9E31-D4BFFF68B744}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{61148A5C-1C19-47F7-9E31-D4BFFF68B744}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
