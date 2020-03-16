@@ -32,14 +32,13 @@ namespace unit_converter
 
         public bool IsInputValid(string inputValue, string sourceUnit)
         {
-            DateTime tempValue;
-            if (!DateTime.TryParse(inputValue, out tempValue))
+            if (!DateTime.TryParse(inputValue, out DateTime tempValue))
             {
                 return false;
             }
             else
             {
-                if (sourceUnit == "12-hour" && 
+                if (sourceUnit == "12-hour" &&
                     !DateTime.TryParseExact(inputValue, "h:mm tt", new CultureInfo("pl-PL"), DateTimeStyles.None, out tempValue))
                 {
                     return false;
