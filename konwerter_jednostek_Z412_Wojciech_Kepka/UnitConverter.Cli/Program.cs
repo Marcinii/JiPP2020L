@@ -5,20 +5,24 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
-using static Converter.Units;
-using static Converter.Formulas;
-using Converter;
+using UnitConverter.Lib;
+using static UnitConverter.Lib.Units;
 
-namespace UnitConverter
+namespace UnitConverter.Cli
 {
 
     class Converter
     {
-        double inp_v; Unit inp_u;
-        List<Tuple<double, Unit>> out_vals = new List<Tuple<double, Unit>>();
+        double inpVal; Unit inpUnit;
+        List<Tuple<double, Unit>> outVals = new List<Tuple<double, Unit>>();
         bool calculated = false;
         bool cmd = false;
         Dictionary<DateTime, Record> history = new Dictionary<DateTime, Record> { };
+
+        DistanceConverter dConv = new DistanceConverter();
+        MassConverter mConv = new MassConverter();
+        SpeedConverter sConv = new SpeedConverter();
+        TemperatureConverter tConv = new TemperatureConverter();
 
         Converter()
         {
@@ -56,36 +60,36 @@ namespace UnitConverter
             Console.WriteLine("\thistory\tHistoria wyników");
             Console.WriteLine("#########################################");
         }
-        bool SetInpVal(string user_inp)
+        bool SetInpVal(string userInp)
         {
             try
             {
-                this.inp_v = Double.Parse(user_inp);
+                this.inpVal = Double.Parse(userInp);
                 return true;
             }
             catch (System.FormatException)
             {
-                Console.WriteLine($"'{user_inp}' nie jest poprawną liczbą. Spróbuj ponownie");
+                Console.WriteLine($"'{userInp}' nie jest poprawną liczbą. Spróbuj ponownie");
                 return false;
             }
         }
-        bool SetInpUnit(string user_inp)
+        bool SetInpUnit(string userInp)
         {
             try
             {
-                inp_u = UnitFromString(user_inp);
+                inpUnit = UnitFromString(userInp);
                 return true;
             }
             catch (UnexpectedEnumValueException<Unit> e)
             {
-                Console.WriteLine($"Podana jednostka '{user_inp}' jest nieobsługiwana - {e}. Spróbuj ponownie.");
+                Console.WriteLine($"Podana jednostka '{userInp}' jest nieobsługiwana - {e}. Spróbuj ponownie.");
                 return false;
             }
         }
-        bool Parse(string user_inp)
+        bool Parse(string userInp)
         // Parses input like '10 kg', '15.5 C'...
         {
-            switch (user_inp)
+            switch (userInp)
             {
                 case "help":
                     PrintHelp();
@@ -100,7 +104,7 @@ namespace UnitConverter
                     cmd = true;
                     return true;
                 default:
-                    String[] inp = user_inp.Split(' ');
+                    String[] inp = userInp.Split(' ');
                     cmd = false;
                     try
                     {
@@ -109,7 +113,7 @@ namespace UnitConverter
                     }
                     catch (System.IndexOutOfRangeException)
                     {
-                        Console.WriteLine($"Podana komenda '{user_inp}' nie istnieje.");
+                        Console.WriteLine($"Podana komenda '{userInp}' nie istnieje.");
                         return false;
                     }
             }
@@ -123,85 +127,81 @@ namespace UnitConverter
                 if (Parse(user_inp)) { break; }
             }
         }
-        void AddOutVal(double val, Unit u)
-        {
-            out_vals.Add(new Tuple<double, Unit>(val, u));
-        }
         void Convert()
         {
             if (!cmd)
             {
-                switch (inp_u)
+                switch (inpUnit)
                 {
                     // Temperatures
                     case Unit.Celsius:
-                        AddOutVal(CelsiusToKelvin(inp_v), Unit.Kelvin);
-                        AddOutVal(CelsiusToFahrenheit(inp_v), Unit.Fahrenheit);
+                        outVals.Add(tConv.convert(inpVal, inpUnit, Unit.Kelvin));
+                        outVals.Add(tConv.convert(inpVal, inpUnit, Unit.Fahrenheit));
                         break;
                     case Unit.Fahrenheit:
-                        AddOutVal(FahrenheitToCelsius(inp_v), Unit.Celsius);
-                        AddOutVal(FahrenheitToKelvin(inp_v), Unit.Kelvin);
+                        outVals.Add(tConv.convert(inpVal, inpUnit, Unit.Celsius));
+                        outVals.Add(tConv.convert(inpVal, inpUnit, Unit.Kelvin));
                         break;
                     case Unit.Kelvin:
-                        AddOutVal(KelvinToCelsius(inp_v), Unit.Celsius);
-                        AddOutVal(KelvinToFahrenheit(inp_v), Unit.Fahrenheit);
+                        outVals.Add(tConv.convert(inpVal, inpUnit, Unit.Celsius));
+                        outVals.Add(tConv.convert(inpVal, inpUnit, Unit.Fahrenheit));
                         break;
                     // Mass
                     case Unit.Kilograms:
-                        AddOutVal(KilogramsToPounds(inp_v), Unit.Pounds);
-                        AddOutVal(KilogramsToOunces(inp_v), Unit.Ounces);
+                        outVals.Add(mConv.convert(inpVal, inpUnit, Unit.Pounds));
+                        outVals.Add(mConv.convert(inpVal, inpUnit, Unit.Ounces));
                         break;
                     case Unit.Pounds:
-                        AddOutVal(PoundsToKilograms(inp_v), Unit.Kilograms);
-                        AddOutVal(PoundsToOunces(inp_v), Unit.Ounces);
+                        outVals.Add(mConv.convert(inpVal, inpUnit, Unit.Kilograms));
+                        outVals.Add(mConv.convert(inpVal, inpUnit, Unit.Ounces));
                         break;
                     case Unit.Ounces:
-                        AddOutVal(OuncesToKilograms(inp_v), Unit.Kilograms);
-                        AddOutVal(OuncesToPounds(inp_v), Unit.Pounds);
+                        outVals.Add(mConv.convert(inpVal, inpUnit, Unit.Kilograms));
+                        outVals.Add(mConv.convert(inpVal, inpUnit, Unit.Pounds));
                         break;
                     // Distance
                     case Unit.Kilometers:
-                        AddOutVal(KilometersToMiles(inp_v), Unit.Miles);
+                        outVals.Add(dConv.convert(inpVal, inpUnit, Unit.Miles));
                         break;
                     case Unit.Miles:
-                        AddOutVal(MilesToKilometers(inp_v), Unit.Kilometers);
+                        outVals.Add(dConv.convert(inpVal, inpUnit, Unit.Kilometers));
                         break;
                     // Speed
                     case Unit.KilometersPerHour:
-                        AddOutVal(KphToKnots(inp_v), Unit.Knots);
-                        AddOutVal(KphToMph(inp_v), Unit.MilesPerHour);
-                        AddOutVal(KphToMps(inp_v), Unit.MetersPerSecond);
+                        outVals.Add(sConv.convert(inpVal, inpUnit, Unit.Knots));
+                        outVals.Add(sConv.convert(inpVal, inpUnit, Unit.MilesPerHour));
+                        outVals.Add(sConv.convert(inpVal, inpUnit, Unit.MetersPerSecond));
                         break;
                     case Unit.MetersPerSecond:
-                        AddOutVal(MpsToKnots(inp_v), Unit.Knots);
-                        AddOutVal(MpsToKph(inp_v), Unit.KilometersPerHour);
-                        AddOutVal(MpsToMph(inp_v), Unit.MilesPerHour);
+                        outVals.Add(sConv.convert(inpVal, inpUnit, Unit.Knots));
+                        outVals.Add(sConv.convert(inpVal, inpUnit, Unit.MilesPerHour));
+                        outVals.Add(sConv.convert(inpVal, inpUnit, Unit.KilometersPerHour));
                         break;
                     case Unit.MilesPerHour:
-                        AddOutVal(MphToKnots(inp_v), Unit.Knots);
-                        AddOutVal(MphToKph(inp_v), Unit.KilometersPerHour);
-                        AddOutVal(MphToMps(inp_v), Unit.MetersPerSecond);
+                        outVals.Add(sConv.convert(inpVal, inpUnit, Unit.Knots));
+                        outVals.Add(sConv.convert(inpVal, inpUnit, Unit.MetersPerSecond));
+                        outVals.Add(sConv.convert(inpVal, inpUnit, Unit.KilometersPerHour));
                         break;
                     case Unit.Knots:
-                        AddOutVal(KnotsToKph(inp_v), Unit.KilometersPerHour);
-                        AddOutVal(KnotsToMph(inp_v), Unit.MilesPerHour);
-                        AddOutVal(KnotsToMps(inp_v), Unit.MetersPerSecond);
+                        outVals.Add(sConv.convert(inpVal, inpUnit, Unit.MetersPerSecond));
+                        outVals.Add(sConv.convert(inpVal, inpUnit, Unit.MilesPerHour));
+                        outVals.Add(sConv.convert(inpVal, inpUnit, Unit.KilometersPerHour));
                         break;
                     default:
                         break;
 
                 }
                 calculated = true;
-                history.Add(DateTime.Now, new Record(inp_v, inp_u, new List<Tuple<double, Unit>>(out_vals)));
+                history.Add(DateTime.Now, new Record(inpVal, inpUnit, new List<Tuple<double, Unit>>(outVals)));
             }
 
         }
         string OutStr()
         {
             StringBuilder s = new StringBuilder();
-            foreach(Tuple<double, Unit> out_ in out_vals)
+            foreach(Tuple<double, Unit> out_ in outVals)
             {
-                s.Append($"{inp_v} {UnitName(inp_u)} = {out_.Item1} {UnitName(out_.Item2)}\n");
+                s.Append($"{inpVal} {UnitName(inpUnit)} = {out_.Item1} {UnitName(out_.Item2)}\n");
             }
             return s.ToString().Trim('\n');
         }
@@ -219,38 +219,38 @@ namespace UnitConverter
             {
                 Console.WriteLine($"{entry.Key}");
                 Record r = entry.Value;
-                Console.Write($"{r.inp_v} {UnitName(r.inp_u)} =");
+                Console.Write($"\t{r.inpVal} {UnitName(r.inpUnit)} =");
                 foreach (Tuple<double, Unit> out_ in r)
                 {
-                    Console.WriteLine($"\t{out_.Item1} {UnitName(out_.Item2)}");
+                    Console.WriteLine($"\t\t{out_.Item1} {UnitName(out_.Item2)}");
                 }
             }
         }
         void Clear()
         {
-            inp_v = default; inp_u = default;
-            out_vals.Clear();
+            inpVal = default; inpUnit = default;
+            outVals.Clear();
             calculated = false;
         }
         //################################################
         public class Record : IEnumerable<Tuple<double, Unit>>
         {
-            public double inp_v; public Unit inp_u;
-            public List<Tuple<double, Unit>> out_v;
+            public double inpVal; public Unit inpUnit;
+            public List<Tuple<double, Unit>> outVal;
             public Record(double v, Unit u, List<Tuple<double, Unit>> out_v)
             {
-                inp_v = v;
-                inp_u = u;
-                this.out_v = out_v;
+                inpVal = v;
+                inpUnit = u;
+                this.outVal = out_v;
             }
 
             public IEnumerator<Tuple<double, Unit>> GetEnumerator()
             {
-                return out_v.GetEnumerator();
+                return outVal.GetEnumerator();
             }
             IEnumerator IEnumerable.GetEnumerator()
             {
-                return out_v.GetEnumerator();
+                return outVal.GetEnumerator();
             }
         }
         //################################################

@@ -1,10 +1,12 @@
 ﻿using System;
+using static UnitConverter.Lib.Units;
 
 namespace UnitConverter.Lib
 {
     public interface IConverter
     {
-        double convert(double value, string fromUnit, string toUnit);
+        string name();
+        Tuple<double, Unit> convert(double val, Unit inpUnit, Unit outUnit);
     }
 
 }

@@ -1,34 +1,48 @@
-﻿using static UnitConverter.Lib.Units;
+﻿using System;
+using static UnitConverter.Lib.Units;
 using static UnitConverter.Lib.Formulas;
 
 namespace UnitConverter.Lib
 {
     public class DistanceConverter : IConverter
     {
-        public double convert(double value, string fromUnit, string toUnit)
+        public string name()
         {
-            Unit inputUnit = UnitFromString(fromUnit);
-            Unit outputUnit = UnitFromString(toUnit);
+            return "Distance Converter";
+        }
+        public Tuple<double, Unit> convert(double val, Unit inpUnit, Unit outUnit)
+        {
+            double outVal = 0;
+            bool calculated = false;
 
-            switch (inputUnit)
+            switch (inpUnit)
             {
                 case Unit.Kilometers:
-                    if (outputUnit == Unit.Miles)
+                    if (outUnit == Unit.Miles)
                     {
-                        return KilometersToMiles(value);
+                        outVal = KilometersToMiles(val);
+                        calculated = true;
                     }
                     break;
                 case Unit.Miles:
-                    if (outputUnit == Unit.Kilometers)
+                    if (outUnit == Unit.Kilometers)
                     {
-                        return MilesToKilometers(value);
+                        outVal = MilesToKilometers(val);
+                        calculated = true;
                     }
                     break;
                 default:
-                    throw new UnsupportedUnit(inputUnit);
+                    throw new UnsupportedUnit(inpUnit);
             }
 
-            throw new IncompatibleConversionUnits(inputUnit, outputUnit);
+            if (calculated)
+            {
+                return new Tuple<double, Unit>(outVal, outUnit);
+            }
+            else
+            {
+                throw new IncompatibleConversionUnits(inpUnit, outUnit);
+            }
         }
     }
 }

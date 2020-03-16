@@ -1,50 +1,70 @@
-﻿using static UnitConverter.Lib.Units;
+﻿using System;
+using static UnitConverter.Lib.Units;
 using static UnitConverter.Lib.Formulas;
 
 namespace UnitConverter.Lib
 {
     public class TemperatureConverter : IConverter
     {
-        public double convert(double value, string fromUnit, string toUnit)
+        public string name()
         {
-            Unit inputUnit = UnitFromString(fromUnit);
-            Unit outputUnit = UnitFromString(toUnit);
-            switch (inputUnit)
+            return "Temperature Converter";
+        }
+        public Tuple<double, Unit> convert(double val, Unit inpUnit, Unit outUnit)
+        {
+            double outVal = 0;
+            bool calculated = false;
+
+            switch (inpUnit)
             {
                 case Unit.Celsius:
-                    if (outputUnit == Unit.Fahrenheit)
+                    if (outUnit == Unit.Fahrenheit)
                     {
-                        return CelsiusToFahrenheit(value);
-                    } else if (outputUnit == Unit.Kelvin)
+                        outVal = CelsiusToFahrenheit(val);
+                        calculated = true;
+                    }
+                    else if (outUnit == Unit.Kelvin)
                     {
-                        return CelsiusToKelvin(value);
+                        outVal = CelsiusToKelvin(val);
+                        calculated = true;
                     }
                     break;
                 case Unit.Fahrenheit:
-                    if (outputUnit == Unit.Celsius)
+                    if (outUnit == Unit.Celsius)
                     {
-                        return FahrenheitToCelsius(value);
+                        outVal = FahrenheitToCelsius(val);
+                        calculated = true;
                     }
-                    else if (outputUnit == Unit.Kelvin)
+                    else if (outUnit == Unit.Kelvin)
                     {
-                        return FahrenheitToKelvin(value);
+                        outVal = FahrenheitToKelvin(val);
+                        calculated = true;
                     }
                     break;
                 case Unit.Kelvin:
-                    if (outputUnit == Unit.Celsius)
+                    if (outUnit == Unit.Celsius)
                     {
-                        return KelvinToCelsius(value);
+                        outVal = KelvinToCelsius(val);
+                        calculated = true;
                     }
-                    else if (outputUnit == Unit.Kelvin)
+                    else if (outUnit == Unit.Kelvin)
                     {
-                        return KelvinToFahrenheit(value);
+                        outVal = KelvinToFahrenheit(val);
+                        calculated = true;
                     }
                     break;
                 default:
-                throw new UnsupportedUnit(inputUnit);
+                throw new UnsupportedUnit(inpUnit);
             }
 
-            throw new IncompatibleConversionUnits(inputUnit, outputUnit);
+            if (calculated)
+            {
+                return new Tuple<double, Unit>(outVal, outUnit);
+            }
+            else
+            {
+                throw new IncompatibleConversionUnits(inpUnit, outUnit);
+            }
         }
     }
 }

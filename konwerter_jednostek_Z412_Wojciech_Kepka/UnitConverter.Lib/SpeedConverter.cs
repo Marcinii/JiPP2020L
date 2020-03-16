@@ -1,64 +1,85 @@
-﻿using static UnitConverter.Lib.Units;
+﻿using System;
+using static UnitConverter.Lib.Units;
 using static UnitConverter.Lib.Formulas;
 
 namespace UnitConverter.Lib
 {
     public class SpeedConverter : IConverter
     {
-        public double convert(double value, string fromUnit, string toUnit)
+        public string name()
         {
-            Unit inputUnit = UnitFromString(fromUnit);
-            Unit outputUnit = UnitFromString(toUnit);
+            return "Speed Converter";
+        }
+        public Tuple<double, Unit> convert(double val, Unit inpUnit, Unit outUnit)
+        {
+            double outVal = 0;
+            bool calculated = false;
 
-            switch (inputUnit)
+            switch (inpUnit)
             {
                 case Unit.KilometersPerHour:
-                    if (outputUnit == Unit.MilesPerHour)
+                    if (outUnit == Unit.MilesPerHour)
                     {
-                        return KphToMph(value);
+                        outVal =  KphToMph(val);
+                        calculated = true;
                     }
-                    else if (outputUnit == Unit.Knots)
+                    else if (outUnit == Unit.Knots)
                     {
-                        return KphToKnots(value);
+                        outVal = KphToKnots(val);
+                        calculated = true;
                     }
-                    else if (outputUnit == Unit.MetersPerSecond)
+                    else if (outUnit == Unit.MetersPerSecond)
                     {
-                        return KphToMps(value);
+                        outVal = KphToMps(val);
+                        calculated = true;
                     }
                     break;
                 case Unit.MilesPerHour:
-                    if (outputUnit == Unit.KilometersPerHour)
+                    if (outUnit == Unit.KilometersPerHour)
                     {
-                        return MphToKph(value);
+                        outVal = MphToKph(val);
+                        calculated = true;
                     }
-                    else if (outputUnit == Unit.Knots)
+                    else if (outUnit == Unit.Knots)
                     {
-                        return MphToKnots(value);
+                        outVal = MphToKnots(val);
+                        calculated = true;
                     }
-                    else if (outputUnit == Unit.MetersPerSecond)
+                    else if (outUnit == Unit.MetersPerSecond)
                     {
-                        return MphToMps(value);
+                        outVal = MphToMps(val);
+                        calculated = true;
                     }
                     break;
                 case Unit.Knots:
-                    if (outputUnit == Unit.MilesPerHour)
+                    if (outUnit == Unit.MilesPerHour)
                     {
-                        return KnotsToMph(value);
+                        outVal = KnotsToMph(val);
+                        calculated = true;
                     }
-                    else if (outputUnit == Unit.KilometersPerHour)
+                    else if (outUnit == Unit.KilometersPerHour)
                     {
-                        return KnotsToKph(value);
+                        outVal = KnotsToKph(val);
+                        calculated = true;
                     }
-                    else if (outputUnit == Unit.MetersPerSecond)
+                    else if (outUnit == Unit.MetersPerSecond)
                     {
-                        return KnotsToMps(value);
+                        outVal = KnotsToMps(val);
+                        calculated = true;
                     }
                     break;
                 default:
-                    throw new UnsupportedUnit(inputUnit);
+                    throw new UnsupportedUnit(inpUnit);
             }
 
-            throw new IncompatibleConversionUnits(inputUnit, outputUnit);
+            if (calculated)
+            {
+                return new Tuple<double, Unit>(outVal, outUnit);
+            }
+            else
+            {
+                throw new IncompatibleConversionUnits(inpUnit, outUnit);
+            }
         }
     }
 }

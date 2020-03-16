@@ -1,51 +1,69 @@
-﻿using static UnitConverter.Lib.Units;
+﻿using System;
+using static UnitConverter.Lib.Units;
 using static UnitConverter.Lib.Formulas;
 
 namespace UnitConverter.Lib
 {
     public class MassConverter : IConverter
     {
-        public double convert(double value, string fromUnit, string toUnit)
+        public string name()
         {
-            Unit inputUnit = UnitFromString(fromUnit);
-            Unit outputUnit = UnitFromString(toUnit);
-            switch (inputUnit)
+            return "Mass Converter";
+        }
+        public Tuple<double, Unit> convert(double val, Unit inpUnit, Unit outUnit)
+        {
+            double outVal = 0;
+            bool calculated = false;
+
+            switch (inpUnit)
             {
                 case Unit.Kilograms:
-                    if (outputUnit == Unit.Pounds)
+                    if (outUnit == Unit.Pounds)
                     {
-                        return KilogramsToPounds(value);
+                        outVal = KilogramsToPounds(val);
+                        calculated = true;
                     }
-                    else if (outputUnit == Unit.Ounces)
+                    else if (outUnit == Unit.Ounces)
                     {
-                        return KilogramsToOunces(value);
+                        outVal = KilogramsToOunces(val);
+                        calculated = true;
                     }
                     break;
                 case Unit.Pounds:
-                    if (outputUnit == Unit.Kilograms)
+                    if (outUnit == Unit.Kilograms)
                     {
-                        return PoundsToKilograms(value);
+                        outVal = PoundsToKilograms(val);
+                        calculated = true;
                     }
-                    else if (outputUnit == Unit.Ounces)
+                    else if (outUnit == Unit.Ounces)
                     {
-                        return PoundsToOunces(value);
+                        outVal = PoundsToOunces(val);
+                        calculated = true;
                     }
                     break;
                 case Unit.Ounces:
-                    if (outputUnit == Unit.Kilograms)
+                    if (outUnit == Unit.Kilograms)
                     {
-                        return OuncesToKilograms(value);
+                        outVal = OuncesToKilograms(val);
+                        calculated = true;
                     }
-                    else if (outputUnit == Unit.Pounds)
+                    else if (outUnit == Unit.Pounds)
                     {
-                        return OuncesToPounds(value);
+                        outVal = OuncesToPounds(val);
+                        calculated = true;
                     }
                     break;
                 default:
-                    throw new UnsupportedUnit(inputUnit);
+                    throw new UnsupportedUnit(inpUnit);
             }
-
-            throw new IncompatibleConversionUnits(inputUnit, outputUnit);
+            if (calculated)
+            {
+                return new Tuple<double, Unit>(outVal, outUnit);
+            } 
+            else
+            {
+                throw new IncompatibleConversionUnits(inpUnit, outUnit);
+            }
         }
     }
 }
