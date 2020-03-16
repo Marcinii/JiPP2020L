@@ -70,5 +70,19 @@ namespace KonwerterJednostek
                     break;
             }
         }
+
+        public string UnitConv(int choice, double number)
+        {
+            Length a = new Length(number);
+            switch (choice)
+            {
+                case 0:
+                    return a.m + " mi";
+                case 1:
+                    return a.k + " km";
+                default:
+                    return "Wybierz jednostki do konwersji :)";
+            }
+        }
     }
 }

@@ -70,5 +70,19 @@ namespace KonwerterJednostek
                     break;
             }
         }
+
+        public string UnitConv(int choice, double number)
+        {
+            Weight a = new Weight(number);
+            switch (choice)
+            {
+                case 0:
+                    return a.lb + " lb";
+                case 1:
+                    return a.kg + " kg";
+                default:
+                    return "Wybierz jednostki do konwersji :)";
+            }
+        }
     }
 }

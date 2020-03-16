@@ -54,7 +54,7 @@ namespace KonwerterJednostek
         {
             Info();
             int choice = Convert.ToInt32(Console.ReadLine());
-            Console.Write("\tPodaj wartosc wagi: ");
+            Console.Write("\tPodaj wartosc jednostki energii: ");
             double number = Convert.ToDouble(Console.ReadLine().Replace('.', ','));
             Energy a = new Energy(number);
             switch (choice)
@@ -68,6 +68,20 @@ namespace KonwerterJednostek
                 default:
                     Console.WriteLine("!!! ERROR !!!");
                     break;
+            }
+        }
+
+        public string UnitConv(int choice, double number)
+        {
+            Energy a = new Energy(number);
+            switch (choice)
+            {
+                case 0:
+                    return a.jk + " kWh";
+                case 1:
+                    return a.kj + " kJ";
+                default:
+                    return "Wybierz jednostki do konwersji :)";
             }
         }
     }

@@ -9,6 +9,7 @@ namespace KonwerterJednostek
     public interface IConverter
     {
         void UnitConv();
+        string UnitConv(int choice, double number);
         double Option1();
         double Option2();
         void Info();

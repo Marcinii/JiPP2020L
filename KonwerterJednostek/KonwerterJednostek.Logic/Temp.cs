@@ -118,5 +118,26 @@ namespace KonwerterJednostek
                     break;
             }
         }
+        public string UnitConv(int choice, double number)
+        {
+            Temp a = new Temp(number);
+            switch (choice)
+            {
+                case 0:
+                    return a.cf + " F";
+                case 1:
+                    return a.fc + " stC";
+                case 2:
+                    return a.ck + " K";
+                case 3:
+                    return a.kc + " stC";
+                case 4:
+                    return a.fk + " K";
+                case 5:
+                    return a.kf + " F";
+                default:
+                    return "Wybierz jednostki do konwersji :)";
+            }
+        }
     }
 }
