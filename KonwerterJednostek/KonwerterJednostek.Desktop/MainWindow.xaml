@@ -7,6 +7,20 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="39"/>
+            <RowDefinition Height="387"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="136"/>
+            <ColumnDefinition Width="172"/>
+            <ColumnDefinition Width="175"/>
+            <ColumnDefinition Width="309"/>
+        </Grid.ColumnDefinitions>
+        <Label Grid.Row="0" Grid.Column="0" Margin="5,5,5,5">Wprowadź text</Label>
+        <Button x:Name="actionButton" Content="Przyciśnij mnie" Grid.Column="2" Margin="5,5,5,5" Click="actionButton_Click"/>
+        <TextBlock x:Name="outputTextblock" Grid.Column="3" Text="TextBlock" Margin="5,5,5,5"/>
+        <TextBox x:Name="inputTextbox" Grid.Column="1" Margin="5,5,5,5"/>
+        <ComboBox x:Name="combobox" Grid.Column="2" HorizontalAlignment="Left" Margin="10.2,10,0,0" Grid.Row="1" VerticalAlignment="Top" Width="120" SelectionChanged="combobox_SelectionChanged"/>
     </Grid>
 </Window>

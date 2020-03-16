@@ -23,6 +23,25 @@ namespace KonwerterJednostek.Desktop
         public MainWindow()
         {
             InitializeComponent();
+            combobox.ItemsSource = new List<string>()
+            {
+                "napis1",
+                "napis2",
+                "napis3"
+            };
+        }
+
+        private void actionButton_Click(object sender, RoutedEventArgs e)
+        {
+            //Temp conv = new Temp();
+            string input = inputTextbox.Text;
+            string output = "witaj " + input;
+            outputTextblock.Text = output;
+        }
+
+        private void combobox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            MessageBox.Show("Wybrałeś: " + combobox.SelectedItem); 
         }
     }
 }
