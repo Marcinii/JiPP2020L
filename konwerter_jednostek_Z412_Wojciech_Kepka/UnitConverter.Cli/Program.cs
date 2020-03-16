@@ -135,57 +135,57 @@ namespace UnitConverter.Cli
                 {
                     // Temperatures
                     case Unit.Celsius:
-                        outVals.Add(tConv.convert(inpVal, inpUnit, Unit.Kelvin));
-                        outVals.Add(tConv.convert(inpVal, inpUnit, Unit.Fahrenheit));
+                        outVals.Add(tConv.Convert(inpVal, inpUnit, Unit.Kelvin));
+                        outVals.Add(tConv.Convert(inpVal, inpUnit, Unit.Fahrenheit));
                         break;
                     case Unit.Fahrenheit:
-                        outVals.Add(tConv.convert(inpVal, inpUnit, Unit.Celsius));
-                        outVals.Add(tConv.convert(inpVal, inpUnit, Unit.Kelvin));
+                        outVals.Add(tConv.Convert(inpVal, inpUnit, Unit.Celsius));
+                        outVals.Add(tConv.Convert(inpVal, inpUnit, Unit.Kelvin));
                         break;
                     case Unit.Kelvin:
-                        outVals.Add(tConv.convert(inpVal, inpUnit, Unit.Celsius));
-                        outVals.Add(tConv.convert(inpVal, inpUnit, Unit.Fahrenheit));
+                        outVals.Add(tConv.Convert(inpVal, inpUnit, Unit.Celsius));
+                        outVals.Add(tConv.Convert(inpVal, inpUnit, Unit.Fahrenheit));
                         break;
                     // Mass
                     case Unit.Kilograms:
-                        outVals.Add(mConv.convert(inpVal, inpUnit, Unit.Pounds));
-                        outVals.Add(mConv.convert(inpVal, inpUnit, Unit.Ounces));
+                        outVals.Add(mConv.Convert(inpVal, inpUnit, Unit.Pounds));
+                        outVals.Add(mConv.Convert(inpVal, inpUnit, Unit.Ounces));
                         break;
                     case Unit.Pounds:
-                        outVals.Add(mConv.convert(inpVal, inpUnit, Unit.Kilograms));
-                        outVals.Add(mConv.convert(inpVal, inpUnit, Unit.Ounces));
+                        outVals.Add(mConv.Convert(inpVal, inpUnit, Unit.Kilograms));
+                        outVals.Add(mConv.Convert(inpVal, inpUnit, Unit.Ounces));
                         break;
                     case Unit.Ounces:
-                        outVals.Add(mConv.convert(inpVal, inpUnit, Unit.Kilograms));
-                        outVals.Add(mConv.convert(inpVal, inpUnit, Unit.Pounds));
+                        outVals.Add(mConv.Convert(inpVal, inpUnit, Unit.Kilograms));
+                        outVals.Add(mConv.Convert(inpVal, inpUnit, Unit.Pounds));
                         break;
                     // Distance
                     case Unit.Kilometers:
-                        outVals.Add(dConv.convert(inpVal, inpUnit, Unit.Miles));
+                        outVals.Add(dConv.Convert(inpVal, inpUnit, Unit.Miles));
                         break;
                     case Unit.Miles:
-                        outVals.Add(dConv.convert(inpVal, inpUnit, Unit.Kilometers));
+                        outVals.Add(dConv.Convert(inpVal, inpUnit, Unit.Kilometers));
                         break;
                     // Speed
                     case Unit.KilometersPerHour:
-                        outVals.Add(sConv.convert(inpVal, inpUnit, Unit.Knots));
-                        outVals.Add(sConv.convert(inpVal, inpUnit, Unit.MilesPerHour));
-                        outVals.Add(sConv.convert(inpVal, inpUnit, Unit.MetersPerSecond));
+                        outVals.Add(sConv.Convert(inpVal, inpUnit, Unit.Knots));
+                        outVals.Add(sConv.Convert(inpVal, inpUnit, Unit.MilesPerHour));
+                        outVals.Add(sConv.Convert(inpVal, inpUnit, Unit.MetersPerSecond));
                         break;
                     case Unit.MetersPerSecond:
-                        outVals.Add(sConv.convert(inpVal, inpUnit, Unit.Knots));
-                        outVals.Add(sConv.convert(inpVal, inpUnit, Unit.MilesPerHour));
-                        outVals.Add(sConv.convert(inpVal, inpUnit, Unit.KilometersPerHour));
+                        outVals.Add(sConv.Convert(inpVal, inpUnit, Unit.Knots));
+                        outVals.Add(sConv.Convert(inpVal, inpUnit, Unit.MilesPerHour));
+                        outVals.Add(sConv.Convert(inpVal, inpUnit, Unit.KilometersPerHour));
                         break;
                     case Unit.MilesPerHour:
-                        outVals.Add(sConv.convert(inpVal, inpUnit, Unit.Knots));
-                        outVals.Add(sConv.convert(inpVal, inpUnit, Unit.MetersPerSecond));
-                        outVals.Add(sConv.convert(inpVal, inpUnit, Unit.KilometersPerHour));
+                        outVals.Add(sConv.Convert(inpVal, inpUnit, Unit.Knots));
+                        outVals.Add(sConv.Convert(inpVal, inpUnit, Unit.MetersPerSecond));
+                        outVals.Add(sConv.Convert(inpVal, inpUnit, Unit.KilometersPerHour));
                         break;
                     case Unit.Knots:
-                        outVals.Add(sConv.convert(inpVal, inpUnit, Unit.MetersPerSecond));
-                        outVals.Add(sConv.convert(inpVal, inpUnit, Unit.MilesPerHour));
-                        outVals.Add(sConv.convert(inpVal, inpUnit, Unit.KilometersPerHour));
+                        outVals.Add(sConv.Convert(inpVal, inpUnit, Unit.MetersPerSecond));
+                        outVals.Add(sConv.Convert(inpVal, inpUnit, Unit.MilesPerHour));
+                        outVals.Add(sConv.Convert(inpVal, inpUnit, Unit.KilometersPerHour));
                         break;
                     default:
                         break;

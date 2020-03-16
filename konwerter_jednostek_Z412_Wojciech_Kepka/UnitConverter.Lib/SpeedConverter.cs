@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using static UnitConverter.Lib.Units;
 using static UnitConverter.Lib.Formulas;
 
@@ -6,11 +7,14 @@ namespace UnitConverter.Lib
 {
     public class SpeedConverter : IConverter
     {
-        public string name()
-        {
-            return "Speed Converter";
-        }
-        public Tuple<double, Unit> convert(double val, Unit inpUnit, Unit outUnit)
+        public string Name => "Speed Converter";
+        public List<Unit> SupportedUnits => new List<Unit>() {
+            Unit.KilometersPerHour,
+            Unit.MetersPerSecond,
+            Unit.MilesPerHour,
+            Unit.Knots
+        };
+        public Tuple<double, Unit> Convert(double val, Unit inpUnit, Unit outUnit)
         {
             double outVal = 0;
             bool calculated = false;
@@ -65,6 +69,23 @@ namespace UnitConverter.Lib
                     else if (outUnit == Unit.MetersPerSecond)
                     {
                         outVal = KnotsToMps(val);
+                        calculated = true;
+                    }
+                    break;
+                case Unit.MetersPerSecond:
+                    if (outUnit == Unit.MilesPerHour)
+                    {
+                        outVal = MpsToMph(val);
+                        calculated = true;
+                    }
+                    else if (outUnit == Unit.KilometersPerHour)
+                    {
+                        outVal = MpsToKph(val);
+                        calculated = true;
+                    }
+                    else if (outUnit == Unit.Knots)
+                    {
+                        outVal = MpsToKnots(val);
                         calculated = true;
                     }
                     break;

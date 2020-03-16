@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using static UnitConverter.Lib.Units;
 using static UnitConverter.Lib.Formulas;
 
@@ -6,11 +7,13 @@ namespace UnitConverter.Lib
 {
     public class TemperatureConverter : IConverter
     {
-        public string name()
-        {
-            return "Temperature Converter";
-        }
-        public Tuple<double, Unit> convert(double val, Unit inpUnit, Unit outUnit)
+        public string Name => "Temperature Converter";
+        public List<Unit> SupportedUnits => new List<Unit>() {
+            Unit.Celsius,
+            Unit.Fahrenheit,
+            Unit.Kelvin,
+        };
+        public Tuple<double, Unit> Convert(double val, Unit inpUnit, Unit outUnit)
         {
             double outVal = 0;
             bool calculated = false;
