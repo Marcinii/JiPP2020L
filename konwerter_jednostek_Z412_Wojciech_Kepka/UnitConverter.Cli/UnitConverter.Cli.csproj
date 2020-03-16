@@ -50,9 +50,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Converter\Converter.csproj">
+    <ProjectReference Include="..\UnitConverter.Lib\UnitConverter.Lib.csproj">
       <Project>{36d73995-228b-41d2-a764-fc047b3663d2}</Project>
-      <Name>Converter</Name>
+      <Name>UnitConverter.Lib</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
