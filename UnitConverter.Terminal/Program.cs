@@ -5,6 +5,9 @@ using UnitConverter.Library.OperationUtil;
 namespace UnitConverter.Terminal
 {
 
+    /// <summary>
+    /// Klasa uruchamiająca całą aplikację konsolową
+    /// </summary>
     class Program
     {
 
