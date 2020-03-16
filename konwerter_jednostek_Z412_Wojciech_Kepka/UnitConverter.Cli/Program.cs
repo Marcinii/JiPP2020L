@@ -19,10 +19,13 @@ namespace UnitConverter.Cli
         bool cmd = false;
         Dictionary<DateTime, Record> history = new Dictionary<DateTime, Record> { };
 
-        DistanceConverter dConv = new DistanceConverter();
-        MassConverter mConv = new MassConverter();
-        SpeedConverter sConv = new SpeedConverter();
-        TemperatureConverter tConv = new TemperatureConverter();
+        List<IConverter> converters = new List<IConverter>()
+        {
+            new DistanceConverter(),
+            new MassConverter(),
+            new SpeedConverter(),
+            new TemperatureConverter(),
+        };
 
         Converter()
         {
@@ -131,65 +134,18 @@ namespace UnitConverter.Cli
         {
             if (!cmd)
             {
-                switch (inpUnit)
+                foreach(IConverter conv in converters)
                 {
-                    // Temperatures
-                    case Unit.Celsius:
-                        outVals.Add(tConv.Convert(inpVal, inpUnit, Unit.Kelvin));
-                        outVals.Add(tConv.Convert(inpVal, inpUnit, Unit.Fahrenheit));
-                        break;
-                    case Unit.Fahrenheit:
-                        outVals.Add(tConv.Convert(inpVal, inpUnit, Unit.Celsius));
-                        outVals.Add(tConv.Convert(inpVal, inpUnit, Unit.Kelvin));
-                        break;
-                    case Unit.Kelvin:
-                        outVals.Add(tConv.Convert(inpVal, inpUnit, Unit.Celsius));
-                        outVals.Add(tConv.Convert(inpVal, inpUnit, Unit.Fahrenheit));
-                        break;
-                    // Mass
-                    case Unit.Kilograms:
-                        outVals.Add(mConv.Convert(inpVal, inpUnit, Unit.Pounds));
-                        outVals.Add(mConv.Convert(inpVal, inpUnit, Unit.Ounces));
-                        break;
-                    case Unit.Pounds:
-                        outVals.Add(mConv.Convert(inpVal, inpUnit, Unit.Kilograms));
-                        outVals.Add(mConv.Convert(inpVal, inpUnit, Unit.Ounces));
-                        break;
-                    case Unit.Ounces:
-                        outVals.Add(mConv.Convert(inpVal, inpUnit, Unit.Kilograms));
-                        outVals.Add(mConv.Convert(inpVal, inpUnit, Unit.Pounds));
-                        break;
-                    // Distance
-                    case Unit.Kilometers:
-                        outVals.Add(dConv.Convert(inpVal, inpUnit, Unit.Miles));
-                        break;
-                    case Unit.Miles:
-                        outVals.Add(dConv.Convert(inpVal, inpUnit, Unit.Kilometers));
-                        break;
-                    // Speed
-                    case Unit.KilometersPerHour:
-                        outVals.Add(sConv.Convert(inpVal, inpUnit, Unit.Knots));
-                        outVals.Add(sConv.Convert(inpVal, inpUnit, Unit.MilesPerHour));
-                        outVals.Add(sConv.Convert(inpVal, inpUnit, Unit.MetersPerSecond));
-                        break;
-                    case Unit.MetersPerSecond:
-                        outVals.Add(sConv.Convert(inpVal, inpUnit, Unit.Knots));
-                        outVals.Add(sConv.Convert(inpVal, inpUnit, Unit.MilesPerHour));
-                        outVals.Add(sConv.Convert(inpVal, inpUnit, Unit.KilometersPerHour));
-                        break;
-                    case Unit.MilesPerHour:
-                        outVals.Add(sConv.Convert(inpVal, inpUnit, Unit.Knots));
-                        outVals.Add(sConv.Convert(inpVal, inpUnit, Unit.MetersPerSecond));
-                        outVals.Add(sConv.Convert(inpVal, inpUnit, Unit.KilometersPerHour));
-                        break;
-                    case Unit.Knots:
-                        outVals.Add(sConv.Convert(inpVal, inpUnit, Unit.MetersPerSecond));
-                        outVals.Add(sConv.Convert(inpVal, inpUnit, Unit.MilesPerHour));
-                        outVals.Add(sConv.Convert(inpVal, inpUnit, Unit.KilometersPerHour));
-                        break;
-                    default:
-                        break;
-
+                    if (conv.SupportedUnits.Contains(inpUnit))
+                    {
+                        foreach (Unit u in conv.SupportedUnits)
+                        {
+                            if (u != inpUnit)
+                            {
+                                outVals.Add(conv.Convert(inpVal, inpUnit, u));
+                            }
+                        }
+                    }
                 }
                 calculated = true;
                 history.Add(DateTime.Now, new Record(inpVal, inpUnit, new List<Tuple<double, Unit>>(outVals)));
