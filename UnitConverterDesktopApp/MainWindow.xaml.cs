@@ -28,7 +28,7 @@ namespace UnitConverterDesktopApp
         public MainWindow()
         {
             InitializeComponent();
-            this.Title = "Unit Converter";
+            this.Title = "Unit Converter"; 
         }
 
         private void CategoryComboBox_Loaded(object sender, RoutedEventArgs e)
@@ -81,6 +81,16 @@ namespace UnitConverterDesktopApp
                     {  
                         var result = SelectedConverter.Convert(sourceUnit, targetUnit, inputValue);
                         ResultValueTextBlock.Text = result.ToString();
+
+                        if (SelectedConverter.Name == "Clock" && 
+                            targetUnit == "12-hour")
+                        {
+                            if (DateTime.TryParse(result, out DateTime timeToShow))
+                            {
+                                MinuteRotation.Angle = timeToShow.Minute * 6.0;
+                                HourRotation.Angle = (timeToShow.Hour * 30.0) + (timeToShow.Minute / 60.0 * 30.0);
+                            }
+                        }
                     }
                 }
             }

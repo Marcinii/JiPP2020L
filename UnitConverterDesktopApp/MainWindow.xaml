@@ -38,5 +38,26 @@
                 <TextBlock x:Name="ResultValueTextBlock" FontSize="14" TextAlignment="Center"/>
             </Border>
         </StackPanel>
+        <Path x:Name="MinutePointer" Data="M58,514.33333 L60.666667,571"  HorizontalAlignment="Left" Height="60" Margin="240.348,35.728,0,0" Grid.Row="2" Stretch="Fill" VerticalAlignment="Top" Width="2.668" Stroke="Black" StrokeThickness="3" RenderTransformOrigin="0.5,1">
+            <Path.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform x:Name="MinuteRotation" Angle="0"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Path.RenderTransform>
+        </Path>
+        <Path x:Name="HourPointer" Data="M58,514.33333 L60.666667,571"  HorizontalAlignment="Left" Height="45" Margin="240.348,50.436,0,0" Grid.Row="2" Stretch="Fill" VerticalAlignment="Top" Width="2.668" Stroke="Black" StrokeThickness="3" RenderTransformOrigin="0.5,1">
+            <Path.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform x:Name="HourRotation" Angle="0"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Path.RenderTransform>
+        </Path>
+        <Path x:Name="ShieldClock" Data="M70.552002,66.051002 C73.037285,66.051002 75.052002,68.065719 75.052002,70.551002 75.052002,73.036277 73.037285,75.051002 70.552002,75.051002 68.066719,75.051002 66.052002,73.036277 66.052002,70.551002 66.052002,68.065719 68.066719,66.051002 70.552002,66.051002 z M70.551994,6.2619235 C35.046127,6.2619235 6.2629294,35.045349 6.2629285,70.551506 6.2629294,106.05766 35.046127,134.84108 70.551994,134.84108 106.05786,134.84108 134.84106,106.05766 134.84106,70.551506 134.84106,35.045349 106.05786,6.2619235 70.551994,6.2619235 z M70.551994,0 C109.5168,6.5434494E-07 141.104,31.586982 141.104,70.551506 141.104,109.51601 109.5168,141.10301 70.551994,141.10301 31.587204,141.10301 0,109.51601 0,70.551506 0,31.586982 31.587204,6.5434494E-07 70.551994,0 z" Fill="#FF067C00" HorizontalAlignment="Left" Height="141.103" Margin="171.114,24.969,0,0" Grid.Row="2" Stretch="Fill" VerticalAlignment="Top" Width="141.104"/>
     </Grid>
 </Window>
