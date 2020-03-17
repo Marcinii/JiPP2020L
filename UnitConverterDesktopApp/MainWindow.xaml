@@ -6,6 +6,39 @@
         xmlns:local="clr-namespace:UnitConverterDesktopApp"
         mc:Ignorable="d"
         Title="MainWindow" Height="700" Width="500" Background="#FFF0F0F0" >
+    <Window.Resources>
+        <Storyboard x:Key="ClockAppear">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="ShieldClock">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="MinutePointer">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:1.3" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="HourPointer">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:1.4" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Key="ClockDisappear">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="HourPointer">
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="MinutePointer">
+                <EasingDoubleKeyFrame KeyTime="0:0:1.2" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="ShieldClock">
+                <EasingDoubleKeyFrame KeyTime="0:0:1.5" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+    </Window.Resources>
+    <Window.Triggers>
+        <EventTrigger RoutedEvent="FrameworkElement.Loaded">
+            <BeginStoryboard Storyboard="{StaticResource ClockAppear}"/>
+            <BeginStoryboard Storyboard="{StaticResource ClockDisappear}"/>
+        </EventTrigger>
+    </Window.Triggers>
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
@@ -38,22 +71,22 @@
                 <TextBlock x:Name="ResultValueTextBlock" FontSize="14" TextAlignment="Center"/>
             </Border>
         </StackPanel>
-        <Path x:Name="MinutePointer" Data="M58,514.33333 L60.666667,571"  HorizontalAlignment="Left" Height="60" Margin="240.348,35.728,0,0" Grid.Row="2" Stretch="Fill" VerticalAlignment="Top" Width="2.668" Stroke="Black" StrokeThickness="3" RenderTransformOrigin="0.5,1">
-            <Path.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform/>
-                    <RotateTransform x:Name="MinuteRotation" Angle="0"/>
-                    <TranslateTransform/>
-                </TransformGroup>
-            </Path.RenderTransform>
-        </Path>
         <Path x:Name="HourPointer" Data="M58,514.33333 L60.666667,571"  HorizontalAlignment="Left" Height="45" Margin="240.348,50.436,0,0" Grid.Row="2" Stretch="Fill" VerticalAlignment="Top" Width="2.668" Stroke="Black" StrokeThickness="3" RenderTransformOrigin="0.5,1">
             <Path.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
                     <SkewTransform/>
                     <RotateTransform x:Name="HourRotation" Angle="0"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Path.RenderTransform>
+        </Path>
+        <Path x:Name="MinutePointer" Data="M58,514.33333 L60.666667,571"  HorizontalAlignment="Left" Height="60" Margin="240.348,35.728,0,0" Grid.Row="2" Stretch="Fill" VerticalAlignment="Top" Width="2.668" Stroke="Black" StrokeThickness="3" RenderTransformOrigin="0.5,1">
+            <Path.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform x:Name="MinuteRotation" Angle="0"/>
                     <TranslateTransform/>
                 </TransformGroup>
             </Path.RenderTransform>

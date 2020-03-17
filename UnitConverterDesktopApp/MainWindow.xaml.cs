@@ -10,6 +10,7 @@ using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
+using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
@@ -28,7 +29,11 @@ namespace UnitConverterDesktopApp
         public MainWindow()
         {
             InitializeComponent();
-            this.Title = "Unit Converter"; 
+            this.Title = "Unit Converter";
+
+            ShieldClock.Visibility = Visibility.Hidden;
+            MinutePointer.Visibility = Visibility.Hidden;
+            HourPointer.Visibility = Visibility.Hidden;
         }
 
         private void CategoryComboBox_Loaded(object sender, RoutedEventArgs e)
@@ -50,6 +55,19 @@ namespace UnitConverterDesktopApp
             SelectedConverter = AvailableConverters[CategoryComboBox.SelectedItem.ToString()];
             SourceUnitComboBox.ItemsSource = SelectedConverter.AvailableUnits;
             TargetUnitComboBox.ItemsSource = SelectedConverter.AvailableUnits;
+            
+            if (SelectedConverter.Name == "Clock")
+            {       
+                ShieldClock.Visibility = Visibility.Visible;
+                MinutePointer.Visibility = Visibility.Visible;
+                HourPointer.Visibility = Visibility.Visible;
+                ((Storyboard)Resources["ClockAppear"]).Begin();
+            }
+            
+            else
+            {
+                ((Storyboard)Resources["ClockDisappear"]).Begin();
+            }
         }
 
         private void ConvertButton_Click(object sender, RoutedEventArgs e)
@@ -82,8 +100,7 @@ namespace UnitConverterDesktopApp
                         var result = SelectedConverter.Convert(sourceUnit, targetUnit, inputValue);
                         ResultValueTextBlock.Text = result.ToString();
 
-                        if (SelectedConverter.Name == "Clock" && 
-                            targetUnit == "12-hour")
+                        if (SelectedConverter.Name == "Clock")
                         {
                             if (DateTime.TryParse(result, out DateTime timeToShow))
                             {
