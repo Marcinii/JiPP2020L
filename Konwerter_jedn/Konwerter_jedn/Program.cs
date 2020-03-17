@@ -8,45 +8,48 @@ namespace Konwerter_jedn
 {
     class Program
     {
-        static void Main()
+        static void Main(string[] args)
         {
-            int wybor = 0;
-            Konwerter nowy = new Konwerter();
-            Console.WriteLine("To konwerter jednostek. Wybierz operacje.");
-            Console.WriteLine("Jednostki temperatury:");
-            Console.WriteLine("1. Zamiana stopni Celsjusza na stopnie Fahrenheita;");
-            Console.WriteLine("2. Zamiana stopni Fahrenheita na stopnie Celsjusza;");
-            Console.WriteLine("Jednostki odleglosci:");
-            Console.WriteLine("3. Zamiana kilometrow na mile;");
-            Console.WriteLine("4. Zamiana mil na kilometry;");
-            Console.WriteLine("Jednostki masy:");
-            Console.WriteLine("5. Zamiana kilogramow na funty;");
-            Console.WriteLine("6. Zamiana funtow na kilogramy;");
-            wybor = Convert.ToInt32(Console.ReadLine());
-            switch(wybor)
+            List<IKonwerter_jedn> konwertery = new List<IKonwerter_jedn>()
             {
-                case 1:
-                    nowy.CtoF();
-                    break;
-                case 2:
-                    nowy.FtoC();
-                    break;
-                case 3:
-                    nowy.KmtoM();
-                    break;
-                case 4:
-                    nowy.MtoKm();
-                    break;
-                case 5:
-                    nowy.KgtoF();
-                    break;
-                case 6:
-                    nowy.FtoKg();
-                    break;
+                new temperatury(),
+                new cisnienia(),
+                new masy(),
+                new odleglosci(),
+            };
+            bool shouldContinue = true;
+            while (shouldContinue)
+            {
+                Console.WriteLine("To konwerter jednostek. Wybierz dzialanie.");
 
+                for (int i = 0; i < konwertery.Count; i++)
+                {
+                    Console.WriteLine("({0}) {1}", i + 1, konwertery[i].Nazwa);
+                }
 
+                string wybor = Console.ReadLine(); //wybor - wybrany numer
+                int dzialanie = int.Parse(wybor); //dzialanie - do wykonania
+
+                Console.WriteLine("Wpisz jednostke do konwersji: ");
+                string Zjakiej = Console.ReadLine();
+
+                Console.WriteLine("Wpisz jednostke na jaka chcesz konwertowac: ");
+                string DOjakiej = Console.ReadLine();
+
+                Console.WriteLine("Wpisz wartosc do konwersji: ");
+                string wartosc = Console.ReadLine();
+
+                double zmienna = (double)Convert.ChangeType(wartosc, typeof(double)); //kurde nie wiem, chyba zmienia ze stringa na double
+                //double zmienna = decimal.Parse(wartosc); //to bylo wczesniej
+
+                double wynikKoncowy = konwertery[dzialanie - 1].naWybr(Zjakiej, DOjakiej, zmienna);
+                Console.WriteLine("To jest {0}", wynikKoncowy);
+                
             }
-            Console.ReadLine();
+            shouldContinue = false;
         }
+    
     }
+    
 }
+
