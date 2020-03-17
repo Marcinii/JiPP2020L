@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="KonwerterService.cs" />
     <Compile Include="IConverter.cs" />
     <Compile Include="LenghtConverter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

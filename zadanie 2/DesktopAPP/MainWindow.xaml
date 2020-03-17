@@ -1,0 +1,44 @@
+﻿<Window x:Class="DesktopAPP.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DesktopAPP"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+
+    <Grid RenderTransformOrigin="0.625,0.513">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="245*"/>
+            <ColumnDefinition Width="151*"/>
+        </Grid.ColumnDefinitions>
+
+
+        <ComboBox x:Name="convCombobox" Margin="10,45,340,334" SelectionChanged="convCombobox_SelectionChanged">
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding Name}"/>
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+
+            <ComboBox x:Name="unitFrombox" Margin="10,120,20,259" SelectionChanged="unitFrombox_SelectionChanged"/>
+            <ComboBox x:Name="unitTobox" Margin="15,120,10,259" Grid.Column="1"/>
+            <TextBlock HorizontalAlignment="Left" Margin="10,15,0,0" TextWrapping="Wrap" Text="Liczba przed konwersją:" VerticalAlignment="Top" Width="155" Grid.Column="1"/>
+            <TextBlock HorizontalAlignment="Left" Margin="10,15,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="130"><Run Text="           "/><Run Text="Jednostki:"/></TextBlock>
+            <TextBlock HorizontalAlignment="Left" Margin="78,93,0,0" TextWrapping="Wrap" Text="Jednostka Z:" VerticalAlignment="Top" Width="82"/>
+            <TextBlock HorizontalAlignment="Left" Margin="83,94,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="82" Grid.Column="1"><Run Text="Jednostka "/><Run Text="DO"/><Run Text=":"/></TextBlock>
+            <TextBlock HorizontalAlignment="Center" Margin="330,20,-242,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="157" Grid.Column="1" Height="365" FontSize="14" Foreground="Red" TextAlignment="Center"><Run Foreground="{x:Null}" Text="k:"/><Run FontFamily="Consolas" Text="Długości:"/><LineBreak/><Run Text=" "/><Run Text="mile"/><LineBreak/><Run Text="kilometry"/><LineBreak/><Run Text=" "/><Run Text="metry&#x9;"/><LineBreak/><Run/><LineBreak/><Run FontFamily="Consolas" Text="Temperatury:"/><LineBreak/><Run Text="C"/><LineBreak/><Run Text="F "/><LineBreak/><Run Text="K"/><LineBreak/><Run/><LineBreak/><Run FontFamily="Consolas" Text="Czas:"/><LineBreak/><Run Text=" "/><Run Text="S"/><LineBreak/><Run Text="Min "/><LineBreak/><Run Text="H"/><LineBreak/><Run/><LineBreak/><Run Text="W"/><Run FontFamily="Consolas" Text="agi"/><Run Text=":"/><LineBreak/><Run Text="kg"/><LineBreak/><Run Text="funty"/><LineBreak/><Run Text="tony"/><LineBreak/><LineBreak/><LineBreak/><LineBreak/><LineBreak/><LineBreak/><LineBreak/><LineBreak/><LineBreak/></TextBlock>
+            <TextBlock HorizontalAlignment="Left" Margin="110,330,0,0" TextWrapping="Wrap" Text="WYNIK:" VerticalAlignment="Top" Height="70" Width="155" FontSize="24" Grid.ColumnSpan="2"/>
+        </Grid>
+        <TextBox x:Name="inputTextBox" Margin="200,45,65,334" TextChanged="inputTextBox_TextChanged"/>
+        <Button x:Name="Button" Margin="175,210,190,169" Click="Button_Click" Content="Konwertuj"/>
+        <TextBlock x:Name="outputText" Margin="285,335,25,44"/>
+
+    </Grid>
+</Window>

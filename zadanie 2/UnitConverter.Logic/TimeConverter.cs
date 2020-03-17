@@ -1,42 +1,58 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
 
 namespace przelicznik
 {
 
 
-public class TimeConverter: IConverter
-{
-    public string Name => "Czas";
-
-        public string Choice => "10- sekundy na minuty\n11- minuty na godziny\n12-godziny na dni";
-
-
+    public class TimeConverter : IConverter
+    {
+        decimal wynik;
+        public string Name => "Czas";
         public List<string> Units => new List<string>()
         {
             "S",
             "Min ",
             "H"
         };
-       
 
-        public double Convert(double choice, double liczba, double wynik)
-    {
+        public decimal Convert(string unitFrom, string unitTo, decimal valueToConvert)
+        {
+            switch (unitFrom)
+            {
+                case "S":
+                    if (unitTo == "H")
+                    {
+                        wynik = valueToConvert / 3600;
+                    }
+                    if (unitTo == "Min")
+                    {
+                        wynik = valueToConvert / 60;
+                    }
+                    break;
+                case "H":
+                    if (unitTo == "Min")
+                    {
+                        wynik = valueToConvert / 60;
+                    }
+                    if (unitTo == "S")
+                    {
+                        wynik = valueToConvert * 3600;
+                    }
+                    break;
+                case "Min":
+                    if (unitTo == "S")
+                    {
+                        wynik = valueToConvert * 60;
+                    }
+                    if (unitTo == "H")
+                    {
+                        wynik = valueToConvert / 60;
+                    }
+                    break;
+            }
 
-        if (choice == 10)
-        {
-                wynik = liczba /60;
+            return wynik;
         }
-        if (choice == 11)
-        {
-                wynik = liczba /60;
+
         }
-        if (choice == 12)
-        {
-                wynik = liczba /24;
-        }
-            return wynik ;
     }
-}
-}

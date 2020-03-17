@@ -1,42 +1,56 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
 
 namespace przelicznik
 {
-    public class WeightConverter:IConverter
+    public class WeightConverter : IConverter
     {
 
-        public string Choice => "\n4- kilogramy na funty\n5- funty na kilogramy\n6- kilogramy na tony";
-             
-            
-      
-       
         public List<string> Units => new List<string>()
         {
             "kg",
             "funty",
             "tony"
         };
-
+        decimal wynik;
         public string Name => "wagi";
-
-        public double Convert(double choice, double liczba, double wynik)
+        public decimal Convert(string unitFrom, string unitTo, decimal valueToConvert)
         {
+            switch (unitFrom)
+            {
+                case "kg":
+                    if (unitTo == "funty")
+                    {
+                        wynik = valueToConvert * 2.20462262m;
+                    }
+                    if (unitTo == "tony")
+                    {
+                        wynik = valueToConvert / 1000;
+                    }
+                    break;
+                case "tony":
+                    if (unitTo == "kg")
+                    {
+                        wynik = valueToConvert * 1000;
+                    }
+                    if (unitTo == "funty")
+                    {
+                        wynik = valueToConvert * 2204.62262m;
+                    }
+                    break;
+                case "funty":
+                    if (unitTo == "tony")
+                    {
+                        wynik = valueToConvert * 0.00045359237m;
+                    }
+                    if (unitTo == "kg")
+                    {
+                        wynik = valueToConvert * 0.45359237m;
+                    }
+                    break;
+            }
 
-            if (choice == 5)
-            {
-                wynik = liczba * 2.2046;
-            }
-            if (choice == 4)
-            {
-                wynik = liczba * 0.4535;
-            }
-            if (choice == 6)
-            {
-                wynik = liczba * 1000;
-            }
-            return wynik ;
+            return wynik;
         }
+        
     }
 }

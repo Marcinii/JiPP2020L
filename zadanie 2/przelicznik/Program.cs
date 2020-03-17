@@ -1,7 +1,6 @@
 ﻿using przelicznik;
 using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace Konwerter
 {
@@ -27,41 +26,23 @@ namespace Konwerter
                     Console.WriteLine("({0}) {1}", i + 1, converters[i].Name);
                 }
                 string inputChoice = Console.ReadLine();
-                double choice = double.Parse(inputChoice);
-                Console.Write("Wpisz liczbę początkową: ");
-                double liczba = Convert.ToDouble(Console.ReadLine());                
-                
-                Console.WriteLine(choice);
-                if (choice == 1)
-                {                  
-                    TemperatureConverter conv1 = new TemperatureConverter();
-                    Console.WriteLine(converters[0].Choice);
-                    double second= Convert.ToDouble(Console.ReadLine());
-                    Console.WriteLine($"Twój wynik: {conv1.Convert(second, liczba, 0 )} ");
-                }
-                if (choice == 2)
-                {                
-                    WeightConverter conv4 = new WeightConverter();
-                    Console.WriteLine(converters[1].Choice);
-                    double second = Convert.ToDouble(Console.ReadLine());                  
-                    Console.WriteLine($"Twój wynik: {conv4.Convert(second, liczba, 0)} ");
-                }
-                if (choice == 3)
-                {                   
-                    LenghtConverter conv7 = new LenghtConverter();
-                    Console.WriteLine(converters[2].Choice);
-                    double second = Convert.ToDouble(Console.ReadLine());                   
-                    Console.WriteLine($"Twój wynik: {conv7.Convert(second, liczba, 0)} ");
-                }
-                if (choice == 4)
-                {                  
-                    TimeConverter conv8 = new TimeConverter();
-                    Console.WriteLine(converters[3].Choice);
-                    double second = Convert.ToDouble(Console.ReadLine());                   
-                    Console.WriteLine($"Twój wynik: {conv8.Convert(second, liczba, 0)} ");
-                }                        
-                }
+                int choice = int.Parse(inputChoice); //
+
+                Console.WriteLine("Podaj jednostkę Z: ");
+                string unitFrom = Console.ReadLine();
+
+                Console.WriteLine("Podaj jednostkę Do: ");
+                string unitTo = Console.ReadLine();
+
+                Console.WriteLine("Podaj liczbę do konwersji: ");
+                string inputValue = Console.ReadLine();
+                decimal value = decimal.Parse(inputValue);
+
+                decimal result = converters[choice - 1].Convert(unitFrom, unitTo, value);
+
+                Console.WriteLine("Wynik konwersji: {0}", result);
             }
-        }   
+        }
     }
+}
 

@@ -1,20 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
 
 
 namespace przelicznik
 {
-   public class TemperatureConverter: IConverter
+    public class TemperatureConverter : IConverter
     {
-
-        public string Choice => "\n1- Ze stopni Celsjusza na stopnie Farenheita\n2- Ze stopni Farenheita na stopnie Celsjusza\n3- Ze stopni Celsjusza na stopnie Kelwina";
-
-
-
-
-
-
+        decimal wynik;
         public string Name => "Temperatury";
 
         public List<string> Units => new List<string>()
@@ -23,19 +14,44 @@ namespace przelicznik
             "F ",
             "K"
         };
-      
-        public double Convert(double choice, double liczba,double wynik)
+        public decimal Convert(string unitFrom, string unitTo, decimal valueToConvert)
         {
-         
-          if (choice == 1)           
-                wynik=  9 / 5 * liczba + 32;            
-          if (choice == 2)           
-                wynik = (liczba - 32) * 5 / 9;            
-          if (choice == 3)       
-                wynik = (liczba + 273.15);        
-
+            switch (unitFrom)
+            {
+                case "C":
+                    if (unitTo == "F")
+                    {
+                        wynik = (valueToConvert*9/5)+32;
+                    }
+                    if (unitTo == "K")
+                    {
+                        wynik = valueToConvert +273.15m;
+                    }
+                    break;
+                case "F":
+                    if (unitTo == "C")
+                    {
+                        wynik = (valueToConvert - 32) * 5 / 9;
+                    }
+                    if (unitTo == "K")
+                    {
+                        wynik = (valueToConvert -32m)/1.8m +273.15m;
+                    }
+                    break;
+                case "K":
+                    if (unitTo == "C")
+                    {
+                        wynik = valueToConvert * 1000;
+                    }
+                    if (unitTo == "F")
+                    {
+                        wynik = (valueToConvert-273.15m) *1.8m+32;
+                    }
+                    break;
+            }
 
             return wynik;
-        } 
+        }
+     
     }
 }

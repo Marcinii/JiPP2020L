@@ -1,6 +1,4 @@
-﻿ using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
 
 namespace przelicznik
 {
@@ -8,9 +6,8 @@ namespace przelicznik
     {
         string Name { get; }
         List<string> Units { get; }
-        string Choice { get; }
-        double Convert(double choice, double liczba, double wynik);
-        
+        decimal Convert(string unitFrom, string unitTo, decimal valueToConvert);
+
 
     }
 }
