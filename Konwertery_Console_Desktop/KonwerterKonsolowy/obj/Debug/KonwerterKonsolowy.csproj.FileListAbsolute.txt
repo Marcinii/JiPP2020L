@@ -1,0 +1,9 @@
+D:\VStudio_projects\KonwerterKonsolowy\KonwerterKonsolowy\bin\Debug\KonwerterKonsolowy.exe.config
+D:\VStudio_projects\KonwerterKonsolowy\KonwerterKonsolowy\bin\Debug\KonwerterKonsolowy.exe
+D:\VStudio_projects\KonwerterKonsolowy\KonwerterKonsolowy\bin\Debug\KonwerterKonsolowy.pdb
+D:\VStudio_projects\KonwerterKonsolowy\KonwerterKonsolowy\obj\Debug\KonwerterKonsolowy.exe
+D:\VStudio_projects\KonwerterKonsolowy\KonwerterKonsolowy\obj\Debug\KonwerterKonsolowy.pdb
+D:\VStudio_projects\KonwerterKonsolowy\KonwerterKonsolowy\bin\Debug\Konwerter.Logic.dll
+D:\VStudio_projects\KonwerterKonsolowy\KonwerterKonsolowy\bin\Debug\Konwerter.Logic.pdb
+D:\VStudio_projects\KonwerterKonsolowy\KonwerterKonsolowy\obj\Debug\KonwerterKonsolowy.csprojAssemblyReference.cache
+D:\VStudio_projects\KonwerterKonsolowy\KonwerterKonsolowy\obj\Debug\KonwerterKonsolowy.csproj.CopyComplete

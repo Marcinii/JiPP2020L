@@ -1,0 +1,4 @@
+D:\VStudio_projects\KonwerterKonsolowy\Konwerter.Logic\bin\Debug\Konwerter.Logic.dll
+D:\VStudio_projects\KonwerterKonsolowy\Konwerter.Logic\bin\Debug\Konwerter.Logic.pdb
+D:\VStudio_projects\KonwerterKonsolowy\Konwerter.Logic\obj\Debug\Konwerter.Logic.dll
+D:\VStudio_projects\KonwerterKonsolowy\Konwerter.Logic\obj\Debug\Konwerter.Logic.pdb
