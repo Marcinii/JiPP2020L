@@ -34,7 +34,7 @@
             <Button x:Name="button1" DockPanel.Dock="Bottom" Margin="10,5,10,5" Height="25" Click="button1_Click">Zakończ</Button>
         </StackPanel>
         <Ellipse Grid.Column="1" Fill="#FFF4F4F5" HorizontalAlignment="Center" Height="200" Margin="0,30,0,0" Stroke="Black" VerticalAlignment="Top" Width="200"/>
-        <Path x:Name="minutes" Grid.Column="1" Data="M6.1000078,31.332997 L15.100009,31.332997 15.100009,130.333 6.1000078,130.333 z M9.8307915,0.5 L20.900009,30.332993 0.5,30.332993 z" HorizontalAlignment="Center" Height="99.6" Margin="0,30,0,0" Stretch="Fill" Stroke="Black" VerticalAlignment="Top" Width="10" RenderTransformOrigin="0.5,1" Panel.ZIndex="2">
+        <Path x:Name="minutes" Grid.Column="1" Data="M6.1000078,31.332997 L15.100009,31.332997 15.100009,130.333 6.1000078,130.333 z M9.8307915,0.5 L20.900009,30.332993 0.5,30.332993 z" HorizontalAlignment="Center" Height="80" Margin="0,50,0,0" Stretch="Fill" Stroke="Black" VerticalAlignment="Top" Width="10" RenderTransformOrigin="0.5,1" Panel.ZIndex="1">
             <Path.Fill>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="#FF2728A8" Offset="0.99"/>
@@ -52,7 +52,7 @@
                 </TransformGroup>
             </Path.RenderTransform>
         </Path>
-        <Path x:Name="hours" Grid.Column="1" Data="M10.265001,19.311001 L19.530001,19.311001 19.530001,64.299995 10.265001,64.299995 z M13.642232,0.5 L29.233,18.857 0.5,18.857 z" HorizontalAlignment="Center" Height="70" Margin="0,60,0,0" Stretch="Fill" Stroke="Black" VerticalAlignment="Top" Width="16" RenderTransformOrigin="0.5,1" Panel.ZIndex="1">
+        <Path x:Name="hours" Grid.Column="1" Data="M10.265001,19.311001 L19.530001,19.311001 19.530001,64.299995 10.265001,64.299995 z M13.642232,0.5 L29.233,18.857 0.5,18.857 z" HorizontalAlignment="Center" Height="50" Margin="0,80,0,0" Stretch="Fill" Stroke="Black" VerticalAlignment="Top" Width="16" RenderTransformOrigin="0.5,1" Panel.ZIndex="2">
             <Path.Fill>
                 <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
                     <GradientStop Color="#FF0068FF" Offset="0.144"/>
@@ -72,6 +72,22 @@
                 </TransformGroup>
             </Path.RenderTransform>
         </Path>
+        <Label Content="12" Grid.Column="1" HorizontalAlignment="Center" Height="20" Margin="0,30,0,0" VerticalAlignment="Top" Width="20" Padding="0" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+        <Label Content="6" Grid.Column="1" HorizontalAlignment="Center" Height="20" Margin="0,210,0,0" VerticalAlignment="Top" Width="20" Padding="0" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+        <Label Content="3" Grid.Column="1" HorizontalAlignment="Center" Height="20" Margin="180,120,0,0" VerticalAlignment="Top" Width="20" Padding="0" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+        <Label Content="9" Grid.Column="1" HorizontalAlignment="Center" Height="20" Margin="0,120,180,0" VerticalAlignment="Top" Width="20" Padding="0" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+
+        <Label Content="1" Grid.Column="1" HorizontalAlignment="Center" Height="15" Margin="90,42.06,0,0" VerticalAlignment="Top" Width="15" Padding="0" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="9"/>
+        <Label Content="2" Grid.Column="1" HorizontalAlignment="Center" Height="15" Margin="155.9,75,0,0" VerticalAlignment="Top" Width="15" Padding="0" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="9"/>
+
+        <Label Content="4" Grid.Column="1" HorizontalAlignment="Center" Height="15" Margin="155.9,165,0,0" VerticalAlignment="Top" Width="15" Padding="0" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="9"/>
+        <Label Content="5" Grid.Column="1" HorizontalAlignment="Center" Height="15" Margin="90,197.94,0,0" VerticalAlignment="Top" Width="15" Padding="0" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="9"/>
+
+        <Label Content="7" Grid.Column="1" HorizontalAlignment="Center" Height="15" Margin="0,197.94,90,0" VerticalAlignment="Top" Width="15" Padding="0" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="9"/>
+        <Label Content="8" Grid.Column="1" HorizontalAlignment="Center" Height="15" Margin="0,165,155.9,0" VerticalAlignment="Top" Width="15" Padding="0" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="9"/>
+
+        <Label Content="10" Grid.Column="1" HorizontalAlignment="Center" Height="15" Margin="0,75,155.9,0" VerticalAlignment="Top" Width="15" Padding="0" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="9"/>
+        <Label Content="11" Grid.Column="1" HorizontalAlignment="Center" Height="15" Margin="0,42.06,90,0" VerticalAlignment="Top" Width="15" Padding="0" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="9"/>
 
     </Grid>
 </Window>
