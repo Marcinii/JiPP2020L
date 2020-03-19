@@ -1,16 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 
-namespace UnitCorventer
+namespace UnitConverter
 {
     public interface IConverter
     {
-
         string Name { get; }
         List<string> Units { get; }
-        void List_unit();
-        decimal Convert();
-        void Data_and_convert(string unitFrom, string unitTo, decimal valueToConwert);
+        decimal Convert(string unitFrom, string unitTo, decimal valueToConvert);
     }
 }

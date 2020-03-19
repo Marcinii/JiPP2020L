@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace UnitCorventer
+namespace UnitConverter
 {
     class Program
     {
@@ -12,17 +12,16 @@ namespace UnitCorventer
         {
             List<IConverter> converters = new List<IConverter>()
             {
-                new TemperaturConv(),
-                new LenghtConv(),
-                new WeightConv(),
-                new SurfaceConv()
+                new TemperatureConverter(),
+                new LengthConverter(),
+                new WeightConverter()
             };
 
-            bool shouldControle = true;
-            while (shouldControle)
-            {
+            bool shouldContinue = true;
 
-                Console.WriteLine("Wybierz");
+            while (shouldContinue)
+            {
+                Console.WriteLine("Wybierz opcję: ");
                 
                 for(int i = 0; i < converters.Count; i++)
                 {
@@ -30,25 +29,23 @@ namespace UnitCorventer
                 }
 
                 string inputChoice = Console.ReadLine();
-                int choice = int.Parse(inputChoice);
+                int choice = int.Parse(inputChoice); // TryParse!
 
-                Console.WriteLine("Podaj jednostkę z: ");
+                Console.WriteLine("Podaj jednostkę Z: ");
                 string unitFrom = Console.ReadLine();
 
-                Console.WriteLine("Podaj jednostkę do: ");
+                Console.WriteLine("Podaj jednostkę Do: ");
                 string unitTo = Console.ReadLine();
 
                 Console.WriteLine("Podaj liczbę do konwersji: ");
-                string inputValue = Console.ReadLine();
-
-
-                decimal value = decimal.Parse(inputValue);
+                string inputValue = Console.ReadLine();              
+                decimal value = decimal.Parse(inputValue); // TryParse!
 
                 decimal result = converters[choice - 1].Convert(unitFrom, unitTo, value);
-                Console.WriteLine("Wynik to: {0}", result);
 
-                shouldControle = false;
+                Console.WriteLine("Wynik konwersji: {0}", result);
 
+                shouldContinue = false;
             }
         }
     }

@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{EA31F722-DB2F-4285-838F-5498AF14E1FB}</ProjectGuid>
+    <ProjectGuid>{C6DF0253-E8E8-439D-9316-2BB79D3D27B2}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>UConverter.Desktop</RootNamespace>
-    <AssemblyName>UConverter.Desktop</AssemblyName>
+    <RootNamespace>UnitConverter.Desktop</RootNamespace>
+    <AssemblyName>UnitConverter.Desktop</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -95,9 +95,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\UKonwerter.Logic\UConverter.Logic.csproj">
-      <Project>{137e5d02-5c23-4f16-bea3-3664a371d0d8}</Project>
-      <Name>UConverter.Logic</Name>
+    <ProjectReference Include="..\UnitConverter.Logic\UnitConverter.Logic.csproj">
+      <Project>{e0cab360-9d9c-476a-bffa-a7e8d57d9377}</Project>
+      <Name>UnitConverter.Logic</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
