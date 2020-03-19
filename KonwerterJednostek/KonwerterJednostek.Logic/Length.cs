@@ -1,10 +1,11 @@
-﻿using System;
+﻿using KonwerterJednostek.Logic;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace KonwerterJednostek
+namespace KonwerterJednostek.Logic
 {
     public class Length : IConverter
     {
@@ -71,18 +72,20 @@ namespace KonwerterJednostek
             }
         }
 
-        public string UnitConv(int choice, double number)
+        public string UnitConv(string from, string to, string number)
         {
-            Length a = new Length(number);
-            switch (choice)
+            bool success = double.TryParse(number, out double inputValue);
+            if (!success) { inputValue = 0; }
+            Length a = new Length(inputValue);
+            if (from == Units[0] && to == Units[1])
             {
-                case 0:
-                    return a.m + " mi";
-                case 1:
-                    return a.k + " km";
-                default:
-                    return "Wybierz jednostki do konwersji :)";
+                return a.m + " mi";
             }
+            else if (from == Units[1] && to == Units[0])
+            {
+                return a.k + " km";
+            }
+            else { return Error.Info(); }
         }
     }
 }

@@ -1,0 +1,9 @@
+C:\Users\Lenovo\source\repos\JiPP2020L\KonwerterJednostek\KonwerterJednostek\obj\Debug\KonwerterJednostek.Console.csprojAssemblyReference.cache
+C:\Users\Lenovo\source\repos\JiPP2020L\KonwerterJednostek\KonwerterJednostek\obj\Debug\KonwerterJednostek.exe
+C:\Users\Lenovo\source\repos\JiPP2020L\KonwerterJednostek\KonwerterJednostek\obj\Debug\KonwerterJednostek.pdb
+C:\Users\Lenovo\source\repos\JiPP2020L\KonwerterJednostek\KonwerterJednostek\bin\Debug\KonwerterJednostek.exe.config
+C:\Users\Lenovo\source\repos\JiPP2020L\KonwerterJednostek\KonwerterJednostek\bin\Debug\KonwerterJednostek.exe
+C:\Users\Lenovo\source\repos\JiPP2020L\KonwerterJednostek\KonwerterJednostek\bin\Debug\KonwerterJednostek.pdb
+C:\Users\Lenovo\source\repos\JiPP2020L\KonwerterJednostek\KonwerterJednostek\bin\Debug\KonwerterJednostek.Logic.dll
+C:\Users\Lenovo\source\repos\JiPP2020L\KonwerterJednostek\KonwerterJednostek\bin\Debug\KonwerterJednostek.Logic.pdb
+C:\Users\Lenovo\source\repos\JiPP2020L\KonwerterJednostek\KonwerterJednostek\obj\Debug\KonwerterJednostek.Console.csproj.CopyComplete

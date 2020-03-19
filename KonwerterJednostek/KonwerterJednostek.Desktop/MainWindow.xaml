@@ -5,50 +5,73 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:KonwerterJednostek.Desktop"
         mc:Ignorable="d"
-        Title="MainWindow" Height="234" Width="800">
+        Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="39"/>
-            <RowDefinition Height="39"/>
-            <RowDefinition Height="39"/>
-            <RowDefinition Height="39"/>
-            <RowDefinition Height="39"/>
-            <RowDefinition Height="39"/>
-        </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="90"/>
-            <ColumnDefinition Width="210"/>
-            <ColumnDefinition Width="100"/>
-            <ColumnDefinition Width="100"/>
-            <ColumnDefinition Width="100"/>
-            <ColumnDefinition Width="100"/>
-            <ColumnDefinition Width="100"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
         </Grid.ColumnDefinitions>
+        <StackPanel Grid.Column="0" Grid.Row="1">
+            <ComboBox x:Name="combo0" Margin="10,5,10,5" SelectionChanged="combo0_SelectionChanged">
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding Name}"/>
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="145*"/>
+                    <ColumnDefinition Width="54*"/>
+                    <ColumnDefinition Width="198*"/>
+                </Grid.ColumnDefinitions>
+                <ComboBox x:Name="combo1" Margin="10,5,10.4,5" Grid.ColumnSpan="2"/>
+                <ComboBox x:Name="combo2" Margin="9.6,5,9.8,5" Grid.Column="2"/>
+            </Grid>
+            <TextBox x:Name="box0" Margin="10,5,10,5" Height="25" KeyDown="box0_KeyDown"/>
+            <Button x:Name="button0" Margin="10,5,10,5" Height="25" Click="button0_Click">Konwertuj</Button>
+            <TextBlock x:Name="block0" Margin="10,5,10,5" Height="25"/>
+            <Button x:Name="button1" DockPanel.Dock="Bottom" Margin="10,5,10,5" Height="25" Click="button1_Click">Zakończ</Button>
+        </StackPanel>
+        <Ellipse Grid.Column="1" Fill="#FFF4F4F5" HorizontalAlignment="Center" Height="200" Margin="0,30,0,0" Stroke="Black" VerticalAlignment="Top" Width="200"/>
+        <Path x:Name="minutes" Grid.Column="1" Data="M6.1000078,31.332997 L15.100009,31.332997 15.100009,130.333 6.1000078,130.333 z M9.8307915,0.5 L20.900009,30.332993 0.5,30.332993 z" HorizontalAlignment="Center" Height="99.6" Margin="0,30,0,0" Stretch="Fill" Stroke="Black" VerticalAlignment="Top" Width="10" RenderTransformOrigin="0.5,1" Panel.ZIndex="2">
+            <Path.Fill>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF2728A8" Offset="0.99"/>
+                    <GradientStop Color="#FF2BC765" Offset="0.826"/>
+                    <GradientStop Color="#FFF1EA09" Offset="0.622"/>
+                    <GradientStop Color="#FFD12121" Offset="0.194"/>
+                </LinearGradientBrush>
+            </Path.Fill>
+            <Path.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="0"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Path.RenderTransform>
+        </Path>
+        <Path x:Name="hours" Grid.Column="1" Data="M10.265001,19.311001 L19.530001,19.311001 19.530001,64.299995 10.265001,64.299995 z M13.642232,0.5 L29.233,18.857 0.5,18.857 z" HorizontalAlignment="Center" Height="70" Margin="0,60,0,0" Stretch="Fill" Stroke="Black" VerticalAlignment="Top" Width="16" RenderTransformOrigin="0.5,1" Panel.ZIndex="1">
+            <Path.Fill>
+                <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+                    <GradientStop Color="#FF0068FF" Offset="0.144"/>
+                    <GradientStop Color="#FF00FFD6" Offset="0.365"/>
+                    <GradientStop Color="#FF00FF4C" Offset="0.595"/>
+                    <GradientStop Color="#FF90FF00" Offset="0.716"/>
+                    <GradientStop Color="#FFE2FF00" Offset="0.839"/>
+                    <GradientStop Color="#FFFF4900" Offset="0.933"/>
+                </LinearGradientBrush>
+            </Path.Fill>
+            <Path.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="0"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Path.RenderTransform>
+        </Path>
 
-        <Label Grid.Row="0" Grid.Column="0" Margin="5,5,5,5">Długość</Label>
-        <ComboBox x:Name="combobox" Grid.Row="0" Grid.Column="1" Margin="5,5,5,5" Grid.ColumnSpan="1"/>
-        <TextBox x:Name="inputTextbox" Grid.Row="0" Grid.Column="2" Grid.ColumnSpan="1" Margin="5,5,5,5"/>
-        <Button x:Name="Submit" Content="oblicz" Grid.Row="0" Grid.Column="3" Margin="7,7,7,7" Click="Submit_Click"/>
-        <TextBlock x:Name="outputTextblock" Grid.Row="0" Grid.Column="4" Grid.ColumnSpan="3" Text="" Margin="5,5,5,5"/>
-
-        <Label Grid.Row="1" Grid.Column="0" Margin="5,5,5,5">Energia</Label>
-        <ComboBox x:Name="combobox0" Grid.Row="1" Grid.Column="1" Margin="5,5,5,5" Grid.ColumnSpan="1"/>
-        <TextBox x:Name="inputTextbox0" Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="1" Margin="5,5,5,5"/>
-        <Button x:Name="Submit0" Content="oblicz" Grid.Row="1" Grid.Column="3" Margin="7,7,7,7" Click="Submit0_Click"/>
-        <TextBlock x:Name="outputTextblock0" Grid.Row="1" Grid.Column="4" Grid.ColumnSpan="3" Text="" Margin="5,5,5,5"/>
-
-        <Label Grid.Row="2" Grid.Column="0" Margin="5,5,5,5">Temperatura</Label>
-        <ComboBox x:Name="combobox1" Grid.Row="2" Grid.Column="1" Margin="5,5,5,5" Grid.ColumnSpan="1"/>
-        <TextBox x:Name="inputTextbox1" Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="1" Margin="5,5,5,5"/>
-        <Button x:Name="Submit1" Content="oblicz" Grid.Row="2" Grid.Column="3" Margin="7,7,7,7" Click="Submit1_Click"/>
-        <TextBlock x:Name="outputTextblock1" Grid.Row="2" Grid.Column="4" Grid.ColumnSpan="3" Text="" Margin="5,5,5,5"/>
-
-        <Label Grid.Row="3" Grid.Column="0" Margin="5,5,5,5">Waga</Label>
-        <ComboBox x:Name="combobox2" Grid.Row="3" Grid.Column="1" Margin="5,5,5,5" Grid.ColumnSpan="1"/>
-        <TextBox x:Name="inputTextbox2" Grid.Row="3" Grid.Column="2" Grid.ColumnSpan="1" Margin="5,5,5,5"/>
-        <Button x:Name="Submit2" Content="oblicz" Grid.Row="3" Grid.Column="3" Margin="7,7,7,7" Click="Submit2_Click"/>
-        <TextBlock x:Name="outputTextblock2" Grid.Row="3" Grid.Column="4" Grid.ColumnSpan="3" Text="" Margin="5,5,5,5"/>
-
-        <Button x:Name="actionButton" Content="Zakończ" Grid.Column="5" Grid.Row="4" Grid.ColumnSpan="2" Click="actionButton_Click" Margin="0,0,30,10" />
     </Grid>
 </Window>

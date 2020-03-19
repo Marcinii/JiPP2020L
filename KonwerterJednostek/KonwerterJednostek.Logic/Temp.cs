@@ -1,10 +1,11 @@
-﻿using System;
+﻿using KonwerterJednostek.Logic;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace KonwerterJednostek
+namespace KonwerterJednostek.Logic
 {
     public class Temp : IConverter
     {
@@ -118,26 +119,36 @@ namespace KonwerterJednostek
                     break;
             }
         }
-        public string UnitConv(int choice, double number)
+        public string UnitConv(string from, string to, string number)
         {
-            Temp a = new Temp(number);
-            switch (choice)
+            bool success = double.TryParse(number, out double inputValue);
+            if (!success) { inputValue = 0; }
+            Temp a = new Temp(inputValue);
+            if (from == Units[0] && to == Units[1])
             {
-                case 0:
-                    return a.cf + " F";
-                case 1:
-                    return a.fc + " stC";
-                case 2:
-                    return a.ck + " K";
-                case 3:
-                    return a.kc + " stC";
-                case 4:
-                    return a.fk + " K";
-                case 5:
-                    return a.kf + " F";
-                default:
-                    return "Wybierz jednostki do konwersji :)";
+                return a.cf + " F";
             }
+            else if (from == Units[1] && to == Units[0])
+            {
+                return a.fc + " stC";
+            }
+            else if (from == Units[0] && to == Units[2])
+            {
+                return a.ck + " K";
+            }
+            else if (from == Units[2] && to == Units[0])
+            {
+                return a.kc + " stC";
+            }
+            else if (from == Units[1] && to == Units[2])
+            {
+                return a.fk + " K";
+            }
+            else if (from == Units[2] && to == Units[1])
+            {
+                return a.kf + " F";
+            }
+            else { return Error.Info(); }
         }
     }
 }

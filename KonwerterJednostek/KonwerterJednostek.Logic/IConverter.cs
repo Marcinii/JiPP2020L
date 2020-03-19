@@ -4,12 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace KonwerterJednostek
+namespace KonwerterJednostek.Logic
 {
     public interface IConverter
     {
         void UnitConv();
-        string UnitConv(int choice, double number);
+        string UnitConv(string from, string to, string number);
         double Option1();
         double Option2();
         void Info();

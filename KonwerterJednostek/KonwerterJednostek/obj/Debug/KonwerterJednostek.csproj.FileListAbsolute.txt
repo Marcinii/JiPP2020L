@@ -1,0 +1,6 @@
+C:\Users\Lenovo\source\repos\KonwerterJednostek\KonwerterJednostek\obj\Debug\KonwerterJednostek.csprojAssemblyReference.cache
+C:\Users\Lenovo\source\repos\KonwerterJednostek\KonwerterJednostek\bin\Debug\KonwerterJednostek.exe.config
+C:\Users\Lenovo\source\repos\KonwerterJednostek\KonwerterJednostek\bin\Debug\KonwerterJednostek.exe
+C:\Users\Lenovo\source\repos\KonwerterJednostek\KonwerterJednostek\bin\Debug\KonwerterJednostek.pdb
+C:\Users\Lenovo\source\repos\KonwerterJednostek\KonwerterJednostek\obj\Debug\KonwerterJednostek.exe
+C:\Users\Lenovo\source\repos\KonwerterJednostek\KonwerterJednostek\obj\Debug\KonwerterJednostek.pdb

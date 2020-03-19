@@ -1,10 +1,11 @@
-﻿using System;
+﻿using KonwerterJednostek.Logic;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace KonwerterJednostek
+namespace KonwerterJednostek.Logic
 {
     public class Energy : IConverter
     {
@@ -71,18 +72,20 @@ namespace KonwerterJednostek
             }
         }
 
-        public string UnitConv(int choice, double number)
+        public string UnitConv(string from, string to, string number)
         {
-            Energy a = new Energy(number);
-            switch (choice)
+            bool success = double.TryParse(number, out double inputValue);
+            if (!success) { inputValue = 0; }
+            Energy a = new Energy(inputValue);
+            if (from==Units[0] && to == Units[1])
             {
-                case 0:
-                    return a.jk + " kWh";
-                case 1:
-                    return a.kj + " kJ";
-                default:
-                    return "Wybierz jednostki do konwersji :)";
+                return a.jk + " kWh";
             }
+            else if (from == Units[1] && to == Units[0])
+            {
+                return a.kj + " kJ";
+            }
+            else { return Error.Info(); }
         }
     }
 }

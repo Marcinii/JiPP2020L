@@ -41,7 +41,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Clock.cs" />
+    <Compile Include="ConverterService.cs" />
     <Compile Include="Energy.cs" />
+    <Compile Include="Error.cs" />
     <Compile Include="IConverter.cs" />
     <Compile Include="Length.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
