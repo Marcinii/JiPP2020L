@@ -1,4 +1,5 @@
-﻿using System;
+﻿using KonwerterJednostek.Logic;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,113 +9,43 @@ namespace KonwerterJednostek
 {
     class Program
     {
-        static double CelciusToFarenheit(double c)
-        {
-            return c * 1.8 + 32;
-        }
-        static double FahrenheitToCelcius(double f)
-        {
-            return (f - 32) * 1.8;
-        }
-        static double KilometresToMiles(double km)
-        {
-            return km * 0.62137;
-        }
-        static double MilesToKilometres(double mi)
-        {
-            return mi / 0.62137;
-        }
-        static double KilogramsToPounds(double kg)
-        {
-            return kg / 0.45359237;
-        }
-        static double PoundsToKilograms(double lb)
-        {
-            return lb * 0.45359237;
-        }
-        static void Main(string[] args)
-        {
-            System.Console.WriteLine("Konwerter");
-            System.Console.WriteLine("[1] Celsjusze <--> Farenheity");
-            System.Console.WriteLine("[2] Kilometry <--> Mile");
-            System.Console.WriteLine("[3] Kilogram <--> Funty");
+         static void Main(string[] args)
+            {
+            List<IKonwerter> converters = new List<IKonwerter>()
+                {
+                    new CelciusToFarenheit(),
+                    new FahrenheitToCelcius(),
+                    new KilogramsToPounds(),
+                    new KilometresToMiles(),
+                    new MilesToKilometres(),
+                    new PoundsToKilograms(),
+                    new Cisnienie_Pa_To_hPA()
+                 };
 
-            int wyborjeden = int.Parse(Console.ReadLine());
-            int wybordwa;
-
-            switch (wyborjeden) {
-
-                case 1:
-                    System.Console.WriteLine("Wybrałeś: Celsjusze <-->Farenheity");
-                    System.Console.WriteLine("[1] Celsjusze <--> Farenheity");
-                    System.Console.WriteLine("[2] Farenheity <--> Celsjusze");
-                    wybordwa = int.Parse(Console.ReadLine());
-                    Console.Write("Wprowadź wartość: ");
-                    switch (wybordwa)
+                    Console.WriteLine("Wybierz opcję: ");
+                    Console.WriteLine("km,mil | c,f | kg,lb");
+                for (int i = 0; i < converters.Count; i++)
                     {
-                        case 1:
-                            Console.WriteLine(CelciusToFarenheit(double.Parse(Console.ReadLine())));
-                        break;
-
-                        case 2:
-                            Console.WriteLine(FahrenheitToCelcius(double.Parse(Console.ReadLine())));
-                            break;
-
-                        default:
-                            System.Console.WriteLine("Wybór nieprawidłowy, wybrałeś: " + wyborjeden);
-                            break;
+                        Console.WriteLine("[{0}] - {1}", i + 1, converters[i].Name);
                     }
-                    break;
-                case 2:
-                    System.Console.WriteLine("Wybrałeś: Kilometry <--> Mile");
-                    System.Console.WriteLine("[1] Kilometry <--> Mile");
-                    System.Console.WriteLine("[2] Mile  <-->  Kilometry");
-                    wybordwa = int.Parse(Console.ReadLine());
-                    Console.Write("Wprowadź wartość: ");
-                    switch (wybordwa)
-                    {
-                        case 1:
-                            Console.WriteLine(KilometresToMiles(double.Parse(Console.ReadLine())));
-                            break;
+                    Console.WriteLine("Podaj Wybór: ");
+                    string inputChoice = Console.ReadLine();
+                    int choice = int.Parse(inputChoice); // TryParse można użuć bo zwraca tak albo nie
 
-                        case 2:
-                            Console.WriteLine(MilesToKilometres(double.Parse(Console.ReadLine())));
-                            break;
+                    Console.WriteLine("Podaj jednostek z: ");
+                    var unitFrom = Console.ReadLine();
 
-                        default:
-                            System.Console.WriteLine("Wybór nieprawidłowy, wybrałeś: " + wyborjeden);
-                            break;
-                    }
-                    break;
+                    Console.WriteLine("Podaj jednostkę do: ");
+                    var unitTo = Console.ReadLine();
 
-                case 3:
-                    System.Console.WriteLine("Wybrałeś: Kilogramy <--> Funty");
-                    System.Console.WriteLine("[1] Kilogramy <--> Funty");
-                    System.Console.WriteLine("[2] Funty <--> Kilogramy");
-                    wybordwa = int.Parse(Console.ReadLine());
-                    Console.Write("Wprowadź wartość: ");
-                    switch (wybordwa)
-                    {
-                        case 1:
-                            Console.WriteLine(KilogramsToPounds(double.Parse(Console.ReadLine())));
-                            break;
+                    Console.WriteLine("Podaj liczbę do konwersji: ");
+                    var inputValue = Console.ReadLine();
 
-                        case 2:
-                            Console.WriteLine(PoundsToKilograms(double.Parse(Console.ReadLine())));
-                            break;
 
-                        default:
-                            System.Console.WriteLine("Wybór nieprawidłowy, wybrałeś: " + wyborjeden);
-                            break;
-                    }
-                    break;
+                    double value = double.Parse(inputValue); // TryParse można użuć bo zwraca tak albo nie
 
-                default:
-                    System.Console.WriteLine("Wybór nieprawidłowy, wybrałeś: " + wyborjeden);
-                    break;
+                    Console.WriteLine("Wynik konwersji: {0}", converters[choice - 1].Convert(unitFrom, unitTo, value));
+                    Console.ReadKey();
             }
-
-            Console.ReadLine();
         }
     }
-}

@@ -4,17 +4,16 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{49647C18-EA5A-4848-94D9-049F864CE54C}</ProjectGuid>
-    <OutputType>Exe</OutputType>
-    <RootNamespace>KonwerterJednostek</RootNamespace>
-    <AssemblyName>KonwerterJednostek</AssemblyName>
+    <ProjectGuid>{9E8D9265-A8CD-4C6C-A4A6-6FC35B585B93}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>KonwerterJednostek.Logic</RootNamespace>
+    <AssemblyName>KonwerterJednostek.Logic</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -24,7 +23,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -43,17 +41,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Program.cs" />
+    <Compile Include="CelciusToFarenheit.cs" />
+    <Compile Include="Cisnienie_Pa_To_hPA.cs" />
+    <Compile Include="FahrenheitToCelcius.cs" />
+    <Compile Include="IKonwerter.cs" />
+    <Compile Include="KilogramsToPounds.cs" />
+    <Compile Include="KilometresToMiles.cs" />
+    <Compile Include="MilesToKilometres.cs" />
+    <Compile Include="PoundsToKilograms.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\KonwerterJednostek.Logic\KonwerterJednostek.Logic.csproj">
-      <Project>{9e8d9265-a8cd-4c6c-a4a6-6fc35b585b93}</Project>
-      <Name>KonwerterJednostek.Logic</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
