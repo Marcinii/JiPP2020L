@@ -2,9 +2,16 @@
 
 namespace UnitConverter.Library.OperationUtil
 {
+    /// <summary>
+    /// Klasa inicjalizująca reppozytorium z konwerterami.
+    /// </summary>
     public class OperationRepositoryInitializer
     {
 
+        /// <summary>
+        /// Inicjalizuje repozytorium z konwerterami. Każdy knwerter dostaje odpowiednie jednostki wraz ze wzorami konwertującymi
+        /// </summary>
+        /// <param name="operationRepository"></param>
         public static void initializeRepository(OperationRepository operationRepository)
         {
             Operation temperatures = new Operation(1, "Konwersja temperatury");
