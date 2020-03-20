@@ -25,6 +25,7 @@ namespace KonwerterJednostek.Desktop
         {
             InitializeComponent();
             combo0.ItemsSource = new ConverterService().GetConverters();
+            combo0.SelectedIndex = 4;
         }
         private void combo0_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
