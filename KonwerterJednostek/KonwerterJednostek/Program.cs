@@ -15,7 +15,8 @@ namespace KonwerterJednostek
             {
                 new LengthConverter(),
                 new TemperatureConverter(),
-                new WeightConverter()
+                new WeightConverter(),
+                new PowerConverter()
             };
 
             int option = -1;
