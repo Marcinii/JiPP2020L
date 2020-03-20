@@ -20,7 +20,7 @@ namespace ziecina_zad1
                 try
                 {
                     float degreeC = float.Parse(Console.ReadLine());
-                    Console.WriteLine("To " + (1.8 * degreeC + 32) + " stopni Farenheita\n");
+                    Console.WriteLine("To " + (1.8 * degreeC + 32) + " stopni Farenheita\n"); //KONWERSJA
                 }
                 catch
                 {
@@ -37,7 +37,7 @@ namespace ziecina_zad1
                 try
                 {
                     float degreeF = float.Parse(Console.ReadLine());
-                    Console.WriteLine("To " + ((degreeF - 32)/1.8) + " stopni Celcjusza\n");
+                    Console.WriteLine("To " + ((degreeF - 32)/1.8) + " stopni Celcjusza\n"); //KONWERSJA
                 }
                 catch
                 {
@@ -67,7 +67,7 @@ namespace ziecina_zad1
                 try
                 {
                     float degreeC = float.Parse(Console.ReadLine());
-                    Console.WriteLine("To " + (0.62137 * degreeC) + " mil\n");
+                    Console.WriteLine("To " + (0.62137 * degreeC) + " mil\n"); //KONWERSJA
                 }
                 catch
                 {
@@ -85,7 +85,7 @@ namespace ziecina_zad1
                 try
                 {
                     float degreeF = float.Parse(Console.ReadLine());
-                    Console.WriteLine("To " + (degreeF/ 0.62137) + " kilometrów\n");
+                    Console.WriteLine("To " + (degreeF/ 0.62137) + " kilometrów\n"); //KONWERSJA
                 }
                 catch
                 {
@@ -115,7 +115,7 @@ namespace ziecina_zad1
                 try
                 {
                     float degreeC = float.Parse(Console.ReadLine());
-                    Console.WriteLine("To " + (2.20462262 * degreeC) + " funtów\n");
+                    Console.WriteLine("To " + (2.20462262 * degreeC) + " funtów\n"); //KONWERSJA
                 }
                 catch
                 {
@@ -133,7 +133,7 @@ namespace ziecina_zad1
                 try
                 {
                     float degreeF = float.Parse(Console.ReadLine());
-                    Console.WriteLine("To " + (degreeF/ 2.20462262) + " kilogramów\n");
+                    Console.WriteLine("To " + (degreeF/ 2.20462262) + " kilogramów\n"); //KONWERSJA
                 }
                 catch
                 {
@@ -187,7 +187,8 @@ namespace ziecina_zad1
         }
         static void Main(string[] args)
         {
-            Program.Menu();
+            //Program.Menu();
+            Menu converterMenu = new Menu();
         }
     }
 }
