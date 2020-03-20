@@ -50,6 +50,29 @@ namespace KonwerterJednostek.Desktop
                 combo1.SelectedIndex = 0;
                 combo2.SelectedIndex = 1;
             }
+            int hour = (DateTime.Now).Hour;
+            int minute = (DateTime.Now).Minute;
+            string s1 = hour < 10 ? "0" + hour : hour.ToString();
+            string s2 = minute < 10 ? "0" + minute : minute.ToString();
+            string time = s1 + ":" + s2;
+
+            string result = t.UnitConv("f", "t", time);
+            box0.Text = result;
+
+            bool success0 = double.TryParse(result.Substring(3, 2), out double deg0);
+            if (!success0) { deg0 = 0; }
+            deg0 *= 6;
+            Path pt0 = minutes;
+            RotateTransform rot0 = new RotateTransform(deg0);
+            pt0.RenderTransform = rot0;
+
+            bool success1 = double.TryParse(result.Substring(0, 2), out double deg1);
+            if (!success1) { deg1 = 0; }
+            deg1 *= 30;
+            deg1 += (deg0 / 12);
+            Path pt1 = hours;
+            RotateTransform rot1 = new RotateTransform(deg1);
+            pt1.RenderTransform = rot1;
         }
 
         private void button0_Click(object sender, RoutedEventArgs e)
