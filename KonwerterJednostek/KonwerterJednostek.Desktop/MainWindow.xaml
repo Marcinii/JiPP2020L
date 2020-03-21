@@ -15,14 +15,28 @@
         </Storyboard>
         <Storyboard x:Key="msb0">
             <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[2].(RotateTransform.Angle)" Storyboard.TargetName="minutes">
-                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
-                <EasingDoubleKeyFrame KeyTime="0:1:0" Value="6"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0" Value="30"/>
+                <EasingDoubleKeyFrame KeyTime="0:1:0" Value="360"/>
             </DoubleAnimationUsingKeyFrames>
         </Storyboard>
         <Storyboard x:Key="msb1" RepeatBehavior="Forever">
             <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[2].(RotateTransform.Angle)" Storyboard.TargetName="minutes">
                 <EasingDoubleKeyFrame KeyTime="0:0:0" Value="30"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0" Value="30"/>
                 <EasingDoubleKeyFrame KeyTime="0:1:0" Value="360"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Key="hsb0">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[2].(RotateTransform.Angle)" Storyboard.TargetName="hours">
+                <EasingDoubleKeyFrame KeyTime="0" Value="30"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="360"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Key="hsb1">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[2].(RotateTransform.Angle)" Storyboard.TargetName="hours">
+                <EasingDoubleKeyFrame KeyTime="0" Value="30"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="90"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:2" Value="270"/>
             </DoubleAnimationUsingKeyFrames>
         </Storyboard>
     </Window.Resources>
@@ -31,6 +45,8 @@
             <BeginStoryboard Storyboard="{StaticResource sb0}"/>
             <BeginStoryboard Storyboard="{StaticResource msb0}"/>
             <BeginStoryboard Storyboard="{StaticResource msb1}"/>
+            <BeginStoryboard Storyboard="{StaticResource hsb0}"/>
+            <BeginStoryboard Storyboard="{StaticResource hsb1}"/>
         </EventTrigger>
     </Window.Triggers>
 

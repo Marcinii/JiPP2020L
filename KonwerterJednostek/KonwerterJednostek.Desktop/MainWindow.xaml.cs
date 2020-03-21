@@ -31,51 +31,10 @@ namespace KonwerterJednostek.Desktop
             int minute = (DateTime.Now).Minute;
             int second = (DateTime.Now).Second;
 
-            EasingDoubleKeyFrame keyFrame0 = ((this.Resources["sb0"]
-            as Storyboard).Children[0]
-            as DoubleAnimationUsingKeyFrames).KeyFrames[0]
-            as EasingDoubleKeyFrame;
-
-            EasingDoubleKeyFrame keyFrame1 = ((this.Resources["sb0"]
-            as Storyboard).Children[0]
-            as DoubleAnimationUsingKeyFrames).KeyFrames[1]
-            as EasingDoubleKeyFrame;
-
-            second += 1;
-            keyFrame0.Value = second * 6;
-            keyFrame1.Value = second * 6 + 360;
-
-            EasingDoubleKeyFrame keyFrame2 = ((this.Resources["msb0"]
-            as Storyboard).Children[0]
-            as DoubleAnimationUsingKeyFrames).KeyFrames[0]
-            as EasingDoubleKeyFrame;
-
-            EasingDoubleKeyFrame keyFrame3 = ((this.Resources["msb0"]
-            as Storyboard).Children[0]
-            as DoubleAnimationUsingKeyFrames).KeyFrames[1]
-            as EasingDoubleKeyFrame;
-
-            keyFrame2.Value = minute * 6;
-            keyFrame3.Value = minute * 6 + 6;
-            keyFrame3.KeyTime = TimeSpan.FromSeconds(60 - second);
-
-            EasingDoubleKeyFrame keyFrame4 = ((this.Resources["msb1"]
-            as Storyboard).Children[0]
-            as DoubleAnimationUsingKeyFrames).KeyFrames[0]
-            as EasingDoubleKeyFrame;
-
-            EasingDoubleKeyFrame keyFrame5 = ((this.Resources["msb1"]
-            as Storyboard).Children[0]
-            as DoubleAnimationUsingKeyFrames).KeyFrames[1]
-            as EasingDoubleKeyFrame;
-
-            keyFrame4.Value = minute * 6 + 6;
-            keyFrame4.KeyTime = TimeSpan.FromSeconds(60 - second);
-            keyFrame5.Value = minute * 6 + 12;
-            keyFrame5.KeyTime = TimeSpan.FromSeconds(120 - second);
+            Clock_online();
 
             combo0.ItemsSource = new ConverterService().GetConverters();
-            combo0.SelectedIndex = 4;
+            combo0.SelectedIndex = 0;
 
             
 
@@ -96,9 +55,9 @@ namespace KonwerterJednostek.Desktop
             if (!success1) { deg1 = 0; }
             deg1 *= 30;
             deg1 += (deg0 / 12);
-            Path pt1 = hours;
-            RotateTransform rot1 = new RotateTransform(deg1);
-            pt1.RenderTransform = rot1;
+            //Path pt1 = hours;
+            //RotateTransform rot1 = new RotateTransform(deg1);
+            //pt1.RenderTransform = rot1;
 
             //double deg2 = second * 6;
             //Path pt2 = seconds;
@@ -107,7 +66,7 @@ namespace KonwerterJednostek.Desktop
 
 
         }
-        
+        bool zegarBefore = false;
         private void combo0_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             box0.Text = "";
@@ -131,6 +90,16 @@ namespace KonwerterJednostek.Desktop
                 combo2.ItemsSource = ((IConverter)combo0.SelectedItem).Units;
                 combo1.SelectedIndex = 0;
                 combo2.SelectedIndex = 1;
+            }
+            if (((IConverter)combo0.SelectedItem).Name == "Zegar" && !zegarBefore)
+            {
+                zegarBefore = true;
+                Clock_online_stop();
+            }
+            else if (((IConverter)combo0.SelectedItem).Name!="Zegar" && zegarBefore)
+            {
+                zegarBefore = false;
+                Clock_online_restart();
             }
             //if (((IConverter)combo0.SelectedItem).Name != "Zegar")
             //{
@@ -223,6 +192,125 @@ namespace KonwerterJednostek.Desktop
             {
                 System.Windows.Application.Current.Shutdown();
             }
+        }
+        
+        public void Clock_online()
+        {
+            int hour = (DateTime.Now).Hour;
+            int minute = (DateTime.Now).Minute;
+            int second = (DateTime.Now).Second;
+
+            EasingDoubleKeyFrame keyFrame0 = ((this.Resources["sb0"]
+            as Storyboard).Children[0]
+            as DoubleAnimationUsingKeyFrames).KeyFrames[0]
+            as EasingDoubleKeyFrame;
+
+            EasingDoubleKeyFrame keyFrame1 = ((this.Resources["sb0"]
+            as Storyboard).Children[0]
+            as DoubleAnimationUsingKeyFrames).KeyFrames[1]
+            as EasingDoubleKeyFrame;
+
+            second += 1;
+            keyFrame0.Value = second * 6;
+            keyFrame1.Value = second * 6 + 360;
+
+            EasingDoubleKeyFrame keyFrame2 = ((this.Resources["msb0"]
+            as Storyboard).Children[0]
+            as DoubleAnimationUsingKeyFrames).KeyFrames[0]
+            as EasingDoubleKeyFrame;
+
+            EasingDoubleKeyFrame keyFrame3 = ((this.Resources["msb0"]
+            as Storyboard).Children[0]
+            as DoubleAnimationUsingKeyFrames).KeyFrames[1]
+            as EasingDoubleKeyFrame;
+
+            keyFrame2.Value = minute * 6;
+            keyFrame3.Value = minute * 6 + 6;
+            keyFrame3.KeyTime = TimeSpan.FromSeconds(60 - second);
+
+            EasingDoubleKeyFrame keyFrame4 = ((this.Resources["msb1"]
+            as Storyboard).Children[0]
+            as DoubleAnimationUsingKeyFrames).KeyFrames[0]
+            as EasingDoubleKeyFrame;
+
+            EasingDoubleKeyFrame keyFrame5 = ((this.Resources["msb1"]
+            as Storyboard).Children[0]
+            as DoubleAnimationUsingKeyFrames).KeyFrames[1]
+            as EasingDoubleKeyFrame;
+
+            EasingDoubleKeyFrame keyFrame6 = ((this.Resources["msb1"]
+            as Storyboard).Children[0]
+            as DoubleAnimationUsingKeyFrames).KeyFrames[2]
+            as EasingDoubleKeyFrame;
+
+            keyFrame4.Value = minute * 6 + 6;
+            keyFrame4.KeyTime = new TimeSpan(0, 0, 0, 0);
+            keyFrame5.Value = minute * 6 + 6;
+            keyFrame5.KeyTime = new TimeSpan(0, 0, 0, 60 - second);
+            keyFrame6.Value = minute * 6 + 366;
+            keyFrame6.KeyTime = new TimeSpan(0, 1, 0, 60 - second);
+
+            EasingDoubleKeyFrame keyFrame7 = ((this.Resources["hsb0"]
+            as Storyboard).Children[0]
+            as DoubleAnimationUsingKeyFrames).KeyFrames[0]
+            as EasingDoubleKeyFrame;
+
+            EasingDoubleKeyFrame keyFrame8 = ((this.Resources["hsb0"]
+            as Storyboard).Children[0]
+            as DoubleAnimationUsingKeyFrames).KeyFrames[1]
+            as EasingDoubleKeyFrame;
+
+            keyFrame7.Value = hour * 30 + minute * 6 / 12;
+            keyFrame8.Value = hour * 30 + minute * 6 / 12 + 0.5;
+            keyFrame8.KeyTime = TimeSpan.FromSeconds(60 - second);
+
+            EasingDoubleKeyFrame keyFrame9 = ((this.Resources["hsb1"]
+            as Storyboard).Children[0]
+            as DoubleAnimationUsingKeyFrames).KeyFrames[0]
+            as EasingDoubleKeyFrame;
+
+            EasingDoubleKeyFrame keyFrame10 = ((this.Resources["hsb1"]
+            as Storyboard).Children[0]
+            as DoubleAnimationUsingKeyFrames).KeyFrames[1]
+            as EasingDoubleKeyFrame;
+
+            EasingDoubleKeyFrame keyFrame11 = ((this.Resources["hsb1"]
+            as Storyboard).Children[0]
+            as DoubleAnimationUsingKeyFrames).KeyFrames[2]
+            as EasingDoubleKeyFrame;
+
+            keyFrame9.Value = hour * 30 + minute * 6 / 12 + 0.5;
+            keyFrame9.KeyTime = new TimeSpan(0, 0, 0, 0);
+            keyFrame10.Value = hour * 30 + minute * 6 / 12 + 0.5;
+            keyFrame10.KeyTime = new TimeSpan(0, 0, 0, 60 - second);
+            keyFrame11.Value = hour * 30 + minute * 6 / 12 + 360.5;
+            keyFrame11.KeyTime = new TimeSpan(0, 24, 0, 60 - second);
+        }
+        public void Clock_online_stop()
+        {
+            Path sec = seconds;
+            sec.Visibility = Visibility.Hidden;
+            Storyboard m = (Storyboard)this.Resources["msb0"];
+            Storyboard mm = this.Resources["msb1"] as Storyboard;
+            Storyboard h = (Storyboard)this.Resources["hsb0"];
+            Storyboard hh = (Storyboard)this.Resources["hsb1"];
+            m.Stop();
+            mm.Stop();
+            h.Stop();
+            hh.Stop();
+        }
+        public void Clock_online_restart()
+        {
+            Path sec = seconds;
+            sec.Visibility = Visibility.Visible;
+            Storyboard m = this.Resources["msb0"] as Storyboard;
+            Storyboard mm = (Storyboard)this.Resources["msb1"];
+            Storyboard h = (Storyboard)this.Resources["hsb0"];
+            Storyboard hh = (Storyboard)this.Resources["hsb1"];
+            m.Begin();
+            mm.Begin();
+            h.Begin();
+            hh.Begin();
         }
     }
 }
