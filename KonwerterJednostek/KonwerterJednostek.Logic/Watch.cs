@@ -6,20 +6,20 @@ using System.Threading.Tasks;
 
 namespace KonwerterJednostek.Logic
 {
-    public class Clock : IConverter
+    public class Watch : IConverter
     {
         public string value;
         public double hValue;
         public double h24;
         public double h12;
 
-        public Clock()
+        public Watch()
         {
             this.value = "";
             this.h24 = 0;
             this.h12 = 0;
         }
-        public Clock(string value)
+        public Watch(string value)
         {
             if (value.Length >= 5)
             {
@@ -68,7 +68,7 @@ namespace KonwerterJednostek.Logic
 
         public string UnitConv(string from, string to, string number)
         {
-            Clock t = new Clock(number);
+            Watch t = new Watch(number);
             if(number.Length!=5 || number.Substring(2,1)!=":" ||
                 !int.TryParse(number.Substring(0,1), out int test0) || !int.TryParse(number.Substring(1,1), out int test1) ||
                 !int.TryParse(number.Substring(3,1), out int test2) || !int.TryParse(number.Substring(4,1), out int test3) ||

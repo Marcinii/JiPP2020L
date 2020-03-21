@@ -5,7 +5,20 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:KonwerterJednostek.Desktop"
         mc:Ignorable="d"
-        Title="Konwerter Jednostek made by sprytnyJakub" Height="450" Width="800">
+        Title="MainWindow" Height="450" Width="800">
+    <Window.Resources>
+        <Storyboard x:Key="Storyboard1">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[2].(RotateTransform.Angle)" Storyboard.TargetName="seconds">
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="360"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+    </Window.Resources>
+    <Window.Triggers>
+        <EventTrigger RoutedEvent="FrameworkElement.Loaded">
+            <BeginStoryboard Storyboard="{StaticResource Storyboard1}"/>
+        </EventTrigger>
+    </Window.Triggers>
+
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="1*"/>
@@ -34,7 +47,7 @@
             <Button x:Name="button1" DockPanel.Dock="Bottom" Margin="10,5,10,5" Height="25" Click="button1_Click">Zakończ</Button>
         </StackPanel>
         <Ellipse Grid.Column="1" Fill="#FFF4F4F5" HorizontalAlignment="Center" Height="200" Margin="0,30,0,0" Stroke="Black" VerticalAlignment="Top" Width="200"/>
-        <Path x:Name="minutes" Grid.Column="1" Data="M6.1000078,31.332997 L15.100009,31.332997 15.100009,130.333 6.1000078,130.333 z M9.8307915,0.5 L20.900009,30.332993 0.5,30.332993 z" HorizontalAlignment="Center" Height="80" Margin="0,50,0,0" Stretch="Fill" Stroke="Black" VerticalAlignment="Top" Width="10" RenderTransformOrigin="0.5,1" Panel.ZIndex="1">
+        <Path x:Name="minutes" Grid.Column="1" Data="M6.1000078,31.332997 L15.100009,31.332997 15.100009,130.333 6.1000078,130.333 z M9.8307915,0.5 L20.900009,30.332993 0.5,30.332993 z" HorizontalAlignment="Center" Height="80" Margin="0,50,0,0" Stretch="Fill" Stroke="Black" VerticalAlignment="Top" Width="10" RenderTransformOrigin="0.5,1" Panel.ZIndex="2">
             <Path.Fill>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="#FF2728A8" Offset="0.99"/>
@@ -52,7 +65,7 @@
                 </TransformGroup>
             </Path.RenderTransform>
         </Path>
-        <Path x:Name="hours" Grid.Column="1" Data="M10.265001,19.311001 L19.530001,19.311001 19.530001,64.299995 10.265001,64.299995 z M13.642232,0.5 L29.233,18.857 0.5,18.857 z" HorizontalAlignment="Center" Height="50" Margin="0,80,0,0" Stretch="Fill" Stroke="Black" VerticalAlignment="Top" Width="16" RenderTransformOrigin="0.5,1" Panel.ZIndex="2">
+        <Path x:Name="hours" Grid.Column="1" Data="M10.265001,19.311001 L19.530001,19.311001 19.530001,64.299995 10.265001,64.299995 z M13.642232,0.5 L29.233,18.857 0.5,18.857 z" HorizontalAlignment="Center" Height="50" Margin="0,80,0,0" Stretch="Fill" Stroke="Black" VerticalAlignment="Top" Width="16" RenderTransformOrigin="0.5,1" Panel.ZIndex="3">
             <Path.Fill>
                 <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
                     <GradientStop Color="#FF0068FF" Offset="0.144"/>
@@ -88,6 +101,28 @@
 
         <Label Content="10" Grid.Column="1" HorizontalAlignment="Center" Height="15" Margin="0,75,155.9,0" VerticalAlignment="Top" Width="15" Padding="0" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="9"/>
         <Label Content="11" Grid.Column="1" HorizontalAlignment="Center" Height="15" Margin="0,42.06,90,0" VerticalAlignment="Top" Width="15" Padding="0" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="9"/>
-
+        <Ellipse Grid.Column="1" Fill="#FF120CF4" HorizontalAlignment="Center" Height="10" Margin="0,125,0,0" Stroke="Black" VerticalAlignment="Top" Width="10" Panel.ZIndex="4"/>
+        <Path Grid.Column="1" Data="M462.13333,247.2" HorizontalAlignment="Left" Height="1" Margin="65.333,247.2,0,0" Stretch="Fill" Stroke="Black" VerticalAlignment="Top" Width="1">
+            <Path.Fill>
+                <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+                    <GradientStop Color="#FF0068FF" Offset="0.144"/>
+                    <GradientStop Color="#FF00FFD6" Offset="0.365"/>
+                    <GradientStop Color="#FF00FF4C" Offset="0.595"/>
+                    <GradientStop Color="#FF90FF00" Offset="0.716"/>
+                    <GradientStop Color="#FFE2FF00" Offset="0.839"/>
+                    <GradientStop Color="#FFFF4900" Offset="0.933"/>
+                </LinearGradientBrush>
+            </Path.Fill>
+        </Path>
+        <Path x:Name="seconds" Grid.Column="1" Data="M0,30 L50,0 L100,30 L100,100 L0,100 L0,30" HorizontalAlignment="Center" Height="100" Margin="0,30,0,0" Stretch="Fill" VerticalAlignment="Top" Width="2" Fill="#FF31B8BF" RenderTransformOrigin="0.5,1">
+            <Path.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Path.RenderTransform>
+        </Path>
     </Grid>
 </Window>

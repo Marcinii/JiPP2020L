@@ -16,7 +16,7 @@ namespace KonwerterJednostek.Logic
                 new Length(),
                 new Temp(),
                 new Weight(),
-                new Clock()
+                new Watch()
             };
         }
     }

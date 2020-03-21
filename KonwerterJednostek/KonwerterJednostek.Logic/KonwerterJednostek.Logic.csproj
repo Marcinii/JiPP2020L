@@ -41,7 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Clock.cs" />
+    <Compile Include="Watch.cs" />
     <Compile Include="ConverterService.cs" />
     <Compile Include="Energy.cs" />
     <Compile Include="Error.cs" />
