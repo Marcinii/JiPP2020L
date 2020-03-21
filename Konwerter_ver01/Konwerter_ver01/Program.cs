@@ -10,18 +10,42 @@ namespace Konwerter_ver01
     {
         static void Main(string[] args)
         {
-            start:
-            Console.WriteLine("Chcesz coś przekonwertować? (jeśli TAK wpisz t)");
-            char odp = char.Parse(Console.ReadLine());
-            if (odp == 't')
-            {
-                Konwerter tmp = new Konwerter();
-                tmp.numeropcji();
-                tmp.konwerterjednostek();
-                goto start;
-            }
+            List<IConverter> konwer = new Konwerter_ver01.ZestawKonw().GetConverter();
             
-            Console.ReadKey();
+            bool start = true;
+
+            while (start)
+            {
+                Console.WriteLine("Konwerter jednostek. Wybierz opcję.");
+                for (int i = 0; i < konwer.Count; i++)
+                {
+                    Console.WriteLine("({0}) {1}", i + 1, konwer[i].Name);
+                }
+                               
+                    Console.WriteLine("Podaj numer wybranego konwertera");
+                    string s = Console.ReadLine();
+                    if (int.TryParse(s, out int numer)) {
+                    if (numer > konwer.Count) Console.WriteLine("{0} nie jest opcją.", s);
+                    else
+                    {
+                        Console.WriteLine("Podaj wprowadzaną jednostkę: ");
+                        string JednZ = Console.ReadLine();
+
+                        Console.WriteLine("Podaj wyprowadzaną jednostkę: ");
+                        string JednDo = Console.ReadLine();
+
+                        Console.WriteLine("Podaj wartość do przeliczenia: ");
+                        string wartosc = Console.ReadLine();
+                        if (double.TryParse(wartosc, out double Wart)) ;
+                        else Console.WriteLine("{0} nie jest opcją.", Wart);
+
+                        double result = konwer[numer - 1].Convert(JednZ, JednDo, Wart);
+
+                        Console.WriteLine("Podana wartość po konwersji: {0} ", result + " " + JednDo.ToString());
+                    }
+                }
+                //start = false;
+            }
         }
     }
 }

@@ -1,0 +1,84 @@
+﻿<Window x:Class="Konwerter_ver01.Desktop.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Konwerter_ver01.Desktop"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="850">
+    <Grid Background="#FFD2ECA4">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="126*"/>
+            <RowDefinition Height="293*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="200"/>
+            <ColumnDefinition Width="65"/>
+
+            <ColumnDefinition Width="90"/>
+            <ColumnDefinition Width="100"/>
+            <ColumnDefinition Width="65"/>
+            <ColumnDefinition Width="90"/>
+            <ColumnDefinition Width="99"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Label Content="Konwerter jednostek" Margin="4,40,4,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Height="39" FontFamily="Vladimir Script" FontSize="24" TextOptions.TextHintingMode="Animated" TextOptions.TextFormattingMode="Display" FontWeight="Bold">
+            <Label.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-28"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Label.RenderTransform>
+        </Label>
+        <TextBlock x:Name="Kom1" HorizontalAlignment="Right" Margin="0,0,64,0" Grid.Row="1" TextWrapping="Wrap" Text="Konwerter temperatur" VerticalAlignment="Top" Width="188" Height="24" Foreground="Black" Background="#FFA7DE9B" TextAlignment="Center" FontFamily="Verdana" Grid.ColumnSpan="2"/>
+        <TextBlock x:Name="Kom1_Copy" HorizontalAlignment="Right" Margin="0,30,64,0" Grid.Row="1" TextWrapping="Wrap" Text="Konwerter odległości" VerticalAlignment="Top" Width="188" Height="24" Foreground="Black" Background="#FFA7DE9B" TextAlignment="Center" FontFamily="Verdana" Grid.ColumnSpan="2"/>
+        <TextBlock x:Name="Kom1_Copy1" HorizontalAlignment="Right" Margin="0,60,64,0" Grid.Row="1" TextWrapping="Wrap" Text="Konwerter wag" VerticalAlignment="Top" Width="188" Height="24" Foreground="Black" Background="#FFA7DE9B" TextAlignment="Center" FontFamily="Verdana" Grid.ColumnSpan="2"/>
+        <TextBlock x:Name="Kom1_Copy2" HorizontalAlignment="Right" Margin="0,90,64,0" Grid.Row="1" TextWrapping="Wrap" Text="Konwerter prędkości" VerticalAlignment="Top" Width="188" Height="24" Foreground="Black" Background="#FFA7DE9B" TextAlignment="Center" FontFamily="Verdana" Grid.ColumnSpan="2"/>
+
+        <TextBlock x:Name="Kom1_Copy3" HorizontalAlignment="Center" Margin="6,0,3,0" Grid.Row="1" TextWrapping="Wrap" Text="Z jedn." VerticalAlignment="Top" Width="56" Height="24" Foreground="Black" Background="#FFA7DE00" TextAlignment="Center" FontFamily="Verdana" Grid.Column="1"/>
+        <TextBlock x:Name="Kom1_Copy4" HorizontalAlignment="Center" Margin="6,30,3,0" Grid.Row="1" TextWrapping="Wrap" Text="Z jedn." VerticalAlignment="Top" Width="56" Height="24" Foreground="Black" Background="#FFA7DE00" TextAlignment="Center" FontFamily="Verdana" Grid.Column="1"/>
+        <TextBlock x:Name="Kom1_Copy5" HorizontalAlignment="Center" Margin="6,60,3,0" Grid.Row="1" TextWrapping="Wrap" Text="Z jedn." VerticalAlignment="Top" Width="56" Height="24" Foreground="Black" Background="#FFA7DE00" TextAlignment="Center" FontFamily="Verdana" Grid.Column="1"/>
+        <TextBlock x:Name="Kom1_Copy6" HorizontalAlignment="Center" Margin="6,90,3,0" Grid.Row="1" TextWrapping="Wrap" Text="Z jedn." VerticalAlignment="Top" Width="56" Height="24" Foreground="Black" Background="#FFA7DE00" TextAlignment="Center" FontFamily="Verdana" Grid.Column="1"/>
+
+
+        <ComboBox x:Name="JednZtemp" Grid.Column="2" HorizontalAlignment="Center" Margin="7,0,3,0" Grid.Row="1" VerticalAlignment="Top" Width="80" Height="22"/>
+        <ComboBox x:Name="JednZodl" Grid.Column="2" HorizontalAlignment="Center" Margin="7,30,3,0" Grid.Row="1" VerticalAlignment="Top" Width="80" Height="22"/>
+        <ComboBox x:Name="JednZwag" Grid.Column="2" HorizontalAlignment="Center" Margin="7,60,3,0" Grid.Row="1" VerticalAlignment="Top" Width="80" Height="22"/>
+        <ComboBox x:Name="JednZspe" Grid.Column="2" HorizontalAlignment="Center" Margin="7,90,3,0" Grid.Row="1" VerticalAlignment="Top" Width="80" Height="22"/>
+
+        <TextBox x:Name="DaneBox" Grid.Column="3" HorizontalAlignment="Center" Height="23" Margin="0,0,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Podaj wart." VerticalAlignment="Top" Width="79"/>
+        <TextBox x:Name="DaneBox_Copy1" Grid.Column="3" HorizontalAlignment="Center" Height="23" Margin="0,30,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Podaj wart." VerticalAlignment="Top" Width="79"/>
+        <TextBox x:Name="DaneBox_Copy2" Grid.Column="3" HorizontalAlignment="Center" Height="23" Margin="0,60,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Podaj wart." VerticalAlignment="Top" Width="79"/>
+        <TextBox x:Name="DaneBox_Copy3" Grid.Column="3" HorizontalAlignment="Center" Height="23" Margin="0,90,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Podaj wart." VerticalAlignment="Top" Width="79"/>
+
+
+        <TextBlock x:Name="Kom1_Copy7" HorizontalAlignment="Center" Margin="1,0,10,0" Grid.Row="1" TextWrapping="Wrap" Text="Do jedn." VerticalAlignment="Top" Width="54" Height="24" Foreground="Black" Background="#FFA7DE00" TextAlignment="Center" FontFamily="Verdana" Grid.Column="4" />
+        <TextBlock x:Name="Kom1_Copy8" HorizontalAlignment="Center" Margin="1,30,10,0" Grid.Row="1" TextWrapping="Wrap" Text="Do jedn." VerticalAlignment="Top" Width="54" Height="24" Foreground="Black" Background="#FFA7DE00" TextAlignment="Center" FontFamily="Verdana" Grid.Column="4" />
+        <TextBlock x:Name="Kom1_Copy9" HorizontalAlignment="Center" Margin="1,60,10,0" Grid.Row="1" TextWrapping="Wrap" Text="Do jedn." VerticalAlignment="Top" Width="54" Height="24" Foreground="Black" Background="#FFA7DE00" TextAlignment="Center" FontFamily="Verdana" Grid.Column="4" />
+        <TextBlock x:Name="Kom1_Copy10" HorizontalAlignment="Center" Margin="1,90,10,0" Grid.Row="1" TextWrapping="Wrap" Text="Do jedn." VerticalAlignment="Top" Width="54" Height="24" Foreground="Black" Background="#FFA7DE00" TextAlignment="Center" FontFamily="Verdana" Grid.Column="4" />
+
+        <ComboBox x:Name="JednDotemp" Grid.Column="5" HorizontalAlignment="Center" Margin="0,0,0,0" Grid.Row="1" VerticalAlignment="Top" Width="80" Height="22"/>
+        <ComboBox x:Name="JednDoodl" Grid.Column="5" HorizontalAlignment="Center" Margin="0,30,0,0" Grid.Row="1" VerticalAlignment="Top" Width="80" Height="22" />
+        <ComboBox x:Name="JednDowag" Grid.Column="5" HorizontalAlignment="Center" Margin="0,60,0,0" Grid.Row="1" VerticalAlignment="Top" Width="80" Height="22" />
+        <ComboBox x:Name="JednDospe" Grid.Column="5" HorizontalAlignment="Center" Margin="0,90,0,0" Grid.Row="1" VerticalAlignment="Top" Width="80" Height="22" />
+
+        <Button x:Name="Wykonaj" Content="Wykonaj" HorizontalAlignment="Center" Margin="0,0,0,0" VerticalAlignment="Top" Width="84" Height="25" Grid.Column="6" Grid.Row="1" Background="#FF27AA6E" BorderBrush="#FF894F15" FontFamily="Verdana" FontSize="16"/>
+        <Button x:Name="Wykonaj_Copy" Content="Wykonaj" HorizontalAlignment="Center" Margin="0,30,0,0" VerticalAlignment="Top" Width="84" Height="25" Grid.Column="6" Grid.Row="1" Background="#FF27AA6E" BorderBrush="#FF894F15" FontFamily="Verdana" FontSize="16"/>
+        <Button x:Name="Wykonaj_Copy1" Content="Wykonaj" HorizontalAlignment="Center" Margin="0,60,0,0" VerticalAlignment="Top" Width="84" Height="25" Grid.Column="6" Grid.Row="1" Background="#FF27AA6E" BorderBrush="#FF894F15" FontFamily="Verdana" FontSize="16"/>
+        <Button x:Name="Wykonaj_Copy2" Content="Wykonaj" HorizontalAlignment="Center" Margin="0,90,0,0" VerticalAlignment="Top" Width="84" Height="25" Grid.Column="6" Grid.Row="1" Background="#FF27AA6E" BorderBrush="#FF894F15" FontFamily="Verdana" FontSize="16"/>
+
+        <TextBlock x:Name="Wynik" Grid.Column="7" HorizontalAlignment="Center" Height="35" Margin="32,0,31,0" TextWrapping="Wrap" VerticalAlignment="Bottom" Width="70" TextAlignment="Center"><Run FontSize="16" FontFamily="Verdana" Text="Wynik"/></TextBlock>
+
+        <TextBox x:Name="WynikBox" Grid.Column="7" HorizontalAlignment="Center" Height="23" Margin="0,0,0,0" Grid.Row="1" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="WynikBox_Copy" Grid.Column="7" HorizontalAlignment="Center" Height="23" Margin="0,30,0,0" Grid.Row="1" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="WynikBox_Copy1" Grid.Column="7" HorizontalAlignment="Center" Height="23" Margin="0,60,0,0" Grid.Row="1" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="WynikBox_Copy2" Grid.Column="7" HorizontalAlignment="Center" Height="23" Margin="0,90,0,0" Grid.Row="1" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+       
+
+
+
+
+    </Grid>
+</Window>

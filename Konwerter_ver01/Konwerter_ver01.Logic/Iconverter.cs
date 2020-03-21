@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 
 namespace Konwerter_ver01
 {
-    class Class1
+    public interface IConverter
     {
+        string Name { get; }
+        List<string> Jedn { get; }
+        double Convert(string JednZ, string JednDo, double Wart);
     }
 }
