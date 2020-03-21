@@ -7,9 +7,10 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Window.Resources>
-        <Storyboard x:Key="Storyboard1">
+        <Storyboard x:Key="Storyboard1" RepeatBehavior="Forever">
             <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[2].(RotateTransform.Angle)" Storyboard.TargetName="seconds">
-                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="360"/>
+                <EasingDoubleKeyFrame x:Name="eas0" KeyTime="0:0:0" Value="30"/>
+                <EasingDoubleKeyFrame x:Name="eas1" KeyTime="0:0:2" Value="360"/>
             </DoubleAnimationUsingKeyFrames>
         </Storyboard>
     </Window.Resources>
