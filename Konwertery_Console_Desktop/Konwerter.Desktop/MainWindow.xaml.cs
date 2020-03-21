@@ -9,6 +9,7 @@ using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
+using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
@@ -30,6 +31,8 @@ namespace Konwerter.Desktop
         {
             InitializeComponent();
             initConverterBox();
+            hourRotation.Angle = (360/12)*(6)+90;
+            minuteRotation.Angle = (360 / 60) * (15) + 90;
         }
 
         private void initConverterBox()
@@ -45,7 +48,7 @@ namespace Konwerter.Desktop
         private void converterBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             int converterIndex = converterBox.SelectedIndex;
-
+            stopArrowAnimation();
             onConvert.IsEnabled = true;
             quantityBox.Text = "0";
             resultLabel.Content = null;
@@ -120,8 +123,25 @@ namespace Konwerter.Desktop
             {
                 string conTo = convertTo.SelectedItem.ToString();
                 string conFrom = convertFrom.SelectedItem.ToString();
-                resultLabel.Content = chosenConverter.onConvert(quantity, conFrom, conTo);
+
+                if (chosenConverter.Equals(converterList[4]))
+                {
+                    string[] lista = quantity.Split(':');
+                    hourRotation.Angle = (360 / 12) * (Int32.Parse(lista[0])) + 90;
+                    minuteRotation.Angle = (360 / 60) * (Int32.Parse(lista[1])) + 90;
+                    resultLabel.Content = chosenConverter.onConvert(quantity, conFrom, conTo);
+                } 
+                else
+                {
+                    resultLabel.Content = chosenConverter.onConvert(quantity, conFrom, conTo);
+                }
+                
             }
+        }
+
+        private void stopArrowAnimation()
+        {
+            ((Storyboard)Resources["arrowAnimation"]).Stop();
         }
     }
 }
