@@ -41,7 +41,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Czas.cs" />
     <Compile Include="IKonwerter.cs" />
+    <Compile Include="KonwerterSerwis.cs" />
     <Compile Include="Masa.cs" />
     <Compile Include="Objetosc.cs" />
     <Compile Include="Odleglosc.cs" />

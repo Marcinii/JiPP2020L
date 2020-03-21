@@ -17,8 +17,9 @@ namespace Konwerter_jednostek
             "F"
         };
 
-        public double Konwerter(string JednostkaZ, string JednostkaNa, double WartoscDoKonwersji)
+        public string Konwerter(string JednostkaZ, string JednostkaNa, string WDK)
         {
+            double WartoscDoKonwersji = double.Parse(WDK);
             double Wynik=0;
             if (JednostkaZ == "C" && JednostkaNa == "F") {
                 Wynik = 32.0 + 9.0 / 5.0 * WartoscDoKonwersji;
@@ -64,7 +65,7 @@ namespace Konwerter_jednostek
                 Wynik = WartoscDoKonwersji;
             }
 
-            return Wynik;
+            return Wynik.ToString("F");
         }
     }
 }

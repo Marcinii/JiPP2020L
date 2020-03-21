@@ -10,6 +10,7 @@ namespace Konwerter_jednostek
     {
         string Nazwa { get; }
         List<string> Jednostki { get; }
-        double Konwerter(string JednostkaZ, string JednostkaNa, double WartoscDoKonwersji);
+        string Konwerter(string JednostkaZ, string JednostkaNa, string WartoscDoKonwersji);
     }
+
 }

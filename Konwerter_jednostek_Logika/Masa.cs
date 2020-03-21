@@ -16,8 +16,9 @@ namespace Konwerter_jednostek
             "f"
         };
 
-        public double Konwerter(string JednostkaZ, string JednostkaNa, double WartoscDoKonwersji)
+        public string Konwerter(string JednostkaZ, string JednostkaNa, string WDK)
         {
+            double WartoscDoKonwersji = double.Parse(WDK);
             double Wynik = 0;
             if (JednostkaZ == "kg" && JednostkaNa == "f")
             {
@@ -39,7 +40,7 @@ namespace Konwerter_jednostek
                 Wynik = WartoscDoKonwersji;
             }
 
-            return Wynik;
+            return Wynik.ToString("F");
         }
     }
 }

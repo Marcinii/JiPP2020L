@@ -6,19 +6,82 @@
         xmlns:local="clr-namespace:Konwerter_jednostek"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid x:Name="Napis3">
-        <Label x:Name="Napis1" Content="Wybierz opcję" HorizontalAlignment="Left" Margin="40,30,0,0" VerticalAlignment="Top"/>
-        <ComboBox x:Name="CBOpcja" HorizontalAlignment="Left" Margin="140,34,0,0" VerticalAlignment="Top" Width="120"/>
-        <Label x:Name="Napis2" Content="Konwersja z" HorizontalAlignment="Left" Margin="40,61,0,0" VerticalAlignment="Top"/>
-        <ComboBox x:Name="CBZ" HorizontalAlignment="Left" Margin="140,65,0,0" VerticalAlignment="Top" Width="120" MouseEnter="CBZ_MouseEnter"/>
-        <Label Content="Konwersja na" HorizontalAlignment="Left" Margin="289,61,0,0" VerticalAlignment="Top"/>
-        <ComboBox x:Name="CBNa" HorizontalAlignment="Left" Margin="390,65,0,0" VerticalAlignment="Top" Width="120" MouseEnter="CBNa_MouseEnter"/>
-        <Label x:Name="Napis4" Content="Wartość do konwersji" HorizontalAlignment="Left" Margin="40,92,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="TBoxWartosc" HorizontalAlignment="Left" Height="23" Margin="168,95,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <Button x:Name="Button1" Content="Przelicz" HorizontalAlignment="Left" Margin="140,132,0,0" VerticalAlignment="Top" Width="148" Click="Button1_Click"/>
-        <Label x:Name="Napis5" Content="Wartość po konwersji" HorizontalAlignment="Left" Margin="40,162,0,0" VerticalAlignment="Top"/>
-        <TextBlock x:Name="TBlockWynik" HorizontalAlignment="Left" Margin="168,167,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120" Height="21"/>
+    <Window.Resources>
+        <Storyboard x:Key="StoryboardMin" >
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[2].(RotateTransform.Angle)" Storyboard.TargetName="min">
+                <EasingDoubleKeyFrame KeyTime="0:0:12" Value="4320"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Key="StoryboardGodz">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[2].(RotateTransform.Angle)" Storyboard.TargetName="godz">
+                <EasingDoubleKeyFrame KeyTime="0:0:12" Value="360"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+    </Window.Resources>
+    <!--<Window.Triggers>
+        <EventTrigger RoutedEvent="FrameworkElement.Loaded">
+            <BeginStoryboard Storyboard="{StaticResource StoryboardMin}"/>
+            <BeginStoryboard Storyboard="{StaticResource StoryboardGodz}"/>
+        </EventTrigger>
+    </Window.Triggers>-->
 
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+
+
+        <StackPanel Grid.Column="0">
+            <Label x:Name="Napis1" Margin="10,5,10,5" Content="Wybierz opcję" Height="25" HorizontalAlignment="Right"/>
+            <Label x:Name="Napis2" Margin="10,5,10,5" Content="Konwersja z" Height="25" HorizontalAlignment="Right"/>
+            <Label x:Name="Napis3" Margin="10,5,10,5" Content="Konwersja na"  Height="25" HorizontalAlignment="Right"/>
+            <Label x:Name="Napis4" Margin="10,5,10,5" Content="Wartość do konwersji"  Height="25" HorizontalAlignment="Right" />
+            <Button x:Name="Button1" Margin="10,5,10,5" Content="Przelicz" HorizontalAlignment="Right" VerticalAlignment="Top" Width="120" Click="Button1_Click"  Height="25"/>
+            <Label x:Name="Napis5" Margin="10,5,10,5" Content="Wartość po konwersji"  Height="25" HorizontalAlignment="Right"/>
+
+        </StackPanel>
+
+        <StackPanel Grid.Column="1">
+            <ComboBox x:Name="CBOpcja"  Margin="10,5,0,0" HorizontalAlignment="Left"  Width="120" Height="30" SelectionChanged="CBOpcja_SelectionChanged">
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding Nazwa}"/>
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
+            <ComboBox x:Name="CBZ" Margin="10,5,0,0" HorizontalAlignment="Left" VerticalAlignment="Center" Width="120" Height="30"/>
+            <ComboBox x:Name="CBNa"  Margin="10,5,0,0" HorizontalAlignment="Left" VerticalAlignment="Center" Width="120" Height="30"/>
+            <TextBox x:Name="TBoxWartosc" Margin="10,5,0,0" HorizontalAlignment="Left" VerticalAlignment="Center" Height="30" TextWrapping="Wrap" Width="120"/>
+            <Label x:Name="Napisx" Margin="10,5,10,5" Content="" />
+            <TextBlock x:Name="TBlockWynik" Margin="10,5,0,0" HorizontalAlignment="Left"  VerticalAlignment="Center" TextWrapping="Wrap"  Width="120" Height="25"/>
+        </StackPanel>
+        <Ellipse Grid.Column="2" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="100" Margin="10,10,0,0" Stroke="Black" VerticalAlignment="Top" Width="100"/>
+        <Rectangle Grid.Column="2" Fill="#FF00000C" HorizontalAlignment="Left" Height="5" Margin="59,10,0,0" Stroke="Black" VerticalAlignment="Top" Width="2"/>
+        <Rectangle Grid.Column="2" Fill="#FF00000C" HorizontalAlignment="Left" Height="5" Margin="59,105,0,0" Stroke="Black" VerticalAlignment="Top" Width="2"/>
+        <Rectangle Grid.Column="2" Fill="#FF00000C" HorizontalAlignment="Left" Height="2" Margin="105,59,0,0" Stroke="Black" VerticalAlignment="Top" Width="5"/>
+        <Rectangle Grid.Column="2" Fill="#FF00000C" HorizontalAlignment="Left" Height="2" Margin="10,59,0,0" Stroke="Black" VerticalAlignment="Top" Width="5"/>
+        <Rectangle x:Name="min" Grid.Column="2" Fill="#FF00000C" HorizontalAlignment="Left" Height="50" Margin="59,10,0,0" Stroke="Blue" VerticalAlignment="Top" Width="2" RenderTransformOrigin="0.5,1">
+            <Rectangle.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform x:Name="RotacjaMin" Angle="0"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Rectangle.RenderTransform>
+        </Rectangle>
+        <Rectangle x:Name="godz" Grid.Column="2" Fill="#FF00000C" HorizontalAlignment="Left" Height="25" Margin="58,35,0,0" Stroke="DarkBlue" VerticalAlignment="Top" Width="4" RenderTransformOrigin="0.5,1">
+            <Rectangle.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform x:Name="RotacjaGodz" Angle="0"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Rectangle.RenderTransform>
+        </Rectangle>
 
     </Grid>
 </Window>

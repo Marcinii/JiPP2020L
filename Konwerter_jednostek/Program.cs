@@ -43,7 +43,7 @@ namespace Konwerter_jednostek
 
                     Console.Write("Podaj liczbę do konwersji: ");
                     string liczba = Console.ReadLine();
-                    double wartosc = double.Parse(liczba);
+                    string wartosc = liczba;
 
                 //int choice = int.Parse(inputChoice); // TryParse!
                   //  decimal value = decimal.Parse(inputValue); // TryParse!

@@ -16,8 +16,9 @@ namespace Konwerter_jednostek
             "gal"
         };
 
-        public double Konwerter(string JednostkaZ, string JednostkaNa, double WartoscDoKonwersji)
+        public string Konwerter(string JednostkaZ, string JednostkaNa, string WDK)
         {
+            double WartoscDoKonwersji = double.Parse(WDK);
             double Wynik = 0;
             if (JednostkaZ == "l" && JednostkaNa == "gal")
             {
@@ -39,7 +40,7 @@ namespace Konwerter_jednostek
                 Wynik = WartoscDoKonwersji;
             }
 
-            return Wynik;
+            return Wynik.ToString("F");
         }
     }
 }
