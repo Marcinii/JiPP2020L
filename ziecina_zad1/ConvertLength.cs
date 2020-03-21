@@ -4,15 +4,15 @@ using System.Text;
 
 namespace ziecina_zad1
 {
-    class ConvertMass : IConverter
+    class ConvertLength : IConverter
     {
-        public string Name => "Konwerter wagi";
+        public string Name => "Konwerter odległości";
 
         public List<string> Units => new List<string>
         {
-            "kg",
-            "lbs",
-            "g"
+            "ki",
+            "mi",
+            "m"
         };
 
         public float Convert(string startUntit, string endUnit, string value)
@@ -21,39 +21,38 @@ namespace ziecina_zad1
             float toReturn = 0;
             switch (startUntit)
             {
-                case "kg":
+                case "ki":
                     if (float.TryParse(value, out startValueToDefault))
                     {
                         ;
                     }
                     break;
-                case "lbs":
+                case "mi":
                     if (float.TryParse(value, out startValueToDefault))
                     {
-                        startValueToDefault = (float)(0.4535923) * startValueToDefault;
+                        startValueToDefault = (float)(1.609344) * startValueToDefault;
                     }
                     break;
-                case "g":
+                case "m":
                     if (float.TryParse(value, out startValueToDefault))
                     {
                         startValueToDefault = (float)(0.001) * startValueToDefault;
                     }
                     break;
             }
-            switch(endUnit)
+            switch (endUnit)
             {
-                case "kg":
+                case "ki":
                     toReturn = startValueToDefault;
                     break;
-                case "lbs":
-                    toReturn = (float)(2.20462262) * startValueToDefault;
+                case "mi":
+                    toReturn = startValueToDefault / (float)(1.609344);
                     break;
-                case "g":
+                case "m":
                     toReturn = (float)(1000) * startValueToDefault;
                     break;
             }
             return toReturn;
-            }
         }
     }
-
+}

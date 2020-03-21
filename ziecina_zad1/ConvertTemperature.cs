@@ -4,15 +4,15 @@ using System.Text;
 
 namespace ziecina_zad1
 {
-    class ConvertMass : IConverter
+    class convertTemperature : IConverter
     {
-        public string Name => "Konwerter wagi";
+        public string Name => "Konwerter temperatury";
 
         public List<string> Units => new List<string>
         {
-            "kg",
-            "lbs",
-            "g"
+            "°C",
+            "°F",
+            "K"
         };
 
         public float Convert(string startUntit, string endUnit, string value)
@@ -21,39 +21,39 @@ namespace ziecina_zad1
             float toReturn = 0;
             switch (startUntit)
             {
-                case "kg":
+                case "°C":
                     if (float.TryParse(value, out startValueToDefault))
                     {
                         ;
                     }
                     break;
-                case "lbs":
+                case "°F":
                     if (float.TryParse(value, out startValueToDefault))
                     {
-                        startValueToDefault = (float)(0.4535923) * startValueToDefault;
+                        startValueToDefault = (startValueToDefault - 32) / (float)(1.8);
                     }
                     break;
-                case "g":
+                case "K":
                     if (float.TryParse(value, out startValueToDefault))
                     {
-                        startValueToDefault = (float)(0.001) * startValueToDefault;
+                        startValueToDefault = startValueToDefault - (float)(274.15);
                     }
                     break;
             }
-            switch(endUnit)
+            switch (endUnit)
             {
-                case "kg":
+                case "°C":
                     toReturn = startValueToDefault;
                     break;
-                case "lbs":
-                    toReturn = (float)(2.20462262) * startValueToDefault;
+                case "°F":
+                    toReturn = startValueToDefault * (float)(1.8) + 32;
                     break;
-                case "g":
-                    toReturn = (float)(1000) * startValueToDefault;
+                case "K":
+                    toReturn = startValueToDefault + (float)(274.15);
                     break;
             }
             return toReturn;
-            }
         }
     }
+}
 

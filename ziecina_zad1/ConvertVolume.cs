@@ -4,15 +4,15 @@ using System.Text;
 
 namespace ziecina_zad1
 {
-    class ConvertMass : IConverter
+    class ConvertVolume : IConverter
     {
-        public string Name => "Konwerter wagi";
+        public string Name => "Konwerter objętości";
 
         public List<string> Units => new List<string>
         {
-            "kg",
-            "lbs",
-            "g"
+            "l",
+            "oz",
+            "m^3"
         };
 
         public float Convert(string startUntit, string endUnit, string value)
@@ -21,39 +21,39 @@ namespace ziecina_zad1
             float toReturn = 0;
             switch (startUntit)
             {
-                case "kg":
+                case "l":
                     if (float.TryParse(value, out startValueToDefault))
                     {
                         ;
                     }
                     break;
-                case "lbs":
+                case "oz":
                     if (float.TryParse(value, out startValueToDefault))
                     {
-                        startValueToDefault = (float)(0.4535923) * startValueToDefault;
+                        startValueToDefault = (float)(0.0295735) * startValueToDefault;
                     }
                     break;
-                case "g":
+                case "m^3":
                     if (float.TryParse(value, out startValueToDefault))
                     {
-                        startValueToDefault = (float)(0.001) * startValueToDefault;
+                        startValueToDefault = (float)(1000) * startValueToDefault;
                     }
                     break;
             }
-            switch(endUnit)
+            switch (endUnit)
             {
-                case "kg":
+                case "l":
                     toReturn = startValueToDefault;
                     break;
-                case "lbs":
-                    toReturn = (float)(2.20462262) * startValueToDefault;
+                case "oz":
+                    toReturn = startValueToDefault / (float)(33.8140227);
                     break;
-                case "g":
-                    toReturn = (float)(1000) * startValueToDefault;
+                case "m^3":
+                    toReturn = (float)(0.001) * startValueToDefault;
                     break;
             }
             return toReturn;
-            }
         }
     }
+}
 

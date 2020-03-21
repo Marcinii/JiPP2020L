@@ -17,3 +17,4 @@ namespace ziecina_zad1
         float Convert(string startUntit, string endUnit, string value);
     }
 }
+
