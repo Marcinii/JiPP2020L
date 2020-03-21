@@ -94,5 +94,11 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ziecinaUnitConverter.Logic\ziecinaUnitConverter.Logic.csproj">
+      <Project>{e05b020d-6557-4d51-bade-ba0862da4feb}</Project>
+      <Name>ziecinaUnitConverter.Logic</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

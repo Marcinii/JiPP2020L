@@ -15,12 +15,12 @@
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <Label Name="labelStartUnit" HorizontalAlignment="Left" Height="30" Margin="69,44,0,-53" VerticalAlignment="Top" Width="175" Grid.Row="1">Jednostka startowa</Label>
-        <ListBox Name="listStartUnit" HorizontalAlignment="Left" Height="41" Margin="273,94,0,-114" VerticalAlignment="Top" Width="119" Grid.Row="1"/>
-        <ListBox Name="listEndUnit" HorizontalAlignment="Left" Height="41" Margin="273,222,0,-242" VerticalAlignment="Top" Width="119" Grid.Row="1"/>
+        <ComboBox Name="listStartUnit" HorizontalAlignment="Left" Height="41" Margin="273,94,0,-114" VerticalAlignment="Top" Width="119" Grid.Row="1"/>
+        <ComboBox Name="listEndUnit" HorizontalAlignment="Left" Height="41" Margin="273,222,0,-242" VerticalAlignment="Top" Width="119" Grid.Row="1"/>
         <TextBlock Name="blockResault" HorizontalAlignment="Left" Height="41" Margin="20,223,0,-243" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="224" Grid.Row="1"/>
-        <TextBox Name="textValues" HorizontalAlignment="Left" Height="41" Margin="20,94,0,-114" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="224" Grid.Row="1"/>
+        <TextBox Name="textValues" HorizontalAlignment="Left" Height="41" Margin="20,94,0,-114" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="224" Grid.Row="1" KeyUp="textValues_KeyUp"/>
         <Label Name="labelEndUnit" HorizontalAlignment="Left" Height="30" Margin="69,172,0,-181" VerticalAlignment="Top" Width="175" Grid.Row="1">Jednostka końcowa</Label>
         <Label Name="labelChooseConverter" Content="Wybierz konwerter" HorizontalAlignment="Left" Height="30" Margin="69,10,0,0" VerticalAlignment="Top" Width="175"/>
-        <ListBox Name="listConverters" HorizontalAlignment="Left" Height="41" Margin="20,57,0,0" VerticalAlignment="Top" Width="372"/>
+        <ComboBox Name="listConverters" HorizontalAlignment="Left" Height="41" Margin="20,57,0,0" VerticalAlignment="Top" Width="372" SelectionChanged="listConverters_SelectionChanged"/>
     </Grid>
 </Window>
