@@ -4,15 +4,15 @@ using System.Text;
 
 namespace ziecina_zad1
 {
-    class convertTemperature : IConverter
+    public class ConvertLength : IConverter
     {
-        public string Name => "Konwerter temperatury";
+        public string Name => "Konwerter odległości";
 
         public List<string> Units => new List<string>
         {
-            "°C",
-            "°F",
-            "K"
+            "ki",
+            "mi",
+            "m"
         };
 
         public float Convert(string startUntit, string endUnit, string value)
@@ -21,39 +21,38 @@ namespace ziecina_zad1
             float toReturn = 0;
             switch (startUntit)
             {
-                case "°C":
+                case "ki":
                     if (float.TryParse(value, out startValueToDefault))
                     {
                         ;
                     }
                     break;
-                case "°F":
+                case "mi":
                     if (float.TryParse(value, out startValueToDefault))
                     {
-                        startValueToDefault = (startValueToDefault - 32) / (float)(1.8);
+                        startValueToDefault = (float)(1.609344) * startValueToDefault;
                     }
                     break;
-                case "K":
+                case "m":
                     if (float.TryParse(value, out startValueToDefault))
                     {
-                        startValueToDefault = startValueToDefault - (float)(274.15);
+                        startValueToDefault = (float)(0.001) * startValueToDefault;
                     }
                     break;
             }
             switch (endUnit)
             {
-                case "°C":
+                case "ki":
                     toReturn = startValueToDefault;
                     break;
-                case "°F":
-                    toReturn = startValueToDefault * (float)(1.8) + 32;
+                case "mi":
+                    toReturn = startValueToDefault / (float)(1.609344);
                     break;
-                case "K":
-                    toReturn = startValueToDefault + (float)(274.15);
+                case "m":
+                    toReturn = (float)(1000) * startValueToDefault;
                     break;
             }
             return toReturn;
         }
     }
 }
-

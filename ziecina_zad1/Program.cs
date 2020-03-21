@@ -4,6 +4,7 @@ namespace ziecina_zad1
 {
     class Program
     {
+        /*
         static public void tempe_conv()
         {
             string unit = "";
@@ -185,6 +186,7 @@ namespace ziecina_zad1
                     break;
             }
         }
+        */
         static void Main(string[] args)
         {
             //Program.Menu();

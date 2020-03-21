@@ -10,7 +10,7 @@ namespace ziecina_zad1
         {
             List<IConverter> convList = new List<IConverter>()
             {
-                new convertTemperature(),
+                new ConvertTemperature(),
                 new ConvertMass(),
                 new ConvertLength(),
                 new ConvertVolume()

@@ -4,7 +4,7 @@ using System.Text;
 
 namespace ziecina_zad1
 {
-    class ConvertMass : IConverter
+    public class ConvertMass : IConverter
     {
         public string Name => "Konwerter wagi";
 
