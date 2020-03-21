@@ -7,16 +7,30 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Window.Resources>
-        <Storyboard x:Key="Storyboard1" RepeatBehavior="Forever">
+        <Storyboard x:Key="sb0" RepeatBehavior="Forever">
             <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[2].(RotateTransform.Angle)" Storyboard.TargetName="seconds">
                 <EasingDoubleKeyFrame x:Name="eas0" KeyTime="0:0:0" Value="30"/>
-                <EasingDoubleKeyFrame x:Name="eas1" KeyTime="0:0:2" Value="360"/>
+                <EasingDoubleKeyFrame x:Name="eas1" KeyTime="0:1:0" Value="360"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Key="msb0">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[2].(RotateTransform.Angle)" Storyboard.TargetName="minutes">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:1:0" Value="6"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Key="msb1" RepeatBehavior="Forever">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[2].(RotateTransform.Angle)" Storyboard.TargetName="minutes">
+                <EasingDoubleKeyFrame KeyTime="0:0:0" Value="30"/>
+                <EasingDoubleKeyFrame KeyTime="0:1:0" Value="360"/>
             </DoubleAnimationUsingKeyFrames>
         </Storyboard>
     </Window.Resources>
     <Window.Triggers>
         <EventTrigger RoutedEvent="FrameworkElement.Loaded">
-            <BeginStoryboard Storyboard="{StaticResource Storyboard1}"/>
+            <BeginStoryboard Storyboard="{StaticResource sb0}"/>
+            <BeginStoryboard Storyboard="{StaticResource msb0}"/>
+            <BeginStoryboard Storyboard="{StaticResource msb1}"/>
         </EventTrigger>
     </Window.Triggers>
 

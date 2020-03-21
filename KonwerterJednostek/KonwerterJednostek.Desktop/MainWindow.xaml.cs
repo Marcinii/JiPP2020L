@@ -24,15 +24,56 @@ namespace KonwerterJednostek.Desktop
     {
         public MainWindow()
         {
+            InitializeComponent();
+
             Watch t = new Watch();
             int hour = (DateTime.Now).Hour;
             int minute = (DateTime.Now).Minute;
             int second = (DateTime.Now).Second;
 
-            //((EasingDoubleKeyFrame)Resources["eas0"]).Value = second;
-            //((EasingDoubleKeyFrame)Resources["eas1"]).Value = second + 360;
+            EasingDoubleKeyFrame keyFrame0 = ((this.Resources["sb0"]
+            as Storyboard).Children[0]
+            as DoubleAnimationUsingKeyFrames).KeyFrames[0]
+            as EasingDoubleKeyFrame;
 
-            InitializeComponent();
+            EasingDoubleKeyFrame keyFrame1 = ((this.Resources["sb0"]
+            as Storyboard).Children[0]
+            as DoubleAnimationUsingKeyFrames).KeyFrames[1]
+            as EasingDoubleKeyFrame;
+
+            second += 1;
+            keyFrame0.Value = second * 6;
+            keyFrame1.Value = second * 6 + 360;
+
+            EasingDoubleKeyFrame keyFrame2 = ((this.Resources["msb0"]
+            as Storyboard).Children[0]
+            as DoubleAnimationUsingKeyFrames).KeyFrames[0]
+            as EasingDoubleKeyFrame;
+
+            EasingDoubleKeyFrame keyFrame3 = ((this.Resources["msb0"]
+            as Storyboard).Children[0]
+            as DoubleAnimationUsingKeyFrames).KeyFrames[1]
+            as EasingDoubleKeyFrame;
+
+            keyFrame2.Value = minute * 6;
+            keyFrame3.Value = minute * 6 + 6;
+            keyFrame3.KeyTime = TimeSpan.FromSeconds(60 - second);
+
+            EasingDoubleKeyFrame keyFrame4 = ((this.Resources["msb1"]
+            as Storyboard).Children[0]
+            as DoubleAnimationUsingKeyFrames).KeyFrames[0]
+            as EasingDoubleKeyFrame;
+
+            EasingDoubleKeyFrame keyFrame5 = ((this.Resources["msb1"]
+            as Storyboard).Children[0]
+            as DoubleAnimationUsingKeyFrames).KeyFrames[1]
+            as EasingDoubleKeyFrame;
+
+            keyFrame4.Value = minute * 6 + 6;
+            keyFrame4.KeyTime = TimeSpan.FromSeconds(60 - second);
+            keyFrame5.Value = minute * 6 + 12;
+            keyFrame5.KeyTime = TimeSpan.FromSeconds(120 - second);
+
             combo0.ItemsSource = new ConverterService().GetConverters();
             combo0.SelectedIndex = 4;
 
@@ -47,9 +88,9 @@ namespace KonwerterJednostek.Desktop
             bool success0 = double.TryParse(result.Substring(3, 2), out double deg0);
             if (!success0) { deg0 = 0; }
             deg0 *= 6;
-            Path pt0 = minutes;
-            RotateTransform rot0 = new RotateTransform(deg0);
-            pt0.RenderTransform = rot0;
+            //Path pt0 = minutes;
+            //RotateTransform rot0 = new RotateTransform(deg0);
+            //pt0.RenderTransform = rot0;
 
             bool success1 = double.TryParse(result.Substring(0, 2), out double deg1);
             if (!success1) { deg1 = 0; }
@@ -59,10 +100,8 @@ namespace KonwerterJednostek.Desktop
             RotateTransform rot1 = new RotateTransform(deg1);
             pt1.RenderTransform = rot1;
 
-            double deg2 = second * 6;
-            Path pt2 = seconds;
-
-            
+            //double deg2 = second * 6;
+            //Path pt2 = seconds;
             //RotateTransform rot2 = new RotateTransform(deg2);
             //pt2.RenderTransform = rot2;
 
