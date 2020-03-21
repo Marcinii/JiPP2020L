@@ -22,7 +22,8 @@ namespace Konwerter.Desktop
             new LenghtConversion(),
             new WeightConversion(),
             new TemperatureConversion(),
-            new PowerConversion()
+            new PowerConversion(),
+            new TimeConversion()
         };
         IConverter chosenConverter;
         public MainWindow()
@@ -67,6 +68,10 @@ namespace Konwerter.Desktop
                     initPowerConverter();
                     chosenConverter = converterList[3];
                     break;
+                case 4:
+                    initTimeConverter();
+                    chosenConverter = converterList[4];
+                    break;
             }
         }
         private void initLenghtConverter()
@@ -96,9 +101,16 @@ namespace Konwerter.Desktop
             convertTo.ItemsSource = converterList[3].ConverterUnits;
         }
 
+        private void initTimeConverter()
+        {
+            converterLabel.Content = "Konwerter czasu";
+            convertFrom.ItemsSource = converterList[4].ConverterUnits;
+            convertTo.ItemsSource = converterList[4].ConverterUnits;
+        }
+
         private void onConvert_Click(object sender, RoutedEventArgs e)
         {
-            double quantity = Double.Parse(quantityBox.Text);
+            string quantity = quantityBox.Text;
 
             if (convertFrom.SelectedItem == null || convertTo.SelectedItem == null || quantityBox.Text == null)
             {
@@ -108,7 +120,7 @@ namespace Konwerter.Desktop
             {
                 string conTo = convertTo.SelectedItem.ToString();
                 string conFrom = convertFrom.SelectedItem.ToString();
-                resultLabel.Content = chosenConverter.onConvert(quantity, conFrom, conTo) + " " + conTo;
+                resultLabel.Content = chosenConverter.onConvert(quantity, conFrom, conTo);
             }
         }
     }

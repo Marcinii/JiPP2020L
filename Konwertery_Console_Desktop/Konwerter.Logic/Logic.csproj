@@ -49,6 +49,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TemperatureConversion.cs" />
     <Compile Include="TemperatureService.cs" />
+    <Compile Include="TimeConversion.cs" />
+    <Compile Include="TimeService.cs" />
     <Compile Include="WeightConversion.cs" />
     <Compile Include="WeightService.cs" />
   </ItemGroup>

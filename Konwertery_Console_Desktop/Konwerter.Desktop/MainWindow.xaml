@@ -16,7 +16,9 @@
             <RowDefinition Height="1*"></RowDefinition>
             <RowDefinition Height="20"></RowDefinition>
         </Grid.RowDefinitions>
-        <ComboBox Grid.Row="0" Grid.Column="0" x:Name="converterBox" Margin="10,10,10,10" VerticalAlignment="Top" SelectionChanged="converterBox_SelectionChanged"/>
+        <ComboBox Grid.Row="0" Grid.Column="0" x:Name="converterBox" Margin="10,10,10,10" VerticalAlignment="Top" SelectionChanged="converterBox_SelectionChanged">
+            
+        </ComboBox>
         <StackPanel Grid.Column="1" Grid.Row="0">
         <Label x:Name="converterLabel" Content="Wybierz kategorię po lewej" VerticalAlignment="Top"/>
         <Label  x:Name="label" Content="Z:" Margin="10,10,10,0" VerticalAlignment="Top" IsEnabled="False"/>

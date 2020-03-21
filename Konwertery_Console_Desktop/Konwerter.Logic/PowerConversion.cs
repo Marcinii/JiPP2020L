@@ -10,19 +10,20 @@ namespace Logic
     {
         public List<string> units = new List<string> { "W", "KM" };
         private string converterName = "Moc";
-        private double result;
+        private string result;
 
         public string ConverterName { get => converterName; }
 
-        public double Result { set => result = value; }
+        public string Result { set => result = value; }
         public List<string> ConverterUnits { get => units; }
 
-        public double onConvert(double value, string unitFrom, string unitTo)
+        public string onConvert(string value, string unitFrom, string unitTo)
         {
-            if (unitFrom == "W" && unitTo == "KM") { this.Result = PowerService.fromWatToKm(value); }
-            else if (unitFrom == unitTo) { this.Result = value; }
-            else if (unitFrom == "KM" && unitTo == "W") { this.Result = PowerService.fromKmToWat(value); }
-            else { return 0; }
+            double quantity = Convert.ToDouble(value);
+            if (unitFrom == "W" && unitTo == "KM") { this.Result = PowerService.fromWatToKm(quantity).ToString(); }
+            else if (unitFrom == unitTo) { this.Result = quantity.ToString(); }
+            else if (unitFrom == "KM" && unitTo == "W") { this.Result = PowerService.fromKmToWat(quantity).ToString(); }
+            else { return null; }
 
             return result;
         }

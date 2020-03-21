@@ -10,22 +10,23 @@ namespace Logic
     {
         public List<string> units = new List<string> { "ibs", "kg", "g" };
         private string converterName = "Wagi";
-        private double result;
+        private string result;
 
         public string ConverterName { get => converterName; }
-        public double Result { set => result = value; }
+        public string Result { set => result = value; }
         public List<string> ConverterUnits { get => units; }
 
-        public double onConvert(double value, string unitFrom, string unitTo)
+        public string onConvert(string value, string unitFrom, string unitTo)
         {
-            if (unitFrom == "ibs" && unitTo == "kg") { this.Result = WeightService.fromIbsToKg(value); }
-            else if (unitFrom == unitTo) { this.Result = value; }
-            else if (unitFrom == "kg" && unitTo == "ibs") { this.Result = WeightService.fromKgToIbs(value); }
-            else if (unitFrom == "kg" && unitTo == "g") { this.Result = WeightService.fromKgToGr(value); }
-            else if (unitFrom == "g" && unitTo == "kg") { this.Result = WeightService.fromGrToKg(value); }
-            else if (unitFrom == "ibs" && unitTo == "g") { this.Result = WeightService.fromIbsToGr(value); }
-            else if (unitFrom == "g" && unitTo == "ibs") { this.Result = WeightService.fromGrToIbs(value); }
-            else { return 0; }
+            double quantity = Convert.ToDouble(value);
+            if (unitFrom == "ibs" && unitTo == "kg") { this.Result = WeightService.fromIbsToKg(quantity).ToString(); }
+            else if (unitFrom == unitTo) { this.Result = quantity.ToString(); }
+            else if (unitFrom == "kg" && unitTo == "ibs") { this.Result = WeightService.fromKgToIbs(quantity).ToString(); }
+            else if (unitFrom == "kg" && unitTo == "g") { this.Result = WeightService.fromKgToGr(quantity).ToString(); }
+            else if (unitFrom == "g" && unitTo == "kg") { this.Result = WeightService.fromGrToKg(quantity).ToString(); }
+            else if (unitFrom == "ibs" && unitTo == "g") { this.Result = WeightService.fromIbsToGr(quantity).ToString(); }
+            else if (unitFrom == "g" && unitTo == "ibs") { this.Result = WeightService.fromGrToIbs(quantity).ToString(); }
+            else { return null; }
 
             return result;
         }

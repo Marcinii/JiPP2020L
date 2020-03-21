@@ -10,7 +10,7 @@ namespace Logic
     {
         string ConverterName { get; }
         List<string> ConverterUnits { get; }
-        double Result { set; }
-        double onConvert(double value, string unitFrom, string unitTo);
+        string Result { set; }
+        string onConvert(string value, string unitFrom, string unitTo);
     }
 }
