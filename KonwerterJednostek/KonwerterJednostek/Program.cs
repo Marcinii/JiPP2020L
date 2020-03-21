@@ -11,13 +11,7 @@ namespace KonwerterJednostek
     {
         static void Main(string[] args)
         {
-            List<IConverter> listOfConverters = new List<IConverter>()
-            {
-                new LengthConverter(),
-                new TemperatureConverter(),
-                new WeightConverter(),
-                new PowerConverter()
-            };
+            List<IConverter> listOfConverters = new UnitConverter.Logic.ConverterService().GetConverters();
 
             int option = -1;
             while (option != 0)
