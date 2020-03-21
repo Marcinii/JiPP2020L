@@ -62,9 +62,6 @@ namespace ziecinaUnitConverter.Desktop
             MainWindow.chosenConverter = listConverters.SelectedIndex;
             listStartUnit.ItemsSource = MainWindow.converters[chosenConverter].Units;
             listEndUnit.ItemsSource = MainWindow.converters[chosenConverter].Units;
-
-
-            
         }
     }
 }

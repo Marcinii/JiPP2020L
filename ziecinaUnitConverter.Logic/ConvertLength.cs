@@ -10,7 +10,7 @@ namespace ziecina_zad1
 
         public List<string> Units => new List<string>
         {
-            "ki",
+            "km",
             "mi",
             "m"
         };
@@ -21,7 +21,7 @@ namespace ziecina_zad1
             float toReturn = 0;
             switch (startUntit)
             {
-                case "ki":
+                case "km":
                     if (float.TryParse(value, out startValueToDefault))
                     {
                         ;
@@ -42,7 +42,7 @@ namespace ziecina_zad1
             }
             switch (endUnit)
             {
-                case "ki":
+                case "km":
                     toReturn = startValueToDefault;
                     break;
                 case "mi":
