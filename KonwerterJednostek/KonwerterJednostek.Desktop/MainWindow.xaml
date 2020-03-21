@@ -39,6 +39,42 @@
                 <EasingDoubleKeyFrame KeyTime="0:0:2" Value="270"/>
             </DoubleAnimationUsingKeyFrames>
         </Storyboard>
+        <Storyboard x:Key="fly">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="button1">
+                <EasingDoubleKeyFrame KeyTime="0" Value="790"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="740"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:2" Value="690"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:3" Value="640"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:4" Value="590"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:4.5" Value="540"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:5.5" Value="490"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:6.5" Value="440"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:7.5" Value="390"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:7.75" Value="340"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:8" Value="290"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:8.25" Value="240"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:8.5" Value="190"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:8.6" Value="140"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:8.7" Value="90"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:8.8" Value="40"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:8.9" Value="-10"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:9" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:9.1" Value="-10"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:9.2" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:9.3" Value="-10"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:9.5" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:10" Value="-10"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:10.5" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:11" Value="-10"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:12" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:13" Value="-10"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:14" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:15" Value="-10"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:17" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:19" Value="-10"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:21" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
     </Window.Resources>
     <Window.Triggers>
         <EventTrigger RoutedEvent="FrameworkElement.Loaded">
@@ -47,6 +83,7 @@
             <BeginStoryboard Storyboard="{StaticResource msb1}"/>
             <BeginStoryboard Storyboard="{StaticResource hsb0}"/>
             <BeginStoryboard Storyboard="{StaticResource hsb1}"/>
+            <BeginStoryboard Storyboard="{StaticResource fly}"/>
         </EventTrigger>
     </Window.Triggers>
 
@@ -75,7 +112,16 @@
             <TextBox x:Name="box0" Margin="10,5,10,5" Height="25" KeyDown="box0_KeyDown"/>
             <Button x:Name="button0" Margin="10,5,10,5" Height="25" Click="button0_Click">Konwertuj</Button>
             <TextBlock x:Name="block0" Margin="10,5,10,5" Height="25"/>
-            <Button x:Name="button1" DockPanel.Dock="Bottom" Margin="10,5,10,5" Height="25" Click="button1_Click">Zakończ</Button>
+            <Button x:Name="button1" DockPanel.Dock="Bottom" Margin="10,5,10,5" Height="25" Click="button1_Click" RenderTransformOrigin="0.5,0.5">
+                <Button.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Button.RenderTransform> Zakończ
+            </Button>
         </StackPanel>
         <Ellipse Grid.Column="1" Fill="#FFF4F4F5" HorizontalAlignment="Center" Height="200" Margin="0,30,0,0" Stroke="Black" VerticalAlignment="Top" Width="200"/>
         <Path x:Name="minutes" Grid.Column="1" Data="M6.1000078,31.332997 L15.100009,31.332997 15.100009,130.333 6.1000078,130.333 z M9.8307915,0.5 L20.900009,30.332993 0.5,30.332993 z" HorizontalAlignment="Center" Height="80" Margin="0,50,0,0" Stretch="Fill" Stroke="Black" VerticalAlignment="Top" Width="10" RenderTransformOrigin="0.5,1" Panel.ZIndex="2">
