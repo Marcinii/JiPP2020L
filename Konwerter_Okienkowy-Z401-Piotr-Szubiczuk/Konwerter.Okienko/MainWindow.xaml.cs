@@ -32,7 +32,7 @@ namespace Konwerter.Okienko
             string a = Wartosc.Text;
             double b = double.Parse(a);
             double wynikowa = ((Ikonwenter)Lista.SelectedItem).Konwer("a","b",b);
-            Wynik.Text = wynikowa;
+            Wynik.Text = wynikowa.ToString();
         }
 
         private void Lista_SelectionChanged(object sender, SelectionChangedEventArgs e)
