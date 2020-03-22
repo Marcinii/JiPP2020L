@@ -11,56 +11,35 @@ namespace Converter
     {
         static void Main(string[] args)
         {
+            List<IConverter> converters = new List<IConverter>()
+            {
+                new Temperatura(),
+                new Dystans(),
+                new Masa(),
+                new Powierzchnia()
+            };
+
             Console.WriteLine("Wybierz konwerter:");
-            Console.WriteLine("Temperatura (1)");
-            Console.WriteLine("Dystans (2)");
-            Console.WriteLine("Waga (3)");
 
-            int converter_type = int.Parse(Console.ReadLine());
-
-            if (converter_type == 1)
+            for(int i = 0; i < converters.Count; i++)
             {
-                Console.WriteLine("Z: C/F");
-                string from = Console.ReadLine();
-                Console.WriteLine("Na: C/F");
-                string to = Console.ReadLine();
-                Console.WriteLine("Ile?");
-                double many = double.Parse(Console.ReadLine());
-
-                Temperatura converter = new Temperatura();
-
-                double b = converter.convert(many, from, to);
-                Console.WriteLine(b);
+                Console.WriteLine("({0}) {1}", i + 1, converters[i].Name);
             }
-            else if (converter_type == 2)
-            {
-                Console.WriteLine("Z: km/miles");
-                string from = Console.ReadLine();
-                Console.WriteLine("Na: miles/km");
-                string to = Console.ReadLine();
-                Console.WriteLine("Ile?");
-                double many = double.Parse(Console.ReadLine());
 
-                Dystans converter = new Dystans();
+            int.TryParse(Console.ReadLine(), out int converter_type);
 
-                double b = converter.convert(many, from, to);
-                Console.WriteLine(b);
-            }
-            else if (converter_type == 3)
-            {
+            string units = String.Join(" , ", converters[converter_type - 1].Units);
+            Console.WriteLine("Z: " + units);
+            string from = Console.ReadLine();
 
-                Console.WriteLine("Z: kg/lbs");
-                string from = Console.ReadLine();
-                Console.WriteLine("Na: kg/lbs");
-                string to = Console.ReadLine();
-                Console.WriteLine("Ile?");
-                double many = double.Parse(Console.ReadLine());
+            Console.WriteLine("Do: " + units);
+            string to = Console.ReadLine();
 
-                Masa converter = new Masa();
+            Console.WriteLine("Ile?");
+            double.TryParse(Console.ReadLine(), out double value);
 
-                double b = converter.convert(many, from, to);
-                Console.WriteLine(b);
-            }
+            Console.WriteLine(converters[converter_type - 1].convert(value, from, to));
+            
             Console.ReadKey();
         }
     }
