@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Konwerter.Logika;
 
 namespace Konwerter.Okienko
 {
@@ -24,9 +25,9 @@ namespace Konwerter.Okienko
         {
             InitializeComponent();
 
-            Lista.ItemsSource = new List<string>()
+            Lista.ItemsSource = new List<String>()
             { 
- //               new CnF(),
+                new CnF(),
                 "F na C"
             };
         }

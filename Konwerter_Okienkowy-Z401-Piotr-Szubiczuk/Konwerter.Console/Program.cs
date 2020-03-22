@@ -1,21 +1,22 @@
 ﻿using System;
 using System.Collections.Generic;
+using Konwerter.Logika;
+
 namespace Konwerter
 {
     class Program
     {
-    }
 
-    static void Main(string[] args)
+        static void Main(string[] args)
         {
             List<Ikonwenter> konw = new List<Ikonwenter>()
             {
                 new CnF(),
                 new FnC(),
-                new Logika.FnKG(),
-                new Logika.KGnF(),
-                new Logika.KMnM(),
-                new Logika.MnKM()
+                new FnKG(),
+                new KGnF(),
+                new KMnM(),
+                new MnKM()
 
             };
             while (true)                                    //Petla ktora nie konczy programu po wykonaniu jednego przeliczenia. Aby zakonczyc jej wykonywanie nalezy wybrac "0"
@@ -34,46 +35,47 @@ namespace Konwerter
                         Console.WriteLine("Podaj farenhaity");
                         double wartosc = Convert.ToDouble(Console.ReadLine());
                         FnC kon1 = new FnC();
-                        Console.WriteLine("Fahrenhaita to " + (kon1.Konwer("z","na", wartosc)).ToString() + " Celcjuszy");   //Wyswietlenie wyniku  Analogicznie ponizej
+                        Console.WriteLine("Fahrenhaita to " + (kon1.Konwer("z", "na", wartosc)).ToString() + " Celcjuszy");   //Wyswietlenie wyniku  Analogicznie ponizej
                         break;
                     case "2":
-                        Console.WriteLine("Podaj farenhaity");
+                        Console.WriteLine("Podaj Celcjuze");
                         double wartosc2 = Convert.ToDouble(Console.ReadLine());
                         CnF kon2 = new CnF();
-                        Console.WriteLine("Fahrenhaita to " + (kon2.Konwer("z", "na", wartosc2)).ToString() + " Celcjuszy");   //Wyswietlenie wyniku  Analogicznie ponizej
-                      break;
+                        Console.WriteLine("Celcjusza to " + (kon2.Konwer("z", "na", wartosc2)).ToString() + " Fahrenhaitow");   //Wyswietlenie wyniku  Analogicznie ponizej
+                        break;
                     case "3":
-                        Console.WriteLine("Podaj farenhaity");
+                        Console.WriteLine("Podaj Funty");
                         double wartosc3 = Convert.ToDouble(Console.ReadLine());
-                        Logika.FnKG kon3 = new Logika.FnKG();
-                        Console.WriteLine("Fahrenhaita to " + (kon3.Konwer("z", "na", wartosc3)).ToString() + " Celcjuszy");   //Wyswietlenie wyniku  Analogicznie ponizej
-                      break;
-                case "4":
-                    Console.WriteLine("Podaj farenhaity");
-                    double wartosc4 = Convert.ToDouble(Console.ReadLine());
-                    Logika.KGnF kon4 = new Logika.KGnF();
-                    Console.WriteLine("Fahrenhaita to " + (kon4.Konwer("z", "na", wartosc4)).ToString() + " Celcjuszy");   //Wyswietlenie wyniku  Analogicznie ponizej
-                    break;
+                        FnKG kon3 = new FnKG();
+                        Console.WriteLine("Funtow to " + (kon3.Konwer("z", "na", wartosc3)).ToString() + " Kilogramow");   //Wyswietlenie wyniku  Analogicznie ponizej
+                        break;
+                    case "4":
+                        Console.WriteLine("Podaj Kilogramy");
+                        double wartosc4 = Convert.ToDouble(Console.ReadLine());
+                        KGnF kon4 = new KGnF();
+                        Console.WriteLine("Kilogramow to " + (kon4.Konwer("z", "na", wartosc4)).ToString() + " Funtow");   //Wyswietlenie wyniku  Analogicznie ponizej
+                        break;
                     case "5":
-                    Console.WriteLine("Podaj farenhaity");
-                    double wartosc5 = Convert.ToDouble(Console.ReadLine());
-                    Logika.KMnM kon5 = new Logika.KMnM();
-                    Console.WriteLine("Fahrenhaita to " + (kon5.Konwer("z", "na", wartosc5)).ToString() + " Celcjuszy");   //Wyswietlenie wyniku  Analogicznie ponizej
-                    break;
+                        Console.WriteLine("Podaj Kilomety");
+                        double wartosc5 = Convert.ToDouble(Console.ReadLine());
+                        KMnM kon5 = new KMnM();
+                        Console.WriteLine("Kilometorw to " + (kon5.Konwer("z", "na", wartosc5)).ToString() + " Mil");   //Wyswietlenie wyniku  Analogicznie ponizej
+                        break;
                     case "6":
-                    Console.WriteLine("Podaj farenhaity");
-                    double wartosc6 = Convert.ToDouble(Console.ReadLine());
-                    Logika.MnKM kon6 = new Logika.MnKM();
-                    Console.WriteLine("Fahrenhaita to " + (kon6.Konwer("z", "na", wartosc6)).ToString() + " Celcjuszy");   //Wyswietlenie wyniku  Analogicznie ponizej
-                    break;
+                        Console.WriteLine("Podaj Mile");
+                        double wartosc6 = Convert.ToDouble(Console.ReadLine());
+                        MnKM kon6 = new MnKM();
+                        Console.WriteLine("Mil to " + (kon6.Konwer("z", "na", wartosc6)).ToString() + " Kilometrow");   //Wyswietlenie wyniku  Analogicznie ponizej
+                        break;
                     case "0":
-                    Environment.Exit(0);                //Wybranie 0 powoduje zakonczenie pogramu
-                    break;
+                        Environment.Exit(0);                //Wybranie 0 powoduje zakonczenie pogramu
+                        break;
                     default:
                         Console.WriteLine("Zly wybor");      //Wybranie innej liczby niz sa dostepne wyswietla komuniakt
-                    break;
+                        break;
                 }
                 Console.ReadKey();
             }
         }
+    }
 }
