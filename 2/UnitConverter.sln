@@ -1,0 +1,23 @@
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitConverter.Console", "UnitConverter\UnitConverter.Console.csproj", "{44DBA3A1-AD48-47A7-9AFD-D2E36C892C62}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitConverter.Logic", "UnitConverter.Logic\UnitConverter.Logic.csproj", "{2FC44F28-7323-457F-BEA2-03759484A200}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{44DBA3A1-AD48-47A7-9AFD-D2E36C892C62}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{44DBA3A1-AD48-47A7-9AFD-D2E36C892C62}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{44DBA3A1-AD48-47A7-9AFD-D2E36C892C62}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{44DBA3A1-AD48-47A7-9AFD-D2E36C892C62}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2FC44F28-7323-457F-BEA2-03759484A200}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2FC44F28-7323-457F-BEA2-03759484A200}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2FC44F28-7323-457F-BEA2-03759484A200}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2FC44F28-7323-457F-BEA2-03759484A200}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
