@@ -12,7 +12,6 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using Konwerter.Logika;
 
 namespace Konwerter.Okienko
 {
@@ -25,16 +24,15 @@ namespace Konwerter.Okienko
         {
             InitializeComponent();
 
-            Lista.ItemsSource = new List<String>()
-            { 
-                new CnF(),
-                "F na C"
-            };
+            Lista.ItemsSource = new KonwerterSerwis().NazwyK();
         }
 
         private void Oblicz_Click(object sender, RoutedEventArgs e)
         {
-//            double input = Wartosc.Text;
+            string a = Wartosc.Text;
+            double b = double.Parse(a);
+            double wynikowa = ((Ikonwenter)Lista.SelectedItem).Konwer("a","b",b);
+            Wynik.Text = wynikowa;
         }
 
         private void Lista_SelectionChanged(object sender, SelectionChangedEventArgs e)

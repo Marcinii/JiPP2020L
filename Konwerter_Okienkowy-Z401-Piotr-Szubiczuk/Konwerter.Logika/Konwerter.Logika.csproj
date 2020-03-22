@@ -47,6 +47,7 @@
     <Compile Include="Ikonwenter.cs" />
     <Compile Include="KGnF.cs" />
     <Compile Include="KMnM.cs" />
+    <Compile Include="KonwerterSerwis.cs" />
     <Compile Include="MnKM.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

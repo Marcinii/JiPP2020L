@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using Konwerter.Logika;
+
 
 namespace Konwerter
 {

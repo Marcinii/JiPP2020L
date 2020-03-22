@@ -4,11 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Konwerter.Logika
+namespace Konwerter
 {
     public class KMnM : Ikonwenter
     {
-        public string Nazwa => "Dlugosc_CnaF";
+        public string Nazwa => "Dlugosc_KMnM";
 
         public List<string> Jednostki => new List<string>()
         {
