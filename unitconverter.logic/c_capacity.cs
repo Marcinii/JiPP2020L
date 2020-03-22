@@ -21,6 +21,14 @@ namespace unitconverter.logic
             4.545454545454545m,
             220
         };
+        public decimal custom_convert(string[] data_array)
+        {
+            return 0;
+        }
+        public string custom_result_interpreter(decimal result)
+        {
+            return "0";
+        }
         public decimal operation(string from_name, string to_name, decimal value)
         {
             int from_index = units_names.FindIndex(x => x==from_name); //return index where name match

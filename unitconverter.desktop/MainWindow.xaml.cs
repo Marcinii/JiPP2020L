@@ -9,6 +9,7 @@ using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
+using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
@@ -27,7 +28,8 @@ namespace unitconverter.desktop
                 new c_lenght(),
                 new c_temperature(),
                 new c_weight(),
-                new c_capacity()
+                new c_capacity(),
+                new c_time()
         };
         int choosen_converter;
         public MainWindow()
@@ -73,19 +75,67 @@ namespace unitconverter.desktop
             unit_list = new c_capacity().units_names;
             create_objects(3);
         }
-
+        private void time_checked(object sender, RoutedEventArgs e)
+        {
+            unit_list = new c_time().units_names;
+            create_objects(4);
+        }
         private void count(object sender, RoutedEventArgs e)
         {
             string from = unit_from.SelectedItem.ToString();
             string to = unit_to.SelectedItem.ToString();
             string value_to_convert = value.Text;
+            bool should_use_custom_interpreter = false;
             decimal converted_value = parse.convert_string_to_decimal(value_to_convert);
             if (converted_value == 0)
             {
-                MessageBox.Show("Podaj prawidłową wartość!");
+                List<string[]> data_arrays = new List<string[]>(); //list of arrays to custom convert, null arrays are necessery to keep this in right order
+                data_arrays.Add(new string[0] { });
+                data_arrays.Add(new string[0] { });
+                data_arrays.Add(new string[0] { });
+                data_arrays.Add(new string[0] { });
+                data_arrays.Add(new string[2] { value_to_convert, from });
+                converted_value = converters[choosen_converter].custom_convert(data_arrays[choosen_converter]);
+                if (converted_value == 0) {MessageBox.Show("Podaj prawidłową wartość!"); } else { should_use_custom_interpreter = true; }
             }
             decimal conversion_result = converters[choosen_converter].operation(from, to, converted_value);
-            result.Inlines.Add(new Run(conversion_result+" "));
+            if (conversion_result == 0) { MessageBox.Show("Podaj prawidłową wartość!"); }
+            if (should_use_custom_interpreter) {
+                string custom_conversion_result = converters[choosen_converter].custom_result_interpreter(conversion_result);
+                result.Inlines.Add(new Run(custom_conversion_result));
+            }
+            else
+            {
+                result.Inlines.Add(new Run(conversion_result + " "));
+            }   
+            if(choosen_converter == 4)
+            {
+                 int int_value = parse.convert_decimal_to_int(conversion_result); //separate numbers to make operations on them
+                 int from_system = int_value / 100000;
+                 int hour = (int_value / 1000) - (from_system * 100); 
+                 int minute = (int_value / 10) - (from_system * 10000 + hour * 100);
+                 if (hour > 12) { hour -= 12; }
+                 double minute_angle = minute * 6; 
+                 double hour_angle = 30 * hour + 0.5 * minute;
+
+                //animation for minutes
+                var minute_animation = new DoubleAnimation(0, minute_angle, new Duration(TimeSpan.FromSeconds(2)));
+                var minute_rotate = new RotateTransform();
+                xaml_minute.RenderTransform = minute_rotate;
+                xaml_minute.RenderTransformOrigin = new Point(0.5, 1);
+                minute_rotate.BeginAnimation(RotateTransform.AngleProperty, minute_animation);
+                //
+
+                //animation for hours
+                var hour_animation = new DoubleAnimation(0, hour_angle, new Duration(TimeSpan.FromSeconds(2)));
+                var hour_rotate = new RotateTransform();
+                xaml_hour.RenderTransform = hour_rotate;
+                xaml_hour.RenderTransformOrigin = new Point(0.5, 1);
+                hour_rotate.BeginAnimation(RotateTransform.AngleProperty, hour_animation);
+                //
+
+            }
         }
+
     }
 }

@@ -5,18 +5,74 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:unitconverter.desktop"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="480">
+        Title="MainWindow" Height="400" Width="900">
     <Grid>
         <RadioButton x:Name="lenght" Content="Długości" HorizontalAlignment="Left" Margin="30,30,0,0" VerticalAlignment="Top" Height="30" Width="300" FontSize="20" Checked="lenght_checked"/>
         <RadioButton x:Name="temperature" Content="Temperatury" HorizontalAlignment="Left" Margin="30,60,0,0" VerticalAlignment="Top" Height="30" Width="300" FontSize="20" Checked="temperature_checked"/>
         <RadioButton x:Name="weight" Content="Wagi" HorizontalAlignment="Left" Margin="30,90,0,0" VerticalAlignment="Top" Height="30" Width="300" FontSize="20" Checked="weight_checked"/>
         <RadioButton x:Name="capacity" Content="Pojemności" HorizontalAlignment="Left" Margin="30,120,0,0" VerticalAlignment="Top" Height="30" Width="300" FontSize="20" Checked="capacity_checked"/>
-        <ComboBox x:Name="unit_from" HorizontalAlignment="Left" Margin="30,150,0,0" VerticalAlignment="Top" Width="120" FontSize="20" SelectedIndex="0"/>
-        <ComboBox x:Name="unit_to" HorizontalAlignment="Left" Margin="170,150,0,0" VerticalAlignment="Top" Width="120" FontSize="20" SelectedIndex="0"/>
-        <TextBlock x:Name="value_label" HorizontalAlignment="Left" Margin="30,200,0,0" TextWrapping="Wrap" Text="Wartość do konwersji:" VerticalAlignment="Top" Height="30" Width="200" FontSize="20"/>
-        <TextBox x:Name="value" HorizontalAlignment="Left" Margin="230,200,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="30" Width="200" FontSize="20"/>
-        <TextBlock x:Name="result_label" HorizontalAlignment="Left" Margin="30,230,0,0" TextWrapping="Wrap" Text="Wynik:" VerticalAlignment="Top" Height="30" Width="200" FontSize="20"/>
-        <TextBlock x:Name="result" HorizontalAlignment="Left" Margin="230,230,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="30" Width="200" FontSize="20"/>
-        <Button Content="Oblicz" HorizontalAlignment="Left" Margin="30,270,0,0" VerticalAlignment="Top" Width="200" Height="30" FontSize="20" Click="count"/>
+        <RadioButton x:Name="time" Content="Czas" HorizontalAlignment="Left" Margin="30,150,0,0" VerticalAlignment="Top" Height="30" Width="300" FontSize="20" Checked="time_checked"/>
+        <ComboBox x:Name="unit_from" HorizontalAlignment="Left" Margin="30,180,0,0" VerticalAlignment="Top" Width="120" FontSize="20" SelectedIndex="0"/>
+        <ComboBox x:Name="unit_to" HorizontalAlignment="Left" Margin="170,180,0,0" VerticalAlignment="Top" Width="120" FontSize="20" SelectedIndex="0"/>
+        <TextBlock x:Name="value_label" HorizontalAlignment="Left" Margin="30,230,0,0" TextWrapping="Wrap" Text="Wartość do konwersji:" VerticalAlignment="Top" Height="30" Width="200" FontSize="20"/>
+        <TextBox x:Name="value" HorizontalAlignment="Left" Margin="230,230,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="30" Width="200" FontSize="20"/>
+        <TextBlock x:Name="result_label" HorizontalAlignment="Left" Margin="30,260,0,0" TextWrapping="Wrap" Text="Wynik:" VerticalAlignment="Top" Height="30" Width="200" FontSize="20"/>
+        <TextBlock x:Name="result" HorizontalAlignment="Left" Margin="230,260,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="30" Width="200" FontSize="20"/>
+        <Button Content="Oblicz" HorizontalAlignment="Left" Margin="30,300,0,0" VerticalAlignment="Top" Width="200" Height="30" FontSize="20" Click="count"/>
+        <Ellipse Fill="#FFE0E0E0" HorizontalAlignment="Left" Height="300" Margin="530,30,0,0" Stroke="Black" VerticalAlignment="Top" Width="300" RenderTransformOrigin="0.5,0.5"/>
+        <Rectangle x:Name="xaml_minute" HorizontalAlignment="Left" Height="140" Margin="675,40,0,0" VerticalAlignment="Top" Width="10" RenderTransformOrigin="0.5,1" Fill="#FFEA1717">
+            <Rectangle.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform x:Name="minute_rotation" Angle="0"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Rectangle.RenderTransform>
+            <Rectangle.Stroke>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="Black" Offset="0"/>
+                    <GradientStop Color="White" Offset="1"/>
+                </LinearGradientBrush>
+            </Rectangle.Stroke>
+        </Rectangle>
+        <Rectangle x:Name="xaml_hour" Fill="#FF21EA17" HorizontalAlignment="Left" Height="80" Margin="675,100,0,0" VerticalAlignment="Top" Width="10" RenderTransformOrigin="0.5,1">
+            <Rectangle.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform x:Name="hour_rotation" Angle="0"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Rectangle.RenderTransform>
+            <Rectangle.Stroke>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="Black" Offset="0"/>
+                    <GradientStop Color="White" Offset="1"/>
+                </LinearGradientBrush>
+            </Rectangle.Stroke>
+        </Rectangle>
+        <Rectangle Fill="Black" HorizontalAlignment="Left" Height="30" Margin="675,300,0,0" Stroke="Black" VerticalAlignment="Top" Width="10"/>
+        <Rectangle Fill="Black" HorizontalAlignment="Left" Height="30" Margin="675,30,0,0" Stroke="Black" VerticalAlignment="Top" Width="10"/>
+        <Rectangle Fill="Black" HorizontalAlignment="Left" Height="30" Margin="811,166,0,0" Stroke="Black" VerticalAlignment="Top" Width="10" RenderTransformOrigin="0.5,0.5">
+            <Rectangle.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="90"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Rectangle.RenderTransform>
+        </Rectangle>
+        <Rectangle Fill="Black" HorizontalAlignment="Left" Height="30" Margin="540,166,0,0" Stroke="Black" VerticalAlignment="Top" Width="10" RenderTransformOrigin="0.5,0.5">
+            <Rectangle.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="90"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Rectangle.RenderTransform>
+        </Rectangle>
     </Grid>
 </Window>
