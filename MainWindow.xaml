@@ -1,0 +1,22 @@
+﻿<Window x:Class="ZAD2.WPF.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ZAD2.WPF"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="360" Width="800">
+    <Grid>
+        <Button x:Name="Start" Content="START" HorizontalAlignment="Left" Height="165" Margin="400,30,0,0" VerticalAlignment="Top" Width="360" FontSize="72" Background="#FFE77171" FontWeight="Bold" Click="Start_Click"/>
+        <TextBlock x:Name="WynikText" HorizontalAlignment="Left" Height="100" Margin="30,200,0,0" VerticalAlignment="Top" Width="730" FontSize="36" FontWeight="Bold" TextAlignment="Center"/>
+        <TextBox x:Name="DaneWpisz" HorizontalAlignment="Left" Height="80" Margin="30,30,0,0"  VerticalAlignment="Top" Width="350" FontSize="24" TextAlignment="Center"/>
+        <ComboBox x:Name="RodzajKonwertera" HorizontalAlignment="Left" Height="33" Margin="30,120,0,0" VerticalAlignment="Top" Width="350" SelectionChanged="RodzajKonwertera_SelectionChanged">
+
+        </ComboBox>
+        
+        <ComboBox x:Name="JednostkaZ" HorizontalAlignment="Left" Height="30" Margin="30,160,0,0" VerticalAlignment="Top" Width="160" FontSize="16"/>
+        <ComboBox x:Name="JednostkaDo" HorizontalAlignment="Left" Height="30" Margin="220,160,0,0" VerticalAlignment="Top" Width="160" FontSize="16"/>
+
+    </Grid>
+
+</Window>
