@@ -17,7 +17,9 @@ namespace Konwerter
                 new FnKG(),
                 new KGnF(),
                 new KMnM(),
-                new MnKM()
+                new MnKM(),
+                new KWnW(),
+                new KWnKM()
             };
         }
     }

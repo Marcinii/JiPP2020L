@@ -8,7 +8,7 @@ namespace Konwerter
 {
     public class KMnM : Ikonwenter
     {
-        public string Nazwa => "Dlugosc_KMnM";
+        public string Nazwa => "Dlugosc_KMnMile";
 
         public List<string> Jednostki => new List<string>()
         {

@@ -48,8 +48,10 @@
     <Compile Include="KGnF.cs" />
     <Compile Include="KMnM.cs" />
     <Compile Include="KonwerterSerwis.cs" />
+    <Compile Include="KWnKM.cs" />
     <Compile Include="MnKM.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="KWnW.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
