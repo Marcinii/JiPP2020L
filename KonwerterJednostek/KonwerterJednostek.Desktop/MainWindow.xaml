@@ -44,7 +44,7 @@
                 <EasingDoubleKeyFrame KeyTime="0" Value="790"/>
                 <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="590"/>
                 <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="390"/>
-                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="290"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="190"/>
                 <EasingDoubleKeyFrame KeyTime="0:0:2" Value="10"/>
                 <EasingDoubleKeyFrame KeyTime="0:0:2.1" Value="-10"/>
                 <EasingDoubleKeyFrame KeyTime="0:0:2.2" Value="10"/>
