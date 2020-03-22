@@ -43,7 +43,11 @@
   <ItemGroup>
     <Compile Include="CnF.cs" />
     <Compile Include="FnC.cs" />
+    <Compile Include="FnKG.cs" />
     <Compile Include="Ikonwenter.cs" />
+    <Compile Include="KGnF.cs" />
+    <Compile Include="KMnM.cs" />
+    <Compile Include="MnKM.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

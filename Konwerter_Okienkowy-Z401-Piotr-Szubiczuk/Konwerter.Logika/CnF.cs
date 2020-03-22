@@ -16,10 +16,7 @@ namespace Konwerter
 
         public double Konwer(string zczego, string naco, double wartosc)
         {
-            double fahrenhait, celcjusz;
-            fahrenhait = double.Parse(Console.ReadLine());
-            celcjusz = 5D / 9 * (fahrenhait - 32);
-            return celcjusz;
+            return (5D / 9 * (wartosc - 32));
         }
     }
 }

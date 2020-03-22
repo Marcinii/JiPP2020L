@@ -1,21 +1,24 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 
-namespace Konwerter
+namespace Konwerter.Logika
 {
-    public class FnC : Ikonwenter
+    public class FnKG : Ikonwenter
     {
-        public string Nazwa => "Temp_FnaC";
+        public string Nazwa => "Masa_FnKG";
 
         public List<string> Jednostki => new List<string>()
         {
-            "F",
-            "C" 
+            "KM",
+            "Mil"
         };
+
         public double Konwer(string zczego, string naco, double wartosc)
         {
-            return (9D / 5 * wartosc + 32);
+            return wartosc / 0.45359237D;
         }
     }
 }
