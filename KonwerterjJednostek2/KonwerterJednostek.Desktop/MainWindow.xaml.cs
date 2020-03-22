@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,7 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using KonwerterJednostek2.Logic;
+using KonwerterjJednostek2;
 
 namespace KonwerterJednostek.Desktop
 {
@@ -28,7 +28,7 @@ namespace KonwerterJednostek.Desktop
             combobox_Rodzaj_konwersji.ItemsSource = new List<string>()
             {
                 "Temperatura",
-                "Odleglość",
+                "Odleglosc",
                 "Masa",
                 "Czas"     
             };
@@ -39,6 +39,8 @@ namespace KonwerterJednostek.Desktop
 
         private void combobox_Rodzaj_konwersji_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            
+
             if (combobox_Rodzaj_konwersji.SelectedItem == "Temperatura")
             {
                 combobox_Jednostka_bazowa.ItemsSource = new List<string>()
@@ -57,7 +59,7 @@ namespace KonwerterJednostek.Desktop
 
             }
 
-            if (combobox_Rodzaj_konwersji.SelectedItem == "Odleglość")
+            if (combobox_Rodzaj_konwersji.SelectedItem == "Odleglosc")
             {
                 combobox_Jednostka_bazowa.ItemsSource = new List<string>()
                 {
@@ -116,31 +118,37 @@ namespace KonwerterJednostek.Desktop
 
         private void button_action_Click(object sender, RoutedEventArgs e)
         {
-            if (combobox_Rodzaj_konwersji.SelectedItem == "Temperatura")
-            {
+            double.TryParse(textbox_input.Text, out double wartosc);
+            double wynik = 0;
+            
 
+            if (combobox_Rodzaj_konwersji.Text == "Temperatura")
+            {
                 Temperatura_class t1 = new Temperatura_class();
+                wynik = t1.Konwerter(combobox_Jednostka_bazowa.Text, combobox_Jednostka_wynikowa.Text, wartosc);
+                textbox_wynik.Text = wynik.ToString("0.00");
+            };
+            
+            if (combobox_Rodzaj_konwersji.Text == "Odleglosc")
+            {
+                Odleglosc_class t1 = new Odleglosc_class();
+                wynik = t1.Konwerter(combobox_Jednostka_bazowa.Text, combobox_Jednostka_wynikowa.Text, wartosc);
+                textbox_wynik.Text = wartosc.ToString("0.00");
             };
 
-            }
-
-            if (combobox_Rodzaj_konwersji.SelectedItem == "Odleglość")
+            if (combobox_Rodzaj_konwersji.Text == "Masa")
             {
+                Masa_class t1 = new Masa_class();
+                wynik = t1.Konwerter(combobox_Jednostka_bazowa.Text, combobox_Jednostka_wynikowa.Text, wartosc);
+                textbox_wynik.Text = wartosc.ToString("0.00");
+            };
 
-
-            }
-
-            if (combobox_Rodzaj_konwersji.SelectedItem == "Masa")
+            if (combobox_Rodzaj_konwersji.Text == "Czas")
             {
-
-
-            }
-
-            if (combobox_Rodzaj_konwersji.SelectedItem == "Czas")
-            {
-
-
-            }
+                Czas_class t1 = new Czas_class();
+                wynik = t1.Konwerter(combobox_Jednostka_bazowa.Text, combobox_Jednostka_wynikowa.Text, wartosc);
+                textbox_wynik.Text = wartosc.ToString("0.00");
+            };
         }
     }
 }
