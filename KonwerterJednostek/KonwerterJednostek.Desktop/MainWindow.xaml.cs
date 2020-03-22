@@ -163,7 +163,7 @@ namespace KonwerterJednostek.Desktop
                 bool success0 = double.TryParse(block0.Text.Substring(3, 2), out double deg0);
                 if (!success0) { deg0 = 0; }
                 deg0 *= 6;
-                Path pt0 = minutes;
+                Path pt0 = minutes1;
                 RotateTransform rot0 = new RotateTransform(deg0);
                 pt0.RenderTransform = rot0;
 
@@ -171,7 +171,7 @@ namespace KonwerterJednostek.Desktop
                 if (!success1) { deg1 = 0; }
                 deg1 *= 30;
                 deg1 += (deg0 / 12);
-                Path pt1 = hours;
+                Path pt1 = hours1;
                 RotateTransform rot1 = new RotateTransform(deg1);
                 pt1.RenderTransform = rot1;
             }
@@ -289,28 +289,37 @@ namespace KonwerterJednostek.Desktop
         public void Clock_online_stop()
         {
             Path sec = seconds;
+            Path m = minutes;
+            Path h = hours;
+            Path m1 = minutes1;
+            Path h1 = hours1;
             sec.Visibility = Visibility.Hidden;
-            Storyboard m = (Storyboard)this.Resources["msb0"];
-            Storyboard mm = this.Resources["msb1"] as Storyboard;
-            Storyboard h = (Storyboard)this.Resources["hsb0"];
-            Storyboard hh = (Storyboard)this.Resources["hsb1"];
-            m.Stop();
-            mm.Stop();
-            h.Stop();
-            hh.Stop();
+            m.Visibility = Visibility.Hidden;
+            h.Visibility = Visibility.Hidden;
+            m1.Visibility = Visibility.Visible;
+            h1.Visibility = Visibility.Visible;
+
         }
         public void Clock_online_restart()
         {
             Path sec = seconds;
+            Path m = minutes;
+            Path h = hours;
+            Path m1 = minutes1;
+            Path h1= hours1;
             sec.Visibility = Visibility.Visible;
-            Storyboard m = this.Resources["msb0"] as Storyboard;
-            Storyboard mm = (Storyboard)this.Resources["msb1"];
-            Storyboard h = (Storyboard)this.Resources["hsb0"];
-            Storyboard hh = (Storyboard)this.Resources["hsb1"];
-            m.Begin();
-            mm.Begin();
-            h.Begin();
-            hh.Begin();
+            m.Visibility = Visibility.Visible;
+            h.Visibility = Visibility.Visible;
+            m1.Visibility = Visibility.Hidden;
+            h1.Visibility = Visibility.Hidden;
+
+            Path pt0 = minutes1;
+            RotateTransform rot0 = new RotateTransform(0);
+            pt0.RenderTransform = rot0;
+
+            Path pt1 = hours1;
+            RotateTransform rot1 = new RotateTransform(0);
+            pt1.RenderTransform = rot1;
         }
     }
 }
