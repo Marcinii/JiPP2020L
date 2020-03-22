@@ -1,0 +1,17 @@
+C:\Users\Maria\source\repos\ConsoleApp2\UnitConverter.Desktop\bin\Debug\UnitConverter.Desktop.exe.config
+C:\Users\Maria\source\repos\ConsoleApp2\UnitConverter.Desktop\bin\Debug\UnitConverter.Desktop.exe
+C:\Users\Maria\source\repos\ConsoleApp2\UnitConverter.Desktop\bin\Debug\UnitConverter.Desktop.pdb
+C:\Users\Maria\source\repos\ConsoleApp2\UnitConverter.Desktop\obj\Debug\UnitConverter.Desktop.csprojAssemblyReference.cache
+C:\Users\Maria\source\repos\ConsoleApp2\UnitConverter.Desktop\obj\Debug\MainWindow.g.cs
+C:\Users\Maria\source\repos\ConsoleApp2\UnitConverter.Desktop\obj\Debug\App.g.cs
+C:\Users\Maria\source\repos\ConsoleApp2\UnitConverter.Desktop\obj\Debug\UnitConverter.Desktop_MarkupCompile.cache
+C:\Users\Maria\source\repos\ConsoleApp2\UnitConverter.Desktop\obj\Debug\UnitConverter.Desktop_MarkupCompile.lref
+C:\Users\Maria\source\repos\ConsoleApp2\UnitConverter.Desktop\obj\Debug\MainWindow.baml
+C:\Users\Maria\source\repos\ConsoleApp2\UnitConverter.Desktop\obj\Debug\UnitConverter.Desktop.g.resources
+C:\Users\Maria\source\repos\ConsoleApp2\UnitConverter.Desktop\obj\Debug\UnitConverter.Desktop.Properties.Resources.resources
+C:\Users\Maria\source\repos\ConsoleApp2\UnitConverter.Desktop\obj\Debug\UnitConverter.Desktop.csproj.GenerateResource.cache
+C:\Users\Maria\source\repos\ConsoleApp2\UnitConverter.Desktop\obj\Debug\UnitConverter.Desktop.exe
+C:\Users\Maria\source\repos\ConsoleApp2\UnitConverter.Desktop\obj\Debug\UnitConverter.Desktop.pdb
+C:\Users\Maria\source\repos\ConsoleApp2\UnitConverter.Desktop\bin\Debug\UnitConverter.Logic.dll
+C:\Users\Maria\source\repos\ConsoleApp2\UnitConverter.Desktop\bin\Debug\UnitConverter.Logic.pdb
+C:\Users\Maria\source\repos\ConsoleApp2\UnitConverter.Desktop\obj\Debug\UnitConverter.Desktop.csproj.CopyComplete

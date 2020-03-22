@@ -1,0 +1,43 @@
+﻿<Window x:Class="UnitConverter.Desktop.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:UnitConverter.Desktop"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid Margin="0,0,-0.4,0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="25*"/>
+            <RowDefinition Height="24*"/>
+            <RowDefinition Height="161*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="182.4"/>
+            <ColumnDefinition Width="144"/>
+            <ColumnDefinition Width="150.4"/>
+            <ColumnDefinition Width="136.8"/>
+            <ColumnDefinition Width="315.2"/>
+        </Grid.ColumnDefinitions>
+        <Label Grid.Row="0" Grid.Column="0" Margin="10,10,11.4,8.4">
+            Wybierz rodzaj konwerter
+        </Label>
+        <ComboBox x:Name="KonwerterComboBox" Grid.ColumnSpan="2" Margin="182,9.6,0.4,310" SelectionChanged="KonwerterComboBox_SelectionChanged" Grid.Row="1" Grid.RowSpan="2">
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding Name}"/>
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
+
+        <TextBlock x:Name="WynikTextBlock" Grid.Column="2" HorizontalAlignment="Left" Margin="90.6,88.6,0,0" Grid.Row="2" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="16" Width="50"/>
+        <Button x:Name="actionButton" Content="Klik" Grid.Column="2" HorizontalAlignment="Left" Margin="45.6,47.6,0,0" Grid.Row="2" VerticalAlignment="Top" Width="75" Height="19" Click="actionButton_Click"/>
+        <TextBlock Grid.Column="2" HorizontalAlignment="Left" Margin="26.6,91.6,0,0" Grid.Row="2" TextWrapping="Wrap" Text="Wynik" VerticalAlignment="Top" Height="16" Width="33"/>
+        <TextBlock Grid.Column="2" HorizontalAlignment="Left" Margin="45.6,26,0,0" TextWrapping="Wrap" Text="Z -  do" VerticalAlignment="Top" Height="16" Width="36"/>
+        <ComboBox x:Name="ZComboBox" Grid.Column="3" HorizontalAlignment="Left" Margin="7.2,18,0,0" VerticalAlignment="Top" Width="120"/>
+        <ComboBox x:Name="DoComboBox" Grid.Column="4" HorizontalAlignment="Left" Margin="30.4,18,0,0" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="WartoscTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="23.6,52.6,0,0" Grid.Row="2" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+
+
+    </Grid>
+</Window>
