@@ -10,8 +10,8 @@ namespace Konwerter
 
         public List<string> Jednostki => new List<string>()
         { 
-            "F",
-            "C"
+            "C",
+            "F"
         };
 
         public double Konwer(string zczego, string naco, double wartosc)

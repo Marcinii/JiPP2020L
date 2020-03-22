@@ -1,22 +1,23 @@
 ﻿using System;
+using System.Collections.Generic;
 namespace Konwerter
 {
     class Program
     {
-        static double CnF()                                 //Funkcja przeliczajaca Celcjusze na Farenhaity
-        {
-            double fahrenhait, celcjusz;
-            fahrenhait = double.Parse(Console.ReadLine());
-            celcjusz = 5D / 9 * (fahrenhait - 32);
-            return celcjusz;
-        }
-        static double FnC()                                 //Funkcja przeliczajaca Farenhaity na Celcjusze
-        {
-            double fahrenhait, celcjusz;
-            celcjusz = double.Parse(Console.ReadLine());
-            fahrenhait = 9D / 5 * celcjusz + 32;
-            return fahrenhait;
-        }
+//        static double CnF()                                 //Funkcja przeliczajaca Celcjusze na Farenhaity
+//        {
+//            double fahrenhait, celcjusz;
+//            fahrenhait = double.Parse(Console.ReadLine());
+//            celcjusz = 5D / 9 * (fahrenhait - 32);
+//            return celcjusz;
+//        }
+//        static double FnC()                                 //Funkcja przeliczajaca Farenhaity na Celcjusze
+//        {
+//            double fahrenhait, celcjusz;
+//            celcjusz = double.Parse(Console.ReadLine());
+//            fahrenhait = 9D / 5 * celcjusz + 32;
+//            return fahrenhait;
+//        }
         static double KMnM()                                //Funkcja przeliczajaca Kilmetry na mile
         {
             double kilometr, mila;
@@ -65,14 +66,16 @@ namespace Konwerter
                 switch (Console.ReadLine())                 //zczytanie wyboru
                 {
                     case "1":                               //wywolanie wyboru
-                        Console.WriteLine("Podaj farenhaity");
-                        double wynik1 = CnF();              //Przypisanie wyniku funkcji do zmiennej
-                        Console.WriteLine("Fahrenhaita to " + wynik1 + " Celcjuszy");   //Wyswietlenie wyniku  Analogicznie ponizej
+ //                       Console.WriteLine("Podaj farenhaity");
+                        FnC kon1 = new FnC();
+//                      double wynik1 = CnF();              //Przypisanie wyniku funkcji do zmiennej
+                        Console.WriteLine("Fahrenhaita to " + kon1 + " Celcjuszy");   //Wyswietlenie wyniku  Analogicznie ponizej
                         break;
                     case "2":
                         Console.WriteLine("Podaj celcjusze");
-                        double wynik2 = FnC();
-                        Console.WriteLine("Celcjusza to " + wynik2 + " Fahrenhaitow");
+                        CnF kon2 = new CnF();
+//                        double wynik2 = CnF();
+                        Console.WriteLine("Celcjusza to " + kon2 + " Fahrenhaitow");
                         break;
                     case "3":
                         Console.WriteLine("Podaj kilometry");

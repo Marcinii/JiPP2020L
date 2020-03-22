@@ -7,6 +7,11 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        
+        <Label Content="Wprowadz wartosc" HorizontalAlignment="Left" Height="39" Margin="10,38,0,0" VerticalAlignment="Top" Width="149"/>
+        <Button x:Name="Oblicz" Content="Oblicz" HorizontalAlignment="Left" Height="35" Margin="252,293,0,0" VerticalAlignment="Top" Width="197" Click="Oblicz_Click"/>
+        <TextBox x:Name="Wartosc" HorizontalAlignment="Left" Height="39" Margin="159,38,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="142"/>
+        <TextBlock x:Name="Wynik" HorizontalAlignment="Left" Height="39" Margin="397,38,0,0" TextWrapping="Wrap" Text="Wynik" VerticalAlignment="Top" Width="207"/>
+        <ComboBox x:Name="Lista" HorizontalAlignment="Left" Height="25" Margin="624,38,0,0" VerticalAlignment="Top" Width="125" SelectionChanged="Lista_SelectionChanged"/>
+
     </Grid>
 </Window>

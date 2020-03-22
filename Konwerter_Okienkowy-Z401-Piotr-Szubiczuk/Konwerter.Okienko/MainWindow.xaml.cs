@@ -23,6 +23,22 @@ namespace Konwerter.Okienko
         public MainWindow()
         {
             InitializeComponent();
+
+            Lista.ItemsSource = new List<string>()
+            { 
+ //               new CnF(),
+                "F na C"
+            };
+        }
+
+        private void Oblicz_Click(object sender, RoutedEventArgs e)
+        {
+//            double input = Wartosc.Text;
+        }
+
+        private void Lista_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
         }
     }
 }

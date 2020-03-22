@@ -16,7 +16,11 @@ namespace Konwerter
 
         public double Konwer(string zczego, string naco, double wartosc)
         {
-            throw new NotImplementedException();
+            wartosc = double.Parse(Console.ReadLine());
+ //           double fahrenhait, celcjusz;
+ //            celcjusz = double.Parse(Console.ReadLine());
+ //           fahrenhait = 9D / 5 * celcjusz + 32;
+            return wartosc=(9D / 5 * wartosc + 32);
         }
     }
 }
