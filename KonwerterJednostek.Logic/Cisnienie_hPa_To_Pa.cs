@@ -6,19 +6,20 @@ using System.Threading.Tasks;
 
 namespace KonwerterJednostek.Logic
 {
-    public class KilometresToMiles : IKonwerter
+   public class Cisnienie_hPa_To_Pa : IKonwerter
+
     {
+        public string Name => "Ciśnienie";
+
         public List<string> Units => new List<string>()
         {
-            "km",
-            "mil"
+            "Pa",
+            "hPa"
         };
-
-        public string Name => "Kilometres To Miles";
 
         public double Convert(double valueToConvert)
         {
-            return valueToConvert *0.62137;
+            return valueToConvert * 100;
         }
     }
 }

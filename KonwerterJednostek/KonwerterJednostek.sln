@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KonwerterJednostek", "Konwe
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KonwerterJednostek.Logic", "..\KonwerterJednostek.Logic\KonwerterJednostek.Logic.csproj", "{9E8D9265-A8CD-4C6C-A4A6-6FC35B585B93}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Konwerter.Desktop", "..\Konwerter.Desktop\Konwerter.Desktop.csproj", "{10EA4629-8390-484A-8F20-3E4E885A919F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Konwerter.GUI", "..\Konwerter.GUI\Konwerter.GUI.csproj", "{A3964EC2-1FC3-4071-9ED8-CF08A7D045B1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,10 +23,10 @@ Global
 		{9E8D9265-A8CD-4C6C-A4A6-6FC35B585B93}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9E8D9265-A8CD-4C6C-A4A6-6FC35B585B93}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9E8D9265-A8CD-4C6C-A4A6-6FC35B585B93}.Release|Any CPU.Build.0 = Release|Any CPU
-		{10EA4629-8390-484A-8F20-3E4E885A919F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{10EA4629-8390-484A-8F20-3E4E885A919F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{10EA4629-8390-484A-8F20-3E4E885A919F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{10EA4629-8390-484A-8F20-3E4E885A919F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A3964EC2-1FC3-4071-9ED8-CF08A7D045B1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A3964EC2-1FC3-4071-9ED8-CF08A7D045B1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A3964EC2-1FC3-4071-9ED8-CF08A7D045B1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A3964EC2-1FC3-4071-9ED8-CF08A7D045B1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

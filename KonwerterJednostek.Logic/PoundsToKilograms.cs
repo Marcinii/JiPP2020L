@@ -16,7 +16,7 @@ namespace KonwerterJednostek.Logic
 
         public string Name => "Pounds To Kilograms";
 
-        public double Convert(string unitFrom, string unitTo, double valueToConvert)
+        public double Convert(double valueToConvert)
         {
             return valueToConvert * 0.5359237;
         }

@@ -19,7 +19,7 @@ namespace KonwerterJednostek
                     new KilometresToMiles(),
                     new MilesToKilometres(),
                     new PoundsToKilograms(),
-                    new Cisnienie_Pa_To_hPA()
+                    new Cisnienie_Pa_To_hPa()
                  };
 
                     Console.WriteLine("Wybierz opcję: ");
@@ -44,7 +44,7 @@ namespace KonwerterJednostek
 
                     double value = double.Parse(inputValue); // TryParse można użuć bo zwraca tak albo nie
 
-                    Console.WriteLine("Wynik konwersji: {0}", converters[choice - 1].Convert(unitFrom, unitTo, value));
+                    Console.WriteLine("Wynik konwersji: {0}", converters[choice - 1].Convert(value));
                     Console.ReadKey();
             }
         }

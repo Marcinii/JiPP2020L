@@ -42,7 +42,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CelciusToFarenheit.cs" />
-    <Compile Include="Cisnienie_Pa_To_hPA.cs" />
+    <Compile Include="Cisnienie_hPa_To_Pa.cs" />
+    <Compile Include="Cisnienie_Pa_To_hPa.cs" />
+    <Compile Include="Dispatcher.cs" />
     <Compile Include="FahrenheitToCelcius.cs" />
     <Compile Include="IKonwerter.cs" />
     <Compile Include="KilogramsToPounds.cs" />

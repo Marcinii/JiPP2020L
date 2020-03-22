@@ -4,12 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace KonwerterJednostek
+namespace KonwerterJednostek.Logic
 {
     public interface IKonwerter
     {
         string Name { get; }
         List<string> Units { get; }
-        double Convert(string unitFrom, string unitTo, double valueToConvert);
+        double Convert(double valueToConvert);
     }
 }

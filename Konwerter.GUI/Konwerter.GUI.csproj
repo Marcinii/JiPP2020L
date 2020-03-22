@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{10EA4629-8390-484A-8F20-3E4E885A919F}</ProjectGuid>
+    <ProjectGuid>{A3964EC2-1FC3-4071-9ED8-CF08A7D045B1}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>Konwerter.Desktop</RootNamespace>
-    <AssemblyName>Konwerter.Desktop</AssemblyName>
+    <RootNamespace>Konwerter.GUI</RootNamespace>
+    <AssemblyName>Konwerter.GUI</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>

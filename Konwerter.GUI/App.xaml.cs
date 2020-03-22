@@ -6,7 +6,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
 
-namespace Konwerter.Desktop
+namespace Konwerter.GUI
 {
     /// <summary>
     /// Logika interakcji dla klasy App.xaml

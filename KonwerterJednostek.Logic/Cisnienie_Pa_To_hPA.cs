@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace KonwerterJednostek.Logic
 {
-   public class Cisnienie_Pa_To_hPA : IKonwerter
+   public class Cisnienie_Pa_To_hPa : IKonwerter
 
     {
         public string Name => "Ciśnienie";
@@ -14,10 +14,10 @@ namespace KonwerterJednostek.Logic
         public List<string> Units => new List<string>()
         {
             "Pa",
-            "hpa"
+            "hPa"
         };
 
-        public double Convert(string unitFrom, string unitTo, double valueToConvert)
+        public double Convert(double valueToConvert)
         {
             return valueToConvert / 100;
         }

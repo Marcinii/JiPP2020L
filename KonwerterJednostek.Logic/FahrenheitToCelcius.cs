@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace KonwerterJednostek
+namespace KonwerterJednostek.Logic
 {
 public class FahrenheitToCelcius : IKonwerter
     {
@@ -16,7 +16,7 @@ public class FahrenheitToCelcius : IKonwerter
 
         public string Name => "Fahrenheit To Celcius";
 
-        public double Convert(string unitFrom, string unitTo, double valueToConvert)
+        public double Convert(double valueToConvert)
         {
             return (valueToConvert - 32)*1.8;
         }
