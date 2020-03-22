@@ -28,6 +28,7 @@ namespace Konwerter_ver01
                 {
                     return Wart + 273.15;
                 }
+                if (JednDo == "C" || JednDo == "c") { return Wart; }
                 else Console.WriteLine("Program nie obsługuje konwersji z {0} do {1}. ", JednZ, JednDo);
             }
             if (JednZ == "F" || JednZ == "f")
@@ -40,6 +41,7 @@ namespace Konwerter_ver01
                 {
                     return (Wart - 32) / 1.8 + 273.15;
                 }
+                if (JednDo == "F" || JednDo == "f") { return Wart; }
                 else Console.WriteLine("Program nie obsługuje konwersji z {0} do {1}. ", JednZ, JednDo);
             }
             if (JednZ == "K" || JednZ == "k")
@@ -52,6 +54,7 @@ namespace Konwerter_ver01
                 {
                     return ((Wart - 273.15) -32) / 1.8;
                 }
+                if (JednDo == "K" || JednDo == "k") { return Wart; }
                 else Console.WriteLine("Program nie obsługuje konwersji z {0} do {1}. ", JednZ, JednDo);
             }
             else Console.WriteLine("Program nie obsługuje konwersji z {0} do {1}. ", JednZ, JednDo); return 0;

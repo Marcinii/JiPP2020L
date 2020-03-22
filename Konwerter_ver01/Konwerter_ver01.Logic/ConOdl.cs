@@ -26,6 +26,7 @@ namespace Konwerter_ver01
                 {
                     return Wart *1000;
                 }
+                if (JednDo == "km" || JednDo == "kilometr") { return Wart; }
                 else Console.WriteLine("Program nie obsługuje konwersji z {0} do {1}. ", JednZ, JednDo);
             }
             if (JednZ == "mi" || JednZ == "mila")
@@ -38,6 +39,7 @@ namespace Konwerter_ver01
                 {
                     return (Wart / 0.62137)*1000;
                 }
+                if (JednDo == "mi" || JednDo == "mila") { return Wart; }
                 else Console.WriteLine("Program nie obsługuje konwersji z {0} do {1}. ", JednZ, JednDo);
             }
             if (JednZ == "m" || JednZ == "metr")
@@ -50,6 +52,7 @@ namespace Konwerter_ver01
                 {
                     return (Wart /1000) * 0.62137;
                 }
+                if (JednDo == "m" || JednDo == "metr") { return Wart; }
                 else Console.WriteLine("Program nie obsługuje konwersji z {0} do {1}. ", JednZ, JednDo);
             }
             else Console.WriteLine("Program nie obsługuje konwersji z {0} do {1}. ", JednZ, JednDo); return 0;

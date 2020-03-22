@@ -27,6 +27,7 @@ namespace Konwerter_ver01
                 {
                     return Wart / 1000;
                 }
+                if (JednDo == "kg" || JednDo == "kilogram") { return Wart; }
                 else Console.WriteLine("Program nie obsługuje konwersji z {0} do {1}. ", JednZ, JednDo);
             }
             if (JednZ == "f" || JednZ == "funt")
@@ -39,6 +40,7 @@ namespace Konwerter_ver01
                 {
                     return (Wart / 2.2046) / 1000;
                 }
+                if (JednDo == "f" || JednDo == "funt") { return Wart; }
                 else Console.WriteLine("Program nie obsługuje konwersji z {0} do {1}. ", JednZ, JednDo);
             }
             if (JednZ == "t" || JednZ == "tona")
@@ -51,6 +53,7 @@ namespace Konwerter_ver01
                 {
                     return (Wart / 1000) * 2.2046;
                 }
+                if (JednDo == "t" || JednDo == "tona") { return Wart; }
                 else Console.WriteLine("Program nie obsługuje konwersji z {0} do {1}. ", JednZ, JednDo);
             }
             else Console.WriteLine("Program nie obsługuje konwersji z {0} do {1}. ", JednZ, JednDo); return 0;

@@ -25,24 +25,48 @@ namespace Konwerter_ver01.Desktop
         public MainWindow()
         {
             InitializeComponent();
-            JednZtemp.ItemsSource = new Konwerter_ver01.ConTemp().Jedn;
-            JednDotemp.ItemsSource = new Konwerter_ver01.ConTemp().Jedn;
-            JednZodl.ItemsSource = new Konwerter_ver01.ConOdl().Jedn;
-            JednDoodl.ItemsSource = new Konwerter_ver01.ConOdl().Jedn;
-            JednZwag.ItemsSource = new Konwerter_ver01.ConWag().Jedn;
-            JednDowag.ItemsSource = new Konwerter_ver01.ConWag().Jedn;
-            JednZspe.ItemsSource = new Konwerter_ver01.ConSpe().Jedn;
-            JednDospe.ItemsSource = new Konwerter_ver01.ConSpe().Jedn;
+            WybKon.ItemsSource = new ZestawKonw().GetConverter();
+
+            /* JednZtemp.ItemsSource = new Konwerter_ver01.ConTemp().Jedn;
+             JednDotemp.ItemsSource = new Konwerter_ver01.ConTemp().Jedn;
+             JednZodl.ItemsSource = new Konwerter_ver01.ConOdl().Jedn;
+             JednDoodl.ItemsSource = new Konwerter_ver01.ConOdl().Jedn;
+             JednZwag.ItemsSource = new Konwerter_ver01.ConWag().Jedn;
+             JednDowag.ItemsSource = new Konwerter_ver01.ConWag().Jedn;
+             JednZspe.ItemsSource = new Konwerter_ver01.ConSpe().Jedn;
+             JednDospe.ItemsSource = new Konwerter_ver01.ConSpe().Jedn;
+             */
+        }
+
+        private void WybKon_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            JednZ.ItemsSource = ((IConverter)WybKon.SelectedItem).Jedn;
+            JednDo.ItemsSource = ((IConverter)WybKon.SelectedItem).Jedn;
+        }
+
+        private void Wykonajtemp_Click(object sender, RoutedEventArgs e)
+        {
+            string inputDane = Dane.Text;
+            double inputValue;
+            double.TryParse(inputDane, out inputValue);
+            double result = ((IConverter)WybKon.SelectedItem).Convert(JednZ.SelectedItem.ToString(), JednDo.SelectedItem.ToString(), inputValue);
+
+            Wynik.Text = result.ToString();
         }
 
 
-    }
 
-    /* private void Wykonaj_Click(object sender, RoutedEventArgs e)
-     {
-         string input = JednDoBox.Text;
-         string output = "To" + input; 
-             JednZBox.Text = output;
-     }*/
+        /*private void Wykonajtemp_Click(object sender, RoutedEventArgs e)
+        {
+            string inputTemp = Danetemp.Text;
+            double inputValue;
+            double.TryParse(inputTemp, out inputValue);
+           // double result = ((IConverter)ConTemp).Convert(JednZtemp.SelectedItem.ToString(), JednDotemp.SelectedItem.ToString(), inputValue);
+
+            //Wyniktemp.Text = result.ToString();
+        }*/
+
+
+    }
 }
 

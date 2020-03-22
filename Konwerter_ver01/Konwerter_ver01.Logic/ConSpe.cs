@@ -24,6 +24,7 @@ namespace Konwerter_ver01
                 {
                     return Wart * 0.2778;
                 }
+                if (JednDo == "km/h") { return Wart; }
                 else Console.WriteLine("Program nie obsługuje konwersji z {0} do {1}. ", JednZ, JednDo);
             }
             if (JednZ == "m/s")
@@ -32,7 +33,7 @@ namespace Konwerter_ver01
                 {
                     return Wart *3.6;
                 }
-        
+                if (JednDo == "m/s") { return Wart; }
                 else Console.WriteLine("Program nie obsługuje konwersji z {0} do {1}. ", JednZ, JednDo);
             }
             else Console.WriteLine("Program nie obsługuje konwersji z {0} do {1}. ", JednZ, JednDo); return 0;
