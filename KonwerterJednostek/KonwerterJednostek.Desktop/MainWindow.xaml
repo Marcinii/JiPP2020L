@@ -42,37 +42,27 @@
         <Storyboard x:Key="fly">
             <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="button1">
                 <EasingDoubleKeyFrame KeyTime="0" Value="790"/>
-                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="740"/>
-                <EasingDoubleKeyFrame KeyTime="0:0:2" Value="690"/>
-                <EasingDoubleKeyFrame KeyTime="0:0:3" Value="640"/>
-                <EasingDoubleKeyFrame KeyTime="0:0:4" Value="590"/>
-                <EasingDoubleKeyFrame KeyTime="0:0:4.5" Value="540"/>
-                <EasingDoubleKeyFrame KeyTime="0:0:5.5" Value="490"/>
-                <EasingDoubleKeyFrame KeyTime="0:0:6.5" Value="440"/>
-                <EasingDoubleKeyFrame KeyTime="0:0:7.5" Value="390"/>
-                <EasingDoubleKeyFrame KeyTime="0:0:7.75" Value="340"/>
-                <EasingDoubleKeyFrame KeyTime="0:0:8" Value="290"/>
-                <EasingDoubleKeyFrame KeyTime="0:0:8.25" Value="240"/>
-                <EasingDoubleKeyFrame KeyTime="0:0:8.5" Value="190"/>
-                <EasingDoubleKeyFrame KeyTime="0:0:8.6" Value="140"/>
-                <EasingDoubleKeyFrame KeyTime="0:0:8.7" Value="90"/>
-                <EasingDoubleKeyFrame KeyTime="0:0:8.8" Value="40"/>
-                <EasingDoubleKeyFrame KeyTime="0:0:8.9" Value="-10"/>
-                <EasingDoubleKeyFrame KeyTime="0:0:9" Value="0"/>
-                <EasingDoubleKeyFrame KeyTime="0:0:9.1" Value="-10"/>
-                <EasingDoubleKeyFrame KeyTime="0:0:9.2" Value="0"/>
-                <EasingDoubleKeyFrame KeyTime="0:0:9.3" Value="-10"/>
-                <EasingDoubleKeyFrame KeyTime="0:0:9.5" Value="0"/>
-                <EasingDoubleKeyFrame KeyTime="0:0:10" Value="-10"/>
-                <EasingDoubleKeyFrame KeyTime="0:0:10.5" Value="0"/>
-                <EasingDoubleKeyFrame KeyTime="0:0:11" Value="-10"/>
-                <EasingDoubleKeyFrame KeyTime="0:0:12" Value="0"/>
-                <EasingDoubleKeyFrame KeyTime="0:0:13" Value="-10"/>
-                <EasingDoubleKeyFrame KeyTime="0:0:14" Value="0"/>
-                <EasingDoubleKeyFrame KeyTime="0:0:15" Value="-10"/>
-                <EasingDoubleKeyFrame KeyTime="0:0:17" Value="0"/>
-                <EasingDoubleKeyFrame KeyTime="0:0:19" Value="-10"/>
-                <EasingDoubleKeyFrame KeyTime="0:0:21" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="590"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="390"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="290"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:2" Value="10"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:2.1" Value="-10"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:2.2" Value="10"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:2.3" Value="-10"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:2.4" Value="10"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:2.6" Value="-10"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:2.8" Value="10"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:3.0" Value="-10"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:3.2" Value="10"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:3.7" Value="-10"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:4.2" Value="10"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:4.7" Value="-10"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:5.2" Value="10"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:6.2" Value="-10"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:7.2" Value="10"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:8.2" Value="-10"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:9.2" Value="10"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:9.7" Value="0"/>
             </DoubleAnimationUsingKeyFrames>
         </Storyboard>
     </Window.Resources>
