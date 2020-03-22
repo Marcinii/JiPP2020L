@@ -1,0 +1,6 @@
+C:\Users\slowi\source\repos\JiPP2020L\Modul1\UnitConverter\bin\Debug\UnitConverter.dll
+C:\Users\slowi\source\repos\JiPP2020L\Modul1\UnitConverter\bin\Debug\UnitConverter.pdb
+C:\Users\slowi\source\repos\JiPP2020L\Modul1\UnitConverter\obj\Debug\UnitConverter.csprojAssemblyReference.cache
+C:\Users\slowi\source\repos\JiPP2020L\Modul1\UnitConverter\obj\Debug\UnitConverter.csproj.CoreCompileInputs.cache
+C:\Users\slowi\source\repos\JiPP2020L\Modul1\UnitConverter\obj\Debug\UnitConverter.dll
+C:\Users\slowi\source\repos\JiPP2020L\Modul1\UnitConverter\obj\Debug\UnitConverter.pdb

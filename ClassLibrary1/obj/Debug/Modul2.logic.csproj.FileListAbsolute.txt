@@ -1,0 +1,6 @@
+C:\Users\slowi\source\repos\JiPP2020L\ClassLibrary1\bin\Debug\Moudl2.dll
+C:\Users\slowi\source\repos\JiPP2020L\ClassLibrary1\bin\Debug\Moudl2.pdb
+C:\Users\slowi\source\repos\JiPP2020L\ClassLibrary1\obj\Debug\Modul2.logic.csprojAssemblyReference.cache
+C:\Users\slowi\source\repos\JiPP2020L\ClassLibrary1\obj\Debug\Modul2.logic.csproj.CoreCompileInputs.cache
+C:\Users\slowi\source\repos\JiPP2020L\ClassLibrary1\obj\Debug\Moudl2.dll
+C:\Users\slowi\source\repos\JiPP2020L\ClassLibrary1\obj\Debug\Moudl2.pdb

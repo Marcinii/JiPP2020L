@@ -1,0 +1,5 @@
+C:\Users\slowi\source\repos\JiPP2020L\ClassLibrary1\bin\Debug\ClassLibrary1.dll
+C:\Users\slowi\source\repos\JiPP2020L\ClassLibrary1\bin\Debug\ClassLibrary1.pdb
+C:\Users\slowi\source\repos\JiPP2020L\ClassLibrary1\obj\Debug\UnitKonwerter.logic.csproj.CoreCompileInputs.cache
+C:\Users\slowi\source\repos\JiPP2020L\ClassLibrary1\obj\Debug\ClassLibrary1.dll
+C:\Users\slowi\source\repos\JiPP2020L\ClassLibrary1\obj\Debug\ClassLibrary1.pdb
