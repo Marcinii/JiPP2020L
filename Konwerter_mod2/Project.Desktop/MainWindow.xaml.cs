@@ -32,7 +32,7 @@ namespace Project.Desktop
             string inputT = InputValue.Text;
             string inputU1 = InputUnit1.Text;
             string inputU2 = InputUnit2.Text;
-            int k = -1, j = 0;
+            int k = 0, j = 0;
             List<IKonwerter> Konwertery = new List<IKonwerter>()
             {
                 new LenKonwerter(),
