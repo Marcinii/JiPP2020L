@@ -10,14 +10,14 @@ namespace Konwerter_jednostek_wersja2
     {
         public List<string> Units => new List<string>()
         {
-            "c",
-            "cm"
+            "Cali",
+            "Centymetrów"
         };
 
         public string Name => "Konwerter Cali na Centymetry";
-        public double Convert(string unitFrom, string unitTo, double valueToConvert)
+        public string Convert(string unitFrom, string unitTo, string valueToConvert)
         {
-            return valueToConvert * 2.54;
+            return (double.Parse(valueToConvert) * 2.54).ToString();
         }
     }
 }

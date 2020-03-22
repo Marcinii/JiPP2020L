@@ -44,6 +44,7 @@
     <Compile Include="Ikonwenter.cs" />
     <Compile Include="KonwerterCali.cs" />
     <Compile Include="KonwerterCelcjusza.cs" />
+    <Compile Include="KonwerterCzasu.cs" />
     <Compile Include="KonwerterFahrenheita.cs" />
     <Compile Include="KonwerterFuntow.cs" />
     <Compile Include="KonwerterKilkometrow.cs" />

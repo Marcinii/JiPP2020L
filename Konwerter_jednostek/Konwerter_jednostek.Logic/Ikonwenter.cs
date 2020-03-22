@@ -10,6 +10,8 @@ namespace Konwerter_jednostek_wersja2
     {
         string Name { get; }
         List<string> Units { get; }
-        double Convert(string unitFrom, string unitTo, double valueToConvert);
+        string Convert(string unitFrom, string unitTo, string valueToConvert);
+       
+        //string Convert(string unitFrom, string unitTo, string valueToConvert);
     }
 }

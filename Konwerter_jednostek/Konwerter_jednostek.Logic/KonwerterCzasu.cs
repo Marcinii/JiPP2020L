@@ -6,18 +6,18 @@ using System.Threading.Tasks;
 
 namespace Konwerter_jednostek_wersja2
 {
-    public class KonwerterMil: Ikonwenter
+    public class KonwerterCzasu:Ikonwenter
     {
         public List<string> Units => new List<string>()
         {
-            "Mil",
-            "Kilometrów"
+            "24h",
+            "12h"
         };
 
-        public string Name => "Konwerter Mil na Kilometry";
+        public string Name => "Konwerter czasu z 24 godzinnego na 12 godzinny";
         public string Convert(string unitFrom, string unitTo, string valueToConvert)
         {
-            return (double.Parse(valueToConvert) * 1.61).ToString();
+            return DateTime.Parse(valueToConvert).ToString("hh:mm tt");
         }
     }
 }

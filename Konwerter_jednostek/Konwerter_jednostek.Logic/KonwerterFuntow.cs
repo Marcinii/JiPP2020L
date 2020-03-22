@@ -10,14 +10,14 @@ namespace Konwerter_jednostek_wersja2
     {
         public List<string> Units => new List<string>()
         {
-            "f",
-            "kg"
+            "Funtów",
+            "Kilogramy"
         };
 
         public string Name => "Konwerter Funtów na Kilogramy";
-        public double Convert(string unitFrom, string unitTo, double valueToConvert)
+        public string Convert(string unitFrom, string unitTo, string valueToConvert)
         {
-            return valueToConvert * 0.4535;
+            return (double.Parse(valueToConvert) * 0.4535).ToString();
         }
     }
 }

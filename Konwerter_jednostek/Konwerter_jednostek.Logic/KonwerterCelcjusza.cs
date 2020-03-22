@@ -10,14 +10,14 @@ namespace Konwerter_jednostek_wersja2
     {
         public List<string> Units => new List<string>()
         {
-            "f",
-            "c"
+            "Fahrenheita",
+            "Celcjusza"
         };
 
         public string Name => "Konwerter Celcjusza na Fahrenheita";
-        public double Convert(string unitFrom, string unitTo, double valueToConvert)
+        public string Convert(string unitFrom, string unitTo, string valueToConvert)
         {
-            return (valueToConvert * 9/5) + 32;
+            return ((double.Parse(valueToConvert) * 9 / 5) + 32).ToString();
         }
     }
 }

@@ -30,9 +30,7 @@ namespace Konwerterjednostek.Pulpit
         {
             string inputValue = inputTextBox.Text;
 
-            double value = double.Parse(inputValue); 
-
-            double result = new KonwerterCelcjusza().Convert("Celcjusz", "Kelwin", value);
+            var result = new KonwerterCelcjusza().Convert("Celcjusza", "Fahrenheita", inputValue);
 
             outputTextBlock.Text = result.ToString();
         }
@@ -41,9 +39,7 @@ namespace Konwerterjednostek.Pulpit
         {
             string inputValue = inputTextBox1.Text;
 
-            double value = double.Parse(inputValue);
-
-            double result = new KonwerterFahrenheita().Convert("Celcjusz", "Kelwin", value);
+            var result = new KonwerterFahrenheita().Convert("Fahrenheita", "Celcjusza", inputValue);
 
             outputTextBlock1.Text = result.ToString();
         }
@@ -52,9 +48,7 @@ namespace Konwerterjednostek.Pulpit
         {
             string inputValue = inputTextBox2.Text;
 
-            double value = double.Parse(inputValue);
-
-            double result = new KonwerterKilkometrow().Convert("Celcjusz", "Kelwin", value);
+            var result = new KonwerterKilkometrow().Convert("Kilomertrów", "Mile", inputValue);
 
             outputTextBlock2.Text = result.ToString();
         }
@@ -63,9 +57,7 @@ namespace Konwerterjednostek.Pulpit
         {
             string inputValue = inputTextBox3.Text;
 
-            double value = double.Parse(inputValue);
-
-            double result = new KonwerterMil().Convert("Celcjusz", "Kelwin", value);
+            var result = new KonwerterMil().Convert("Mil", "Kilometrów", inputValue);
 
             outputTextBlock3.Text = result.ToString();
         }
@@ -74,9 +66,7 @@ namespace Konwerterjednostek.Pulpit
         {
             string inputValue = inputTextBox4.Text;
 
-            double value = double.Parse(inputValue);
-
-            double result = new KonwerterKilogramow().Convert("Celcjusz", "Kelwin", value);
+            var result = new KonwerterKilogramow().Convert("Kilogramów", "Funty", inputValue);
 
             outputTextBlock4.Text = result.ToString();
         }
@@ -85,9 +75,7 @@ namespace Konwerterjednostek.Pulpit
         {
             string inputValue = inputTextBox5.Text;
 
-            double value = double.Parse(inputValue);
-
-            double result = new KonwerterFuntow().Convert("Celcjusz", "Kelwin", value);
+            var result = new KonwerterFuntow().Convert("Funtów", "Kilogramy", inputValue);
 
             outputTextBlock5.Text = result.ToString();
 
@@ -97,11 +85,16 @@ namespace Konwerterjednostek.Pulpit
         {
             string inputValue = inputTextBox6.Text;
 
-            double value = double.Parse(inputValue);
-
-            double result = new KonwerterCali().Convert("Celcjusz", "Kelwin", value);
+            var result = new KonwerterCali().Convert("Cali", "Centymetrów", inputValue);
 
             outputTextBlock6.Text = result.ToString();
+        }
+        private void Button_Click7(object sender, RoutedEventArgs e)
+        {
+            string inputValue = inputTextBox7.Text;
+            var result = new KonwerterCzasu().Convert("24H", "12H", inputValue);
+
+            outputTextBlock7.Text = result.ToString();
         }
     }
 }

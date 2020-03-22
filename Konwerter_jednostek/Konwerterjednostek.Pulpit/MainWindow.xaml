@@ -5,13 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Konwerterjednostek.Pulpit"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="450" Width="1140.244">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="195*"/>
-            <ColumnDefinition Width="260*"/>
-            <ColumnDefinition Width="194*"/>
-            <ColumnDefinition Width="143*"/>
+            <ColumnDefinition Width="281*"/>
+            <ColumnDefinition Width="159*"/>
+            <ColumnDefinition Width="105*"/>
+            <ColumnDefinition Width="392*"/>
         </Grid.ColumnDefinitions>
         <TextBox x:Name="inputTextBox" HorizontalAlignment="Left" Height="23" Margin="0,75,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" AcceptsTab="True" Background="#FF5FFFF0" Grid.Column="1">
             <TextBox.BindingGroup>
@@ -20,7 +21,7 @@
         </TextBox>
         <Label x:Name="Celciusz" Content="Konwerter Celcjusza" HorizontalAlignment="Left" Margin="34,72,0,0" VerticalAlignment="Top" Width="132" Background="#FF00F9FF" Height="26"/>
         <Button x:Name="button" Content="WYKONAJ" HorizontalAlignment="Left" Margin="131,75,0,0" VerticalAlignment="Top" Width="107" Height="23" Click="Button_Click" Background="#FF5FFFF0" AutomationProperties.IsRequiredForForm="True" Grid.Column="1"/>
-        <TextBlock x:Name="outputTextBlock" HorizontalAlignment="Left" Margin="0,75,0,0" TextWrapping="Wrap" Text="Wynik_Konwersji" VerticalAlignment="Top" Height="26" Width="182" FontFamily="Comic Sans MS" FontSize="16" Grid.Column="2">
+        <TextBlock x:Name="outputTextBlock" HorizontalAlignment="Left" Margin="0,75,0,0" TextWrapping="Wrap" Text="Wynik_Konwersji" VerticalAlignment="Top" Height="26" Width="182" FontFamily="Comic Sans MS" FontSize="16" Grid.Column="2" Grid.ColumnSpan="2">
             <TextBlock.Foreground>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="Black" Offset="0"/>
@@ -35,7 +36,7 @@
         </Label>
         <TextBox x:Name="inputTextBox1" HorizontalAlignment="Left" Height="23" Margin="0,117,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Background="#FF5FFFF0" Grid.Column="1"/>
         <Button x:Name="button1" Content="WYKONAJ" HorizontalAlignment="Left" Margin="131,117,0,0" VerticalAlignment="Top" Width="107" Background="#FF5FFFF0" Click="Button_Click1" Grid.Column="1" Height="20"/>
-        <TextBlock x:Name="outputTextBlock1" HorizontalAlignment="Left" Margin="0,115,0,0" TextWrapping="Wrap" Text="Wynik_Konwersji" VerticalAlignment="Top" RenderTransformOrigin="0.117,-0.318" Height="26" Width="182" FontFamily="Comic Sans MS" FontSize="16" SnapsToDevicePixels="True" IsHitTestVisible="False" Grid.Column="2">
+        <TextBlock x:Name="outputTextBlock1" HorizontalAlignment="Left" Margin="0,115,0,0" TextWrapping="Wrap" Text="Wynik_Konwersji" VerticalAlignment="Top" RenderTransformOrigin="0.117,-0.318" Height="26" Width="182" FontFamily="Comic Sans MS" FontSize="16" SnapsToDevicePixels="True" IsHitTestVisible="False" Grid.Column="2" Grid.ColumnSpan="2">
             <TextBlock.Foreground>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="Black" Offset="0"/>
@@ -46,7 +47,7 @@
         <Label x:Name="Kilometry" Content="Konwerter Kilkometrów" HorizontalAlignment="Left" Margin="34,159,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.004,-0.241" Width="142" Background="#FFF3FF00" Height="26"/>
         <TextBox x:Name="inputTextBox2" HorizontalAlignment="Left" Height="23" Margin="0,159,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Background="#FFF3FF00" Grid.Column="1"/>
         <Button x:Name="button2" Content="WYKONAJ" HorizontalAlignment="Left" Margin="131,159,0,0" VerticalAlignment="Top" Width="107" Height="23" Background="#FFF9FF00" Click="Button_Click2" Grid.Column="1"/>
-        <TextBlock x:Name="outputTextBlock2" HorizontalAlignment="Left" Margin="0,159,0,0" TextWrapping="Wrap" Text="Wynik_Konwersji" VerticalAlignment="Top" Width="182" Height="22" ForceCursor="True" FontSize="16" FontFamily="Comic Sans MS" Grid.Column="2">
+        <TextBlock x:Name="outputTextBlock2" HorizontalAlignment="Left" Margin="0,159,0,0" TextWrapping="Wrap" Text="Wynik_Konwersji" VerticalAlignment="Top" Width="182" Height="22" ForceCursor="True" FontSize="16" FontFamily="Comic Sans MS" Grid.Column="2" Grid.ColumnSpan="2">
             <TextBlock.Foreground>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="Black" Offset="0"/>
@@ -57,7 +58,7 @@
         <Label x:Name="Mile" Content="Konwerter MIL" HorizontalAlignment="Left" Margin="34,200,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.203,0.195" Width="142" Background="#FFF3FF00" Height="26"/>
         <TextBox x:Name="inputTextBox3" HorizontalAlignment="Left" Height="23" Margin="0,200,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Background="#FFF3FF00" Grid.Column="1"/>
         <Button x:Name="button3" Content="WYKONAJ" Grid.Column="1" HorizontalAlignment="Left" Margin="131,200,0,0" VerticalAlignment="Top" Width="107" Height="23" Background="#FFF3FF00" Click="Button_Click3"/>
-        <TextBlock x:Name="outputTextBlock3" Grid.Column="2" HorizontalAlignment="Left" Margin="0,200,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="23" Width="194" FontFamily="Comic Sans MS" FontSize="16" ForceCursor="True" Text="Wynik_Konwersji">
+        <TextBlock x:Name="outputTextBlock3" Grid.Column="2" HorizontalAlignment="Left" Margin="0,200,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="23" Width="194" FontFamily="Comic Sans MS" FontSize="16" ForceCursor="True" Text="Wynik_Konwersji" Grid.ColumnSpan="2">
             <TextBlock.Foreground>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="Black" Offset="0"/>
@@ -65,10 +66,10 @@
                 </LinearGradientBrush>
             </TextBlock.Foreground>
         </TextBlock>
-        <Label x:Name="Kilogramy" Content="Konwerter Kilogramów" HorizontalAlignment="Left" Margin="34,241,0,0" VerticalAlignment="Top" Width="132" Background="#FFF9DA14"/>
+        <Label x:Name="Kilogramy" Content="Konwerter Kilogramów" HorizontalAlignment="Left" Margin="34,241,0,0" VerticalAlignment="Top" Width="132" Background="#FFF9DA14" Height="26"/>
         <TextBox x:Name="inputTextBox4" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="0,241,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Background="#FFF9DA14"/>
         <Button x:Name="button4" Content="WYKONAJ" Grid.Column="1" HorizontalAlignment="Left" Margin="131,241,0,0" VerticalAlignment="Top" Width="107" Height="26" Background="#FFF9DA14" Click="Button_Click4"/>
-        <TextBlock x:Name="outputTextBlock4" Grid.Column="2" HorizontalAlignment="Left" Margin="0,241,0,0" TextWrapping="Wrap" Text="Wynik_Konwersji" VerticalAlignment="Top" Height="23" Width="182" FontSize="16" FontFamily="Comic Sans MS">
+        <TextBlock x:Name="outputTextBlock4" Grid.Column="2" HorizontalAlignment="Left" Margin="0,241,0,0" TextWrapping="Wrap" Text="Wynik_Konwersji" VerticalAlignment="Top" Height="23" Width="182" FontSize="16" FontFamily="Comic Sans MS" Grid.ColumnSpan="2">
             <TextBlock.Foreground>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="Black" Offset="0"/>
@@ -76,10 +77,10 @@
                 </LinearGradientBrush>
             </TextBlock.Foreground>
         </TextBlock>
-        <Label x:Name="Funty" Content="Konwerter Funtów" HorizontalAlignment="Left" Margin="34,284,0,0" VerticalAlignment="Top" Width="132" Background="#FFF9DA14"/>
+        <Label x:Name="Funty" Content="Konwerter Funtów" HorizontalAlignment="Left" Margin="34,284,0,0" VerticalAlignment="Top" Width="132" Background="#FFF9DA14" Height="26"/>
         <TextBox x:Name="inputTextBox5" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="0,287,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Background="#FFF9DA14"/>
         <Button x:Name="button5" Content="WYKONAJ" Grid.Column="1" HorizontalAlignment="Left" Margin="131,287,0,0" VerticalAlignment="Top" Width="107" Height="23" Background="#FFF9DA14" Click="Button_Click5"/>
-        <TextBlock x:Name="outputTextBlock5" Grid.Column="2" HorizontalAlignment="Left" Margin="0,287,0,0" TextWrapping="Wrap" Text="Wynik_Konwersji" VerticalAlignment="Top" Height="23" Width="194" FontSize="16" FontFamily="Comic Sans MS" SnapsToDevicePixels="True">
+        <TextBlock x:Name="outputTextBlock5" Grid.Column="2" HorizontalAlignment="Left" Margin="0,287,0,0" TextWrapping="Wrap" Text="Wynik_Konwersji" VerticalAlignment="Top" Height="23" Width="194" FontSize="16" FontFamily="Comic Sans MS" SnapsToDevicePixels="True" Grid.ColumnSpan="2">
             <TextBlock.Foreground>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="Black" Offset="0"/>
@@ -87,10 +88,10 @@
                 </LinearGradientBrush>
             </TextBlock.Foreground>
         </TextBlock>
-        <Label x:Name="Cale" Content="Konwerter Cali" HorizontalAlignment="Left" Margin="34,331,0,0" VerticalAlignment="Top" Width="132" Background="#FFFF003F"/>
+        <Label x:Name="Cale" Content="Konwerter Cali" HorizontalAlignment="Left" Margin="34,331,0,0" VerticalAlignment="Top" Width="132" Background="#FFFF003F" Height="26"/>
         <TextBox x:Name="inputTextBox6" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="0,331,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontSize="16" ForceCursor="True" Background="#FFFF003F"/>
         <Button x:Name="button6" Content="WYKONAJ" Grid.Column="1" HorizontalAlignment="Left" Margin="131,331,0,0" VerticalAlignment="Top" Width="107" Background="#FFFF003F" Height="23" Click="Button_Click6"/>
-        <TextBlock x:Name="outputTextBlock6" Grid.Column="2" HorizontalAlignment="Left" Margin="0,331,0,0" TextWrapping="Wrap" Text="Wynik_Konwersji" VerticalAlignment="Top" Height="23" Width="184" FontSize="16" FontFamily="Comic Sans MS">
+        <TextBlock x:Name="outputTextBlock6" Grid.Column="2" HorizontalAlignment="Left" Margin="0,331,0,0" TextWrapping="Wrap" Text="Wynik_Konwersji" VerticalAlignment="Top" Height="23" Width="184" FontSize="16" FontFamily="Comic Sans MS" Grid.ColumnSpan="2">
             <TextBlock.Foreground>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="Black" Offset="0"/>
@@ -98,15 +99,36 @@
                 </LinearGradientBrush>
             </TextBlock.Foreground>
         </TextBlock>
-        <Label x:Name="Tytul" Grid.ColumnSpan="3" Content="KONWERTER JEDNOSTEK" HorizontalAlignment="Left" Height="40" Margin="141,10,0,0" VerticalAlignment="Top" Width="508" FontFamily="Cooper Black" Grid.IsSharedSizeScope="True" FontSize="30"/>
-        <Label Content="Label" Grid.Column="2" HorizontalAlignment="Left" Height="3" Margin="187,72,0,0" VerticalAlignment="Top" Width="7"/>
-        <Label x:Name="jednostki_f" Content="Fahrenheita" Grid.Column="3" HorizontalAlignment="Left" Margin="0,75,0,0" VerticalAlignment="Top" Width="86" FontFamily="Impact"/>
-        <Label x:Name="jednostki_c" Content="Celcjusza" Grid.Column="3" HorizontalAlignment="Left" Margin="0,117,0,0" VerticalAlignment="Top" Width="143" FontFamily="Impact"/>
-        <Label x:Name="jednostki_m" Content="Mil" Grid.Column="3" HorizontalAlignment="Left" Margin="0,159,0,0" VerticalAlignment="Top" Width="143" FontFamily="Impact"/>
-        <Label x:Name="jednostki_km" Content="Kilometrów" Grid.Column="3" HorizontalAlignment="Left" Margin="0,205,0,0" VerticalAlignment="Top" Width="143" FontFamily="Impact"/>
-        <Label x:Name="jednostki_f1" Content="Funtów" Grid.Column="3" HorizontalAlignment="Left" Margin="0,246,0,0" VerticalAlignment="Top" Width="143" FontFamily="Impact"/>
-        <Label x:Name="jednostki_kg" Content="Kilogramów" Grid.Column="3" HorizontalAlignment="Left" Margin="0,292,0,0" VerticalAlignment="Top" Width="143" FontFamily="Impact"/>
-        <Label x:Name="jednostki_cm" Content="Centymetrów" Grid.Column="3" HorizontalAlignment="Left" Margin="0,331,0,0" VerticalAlignment="Top" Width="143" FontFamily="Impact"/>
+        <Label x:Name="Tytul" Grid.ColumnSpan="4" Content="KONWERTER JEDNOSTEK" HorizontalAlignment="Left" Height="40" Margin="141,10,0,0" VerticalAlignment="Top" Width="508" FontFamily="Cooper Black" Grid.IsSharedSizeScope="True" FontSize="30"/>
+        <Label Content="Label" Grid.Column="3" HorizontalAlignment="Left" Height="3" Margin="3,72,0,0" VerticalAlignment="Top" Width="7"/>
+        <Label x:Name="jednostki_f" Content="Fahrenheita" Grid.Column="3" HorizontalAlignment="Left" Margin="0,75,0,0" VerticalAlignment="Top" Width="86" FontFamily="Impact" Height="25"/>
+        <Label x:Name="jednostki_c" Content="Celcjusza" Grid.Column="3" HorizontalAlignment="Left" Margin="0,117,0,0" VerticalAlignment="Top" Width="143" FontFamily="Impact" Height="25" Grid.ColumnSpan="2"/>
+        <Label x:Name="jednostki_m" Content="Mil" Grid.Column="3" HorizontalAlignment="Left" Margin="0,159,0,0" VerticalAlignment="Top" Width="143" FontFamily="Impact" Height="25" Grid.ColumnSpan="2"/>
+        <Label x:Name="jednostki_km" Content="Kilometrów" Grid.Column="3" HorizontalAlignment="Left" Margin="0,205,0,0" VerticalAlignment="Top" Width="143" FontFamily="Impact" Height="25" Grid.ColumnSpan="2"/>
+        <Label x:Name="jednostki_f1" Content="Funtów" Grid.Column="3" HorizontalAlignment="Left" Margin="0,246,0,0" VerticalAlignment="Top" Width="143" FontFamily="Impact" Height="25" Grid.ColumnSpan="2"/>
+        <Label x:Name="jednostki_kg" Content="Kilogramów" Grid.Column="3" HorizontalAlignment="Left" Margin="0,292,0,0" VerticalAlignment="Top" Width="143" FontFamily="Impact" Height="25" Grid.ColumnSpan="2"/>
+        <Label x:Name="jednostki_cm" Content="Centymetrów" Grid.Column="3" HorizontalAlignment="Left" Margin="0,331,0,0" VerticalAlignment="Top" Width="143" FontFamily="Impact" Height="25" Grid.ColumnSpan="2"/>
+        <Label x:Name="Czas" Content="Konwerter Czasu" HorizontalAlignment="Left" Margin="34,371,0,0" VerticalAlignment="Top" Width="132" Background="#FF00FF2E" Height="26"/>
+        <TextBox x:Name="inputTextBox7" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="0,371,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" ForceCursor="True" Background="#FF00FF2E"/>
+        <Button x:Name="button7" Content="WYKONAJ" Grid.Column="1" HorizontalAlignment="Left" Margin="131,371,0,0" VerticalAlignment="Top" Width="107" Background="#FF00FF2E" Height="23" Click="Button_Click7"/>
+        <TextBlock x:Name="outputTextBlock7" Grid.Column="2" HorizontalAlignment="Left" Margin="0,371,0,0" TextWrapping="Wrap" Text="Wynik_Konwersji" VerticalAlignment="Top" Height="23" Width="182" FontFamily="Comic Sans MS" FontSize="16" Grid.ColumnSpan="2">
+            <TextBlock.Foreground>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="Black" Offset="0"/>
+                    <GradientStop Color="White" Offset="1"/>
+                </LinearGradientBrush>
+            </TextBlock.Foreground>
+        </TextBlock>
+        <Label x:Name="jednostki_czasu" Content="Czas 12-godzinny" Grid.Column="3" HorizontalAlignment="Left" Margin="0,371,0,0" VerticalAlignment="Top" Width="143" FontFamily="Impact" RenderTransformOrigin="0.5,0.5" Height="25" Grid.ColumnSpan="2">
+            <Label.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-0.547"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Label.RenderTransform>
+        </Label>
 
     </Grid>
 </Window>

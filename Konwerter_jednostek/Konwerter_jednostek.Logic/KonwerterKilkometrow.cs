@@ -10,14 +10,14 @@ namespace Konwerter_jednostek_wersja2
     {
         public List<string> Units => new List<string>()
         {
-            "km",
-            "m"
+            "Kilomertrów",
+            "Mile"
         };
 
         public string Name => "Konwerter Kilomertrów na Mile";
-        public double Convert(string unitFrom, string unitTo, double valueToConvert)
+        public string Convert(string unitFrom, string unitTo, string valueToConvert)
         {
-            return valueToConvert / 1.61;
+            return (double.Parse(valueToConvert) / 1.61).ToString();
         }
     }
 }
