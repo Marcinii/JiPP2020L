@@ -28,8 +28,8 @@ namespace Konwerter
                 Console.WriteLine("4. Mile na kilometry");
                 Console.WriteLine("5. Kilogram na funt");
                 Console.WriteLine("6. Funt na kilogram");
-                Console.WriteLine("7. Funt na kilogram");
-                Console.WriteLine("8. Funt na kilogram");
+                Console.WriteLine("7. Kilowaty na Waty");
+                Console.WriteLine("8. Kilowaty na konie mechaniczne");
                 Console.WriteLine("0. Wyjscie");
                 switch (Console.ReadLine())
                 {
@@ -79,7 +79,7 @@ namespace Konwerter
                         Console.WriteLine("Podaj Kilowaty");
                         double wartosc8 = Convert.ToDouble(Console.ReadLine());
                         KWnKM kon8 = new KWnKM();
-                        Console.WriteLine("Kilowatow " + (kon8.Konwer("z", "na", wartosc8)).ToString() + "Koni mechanicznych");
+                        Console.WriteLine("Kilowatow " + (kon8.Konwer("z", "na", wartosc8)).ToString() + " Koni mechanicznych");
                         break;
                     case "0":
                         Environment.Exit(0);
