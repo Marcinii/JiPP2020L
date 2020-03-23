@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Text.RegularExpressions;
-using UnitConverter.Library.Core;
+using UnitConverter.Library.TypeUtil;
+using UnitConverter.Library.TypeUtil.TypeException;
+using UnitConverter.Library.Validator;
 
 namespace UnitConverter.Library
 {
@@ -34,7 +36,7 @@ namespace UnitConverter.Library
         /// </summary>
         /// <returns>Zwraca w pełni poprawna liczbę całkowitą</returns>
         /// <see cref="IValidator{T}"/>
-        public static int readInt(IValidator<int> validator)
+        public static int readInt(CommandValidator validator)
         {
             int result = readInt();
 
@@ -52,18 +54,22 @@ namespace UnitConverter.Library
         /// Metoda odczytuje i waliduje wprowadzoną liczbę zmiennoprzecinkową
         /// </summary>
         /// <returns>Zwraca w pełni poprawna liczbę zmiennoprzecinkową</returns>
-        public static double readDouble()
+        public static void readValueTo(ICustomType value)
         {
-            string rawInput = Console.ReadLine();
-
-            while (rawInput.Length == 0 || !Regex.IsMatch(rawInput, @"^[-]?[0-9]+((\.|\,)[0-9]+)?$"))
+            bool exceptionThrown = true;
+            while(exceptionThrown)
             {
-                Console.WriteLine("!!! Wprowadzona wartość jest nieprawidłowa! Wprowadź liczbę zmiennoprzecinkową jeszcze raz:");
-                Console.Write("> ");
-                rawInput = Console.ReadLine();
+                try
+                {
+                    value.fromString(Console.ReadLine());
+                    exceptionThrown = false;
+                }
+                catch(CustomTypeException ex)
+                {
+                    Console.WriteLine("!!! {0}. Wprowadź wartość jeszcze raz: ", ex.Message);
+                    Console.Write("> ");
+                }
             }
-
-            return Convert.ToDouble(rawInput.Replace('.', ','));
         }
     }
 }

@@ -1,7 +1,10 @@
 ﻿using System;
+using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
+using UnitConverter.Library.Converter;
+using UnitConverter.Library.TypeUtil;
 
 namespace UnitConverter.App.Util
 {
@@ -10,13 +13,12 @@ namespace UnitConverter.App.Util
     /// </summary>
     class MainWindowUtils
     {
-        private MainWindow mainWindow;
-        private DoubleUtils doubleUtils;
+        public MainWindow mainWindow { get; private set; }
+        public ICustomType value { get; private set; }
 
-        public MainWindowUtils(MainWindow mainWindow, DoubleUtils doubleUtils)
+        public MainWindowUtils(MainWindow mainWindow)
         {
             this.mainWindow = mainWindow;
-            this.doubleUtils = doubleUtils;
         }
 
 
@@ -32,8 +34,7 @@ namespace UnitConverter.App.Util
             mainWindow.fromUnitListBox.IsEnabled = false;
             mainWindow.toUnitListBox.IsEnabled = false;
 
-            mainWindow.fromUnit = null;
-            mainWindow.toUnit = null;
+            mainWindow.operationRepository.resetOperation();
 
             mainWindow.swapButton.IsEnabled = false;
 
@@ -56,16 +57,53 @@ namespace UnitConverter.App.Util
             if(mainWindow.providedValueTextBox.Text != "")
             {
                 ComboBoxItem selectedItem = (ComboBoxItem)mainWindow.commaDigitCountComboBox.SelectedItem;
+                string input = mainWindow.providedValueTextBox.Text;
 
-                double res = doubleUtils.roundTo(mainWindow.operation.convert(
-                    Convert.ToDouble(mainWindow.providedValueTextBox.Text.Replace(".", ",")),
-                    mainWindow.fromUnit,
-                    mainWindow.toUnit
-                ), (int)selectedItem.Content);
+                //double res = doubleUtils.roundTo(mainWindow.operation.convert(
+                //    Convert.ToDouble(mainWindow.providedValueTextBox.Text.Replace(".", ",")),
+                //    mainWindow.fromUnit,
+                //    mainWindow.toUnit
+                //), (int)selectedItem.Content);
 
-                mainWindow.convertedValueLabel.Content = ((bool) this.mainWindow.formatNumberCheckBox.IsChecked)
-                    ? this.doubleUtils.toFormattedNumber(res)
-                    : Convert.ToString(res);
+                if (mainWindow.operationRepository.getSelectedOperation().getFromUnit().type == typeof(Custom12HTime))
+                {
+                    if(mainWindow.providedValueTextBoxUtils.valid && !Regex.IsMatch(mainWindow.providedValueTextBox.Text, @"\s([Aa]|[Pp])[Mm]$"))
+                    {
+                        ComboBoxItem comboBoxItem = (ComboBoxItem) this.mainWindow.timeFormatComboBox.SelectedItem;
+                        Custom12HTimeType timeType =  (Custom12HTimeType) comboBoxItem.Content;
+                        input += " " + timeType.ToString();
+                    }
+                }
+
+                DefaultConverter converter = new DefaultConverter(
+                    CustomTypeUtils.createInstanceFrom(
+                        mainWindow.operationRepository.getSelectedOperation().getFromUnit().type,
+                        input
+                    ),
+                    mainWindow.operationRepository.getSelectedOperation().getFromUnit(),
+                    mainWindow.operationRepository.getSelectedOperation().getToUnit()
+                );
+
+                //mainWindow.convertedValueLabel.Content = ((bool) this.mainWindow.formatNumberCheckBox.IsChecked)
+                //    ? this.doubleUtils.toFormattedNumber(res)
+                //    : converter.convert().ToString();
+
+                this.value = converter.convert();
+
+                if(mainWindow.operationRepository.getSelectedOperation().getToUnit().type == typeof(CustomDouble))
+                {
+                    mainWindow.convertedValueLabel.Content = ((CustomDouble)CustomTypeUtils.createInstanceFrom(
+                        mainWindow.operationRepository.getSelectedOperation().getToUnit().type,
+                        this.value
+                    )).roundTo((int)selectedItem.Content);
+                }
+                else
+                {
+                    mainWindow.convertedValueLabel.Content = CustomTypeUtils.createInstanceFrom(
+                        mainWindow.operationRepository.getSelectedOperation().getToUnit().type,
+                        this.value
+                    ).ToString();
+                }
             }
         }
     }

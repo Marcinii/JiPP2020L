@@ -6,7 +6,7 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{F43ED449-0BCD-4C2C-833C-0FF98CC0DD39}</ProjectGuid>
     <OutputType>Library</OutputType>
-    <RootNamespace>UnitConverter</RootNamespace>
+    <RootNamespace>UnitConverter.Library</RootNamespace>
     <AssemblyName>UnitConverter</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
@@ -48,16 +48,37 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Core\AppConsole.cs" />
-    <Compile Include="Core\CommandValidator.cs" />
-    <Compile Include="Core\ConverterWizard.cs" />
-    <Compile Include="Core\DefaultConverter.cs" />
-    <Compile Include="Core\IConverter.cs" />
-    <Compile Include="Core\IValidator.cs" />
+    <Compile Include="OperationUtil\OpException\OperationException.cs" />
+    <Compile Include="OperationUtil\Repository\UnitOperationRepository.cs" />
+    <Compile Include="OperationUtil\Repository\UnitOperationRepositoryInitializer.cs" />
+    <Compile Include="OperationUtil\Runner\CommandLineOperationRunner.cs" />
+    <Compile Include="OperationUtil\Runner\OperationRunner.cs" />
+    <Compile Include="OperationUtil\UnitOperation.cs" />
     <Compile Include="OperationUtil\Operation.cs" />
-    <Compile Include="OperationUtil\OperationRepositoryInitializer.cs" />
-    <Compile Include="OperationUtil\OperationRepository.cs" />
-    <Compile Include="Core\WizardResult.cs" />
+    <Compile Include="TypeUtil\Custom12HTime.cs" />
+    <Compile Include="TypeUtil\Custom12HTimeType.cs" />
+    <Compile Include="TypeUtil\CustomTypeUtils.cs" />
+    <Compile Include="TypeUtil\TypeException\CreateInstanceCustomTypeException.cs" />
+    <Compile Include="TypeUtil\TypeException\CustomDoubleIncorrectValueException.cs" />
+    <Compile Include="TypeUtil\CustomTime.cs" />
+    <Compile Include="TypeUtil\TypeException\CustomTimeIncorrectValueException.cs" />
+    <Compile Include="TypeUtil\TypeException\CustomTypeException.cs" />
+    <Compile Include="TypeUtil\CustomTypeValueParser.cs" />
+    <Compile Include="TypeUtil\IConsoleReadable.cs" />
+    <Compile Include="TypeUtil\TypeException\CustomTypeIncorrectValueException.cs" />
+    <Compile Include="Validator\CommandValidator.cs" />
+    <Compile Include="Core\ConverterWizard.cs" />
+    <Compile Include="Converter\DefaultConverter.cs" />
+    <Compile Include="Converter\IConverter.cs" />
+    <Compile Include="Validator\CustomTypeValidator.cs" />
+    <Compile Include="Validator\IValidator.cs" />
+    <Compile Include="Validator\IValidatorMessagable.cs" />
+    <Compile Include="OperationUtil\Repository\OperationRepositoryInitializer.cs" />
+    <Compile Include="OperationUtil\Repository\OperationRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TypeUtil\CustomDouble.cs" />
+    <Compile Include="TypeUtil\ICustomType.cs" />
+    <Compile Include="TypeUtil\CustomObject.cs" />
     <Compile Include="UnitUtil\BaseUnit.cs" />
     <Compile Include="UnitUtil\Unit.cs" />
     <Compile Include="UnitUtil\UnitFormula.cs" />
@@ -65,5 +86,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

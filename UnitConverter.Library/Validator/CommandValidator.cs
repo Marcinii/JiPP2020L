@@ -1,11 +1,11 @@
-﻿namespace UnitConverter.Library.Core
+﻿namespace UnitConverter.Library.Validator
 {
  
     /// <summary>
     /// Klasa implementująca interfejs {IConverter}, służąca do walidacji wprowadzonej numeru komendy
     /// <see cref="IValidator{T}"/>
     /// </summary>
-    public class CommandValidator : IValidator<int>
+    public class CommandValidator : IValidator<int>, IValidatorMessagable
     {
 
         public int unitCount { get; private set; }

@@ -24,5 +24,18 @@ namespace UnitConverterApp.Util
                 return comboBoxItem;
             }).ToList();
         }
+
+
+        public void selectComboBoxItemByValue(ComboBox comboBox, T value)
+        {
+            for(int i = 0; i < comboBox.Items.Count; i++)
+            {
+                if(((T) comboBox.Items[i]).Equals(value))
+                {
+                    comboBox.SelectedIndex = i;
+                    return;
+                }
+            }
+        }
     }
 }

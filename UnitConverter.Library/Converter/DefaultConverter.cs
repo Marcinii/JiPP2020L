@@ -1,7 +1,8 @@
 ﻿using System;
+using UnitConverter.Library.TypeUtil;
 using UnitConverter.Library.UnitUtil;
 
-namespace UnitConverter.Library.Core
+namespace UnitConverter.Library.Converter
 {
 
 
@@ -12,13 +13,13 @@ namespace UnitConverter.Library.Core
     /// <param name="toUnit">Pole przechowujące informacje odnośnie jednostki, na którą mamy konwertować</param>
     /// <see cref="IConverter"/>
     /// </summary>
-    public class DefaultConverter : IConverter
+    public class DefaultConverter : IConverter<ICustomType>
     {
-        protected double value;
+        protected ICustomType value;
         protected Unit fromUnit;
         protected Unit toUnit;
 
-        public DefaultConverter(double value, Unit fromUnit, Unit toUnit)
+        public DefaultConverter(ICustomType value, Unit fromUnit, Unit toUnit)
         {
             this.value = value;
             this.fromUnit = fromUnit;
@@ -32,10 +33,7 @@ namespace UnitConverter.Library.Core
         /// ponownie konwertuje - tym razem na wartość w jednostce docelowej
         /// </summary>
         /// <returns>Zwraca wartość liczby skonwertowanej na inną jednostkę</returns>
-        public double convert()
-        {
-            return this.toUnit.fromBaseUnitFormula(this.fromUnit.toBaseUnitFormula(this.value));
-        }
+        public ICustomType convert() => this.toUnit.fromBaseUnitFormula(this.fromUnit.toBaseUnitFormula(this.value));
 
 
         /// <summary>

@@ -1,4 +1,7 @@
-﻿namespace UnitConverter.Library.UnitUtil
+﻿using System;
+using UnitConverter.Library.TypeUtil;
+
+namespace UnitConverter.Library.UnitUtil
 {
 
     /// <summary>
@@ -20,14 +23,15 @@
     /// <see cref="UnitFormula"/>
     public class Unit
     {
-        public string name { get; set; }
-        public UnitFormula fromBaseUnitFormula { get; set; }
-        public UnitFormula toBaseUnitFormula { get; set; }
+        public string name { get; private set; }
+        public Type type { get; private set; }
+        public UnitFormula fromBaseUnitFormula { get; private set; }
+        public UnitFormula toBaseUnitFormula { get; private set; }
 
-
-        public Unit(string name, UnitFormula fromBaseUnitFormula, UnitFormula toBaseUnitFormula)
+        public Unit(string name, Type type, UnitFormula fromBaseUnitFormula, UnitFormula toBaseUnitFormula)
         {
             this.name = name;
+            this.type = type;
             this.fromBaseUnitFormula = fromBaseUnitFormula;
             this.toBaseUnitFormula = toBaseUnitFormula;
         }

@@ -1,6 +1,8 @@
 ﻿using System;
 using UnitConverter.Library;
 using UnitConverter.Library.OperationUtil;
+using UnitConverter.Library.OperationUtil.Repository;
+using UnitConverter.Library.OperationUtil.Runner;
 
 namespace UnitConverter.Terminal
 {
@@ -13,8 +15,9 @@ namespace UnitConverter.Terminal
 
         static void Main(string[] args)
         {
-            OperationRepository repository = new OperationRepository();
-            OperationRepositoryInitializer.initializeRepository(repository);
+            UnitOperationRepository repository = new UnitOperationRepository();
+            UnitOperationRepositoryInitializer initializer = new UnitOperationRepositoryInitializer(repository);
+            initializer.initializeRepository();
 
 
             while (true)
@@ -24,7 +27,7 @@ namespace UnitConverter.Terminal
                 Console.WriteLine("# Co chcesz skonwertować (wybierz jedną z opcji)?");
                 Console.WriteLine("#----------------------------------------------------#");
 
-                repository.print();
+                repository.operations.ForEach(operation => Console.WriteLine("# {0}. {1}", operation.id, operation.name));
 
                 Console.WriteLine("#----------------------------------------------------#");
                 Console.WriteLine("# 0. Wyjście z programu");
@@ -44,7 +47,9 @@ namespace UnitConverter.Terminal
 
                 Console.Clear();
 
-                repository.operations[command - 1].run();
+                CommandLineOperationRunner runner = new CommandLineOperationRunner(repository);
+                runner.selectOperation(command - 1);
+                runner.run();
 
                 Console.WriteLine();
                 Console.WriteLine("Naciśnij dowolny klawisz, by przejść dalej...");

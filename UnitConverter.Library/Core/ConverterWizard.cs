@@ -1,6 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using UnitConverter.Library.UnitUtil;
+using UnitConverter.Library.OperationUtil;
+using UnitConverter.Library.TypeUtil;
+using UnitConverter.Library.Validator;
 
 namespace UnitConverter.Library.Core
 {
@@ -13,74 +14,62 @@ namespace UnitConverter.Library.Core
     /// </summary>
     public class ConverterWizard
     {
-        private List<Unit> units;
+        public UnitOperation operation { get; private set; }
 
-        public ConverterWizard(List<Unit> units)
+        public ConverterWizard(UnitOperation operation)
         {
-            this.units = units;
+            this.operation = operation;
         }
-
-        public ConverterWizard() : this(new List<Unit>()) {}
 
 
         /// <summary>
         /// Metoda uruchamiająca formularz do wprowadzenia niezbędnych danych do konwersji.
         /// </summary>
         /// <returns>Zwraca obiekt klasy WzardResult, która przechowuje dane wpisane w formularzu</returns>
-        public WizardResult run()
+        public ICustomType run()
         {
-            CommandValidator validator = new CommandValidator(this.units.Count);   
-            WizardResult res = new WizardResult();
+            CommandValidator validator = new CommandValidator(this.operation.units.Count);
+
             Console.WriteLine("######################################################");
             Console.WriteLine("# Z czego chcesz skonwertować (wybierz jedną z opcji)?");
             Console.WriteLine("#----------------------------------------------------#");
 
-            for(int i = 0; i < this.units.Count; i++)
+            for(int i = 0; i < this.operation.units.Count; i++)
             {
-                Console.WriteLine("# {0}. {1}", i + 1, this.units[i].name);
+                Console.WriteLine("# {0}. {1}", i + 1, this.operation.units[i].name);
             }
             Console.WriteLine("#----------------------------------------------------#");
 
 
             Console.Write("> ");
-            int fromValue = AppConsole.readInt(validator);
+            this.operation.selectFromUnit(AppConsole.readInt(validator) - 1);
 
 
             Console.WriteLine("######################################################");
             Console.WriteLine("# Na co chcesz skonwertować (wybierz jedną z opcji)?");
             Console.WriteLine("#----------------------------------------------------#");
 
-            for (int i = 0; i < this.units.Count; i++)
+            for (int i = 0; i < this.operation.units.Count; i++)
             {
-                Console.WriteLine("# {0}. Na {1}", i + 1, this.units[i].name);
+                Console.WriteLine("# {0}. Na {1}", i + 1, this.operation.units[i].name);
             }
             Console.WriteLine("#----------------------------------------------------#");
 
             Console.Write("> ");
-            int toValue = AppConsole.readInt(validator);
+            this.operation.selectToUnit(AppConsole.readInt(validator) - 1);
 
             Console.WriteLine("#----------------------------------------------------#");
-            Console.Write("# Podaj wartość ({0}): ", this.units[fromValue - 1].name);
+            Console.Write("# Podaj wartość ({0}): ", this.operation.getFromUnit().name);
 
-            res.value = AppConsole.readDouble();
-            res.fromUnit = this.units[fromValue - 1];
-            res.toUnit = this.units[toValue - 1];
 
+            ICustomType res = CustomTypeUtils.createInstanceFrom(
+                this.operation.getFromUnit().type,
+                (ICustomType) Activator.CreateInstance(this.operation.getFromUnit().type)
+            );
+
+            AppConsole.readValueTo(res);
+            
             return res;
-        }
-
-        /// <summary>
-        /// Metoda służąca do umieszczenia nowej jednostki miary w kolekcji {units}
-        /// </summary>
-        /// <param name="step">
-        ///     Nazwa jednostki. Jako argument przkmujemy liste jednostek (wpisywanych po przecinku)
-        /// </param>
-        public void addUnitName(params Unit[] step)
-        {
-            for(int i = 0; i < step.Length; i++)
-            {
-                this.units.Add(step[i]);
-            }
         }
     }
 }
