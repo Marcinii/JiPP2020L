@@ -17,32 +17,31 @@ namespace Konwerter_jedn
             "bar" //0,001
         };
 
-        public string naPodst(string Zjakiej, string strDane) //cos na paskale
+        public double naPodst(string Zjakiej, double dane) //cos na paskale
         {
-            double dane = double.Parse(strDane);
             if (Zjakiej == "hpa")
             {
-                return (dane * 100).ToString();
+                return dane * 100;
             }
             else if (Zjakiej == "bar")
             {
-                return (dane * 1000000).ToString();
+                return dane * 1000000;
             }
-            else return dane.ToString();
+            else return dane;
         }
 
-        public string naWybr(string Zjakiej, string DOjakiej, string strDane) //z paskali na cos
+        public double naWybr(string Zjakiej, string DOjakiej, double dane) //z paskali na cos
         {
-            double wPa = double.Parse(naPodst(Zjakiej, strDane));
+            double wPa = naPodst(Zjakiej, dane);
             if (DOjakiej == "hpa")
             {
-                return (wPa / 100).ToString();
+                return wPa / 100;
             }
             else if (DOjakiej == "bar")
             {
-                return (wPa / 1000000).ToString();
+                return wPa / 1000000;
             }
-            else return wPa.ToString();
+            else return wPa;
         }
     }
 }

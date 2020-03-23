@@ -17,32 +17,31 @@ namespace Konwerter_jedn
             "g" //1000
         };
 
-        public string naPodst(string Zjakiej, string strDane) //cos na gramy
+        public double naPodst(string Zjakiej, double dane) //na gramy
         {
-            double dane = double.Parse(strDane);
             if (Zjakiej == "kg")
             {
-                return (dane * 1000).ToString();
+                return dane * 1000;
             }
             else if (Zjakiej == "lb")
             {
-                return (dane * 453.5924).ToString();
+                return dane * 453.5924;
             }
-            else return dane.ToString();
+            else return dane;
         }
 
-        public string naWybr(string Zjakiej, string DOjakiej, string strDane) //z gramow na cos
+        public double naWybr(string Zjakiej, string DOjakiej, double dane)//z gramow na cos
         {
-            double wgramach = double.Parse(naPodst(Zjakiej, strDane));
+            double wgramach = naPodst(Zjakiej, dane);
             if (DOjakiej == "kg")
             {
-                return (wgramach / 1000).ToString();
+                return wgramach / 1000;
             }
-            else if (DOjakiej == "kg")
+            else if (DOjakiej == "bar")
             {
-                return (wgramach / 453.5924).ToString();
+                return wgramach / 453.5924;
             }
-            else return wgramach.ToString();
+            else return wgramach;
         }
     }
 }

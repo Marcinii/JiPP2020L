@@ -1,0 +1,6 @@
+C:\Users\anans\Desktop\JiPP2020L-Z412-Katarzyna-Modzelewska (1)\JiPP2020L-Z412-Katarzyna-Modzelewska\Konwerter_jedn\Konwerter.jedn.Logic\bin\Debug\Konwerter.jedn.Logic.dll
+C:\Users\anans\Desktop\JiPP2020L-Z412-Katarzyna-Modzelewska (1)\JiPP2020L-Z412-Katarzyna-Modzelewska\Konwerter_jedn\Konwerter.jedn.Logic\bin\Debug\Konwerter.jedn.Logic.pdb
+C:\Users\anans\Desktop\JiPP2020L-Z412-Katarzyna-Modzelewska (1)\JiPP2020L-Z412-Katarzyna-Modzelewska\Konwerter_jedn\Konwerter.jedn.Logic\obj\Debug\Konwerter.jedn.Logic.csprojAssemblyReference.cache
+C:\Users\anans\Desktop\JiPP2020L-Z412-Katarzyna-Modzelewska (1)\JiPP2020L-Z412-Katarzyna-Modzelewska\Konwerter_jedn\Konwerter.jedn.Logic\obj\Debug\Konwerter.jedn.Logic.csproj.CoreCompileInputs.cache
+C:\Users\anans\Desktop\JiPP2020L-Z412-Katarzyna-Modzelewska (1)\JiPP2020L-Z412-Katarzyna-Modzelewska\Konwerter_jedn\Konwerter.jedn.Logic\obj\Debug\Konwerter.jedn.Logic.dll
+C:\Users\anans\Desktop\JiPP2020L-Z412-Katarzyna-Modzelewska (1)\JiPP2020L-Z412-Katarzyna-Modzelewska\Konwerter_jedn\Konwerter.jedn.Logic\obj\Debug\Konwerter.jedn.Logic.pdb
