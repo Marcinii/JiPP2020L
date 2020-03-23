@@ -16,31 +16,33 @@ namespace Konwerter_jedn
             "mi", // /1,609344
             "m" //1000
         };
-        public double naPodst(string Zjakiej, double dane) //cos na metry
+       
+        public string naPodst(string Zjakiej, string strDane) //cos na metry
         {
+            double dane = double.Parse(strDane);
             if (Zjakiej == "km")
             {
-                return dane * 1000;
+                return (dane * 1000).ToString();
             }
             else if (Zjakiej == "mi")
             {
-                return dane * 1609.344;
+                return (dane * 1609.344).ToString();
             }
-            else return dane;
+            else return dane.ToString();
         }
 
-        public double naWybr(string Zjakiej, string DOjakiej, double dane) //z metrow na cos
+        public string naWybr(string Zjakiej, string DOjakiej, string strDane) //z metrow na cos
         {
-            double wmetrach = naPodst(Zjakiej, dane);
+            double wmetrach = double.Parse(naPodst(Zjakiej, strDane));
             if (DOjakiej == "km")
             {
-                return wmetrach / 1000;
+                return (wmetrach / 1000).ToString();
             }
             else if (DOjakiej == "mi")
             {
-                return wmetrach / 1609.344;
+                return (wmetrach / 1609.344).ToString();
             }
-            else return wmetrach;
+            else return wmetrach.ToString();
         }
     }
 }

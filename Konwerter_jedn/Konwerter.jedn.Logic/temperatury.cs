@@ -16,31 +16,33 @@ namespace Konwerter_jedn
             "f", // 100*1.8 -32
             "k" // 100+273,15
         };
-        public double naPodst(string Zjakiej, double dane) //cos na celsjusze
+      
+        public string naPodst(string Zjakiej, string strDane) //cos na celsjusze
         {
+            double dane = double.Parse(strDane);
             if (Zjakiej == "f")
             {
-                return (dane-32)/1.8;
+                return ((dane - 32) / 1.8).ToString();
             }
             else if (Zjakiej == "k")
             {
-                return dane -273.15;
+                return (dane - 273.15).ToString();
             }
-            else return dane;
+            else return dane.ToString();
         }
 
-        public double naWybr(string Zjakiej, string DOjakiej, double dane)//z celsuszy na cos
+        public string naWybr(string Zjakiej, string DOjakiej, string strDane) //z celsjuszy na cos
         {
-            double wC = naPodst(Zjakiej, dane);
+            double wC = double.Parse(naPodst(Zjakiej, strDane));
             if (DOjakiej == "f")
             {
-                return (wC *1.8)+32;
+                return ((wC * 1.8) + 32).ToString();
             }
             else if (DOjakiej == "k")
             {
-                return wC +273.15;
+                return (wC + 273.15).ToString();
             }
-            else return wC;
+            else return wC.ToString();
         }
 
     }
