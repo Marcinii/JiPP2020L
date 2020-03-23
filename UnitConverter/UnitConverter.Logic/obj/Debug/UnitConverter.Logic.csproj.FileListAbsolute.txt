@@ -1,0 +1,5 @@
+C:\Users\Lenovo\source\repos\kawa\UnitConverter\UnitConverter.Logic\bin\Debug\UnitConverter.Logic.dll
+C:\Users\Lenovo\source\repos\kawa\UnitConverter\UnitConverter.Logic\bin\Debug\UnitConverter.Logic.pdb
+C:\Users\Lenovo\source\repos\kawa\UnitConverter\UnitConverter.Logic\obj\Debug\UnitConverter.Logic.csprojAssemblyReference.cache
+C:\Users\Lenovo\source\repos\kawa\UnitConverter\UnitConverter.Logic\obj\Debug\UnitConverter.Logic.dll
+C:\Users\Lenovo\source\repos\kawa\UnitConverter\UnitConverter.Logic\obj\Debug\UnitConverter.Logic.pdb

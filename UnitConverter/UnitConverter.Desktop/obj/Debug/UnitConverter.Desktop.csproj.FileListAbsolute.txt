@@ -1,0 +1,17 @@
+C:\Users\Lenovo\source\repos\kawa\UnitConverter\UnitConverter.Desktop\bin\Debug\UnitConverter.Desktop.exe.config
+C:\Users\Lenovo\source\repos\kawa\UnitConverter\UnitConverter.Desktop\bin\Debug\UnitConverter.Desktop.exe
+C:\Users\Lenovo\source\repos\kawa\UnitConverter\UnitConverter.Desktop\bin\Debug\UnitConverter.Desktop.pdb
+C:\Users\Lenovo\source\repos\kawa\UnitConverter\UnitConverter.Desktop\bin\Debug\UnitConverter.Logic.dll
+C:\Users\Lenovo\source\repos\kawa\UnitConverter\UnitConverter.Desktop\bin\Debug\UnitConverter.Logic.pdb
+C:\Users\Lenovo\source\repos\kawa\UnitConverter\UnitConverter.Desktop\obj\Debug\UnitConverter.Desktop.csprojAssemblyReference.cache
+C:\Users\Lenovo\source\repos\kawa\UnitConverter\UnitConverter.Desktop\obj\Debug\MainWindow.g.cs
+C:\Users\Lenovo\source\repos\kawa\UnitConverter\UnitConverter.Desktop\obj\Debug\App.g.cs
+C:\Users\Lenovo\source\repos\kawa\UnitConverter\UnitConverter.Desktop\obj\Debug\UnitConverter.Desktop_MarkupCompile.cache
+C:\Users\Lenovo\source\repos\kawa\UnitConverter\UnitConverter.Desktop\obj\Debug\UnitConverter.Desktop_MarkupCompile.lref
+C:\Users\Lenovo\source\repos\kawa\UnitConverter\UnitConverter.Desktop\obj\Debug\MainWindow.baml
+C:\Users\Lenovo\source\repos\kawa\UnitConverter\UnitConverter.Desktop\obj\Debug\UnitConverter.Desktop.g.resources
+C:\Users\Lenovo\source\repos\kawa\UnitConverter\UnitConverter.Desktop\obj\Debug\UnitConverter.Desktop.Properties.Resources.resources
+C:\Users\Lenovo\source\repos\kawa\UnitConverter\UnitConverter.Desktop\obj\Debug\UnitConverter.Desktop.csproj.GenerateResource.cache
+C:\Users\Lenovo\source\repos\kawa\UnitConverter\UnitConverter.Desktop\obj\Debug\UnitConverter.Desktop.csproj.CopyComplete
+C:\Users\Lenovo\source\repos\kawa\UnitConverter\UnitConverter.Desktop\obj\Debug\UnitConverter.Desktop.exe
+C:\Users\Lenovo\source\repos\kawa\UnitConverter\UnitConverter.Desktop\obj\Debug\UnitConverter.Desktop.pdb
