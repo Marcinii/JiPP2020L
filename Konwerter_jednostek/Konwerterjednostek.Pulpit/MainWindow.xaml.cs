@@ -10,9 +10,11 @@ using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
+using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+
 
 namespace Konwerterjednostek.Pulpit
 {
@@ -24,77 +26,51 @@ namespace Konwerterjednostek.Pulpit
         public MainWindow()
         {
             InitializeComponent();
+
+            Konwerter_ComboBox.ItemsSource = new List<Ikonwenter>()
+            {
+                new KonwerterCali(),
+                new KonwerterCelcjusza(),
+                new KonwerterCzasu(),
+                new KonwerterFahrenheita(),
+                new KonwerterFuntow(),
+                new KonwerterKilkometrow(),
+                new KonwerterKilogramow(),
+                new KonwerterMil()
+            };
+            wskazowka.Angle = 100;
+        }
+
+        private void Konwerter_ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            unitFrom_comboBox.ItemsSource = ((Ikonwenter)Konwerter_ComboBox.SelectedItem).Units;
+            unitTo_comboBox.ItemsSource = ((Ikonwenter)Konwerter_ComboBox.SelectedItem).Units;
+        }
+
+        private void wykonaj_Button_Click(object sender, RoutedEventArgs e)
+        {
+            string inputText = input_TexBox.Text;
+
+            string inputValue = inputText ;
+
+            string result =((Ikonwenter)Konwerter_ComboBox.SelectedItem).Convert(
+                 unitFrom_comboBox.SelectedItem.ToString(),
+                 unitTo_comboBox.SelectedItem.ToString(),
+                inputValue.ToString());
+            output_TextBlock.Text = result.ToString();
+
+
+
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            string inputValue = inputTextBox.Text;
-
-            var result = new KonwerterCelcjusza().Convert("Celcjusza", "Fahrenheita", inputValue);
-
-            outputTextBlock.Text = result.ToString();
+            ((Storyboard)Resources ["koloStoryboard"]).Begin();
         }
 
-        private void Button_Click1(object sender, RoutedEventArgs e)
+        private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            string inputValue = inputTextBox1.Text;
-
-            var result = new KonwerterFahrenheita().Convert("Fahrenheita", "Celcjusza", inputValue);
-
-            outputTextBlock1.Text = result.ToString();
-        }
-
-        private void Button_Click2(object sender, RoutedEventArgs e)
-        {
-            string inputValue = inputTextBox2.Text;
-
-            var result = new KonwerterKilkometrow().Convert("Kilomertrów", "Mile", inputValue);
-
-            outputTextBlock2.Text = result.ToString();
-        }
-
-        private void Button_Click3(object sender, RoutedEventArgs e)
-        {
-            string inputValue = inputTextBox3.Text;
-
-            var result = new KonwerterMil().Convert("Mil", "Kilometrów", inputValue);
-
-            outputTextBlock3.Text = result.ToString();
-        }
-
-        private void Button_Click4(object sender, RoutedEventArgs e)
-        {
-            string inputValue = inputTextBox4.Text;
-
-            var result = new KonwerterKilogramow().Convert("Kilogramów", "Funty", inputValue);
-
-            outputTextBlock4.Text = result.ToString();
-        }
-
-        private void Button_Click5(object sender, RoutedEventArgs e)
-        {
-            string inputValue = inputTextBox5.Text;
-
-            var result = new KonwerterFuntow().Convert("Funtów", "Kilogramy", inputValue);
-
-            outputTextBlock5.Text = result.ToString();
-
-        }
-
-        private void Button_Click6(object sender, RoutedEventArgs e)
-        {
-            string inputValue = inputTextBox6.Text;
-
-            var result = new KonwerterCali().Convert("Cali", "Centymetrów", inputValue);
-
-            outputTextBlock6.Text = result.ToString();
-        }
-        private void Button_Click7(object sender, RoutedEventArgs e)
-        {
-            string inputValue = inputTextBox7.Text;
-            var result = new KonwerterCzasu().Convert("24H", "12H", inputValue);
-
-            outputTextBlock7.Text = result.ToString();
+            ((Storyboard)Resources["koloStoryboard"]).Stop();
         }
     }
 }
