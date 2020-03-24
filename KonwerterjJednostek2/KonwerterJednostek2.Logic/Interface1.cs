@@ -8,7 +8,7 @@ namespace KonwerterjJednostek2
 {
     public interface IKonwerter
     {
-        string Name { get; }
+        string Name { get; } // to jest moj wspanialy interfejs
         List<string> Units { get; }
         double Konwerter(string jednostka_bazowa, string jednostka_docelowa, double wartosc);
     }
