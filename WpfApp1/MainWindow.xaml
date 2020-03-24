@@ -1,0 +1,39 @@
+﻿<Window x:Class="WpfApp1.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp1"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="300" Width="650">
+    <StackPanel Background="#FF120617">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*"/>
+
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+
+            <TextBlock x:Name="textblock_wybierz_konwerter" Margin="10,10,9.8,0" VerticalAlignment="Top" Text="1. wybierz konwerter" Height="16" Background="#FF120617" Foreground="#FF189339"/>
+            <ComboBox x:Name="combobox_konwertery" Margin="10,35,9.8,0" VerticalAlignment="Top" Height="22" SelectionChanged="Combobox_konwertery_SelectionChanged" BorderBrush="#FF158237" Background="#FF120617" Foreground="#FF120617"/>
+            <TextBlock x:Name="konwersja_z_textblock" Grid.Column="1" Margin="10.2,10,9.6,0" Text="2. konwersja z:" VerticalAlignment="Top" Height="16" Foreground="#FF189339" />
+            <ComboBox x:Name="combobox_jednostki_z" Grid.Column="1" Margin="10.2,35,9.6,0" VerticalAlignment="Top" Height="22" />
+            <TextBlock x:Name="textblock_wpisz_wartosc" Grid.Column="1" Margin="10.2,70,9.6,0" Text="3. wpisz wartosc" VerticalAlignment="Top" Height="16" Foreground="#FF189339" />
+            <TextBox x:Name="textbox_wpisz_wartosc" Grid.Column="1" Height="23" Margin="10.2,100,9.6,0" VerticalAlignment="Top" />
+            <TextBlock x:Name="textblock_konwersja_na" Grid.Column="2" Margin="10.4,10,10.4,0" Text="4. konwersja na:" VerticalAlignment="Top" Height="16" Foreground="#FF189339" />
+            <ComboBox x:Name="combobox_jednostki_do" Grid.Column="2" Margin="10.4,35,10.4,0" VerticalAlignment="Top" Height="22" />
+            <Button x:Name="button_konwertuj" Grid.Column="3" Content="Konwertuj" Margin="10,35,10,10" VerticalAlignment="Top" Height="19" Click="Button_konwertuj_Click" BorderBrush="#FF158237" Background="#FF270F31" Foreground="#FF179335" />
+            <TextBox x:Name="textbox_wynik" Grid.Column="3" Height="23" Margin="9.6,70,10.2,0" Text="wynik" VerticalAlignment="Top" Background="#FF270F31" BorderBrush="#FF0C0110" Foreground="#FF18862B" />
+
+
+        </Grid>
+        <TextBlock TextWrapping="Wrap" Text="miejsce na zegar ponizej"/>
+
+    </StackPanel>
+
+</Window>
