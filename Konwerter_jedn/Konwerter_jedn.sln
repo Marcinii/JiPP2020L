@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.1022
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Konwerter_jedn", "Konwerter_jedn\Konwerter_jedn.csproj", "{A975CA35-AE90-4374-80BB-C0B19903B21A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Konwerter.jedn.Logic", "..\..\..\..\Desktop\JiPP2020L\JiPP2020L\Konwerter.jedn.Logic\Konwerter.jedn.Logic.csproj", "{D71B1022-8266-48C5-B0EA-669C85E85310}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Konwerter.jedn.Logic", "Konwerter.jedn.Logic\Konwerter.jedn.Logic.csproj", "{D71B1022-8266-48C5-B0EA-669C85E85310}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Konwerter_jedn", "..\..\..\..\Desktop\JiPP2020L\JiPP2020L\Konwerter_jedn\Konwerter_jedn.csproj", "{A975CA35-AE90-4374-80BB-C0B19903B21A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Konwerter_jedn.Desktop", "WpfApp1\Konwerter_jedn.Desktop.csproj", "{D2FCB5E0-23C0-4BE0-A040-8E3D2BC55891}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Konwerter_jedn.Desktop", "..\..\..\..\Desktop\JiPP2020L\JiPP2020L\WpfApp1\Konwerter_jedn.Desktop.csproj", "{D2FCB5E0-23C0-4BE0-A040-8E3D2BC55891}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,14 +15,14 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{A975CA35-AE90-4374-80BB-C0B19903B21A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A975CA35-AE90-4374-80BB-C0B19903B21A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A975CA35-AE90-4374-80BB-C0B19903B21A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A975CA35-AE90-4374-80BB-C0B19903B21A}.Release|Any CPU.Build.0 = Release|Any CPU
 		{D71B1022-8266-48C5-B0EA-669C85E85310}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{D71B1022-8266-48C5-B0EA-669C85E85310}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D71B1022-8266-48C5-B0EA-669C85E85310}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D71B1022-8266-48C5-B0EA-669C85E85310}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A975CA35-AE90-4374-80BB-C0B19903B21A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A975CA35-AE90-4374-80BB-C0B19903B21A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A975CA35-AE90-4374-80BB-C0B19903B21A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A975CA35-AE90-4374-80BB-C0B19903B21A}.Release|Any CPU.Build.0 = Release|Any CPU
 		{D2FCB5E0-23C0-4BE0-A040-8E3D2BC55891}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{D2FCB5E0-23C0-4BE0-A040-8E3D2BC55891}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D2FCB5E0-23C0-4BE0-A040-8E3D2BC55891}.Release|Any CPU.ActiveCfg = Release|Any CPU

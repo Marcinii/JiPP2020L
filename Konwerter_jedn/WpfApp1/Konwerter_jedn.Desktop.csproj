@@ -94,11 +94,5 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Konwerter.jedn.Logic\Konwerter.jedn.Logic.csproj">
-      <Project>{d71b1022-8266-48c5-b0ea-669c85e85310}</Project>
-      <Name>Konwerter.jedn.Logic</Name>
-    </ProjectReference>
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
