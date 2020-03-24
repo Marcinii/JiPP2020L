@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="konwenter_czasu.cs" />
     <Compile Include="IKonwenter.cs" />
     <Compile Include="konwenter_cisnienia.cs" />
     <Compile Include="konwenter_dlugosci.cs" />

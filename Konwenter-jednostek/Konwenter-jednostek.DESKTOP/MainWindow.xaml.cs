@@ -12,6 +12,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Diagnostics;
+using System.Windows.Media.Animation;
+using System.Threading;
 
 namespace Konwenter_jednostek.DESKTOP
 {
@@ -28,7 +31,8 @@ namespace Konwenter_jednostek.DESKTOP
             new konwenter_temperatury(),
             new konwenter_dlugosci(),
             new konwenter_masy(),
-            new konwenter_cisnienia()
+            new konwenter_cisnienia(),
+            new konwenter_czasu()
         };
 
             List<string> temperatura = new List<string>()
@@ -36,7 +40,7 @@ namespace Konwenter_jednostek.DESKTOP
                 "Celsjusze na Fahreinheity",
                 "Fahreinheity na Celsjusze",
             };
-            
+
             temperaturaComboBox.ItemsSource = temperatura;
 
             List<string> masa = new List<string>()
@@ -63,29 +67,35 @@ namespace Konwenter_jednostek.DESKTOP
                 "Psi na Bar"
             };
             cisnienieComboBox.ItemsSource = cisnienie;
+
+            List<string> czas = new List<string>()
+            {
+                "24h na 12h"
+            };
+            czasComboBox.ItemsSource = czas;
         }
 
         private void temperaturaComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
-             {
+        {
 
-                string inputA = temperaturaTextBox.Text;
-                double a = double.Parse(inputA);
-            
+            string inputA = temperaturaTextBox.Text;
+            double a = double.Parse(inputA);
 
-            if (temperaturaComboBox.SelectedItem.ToString() == "Celsjusze na Fahreinheity") 
+
+            if (temperaturaComboBox.SelectedItem.ToString() == "Celsjusze na Fahreinheity")
             {
-                    double result = new konwenter_temperatury().Konwertuj("C", "F", a);
-                    temperaturaTextBlock.Text = result.ToString() + " °F ";
-                    jednostkatemperaturyTextBlock.Text = "°C";
-                }
-                else
-                {
-                    double result = new konwenter_temperatury().Konwertuj("F", "C", a);
-                    temperaturaTextBlock.Text = result.ToString() + " °C ";
-                    jednostkatemperaturyTextBlock.Text = "°F";
-                }
-            
-            
+                double result = new konwenter_temperatury().Konwertuj("C", "F", a);
+                temperaturaTextBlock.Text = result.ToString() + " °F ";
+                jednostkatemperaturyTextBlock.Text = "°C";
+            }
+            else
+            {
+                double result = new konwenter_temperatury().Konwertuj("F", "C", a);
+                temperaturaTextBlock.Text = result.ToString() + " °C ";
+                jednostkatemperaturyTextBlock.Text = "°F";
+            }
+
+
         }
         private void temperaturaTextBox_TextChanged(object sender, TextChangedEventArgs e) { }
 
@@ -173,11 +183,102 @@ namespace Konwenter_jednostek.DESKTOP
                 cisnienieTextBlock.Text = result.ToString() + " bar ";
                 jednostkacisnienia_TextBlock.Text = "psi";
             }
-           
+
+        }
+
+        private void czasComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            string inputA = czasTextBox.Text;
+            double a = double.Parse(inputA);
+            double result = new konwenter_czasu().Konwertuj("24h", "12h", a);
+            
+                if (a < 24)
+                {
+
+                    string strefa;
+                    if (a > 12)
+                    {
+                        strefa = "PM";
+                    }
+                    else
+                    {
+                        strefa = "AM";
+                    }
+
+                    czas_godzinyTextBlock.Text = result.ToString() + ":" + czas_minutyTextBox.Text + " " + strefa;
+                    jednostkaczasuTextBlock.Text = strefa;
+                    ZmienGodzineNaZegarze(result);
+                }
+
+                else
+                {
+                    czas_godzinyTextBlock.Text = "Podaj Poprawna godzine";
+                }
+            
+        }
+
+
+
+
+        
+        private void ZmienGodzineNaZegarze(double godziny)
+        {
+            RotateTransform transformacjaGodzin = new RotateTransform
+            {
+                CenterX = 100,
+                CenterY = 100,
+                Angle = godziny / 12 * 360
+            };
+
+            RotateTransform transformacjaMinut = new RotateTransform
+            {
+                CenterX = 100,
+                CenterY = 100,
+                Angle = (double.Parse(czas_minutyTextBox.Text) / 60) * 360
+            };
+
+            Godzina.RenderTransform = transformacjaGodzin;
+            Minuta.RenderTransform = transformacjaMinut;
+
+        }
+        private void czasTextBox_TextChanged(object sender, TextChangedEventArgs e) { }
+
+
+
+
+        
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            ((Storyboard)Resources["Storyboard1"]).Begin();
+            ((Storyboard)Resources["Storyboard2"]).Begin();
+        }
+        bool on = true;
+        private void button2_Click(object sender, RoutedEventArgs e)
+        {
+
+            if (on)
+            {
+                ((Storyboard)Resources["Storyboard3"]).Begin();
+                showTextBlock.Text = "OFF";
+                showTextBlock.Background = Brushes.Red;
+                on = false;
+            }
+            else
+            {
+                ((Storyboard)Resources["Storyboard3"]).Stop();
+                showTextBlock.Text = "ON";
+                showTextBlock.Background = Brushes.Green;
+                on = true;
+            }
+
         }
     }
-
 }
+        
+
+
+
+
 
            
     
