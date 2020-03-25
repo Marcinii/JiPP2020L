@@ -17,9 +17,10 @@ namespace KonwerterJednostek.Logic
 
         public string Name => "Kilograms To Pounds";
 
+        object IKonwerter.Convert(object valueToConvert) => Convert((double) valueToConvert);
         public double Convert(double valueToConvert)
         {
-            return valueToConvert / 0.45359237;
+            return valueToConvert * 2.2046;
         }
     }
 }

@@ -10,6 +10,6 @@ namespace KonwerterJednostek.Logic
     {
         string Name { get; }
         List<string> Units { get; }
-        double Convert(double valueToConvert);
+        object Convert(object valueToConvert);
     }
 }

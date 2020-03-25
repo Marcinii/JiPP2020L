@@ -16,6 +16,7 @@ namespace KonwerterJednostek.Logic
 
         public string Name => "Miles To Kilometres";
 
+        object IKonwerter.Convert(object valueToConvert) => Convert((double) valueToConvert);
         public double Convert(double valueToConvert)
         {
             return valueToConvert / 0.62137;

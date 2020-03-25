@@ -16,6 +16,7 @@ namespace KonwerterJednostek.Logic
 
         public string Name => "Celcius To Farenheit";
 
+        object IKonwerter.Convert(object valueToConvert) => Convert((double) valueToConvert);
         public double Convert(double valueToConvert)
         {
             

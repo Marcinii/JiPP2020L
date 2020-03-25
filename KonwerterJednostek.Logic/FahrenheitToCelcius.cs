@@ -16,6 +16,7 @@ public class FahrenheitToCelcius : IKonwerter
 
         public string Name => "Fahrenheit To Celcius";
 
+        object IKonwerter.Convert(object valueToConvert) => Convert((double) valueToConvert);
         public double Convert(double valueToConvert)
         {
             return (valueToConvert - 32)*1.8;

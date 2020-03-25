@@ -70,5 +70,15 @@ namespace Konwerter.GUI
             TextBlock8.Text = KonwerterJednostek.Logic.Dispatcher.ConvertWithDispatch("hPa", "Pa", double.Parse(TextBox8.Text)).ToString();
 
         }
+
+        private void TButton24_Click(object sender, RoutedEventArgs e)
+        {
+            TBlock24.Text = (string) KonwerterJednostek.Logic.Dispatcher.ConvertWithDispatch("T24", "T12", TBox24.Text);
+        }
+
+        private void TButton12_Click(object sender, RoutedEventArgs e)
+        { 
+            TBlock12.Text = (string) KonwerterJednostek.Logic.Dispatcher.ConvertWithDispatch("T12", "T24", TBox12.Text);
+        }
     }
 }

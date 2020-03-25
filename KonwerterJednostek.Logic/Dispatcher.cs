@@ -8,6 +8,13 @@ namespace KonwerterJednostek.Logic
 {
     public static class Dispatcher
     {
+
+        public static object ConvertWithDispatch(string unitFrom, string unitTo, object valueToConvert)
+        {
+            var converter = DispatchConvert(unitFrom, unitTo);
+            return converter.Convert(valueToConvert);
+        }
+
         static IKonwerter DispatchConvert(string unitFrom, string unitTo)
         {
             switch (unitFrom)
@@ -85,15 +92,25 @@ namespace KonwerterJednostek.Logic
                             throw new Exception("Zła konwersja");
                     }
 
+                case "T12":
+                    switch (unitTo)
+                    {
+                        case "T24":
+                            return new Time12To24();
+                        default:
+                            throw new Exception("Zła konwersja");
+                    }
+                case "T24":
+                    switch (unitTo)
+                    {
+                        case "T12":
+                            return new Time24To12();
+                        default:
+                            throw new Exception("Zła konwersja");
+                    }
                 default:
                     throw new Exception("Nieznana jednostka");
             }
-        }
-
-        public static double ConvertWithDispatch(string unitFrom, string unitTo, double valueToConvert)
-        {
-            var converter = DispatchConvert(unitFrom, unitTo);
-            return converter.Convert(valueToConvert);
         }
     }
 }

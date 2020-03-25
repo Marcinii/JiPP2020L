@@ -41,6 +41,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Time12To24.cs" />
+    <Compile Include="Time24To12.cs" />
     <Compile Include="CelciusToFarenheit.cs" />
     <Compile Include="Cisnienie_hPa_To_Pa.cs" />
     <Compile Include="Cisnienie_Pa_To_hPa.cs" />
