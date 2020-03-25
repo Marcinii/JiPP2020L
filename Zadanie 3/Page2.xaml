@@ -1,0 +1,50 @@
+﻿<Page x:Class="application.Page2"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:application"
+      mc:Ignorable="d" 
+      d:DesignHeight="777.707" d:DesignWidth="397.333"
+      Title="Page2">
+    <Grid HorizontalAlignment="Left" Height="Auto" Margin="0,19,-6.333,-17.333" VerticalAlignment="Top" Width="Auto">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Rectangle Fill="#FF1A1A1A" HorizontalAlignment="Left" Height="736" Margin="0,2,0,0" RadiusY="30" RadiusX="30" Stroke="White" VerticalAlignment="Top" Width="397" StrokeThickness="2"/>
+        <Rectangle Fill="White" Height="676" Margin="8,30,8.333,0" RadiusY="30" RadiusX="30" Stroke="White"  StrokeThickness="2" VerticalAlignment="Top"/>
+        <Rectangle Margin="10,30,10.333,0" RadiusY="30" RadiusX="30" StrokeThickness="2" Grid.ColumnSpan="1" Height="559" VerticalAlignment="Top">
+            <Rectangle.Fill>
+                <ImageBrush ImageSource="8a87ca422ad22ec555bdff67f2c68a5f.jpg"/>
+            </Rectangle.Fill>
+        </Rectangle>
+        <Button x:Name="btnGoBack" Content="go back" HorizontalAlignment="Left" Margin="37,624,0,0" VerticalAlignment="Top" Width="139" Height="55" RenderTransformOrigin="2.005,0.485" Foreground="#FF837D7D" BorderBrush="#FFBEBDBD" Background="White" FontFamily="Lucida Sans Unicode" FontSize="15" Click="btnGoBack_Click"/>
+        <Button x:Name="btnConverter" Content="converter" HorizontalAlignment="Left" Margin="224,624,0,0" VerticalAlignment="Top" Width="139" Height="55" RenderTransformOrigin="2.005,0.485" Foreground="#FF837D7D" BorderBrush="#FFBEBDBD" Background="White" FontFamily="Lucida Sans Unicode" FontSize="15" Click="btnGoConverter_Click"/>
+        <Button Content="set up" HorizontalAlignment="Left" Margin="172,571,0,0" VerticalAlignment="Top" Width="46" Height="41" BorderBrush="White" Background="#FFFAAA24" Foreground="White" RenderTransformOrigin="1.246,5.659"/>
+        <Label Content="greenery" HorizontalAlignment="Left" Margin="146,443,0,0" VerticalAlignment="Top" Background="#FF105B1C" Foreground="White" FontSize="20" FontFamily="Arial Rounded MT Bold" FontWeight="Bold" RenderTransformOrigin="0.704,-1.11" OpacityMask="#FF25C5DD"/>
+        <Button Content="12h" HorizontalAlignment="Left" Margin="17,58,0,0" VerticalAlignment="Top" Width="89" Height="26" BorderBrush="White" Background="#FF313131" Foreground="White" RenderTransformOrigin="1.246,5.659"/>
+        <Button Content="24h" HorizontalAlignment="Left" Margin="17,89,0,0" VerticalAlignment="Top" Width="89" Height="26" BorderBrush="White" Background="#FF313131" Foreground="White" RenderTransformOrigin="1.246,5.659"/>
+        <Ellipse Fill="#FF1A1A1A" HorizontalAlignment="Left" Height="277" Margin="52,155,0,0" Stroke="White" VerticalAlignment="Top" Width="291" StrokeThickness="2"/>
+        <Rectangle Fill="White" HorizontalAlignment="Left" Height="3" Margin="93,292,0,0" RadiusY="1" RadiusX="1" Stroke="White" VerticalAlignment="Top" Width="105" RenderTransformOrigin="0.5,0.5">
+            <Rectangle.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleY="-1"/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="0.064"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Rectangle.RenderTransform>
+        </Rectangle>
+        <Rectangle Fill="#FFFAAA24" HorizontalAlignment="Left" Height="3" Margin="146,310,0,0" RadiusY="1" RadiusX="1" Stroke="#FFB6904F" VerticalAlignment="Top" Width="58" RenderTransformOrigin="0.5,0.5">
+            <Rectangle.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleY="-1"/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="139.64"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Rectangle.RenderTransform>
+        </Rectangle>
+        <Rectangle Fill="#FF1A1A1A" HorizontalAlignment="Left"  Margin="94,11,0,0" RadiusY="10" RadiusX="10" VerticalAlignment="Top" Width="223" Height="29" RenderTransformOrigin="0.517,-0.333"/>
+    </Grid>
+</Page>

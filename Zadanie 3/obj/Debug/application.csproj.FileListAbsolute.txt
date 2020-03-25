@@ -1,0 +1,130 @@
+C:\Users\gabri\Desktop\Zadanie 3\application\obj\Debug\application.csprojAssemblyReference.cache
+C:\Users\gabri\Desktop\Zadanie 3\application\obj\Debug\MainWindow.g.cs
+C:\Users\gabri\Desktop\Zadanie 3\application\obj\Debug\App.g.cs
+C:\Users\gabri\Desktop\Zadanie 3\application\obj\Debug\application_MarkupCompile.cache
+C:\Users\gabri\Desktop\Zadanie 3\application\obj\Debug\application_MarkupCompile.lref
+C:\Users\gabri\Desktop\Zadanie 3\application\bin\Debug\application.exe.config
+C:\Users\gabri\Desktop\Zadanie 3\application\bin\Debug\application.exe
+C:\Users\gabri\Desktop\Zadanie 3\application\bin\Debug\application.pdb
+C:\Users\gabri\Desktop\Zadanie 3\application\obj\Debug\MainWindow.baml
+C:\Users\gabri\Desktop\Zadanie 3\application\obj\Debug\application.g.resources
+C:\Users\gabri\Desktop\Zadanie 3\application\obj\Debug\application.Properties.Resources.resources
+C:\Users\gabri\Desktop\Zadanie 3\application\obj\Debug\application.csproj.GenerateResource.cache
+C:\Users\gabri\Desktop\Zadanie 3\application\obj\Debug\application.exe
+C:\Users\gabri\Desktop\Zadanie 3\application\obj\Debug\application.pdb
+C:\Users\gabri\Desktop\Zadanie 3\application\obj\Debug\Page0.g.cs
+C:\Users\gabri\Desktop\Zadanie 3\application\obj\Debug\Page0.baml
+C:\Users\gabri\Desktop\Zadanie 3\application\obj\Debug\Page1.g.cs
+C:\Users\gabri\Desktop\Zadanie 3\application\obj\Debug\Page1.baml
+C:\Users\gabri\Desktop\Zadanie 3\application\obj\Debug\Page2.g.cs
+C:\Users\gabri\Desktop\Zadanie 3\application\obj\Debug\Page2.baml
+E:\BEZPIECZNY PROGRAM WPF\Zadanie 3\application\bin\Debug\application.exe.config
+E:\BEZPIECZNY PROGRAM WPF\Zadanie 3\application\bin\Debug\application.exe
+E:\BEZPIECZNY PROGRAM WPF\Zadanie 3\application\bin\Debug\application.pdb
+E:\BEZPIECZNY PROGRAM WPF\Zadanie 3\application\obj\Debug\application.csprojAssemblyReference.cache
+E:\BEZPIECZNY PROGRAM WPF\Zadanie 3\application\obj\Debug\Page0.g.cs
+E:\BEZPIECZNY PROGRAM WPF\Zadanie 3\application\obj\Debug\Page1.g.cs
+E:\BEZPIECZNY PROGRAM WPF\Zadanie 3\application\obj\Debug\App.g.cs
+E:\BEZPIECZNY PROGRAM WPF\Zadanie 3\application\obj\Debug\application_MarkupCompile.cache
+E:\BEZPIECZNY PROGRAM WPF\Zadanie 3\application\obj\Debug\application_MarkupCompile.lref
+E:\BEZPIECZNY PROGRAM WPF\Zadanie 3\application\obj\Debug\MainWindow.baml
+E:\BEZPIECZNY PROGRAM WPF\Zadanie 3\application\obj\Debug\Page0.baml
+E:\BEZPIECZNY PROGRAM WPF\Zadanie 3\application\obj\Debug\Page1.baml
+E:\BEZPIECZNY PROGRAM WPF\Zadanie 3\application\obj\Debug\application.g.resources
+E:\BEZPIECZNY PROGRAM WPF\Zadanie 3\application\obj\Debug\application.Properties.Resources.resources
+E:\BEZPIECZNY PROGRAM WPF\Zadanie 3\application\obj\Debug\application.csproj.GenerateResource.cache
+E:\BEZPIECZNY PROGRAM WPF\Zadanie 3\application\obj\Debug\application.exe
+E:\BEZPIECZNY PROGRAM WPF\Zadanie 3\application\obj\Debug\application.pdb
+E:\BEZPIECZNY PROGRAM WPF\Zadanie 3\application\obj\Debug\MainWindow.g.cs
+E:\BEZPIECZNY PROGRAM WPF\Zadanie 3\application\obj\Debug\Page3.g.cs
+E:\BEZPIECZNY PROGRAM WPF\Zadanie 3\application\obj\Debug\Page3.baml
+C:\Users\gabri\Desktop\application\obj\Debug\application.csprojAssemblyReference.cache
+C:\Users\gabri\Desktop\application\obj\Debug\application.exe
+C:\Users\gabri\Desktop\application\obj\Debug\application.pdb
+C:\Users\gabri\Desktop\application\obj\Debug\MainWindow.g.cs
+C:\Users\gabri\Desktop\application\obj\Debug\Page0.g.cs
+C:\Users\gabri\Desktop\application\obj\Debug\Page1.g.cs
+C:\Users\gabri\Desktop\application\obj\Debug\App.g.cs
+C:\Users\gabri\Desktop\application\obj\Debug\application_MarkupCompile.cache
+C:\Users\gabri\Desktop\application\obj\Debug\application_MarkupCompile.lref
+C:\Users\gabri\Desktop\application\bin\Debug\application.exe.config
+C:\Users\gabri\Desktop\application\bin\Debug\application.exe
+C:\Users\gabri\Desktop\application\bin\Debug\application.pdb
+C:\Users\gabri\Desktop\application\obj\Debug\Page3.g.cs
+C:\Users\gabri\Desktop\application\obj\Debug\MainWindow.baml
+C:\Users\gabri\Desktop\application\obj\Debug\Page0.baml
+C:\Users\gabri\Desktop\application\obj\Debug\Page1.baml
+C:\Users\gabri\Desktop\application\obj\Debug\Page3.baml
+C:\Users\gabri\Desktop\application\obj\Debug\application.g.resources
+C:\Users\gabri\Desktop\application\obj\Debug\application.Properties.Resources.resources
+C:\Users\gabri\Desktop\application\obj\Debug\application.csproj.GenerateResource.cache
+C:\Users\gabri\Desktop\aaaa\bin\Debug\application.exe.config
+C:\Users\gabri\Desktop\aaaa\bin\Debug\application.exe
+C:\Users\gabri\Desktop\aaaa\bin\Debug\application.pdb
+C:\Users\gabri\Desktop\aaaa\obj\Debug\application.csprojAssemblyReference.cache
+C:\Users\gabri\Desktop\aaaa\obj\Debug\MainWindow.g.cs
+C:\Users\gabri\Desktop\aaaa\obj\Debug\Page0.g.cs
+C:\Users\gabri\Desktop\aaaa\obj\Debug\Page1.g.cs
+C:\Users\gabri\Desktop\aaaa\obj\Debug\Page3.g.cs
+C:\Users\gabri\Desktop\aaaa\obj\Debug\App.g.cs
+C:\Users\gabri\Desktop\aaaa\obj\Debug\application_MarkupCompile.cache
+C:\Users\gabri\Desktop\aaaa\obj\Debug\application_MarkupCompile.lref
+C:\Users\gabri\Desktop\aaaa\obj\Debug\MainWindow.baml
+C:\Users\gabri\Desktop\aaaa\obj\Debug\Page0.baml
+C:\Users\gabri\Desktop\aaaa\obj\Debug\Page1.baml
+C:\Users\gabri\Desktop\aaaa\obj\Debug\Page3.baml
+C:\Users\gabri\Desktop\aaaa\obj\Debug\application.g.resources
+C:\Users\gabri\Desktop\aaaa\obj\Debug\application.Properties.Resources.resources
+C:\Users\gabri\Desktop\aaaa\obj\Debug\application.csproj.GenerateResource.cache
+C:\Users\gabri\Desktop\aaaa\obj\Debug\application.exe
+C:\Users\gabri\Desktop\aaaa\obj\Debug\application.pdb
+F:\application\obj\Debug\application.csprojAssemblyReference.cache
+F:\application\obj\Debug\MainWindow.g.cs
+F:\application\obj\Debug\Page0.g.cs
+F:\application\obj\Debug\Page1.g.cs
+F:\application\obj\Debug\Page3.g.cs
+F:\application\obj\Debug\App.g.cs
+F:\application\obj\Debug\application_MarkupCompile.cache
+F:\application\obj\Debug\application_MarkupCompile.lref
+F:\application\obj\Debug\application.exe
+F:\application\obj\Debug\application.pdb
+C:\Users\gabri\Desktop\Zadanie 3\bin\Debug\application.exe.config
+C:\Users\gabri\Desktop\Zadanie 3\bin\Debug\application.exe
+C:\Users\gabri\Desktop\Zadanie 3\bin\Debug\application.pdb
+C:\Users\gabri\Desktop\Zadanie 3\obj\Debug\application.csprojAssemblyReference.cache
+C:\Users\gabri\Desktop\Zadanie 3\obj\Debug\MainWindow.g.cs
+C:\Users\gabri\Desktop\Zadanie 3\obj\Debug\Page0.g.cs
+C:\Users\gabri\Desktop\Zadanie 3\obj\Debug\Page1.g.cs
+C:\Users\gabri\Desktop\Zadanie 3\obj\Debug\Page3.g.cs
+C:\Users\gabri\Desktop\Zadanie 3\obj\Debug\App.g.cs
+C:\Users\gabri\Desktop\Zadanie 3\obj\Debug\application_MarkupCompile.cache
+C:\Users\gabri\Desktop\Zadanie 3\obj\Debug\application_MarkupCompile.lref
+C:\Users\gabri\Desktop\Zadanie 3\obj\Debug\MainWindow.baml
+C:\Users\gabri\Desktop\Zadanie 3\obj\Debug\Page0.baml
+C:\Users\gabri\Desktop\Zadanie 3\obj\Debug\Page1.baml
+C:\Users\gabri\Desktop\Zadanie 3\obj\Debug\Page3.baml
+C:\Users\gabri\Desktop\Zadanie 3\obj\Debug\application.g.resources
+C:\Users\gabri\Desktop\Zadanie 3\obj\Debug\application.Properties.Resources.resources
+C:\Users\gabri\Desktop\Zadanie 3\obj\Debug\application.csproj.GenerateResource.cache
+C:\Users\gabri\Desktop\Zadanie 3\obj\Debug\application.exe
+C:\Users\gabri\Desktop\Zadanie 3\obj\Debug\application.pdb
+C:\Users\gabri\source\repos\jipp\Zadanie 3\bin\Debug\application.exe.config
+C:\Users\gabri\source\repos\jipp\Zadanie 3\bin\Debug\application.exe
+C:\Users\gabri\source\repos\jipp\Zadanie 3\bin\Debug\application.pdb
+C:\Users\gabri\source\repos\jipp\Zadanie 3\obj\Debug\application.csprojAssemblyReference.cache
+C:\Users\gabri\source\repos\jipp\Zadanie 3\obj\Debug\MainWindow.g.cs
+C:\Users\gabri\source\repos\jipp\Zadanie 3\obj\Debug\Page0.g.cs
+C:\Users\gabri\source\repos\jipp\Zadanie 3\obj\Debug\Page1.g.cs
+C:\Users\gabri\source\repos\jipp\Zadanie 3\obj\Debug\Page3.g.cs
+C:\Users\gabri\source\repos\jipp\Zadanie 3\obj\Debug\App.g.cs
+C:\Users\gabri\source\repos\jipp\Zadanie 3\obj\Debug\application_MarkupCompile.cache
+C:\Users\gabri\source\repos\jipp\Zadanie 3\obj\Debug\application_MarkupCompile.lref
+C:\Users\gabri\source\repos\jipp\Zadanie 3\obj\Debug\MainWindow.baml
+C:\Users\gabri\source\repos\jipp\Zadanie 3\obj\Debug\Page0.baml
+C:\Users\gabri\source\repos\jipp\Zadanie 3\obj\Debug\Page1.baml
+C:\Users\gabri\source\repos\jipp\Zadanie 3\obj\Debug\Page3.baml
+C:\Users\gabri\source\repos\jipp\Zadanie 3\obj\Debug\application.g.resources
+C:\Users\gabri\source\repos\jipp\Zadanie 3\obj\Debug\application.Properties.Resources.resources
+C:\Users\gabri\source\repos\jipp\Zadanie 3\obj\Debug\application.csproj.GenerateResource.cache
+C:\Users\gabri\source\repos\jipp\Zadanie 3\obj\Debug\application.exe
+C:\Users\gabri\source\repos\jipp\Zadanie 3\obj\Debug\application.pdb

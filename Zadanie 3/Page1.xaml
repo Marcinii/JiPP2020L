@@ -1,0 +1,72 @@
+﻿<Page x:Class="application.Page1"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:application"
+      mc:Ignorable="d"
+      Title="Page1" Height="409.333" Width="209"
+>
+
+    <Grid HorizontalAlignment="Left" Height="Auto" Margin="0,19,0,0" VerticalAlignment="Top" Width="Auto">
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Rectangle Fill="#FF171515" HorizontalAlignment="Left" RadiusY="1" RadiusX="1" Width="201" RenderTransformOrigin="0.483,0.415" Margin="-2,0,0,16.667"/>
+        <Rectangle Fill="#FF1B1A1A" HorizontalAlignment="Left" RadiusY="10" RadiusX="10" Width="196" RenderTransformOrigin="0.483,0.415" Margin="2,8,0,0" Stroke="White" Height="361" VerticalAlignment="Top"/>
+        <Image Margin="5,12,16.333,293.667" Source="90439012_2880832245272968_3135228226595454976_n.jpg" Stretch="Fill" RenderTransformOrigin="0.5,0.5"/>
+        <Ellipse Fill="Black" HorizontalAlignment="Left" Height="13" Margin="88,8,0,0" VerticalAlignment="Top" Width="16" Opacity="0.1"/>
+        <Rectangle Fill="White" HorizontalAlignment="Left" Height="50" Margin="12,42,0,0" RadiusY="10" RadiusX="10" VerticalAlignment="Top" Width="174" Opacity="0.2"/>
+        <Rectangle Fill="White" HorizontalAlignment="Left" Height="13" Margin="12,26,0,0" RadiusY="5" RadiusX="5" VerticalAlignment="Top" Width="174" Opacity="0.4"/>
+        <Rectangle Fill="White" HorizontalAlignment="Left" Height="28" Margin="13,44,0,0" RadiusY="10" RadiusX="10" VerticalAlignment="Top" Width="171" Opacity="0.4"/>
+        <Rectangle Fill="White" HorizontalAlignment="Left" Height="15" Margin="13,75,0,0" RadiusY="10" RadiusX="10" VerticalAlignment="Top" Width="172" Opacity="0.2"/>
+        <Rectangle Fill="White" HorizontalAlignment="Left" Height="15" Margin="13,75,0,0" RadiusY="10" RadiusX="10" VerticalAlignment="Top" Width="46" Opacity="0.2"/>
+        <Button x:Name="btnTime" Content="time" FontSize="9" BorderThickness="0.5" HorizontalAlignment="Left" Margin="19,105,0,0" VerticalAlignment="Top" Width="38" Height="33" BorderBrush="White" Foreground="#FFAABBAD" Background="#FF1D2C2E" Click="btnTime_Click"/>
+        <Button x:Name="btnTemp" Content="temp" FontSize="9" BorderThickness="0.5" HorizontalAlignment="Left" Margin="60,105,0,0" VerticalAlignment="Top" Width="38" Height="33" BorderBrush="White" Foreground="#FFAABBAD" Background="#FF1D2C2E" Click="btnTemp_Click"/>
+        <Button x:Name="btnDist" Content="distance" FontSize="9" BorderThickness="0.5" HorizontalAlignment="Left" Margin="100,105,0,0" VerticalAlignment="Top" Width="38" Height="33" BorderBrush="White" Foreground="#FFAABBAD" Background="#FF1D2C2E" Click="btnDist_Click"/>
+        <Button x:Name="btnWeight" Content="weight" FontSize="9" BorderThickness="0.5" HorizontalAlignment="Left" Margin="140,105,0,0" VerticalAlignment="Top" Width="38" Height="33" BorderBrush="White" Foreground="#FFAABBAD" Background="#FF1D2C2E" Click="btnWeight_Click"/>
+        <ComboBox x:Name="cmbChoice" HorizontalAlignment="Left" Margin="19,143,0,0" VerticalAlignment="Top" Width="159" IsEditable="True" BorderBrush="#FF0D3A2F" Foreground="Black" BorderThickness="0" Background="White" Height="20"  SelectionChanged="cmbChoice_SelectionChanged"/>
+        <Rectangle Fill="#FF406743" HorizontalAlignment="Left" Height="18" Margin="18,168,0,0" RadiusY="5" RadiusX="5" VerticalAlignment="Top" Width="161"/>
+        <Rectangle Fill="White" HorizontalAlignment="Left" Height="16" Margin="7,343,0,0" RadiusY="1" RadiusX="1" VerticalAlignment="Top" Width="187"/>
+        <Image Margin="41,77,160.333,301.667" Source="icons8-fast-forward-24.png" Stretch="Fill" Opacity="0.5"/>
+        <Image Margin="165,28,36.333,353.667" Source="icons8-battery-level-48.png" Stretch="Fill"/>
+        <Image Margin="58,28,141.333,351.667" Source="icons8-envelope-24.png" Stretch="Fill" Opacity="0.5"/>
+        <Image Margin="29,78,171.333,303.667" Source="icons8-pause-24.png" Stretch="Fill" Opacity="0.5"/>
+        <Image Margin="19,77,183.333,301.667" Source="icons8-rewind-24.png" Stretch="Fill" Opacity="0.5" RenderTransformOrigin="-0.444,0.669"/>
+        <Image Margin="41,28,156.333,350.667" Source="icons8-partly-cloudy-day-26.png" Stretch="Fill" Opacity="0.5" RenderTransformOrigin="0.41,1.097"/>
+        <Image Margin="151,29,50.333,353.667" Source="icons8-no-connection-24.png" Stretch="Fill" Opacity="0.6"/>
+        <Image Margin="168,78,30.333,303.667" Source="icons8-shuffle-24.png" Stretch="Fill" Opacity="0.5" RenderTransformOrigin="5.222,1.613"/>
+        <Button x:Name="btClear" Content="clear data" BorderThickness="0.5" FontSize="8" HorizontalAlignment="Left" Margin="75,218,0,0" VerticalAlignment="Top" Width="48" Foreground="White" Background="#FF1D2C2E" BorderBrush="#FF8D8D8D" Click="btClear_Click"/>
+        <Rectangle Fill="White" HorizontalAlignment="Left" Height="15" Margin="64,75,0,0" RadiusY="2" RadiusX="2" VerticalAlignment="Top" Width="101" Opacity="0.2"/>
+        <Rectangle Fill="#FF171515" HorizontalAlignment="Left"  Margin="43,4,0,0" RadiusY="10" RadiusX="10" VerticalAlignment="Top" Width="111" Height="15" RenderTransformOrigin="0.517,-0.333"/>
+        <Button x:Name="convertButton" Content="convert" HorizontalAlignment="Left" Margin="7,240,0,0" VerticalAlignment="Top" Width="186" Height="45" Background="{x:Null}" Foreground="White" FontSize="12.5" FontFamily="Franklin Gothic Demi" IsDefault="True" BorderBrush="{x:Null}" Click="convertButton_Click" />
+        <Button x:Name="btnGoBackMainPage" FontSize="10" Content="go back" HorizontalAlignment="Left" Margin="5,313,0,0" VerticalAlignment="Top" Height="20" Width="189" Background="#FFFAAA24" BorderBrush="{x:Null}" Foreground="White" IsDefault="True" FontFamily="Segoe UI Semibold" RenderTransformOrigin="0.064,-2.696" Opacity="0.5" Click="btnGoBackMainPage_Click"/>
+        <Button x:Name="btnCheckTime" FontSize="10" Content="check time" HorizontalAlignment="Left" Margin="5,290,0,0" VerticalAlignment="Top" Height="20" Width="189" Background="#FFFAAA24" BorderBrush="{x:Null}" Foreground="White" IsDefault="True" FontFamily="Segoe UI Semibold" RenderTransformOrigin="0.064,-2.696" Opacity="0.5" Click="btnGoCheckTme_Click"/>
+        <Rectangle Fill="#F9C2BFBF" HorizontalAlignment="Left"  Height="24" Margin="19,189,0,0" RadiusY="5" RadiusX="5" VerticalAlignment="Top" Width="159"/>
+        <Rectangle Fill="#FFD7D3D3" HorizontalAlignment="Left" Height="24" Margin="19,189,0,0" RadiusY="5" RadiusX="5" VerticalAlignment="Top" Width="45"/>
+        <Rectangle Fill="#FF649768" HorizontalAlignment="Left" Height="18" Margin="18,168,0,0" RadiusY="5" RadiusX="5" VerticalAlignment="Top" Width="46"/>
+        <Label Content="enter value" HorizontalAlignment="Left" Margin="21,168,0,0" VerticalAlignment="Top" Foreground="#FF406743" Height="21" FontSize="6" Width="45" RenderTransformOrigin="-0.34,-0.083">
+            <Label.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform AngleX="-0.796"/>
+                    <RotateTransform/>
+                    <TranslateTransform X="0.018"/>
+                </TransformGroup>
+            </Label.RenderTransform>
+        </Label>
+        <Rectangle Fill="White" HorizontalAlignment="Left" Height="15" Margin="7,349,0,0" RadiusY="10" RadiusX="10" VerticalAlignment="Top" Width="187"/>
+        <Label Content="outcome" HorizontalAlignment="Left" Margin="24,191,0,0" VerticalAlignment="Top" Foreground="#F99B9A9A" Height="18" FontSize="6" Width="33" RenderTransformOrigin="-0.34,-0.083" Background="{x:Null}"/>
+        <Label Content="PLAY" HorizontalAlignment="Left" Margin="13,22,0,0" VerticalAlignment="Top" Background="{x:Null}" Height="20" Width="28" FontSize="8" Foreground="#FF3E3D3D" />
+        <Image Margin="126,348,71.333,31.667" Source="icons8-facebook-old-24.png" Stretch="Fill"/>
+        <Image Margin="146,348,50.333,31.667" Source="icons8-linkedin-24.png" Stretch="Fill" RenderTransformOrigin="0.256,0.072"/>
+        <Image Margin="166,348,30.333,31.667" Source="icons8-twitter-24.png" Stretch="Fill"/>
+        <TextBox x:Name="txtEnterValue" HorizontalAlignment="Left" Height="13" Margin="67,171,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="104" Background="{x:Null}" BorderBrush="{x:Null}" SelectionBrush="#FF649768" FontSize="9" TextChanged="enterValText_TextChanged"/>
+        <Label x:Name="labelResult" Content="" HorizontalAlignment="Left" Margin="67,191,0,0" VerticalAlignment="Top" Height="22" Width="104" OpacityMask="Black" FontSize="9" Background="#FFBEBCBC"/>
+        <Image Margin="10,344,182.333,29.667" Source="icons8-color-palette-48.png" Stretch="Fill"/>
+    </Grid>
+</Page>
+
