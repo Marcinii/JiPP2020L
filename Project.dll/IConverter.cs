@@ -9,7 +9,8 @@ namespace Project
 
     public interface IConverter
     {
-        double Convert(string unitFrom, string unitTo, double value);
+        //double Convert(string unitFrom, string unitTo, double value);
+        string Convert(string unitFrom, string unitTo, string stringValue);
         string Name { get; }
         List<string>Units { get; }
     }
@@ -22,15 +23,29 @@ namespace Project
 
         protected Dictionary<string, double> ValueDictionary;
 
-        public double Convert(string unitFrom, string unitTo, double value)
+        //public double Convert(string unitFrom, string unitTo, double value)
+        //{
+        //    try
+        //    {
+        //        return value * (ValueDictionary[unitFrom] / ValueDictionary[unitTo]);
+        //    }
+        //    catch (Exception)
+        //    {
+        //        return value;
+        //    }
+        //}
+        public string Convert(string unitFrom, string unitTo, string stringValue)
         {
+            double value = 0;
             try
             {
-                return value * (ValueDictionary[unitFrom] / ValueDictionary[unitTo]);
+                Double.TryParse(stringValue, out value);
+
+                return (value * (ValueDictionary[unitFrom] / ValueDictionary[unitTo])).ToString();
             }
             catch (Exception)
             {
-                return value;
+                return stringValue;
             }
         }
     }

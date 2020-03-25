@@ -24,19 +24,11 @@ namespace Project.Desktop
         {
             InitializeComponent();
 
-            List<IConverter> converters = new List<IConverter>
-            {
-                new TempConverter(),
-                new WeightConverter(),
-                new LengthConverter(),
-                new TimeConverter(),
-                new CapacityConverter()
-            };
-
-            ConverterListComboBox.ItemsSource = converters;
+            ConverterListComboBox.ItemsSource = new ConverterService().GetConverters();
             ConverterListComboBox.DisplayMemberPath = "Name";
 
             ConverterListComboBox.SelectedIndex = 0;
+            ValueToConvertTextBlock.Text = "0";
 
         }
 
@@ -46,24 +38,38 @@ namespace Project.Desktop
             ConvertToListComboBox.ItemsSource = ((IConverter)ConverterListComboBox.SelectedItem).Units;
             ConvertFromListComboBox.SelectedIndex = 0;
             ConvertToListComboBox.SelectedIndex = 1;
+
+            if (ConverterListComboBox.SelectedItem.GetType() == typeof(ClockConverter))
+                ClockGrid.Visibility = Visibility.Visible;
+            else
+                ClockGrid.Visibility = Visibility.Hidden;
+
+
             Recalculate();
-
         }
-
 
         private void Recalculate()
         {
+            
             try
             {
                 ResultTextBlock.Text = string.Empty;
-                string result = ValueToConvertTextBlock.Text + " " + ConvertFromListComboBox.SelectedValue + " = ";
-                result += ((IConverter)ConverterListComboBox.SelectedItem)
+                //string result = ValueToConvertTextBlock.Text + " " + ConvertFromListComboBox.SelectedValue + " = ";
+                string result = ((IConverter)ConverterListComboBox.SelectedItem)
                      .Convert(
                         (string)ConvertFromListComboBox.SelectedValue,
                         (string)ConvertToListComboBox.SelectedValue,
-                        Double.Parse(ValueToConvertTextBlock.Text)).ToString();
-                result += " " + ConvertToListComboBox.SelectedValue;
+                        ValueToConvertTextBlock.Text);
+                //result += " " + ConvertToListComboBox.SelectedValue;
                 ResultTextBlock.Text = result;
+
+
+                if (ConverterListComboBox.SelectedItem.GetType() == typeof(ClockConverter))
+                {
+                    DateTime temp = DateTime.Parse(result);
+                    HoursRectangle.RenderTransform = new RotateTransform((360/12) * temp.Hour);
+                    MinutesRectangle.RenderTransform = new RotateTransform((360 / 60) * temp.Minute);
+                }
 
             }
             catch (FormatException)

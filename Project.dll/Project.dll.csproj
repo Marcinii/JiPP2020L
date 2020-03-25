@@ -42,6 +42,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CapacityConverter.cs" />
+    <Compile Include="ClockConverter.cs" />
+    <Compile Include="ConverterService.cs" />
     <Compile Include="IConverter.cs" />
     <Compile Include="LengthConverter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

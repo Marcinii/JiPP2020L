@@ -28,7 +28,8 @@ namespace Project
             Console.Write("Wybor: ");
             int choise = Int32.Parse(Console.ReadLine());
             Console.Write("Podaj wartosc: ");
-            double value = Double.Parse(Console.ReadLine());
+            //double value = Double.Parse(Console.ReadLine());
+            string value = Console.ReadLine();
             Console.WriteLine("Z jakiej jednostki nastepuje zamiana?");
             string from = Console.ReadLine();
             Console.WriteLine("Do jakiej jednostki nastepuje zamiana?");
