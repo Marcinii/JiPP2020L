@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace UnitConverter
 {
-    public class TemperatureConverter : ConverterInterface
+    public class TemperatureConverter : IConverter
     {
         public string Name => "temperature";
 

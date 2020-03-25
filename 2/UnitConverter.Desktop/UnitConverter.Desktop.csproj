@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{08826D35-70E1-4F8C-9F84-00C99A70335B}</ProjectGuid>
+    <ProjectGuid>{49A0D063-99E8-452F-8BF0-FD870DB28729}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <RootNamespace>UnitConverter.Desktop</RootNamespace>
     <AssemblyName>UnitConverter.Desktop</AssemblyName>
@@ -96,7 +96,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\UnitConverter.Logic\UnitConverter.Logic.csproj">
-      <Project>{2fc44f28-7323-457f-bea2-03759484a200}</Project>
+      <Project>{a643da6d-02d5-4dfd-96c3-8448753ef9d4}</Project>
       <Name>UnitConverter.Logic</Name>
     </ProjectReference>
   </ItemGroup>

@@ -1,35 +1,34 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 namespace UnitConverter
 {
     class Program
     {
-        static void Main(string[] args)
+        static void Main()
         {
-            List<ConverterInterface> converters = new List<ConverterInterface>()
+            List<IConverter> Converters = new List<IConverter>()
             {
                 new TemperatureConverter(),
                 new LenghtConverter(),
                 new WeightConverter(),
             };
 
-            for (int i = 0; i < converters.Count; i++)
+            for (int i = 0; i < Converters.Count; i++)
             {
-                Console.WriteLine("({0}) {1}", i, converters[i].Name);
+                System.Console.WriteLine("({0}) {1}", i, Converters[i].Name);
             }
-            string userInputConverter = Console.ReadLine();
+            string userInputConverter = System.Console.ReadLine();
             int converter = int.Parse(userInputConverter);
-            Console.WriteLine("Unit we are converting from: ");
-            string from = Console.ReadLine();
-            Console.WriteLine("Unit we are converting to: ");
-            string to = Console.ReadLine();
-            Console.WriteLine("Unit value: ");
-            string userInputValue = Console.ReadLine();
+            System.Console.WriteLine("Unit we are converting from: ");
+            string from = System.Console.ReadLine();
+            System.Console.WriteLine("Unit we are converting to: ");
+            string to = System.Console.ReadLine();
+            System.Console.WriteLine("Unit value: ");
+            string userInputValue = System.Console.ReadLine();
             decimal value = decimal.Parse(userInputValue);
 
-            decimal result = converters[converter].Convert(from, to, value);
-            Console.WriteLine("{0}: {1}", to, result);
+            decimal result = Converters[converter].Convert(from, to, value);
+            System.Console.WriteLine("{0}: {1}", to, result);
         }
     }
 }

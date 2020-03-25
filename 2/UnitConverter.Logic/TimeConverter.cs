@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace UnitConverter
 {
-    public class TimeConverter : ConverterInterface
+    public class TimeConverter : IConverter
     {
         public string Name => "time";
 

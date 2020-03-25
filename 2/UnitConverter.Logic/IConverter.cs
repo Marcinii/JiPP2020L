@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace UnitConverter
 {
-    public interface ConverterInterface
+    public interface IConverter
     {
         string Name { get; }
         List<string> Units { get; }

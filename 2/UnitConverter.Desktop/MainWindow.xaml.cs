@@ -23,24 +23,64 @@ namespace UnitConverter.Desktop
     {
         public MainWindow()
         {
-            InitializeComponent(); 
-           Unit.ItemsSource = new List<>()
+            InitializeComponent();
+
+            Unit.ItemsSource = new List<string>()
             {
-                new TemperatureConverter(),
-                new LenghtConverter(),
-                new WeightConverter(),
+                new TemperatureConverter().Name,
+                new LenghtConverter().Name,
+                new WeightConverter().Name,
             };
         }
 
         private void Submit_Click(object sender, RoutedEventArgs e)
         {
-            string inputValue = Input.Text;
-            Answer.Text = inputValue;
+            List<IConverter> Converters = new List<IConverter>()
+            {
+                new TemperatureConverter(),
+                new LenghtConverter(),
+                new WeightConverter(),
+            };
+
+            decimal InputValue = decimal.Parse(Input.Text);
+            string UnitValue = Unit.Text;
+            string FromValue = From.Text;
+            string ToValue = To.Text;
+            string AnswerValue = "";
+            for (int i = 0; i < Converters.Count; i++)
+            {
+                if(Converters[i].Name == UnitValue)
+                {
+                    AnswerValue = Converters[i].Convert(FromValue, ToValue, InputValue) + "";
+                }
+            }
+
+            Answer.Text = AnswerValue;
         }
 
         private void Unit_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            
+            List<IConverter> Converters = new List<IConverter>()
+            {
+                new TemperatureConverter(),
+                new LenghtConverter(),
+                new WeightConverter(),
+            };
+
+            List<string> Measurement = new List<string>();
+
+            for (int i = 0; i < Converters.Count; i++)
+            {
+                if ((string)Unit.SelectedItem == Converters[i].Name)
+                {
+                    for (int j = 0; j < Converters[i].Units.Count; j++)
+                    {
+                        Measurement.Add(Converters[i].Units[j]);
+                    }
+                }
+            }
+            From.ItemsSource = Measurement;
+            To.ItemsSource = Measurement;
         }
     }
 }

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace UnitConverter
 {
-    public class LenghtConverter : ConverterInterface
+    public class LenghtConverter : IConverter
     {
         public string Name => "lenght";
 

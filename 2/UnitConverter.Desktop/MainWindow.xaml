@@ -5,14 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:UnitConverter.Desktop"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="400" Width="800">
     <Grid>
         <Label Content="Unit Converter" HorizontalAlignment="Center" Margin="10,10,10,10" VerticalAlignment="Top" Width="772" Height="52"/>
         <ComboBox Name="Unit"  HorizontalAlignment="Left" Margin="173,71,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="Unit_SelectionChanged"/>
         <ComboBox Name="From" HorizontalAlignment="Left" Margin="325,71,0,0" VerticalAlignment="Top" Width="120"/>
-        <ComboBox Name="To" HorizontalAlignment="Left" Margin="325,238,0,0" VerticalAlignment="Top" Width="120" Height="21"/>
+        <ComboBox Name="To" HorizontalAlignment="Left" Margin="325,183,0,0" VerticalAlignment="Top" Width="120" Height="21"/>
         <TextBox Name="Input" HorizontalAlignment="Left" Height="22" Margin="491,71,0,0" TextWrapping="Wrap" Text="Your value goes here!" VerticalAlignment="Top" Width="277"/>
-        <TextBlock x:Name="Answer" HorizontalAlignment="Left" Margin="491,238,0,0" VerticalAlignment="Top" Height="41" Width="277"><Run Foreground="Blue" FontSize="12.6666666666667" FontFamily="Consolas" Text="Your answer will be displayed here"/><Run Foreground="Blue" FontSize="12.6666666666667" FontFamily="Consolas" Text="!"/></TextBlock>
-        <Button Name="Submit" Content="Convert!" HorizontalAlignment="Left" Margin="10,355,0,0" VerticalAlignment="Top" Width="772" Height="52" Click="Submit_Click"/>
+        <TextBlock x:Name="Answer" HorizontalAlignment="Left" Margin="491,183,0,0" VerticalAlignment="Top" Height="41" Width="277"><Run Foreground="Blue" FontSize="12.6666666666667" FontFamily="Consolas" Text="Your answer will be displayed here"/><Run Foreground="Blue" FontSize="12.6666666666667" FontFamily="Consolas" Text="!"/></TextBlock>
+        <Button Name="Submit" Content="Convert!" HorizontalAlignment="Left" Margin="10,307,0,0" VerticalAlignment="Top" Width="772" Height="52" Click="Submit_Click"/>
     </Grid>
 </Window>

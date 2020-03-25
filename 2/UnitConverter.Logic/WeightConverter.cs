@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace UnitConverter
 {
-    public class WeightConverter : ConverterInterface
+    public class WeightConverter : IConverter
     {
         public string Name => "weight";
 
