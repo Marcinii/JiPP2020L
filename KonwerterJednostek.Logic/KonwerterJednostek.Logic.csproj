@@ -45,6 +45,7 @@
   <ItemGroup>
     <Compile Include="IKonwerter.cs" />
     <Compile Include="KonwerterDlugosc.cs" />
+    <Compile Include="KonwerterLitry.cs" />
     <Compile Include="KonwerterMas.cs" />
     <Compile Include="KonwerterTemperatura.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

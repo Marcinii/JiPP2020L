@@ -17,7 +17,8 @@ namespace KonwerterJednostek
             {
                 new KonwerterTemperatura(),
                 new KonwerterDlugosc(),
-                new KonwerterMas()
+                new KonwerterMas(),
+                new KonwerterLitry()
             };
 
 
@@ -57,8 +58,6 @@ namespace KonwerterJednostek
 
             double wynik = konwertery[pickle - 1].Konwertuj(jednZ, jednDo, temp);
             Console.WriteLine("Wynik po konwersji {0}", wynik);
-
-          
         }
     }
 }

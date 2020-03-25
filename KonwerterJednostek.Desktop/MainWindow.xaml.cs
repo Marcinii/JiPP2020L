@@ -23,24 +23,32 @@ namespace KonwerterJednostek.Desktop
         public MainWindow()
         {
             InitializeComponent();
-            comboboxWybor.ItemsSource = new List<string>()
+            ComboBoxJednostkaDlugosc.ItemsSource = new List<string>()
             {
-                "wyb 1",
-                "wyb 2",
-                "wyb 3"
+                "km",
+                "m"
             };
         }
 
-        private void przyciskKonwersja_Click(object sender, RoutedEventArgs e)
+        private void ComboBoxJednostkaDlugosc_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            string wejscie = textboxWejscie.Text;
-            string wyjscie = "Witaj " + wejscie;
-            textblockWynik.Text = wyjscie;
+
+            MessageBox.Show("Wybrales: " + ComboBoxJednostkaDlugosc.SelectedItem);
         }
 
-        private void comboboxWybor_SelectionChanged(object sender, SelectionChangedEventArgs e)
+
+
+
+
+
+
+        private void przyciskKonwersja_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Wybrales: " + comboboxWybor.SelectedItem);
+            string wejscie = textboxWejscie_Dlugosc.Text;
+            string wyjscie = "Witaj " + wejscie;
+            textblockWynik_Dlugosc.Text = wyjscie;
         }
+
+    
     }
 }
