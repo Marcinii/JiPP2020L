@@ -5,36 +5,60 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:KonwerterJednostek.Desktop"
         mc:Ignorable="d"
-        Title="MainWindow" Height="auto" Width="800">
+        Title="MainWindow" Height="500" Width="800">
     <Grid>
+        <Grid.Background>
+            <SolidColorBrush Color="Black"/>
+        </Grid.Background>
         <Grid.RowDefinitions>
-            <RowDefinition Height="113*"/>
-            <RowDefinition Height="36*"/>
-            <RowDefinition Height="34*"/>
-            <RowDefinition Height="321*"/>
+            <RowDefinition Height="17*"/>
+            <RowDefinition Height="5*"/>
+            <RowDefinition Height="5*"/>
+            <RowDefinition Height="45*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="0*"/>
-            <ColumnDefinition Width="150*"/>
-            <ColumnDefinition Width="100*"/>
-            <ColumnDefinition Width="100*"/>
-            <ColumnDefinition Width="100*"/>
-            <ColumnDefinition Width="100*"/>
+            <ColumnDefinition Width="17*"/>
+            <ColumnDefinition Width="199*"/>
+            <ColumnDefinition Width="144*"/>
+            <ColumnDefinition Width="144*"/>
+            <ColumnDefinition Width="144*"/>
+            <ColumnDefinition Width="144*"/>
         </Grid.ColumnDefinitions>
-        <Button x:Name="przyciskKonwersja_Dlugosc" Content="Konwertuj&#xD;&#xA;" HorizontalAlignment="Left" Margin="0,86,0,0" VerticalAlignment="Top" Height="20" Grid.Column="4" Width="144" Background="#FF7FC9F3" Click="przyciskKonwersjaTemp_Click"/>
-        <Label x:Name="labelWyborJednostki1" Content="Wybór jednostki&#xD;&#xA;" HorizontalAlignment="Left" Margin="0,38,0,0" VerticalAlignment="Top" Width="144" Grid.Column="2" Height="24"/>
-        <TextBlock x:Name="textblockWynikTemp" Grid.Column="5" HorizontalAlignment="Left" Margin="10,86,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="20" Width="108"/>
-        <TextBox x:Name="textboxWejscie_Litry" HorizontalAlignment="Left" Height="23" Margin="101,10,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="105" Grid.Column="1" Grid.Row="1"/>
-        <TextBlock x:Name="textblockWynik_Litry" Grid.Column="5" HorizontalAlignment="Left" Margin="10,6,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="20" Width="108" Grid.Row="1"/>
-        <TextBox x:Name="textboxWejscie_Mas" HorizontalAlignment="Left" Height="23" Margin="101,9,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="105" Grid.Column="1" Grid.Row="2"/>
-        <TextBlock x:Name="textblockWynik_Mas" Grid.Column="5" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="20" Width="108" Grid.Row="2"/>
-        <TextBox x:Name="textboxWejscie_Temperatura" HorizontalAlignment="Left" Height="23" Margin="101,7,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="105" Grid.Column="1" Grid.Row="3"/>
-        <TextBlock x:Name="textblockWynik_Temperatura" Grid.Column="5" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="20" Width="108" Grid.Row="3"/>
-        <ComboBox x:Name="comboboxTempJednDo" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Grid.Column="3" Margin="14,85,0,0" SelectionChanged="ComboBoxJednostkaDlugosc_SelectionChanged"/>
-        <Label x:Name="labelWyborJednostki2" Content="Wybór jednostki&#xD;&#xA;" HorizontalAlignment="Left" Margin="0,38,0,0" VerticalAlignment="Top" Width="144" Grid.Column="3" Height="24"/>
-        <Label x:Name="labelTemperatura" Content="TEMPERATURA&#xD;&#xA;&#xA;" HorizontalAlignment="Left" Margin="0,82,0,0" VerticalAlignment="Top" Width="134" Height="24" Grid.ColumnSpan="2"/>
-        <ComboBox x:Name="comboboxTempJednZ" Grid.Column="2" HorizontalAlignment="Left" Margin="10,86,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="comboboxTempJednZ_SelectionChanged"/>
-        <TextBox x:Name="textBoxWartoscTemp" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="101,86,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="105"/>
-        <Label x:Name="labelWyborJednostki1_Copy" Content="Wartość&#xD;&#xA;&#xA;" HorizontalAlignment="Left" Margin="101,38,0,0" VerticalAlignment="Top" Width="115" Grid.Column="1" Height="24"/>
+        <Button x:Name="przyciskKonwersja_Temp" Content="Konwertuj&#xD;&#xA;" HorizontalAlignment="Left" Margin="0,86,0,0" VerticalAlignment="Top" Height="20" Grid.Column="5" Width="144" Background="#FFF3CA20" Click="przyciskKonwersjaTemp_Click"/>
+        <Label x:Name="labelWyborJednostki1" Content="Wybór jednostki&#xA;konwertowanej" HorizontalAlignment="Left" Margin="0,24,0,0" VerticalAlignment="Top" Width="144" Grid.Column="3" Height="57" Foreground="#FFF3CA20" FontSize="14" FontWeight="Bold"/>
+        <TextBlock x:Name="textblockWynikTemp" Grid.Column="6" HorizontalAlignment="Left" Margin="10,86,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="20" Width="108" Foreground="#FFF3CA20"/>
+        <TextBlock x:Name="textblockWynikMasa" Grid.Column="6" HorizontalAlignment="Left" Margin="10,6,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="20" Width="108" Grid.Row="1" Foreground="#FFF3CA20"/>
+        <TextBlock x:Name="textblockWynik_Dlugosc" Grid.Column="6" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="20" Width="108" Grid.Row="2" Foreground="#FFF3CA20"/>
+        <TextBlock x:Name="textblockWynik_Litry" Grid.Column="6" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="20" Width="108" Grid.Row="3" Foreground="#FFF3CA20"/>
+        <ComboBox x:Name="comboboxTempJednDo" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Grid.Column="4" Margin="14,85,0,0" SelectionChanged="ComboBoxJednostkaDlugosc_SelectionChanged" Height="22"/>
+        <Label x:Name="labelWyborJednostki2" Content="Wybór jednostki&#xA;skonwertowanej" HorizontalAlignment="Left" Margin="0,24,0,0" VerticalAlignment="Top" Width="144" Grid.Column="4" Height="56" Foreground="#FFF3CA20" FontWeight="Bold" FontSize="14"/>
+        <Label x:Name="labelTemperatura" Content="TEMPERATURA&#xD;&#xA;&#xA;" HorizontalAlignment="Left" Margin="0,82,0,0" VerticalAlignment="Top" Width="90" Height="24" Grid.ColumnSpan="3" Foreground="#FFF3CA20" FontWeight="Bold"/>
+        <ComboBox x:Name="comboboxTempJednZ" Grid.Column="3" HorizontalAlignment="Left" Margin="10,86,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="comboboxTempJednZ_SelectionChanged" Height="22">
+            <ComboBox.Background>
+                <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                    <GradientStop Color="#FFF0F0F0" Offset="0"/>
+                    <GradientStop Color="#FFF3CA20" Offset="1"/>
+                </LinearGradientBrush>
+            </ComboBox.Background>
+        </ComboBox>
+        <TextBox x:Name="textBoxWartoscTemp" Grid.Column="2" HorizontalAlignment="Left" Height="23" Margin="86,86,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="105" Background="#FFF3CA20"/>
+        <Label x:Name="labelWyborJednostki1_Copy" Content="Wartość&#xD;&#xA;&#xA;" HorizontalAlignment="Left" Margin="86,38,0,0" VerticalAlignment="Top" Width="115" Grid.Column="2" Height="43" Grid.ColumnSpan="2" Foreground="#FFF3CA20" FontWeight="Bold" FontSize="14"/>
+        <Label x:Name="labelMasa" Content="MASA&#xA;" HorizontalAlignment="Left" Margin="0,6,0,0" VerticalAlignment="Top" Width="90" Height="24" Grid.ColumnSpan="3" Grid.Row="1" Foreground="#FFF3CA20" FontWeight="Bold"/>
+        <TextBox x:Name="textBoxWartoscMasa" Grid.Column="2" HorizontalAlignment="Left" Height="23" Margin="86,6,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="105" Grid.Row="1" TextChanged="textBoxWartoscMasa_TextChanged" Background="#FFF3CA20"/>
+        <ComboBox x:Name="comboboxMasaJednZ" Grid.Column="3" HorizontalAlignment="Left" Margin="10,6,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="comboboxMasaJednZ_SelectionChanged" Grid.Row="1" Height="22"/>
+        <ComboBox x:Name="comboboxMasaJednDo" Grid.Column="4" HorizontalAlignment="Left" Margin="14,6,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="comboboxMasaJednDo_SelectionChanged" Grid.Row="1" Height="22"/>
+        <Button x:Name="przyciskKonwersja_Masa" Content="Konwertuj&#xA;" HorizontalAlignment="Left" Margin="0,6,0,0" VerticalAlignment="Top" Height="20" Grid.Column="5" Width="144" Background="#FFF3CA20" Click="przyciskKonwersjaMasa_Click" Grid.Row="1"/>
+        <Label x:Name="labelWynik" Content="Wynik&#xA;" HorizontalAlignment="Left" Margin="0,38,0,0" VerticalAlignment="Top" Width="144" Grid.Column="6" Height="42" Foreground="#FFF3CA20" FontSize="14" FontWeight="Bold"/>
+        <Label x:Name="labelDlugosc" Content="DŁUGOŚĆ&#xA;" HorizontalAlignment="Left" Margin="0,6,0,0" VerticalAlignment="Top" Width="90" Height="24" Grid.ColumnSpan="3" Grid.Row="2" Foreground="#FFF3CA20" FontWeight="Bold"/>
+        <TextBox x:Name="textBoxWartoscDlugosc" Grid.Column="2" HorizontalAlignment="Left" Height="23" Margin="86,7,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="105" Grid.Row="2" TextChanged="textBoxWartoscDlugosc_TextChanged" Background="#FFF3CA20"/>
+        <ComboBox x:Name="comboboxDlugoscJednZ" Grid.Column="3" HorizontalAlignment="Left" Margin="10,8,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="comboboxDlugoscJednZ_SelectionChanged" Grid.Row="2" Height="22"/>
+        <ComboBox x:Name="comboboxDlugoscJednDo" Grid.Column="4" HorizontalAlignment="Left" Margin="14,7,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="comboboxDlugoscJednDo_SelectionChanged" Grid.Row="2" Height="22"/>
+        <Button x:Name="przyciskKonwersja_Dlugosc" Content="Konwertuj&#xA;" HorizontalAlignment="Left" Margin="0,8,0,0" VerticalAlignment="Top" Height="20" Grid.Column="5" Width="144" Background="#FFF3CA20" Click="przyciskKonwersjaDlugosc_Click" Grid.Row="2"/>
+        <Label x:Name="labelLitry" Content="LITRY&#xA;" HorizontalAlignment="Left" Margin="0,5,0,0" VerticalAlignment="Top" Width="90" Height="24" Grid.ColumnSpan="3" Grid.Row="3" Foreground="#FFF3CA20" FontWeight="Bold"/>
+        <TextBox x:Name="textBoxWartoscLitry" Grid.Column="2" HorizontalAlignment="Left" Height="23" Margin="86,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="105" Grid.Row="3" TextChanged="textBoxWartoscLitry_TextChanged" Background="#FFF3CA20"/>
+        <ComboBox x:Name="comboboxLitryJednZ" Grid.Column="3" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="comboboxLitryJednZ_SelectionChanged" Grid.Row="3" Height="22"/>
+        <ComboBox x:Name="comboboxLitryJednDo" Grid.Column="4" HorizontalAlignment="Left" Margin="14,10,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="comboboxLitryJednDo_SelectionChanged" Grid.Row="3" Height="22"/>
+        <Button x:Name="przyciskKonwersja_Litry" Content="Konwertuj&#xA;" HorizontalAlignment="Left" Margin="0,10,0,0" VerticalAlignment="Top" Height="20" Grid.Column="5" Width="144" Background="#FFF3CA20" Click="przyciskKonwersjaLitry_Click" Grid.Row="3"/>
     </Grid>
 </Window>
