@@ -49,5 +49,11 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\KonwerterJednostekLK.Logic\KonwerterJednostekLK.Logic.csproj">
+      <Project>{ca81b3d4-4337-490b-8add-4fb37b7c0136}</Project>
+      <Name>KonwerterJednostekLK.Logic</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
