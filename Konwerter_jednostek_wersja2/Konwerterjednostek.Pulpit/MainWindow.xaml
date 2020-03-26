@@ -1,0 +1,87 @@
+﻿<Window x:Class="Konwerterjednostek.Pulpit.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Konwerterjednostek.Pulpit"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="753.789">
+    <Window.Resources>
+        <Storyboard x:Key="koloStoryboard" RepeatBehavior="Forever">
+            <DoubleAnimationUsingKeyFrames x:Name="koloStoryboard" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[2].(RotateTransform.Angle)" Storyboard.TargetName="path">
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="360"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+    </Window.Resources>
+
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+        <StackPanel Grid.Column="1">
+            <ComboBox x:Name="Konwerter_ComboBox" Margin="20,10,20,10" SelectionChanged="Konwerter_ComboBox_SelectionChanged" >
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding Name}"/>
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                </Grid.ColumnDefinitions>
+                <ComboBox x:Name="unitFrom_comboBox" Margin="20,10,20,10"/>
+                <ComboBox x:Name="unitTo_comboBox" Grid.Column ="1"  Margin="20,10,20,10"/>
+            </Grid>
+            <TextBox x:Name="input_TexBox" Margin="20,10,20,10" Height="30"/>
+            <TextBlock x:Name="output_TextBlock" Margin="20,10,20,10" Height="30"/>
+            <Button x:Name="wykonaj_Button" Margin="20,10,20,10" Height="25" Click="wykonaj_Button_Click" Content="Wykonaj Działanie" RenderTransformOrigin="0.463,2.464">
+                <Button.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="-15.945"/>
+                        <TranslateTransform X="13.964" Y="1.494"/>
+                    </TransformGroup>
+                </Button.RenderTransform>
+            </Button>
+
+        </StackPanel>
+        <Path x:Name="path" Data="M105,27.000001 C61.921791,27 27,61.921791 27.000001,105 27,148.07821 61.921791,183 105,183 148.07821,183 183,148.07821 183,105 183,61.921791 148.07821,27 105,27.000001 z M105,0.5 C162.71376,0.5 209.5,47.286243 209.5,105 209.5,162.71376 162.71376,209.5 105,209.5 47.286243,209.5 0.5,162.71376 0.5,105 0.5,47.286243 47.286243,0.5 105,0.5 z" HorizontalAlignment="Left" Margin="86.5,95.42,0,113.58" Width="210" RenderTransformOrigin="0.5,0.5">
+            <Path.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Path.RenderTransform>
+            <Path.Fill>
+                <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+                    <GradientStop Color="#FF130401"/>
+                    <GradientStop Color="#FF2A16F3" Offset="0.046"/>
+                    <GradientStop Color="#FF2A16F3" Offset="0.49"/>
+                    <GradientStop Color="#FFEC5326" Offset="0.787"/>
+                    <GradientStop Color="#FF2A16F3"/>
+                    <GradientStop Color="#FF26ECE3" Offset="0.883"/>
+                </LinearGradientBrush>
+            </Path.Fill>
+        </Path>
+        <Button Content="START" HorizontalAlignment="Left" Margin="50,377,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click" BorderBrush="#FF1D42E4" Background="#FF15F133"/>
+        <Button Content="STOP" HorizontalAlignment="Left" Margin="257.894,377,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_1" BorderBrush="#FF1D42E4" Background="#FFF5410C"/>
+        <Path Data="M86.5,198 L201,198" HorizontalAlignment="Left" Height="10" Margin="65.5,206,0,0" Stretch="Fill" Stroke="#FF00FF0C" StrokeThickness="10" VerticalAlignment="Top" Width="124.5" RenderTransformOrigin="1,0">
+            <Path.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform x:Name="wskazowka" Angle="0"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Path.RenderTransform>
+        </Path>
+
+    </Grid>
+</Window>
