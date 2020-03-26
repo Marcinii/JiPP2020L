@@ -52,7 +52,7 @@ namespace Konwerter_ver01
                 }
                 if (JednDo == "f" || JednDo == "funt")
                 {
-                    return ((Wart / 1000) * 2.2046).ToString();
+                    return ((Wart * 1000) * 2.2046).ToString();
                 }
                 if (JednDo == "t" || JednDo == "tona") { return Wart.ToString(); }
                 else Console.WriteLine("Program nie obsługuje konwersji z {0} do {1}. ", JednZ, JednDo);

@@ -69,43 +69,43 @@ namespace Konwerter_ver01.Desktop
        
         if (Convert.ToString(JednZ.SelectedItem) == "24h" && Convert.ToString(JednDo.SelectedItem) == "12h")
             {
-                int cyk, pyk;
+                double cyk, pyk;
 
-        int index = result.IndexOf(":");
+        double index = result.IndexOf(":");
                 if (index == 1)
                 {
-                     pyk = Convert.ToInt32(result.Substring(0,1));
-                     cyk = Convert.ToInt32(result.Substring(2, 2));
+                     pyk = Convert.ToDouble(result.Substring(0,1));
+                     cyk = Convert.ToDouble(result.Substring(2, 2));
                 }
                 else
                 {
-                     pyk = Convert.ToInt32(result.Substring(0, 2));
-                     cyk = Convert.ToInt32(result.Substring(3, 2));
+                     pyk = Convert.ToDouble(result.Substring(0, 2));
+                     cyk = Convert.ToDouble(result.Substring(3, 2));
                 }
 
                 cyk *= 6;
-                pyk *=30;
-                
+                pyk = (pyk + cyk /360) * 30;
+
                 Pokaz_Zegar(cyk, pyk);
             }
             if (Convert.ToString(JednZ.SelectedItem) == "12h" && Convert.ToString(JednDo.SelectedItem) == "24h")
             {
-                int cyk, pyk;
+                double cyk, pyk;
 
-                int index = result.IndexOf(":");
+                double index = result.IndexOf(":");
                 if (index == 1)
                 {
-                    pyk = Convert.ToInt32(result.Substring(0, 1));
-                    cyk = Convert.ToInt32(result.Substring(2, 2));
+                    pyk = Convert.ToDouble(result.Substring(0, 1));
+                    cyk = Convert.ToDouble(result.Substring(2, 2));
                 }
                 else
                 {
-                    pyk = Convert.ToInt32(result.Substring(0, 2));
-                    cyk = Convert.ToInt32(result.Substring(3, 2));
+                    pyk = Convert.ToDouble(result.Substring(0, 2));
+                    cyk = Convert.ToDouble(result.Substring(3, 2));
                 }
 
                 cyk *= 6;
-                pyk *= 30;
+                pyk = (pyk+cyk/360)*30;
 
                 Pokaz_Zegar(cyk, pyk);
             }
