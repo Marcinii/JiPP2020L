@@ -5,7 +5,7 @@ using static UnitConverter.Lib.Formulas;
 
 namespace UnitConverter.Lib
 {
-    public class DistanceConverter : IConverter
+    public class DistanceConverter : IConverter<double, Unit>
     {
         public string Name => "Distance Converter";
         public List<Unit> SupportedUnits => new List<Unit>() {

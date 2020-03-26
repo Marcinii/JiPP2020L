@@ -22,4 +22,10 @@ namespace UnitConverter.Lib
             : base($"Unsupported unit {unit.ToString()}")
         { }
     }
+    public class InvalidTimeFormat : Exception
+    {
+        public InvalidTimeFormat(string time)
+            : base($"Invalid time format '{time}'")
+        { }
+    }
 }

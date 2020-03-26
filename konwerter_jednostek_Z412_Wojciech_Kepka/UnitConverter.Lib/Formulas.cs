@@ -1,6 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Text;
+using UnitConverter.Lib;
 
 namespace UnitConverter.Lib
 {
@@ -36,5 +36,81 @@ namespace UnitConverter.Lib
         public static double KnotsToKph(double inp) { return inp / 0.539957; }
         public static double KnotsToMph(double inp) { return inp / 0.868976; }
         public static double KnotsToMps(double inp) { return inp / 1.94384; }
+        // Time
+        /// <summary>
+        /// Converts 24-hour time to 12-hour
+        /// </summary>
+        /// <param name="inp">Time in format like: '23:50'</param>
+        /// <returns>Converted time: '11:50 pm'</returns>
+        public static string TwentyFourHToTwelveH(string inp)
+        {
+            var outStr = new StringBuilder("");
+
+            try
+            {
+                var time = inp.Split(':');
+                if (time.Length == 2)
+                {
+                    try
+                    {
+                        var hours = int.Parse(time[0]);
+
+                        if (hours > 12)
+                        {
+                            return $"{hours - 12}:{time[1]} pm";
+                        }
+                        else
+                        {
+                            return $"{hours}:{time[1]} am";
+                        }
+                    }
+                    catch (FormatException) { }
+                }
+            }
+            catch (FormatException) { }
+
+
+
+            
+            throw new InvalidTimeFormat(inp);
+        }
+        /// <summary>
+        /// Converts 12-hour time to 24-hour
+        /// </summary>
+        /// <param name="inp">Time in format like: '11:50 pm'</param>
+        /// <returns>Converted time: '23:50'</returns>
+        public static string TwelveHToTwentyFour(string inp)
+        {
+            var outStr = new StringBuilder("");
+            try
+            {
+                var parts = inp.Split(' ');
+
+                if (parts.Length == 2)
+                {
+                    try
+                    {
+                        var time = parts[0].Split(':');
+                        if (time.Length == 2)
+                        {
+                            var hours = int.Parse(time[0]);
+
+                            if (parts[1] == "am")
+                            {
+                                return $"{hours}:{time[1]}";
+                            }
+                            else if (parts[1] == "pm")
+                            {
+                                return $"{hours + 12}:{time[1]}";
+                            }
+                        }
+                    }
+                    catch (FormatException) { }
+                }
+            }
+            catch (FormatException) { }
+
+            throw new InvalidTimeFormat(inp);
+        }
     }
 }

@@ -4,11 +4,11 @@ using static UnitConverter.Lib.Units;
 
 namespace UnitConverter.Lib
 {
-    public interface IConverter
+    public interface IConverter<T, U>
     {
         string Name { get; }
-        List<Unit> SupportedUnits { get; }
-        Tuple<double, Unit> Convert(double val, Unit inpUnit, Unit outUnit);
+        List<U> SupportedUnits { get; }
+        Tuple<T, U> Convert(T val, U inpUnit, U outUnit);
     }
 
 }

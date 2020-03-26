@@ -5,7 +5,7 @@ using static UnitConverter.Lib.Formulas;
 
 namespace UnitConverter.Lib
 {
-    public class MassConverter : IConverter
+    public class MassConverter : IConverter<double, Unit>
     {
         public string Name => "Mass Converter";
         public List<Unit> SupportedUnits => new List<Unit>() {

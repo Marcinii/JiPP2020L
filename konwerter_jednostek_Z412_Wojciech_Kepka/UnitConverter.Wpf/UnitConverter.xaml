@@ -6,12 +6,39 @@
         xmlns:local="clr-namespace:UnitConverter.Wpf"
         mc:Ignorable="d"
         Title="UnitConverter" Height="450" Width="729.699">
+    <Window.Resources>
+        <TransformGroup x:Key="HourTransform">
+            <ScaleTransform/>
+            <SkewTransform/>
+            <RotateTransform Angle="0"/>
+            <TranslateTransform/>
+        </TransformGroup>
+        <TransformGroup x:Key="Transform1">
+            <ScaleTransform/>
+            <SkewTransform/>
+            <RotateTransform Angle="0"/>
+            <TranslateTransform/>
+        </TransformGroup>
+        <Storyboard x:Key="ShowClock">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="clockGrid">
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[2].(RotateTransform.Angle)" Storyboard.TargetName="hourPath">
+                <EasingDoubleKeyFrame KeyTime="0:0:2" Value="359.205"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[2].(RotateTransform.Angle)" Storyboard.TargetName="minutePath">
+                <EasingDoubleKeyFrame KeyTime="0:0:2" Value="359.55"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+    </Window.Resources>
+    <Window.Triggers>
+    </Window.Triggers>
     <Grid>
         <StackPanel>
             <ComboBox Name="converterComboBox" Margin="10,5,10,5" SelectionChanged="converterComboBox_SelectionChanged">
                 <ComboBox.ItemTemplate>
                     <DataTemplate>
-                        <TextBlock Text="{Binding Name}"></TextBlock>
+                        <TextBlock Text="{Binding}"></TextBlock>
                     </DataTemplate>
                 </ComboBox.ItemTemplate>
             </ComboBox>
@@ -21,15 +48,52 @@
             </Grid>
             <TextBox Margin="10,5,10,5" Name="inputTextBox" Height="30" FontSize="16"></TextBox>
             <Button Height="30" Margin="30,20,30,20" Name="convertButton" FontSize="16" Click="convertButton_Click">Konwertuj</Button>
-            <ListView Name="outListView" Height="245" Margin="0,0,-0.333,0">
-                <ListView.View>
-                    <GridView>
-                        <GridViewColumn Header="Value" DisplayMemberBinding="{Binding Item1}" Width="120"></GridViewColumn>
-                        <GridViewColumn Header="Unit" DisplayMemberBinding="{Binding Item2}" Width="40"></GridViewColumn>
-                    </GridView>
-                </ListView.View>
-            </ListView>
-
         </StackPanel>
+        <Grid x:Name="clockGrid"  Height="245" Margin="0,180,0,-6" Opacity="0">
+            <Ellipse Fill="#FFF4F4F5" Height="167.308" Margin="282.009,34.647,272.714,0" Stroke="Black" VerticalAlignment="Top" Width="167.308" RenderTransformOrigin="0.5,0.5">
+                <Ellipse.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="0.224"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Ellipse.RenderTransform>
+
+            </Ellipse>
+            <Path x:Name="minutePath" Data="M365,117.58 L365,34.647" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="83.933" Margin="365,34.647,0,0" Stretch="Fill" Stroke="Black" VerticalAlignment="Top" Width="1" RenderTransformOrigin="0.438,1.001">
+                <Path.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="0"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Path.RenderTransform>
+            </Path>
+            <Path x:Name="hourPath" Data="M365,117.58 L365,34.647" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="43.121" Margin="365,75.459,0,0" Stretch="Fill" Stroke="Red" VerticalAlignment="Top" Width="1" RenderTransformOrigin="0.438,1.001">
+                <Path.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="0"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Path.RenderTransform>
+            </Path>
+
+        </Grid>
+        <ListView Name="outListView" Height="245" Margin="0,180,0,-6" Opacity="0">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Value" DisplayMemberBinding="{Binding Item1}" Width="120"></GridViewColumn>
+                    <GridViewColumn Header="Unit" DisplayMemberBinding="{Binding Item2}" Width="40"></GridViewColumn>
+                </GridView>
+            </ListView.View>
+        </ListView>
+
+
+
+
     </Grid>
 </Window>

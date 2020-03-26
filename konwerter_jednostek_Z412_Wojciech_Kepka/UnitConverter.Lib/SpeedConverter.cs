@@ -5,7 +5,7 @@ using static UnitConverter.Lib.Formulas;
 
 namespace UnitConverter.Lib
 {
-    public class SpeedConverter : IConverter
+    public class SpeedConverter : IConverter<double, Unit>
     {
         public string Name => "Speed Converter";
         public List<Unit> SupportedUnits => new List<Unit>() {

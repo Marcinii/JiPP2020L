@@ -5,7 +5,7 @@ using static UnitConverter.Lib.Formulas;
 
 namespace UnitConverter.Lib
 {
-    public class TemperatureConverter : IConverter
+    public class TemperatureConverter : IConverter<double, Unit>
     {
         public string Name => "Temperature Converter";
         public List<Unit> SupportedUnits => new List<Unit>() {

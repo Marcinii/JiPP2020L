@@ -15,17 +15,23 @@ namespace UnitConverter.Cli
     {
         double inpVal; Unit inpUnit;
         List<Tuple<double, Unit>> outVals = new List<Tuple<double, Unit>>();
+
+        string inpStr; TimeFormat inpFormat;
+        string outStr;
+        bool timeConversion = false;
+
         bool calculated = false;
         bool cmd = false;
         Dictionary<DateTime, Record> history = new Dictionary<DateTime, Record> { };
 
-        List<IConverter> converters = new List<IConverter>()
+        List<IConverter<double, Unit>> converters = new List<IConverter<double, Unit>>()
         {
             new DistanceConverter(),
             new MassConverter(),
             new SpeedConverter(),
             new TemperatureConverter(),
         };
+        TimeConverter tConv = new TimeConverter();
 
         Converter()
         {
@@ -54,9 +60,14 @@ namespace UnitConverter.Cli
             Console.WriteLine("\t\tmi/h\t(Mile na godzine)");
             Console.WriteLine("\t\tm/s\t(Metry na sekunde)");
             Console.WriteLine("\t\tknots\t(Wezly)");
+            Console.WriteLine("\tCzas:");
+            Console.WriteLine("\t\th       - 24 godzinny format");
+            Console.WriteLine("\t\tam | pm - 12 godzinny format");
             Console.WriteLine("Przykładowy input:");
             Console.WriteLine("\t10 kg");
             Console.WriteLine("\t-3.14 F");
+            Console.WriteLine("\t23:50 h");
+            Console.WriteLine("\t7:42 am");
             Console.WriteLine("Dostępne komendy:");
             Console.WriteLine("\thelp\tDrukuj pomoc");
             Console.WriteLine("\tclear\tWyczyść okno");
@@ -89,6 +100,19 @@ namespace UnitConverter.Cli
                 return false;
             }
         }
+        bool SetInpFormat(string userInp)
+        {
+            try
+            {
+                inpFormat = TimeFormatFromString(userInp);
+                return true;
+            }
+            catch (InvalidTimeFormat e)
+            {
+                Console.WriteLine($"Podany format czasu '{userInp}' jest nieobsługiwany - {e}. Spróbuj ponownie.");
+                return false;
+            }
+        }
         bool Parse(string userInp)
         // Parses input like '10 kg', '15.5 C'...
         {
@@ -111,14 +135,32 @@ namespace UnitConverter.Cli
                     cmd = false;
                     try
                     {
-                        if (SetInpVal(inp[0]) && SetInpUnit(inp[1])) { return true; }
-                        else { return false; }
+                        if (inp.Length == 2)
+                        {
+                            if (inp[1] == "am" | inp[1] == "pm" | inp[1] == "h")
+                            {
+                                if (SetInpFormat(inp[1]))
+                                {
+                                    if (inp[1] == "h")
+                                    { 
+                                        inpStr = inp[0];
+                                    } else
+                                    {
+                                        inpStr = userInp;
+                                    }
+
+                                    timeConversion = true;
+                                    return true;
+                                }
+                            }
+                            if (SetInpVal(inp[0]) && SetInpUnit(inp[1])) { return true; }
+                            else { return false; }
+                        }
+
                     }
-                    catch (System.IndexOutOfRangeException)
-                    {
-                        Console.WriteLine($"Podana komenda '{userInp}' nie istnieje.");
-                        return false;
-                    }
+                    catch (System.IndexOutOfRangeException) { }
+                    Console.WriteLine($"Podana komenda '{userInp}' nie istnieje.");
+                    return false;
             }
         }
         void GetInp()
@@ -134,32 +176,51 @@ namespace UnitConverter.Cli
         {
             if (!cmd)
             {
-                foreach(IConverter conv in converters)
+                if (timeConversion)
                 {
-                    if (conv.SupportedUnits.Contains(inpUnit))
+                    try
                     {
-                        foreach (Unit u in conv.SupportedUnits)
+                        outStr = tConv.Convert(inpStr, inpFormat, OppositeFormat(inpFormat)).Item1;
+                    }
+                    catch (InvalidTimeFormat e)
+                    {
+                        Console.WriteLine(e);
+                    }
+                } else
+                {
+                    foreach (IConverter<double, Unit> conv in converters)
+                    {
+                        if (conv.SupportedUnits.Contains(inpUnit))
                         {
-                            if (u != inpUnit)
+                            foreach (Unit u in conv.SupportedUnits)
                             {
-                                outVals.Add(conv.Convert(inpVal, inpUnit, u));
+                                if (u != inpUnit)
+                                {
+                                    outVals.Add(conv.Convert(inpVal, inpUnit, u));
+                                }
                             }
                         }
                     }
+                    history.Add(DateTime.Now, new Record(inpVal, inpUnit, new List<Tuple<double, Unit>>(outVals)));
                 }
                 calculated = true;
-                history.Add(DateTime.Now, new Record(inpVal, inpUnit, new List<Tuple<double, Unit>>(outVals)));
             }
 
         }
         string OutStr()
         {
-            StringBuilder s = new StringBuilder();
-            foreach(Tuple<double, Unit> out_ in outVals)
+            if (timeConversion)
             {
-                s.Append($"{inpVal} {UnitName(inpUnit)} = {out_.Item1} {UnitName(out_.Item2)}\n");
+                return outStr;
+            } else
+            {
+                StringBuilder s = new StringBuilder();
+                foreach (Tuple<double, Unit> out_ in outVals)
+                {
+                    s.Append($"{inpVal} {UnitName(inpUnit)} = {out_.Item1} {UnitName(out_.Item2)}\n");
+                }
+                return s.ToString().Trim('\n');
             }
-            return s.ToString().Trim('\n');
         }
         void PrintOut()
         {

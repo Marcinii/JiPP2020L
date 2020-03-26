@@ -6,6 +6,34 @@ namespace UnitConverter.Lib
 {
     public class Units
     {
+        public enum TimeFormat
+        {
+            TwentyFourHour,
+            TwelveHour,
+        }
+        public static TimeFormat TimeFormatFromString(string format)
+        {
+            switch (format)
+            {
+                case "h":
+                    return TimeFormat.TwentyFourHour;
+                case "am":
+                case "pm":
+                    return TimeFormat.TwelveHour;
+                default:
+                    throw new InvalidTimeFormat(format);
+            }
+        }
+        public static TimeFormat OppositeFormat(TimeFormat format)
+        {
+            if (format == TimeFormat.TwelveHour)
+            {
+                return TimeFormat.TwentyFourHour;
+            } else
+            {
+                return TimeFormat.TwelveHour;
+            }
+        }
         public enum Unit
         {
             Celsius,
@@ -19,7 +47,7 @@ namespace UnitConverter.Lib
             KilometersPerHour, // Kph
             MilesPerHour, // Mph
             MetersPerSecond, // Mps
-            Knots
+            Knots,
         }
         public static Unit UnitFromString(String unit)
         {
