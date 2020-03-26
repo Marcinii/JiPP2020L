@@ -11,7 +11,8 @@ namespace KonwerterJednostek
         public string Nazwa => "Litry";
         public List<string> Jednostki => new List<string>()
         {
-            "l", "m^3"
+            "l", 
+            "m^3"
         };
         public double Konwertuj(string jednZ, string jednDo, double wartoscDoKonwersji)
         {

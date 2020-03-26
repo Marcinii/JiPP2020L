@@ -23,32 +23,56 @@ namespace KonwerterJednostek.Desktop
         public MainWindow()
         {
             InitializeComponent();
-            ComboBoxJednostkaDlugosc.ItemsSource = new List<string>()
+
+            comboboxTempJednZ.ItemsSource = new List<string>()
             {
-                "km",
-                "m"
+                "C",
+                "F",
+                "K"
             };
+
+            comboboxTempJednDo.ItemsSource = new List<string>()
+            {
+                "C",
+                "F",
+                "K"
+            };
+        }
+
+       
+
+
+
+
+
+
+
+        
+
+        private void przyciskKonwersjaTemp_Click(object sender, RoutedEventArgs e)
+        {
+            KonwerterTemperatura konw = new KonwerterTemperatura();
+
+            string wejscie = textBoxWartoscTemp.Text;
+            double wejscieL = Convert.ToDouble(wejscie);
+            //MessageBox.Show("Brawo!" + liczba);
+            
+            double wynikL = konw.Konwertuj(comboboxTempJednZ.Text, comboboxTempJednDo.Text, wejscieL); 
+            textblockWynikTemp.Text = Convert.ToString(wynikL);
         }
 
         private void ComboBoxJednostkaDlugosc_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
-            MessageBox.Show("Wybrales: " + ComboBoxJednostkaDlugosc.SelectedItem);
         }
 
-
-
-
-
-
-
-        private void przyciskKonwersja_Click(object sender, RoutedEventArgs e)
+        private void comboboxTempJednZ_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            string wejscie = textboxWejscie_Dlugosc.Text;
-            string wyjscie = "Witaj " + wejscie;
-            textblockWynik_Dlugosc.Text = wyjscie;
-        }
 
-    
+        }
+        private void comboboxTempJednDo_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
     }
 }
