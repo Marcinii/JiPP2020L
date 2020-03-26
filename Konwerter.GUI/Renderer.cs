@@ -11,7 +11,7 @@ namespace Konwerter.GUI
     {
         public static void DrawClock(Canvas canvas, DateTime dateTime)
         {
-            canvas.
+            //canvas.
         }
     }
 }
