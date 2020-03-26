@@ -18,7 +18,7 @@ namespace ziecinaUnitConverter.Logic
                 {
                     case "AM":
                         d = DateTime.Parse(startHour + " " + format);
-                        endHour = d.ToString("HH:mm");
+                        endHour = d.ToString("HH:mm"); 
                         break;
                     case "PM":
                         d = DateTime.Parse(startHour + " " + format);

@@ -6,6 +6,38 @@
         xmlns:local="clr-namespace:ziecinaUnitConverter.Desktop"
         mc:Ignorable="d"
         Title="MainWindow" Height="492.899" Width="779.521">
+    <Window.Resources>
+        <Storyboard x:Key="clockMoving">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[2].(RotateTransform.Angle)" Storyboard.TargetName="handHour">
+                <EasingDoubleKeyFrame KeyTime="12:0:0" Value="360"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Key="clockMovingMinute">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[2].(RotateTransform.Angle)" Storyboard.TargetName="handMinute">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="1:0:0" Value="360"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Key="clockMovingSecond">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[1].(SkewTransform.AngleX)" Storyboard.TargetName="handSecond">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0.5"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[1].(SkewTransform.AngleY)" Storyboard.TargetName="handSecond">
+                <EasingDoubleKeyFrame KeyTime="0" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[2].(RotateTransform.Angle)" Storyboard.TargetName="handSecond">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:1:0" Value="360"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+    </Window.Resources>
+    <Window.Triggers>
+        <EventTrigger RoutedEvent="FrameworkElement.Loaded">
+            <BeginStoryboard Storyboard="{StaticResource clockMoving}"/>
+            <BeginStoryboard Storyboard="{StaticResource clockMovingMinute}"/>
+            <BeginStoryboard Storyboard="{StaticResource clockMovingSecond}"/>
+        </EventTrigger>
+    </Window.Triggers>
     <Grid Height="162" VerticalAlignment="Top" RenderTransformOrigin="0.504,0.875" Margin="0,0,362,0">
         <Grid.RowDefinitions>
             <RowDefinition Height="131*"/>
@@ -28,8 +60,8 @@
         <RadioButton x:Name="radioPM" Content="PM" HorizontalAlignment="Left" Margin="579,69,-269,0" VerticalAlignment="Top" Width="100" GroupName="hourFormat"/>
         <TextBlock x:Name="blockResaultHour" HorizontalAlignment="Left" Height="36" Margin="442,123,-208,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="176" Grid.RowSpan="2" />
         <RadioButton x:Name="radio24h" Content="24h" HorizontalAlignment="Left" Margin="579,89,-269,0" VerticalAlignment="Top" Width="100" IsChecked="True" GroupName="hourFormat"/>
-        <Canvas Margin="519,65,-251.813,-185" Grid.Row="1">
-            <Ellipse Fill="#FF1A1AAA" HorizontalAlignment="Left" Height="140" Stroke="Black" VerticalAlignment="Top" Width="140" Canvas.Left="2"/>
+        <Canvas Margin="528.333,56.543,-261.146,-176.543" Grid.Row="1">
+            <Ellipse Fill="#FF1A1AAA" HorizontalAlignment="Left" Height="140" Stroke="Black" VerticalAlignment="Top" Width="140" Canvas.Top="1.457"/>
             <Rectangle Fill="White" HorizontalAlignment="Left" Height="30" Stroke="Black" VerticalAlignment="Top" Width="14.457" Canvas.Left="66"/>
             <Ellipse Fill="#FF4E4EFD" HorizontalAlignment="Left" Height="81" Stroke="Black" VerticalAlignment="Top" Width="81" Canvas.Left="33" Canvas.Top="30"/>
             <Rectangle Fill="White" HorizontalAlignment="Left" Height="5.457" Stroke="Black" VerticalAlignment="Top" Width="28" Canvas.Left="114.334" Canvas.Top="68"/>
@@ -134,16 +166,42 @@
                 </Rectangle.RenderTransform>
             </Rectangle>
             <Ellipse Fill="White" HorizontalAlignment="Left" Height="14.457" Stroke="Black" VerticalAlignment="Top" Width="14.457" Canvas.Left="66" Canvas.Top="63"/>
-            <Rectangle Fill="#FF23FF00" HorizontalAlignment="Left" Height="36" Stroke="Black" VerticalAlignment="Top" Width="14.457" Canvas.Left="66" Canvas.Top="35"/>
+            <Rectangle x:Name="handHour" Fill="#FF23FF00" HorizontalAlignment="Left" Height="36" Stroke="Black" VerticalAlignment="Top" Width="14.457" Canvas.Left="66" Canvas.Top="35" RenderTransformOrigin="0.5,1">
+                <Rectangle.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Rectangle.RenderTransform>
+            </Rectangle>
+            <Rectangle x:Name="handMinute" Fill="#FFDCFF00" HorizontalAlignment="Left" Height="40" Stroke="Black" VerticalAlignment="Top" Width="7" RenderTransformOrigin="0.5,1" Canvas.Left="69.974" Canvas.Top="30.833">
+                <Rectangle.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Rectangle.RenderTransform>
+            </Rectangle>
+            <Rectangle x:Name="handSecond" HorizontalAlignment="Left" Height="69.543" Stroke="Black" VerticalAlignment="Top" Width="2" Canvas.Left="72.375" Canvas.Top="1.164" RenderTransformOrigin="0.5,1">
+                <Rectangle.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Rectangle.RenderTransform>
+                <Rectangle.Fill>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="Black" Offset="0"/>
+                        <GradientStop Color="Red" Offset="1"/>
+                    </LinearGradientBrush>
+                </Rectangle.Fill>
+            </Rectangle>
         </Canvas>
-        <Rectangle HorizontalAlignment="Left" Height="69.543" Margin="591.003,65.457,-183.482,-113.543" Stroke="Black" VerticalAlignment="Top" Width="2" Grid.Row="1">
-            <Rectangle.Fill>
-                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                    <GradientStop Color="Black" Offset="0"/>
-                    <GradientStop Color="Red" Offset="1"/>
-                </LinearGradientBrush>
-            </Rectangle.Fill>
-        </Rectangle>
-        <Rectangle Fill="#FFDCFF00" HorizontalAlignment="Left" Height="40" Margin="588.334,95,-185.813,-113.543" Grid.Row="1" Stroke="Black" VerticalAlignment="Top" Width="7"/>
     </Grid>
 </Window>
