@@ -23,7 +23,7 @@
         </Grid.ColumnDefinitions>
         <Button x:Name="przyciskKonwersja_Dlugosc" Content="Konwertuj&#xD;&#xA;" HorizontalAlignment="Left" Margin="0,86,0,0" VerticalAlignment="Top" Height="20" Grid.Column="4" Width="144" Background="#FF7FC9F3" Click="przyciskKonwersjaTemp_Click"/>
         <Label x:Name="labelWyborJednostki1" Content="Wybór jednostki&#xD;&#xA;" HorizontalAlignment="Left" Margin="0,38,0,0" VerticalAlignment="Top" Width="144" Grid.Column="2" Height="24"/>
-        <TextBlock x:Name="textblockWynikTemp" Grid.Column="5" HorizontalAlignment="Left" Margin="10,86,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="20" Width="108"/>
+        <TextBlock x:Name="textblockWynikTemp" Grid.Column="5" HorizontalAlignment="Left" Margin="10,86,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="20" Width="108"/>
         <TextBox x:Name="textboxWejscie_Litry" HorizontalAlignment="Left" Height="23" Margin="101,10,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="105" Grid.Column="1" Grid.Row="1"/>
         <TextBlock x:Name="textblockWynik_Litry" Grid.Column="5" HorizontalAlignment="Left" Margin="10,6,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="20" Width="108" Grid.Row="1"/>
         <TextBox x:Name="textboxWejscie_Mas" HorizontalAlignment="Left" Height="23" Margin="101,9,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="105" Grid.Column="1" Grid.Row="2"/>
