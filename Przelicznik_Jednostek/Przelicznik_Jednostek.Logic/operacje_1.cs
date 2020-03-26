@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Przelicznik_Jednostek
 {
-    public class operacje_1 : Dzialania
+    public class operacje_1 
     {
         protected double c, f, km, m, kg, ibs;
         Dzialania operacja = new Dzialania();

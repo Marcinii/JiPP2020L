@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Przelicznik_Jednostek
 {
-    class Program:operacje_1
+    class Program
     {
         static void Main(string[] args)
         {

@@ -43,13 +43,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Dzialania.cs" />
-    <Compile Include="operacje_1.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Przelicznik_Jednostek.Logic\Przelicznik_Jednostek.Logic.csproj">
+      <Project>{20f7a0c1-f70d-4540-a5c9-087d99cd2e78}</Project>
+      <Name>Przelicznik_Jednostek.Logic</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
