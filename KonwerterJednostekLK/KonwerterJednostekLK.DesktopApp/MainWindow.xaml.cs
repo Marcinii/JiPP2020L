@@ -1,4 +1,5 @@
-﻿using System;
+﻿using KonwerterJednostekLK.Logic;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,6 +10,7 @@ using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
+using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
@@ -24,32 +26,47 @@ namespace KonwerterJednostekLK.DesktopApp
         public MainWindow()
         {
             InitializeComponent();
-            List<IConverter> converters = new List<IConverter>()
-            {
-                new TemperatureConverter(),
-                new LenghtConverter(),
-                new MassConverter(),
-                new UnitConverter()
-
-            };
+            List<IConverter> converters = new ConverterService().GetConverters();
             konwerteryComboBox.ItemsSource = new List<string>()
-            {
+            { 
              converters[0].getName, // temperatury
              converters[1].getName, // dlugosci
              converters[2].getName, // masy
-             converters[3].getName, // jednostek
+             converters[3].getName, // jednostek        
             };
-            int index = konwerteryComboBox.SelectedIndex;
+
+
+            List<string> time = new List<string>()
+            {
+                "system 24h na 12h",
+            };
+            timeComboBox.ItemsSource = time;
         }
 
-        
 
-    
+        private void timeComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            string input = hourTextBox.Text;
+            float x = float.Parse(input);
+            if (timeComboBox.SelectedItem.ToString() == "system 24h na 12h"){ 
+                    float result = new TimeConverter().Convert(0, 1, x);
+                    string type;
+                    if (x > 12)
+                        type = "PM";
+                    else
+                        type = "AM";
+                    timeResultBlock.Text = result.ToString() + ":" + minuteTextBox.Text + type;
+             }
+        }
 
-        private void countButton_Click(object sender, RoutedEventArgs e){
+      
+
+
+        private void countButton_Click(object sender, RoutedEventArgs e)
+{
             int converter = konwerteryComboBox.SelectedIndex;
             int from = fromComboBox.SelectedIndex;
-            int to = ToComboBox.SelectedIndex;
+            int to = toComboBox.SelectedIndex;
            
             
             string inputValue = ValueTextBox.Text.ToString();
@@ -76,6 +93,7 @@ namespace KonwerterJednostekLK.DesktopApp
                 float result = new UnitConverter().Convert(from, to, value);
                 Wynik.Text = result.ToString();
             }
+            
 
 
         }
@@ -107,38 +125,51 @@ namespace KonwerterJednostekLK.DesktopApp
                 fromComboBox.Items.Add("Metry");
                 fromComboBox.Items.Add("Centymetry");
             }
-            
+
+
+        }
+
+        private void stopButton_Click(object sender, RoutedEventArgs e)
+        {
+            ((Storyboard)Resources["KolorowyZegar"]).Stop();
+        }
+
+        private void button_Click(object sender, RoutedEventArgs e)
+        {
+            ((Storyboard)Resources["KolorowyZegar"]).Begin();
         }
 
         private void fromComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             int pointer = konwerteryComboBox.SelectedIndex;
-            ToComboBox.Items.Clear();  /// czyszczenie bufora
+            toComboBox.Items.Clear();  /// czyszczenie bufora
 
             if (pointer == 0)
             {
-                ToComboBox.Items.Add("Celcjusze");
-                ToComboBox.Items.Add("Farenhajty");
+                toComboBox.Items.Add("Celcjusze");
+                toComboBox.Items.Add("Farenhajty");
             }
 
             else if (pointer == 1)
             {
-                ToComboBox.Items.Add("Mile");
-                ToComboBox.Items.Add("Kilometry");
-                ToComboBox.Items.Add("Jardy");
+                toComboBox.Items.Add("Mile");
+                toComboBox.Items.Add("Kilometry");
+                toComboBox.Items.Add("Jardy");
             }
             else if (pointer == 2)
             {
-                ToComboBox.Items.Add("Funty");
-                ToComboBox.Items.Add("Kilogramy");
+                toComboBox.Items.Add("Funty");
+                toComboBox.Items.Add("Kilogramy");
             }
             else if (pointer == 3)
             {
-                ToComboBox.Items.Add("Metry");
-                ToComboBox.Items.Add("Centymetry");
+                toComboBox.Items.Add("Metry");
+                toComboBox.Items.Add("Centymetry");
             }
-
+          
         }
+
+       
 
         private void ValueTextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
@@ -149,6 +180,13 @@ namespace KonwerterJednostekLK.DesktopApp
         {
 
         }
+
+        private void textBox1_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        
     }
 }
 
