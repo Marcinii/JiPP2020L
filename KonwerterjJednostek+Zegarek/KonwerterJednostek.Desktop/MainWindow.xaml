@@ -6,6 +6,18 @@
         xmlns:local="clr-namespace:KonwerterJednostek.Desktop"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
+    <Window.Resources>
+        <Storyboard x:Key="KoloStory">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[2].(RotateTransform.Angle)" Storyboard.TargetName="path">
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="360"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+    </Window.Resources>
+    <Window.Triggers>
+        <EventTrigger RoutedEvent="FrameworkElement.Loaded">
+            <BeginStoryboard Storyboard="{StaticResource KoloStory}"/>
+        </EventTrigger>
+    </Window.Triggers>
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="205"/>
@@ -47,6 +59,24 @@
         <ComboBox x:Name="combobox_Jednostka_wynikowa"  Grid.Row="5" Grid.Column = "1" Background="#FFF0D264" ></ComboBox>
 
         <Button x:Name="button_action"  Grid.Row="8" Grid.Column = "1" Background="#FF2FAB37" Click="button_action_Click" >Konwertuj</Button>
+        <Path x:Name="path" Data="M132.6,28.892001 C75.323652,28.892 28.892,75.323652 28.892001,132.6 28.892,189.87634 75.323652,236.308 132.6,236.308 189.87634,236.308 236.308,189.87634 236.308,132.6 236.308,75.323652 189.87634,28.892 132.6,28.892001 z M132.6,0.5 C205.55681,0.5 264.7,59.643185 264.7,132.6 264.7,205.55681 205.55681,264.7 132.6,264.7 59.643185,264.7 0.5,205.55681 0.5,132.6 0.5,59.643185 59.643185,0.5 132.6,0.5 z" HorizontalAlignment="Left" Height="69.6" Margin="20.4,10,0,-19.6" Grid.Row="6" Stretch="Fill" Stroke="Black" VerticalAlignment="Top" Width="69.6" RenderTransformOrigin="0.5,0.5" Grid.Column="2" Grid.RowSpan="2">
+            <Path.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Path.RenderTransform>
+            <Path.Fill>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="Black" Offset="0.132"/>
+                    <GradientStop Color="#FF13A20F" Offset="0.545"/>
+                    <GradientStop Color="#FF0C6E0A" Offset="0.406"/>
+                    <GradientStop Color="White" Offset="0.957"/>
+                </LinearGradientBrush>
+            </Path.Fill>
+        </Path>
 
     </Grid>
 </Window>

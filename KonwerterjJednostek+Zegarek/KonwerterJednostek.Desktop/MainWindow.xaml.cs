@@ -13,6 +13,9 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using KonwerterjJednostek2;
+using KonwerterJednostek2.Logic;
+
+
 
 
 namespace KonwerterJednostek.Desktop
@@ -37,9 +40,15 @@ namespace KonwerterJednostek.Desktop
 
         private void button_action_Click(object sender, RoutedEventArgs e)
         {
+            
+            ((StoryBoard).Resources["KoloStory"]).Begin();
+            
+
             string tekst_wejsciowy = textbox_input.Text;
             double wartosc_wejsciowa = double.Parse(tekst_wejsciowy);
             double wynik=0;
+
+            
 
             wynik = ((IKonwerter)combobox_Rodzaj_konwersji.SelectedItem).Konwerter(combobox_Jednostka_bazowa.SelectedItem.ToString(), combobox_Jednostka_wynikowa.SelectedItem.ToString(), wartosc_wejsciowa);
 
