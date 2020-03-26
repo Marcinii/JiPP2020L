@@ -63,5 +63,33 @@ namespace ziecinaUnitConverter.Desktop
             listStartUnit.ItemsSource = MainWindow.converters[chosenConverter].Units;
             listEndUnit.ItemsSource = MainWindow.converters[chosenConverter].Units;
         }
+
+        private void textValues_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        public void text12h_KeyUp(object sender, KeyEventArgs e)
+        {
+            ziecinaUnitConverter.Logic.ConvertHour convH = new ziecinaUnitConverter.Logic.ConvertHour();
+            if (radioAM.IsChecked == true)
+            {
+                string newHour = convH.Convert(text12h.Text, "AM");
+                blockResaultHour.Text = newHour;
+            }
+            else if (radioPM.IsChecked == true)
+            {
+                string newHour = convH.Convert(text12h.Text, "PM");
+                blockResaultHour.Text = newHour;
+            }
+            else if (radio24h.IsChecked == true)
+            {
+                string newHour = convH.Convert(text12h.Text, "24h");
+                blockResaultHour.Text = newHour;
+            }else
+            {
+                blockResaultHour.Text = "Proszę wybrać startowy format";
+            }
+        }
     }
 }

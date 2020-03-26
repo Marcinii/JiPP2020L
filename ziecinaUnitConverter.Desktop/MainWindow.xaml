@@ -1,12 +1,12 @@
-﻿<Window x:Class="ziecinaUnitConverter.Desktop.MainWindow"
+﻿<Window x:Name="blockHourValidate" x:Class="ziecinaUnitConverter.Desktop.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ziecinaUnitConverter.Desktop"
         mc:Ignorable="d"
-        Title="MainWindow" Height="492.899" Width="433.521">
-    <Grid Height="162" VerticalAlignment="Top" RenderTransformOrigin="0.504,0.875">
+        Title="MainWindow" Height="492.899" Width="779.521">
+    <Grid Height="162" VerticalAlignment="Top" RenderTransformOrigin="0.504,0.875" Margin="0,0,362,0">
         <Grid.RowDefinitions>
             <RowDefinition Height="131*"/>
             <RowDefinition Height="20*"/>
@@ -14,13 +14,19 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <Label Name="labelStartUnit" HorizontalAlignment="Left" Height="30" Margin="69,44,0,-53" VerticalAlignment="Top" Width="175" Grid.Row="1">Jednostka startowa</Label>
+        <Label Name="labelStartUnit" HorizontalAlignment="Left" Height="30" Margin="217,40,0,-49" VerticalAlignment="Top" Width="175" Grid.Row="1">Jednostka startowa</Label>
         <ComboBox Name="listStartUnit" HorizontalAlignment="Left" Height="41" Margin="273,94,0,-114" VerticalAlignment="Top" Width="119" Grid.Row="1"/>
         <ComboBox Name="listEndUnit" HorizontalAlignment="Left" Height="41" Margin="273,222,0,-242" VerticalAlignment="Top" Width="119" Grid.Row="1"/>
         <TextBlock Name="blockResault" HorizontalAlignment="Left" Height="41" Margin="20,223,0,-243" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="224" Grid.Row="1"/>
-        <TextBox Name="textValues" HorizontalAlignment="Left" Height="41" Margin="20,94,0,-114" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="224" Grid.Row="1" KeyUp="textValues_KeyUp"/>
-        <Label Name="labelEndUnit" HorizontalAlignment="Left" Height="30" Margin="69,172,0,-181" VerticalAlignment="Top" Width="175" Grid.Row="1">Jednostka końcowa</Label>
-        <Label Name="labelChooseConverter" Content="Wybierz konwerter" HorizontalAlignment="Left" Height="30" Margin="69,10,0,0" VerticalAlignment="Top" Width="175"/>
-        <ComboBox Name="listConverters" HorizontalAlignment="Left" Height="41" Margin="20,57,0,0" VerticalAlignment="Top" Width="372" SelectionChanged="listConverters_SelectionChanged"/>
+        <TextBox Name="textValues" HorizontalAlignment="Left" Height="41" Margin="20,94,0,-114" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="224" Grid.Row="1" KeyUp="textValues_KeyUp" TextChanged="textValues_TextChanged"/>
+        <Label Name="labelEndUnit" HorizontalAlignment="Left" Height="30" Margin="217,168,0,-177" VerticalAlignment="Top" Width="175" Grid.Row="1">Jednostka końcowa</Label>
+        <Label Name="labelChooseConverter" Content="Wybierz konwerter jednostek" HorizontalAlignment="Left" Height="30" Margin="69,10,0,0" VerticalAlignment="Top" Width="175"/>
+        <ComboBox Name="listConverters" HorizontalAlignment="Left" Height="33" Margin="20,57,0,0" VerticalAlignment="Top" Width="372" SelectionChanged="listConverters_SelectionChanged"/>
+        <Label x:Name="labelHourConversion" Content="Zamiana formatu godzin" HorizontalAlignment="Left" Height="30" Margin="438,16,-323,0" VerticalAlignment="Top" Width="295"/>
+        <TextBox x:Name="text12h" HorizontalAlignment="Left" Height="33" Margin="442,57,-142,0" TextWrapping="Wrap" Text="08:00&#xD;&#xA;" VerticalAlignment="Top" Width="110" KeyUp="text12h_KeyUp"/>
+        <RadioButton x:Name="radioAM" IsChecked="{Binding IsChecked}" Content="AM" HorizontalAlignment="Left" Margin="579,49,-269,0" VerticalAlignment="Top" Width="100" GroupName="hourFormat"/>
+        <RadioButton x:Name="radioPM" Content="PM" HorizontalAlignment="Left" Margin="579,69,-269,0" VerticalAlignment="Top" Width="100" GroupName="hourFormat"/>
+        <TextBlock x:Name="blockResaultHour" HorizontalAlignment="Left" Height="36" Margin="442,123,-208,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="176" Grid.RowSpan="2" />
+        <RadioButton x:Name="radio24h" Content="24h" HorizontalAlignment="Left" Margin="579,89,-269,0" VerticalAlignment="Top" Width="100" IsChecked="True" GroupName="hourFormat"/>
     </Grid>
 </Window>
