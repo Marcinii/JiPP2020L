@@ -15,7 +15,8 @@ namespace Konwerter_ver01
                 new ConTemp(),
                 new ConOdl(),
                 new ConWag(),
-                new ConSpe()
+                new ConSpe(),
+                new ConTim()
             };
         }
     }

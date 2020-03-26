@@ -6,6 +6,30 @@
         xmlns:local="clr-namespace:Konwerter_ver01.Desktop"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="850">
+    <Window.Resources>
+        <Storyboard x:Key="StoryboardKom12">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="Kom1_kom12">
+                <EasingDoubleKeyFrame Value="0"/>
+                <EasingDoubleKeyFrame Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Key="StoryboardJajo" RepeatBehavior="Forever">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="ellipse">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:3" Value="1"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:6" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+    </Window.Resources>
+    <Window.Triggers>
+        <EventTrigger RoutedEvent="FrameworkElement.Loaded">
+            <BeginStoryboard Storyboard="{StaticResource StoryboardKom12}"/>
+            <BeginStoryboard Storyboard="{StaticResource StoryboardJajo}"/>
+
+        </EventTrigger>
+    </Window.Triggers>
+
+
     <Grid Background="#FFD2ECA4">
         <Grid.RowDefinitions>
             <RowDefinition Height="136*"/>
@@ -44,30 +68,56 @@
             </ComboBox.ItemTemplate>
         </ComboBox>
         <TextBlock x:Name="Kom1_Copy" HorizontalAlignment="Center" Margin="6,0" TextWrapping="Wrap" Text="Wybierz konwerter" VerticalAlignment="Bottom" Width="188" Height="24" Foreground="Black" Background="#FFA7DE9B" TextAlignment="Center" FontFamily="Verdana"/>
-
         <TextBlock x:Name="Kom1_Copy3" HorizontalAlignment="Center" Margin="4,0,5,0" Grid.Row="1" TextWrapping="Wrap" Text="Z jedn." VerticalAlignment="Top" Width="56" Height="24" Foreground="Black" Background="#FFA7DE00" TextAlignment="Center" FontFamily="Verdana" Grid.Column="1"/>
-        <TextBlock x:Name="Kom1_Copy4" HorizontalAlignment="Center" Margin="7,0" TextWrapping="Wrap" Text="Wybierz jednostkę wejściową" VerticalAlignment="Bottom" Width="76" Height="60" Foreground="Black" Background="#FFA7DE00" TextAlignment="Center" FontFamily="Verdana" Grid.Column="2"/>
-        <TextBlock x:Name="Kom1_Copy8" HorizontalAlignment="Center" Margin="8,0" TextWrapping="Wrap" Text="Wybierz jednostkę wyściową" VerticalAlignment="Bottom" Width="74" Height="60" Foreground="Black" Background="#FFA7DE00" TextAlignment="Center" FontFamily="Verdana" Grid.Column="5" />
-
+        <TextBlock x:Name="Kom1_Wej" HorizontalAlignment="Center" Margin="7,0" TextWrapping="Wrap" Text="Wybierz jednostkę wejściową" VerticalAlignment="Bottom" Width="76" Height="60" Foreground="Black" Background="#FFA7DE00" TextAlignment="Center" FontFamily="Verdana" Grid.Column="2"/>
+        <TextBlock x:Name="Kom1_kom12" HorizontalAlignment="Center" Margin="6,0,6,0" TextWrapping="Wrap" Text="Podaj godzinę w formacie hh:mmAM/PM" VerticalAlignment="Bottom" Width="90" Height="60" Foreground="Black" Background="#FFA7DE00" TextAlignment="Center" FontFamily="Verdana" Grid.Column="3"/>
+        <TextBlock x:Name="Kom1_Copy7" HorizontalAlignment="Center" Margin="5,0,6,0" Grid.Row="1" TextWrapping="Wrap" Text="Do jedn." VerticalAlignment="Top" Width="54" Height="24" Foreground="Black" Background="#FFA7DE00" TextAlignment="Center" FontFamily="Verdana" Grid.Column="4" />
+        <TextBlock x:Name="Kom1_Wyj" HorizontalAlignment="Center" Margin="8,0" TextWrapping="Wrap" Text="Wybierz jednostkę wyściową" VerticalAlignment="Bottom" Width="74" Height="60" Foreground="Black" Background="#FFA7DE00" TextAlignment="Center" FontFamily="Verdana" Grid.Column="5" />
+        <TextBlock x:Name="Wynik_kom" Grid.Column="7" HorizontalAlignment="Center" Height="35" Margin="32,0,31,0" TextWrapping="Wrap" VerticalAlignment="Bottom" Width="70" TextAlignment="Center"><Run FontSize="16" FontFamily="Verdana" Text="Wynik"/></TextBlock>
+        <TextBlock x:Name="Wynik" Grid.Column="7" HorizontalAlignment="Left" Margin="0,0,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Height="24" Width="123" Background="White"/>
         <ComboBox x:Name="JednZ" Grid.Column="2" HorizontalAlignment="Center" Margin="5,0" Grid.Row="1" VerticalAlignment="Top" Width="80" Height="22"/>
+        <ComboBox x:Name="JednDo" Grid.Column="5" HorizontalAlignment="Center" Margin="5,0" Grid.Row="1" VerticalAlignment="Top" Width="80" Height="22"/>
 
         <TextBox x:Name="Dane" Grid.Column="3" HorizontalAlignment="Center" Height="23" Margin="11,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="78"/>
 
-
-        <TextBlock x:Name="Kom1_Copy7" HorizontalAlignment="Center" Margin="5,0,6,0" Grid.Row="1" TextWrapping="Wrap" Text="Do jedn." VerticalAlignment="Top" Width="54" Height="24" Foreground="Black" Background="#FFA7DE00" TextAlignment="Center" FontFamily="Verdana" Grid.Column="4" />
-
-        <ComboBox x:Name="JednDo" Grid.Column="5" HorizontalAlignment="Center" Margin="5,0" Grid.Row="1" VerticalAlignment="Top" Width="80" Height="22"/>
-
         <Button x:Name="Wykonajtemp" Content="Wykonaj" HorizontalAlignment="Center" Margin="8,0,7,0" VerticalAlignment="Top" Width="84" Height="25" Grid.Column="6" Grid.Row="1" Background="#FF27AA6E" BorderBrush="#FF894F15" FontFamily="Verdana" FontSize="16" Click="Wykonajtemp_Click"/>
 
-        <TextBlock x:Name="Wynik_kom" Grid.Column="7" HorizontalAlignment="Center" Height="35" Margin="32,0,31,0" TextWrapping="Wrap" VerticalAlignment="Bottom" Width="70" TextAlignment="Center"><Run FontSize="16" FontFamily="Verdana" Text="Wynik"/></TextBlock>
-        <TextBlock x:Name="Wynik" Grid.Column="7" HorizontalAlignment="Left" Margin="0,0,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Height="24" Width="123" Background="White"/>
-
-
-
-
-
-
-
+        <Ellipse x:Name="ellipse" Grid.ColumnSpan="7" HorizontalAlignment="Left" Height="118" Margin="136,85,0,0" Grid.Row="1" Grid.RowSpan="2" Stroke="Black" VerticalAlignment="Top" Width="557">
+            <Ellipse.Fill>
+                <RadialGradientBrush GradientOrigin="0.5,0.82" RadiusY="0.498" RadiusX="0.498" >
+                    <GradientStop Color="Black" Offset="0.817"/>
+                    <GradientStop Color="#FF1E9138" Offset="0.912"/>
+                    <GradientStop Color="#FF1E9138" Offset="0.703"/>
+                </RadialGradientBrush>
+            </Ellipse.Fill>
+        </Ellipse>
+        <Button x:Name="WynikButton" Content="Pokaż&#xD;&#xA;wynik&#xD;&#xA;graficznie" Grid.Column="7" HorizontalAlignment="Center" Margin="0,30,0,0" Grid.Row="1" VerticalAlignment="Top" Width="92" Height="60" Background="#FFD1CD81" BorderBrush="#FF991010" Foreground="#FF072566" FontFamily="Tahoma" FontSize="14" FontWeight="Bold" FontStyle="Italic" BorderThickness="2,2,2,0" Click="WynikButton_Click">
+            <Button.Effect>
+                <BlurEffect KernelType="Box" RenderingBias="Performance" Radius="1"/>
+            </Button.Effect>
+        </Button>
+        <TextBlock x:Name="WynikGraf" Grid.Column="2" HorizontalAlignment="Left" Margin="22,118,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Grid.ColumnSpan="4" Width="254" Height="62" FontFamily="Rockwell Extra Bold" FontSize="22" TextAlignment="Center" Grid.RowSpan="2"/>
+        <Rectangle x:Name="Zegarek" Grid.Column="7" HorizontalAlignment="Center" VerticalAlignment="Center" Height="110" Margin="0,0,0,0" Grid.Row="2" Stroke="Black" Width="110" Fill="#FF9C1515"/>
+        
+        <Rectangle Grid.Column="7" Fill="#FFF" HorizontalAlignment="Center" Margin ="0,31,0,0" Height="45" Grid.Row="2" Stroke="Black" VerticalAlignment="Top" Width="8" RenderTransformOrigin="1,1">
+            <Rectangle.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform x:Name="PykPyk" Angle="0"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Rectangle.RenderTransform>
+        </Rectangle>
+        <Rectangle Grid.Column="7" Fill="#FFD8C6C6" HorizontalAlignment="Center" Margin ="0,11,0,0" Height="65" Grid.Row="2" Stroke="Black" VerticalAlignment="Top" Width="4" RenderTransformOrigin="1,1">
+        <Rectangle.RenderTransform>
+            <TransformGroup>
+                <ScaleTransform/>
+                <SkewTransform/>
+                <RotateTransform x:Name="CykCyk" Angle="0"/>
+                <TranslateTransform/>
+            </TransformGroup>
+        </Rectangle.RenderTransform>
+        </Rectangle>
     </Grid>
 </Window>

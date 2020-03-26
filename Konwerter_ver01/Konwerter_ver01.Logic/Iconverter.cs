@@ -10,6 +10,6 @@ namespace Konwerter_ver01
     {
         string Name { get; }
         List<string> Jedn { get; }
-        double Convert(string JednZ, string JednDo, double Wart);
+        string Convert(string JednZ, string JednDo, string Wart);
     }
 }

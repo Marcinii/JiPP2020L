@@ -35,11 +35,12 @@ namespace Konwerter_ver01
                         string JednDo = Console.ReadLine();
 
                         Console.WriteLine("Podaj wartość do przeliczenia: ");
-                        string wartosc = Console.ReadLine();
-                        if (double.TryParse(wartosc, out double Wart)) ;
+                        string Dane = Console.ReadLine();
+                        double Wart = double.Parse(Dane);
+                        if (double.TryParse(Dane, out Wart)) ;
                         else Console.WriteLine("{0} nie jest opcją.", Wart);
 
-                        double result = konwer[numer - 1].Convert(JednZ, JednDo, Wart);
+                       string result = konwer[numer - 1].Convert(JednZ, JednDo, Dane);
 
                         Console.WriteLine("Podana wartość po konwersji: {0} ", result + " " + JednDo.ToString());
                     }

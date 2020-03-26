@@ -44,6 +44,7 @@
     <Compile Include="ConOdl.cs" />
     <Compile Include="ConSpe.cs" />
     <Compile Include="ConTemp.cs" />
+    <Compile Include="ConTim.cs" />
     <Compile Include="ConWag.cs" />
     <Compile Include="Iconverter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
