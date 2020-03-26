@@ -9,6 +9,7 @@ using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
+using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
@@ -27,6 +28,9 @@ namespace ziecinaUnitConverter.Desktop
         public MainWindow()
         {
             InitializeComponent();
+            //////////////////////////////////////////////////////////////
+            
+            ///////////////////////////////////////////////////////////////
             converters = new List<IConverter>()
             {
                 new ConvertTemperature(),
@@ -76,19 +80,64 @@ namespace ziecinaUnitConverter.Desktop
             {
                 string newHour = convH.Convert(text12h.Text, "AM");
                 blockResaultHour.Text = newHour;
+                string newHour2 = newHour;
+                ///////////////////////////////////////////////////////////
+                int hour = Convert.ToInt32(newHour[0]) * 10 + Convert.ToInt32(newHour[1]);
+                RotateTransform rotateTransform1 = new RotateTransform(hour * 30);
+                handHour.RenderTransform = rotateTransform1;
+                RotateTransform rotateTransform2 = new RotateTransform(0);
+                handSecond.RenderTransform = rotateTransform2;
+                ((Storyboard)Resources["clockMovingSecond"]).Begin();
+                
+                int minute = Convert.ToInt32(newHour2[3]) * 10 + Convert.ToInt32(newHour2[4]);
+                RotateTransform rotateTransform3 = new RotateTransform(((minute - 528) * 6));
+                handMinute.RenderTransform = rotateTransform3;
+                //blockResaultHour.Text = minute.ToString();
+                
+                
             }
             else if (radioPM.IsChecked == true)
             {
                 string newHour = convH.Convert(text12h.Text, "PM");
                 blockResaultHour.Text = newHour;
+                string newHour2 = newHour;
+                ///////////////////////////////////////////////////////////
+                int hour = Convert.ToInt32(newHour[0]) * 10 + Convert.ToInt32(newHour[1]);
+                RotateTransform rotateTransform1 = new RotateTransform(hour * 30);
+                handHour.RenderTransform = rotateTransform1;
+                RotateTransform rotateTransform2 = new RotateTransform(0);
+                handSecond.RenderTransform = rotateTransform2;
+                ((Storyboard)Resources["clockMovingSecond"]).Begin();
+
+                int minute = Convert.ToInt32(newHour2[3]) * 10 + Convert.ToInt32(newHour2[4]);
+                RotateTransform rotateTransform3 = new RotateTransform(((minute - 528) * 6));
+                handMinute.RenderTransform = rotateTransform3;
+                //blockResaultHour.Text = minute.ToString();
             }
             else if (radio24h.IsChecked == true)
             {
                 string newHour = convH.Convert(text12h.Text, "24h");
                 blockResaultHour.Text = newHour;
-            }else
+                newHour = convH.Convert(text12h.Text, "PM");
+                //blockResaultHour.Text = newHour;
+                string newHour2 = newHour;
+                ///////////////////////////////////////////////////////////
+                int hour = Convert.ToInt32(newHour[0]) * 10 + Convert.ToInt32(newHour[1]);
+                RotateTransform rotateTransform1 = new RotateTransform(hour * 30);
+                handHour.RenderTransform = rotateTransform1;
+                RotateTransform rotateTransform2 = new RotateTransform(0);
+                handSecond.RenderTransform = rotateTransform2;
+                ((Storyboard)Resources["clockMovingSecond"]).Begin();
+
+                int minute = Convert.ToInt32(newHour2[3]) * 10 + Convert.ToInt32(newHour2[4]);
+                RotateTransform rotateTransform3 = new RotateTransform(((minute - 528) * 6));
+                handMinute.RenderTransform = rotateTransform3;
+                //blockResaultHour.Text = minute.ToString();
+            }
+            else
             {
                 blockResaultHour.Text = "Proszę wybrać startowy format";
+                
             }
         }
     }
