@@ -1,4 +1,5 @@
-﻿using System;
+﻿using KonwerterJednostek.Logic;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,6 +10,7 @@ using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
+using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
@@ -23,6 +25,16 @@ namespace Konwerter.GUI
         public MainWindow()
         {
             InitializeComponent();
+            // static Regex t24regex = new Regex(@"(\d+):(\d+)");
+            //KonwerterJednostek.Logic.IKonwerter.Convert;
+            //var match = t24regex.Match(valueToConvert);
+           // var hour = int.Parse(match.Groups[1].Value);
+           // var minute = int.Parse(match.Groups[2].Value);
+
+            ClockRotate1.Angle = 6750;//24 na 12  Ustawione na wzkazówke 12
+            ClockRotate2.Angle = 4950;//12 na 24  Ustawione na wzkazówke 12
+
+
         }
 
         private void Button1_Click(object sender, RoutedEventArgs e)
@@ -71,14 +83,28 @@ namespace Konwerter.GUI
 
         }
 
-        private void TButton24_Click(object sender, RoutedEventArgs e)
+        public void TButton24_Click(object sender, RoutedEventArgs e)
         {
-            TBlock24.Text = (string) KonwerterJednostek.Logic.Dispatcher.ConvertWithDispatch("T24", "T12", TBox24.Text);
+
+            //            TBlock24.ItemsSource = new ConverterService().GetConverters();
+
+            ((Storyboard)Resources["Animacja_Zegarow"]).Stop();//Zatrzymanie animacji startowej
+
+            TBlock24.Text = (string) KonwerterJednostek.Logic.Dispatcher.ConvertWithDispatch("T24", "T12", TBox24.Text);// wykonanie funkcji 24 to 12
+            int godzina = int.Parse(TBlock24.Text.Substring(0, TBlock24.Text.IndexOf(":")));
+            ClockRotate1.Angle = (godzina * 30) - 90;
+                
+
         }
 
         private void TButton12_Click(object sender, RoutedEventArgs e)
-        { 
-            TBlock12.Text = (string) KonwerterJednostek.Logic.Dispatcher.ConvertWithDispatch("T12", "T24", TBox12.Text);
+        {
+
+            ((Storyboard)Resources["Animacja_Zegarow"]).Stop();
+
+            TBlock12.Text = (string)KonwerterJednostek.Logic.Dispatcher.ConvertWithDispatch("T12", "T24", TBox12.Text);// wykonanie funkcji 24 to 12
+            int godzina = int.Parse(TBlock12.Text.Substring(0, TBlock12.Text.IndexOf(":")));
+            ClockRotate2.Angle = (godzina * 30) - 90;
         }
     }
 }
