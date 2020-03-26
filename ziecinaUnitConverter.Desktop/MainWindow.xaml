@@ -28,5 +28,122 @@
         <RadioButton x:Name="radioPM" Content="PM" HorizontalAlignment="Left" Margin="579,69,-269,0" VerticalAlignment="Top" Width="100" GroupName="hourFormat"/>
         <TextBlock x:Name="blockResaultHour" HorizontalAlignment="Left" Height="36" Margin="442,123,-208,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="176" Grid.RowSpan="2" />
         <RadioButton x:Name="radio24h" Content="24h" HorizontalAlignment="Left" Margin="579,89,-269,0" VerticalAlignment="Top" Width="100" IsChecked="True" GroupName="hourFormat"/>
+        <Canvas Margin="519,65,-251.813,-185" Grid.Row="1">
+            <Ellipse Fill="#FF1A1AAA" HorizontalAlignment="Left" Height="140" Stroke="Black" VerticalAlignment="Top" Width="140" Canvas.Left="2"/>
+            <Rectangle Fill="White" HorizontalAlignment="Left" Height="30" Stroke="Black" VerticalAlignment="Top" Width="14.457" Canvas.Left="66"/>
+            <Ellipse Fill="#FF4E4EFD" HorizontalAlignment="Left" Height="81" Stroke="Black" VerticalAlignment="Top" Width="81" Canvas.Left="33" Canvas.Top="30"/>
+            <Rectangle Fill="White" HorizontalAlignment="Left" Height="5.457" Stroke="Black" VerticalAlignment="Top" Width="28" Canvas.Left="114.334" Canvas.Top="68"/>
+            <Rectangle Fill="White" HorizontalAlignment="Left" Height="5.457" Stroke="Black" VerticalAlignment="Top" Width="28" RenderTransformOrigin="0.5,0.5" Canvas.Left="87" Canvas.Top="22">
+                <Rectangle.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="-55.61"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Rectangle.RenderTransform>
+            </Rectangle>
+            <Rectangle Fill="White" HorizontalAlignment="Left" Height="5.457" Stroke="Black" VerticalAlignment="Top" Width="28" RenderTransformOrigin="0.5,0.5" Canvas.Left="105" Canvas.Top="38">
+                <Rectangle.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="-29.361000000000008"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Rectangle.RenderTransform>
+            </Rectangle>
+            <Rectangle Fill="White" HorizontalAlignment="Left" Height="5.457" Stroke="Black" VerticalAlignment="Top" Width="28" RenderTransformOrigin="0.5,0.5" Canvas.Left="25.999" Canvas.Top="120">
+                <Rectangle.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="-180.262"/>
+                        <TranslateTransform X="-22.343" Y="-51.719"/>
+                    </TransformGroup>
+                </Rectangle.RenderTransform>
+            </Rectangle>
+            <Rectangle Fill="White" HorizontalAlignment="Left" Height="5.457" Stroke="Black" VerticalAlignment="Top" Width="28" RenderTransformOrigin="0.5,0.5" Canvas.Top="82">
+                <Rectangle.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="126.199"/>
+                        <TranslateTransform X="30.35" Y="31.114"/>
+                    </TransformGroup>
+                </Rectangle.RenderTransform>
+            </Rectangle>
+            <Rectangle Fill="White" HorizontalAlignment="Left" Height="5.457" Stroke="Black" VerticalAlignment="Top" Width="28" RenderTransformOrigin="0.5,0.5" Canvas.Left="16" Canvas.Top="97">
+                <Rectangle.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform ScaleY="0.99999999999999989" ScaleX="0.99999999999999989"/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="152.448"/>
+                        <TranslateTransform X="-5.136" Y="-1.447"/>
+                    </TransformGroup>
+                </Rectangle.RenderTransform>
+            </Rectangle>
+            <Rectangle Fill="White" HorizontalAlignment="Left" Height="5.457" Stroke="Black" VerticalAlignment="Top" Width="28" RenderTransformOrigin="0.5,0.5" Canvas.Left="97.332" Canvas.Top="136">
+                <Rectangle.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform ScaleY="0.99999999999999989" ScaleX="0.99999999999999989"/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="89.981"/>
+                        <TranslateTransform X="-37.257" Y="-14.093"/>
+                    </TransformGroup>
+                </Rectangle.RenderTransform>
+            </Rectangle>
+            <Rectangle Fill="White" HorizontalAlignment="Left" Height="5.457" Stroke="Black" VerticalAlignment="Top" Width="28" RenderTransformOrigin="0.5,0.5" Canvas.Left="76" Canvas.Top="94">
+                <Rectangle.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="30.662"/>
+                        <TranslateTransform X="30.735" Y="-0.106"/>
+                    </TransformGroup>
+                </Rectangle.RenderTransform>
+            </Rectangle>
+            <Rectangle Fill="White" HorizontalAlignment="Left" Height="5.457" Stroke="Black" VerticalAlignment="Top" Width="28" RenderTransformOrigin="0.5,0.5" Canvas.Left="91" Canvas.Top="112">
+                <Rectangle.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="60.62"/>
+                        <TranslateTransform X="-3.26" Y="1.898"/>
+                    </TransformGroup>
+                </Rectangle.RenderTransform>
+            </Rectangle>
+            <Rectangle Fill="White" HorizontalAlignment="Left" Height="5.457" Stroke="Black" VerticalAlignment="Top" Width="28" RenderTransformOrigin="0.5,0.5" Canvas.Left="32" Canvas.Top="95">
+                <Rectangle.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="-157.023"/>
+                        <TranslateTransform X="-22.343" Y="-51.719"/>
+                    </TransformGroup>
+                </Rectangle.RenderTransform>
+            </Rectangle>
+            <Rectangle Fill="White" HorizontalAlignment="Left" Height="5.457" Stroke="Black" VerticalAlignment="Top" Width="28" RenderTransformOrigin="0.5,0.5" Canvas.Left="51" Canvas.Top="74">
+                <Rectangle.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform ScaleY="0.99999999999999989" ScaleX="0.99999999999999989"/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="-127.61900000000004"/>
+                        <TranslateTransform X="-22.343" Y="-51.719"/>
+                    </TransformGroup>
+                </Rectangle.RenderTransform>
+            </Rectangle>
+            <Ellipse Fill="White" HorizontalAlignment="Left" Height="14.457" Stroke="Black" VerticalAlignment="Top" Width="14.457" Canvas.Left="66" Canvas.Top="63"/>
+            <Rectangle Fill="#FF23FF00" HorizontalAlignment="Left" Height="36" Stroke="Black" VerticalAlignment="Top" Width="14.457" Canvas.Left="66" Canvas.Top="35"/>
+        </Canvas>
+        <Rectangle HorizontalAlignment="Left" Height="69.543" Margin="591.003,65.457,-183.482,-113.543" Stroke="Black" VerticalAlignment="Top" Width="2" Grid.Row="1">
+            <Rectangle.Fill>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="Black" Offset="0"/>
+                    <GradientStop Color="Red" Offset="1"/>
+                </LinearGradientBrush>
+            </Rectangle.Fill>
+        </Rectangle>
+        <Rectangle Fill="#FFDCFF00" HorizontalAlignment="Left" Height="40" Margin="588.334,95,-185.813,-113.543" Grid.Row="1" Stroke="Black" VerticalAlignment="Top" Width="7"/>
     </Grid>
 </Window>
