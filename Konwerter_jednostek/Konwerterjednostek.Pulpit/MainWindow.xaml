@@ -70,8 +70,8 @@
                 </LinearGradientBrush>
             </Path.Fill>
         </Path>
-        <Button Content="Button" HorizontalAlignment="Left" Margin="50,377,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
-        <Button Content="Button" HorizontalAlignment="Left" Margin="257.894,377,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_1"/>
+        <Button Content="START" HorizontalAlignment="Left" Margin="50,377,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click" BorderBrush="#FF1D42E4" Background="#FF15F133"/>
+        <Button Content="STOP" HorizontalAlignment="Left" Margin="257.894,377,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_1" BorderBrush="#FF1D42E4" Background="#FFF5410C"/>
         <Path Data="M86.5,198 L201,198" HorizontalAlignment="Left" Height="10" Margin="65.5,206,0,0" Stretch="Fill" Stroke="#FF00FF0C" StrokeThickness="10" VerticalAlignment="Top" Width="124.5" RenderTransformOrigin="1,0">
             <Path.RenderTransform>
                 <TransformGroup>

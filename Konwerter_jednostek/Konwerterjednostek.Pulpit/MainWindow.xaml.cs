@@ -38,7 +38,7 @@ namespace Konwerterjednostek.Pulpit
                 new KonwerterKilogramow(),
                 new KonwerterMil()
             };
-            wskazowka.Angle = 100;
+            
         }
 
         private void Konwerter_ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -58,7 +58,7 @@ namespace Konwerterjednostek.Pulpit
                  unitTo_comboBox.SelectedItem.ToString(),
                 inputValue.ToString());
             output_TextBlock.Text = result.ToString();
-
+            wskazowka.ToString();
 
 
         }
@@ -72,5 +72,6 @@ namespace Konwerterjednostek.Pulpit
         {
             ((Storyboard)Resources["koloStoryboard"]).Stop();
         }
+
     }
 }
