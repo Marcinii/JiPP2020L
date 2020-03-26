@@ -6,7 +6,79 @@
         xmlns:local="clr-namespace:KonwerterJednostek.Desktop"
         mc:Ignorable="d"
         Title="MainWindow" Height="517.5" Width="1072.045">
-    <Grid>
+    <Window.Resources>
+        <Storyboard x:Key="NextStoryboard">
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="grid">
+                <DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Visible}"/>
+                <DiscreteObjectKeyFrame KeyTime="0:0:1" Value="{x:Static Visibility.Visible}"/>
+                <DiscreteObjectKeyFrame KeyTime="0:0:2" Value="{x:Static Visibility.Visible}"/>
+            </ObjectAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="border">
+                <DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Visible}"/>
+                <DiscreteObjectKeyFrame KeyTime="0:0:1" Value="{x:Static Visibility.Visible}"/>
+                <DiscreteObjectKeyFrame KeyTime="0:0:2" Value="{x:Static Visibility.Visible}"/>
+            </ObjectAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="Hour">
+                <DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Visible}"/>
+                <DiscreteObjectKeyFrame KeyTime="0:0:1" Value="{x:Static Visibility.Visible}"/>
+                <DiscreteObjectKeyFrame KeyTime="0:0:2" Value="{x:Static Visibility.Visible}"/>
+            </ObjectAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="Minute">
+                <DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Visible}"/>
+                <DiscreteObjectKeyFrame KeyTime="0:0:1" Value="{x:Static Visibility.Visible}"/>
+                <DiscreteObjectKeyFrame KeyTime="0:0:2" Value="{x:Static Visibility.Visible}"/>
+            </ObjectAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="ellipse">
+                <DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Visible}"/>
+                <DiscreteObjectKeyFrame KeyTime="0:0:1" Value="{x:Static Visibility.Visible}"/>
+                <DiscreteObjectKeyFrame KeyTime="0:0:2" Value="{x:Static Visibility.Visible}"/>
+            </ObjectAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="grid">
+                <EasingDoubleKeyFrame KeyTime="0" Value="1"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:2" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="border">
+                <EasingDoubleKeyFrame KeyTime="0" Value="1"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:2" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="Hour">
+                <EasingDoubleKeyFrame KeyTime="0" Value="1"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:2" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="Minute">
+                <EasingDoubleKeyFrame KeyTime="0" Value="1"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:2" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="ellipse">
+                <EasingDoubleKeyFrame KeyTime="0" Value="1"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:2" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+        
+        <Storyboard x:Key="ChoosingConverterStoryboard">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="MinuteBox">
+                <EasingDoubleKeyFrame KeyTime="0:0:1.5" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="HourBlock">
+                <EasingDoubleKeyFrame KeyTime="0:0:1.5" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="MinuteBlock">
+                <EasingDoubleKeyFrame KeyTime="0:0:1.5" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+    </Window.Resources>
+    <Window.Triggers>
+        <EventTrigger RoutedEvent="FrameworkElement.Loaded">
+            
+        </EventTrigger>
+    </Window.Triggers>
+    <Grid RenderTransformOrigin="0.5,0.5" Margin="0,0,0,-8">
+
         <Image Margin="400,20,400,382" Source="KonwerterJednostek.png" Stretch="Fill"/>
         <TextBlock HorizontalAlignment="Left" Height="30" Margin="256,120,0,0" TextWrapping="Wrap" Text="Wybierz dziedzinę konwertera:" VerticalAlignment="Top" Width="172"/>
         <ComboBox x:Name="dziedzinaCombo" HorizontalAlignment="Left" Height="25" Margin="484,120,0,0" VerticalAlignment="Top" Width="167" 
@@ -26,7 +98,36 @@
         <TextBlock x:Name="wynikBlock" HorizontalAlignment="Left" Height="30" Margin="713,210,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="103"/>
         <TextBlock HorizontalAlignment="Left" Height="30" Margin="840,180,0,0" TextWrapping="Wrap" Text="Jednostka na którą konwertujesz:" VerticalAlignment="Top" Width="179"/>
         <ComboBox x:Name="jednToCombo" HorizontalAlignment="Left" Height="25" Margin="845,210,0,0" VerticalAlignment="Top" Width="167" SelectionChanged="jednToCombo_SelectionChanged"/>
+        <Grid x:Name="grid" Height="140" Width="140" Margin="723.75,27.25,220.295,347.25" HorizontalAlignment="Center" VerticalAlignment="Center">
 
+            <Border x:Name="border" BorderThickness="10" BorderBrush="#FF0C5DD3" CornerRadius="300" Height="100" Width="100"/>
+
+            <Border x:Name="Hour" Height="8" Width="25" BorderThickness="4" BorderBrush="#FF21B809" CornerRadius="0,15,15,0" Margin="70.115,66,44.885,66" RenderTransformOrigin="0,0.5">
+                <Border.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform x:Name="clockHourRotation" Angle="-90"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Border.RenderTransform>
+            </Border>
+
+            <Border x:Name="Minute" Height="4" Width="50" BorderThickness="2" BorderBrush="#FFCBD403" CornerRadius="0,15,15,0" Margin="70.104,67.969,19.895,68.03" RenderTransformOrigin="0,0.5">
+                <Border.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform x:Name="clockMinuteRotation" Angle="-90"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Border.RenderTransform>
+            </Border>
+            <Ellipse x:Name="ellipse" Fill="#FFDCD26C" HorizontalAlignment="Center" Height="8" VerticalAlignment="Center" Width="8"/>
+        </Grid>
+        <TextBox x:Name="MinuteBox" HorizontalAlignment="Left" Height="30" Margin="250,260,0,0" Text="0" VerticalAlignment="Top" Width="125" Opacity="0"/>
+        <TextBlock x:Name="HourBlock" HorizontalAlignment="Left" Height="30" Margin="171,210,0,0" TextWrapping="Wrap" Text="Godzina:" VerticalAlignment="Top" Width="52" Opacity="0"/>
+        <TextBlock x:Name="MinuteBlock" HorizontalAlignment="Left" Height="30" Margin="171,260,0,0" TextWrapping="Wrap" Text="Minuty:" VerticalAlignment="Top" Width="52" Opacity="0"/>
 
     </Grid>
 </Window>

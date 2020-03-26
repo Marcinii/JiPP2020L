@@ -32,20 +32,41 @@ namespace KonwerterJednostek.Desktop
         {
             jednFromCombo.ItemsSource = ((IConverter)dziedzinaCombo.SelectedItem).Units;
             jednToCombo.ItemsSource = ((IConverter)dziedzinaCombo.SelectedItem).Units;
+            if (((IConverter)dziedzinaCombo.SelectedItem).Name == "Konwerter godziny")
+            {
+                ((System.Windows.Media.Animation.Storyboard)Resources["ChoosingConverterStoryboard"]).Begin();
+            }
         }
 
         private void jednToCombo_SelectionChanged(object sender, SelectionChangedEventArgs e)    
-        //private void Guzik_Click(object sender, RoutedEventArgs e)
         {
             string wartoscText = wartoscBox.Text;
+            string wartoscTextMinute = MinuteBox.Text;
             decimal wartoscValue = decimal.Parse(wartoscText);
+            decimal wartoscMinute = decimal.Parse(wartoscTextMinute);
 
-            string x = jednFromCombo.SelectedItem.ToString();
+            string nameConverter = ((IConverter)dziedzinaCombo.SelectedItem).Name;
 
-            decimal result = ((IConverter)dziedzinaCombo.SelectedItem).Convert(
+            if (nameConverter == "Konwerter godziny")
+            {
+                decimal resultHours = ((IConverter)dziedzinaCombo.SelectedItem).Convert(
                 jednFromCombo.SelectedItem.ToString(), jednToCombo.SelectedItem.ToString(), wartoscValue);
-            
-            wynikBlock.Text = result.ToString();
+                TimeConverter timeConverter = new TimeConverter();
+                string time = timeConverter.Inscription(wartoscValue);
+                wynikBlock.Text = resultHours.ToString() + " : " + wartoscTextMinute + " " + time;
+
+                Double valueHours = (double)(-90 + resultHours * 30);
+                Double valueMinute = (double)(-90 + wartoscMinute * 6);
+                clockHourRotation.Angle = valueHours;
+                clockMinuteRotation.Angle = valueMinute;
+                ((System.Windows.Media.Animation.Storyboard)Resources["NextStoryboard"]).Begin();
+            } else
+            {
+                decimal result = ((IConverter)dziedzinaCombo.SelectedItem).Convert(
+                                jednFromCombo.SelectedItem.ToString(), jednToCombo.SelectedItem.ToString(), wartoscValue);
+
+                wynikBlock.Text = result.ToString();
+            }
         }
     }
 }

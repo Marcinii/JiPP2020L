@@ -15,7 +15,8 @@ namespace KonwerterJednostek.Logic
             new WeightConverter(),
             new VolumeConverter(),
             new LenghtConverter(),
-            new TemperatureConverter()
+            new TemperatureConverter(),
+            new TimeConverter()
             };
         }
     }
