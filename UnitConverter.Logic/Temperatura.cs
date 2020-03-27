@@ -17,36 +17,36 @@ namespace UnitConverter
             "K"
         };
 
-        public double Konwert(string Z, string Do, double wartosc)
+        public string Konwert(string Z, string Do, string wartosc)
         {
             double Wynik = 0;
 
             if(Z=="C" && Do=="F")
             {
-                Wynik = wartosc * 9 / 5 + 32;
+                Wynik = double.Parse(wartosc) * 9 / 5 + 32;
             }
             if (Z == "F" && Do == "C")
             {
-                Wynik = (wartosc - 32) * 5 / 9;
+                Wynik = (double.Parse(wartosc) - 32) * 5 / 9;
             }
             if(Z=="K" && Do=="C")
             {
-                Wynik = wartosc - 273.15;
+                Wynik = double.Parse(wartosc) - 273.15;
             }
             if (Z == "C" && Do == "K")
             {
-                Wynik = wartosc + 273.15;
+                Wynik = double.Parse(wartosc) + 273.15;
             }
             if (Z == "F" && Do == "K")
             {
-                Wynik = (wartosc - 32) * 5 / 9 + 273.15;
+                Wynik = (double.Parse(wartosc) - 32) * 5 / 9 + 273.15;
             }
             if (Z == "K" && Do == "F")
             {
-                Wynik = (wartosc - 273.15) * 9 / 5 + 32;
+                Wynik = (double.Parse(wartosc) - 273.15) * 9 / 5 + 32;
             }
 
-            return Wynik;
+            return Wynik.ToString();
         }
 
     }

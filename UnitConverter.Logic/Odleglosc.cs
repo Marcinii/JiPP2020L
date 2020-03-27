@@ -16,19 +16,20 @@ namespace UnitConverter
             "mile"
         };
 
-        public double Konwert(string Z, string Do, double wartosc)
+        public string Konwert(string Z, string Do, string wartosc)
         {
             double Wynik = 0;
+            
 
             if (Z == "km" && Do == "mile")
             {
-                Wynik = wartosc * 0.621371;
+                Wynik = double.Parse(wartosc) * 0.621371;
             }
             if (Z == "mile" && Do == "km")
             {
-                Wynik = wartosc * 1.609344;
+                Wynik = double.Parse(wartosc) * 1.609344;
             }
 
-            return Wynik;
+            return Wynik.ToString();
     }   }
 }

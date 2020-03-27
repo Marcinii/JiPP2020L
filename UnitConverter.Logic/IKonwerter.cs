@@ -10,6 +10,6 @@ namespace UnitConverter
     {
         string Name { get; }
         List<string> Unit { get; }
-        double Konwert(string Z, string Do, double wartosc);
+        string Konwert(string Z, string Do, string wartosc);
     }
 }

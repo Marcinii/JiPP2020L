@@ -16,20 +16,20 @@ namespace UnitConverter
             "cal"
         };
 
-        public double Konwert(string Z, string Do, double wartosc)
+        public string Konwert(string Z, string Do, string wartosc)
         {
             double Wynik = 0;
 
             if (Z == "kcal" && Do == "cal")
             {
-                Wynik = wartosc * 1000;
+                Wynik = double.Parse(wartosc) * 1000;
             }
             if (Z == "cal" && Do == "kcal")
             {
-                Wynik = wartosc / 1000;
+                Wynik = double.Parse(wartosc) / 1000;
             }
 
-            return Wynik; ;
+            return Wynik.ToString();
         }
     }
 }

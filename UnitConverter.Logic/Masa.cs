@@ -16,20 +16,20 @@ namespace UnitConverter
             "funty"
         };
 
-        public double Konwert(string Z, string Do, double wartosc)
+        public string Konwert(string Z, string Do, string wartosc)
         {
             double Wynik = 0;
 
             if (Z == "kg" && Do == "funty")
             {
-                Wynik = wartosc * 2.20462262185;
+                Wynik = double.Parse(wartosc) * 2.20462262185;
             }
             if (Z == "funty" && Do == "kg")
             {
-                Wynik = wartosc / 2.20462262185;
+                Wynik = double.Parse(wartosc) / 2.20462262185;
             }
 
-            return Wynik;
+            return Wynik.ToString();
         }
     }
 }
