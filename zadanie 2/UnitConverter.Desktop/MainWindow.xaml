@@ -5,13 +5,91 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:UnitConverter.Desktop"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
+        Title="MainWindow" Height="450" Width="800" BorderBrush="#FFACACAC">
+    <Window.Resources>
+        <Storyboard x:Key="ClockShow">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="path">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="rectangle">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="rectangle1">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="rectangle2">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="rectangle3">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="textBlock">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="textBlock1">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="textBlock2">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="textBlock3">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="ellipse">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="ellipse1">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="ellipse2">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="ellipse3">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="ellipse4">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="ellipse5">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+    </Window.Resources>
+    <Window.Triggers>
+        <EventTrigger RoutedEvent="FrameworkElement.Loaded">
+            <BeginStoryboard Storyboard="{StaticResource ClockShow}"/>
+        </EventTrigger>
+    </Window.Triggers>
+    <Grid RenderTransformOrigin="0.5,0.5">
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="Black" Offset="0"/>
+                <GradientStop Color="#FF1A8C91" Offset="0.915"/>
+                <GradientStop Color="#FFA05A3F" Offset="0.509"/>
+            </LinearGradientBrush>
+        </Grid.Background>
         <Grid.RowDefinitions>
-            <RowDefinition Height="28*"/>
-            <RowDefinition Height="31*"/>
-            <RowDefinition Height="360"/>
-            
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="6*"/>
+
+
+
 
         </Grid.RowDefinitions>
 
@@ -21,19 +99,99 @@
             <ColumnDefinition Width="150"/>
             <ColumnDefinition Width="172"/>
             <ColumnDefinition Width="73*"/>
-           
+
         </Grid.ColumnDefinitions>
 
-     
 
-        <ComboBox x:Name="firstList" Grid.Column="0" HorizontalAlignment="Left" Width="136" SelectionChanged="combobox_SelectionChanged"></ComboBox>
-        <ComboBox x:Name="secondList" Grid.Column="1" HorizontalAlignment="Left" Width="136" SelectionChanged="comboboxSecond_SelectionChanged"></ComboBox>
-        <ComboBox x:Name="thirdList" Grid.Column="2" HorizontalAlignment="Left" Width="136"/>
-        <TextBox x:Name="inputTextBox" Grid.Column="3" Background="White"></TextBox>
+
+        <ComboBox x:Name="firstList" Grid.Column="0" HorizontalAlignment="Center" Width="136" SelectionChanged="combobox_SelectionChanged" VerticalAlignment="Center" BorderThickness="2,2,1,1">
+            <ComboBox.Background>
+                <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                    <GradientStop Color="#FFF0F0F0" Offset="0"/>
+                    <GradientStop Color="#FF994E4E" Offset="1"/>
+                </LinearGradientBrush>
+            </ComboBox.Background>
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding Name}"></TextBlock>
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
+
+        <ComboBox x:Name="secondList"  VerticalAlignment="Center" Grid.Column="1" HorizontalAlignment="Center" Width="136" ></ComboBox>
+        <ComboBox x:Name="thirdList" VerticalAlignment="Center"  Grid.Column="2" HorizontalAlignment="Center" Width="136" Background="White" SelectedIndex="1"/>
+        <TextBox x:Name="inputTextBox" Grid.Column="3" Background="White" VerticalContentAlignment="Center" TextChanged="inputTextBox_TextChanged"></TextBox>
         <Button x:Name="ActionButton" Content="Przelicz" Grid.Column="4" Click="ActionButton_Click" Background="#FFB03636"/>
-
-        <TextBlock x:Name="resultTextBlock" Grid.Column="4" Grid.Row="1"></TextBlock>
-        <TextBlock  Grid.Column="3" Grid.Row="1" HorizontalAlignment="Right" Margin="0" Padding="0,7,0,0">Wynik</TextBlock>
+        <TextBlock x:Name="resultTextBlock" Grid.Column="3" Grid.Row="1" LineHeight="10" TextAlignment="Center" VerticalAlignment="Center" Height="37.375" Margin="0,5,0,10" ></TextBlock>
+        <Path x:Name="path" Grid.Column="3" Data="M83.2215,30.035 C53.847406,30.035 30.035,53.847406 30.035,83.2215 30.035,112.59559 53.847406,136.408 83.2215,136.408 112.59559,136.408 136.408,112.59559 136.408,83.2215 136.408,53.847406 112.59559,30.035 83.2215,30.035 z M83.2215,0.5 C128.90732,0.5 165.943,37.535677 165.943,83.2215 165.943,128.90732 128.90732,165.943 83.2215,165.943 37.535677,165.943 0.5,128.90732 0.5,83.2215 0.5,37.535677 37.535677,0.5 83.2215,0.5 z" Fill="#FFF39D9D" HorizontalAlignment="Left" Height="166.443" Margin="1.452,64.82,0,0" Grid.Row="2" Stretch="Fill" Stroke="Black" VerticalAlignment="Top" Width="166.443"/>
+        <Rectangle x:Name="rectangle" Grid.Column="3" Fill="Black" HorizontalAlignment="Left" Height="13.097" Margin="79.667,64.82,0,0" Grid.Row="2" Stroke="Black" VerticalAlignment="Top" Width="7" RenderTransformOrigin="-0.286,0.466"/>
+        <Rectangle x:Name="rectangle1" Grid.Column="3" Fill="Black" HorizontalAlignment="Left" Height="5" Margin="153.667,143.25,0,0" Grid.Row="2" Stroke="Black" VerticalAlignment="Top" Width="14.228"/>
+        <Rectangle x:Name="rectangle2" Grid.Column="3" Fill="Black" HorizontalAlignment="Left" Height="5" Margin="1.452,143.25,0,0" Grid.Row="2" Stroke="Black" VerticalAlignment="Top" Width="14.215"/>
+        <Rectangle x:Name="rectangle3" Grid.Column="3" Fill="Black" HorizontalAlignment="Left" Height="13.346" Margin="79.667,217.917,0,0" Grid.Row="2" Stroke="Black" VerticalAlignment="Top" Width="7" RenderTransformOrigin="0.083,0.549"/>
+        <TextBlock x:Name="textBlock" Grid.Column="3" HorizontalAlignment="Left" Height="15" Margin="79,77.917,0,0" Grid.Row="2" TextWrapping="Wrap" Text="12" VerticalAlignment="Top" Width="13" RenderTransformOrigin="5.333,0.382"/>
+        <TextBlock x:Name="textBlock1" Grid.Column="3" HorizontalAlignment="Left" Height="14.667" Margin="79,203.25,0,0" Grid.Row="2" TextWrapping="Wrap" VerticalAlignment="Top" Width="7.667"><Run Text="6"/><Run Text="extBlock"/></TextBlock>
+        <TextBlock x:Name="textBlock2" Grid.Column="3" HorizontalAlignment="Left" Height="14.666" Margin="142.333,138.917,0,0" Grid.Row="2" TextWrapping="Wrap" Text="3" VerticalAlignment="Top" Width="6.334"/>
+        <TextBlock x:Name="textBlock3" Grid.Column="3" HorizontalAlignment="Left" Height="14.666" Margin="18.667,138.917,0,0" Grid.Row="2" TextWrapping="Wrap" Text="9" VerticalAlignment="Top" Width="9"/>
+        <Ellipse x:Name="ellipse" Grid.Column="3" Fill="#FF79EDFF" HorizontalAlignment="Left" Height="55.666" Margin="79.667,97.917,0,0" Grid.Row="2" Stroke="Black" VerticalAlignment="Top" Width="3.333" RenderTransformOrigin="0.5,1">
+            <Ellipse.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform x:Name="secondDot" Angle="0"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Ellipse.RenderTransform>
+        </Ellipse>
+        <Ellipse x:Name="ellipse1" Grid.Column="3" Fill="Black" HorizontalAlignment="Left" Height="44.249" Margin="79.667,109.334,0,0" Grid.Row="2" Stroke="Black" VerticalAlignment="Top" Width="7" RenderTransformOrigin="0.5,1">
+            <Ellipse.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform x:Name="clockMarker" Angle="0"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Ellipse.RenderTransform>
+        </Ellipse>
+        <Ellipse x:Name="ellipse2" Grid.Column="3" Fill="#FF79EDFF" HorizontalAlignment="Left" Height="8.75" Margin="117.25,104.917,0,0" Grid.Row="2" Stroke="Black" VerticalAlignment="Top" Width="5" RenderTransformOrigin="1.7,0.943">
+            <Ellipse.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="45"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Ellipse.RenderTransform>
+        </Ellipse>
+        <Ellipse x:Name="ellipse3" Grid.Column="3" Fill="#FF79EDFF" HorizontalAlignment="Left" Height="8.75" Margin="37.917,100.917,0,0" Grid.Row="2" Stroke="Black" VerticalAlignment="Top" Width="5" RenderTransformOrigin="1.7,0.943">
+            <Ellipse.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-45"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Ellipse.RenderTransform>
+        </Ellipse>
+        <Ellipse x:Name="ellipse4" Grid.Column="3" Fill="#FF79EDFF" HorizontalAlignment="Left" Height="8.75" Margin="37.25,188.25,0,0" Grid.Row="2" Stroke="Black" VerticalAlignment="Top" Width="5" RenderTransformOrigin="1.7,0.943">
+            <Ellipse.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="45"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Ellipse.RenderTransform>
+        </Ellipse>
+        <Ellipse x:Name="ellipse5" Grid.Column="3" Fill="#FF79EDFF" HorizontalAlignment="Left" Height="8.75" Margin="122.584,180.584,0,0" Grid.Row="2" Stroke="Black" VerticalAlignment="Top" Width="5" RenderTransformOrigin="1.7,0.943">
+            <Ellipse.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-45"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Ellipse.RenderTransform>
+        </Ellipse>
 
 
 

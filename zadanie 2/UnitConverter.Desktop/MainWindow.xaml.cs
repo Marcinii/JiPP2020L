@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,10 +10,12 @@ using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
+using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using unitConverterv2;
+using UnitConverterv2.Logic;
 
 namespace UnitConverter.Desktop
 {
@@ -24,126 +27,105 @@ namespace UnitConverter.Desktop
         public MainWindow()
         {
             InitializeComponent();
-            List<IConvert> converters = new List<IConvert>()
-            {
-                new tempConverter(),
-                new lengthCon(),
-                new weightConverter(),
-                new SurfaceConvert()
 
-            };
-            firstList.ItemsSource = new List<string>()
-            {
-             converters[0].Name,
-             converters[1].Name,
-             converters[2].Name,
-             converters[3].Name,
-
-
-            };
+            firstList.ItemsSource = new ConverterService().getConverters();
             int index = firstList.SelectedIndex;
-
+            /*clockMarker.Angle = 50;
+*/
         }
         private void ActionButton_Click(object sender, RoutedEventArgs e)
         {
-            int firstListindex = firstList.SelectedIndex;
-            int secondListindex = secondList.SelectedIndex;
-            int thirdListindex = thirdList.SelectedIndex;
-            string inputValue = inputTextBox.Text.ToString();
+            string inputText = inputTextBox.Text;
+            inputText = inputText.ToString().Replace(':', '.');
+            decimal inputValue = decimal.Parse(inputText, CultureInfo.InvariantCulture);
 
-            
-            decimal Value = decimal.Parse(inputValue);
-            if(firstListindex == 0)
+            decimal result = decimal.Round(((IConvert)firstList.SelectedItem).Convert(secondList.SelectedIndex, thirdList.SelectedIndex, inputValue), 6);
+            string resultToString;
+
+            if (((IConvert)firstList.SelectedItem).Name == "Clock Converter")
             {
-                decimal result = new tempConverter().Convert(secondListindex, thirdListindex, Value);
-                resultTextBlock.Text = result.ToString();
+                resultToString = result.ToString().Replace(',', ':');
             }
-            else if(firstListindex == 1)
+            else
             {
-                decimal result = new lengthCon().Convert(secondListindex, thirdListindex, Value);
-                resultTextBlock.Text = result.ToString();
-            }
-            else if(firstListindex == 2)
-            {
-                decimal result = new weightConverter().Convert(secondListindex, thirdListindex, Value);
-                resultTextBlock.Text = result.ToString();
+                resultToString = result.ToString();
             }
 
-            else if(firstListindex == 3)
+            resultTextBlock.Text = resultToString;
+
+            if (resultTextBlock.Text != "")
             {
-                decimal result = new SurfaceConvert().Convert(secondListindex, thirdListindex, Value);
-                resultTextBlock.Text = result.ToString();
+                resultTextBlock.Background = Brushes.BlanchedAlmond;
             }
-           
+
+            if (((IConvert)firstList.SelectedItem).Name == "Clock Converter")
+            {
+             
+                if (result - (int)result > (decimal)0.60)
+                {
+                    MessageBox.Show("Podane minuty większe od 60");
+                    throw new System.ArgumentException("Wartość nie może być większa od 24 i od 0 ");
+                }
+                secondDot.Angle = (double)result * 30;
+                clockMarker.Angle = (double)Math.Floor(result) * 30;
+              
+                if (inputValue > 24 || inputValue < 0)
+                {
+                    MessageBox.Show("Wartość nie może być większa od 24 i mniejsza od 0");
+                    throw new System.ArgumentException("Wartość nie może być większa od 24 i od 0 ");
+                }
+                if (inputValue < 13) resultTextBlock.Text += " AM";
+                else resultTextBlock.Text += " PM";
+            }
+            else
+            {
+                resultTextBlock.Text += " " + thirdList.SelectedItem.ToString();
+            }
+
+            inputTextBox.Text = "";
 
         }
 
         private void combobox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            secondList.ItemsSource = ((IConvert)firstList.SelectedItem).Units;
+            thirdList.ItemsSource = ((IConvert)firstList.SelectedItem).Units;
 
-            secondList.Items.Clear();
-            inputTextBox.Text = "";
-            resultTextBlock.Text = "";
-            int index1 = firstList.SelectedIndex;
+
+            if (((IConvert)firstList.SelectedItem).Name == "Clock Converter")
+            {
+                secondList.SelectedIndex = 1;
+                thirdList.SelectedIndex = 0;
+                
+
+            }
            
-            if(index1 == 0)
-            {
-                secondList.Items.Add("Celvin");
-                secondList.Items.Add("Celcius");
-                secondList.Items.Add("Faranhait");
-            }
-
-            else if(index1 == 1)
-            {
-                secondList.Items.Add("Kilometers");
-                secondList.Items.Add("Miles");
-                
-            }
-            else if (index1 == 2)
-            {
-                secondList.Items.Add("Kilograms");
-                secondList.Items.Add("Funty");
-              
-            }
-            else if (index1 == 3)
-            {
-                secondList.Items.Add("acres");
-                secondList.Items.Add("square meters");
-                
-            }
 
         }
 
-        private void comboboxSecond_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void inputTextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
-            thirdList.Items.Clear();
-            int index2 = firstList.SelectedIndex;
-           
-            
-            if (index2 == 0)
+            string inputText = inputTextBox.Text;
+            decimal inputValue;
+            bool success = decimal.TryParse(inputText, out inputValue);
+            if (success)
             {
-                thirdList.Items.Add("Celvin");
-                thirdList.Items.Add("Celcius");
-                thirdList.Items.Add("Faranhait");
+
+                if (((IConvert)firstList.SelectedItem).Name == "Clock Converter")
+                {
+                    if (inputValue > 24 || inputValue < 0)
+                    {
+                        inputTextBox.Background = Brushes.Red;
+                    }
+                    else
+                    {
+                        inputTextBox.Background = Brushes.Green;
+                    }
+                }
             }
-
-            else if (index2 == 1)
+            else
             {
-                thirdList.Items.Add("Kilometers");
-                thirdList.Items.Add("Miles");
-
-            }
-            else if (index2 == 2)
-            {
-                thirdList.Items.Add("Kilograms");
-                thirdList.Items.Add("Funty");
-
-            }
-            else if (index2 == 3)
-            {
-                thirdList.Items.Add("acres");
-                thirdList.Items.Add("square meters");
-
+                inputTextBox.Background = Brushes.White;
             }
         }
     }

@@ -6,27 +6,27 @@ using System.Threading.Tasks;
 
 namespace unitConverterv2
 {
-    public class weightConverter : IConvert
+    public class Clock : IConvert
     {
-        public string Name => "Weight Converter";
+        public string Name => "Clock Converter";
 
         public List<string> Units => new List<string>()
         {
-            "Kilograms",//0
-            "Funty"//1
+            "12h", //0
+            "24h"//1
         };
 
         public decimal Convert(int fromUnit, int toUnit, decimal value)
         {
-            if(fromUnit==0)
-            {
-                value = value * (decimal)2.2046;
-            }
 
-            else
-            {
-                value = value / (decimal)2.2046;
-            }
+            return value % 12;
+        }
+
+        public string clockConvert(string value)
+        {
+            value = value.ToString().Replace(',', ':');
+
+
             return value;
         }
     }
