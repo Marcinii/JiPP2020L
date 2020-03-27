@@ -14,7 +14,8 @@ namespace KonwerterjJednostek2
         {
             "G",
             "M",
-            "S"
+            "S",
+
         };
 
         public double Konwerter(string jednostka_bazowa, string jednostka_docelowa, double wartosc)
@@ -47,6 +48,35 @@ namespace KonwerterjJednostek2
             {
                 //Console.WriteLine("Ilosc Funtow: ");
                 wynik = wartosc * 60;
+            }
+
+            //przelicza 24 na 12
+            if (jednostka_bazowa == "24" && jednostka_docelowa == "12")
+            {
+                string godzina_tekst;
+                double godzina_liczba;
+                string minuta;
+                string wynik_tmp;
+
+                godzina_tekst = (wartosc.ToString()).Remove(2);
+                minuta = (wartosc.ToString()).Remove(0,2);
+
+                godzina_liczba = double.Parse(godzina_tekst);
+
+                if(godzina_liczba>12)
+                {
+                    godzina_liczba = godzina_liczba - 12;
+                }
+
+                wynik_tmp = godzina_liczba.ToString() + minuta;
+
+                wynik= double.Parse(wynik_tmp);
+            }
+
+            //przelicza 12 na 24
+            if (jednostka_bazowa == "12" && jednostka_docelowa == "24")
+            {
+                wynik = 0;
             }
 
             return wynik;

@@ -15,7 +15,8 @@ namespace KonwerterjJednostek2
                 new Temperatura_class(),
                 new Odleglosc_class(),
                 new Masa_class(),
-                new Czas_class()
+                new Czas_class(),
+                new Format_12_24_class()
             };
 
             Temperatura_class t1 = new Temperatura_class();

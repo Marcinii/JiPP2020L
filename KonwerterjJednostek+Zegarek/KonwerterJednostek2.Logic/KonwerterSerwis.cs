@@ -5,7 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using KonwerterjJednostek2;
 
-namespace KonwerterJednostek2.Logic
+
+namespace KonwerterjJednostek2.Logic
 {
     public class KonwerterSerwis
     {
@@ -16,7 +17,8 @@ namespace KonwerterJednostek2.Logic
                 new Temperatura_class(),
                 new Odleglosc_class(),
                 new Masa_class(),
-                new Czas_class()
+                new Czas_class(),
+                new Format_12_24_class()               
             };
         }
     }
