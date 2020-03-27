@@ -1,6 +1,0 @@
-C:\Users\slowi\source\repos\Modul_2\Modul_2.logic\bin\Debug\UnitConverter.dll
-C:\Users\slowi\source\repos\Modul_2\Modul_2.logic\bin\Debug\UnitConverter.pdb
-C:\Users\slowi\source\repos\Modul_2\Modul_2.logic\obj\Debug\Modul_2.logic.csprojAssemblyReference.cache
-C:\Users\slowi\source\repos\Modul_2\Modul_2.logic\obj\Debug\Modul_2.logic.csproj.CoreCompileInputs.cache
-C:\Users\slowi\source\repos\Modul_2\Modul_2.logic\obj\Debug\UnitConverter.dll
-C:\Users\slowi\source\repos\Modul_2\Modul_2.logic\obj\Debug\UnitConverter.pdb
