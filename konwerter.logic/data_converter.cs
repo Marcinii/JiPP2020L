@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace konwerter.logic
 {
-    public class data_conventer : Ikonwerter
+    public class data_converter : Ikonwerter
     {
         public List<string> Units => new List<string>()
         {

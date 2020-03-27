@@ -12,4 +12,12 @@ namespace konwerter.logic
         List<string> Units { get; }
         decimal Convert(string unitFrom, string unitTo, decimal valueToConvert);
     }
+
+    public interface IkonwTime
+    {
+        
+        decimal ConvTime(int godz, int min);
+    }
+
+
 }

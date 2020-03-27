@@ -41,12 +41,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="data_conventer.cs" />
+    <Compile Include="data_converter.cs" />
     <Compile Include="Ikonwerter.cs" />
-    <Compile Include="length_conventer.cs" />
+    <Compile Include="length_converter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="temp_converter.cs" />
-    <Compile Include="weight_conventer.cs" />
+    <Compile Include="time_converter.cs" />
+    <Compile Include="weight_converter.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

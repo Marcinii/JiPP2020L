@@ -18,9 +18,9 @@ namespace konwerterjednostekk
             List<Ikonwerter> converters = new List<Ikonwerter>()
             {
                 new temp_converter(),
-                new length_conventer(),
+                new length_converter(),
                 new weight_conventer(),
-                new data_conventer(),
+                new data_converter(),
             };
 
             Console.WriteLine("Wybierz rodzaj konwersji:");

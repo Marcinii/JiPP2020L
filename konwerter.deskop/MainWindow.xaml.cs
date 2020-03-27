@@ -14,6 +14,8 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using konwerter.logic;
 
+using System.Windows.Media.Animation;
+
 namespace konwerter.deskop
 {
     /// <summary>
@@ -37,46 +39,24 @@ namespace konwerter.deskop
         };
 
 
-
-        
-
-        private void combobox_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
-          
-
-
-            //MessageBox.Show("Użytkownik wybrał: " + combobox.SelectedItem);
-
-
-        }
-
         private void buttonPrzelicz_Click(object sender, RoutedEventArgs e)
         {
-            
-            
-
             string unitFrom = InputText.Text;
             string unitTo = InputText2.Text;
             string inputValue = InputText3.Text;
 
-
-             decimal value = decimal.Parse(inputValue);
-
-            // decimal result = nowy.Convert(unitFrom, unitTo, value);
-
-            //OutputText.Text = combobox.ItemsSource.ToString();
+            decimal value = decimal.Parse(inputValue);
 
             string input = combobox.Text;
 
-            switch(input)
+            switch (input)
             {
                 case "Temperatura":
                     decimal result1 = new temp_converter().Convert(unitFrom, unitTo, value);
                     OutputText.Text = result1.ToString();
                     break;
                 case "Długosci":
-                    decimal result2 = new length_conventer().Convert(unitFrom, unitTo, value);
+                    decimal result2 = new length_converter().Convert(unitFrom, unitTo, value);
                     OutputText.Text = result2.ToString();
                     break;
                 case "Masa":
@@ -84,19 +64,114 @@ namespace konwerter.deskop
                     OutputText.Text = result3.ToString();
                     break;
                 case "Dane":
-                    decimal result4 = new data_conventer().Convert(unitFrom, unitTo, value);
+                    decimal result4 = new data_converter().Convert(unitFrom, unitTo, value);
                     OutputText.Text = result4.ToString();
                     break;
-
             }
 
-            
-            
-            
-
-
         }
+        private void buttonTime_Click(object sender, RoutedEventArgs e)
+        { 
+            int godz1 = (int)InputTime.Text[0] - '0';
+            int godz2 = (int)InputTime.Text[1] - '0';
+            int godz = godz1 * 10 + godz2;
 
-       
+            int min1 = (int)InputTime.Text[3] - '0';
+            int min2 = (int)InputTime.Text[4] - '0';
+            int min = min1 * 10 + min2;
+
+            string ty, x = ":";
+            if (godz <= 12)
+                ty = " AM";
+            else
+                ty = " PM";
+
+            decimal Time = new time_converter().ConvTime(godz, min);
+            
+            OutputTime.Text = Time.ToString()+ x + min.ToString() + ty;
+
+            int angel1 = 0;
+            if      (godz == 0) angel1 = 90;
+            else if (godz == 1) angel1 = 120;
+            else if (godz == 2) angel1 = 150;
+            else if (godz == 3) angel1 = 180;
+            else if (godz == 4) angel1 = 210;
+            else if (godz == 5) angel1 = 240;
+            else if (godz == 6) angel1 = 270;
+            else if (godz == 7) angel1 = 300;
+            else if (godz == 8) angel1 = 330;
+            else if (godz == 9) angel1 = 0;
+            else if (godz == 10) angel1 = 30;
+            else if (godz == 11) angel1 = 60;
+            else if (godz == 12) angel1 = 90;
+            godzRotation.Angle = angel1;
+
+            int angel2 = 0;
+            if (min == 0) angel2 = 90;
+            else if (min == 1) angel2 = 96;
+            else if (min == 2) angel2 = 102;
+            else if (min == 3) angel2 = 108;
+            else if (min == 4) angel2 = 114;
+            else if (min == 5) angel2 = 120;
+            else if (min == 6) angel2 = 126;
+            else if (min == 7) angel2 = 132;
+            else if (min == 8) angel2 = 138;
+            else if (min == 9) angel2 = 144;
+            else if (min == 10) angel2 = 150;
+            else if (min == 11) angel2 = 156;
+            else if (min == 12) angel2 = 162;
+            else if (min == 13) angel2 = 168;
+            else if (min == 14) angel2 = 174;
+            else if (min == 15) angel2 = 180;
+            else if (min == 16) angel2 = 186;
+            else if (min == 17) angel2 = 192;
+            else if (min == 18) angel2 = 198;
+            else if (min == 19) angel2 = 204;
+            else if (min == 20) angel2 = 210;
+            else if (min == 21) angel2 = 216;
+            else if (min == 22) angel2 = 222;
+            else if (min == 23) angel2 = 228;
+            else if (min == 24) angel2 = 234;
+            else if (min == 25) angel2 = 240;
+            else if (min == 26) angel2 = 246;
+            else if (min == 27) angel2 = 252;
+            else if (min == 28) angel2 = 258;
+            else if (min == 29) angel2 = 264;
+            else if (min == 30) angel2 = 270;
+            else if (min == 31) angel2 = 276;
+            else if (min == 32) angel2 = 282;
+            else if (min == 33) angel2 = 288;
+            else if (min == 34) angel2 = 294;
+            else if (min == 35) angel2 = 300;
+            else if (min == 36) angel2 = 306;
+            else if (min == 37) angel2 = 312;
+            else if (min == 38) angel2 = 318;
+            else if (min == 39) angel2 = 324;
+            else if (min == 40) angel2 = 330;
+            else if (min == 41) angel2 = 336;
+            else if (min == 42) angel2 = 342;
+            else if (min == 43) angel2 = 348;
+            else if (min == 44) angel2 = 354;
+            else if (min == 45) angel2 = 360;
+            else if (min == 46) angel2 = 366;
+            else if (min == 47) angel2 = 372;
+            else if (min == 48) angel2 = 378;
+            else if (min == 49) angel2 = 384;
+            else if (min == 50) angel2 = 390;
+            else if (min == 51) angel2 = 396;
+            else if (min == 52) angel2 = 402;
+            else if (min == 53) angel2 = 408;
+            else if (min == 54) angel2 = 414;
+            else if (min == 55) angel2 = 420;
+            else if (min == 56) angel2 = 426;
+            else if (min == 57) angel2 = 432;
+            else if (min == 58) angel2 = 438;
+            else if (min == 59) angel2 = 444;
+            else if (min == 60) angel2 = 450;
+
+            minRotation.Angle = angel2;
+        }
     }
-}
+
+    }
+
