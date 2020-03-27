@@ -24,8 +24,8 @@ namespace KonwerterJednostek.Logic
         public string Convert(string valueToConvert)
         {
             var match = t12regex.Match(valueToConvert);
-            var hour = int.Parse(match.Groups[1].Value);
-            var minute = int.Parse(match.Groups[2].Value);
+            int hour = int.Parse(match.Groups[1].Value);
+            int minute = int.Parse(match.Groups[2].Value);
             var dayHalf = match.Groups[3].Value;
             if (dayHalf == "PM")
             {

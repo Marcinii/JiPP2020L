@@ -98,8 +98,8 @@
         <TextBox x:Name="TextBox6" Grid.Column="5" HorizontalAlignment="Left" Height="23" Margin="10,3,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="130" Grid.Row="2" BorderBrush="#FF0B232F" BorderThickness="1"/>
         <TextBox x:Name="TextBox7" Grid.Column="6" HorizontalAlignment="Left" Height="23" Margin="10,3,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="130" Grid.Row="2" BorderBrush="#FF0B232F" BorderThickness="1"/>
         <TextBox x:Name="TextBox8" Grid.Column="7" HorizontalAlignment="Left" Height="23" Margin="10,3,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="125" Grid.Row="2" BorderBrush="#FF0B232F" BorderThickness="1"/>
-        <TextBox x:Name="TBox24" Grid.Column="0" HorizontalAlignment="Left" Height="23" Margin="15,65,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="127" Grid.Row="8" BorderBrush="#FF0B232F" BorderThickness="1"/>
-        <TextBox x:Name="TBox12" Grid.Column="7" HorizontalAlignment="Left" Height="23" Margin="10,65,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="125" Grid.Row="8" BorderBrush="#FF0B232F" BorderThickness="1"/>
+        <TextBox x:Name="TBox24" Grid.Column="0" HorizontalAlignment="Left" Height="23" Margin="15,50,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="127" Grid.Row="8" BorderBrush="#FF0B232F" BorderThickness="1"/>
+        <TextBox x:Name="TBox12" Grid.Column="7" HorizontalAlignment="Left" Height="23" Margin="10,41,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="125" Grid.Row="8" BorderBrush="#FF0B232F" BorderThickness="1"/>
 
         <TextBlock x:Name="TextBlock1" Grid.Column="0" HorizontalAlignment="Left" Margin="15,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="125" Height="16" Grid.Row="5" Background="#FF13FFD4" Text="0,00"/>
         <TextBlock x:Name="TextBlock2" Grid.Column="1" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="130" Height="16" Grid.Row="5" Background="#FF13FFD4" Text="0,00"/>
@@ -109,8 +109,8 @@
         <TextBlock x:Name="TextBlock6" Grid.Column="5" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="130" Height="16" Grid.Row="5" Background="#FF13FFD4" Text="0,00"/>
         <TextBlock x:Name="TextBlock7" Grid.Column="6" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="130" Height="16" Grid.Row="5" Background="#FF13FFD4" Text="0,00"/>
         <TextBlock x:Name="TextBlock8" Grid.Column="7" HorizontalAlignment="Left" Margin="10,9,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="125" Height="16" Grid.Row="5" Background="#FF13FFD4" Text="0,00"/>
-        <TextBlock x:Name="TBlock24"  Grid.Column="2" HorizontalAlignment="Left" Margin="10,68,0,0" Grid.Row="8" TextWrapping="Wrap" VerticalAlignment="Top" Height="18" Width="125" Background="#FF13FFD4" Text="GG:MM"/>
-        <TextBlock x:Name="TBlock12"  Grid.Column="5" HorizontalAlignment="Left" Margin="15,68,0,0" Grid.Row="8" TextWrapping="Wrap" VerticalAlignment="Top" Height="18" Width="126" Background="#FF13FFD4" ><Run Text="GG:MM +"/><Run Text=" "/><Run Text="PM"/><Run Text=" "/><Run Text="/"/><Run Text=" "/><Run Text="AM"/></TextBlock>
+        <TextBlock x:Name="TBlock24"  Grid.Column="2" HorizontalAlignment="Left" Margin="10,50,0,0" Grid.Row="8" TextWrapping="Wrap" VerticalAlignment="Top" Height="18" Width="125" Background="#FF13FFD4" Text="GG:MM"/>
+        <TextBlock x:Name="TBlock12"  Grid.Column="5" HorizontalAlignment="Left" Margin="19,45,0,0" Grid.Row="8" TextWrapping="Wrap" VerticalAlignment="Top" Height="18" Width="126" Background="#FF13FFD4" ><Run Text="GG:MM +"/><Run Text=" "/><Run Text="PM"/><Run Text=" "/><Run Text="/"/><Run Text=" "/><Run Text="AM"/></TextBlock>
 
         <Label Content="Hektopaskale&#xD;&#xA;         na&#xD;&#xA;     Paskale" Grid.Column="7" HorizontalAlignment="Left" Margin="40,0,0,0" VerticalAlignment="Top" Width="85" Height="60" Grid.Row="1" HorizontalContentAlignment="Center" TextOptions.TextFormattingMode="Display"/>
         <Label Content="Wynik:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.733,-1.115" Height="26" Width="45" Grid.Row="4" Grid.RowSpan="2" FontWeight="Bold"/>
@@ -124,10 +124,10 @@
 
         <Label Content="24 Na 12" HorizontalAlignment="Left" Margin="21,0,0,0" Grid.Row="7" VerticalAlignment="Top" Height="39" Width="103" FontSize="20" FontWeight="Bold" Grid.Column="1"/>
         <Label Content="12 Na 24" Grid.Column="6" HorizontalAlignment="Left" Margin="16,0,0,0" Grid.Row="7" VerticalAlignment="Top" Height="39" Width="112" FontSize="20" FontWeight="Bold"/>
-        <Label Content="==============&gt;" Grid.Column="1" HorizontalAlignment="Left" Height="26" Margin="10,62,0,0" Grid.Row="8" VerticalAlignment="Top" Width="140" Background="#00000000" FontWeight="Bold"/>
-        <Label Content="&lt;==============" Grid.Column="6" HorizontalAlignment="Left" Height="22" Margin="10,62,0,0" Grid.Row="8" VerticalAlignment="Top" Width="130" FontWeight="Bold"/>
-        <Label Content="Godzina:" Grid.Column="2" HorizontalAlignment="Left" Height="26" Margin="10,34,0,0" Grid.Row="8" VerticalAlignment="Top" Width="60" FontWeight="Bold"/>
-        <Label Content="Godzina:" Grid.Column="5" HorizontalAlignment="Left" Height="26" Margin="15,39,0,0" Grid.Row="8" VerticalAlignment="Top" Width="60" FontWeight="Bold"/>
+        <Label Content="==============&gt;" Grid.Column="1" HorizontalAlignment="Left" Height="26" Margin="10,45,0,0" Grid.Row="8" VerticalAlignment="Top" Width="140" Background="#00000000" FontWeight="Bold"/>
+        <Label Content="&lt;==============" Grid.Column="6" HorizontalAlignment="Left" Height="22" Margin="10,38,0,0" Grid.Row="8" VerticalAlignment="Top" Width="130" FontWeight="Bold"/>
+        <Label Content="Godzina:" Grid.Column="2" HorizontalAlignment="Left" Height="26" Margin="10,15,0,0" Grid.Row="8" VerticalAlignment="Top" Width="60" FontWeight="Bold"/>
+        <Label Content="Godzina:" Grid.Column="5" HorizontalAlignment="Left" Height="26" Margin="15,15,0,0" Grid.Row="8" VerticalAlignment="Top" Width="60" FontWeight="Bold"/>
         <Label Content="24h" Grid.Column="3" HorizontalAlignment="Left" Margin="50,0,0,0" Grid.Row="7" Width="46" FontSize="20" FontWeight="Bold" RenderTransformOrigin="0.478,0.447"/>
         <Label Content="12h" Grid.Column="4" HorizontalAlignment="Left" Height="38" Margin="50,0,0,0" Grid.Row="7" VerticalAlignment="Top" Width="46" FontSize="20" FontWeight="Bold"/>
 
@@ -200,7 +200,7 @@
                     </TransformGroup>
                 </Path.RenderTransform>
             </Path>
-            <Path x:Name="path" Data="M150,75.25 L82.421805,75.25" Height="3" Canvas.Left="38.865" Stretch="Fill" Stroke="#FF044FF0" Canvas.Top="36.693" Width="66.918" RenderTransformOrigin="0,0.5" StrokeThickness="3">
+            <Path x:Name="path" Data="M150,75.25 L82.421805,75.25" Height="3" Canvas.Left="38.865" Stretch="Fill" Stroke="#FF044FF0" Canvas.Top="36.693" Width="65.751" RenderTransformOrigin="0,0.5" StrokeThickness="3">
                 <Path.RenderTransform>
                     <TransformGroup>
                         <ScaleTransform ScaleY="-1" ScaleX="1"/>
@@ -210,12 +210,12 @@
                     </TransformGroup>
                 </Path.RenderTransform>
             </Path>
-            <Path x:Name="path2" Data="M150,75.25 L82.421805,75.25" Height="3" Canvas.Left="38.581" Stretch="Fill" Stroke="#FF044FF0" Canvas.Top="36.693" Width="52.376" RenderTransformOrigin="0,0.5" StrokeThickness="3" Fill="#FFF0172B">
+            <Path x:Name="path2" Data="M150,75.25 L82.421805,75.25" Height="3" Canvas.Left="38.581" Stretch="Fill" Stroke="#FF044FF0" Canvas.Top="36.693" Width="55.459" RenderTransformOrigin="0,0.5" StrokeThickness="3" Fill="#FFF0172B">
                 <Path.RenderTransform>
                     <TransformGroup>
                         <ScaleTransform ScaleY="-1" ScaleX="1"/>
                         <SkewTransform/>
-                        <RotateTransform x:Name="ClockRotate1_Maly" Angle="6750"/>
+                        <RotateTransform x:Name="ClockRotate3" Angle="6750"/>
                         <TranslateTransform X="36.321" Y="36.32"/>
                     </TransformGroup>
                 </Path.RenderTransform>
@@ -267,7 +267,7 @@
                 </Label.RenderTransform>
             </Label>
         </StackPanel>
-        <Label Content="          Wpisz:&#xD;&#xA;GG:MM +&quot;PM&quot;/&quot;AM&quot;" HorizontalAlignment="Left" Margin="10,25,0,0" Grid.Row="8" VerticalAlignment="Top" Width="125" Grid.Column="7" Height="40" FontWeight="Bold"/>
+        <Label Content="          Wpisz:&#xD;&#xA;GG:MM +&quot;PM&quot;/&quot;AM&quot;" HorizontalAlignment="Left" Margin="10,1,0,0" Grid.Row="8" VerticalAlignment="Top" Width="125" Grid.Column="7" Height="40" FontWeight="Bold"/>
         <StackPanel Grid.Column="2" HorizontalAlignment="Left" Height="201" Grid.RowSpan="3" VerticalAlignment="Top" Width="10" Margin="140,0,0,0" Grid.Row="7">
             <StackPanel.Background>
                 <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
@@ -333,7 +333,7 @@
                 </LinearGradientBrush>
             </StackPanel.Background>
         </StackPanel>
-        <Label Content="          Wpisz:&#xA;          GG:MM" HorizontalAlignment="Left" Margin="15,25,0,0" Grid.Row="8" VerticalAlignment="Top" Width="125" Height="40" FontWeight="Bold"/>
+        <Label Content="          Wpisz:&#xA;          GG:MM" HorizontalAlignment="Left" Margin="15,6,0,0" Grid.Row="8" VerticalAlignment="Top" Width="125" Height="40" FontWeight="Bold"/>
         <StackPanel Grid.Column="5" HorizontalAlignment="Left" Height="201" Grid.RowSpan="3" VerticalAlignment="Top" Width="10" Grid.Row="7">
             <StackPanel.Background>
                 <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
@@ -418,7 +418,7 @@
                 </LinearGradientBrush>
             </Canvas.Background>
 
-            <Ellipse Fill="#FFF00A0A" Width="150" Height="150" Stroke="Black"  />
+            <Ellipse Fill="#FF0A14F0" Width="150" Height="150" Stroke="Black"  />
             <Ellipse Fill="Black" Width="130" Height="130" Canvas.Top="10" Canvas.Left="10" RenderTransformOrigin="0.499,0.499" />
             <Ellipse Fill="#FFF50000" Height="0.534" Canvas.Left="74.583" Canvas.Top="74.549" Width="0.542"/>
             <Path Data="M74.583,75.083 L120.83047,28.835526" Height="114.042" Canvas.Left="43.208" Stretch="Fill" Stroke="#FF0AF034" Canvas.Top="18.375" Width="65" Fill="#FF0AF034"/>
@@ -471,7 +471,7 @@
             <Path Data="M7.1666667,69.5 C6.1703386,69.998164 5.3238486,70.178048 4.5,71.166667 4.0673619,71.685832 3.2856883,72.329318 3.8333333,73.333333 4.1099408,73.840447 8.6929911,73.401576 7.3333333,70.833333 7.1470435,70.481452 6.6206091,69.730288 6.3333333,71.166667 6.1188698,72.238984 5.8336019,73.248254 5.6666667,74.333333 5.4772543,75.564513 5.220237,78.645834 4,79.5 3.7126219,79.701165 3.2480732,77.331682 2.6666667,76.833333" Height="13.645" Canvas.Left="2.667" Stretch="Fill" Stroke="Black" Canvas.Top="67.5" Width="7.333"/>
             <Path Data="M141.875,72.125 C141.98672,71.180491 141.51413,70.055436 142.625,69.5 143.22726,69.198871 143.93121,69.125 144.625,69.125 145.16384,69.125 145.45977,69.516275 145.75,70 147.28318,72.555301 146.4066,72.234198 142.625,74.125 143.42904,74.125 147.88302,74.382549 145.75,77.125 144.56528,78.648206 144.17195,78.311239 142.25,77" Height="10.007" Canvas.Left="141.867" Stretch="Fill" Stroke="Black" Canvas.Top="69.125" Width="5.599"/>
             <Canvas Height="78.652" Canvas.Left="67.5" Canvas.Top="0.681" Width="14.375">
-                <Path x:Name="path1" Data="M150,75.25 L82.421805,75.25" Height="3" Canvas.Left="7.422" Stretch="Fill" Stroke="#FF0C00FF" Canvas.Top="73.051" Width="66.705" RenderTransformOrigin="0,0.5" StrokeThickness="3">
+                <Path x:Name="path1" Data="M150,75.25 L82.421805,75.25" Height="3" Canvas.Left="7.422" Stretch="Fill" Stroke="Red" Canvas.Top="73.051" Width="66.705" RenderTransformOrigin="0,0.5" StrokeThickness="3">
                     <Path.RenderTransform>
                         <TransformGroup>
                             <ScaleTransform ScaleY="-1" ScaleX="1"/>
@@ -482,6 +482,16 @@
                     </Path.RenderTransform>
                 </Path>
 
+                <Path x:Name="path3" Data="M150,75.25 L82.421805,75.25" Height="3" Canvas.Left="7.422" Stretch="Fill" Stroke="Red" Canvas.Top="73.051" Width="51.872" RenderTransformOrigin="0,0.5" StrokeThickness="3" Fill="#FFFF0034">
+                    <Path.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform ScaleY="-1" ScaleX="1"/>
+                            <SkewTransform/>
+                            <RotateTransform x:Name="ClockRotate4"  Angle="4950"/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Path.RenderTransform>
+                </Path>
             </Canvas>
             <Path Data="M110.5,19.875 C111.21095,17.640601 110.94448,14.342538 112.125,12.375 111.30212,13.197881 110.41287,13.637418 109.625,14.375" Height="10.5" Canvas.Left="108.625" Stretch="Fill" Stroke="Black" Canvas.Top="11.375" Width="5.5"/>
             <Path Data="M134,37 C135.80834,36.221727 135.46611,34.31852 137.375,37.5 138.09788,38.704797 138.78628,39.516147 138.25,41.125 137.6423,42.948092 134.86058,44.099585 133.25,45.25 133.51859,44.444244 134.63346,43.514096 135.75,45.375 136.69671,46.952856 136.42625,46.424075 138.375,46.5" Height="13.805" Canvas.Left="132.25" Stretch="Fill" Stroke="Black" Canvas.Top="34.722" Width="8.191"/>
@@ -494,10 +504,13 @@
             <Path Data="M18.5,38.125 C16.07762,38.273743 16.140819,38.484181 13.875,40.75 12.960019,41.664981 11.374128,43.874477 13.875,45.375 15.277048,46.216229 16.659512,45.703985 18.125,43.75 19.028653,42.545129 18.75,41.68353 18.75,40.125 18.75,37.902435 19.194258,38.994041 17.875,37.625" Height="9.14" Canvas.Left="12.531" Stretch="Fill" Stroke="Black" Canvas.Top="37.625" Width="5.041"/>
             <Path Data="M36.125,19.75 C36.468007,17.2632 36.375,14.788203 36.375,12.25 35.558303,13.883395 34.640665,15.497962 33.875,17.125" Height="8.5" Canvas.Left="33.875" Stretch="Fill" Stroke="Black" Canvas.Top="12.25" Width="3.511"/>
             <Path Data="M40.625,18.875 C40.625,16.531565 42.321289,12.553224 41.5,10.5 40.451454,11.548546 39.919686,13.415363 38.875,14.625" Height="9.375" Canvas.Left="38.875" Stretch="Fill" Stroke="Black" Canvas.Top="10.5" Width="3.85"/>
-            <Ellipse Fill="#FF0021F5" Width="15" Height="15" Canvas.Top="69.125" Canvas.Left="67.5" RenderTransformOrigin="0.5,0.492" HorizontalAlignment="Center" VerticalAlignment="Center" />
-            <Ellipse Fill="#FFF00A0A" Height="10.007" Canvas.Left="70.042" Canvas.Top="71.138" Width="10.007" Stroke="#FF044FF0"/>
+            <Ellipse Fill="Red" Width="15" Height="15" Canvas.Top="69.125" Canvas.Left="67.5" RenderTransformOrigin="0.5,0.492" HorizontalAlignment="Center" VerticalAlignment="Center" />
+            <Ellipse Fill="#FF0A14F0" Height="10.007" Canvas.Left="70.042" Canvas.Top="71.138" Width="10.007" Stroke="#FF044FF0"/>
 
         </Canvas>
+        <Button x:Name="PM" Content="+PM" Grid.Column="7" HorizontalAlignment="Left" Margin="10,64.04,0,0" Grid.Row="8" VerticalAlignment="Top" Width="63" Click="PM_Click"/>
+        <Button x:Name="AM" Content="+AM" Grid.Column="7" HorizontalAlignment="Left" Margin="73,64,0,0" Grid.Row="8" VerticalAlignment="Top" Width="62" Click="AM_Click"/>
+        <Button x:Name="CLEAN" Content="CLEAN" Grid.Column="7" HorizontalAlignment="Left" Margin="10,83.96,0,0" Grid.Row="8" VerticalAlignment="Top" Width="125" Click="CLEAN_Click"/>
 
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="150"/>
