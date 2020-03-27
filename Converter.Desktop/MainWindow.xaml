@@ -6,6 +6,15 @@
         xmlns:local="clr-namespace:Converter.Desktop"
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="500">
+    <Window.Resources>
+        <Storyboard x:Key="TarczaStory">
+            <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)" Storyboard.TargetName="Tarcza">
+                <EasingColorKeyFrame KeyTime="0:0:1" Value="#FF59BD4B"/>
+                <EasingColorKeyFrame KeyTime="0:0:2" Value="#FFDDE3DC"/>
+            </ColorAnimationUsingKeyFrames>
+        </Storyboard>
+    </Window.Resources>
+
     <Grid Background="#FFBCBCBC">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="764*"/>
@@ -19,6 +28,28 @@
         <Label x:Name="Converted" Content="?" HorizontalAlignment="Left" Height="50" Width="113" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="20" Margin="245,225,0,0" VerticalAlignment="Top" BorderBrush="#FFE7B6B6" Background="#FFBB9999"/>
 
         <TextBox x:Name="Toconvert" HorizontalAlignment="Left" Height="50" TextWrapping="Wrap" Text="0" Width="117" FontSize="20" TextAlignment="Center" VerticalContentAlignment="Center" VerticalAlignment="Top" Margin="38,225,0,0"/>
+        <Ellipse x:Name="Tarcza" Fill="#FFF4F4F7" HorizontalAlignment="Left" Height="151.565" Margin="288.84,44.435,0,0" Stroke="Black" VerticalAlignment="Top" Width="151.565"/>
+        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="53.565" Margin="364.667,67.435,0,0" Stroke="Black" VerticalAlignment="Top" Width="0"/>
+        <Rectangle x:Name="Minutowa" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="58.565" Margin="364.667,62.435,0,0" Stroke="Black" VerticalAlignment="Top" Width="1.667" RenderTransformOrigin="0.5,1">
+            <Rectangle.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Rectangle.RenderTransform>
+        </Rectangle>
+        <Rectangle x:Name="Godzinowa" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="33.684" Margin="365,86.667,0,0" Stroke="Black" VerticalAlignment="Top" Width="1.667" RenderTransformOrigin="0.5,1">
+            <Rectangle.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="90"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Rectangle.RenderTransform>
+        </Rectangle>
 
 
     </Grid>

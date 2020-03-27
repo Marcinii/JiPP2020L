@@ -47,6 +47,7 @@
     <Compile Include="Powierzchnia.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Temperatura.cs" />
+    <Compile Include="Zegar.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
