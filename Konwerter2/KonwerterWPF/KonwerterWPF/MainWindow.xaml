@@ -7,8 +7,12 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <StackPanel Margin = "40">
-            
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <StackPanel Margin = "40" Grid.Column="0">
+
             <RadioButton x:Name = "CelsjuszFarenheit" Margin = "5" Click = "ZmienKonwerter" GroupName = "Konwerter" Content="Stopnie celsjusza na farenheita" IsChecked="True"/>
             <RadioButton x:Name = "FarenheitCelsjusz" Margin = "5" Click = "ZmienKonwerter" GroupName = "Konwerter" Content="Stopnie farenheita na celsjusza"/>
             <RadioButton x:Name = "MetryKilometry" Margin = "5" Click = "ZmienKonwerter" GroupName = "Konwerter" Content="Metry na kilometry"/>
@@ -17,11 +21,38 @@
             <RadioButton x:Name = "GodzinySekund" Margin = "5" Click = "ZmienKonwerter" GroupName = "Konwerter" Content="Godziny na sekundy"/>
             <RadioButton x:Name = "KilogramyFunty" Margin = "5" Click = "ZmienKonwerter" GroupName = "Konwerter" Content="Kilogramy na funty"/>
             <RadioButton x:Name = "FuntyKilogramy" Margin = "5" Click = "ZmienKonwerter" GroupName = "Konwerter" Content="Funty na kilogramy"/>
+            <RadioButton x:Name= "Godziny12na24" Margin = "5" Click = "ZmienKonwerter" GroupName = "Konwerter" Content="Czas 12-godzinny na 24-godzinny"/>
+            <RadioButton x:Name= "Godziny24na12" Margin = "5" Click = "ZmienKonwerter" GroupName = "Konwerter" Content="Czas 24-godzinny na 12-godzinny"/>
 
             <Label Content="Wprowadź wartość:"></Label>
             <TextBox x:Name="Wartosc"/>
 
             <Button Content="Przelicz" Click="Button_Click"/>
         </StackPanel>
+        <Grid Grid.Column="1" Visibility="Hidden" Name="ZegarGrid">
+            <Ellipse  Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="211.548" Margin="94.781,77.639,0,0" Stroke="Black" VerticalAlignment="Top" Width="211.548"/>
+            <Rectangle Name ="MinutyRect" Grid.Column="1" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="12.318" Margin="107.099,175.566,0,0" Stroke="Black" VerticalAlignment="Top" Width="97.178" RenderTransformOrigin="1,0.5">
+                <Rectangle.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="0" x:Name="MinutyTransform"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Rectangle.RenderTransform>
+            </Rectangle>
+            <Rectangle Name ="GodzinyRect" Grid.Column="1" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="12.318" Margin="158.426,175.566,0,0" Stroke="Black" VerticalAlignment="Top" Width="45.167" RenderTransformOrigin="1,0.5">
+                <Rectangle.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="-55" x:Name="GodzinyTransform"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Rectangle.RenderTransform>
+            </Rectangle>
+        </Grid>
+        
+
     </Grid>
 </Window>

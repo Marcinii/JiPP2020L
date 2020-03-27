@@ -22,15 +22,21 @@ namespace KonwerterWPF
     public partial class MainWindow : Window
     {
         private IKonwerter aktualnyKonwerter;
+        private Godziny godziny = null;
+        private Zegar zegar = null;
 
         public MainWindow()
         {
             InitializeComponent();
             aktualnyKonwerter = new CelsjuszNaFarenheit();
+            zegar = new Zegar(GodzinyTransform, MinutyTransform);
         }
 
         private void ZmienKonwerter(object sender, RoutedEventArgs e)
         {
+            godziny = null;
+
+            ZegarGrid.Visibility = Visibility.Hidden;
             RadioButton checkBox = (RadioButton) sender;
             switch(checkBox.Name)
             {
@@ -58,14 +64,31 @@ namespace KonwerterWPF
                 case "FuntyKilogramy":
                     aktualnyKonwerter = new FuntyNaKilogramy();
                     break;
+                case "Godziny24na12":
+                    godziny = new Godziny("24", "12");
+                    ZegarGrid.Visibility = Visibility.Visible;
+                    break;
+                case "Godziny12na24":
+                    godziny = new Godziny("12", "24");
+                    ZegarGrid.Visibility = Visibility.Visible;
+                    break;
             }
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            double wartosc = double.Parse(Wartosc.Text.ToString());
-            aktualnyKonwerter.DodajWartosc(wartosc);
-            MessageBox.Show("Wynik: " + aktualnyKonwerter.Przelicz());
+            if(godziny != null)
+            {
+                godziny.AddInput(Wartosc.Text.ToString());
+                zegar.UstawCzas(godziny.ToDateTime());
+                MessageBox.Show("Wynik: " + godziny.GetOutput());
+            }
+            else
+            {
+                double wartosc = double.Parse(Wartosc.Text.ToString());
+                aktualnyKonwerter.DodajWartosc(wartosc);
+                MessageBox.Show("Wynik: " + aktualnyKonwerter.Przelicz());
+            }
         }
     }
 }
