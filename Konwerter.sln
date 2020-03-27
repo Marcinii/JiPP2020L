@@ -3,7 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29509.3
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Konwerter", "Konwerter\Konwerter.csproj", "{0242F02E-96E4-4642-93C8-C3DA097E75BA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Konwerter", "Konwerter\Konwerter.csproj", "{0242F02E-96E4-4642-93C8-C3DA097E75BA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Converter.Logic", "Converter.Logic\Converter.Logic.csproj", "{8EC262BC-1121-4C2F-A770-DE8C564DE2C3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Converter.Windows", "Converter.Windows\Converter.Windows.csproj", "{11900016-03B0-4A24-A426-BDBB691A1660}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +19,14 @@ Global
 		{0242F02E-96E4-4642-93C8-C3DA097E75BA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0242F02E-96E4-4642-93C8-C3DA097E75BA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0242F02E-96E4-4642-93C8-C3DA097E75BA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8EC262BC-1121-4C2F-A770-DE8C564DE2C3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8EC262BC-1121-4C2F-A770-DE8C564DE2C3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8EC262BC-1121-4C2F-A770-DE8C564DE2C3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8EC262BC-1121-4C2F-A770-DE8C564DE2C3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{11900016-03B0-4A24-A426-BDBB691A1660}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{11900016-03B0-4A24-A426-BDBB691A1660}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{11900016-03B0-4A24-A426-BDBB691A1660}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{11900016-03B0-4A24-A426-BDBB691A1660}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
