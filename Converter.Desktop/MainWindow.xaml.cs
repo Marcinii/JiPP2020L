@@ -53,18 +53,10 @@ namespace Converter.Desktop
                 Tarcza.Visibility = Visibility.Visible;
                 Godzinowa.Visibility = Visibility.Visible;
                 Minutowa.Visibility = Visibility.Visible;
-                //UnitFrom.Items.Add(((IConverter)Category.SelectedItem).Units.);
-                //UnitFrom.ItemsSource = ((IConverter)Category.SelectedItem).Units[0];
-                //UnitTo.Items.Add(((IConverter)Category.SelectedItem).Units[1]);
                 Storyboard sb = this.FindResource("TarczaStory") as Storyboard;
                 Storyboard.SetTarget(sb, Tarcza);
                 sb.Begin();
             }
-            else
-            {
-
-            }
-
         }
 
         private void Convert(object sender, RoutedEventArgs e)
@@ -100,9 +92,6 @@ namespace Converter.Desktop
                 double.TryParse(Toconvert.Text, out double value);
                 Converted.Content = ((IConverter)Category.SelectedItem).convert(value, UnitFrom.Text, UnitTo.Text);
             }
-
-
-            
         }
     }
 }
