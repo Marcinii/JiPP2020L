@@ -1,0 +1,20 @@
+﻿<Window x:Class="Converter.Windows.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Converter.Windows"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="736.074" Width="1017.168">
+    <Grid>
+        <TextBox x:Name="Wartosc" HorizontalAlignment="Left" Height="42" Margin="420,96,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="107" FontSize="24" Background="#FFDA0B0B"/>
+        <ComboBox x:Name="DocelowaJednostka" HorizontalAlignment="Left" Margin="368,204,0,0" VerticalAlignment="Top" Width="214" Height="42" SelectionChanged="DocelowaJednostka_SelectionChanged" Initialized="DocelowaJednostka_Initialized"/>
+        <ComboBox x:Name="DocelowaJednostka1" HorizontalAlignment="Left" Margin="368,341,0,0" VerticalAlignment="Top" Width="214" Height="42" SelectionChanged="DocelowaJednostka1_SelectionChanged"/>
+        <Label Content="  WPISZ WARTOŚĆ" HorizontalAlignment="Left" Margin="368,24,0,0" VerticalAlignment="Top" Height="51" Width="214" FontSize="22"/>
+        <Label Content="Pierwotna jednostka" HorizontalAlignment="Left" Margin="384,150,0,0" VerticalAlignment="Top" Height="49" Width="198" FontSize="20"/>
+        <Label Content="Docelowa jednostka" HorizontalAlignment="Left" Margin="384,269,0,0" VerticalAlignment="Top" Height="49" Width="198" FontSize="20"/>
+        <Label Content="Wynik:" HorizontalAlignment="Left" Margin="433,450,0,0" VerticalAlignment="Top" Height="51" Width="94" FontSize="24" RenderTransformOrigin="1.629,-0.501"/>
+        <Label x:Name="Wynik" Content="" HorizontalAlignment="Left" Margin="420,501,0,0" VerticalAlignment="Top" Height="60" Width="111" FontSize="24" Background="#FF0B20EE"/>
+
+    </Grid>
+</Window>
