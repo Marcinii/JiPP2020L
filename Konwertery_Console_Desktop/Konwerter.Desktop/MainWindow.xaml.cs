@@ -48,7 +48,6 @@ namespace Konwerter.Desktop
         private void converterBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             int converterIndex = converterBox.SelectedIndex;
-            stopArrowAnimation();
             onConvert.IsEnabled = true;
             quantityBox.Text = "0";
             resultLabel.Content = null;
@@ -57,22 +56,28 @@ namespace Konwerter.Desktop
             {
                 case 0:
                     initLenghtConverter();
+                    hideClock();
                     chosenConverter = converterList[0];
                     break;
                 case 1:
                     initWeightConverter();
+                    hideClock();
                     chosenConverter = converterList[1];
                     break;
                 case 2:
                     initTemperatureConverter();
+                    hideClock();
                     chosenConverter = converterList[2];
                     break;
                 case 3:
                     initPowerConverter();
+                    hideClock();
                     chosenConverter = converterList[3];
                     break;
                 case 4:
                     initTimeConverter();
+                    showClock();
+                    ((Storyboard)Resources["zegarAnimation"]).Begin();
                     chosenConverter = converterList[4];
                     break;
             }
@@ -139,9 +144,18 @@ namespace Konwerter.Desktop
             }
         }
 
-        private void stopArrowAnimation()
+        private void showClock()
         {
-            ((Storyboard)Resources["arrowAnimation"]).Stop();
+            path1.Visibility = Visibility.Visible;
+            rectangle.Visibility = Visibility.Visible;
+            hourPointer.Visibility = Visibility.Visible;
+        }
+
+        private void hideClock()
+        {
+            path1.Visibility = Visibility.Hidden;
+            rectangle.Visibility = Visibility.Hidden;
+            hourPointer.Visibility = Visibility.Hidden;
         }
     }
 }

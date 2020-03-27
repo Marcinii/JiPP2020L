@@ -7,27 +7,23 @@
         mc:Ignorable="d"
         Title="Konwerter jednostek" Height="520.001" Width="500.867">
     <Window.Resources>
-        <Storyboard x:Key="arrowAnimation" RepeatBehavior="Forever">
-            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="path">
+        <Storyboard x:Key="zegarAnimation">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="path1">
                 <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
                 <EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="0.1"/>
-                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="0.2"/>
-                <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="0.3"/>
-                <EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="0.4"/>
                 <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="0.5"/>
-                <EasingDoubleKeyFrame KeyTime="0:0:0.6" Value="0.6"/>
-                <EasingDoubleKeyFrame KeyTime="0:0:0.7" Value="0.7"/>
-                <EasingDoubleKeyFrame KeyTime="0:0:0.8" Value="0.8"/>
-                <EasingDoubleKeyFrame KeyTime="0:0:0.9" Value="0.9"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="rectangle">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="hourPointer">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
                 <EasingDoubleKeyFrame KeyTime="0:0:1" Value="1"/>
             </DoubleAnimationUsingKeyFrames>
         </Storyboard>
     </Window.Resources>
-    <Window.Triggers>
-        <EventTrigger RoutedEvent="FrameworkElement.Loaded">
-            <BeginStoryboard Storyboard="{StaticResource arrowAnimation}"/>
-        </EventTrigger>
-    </Window.Triggers>
     <Grid Margin="0,0,0,5">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="1*"></ColumnDefinition>
@@ -43,7 +39,7 @@
 
         </ComboBox>
         <StackPanel Grid.Column="1" Grid.Row="0" Grid.RowSpan="2">
-            <Label x:Name="converterLabel" Content="Wybierz kategorię po lewej" VerticalAlignment="Top" Margin="82,0,0,0"/>
+            <Label x:Name="converterLabel" Content="Wybierz kategorię po lewej" VerticalAlignment="Top"/>
             <Label  x:Name="label" Content="Z:" Margin="10,10,10,0" VerticalAlignment="Top" IsEnabled="False"/>
             <ComboBox  x:Name="convertFrom" Margin="10,10,10,0" VerticalAlignment="Top"/>
             <TextBox  x:Name="quantityBox" Height="39" Margin="30,10,30,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
@@ -53,7 +49,7 @@
             <Label  x:Name="resultLabel" Content="" Height="60" Margin="20,20,148,0" VerticalAlignment="Top" FontSize="16"/>
 
         </StackPanel>
-        <Path Data="M52.811001,8.8109999 C28.510471,8.8109999 8.8109999,28.510471 8.8109999,52.811001 8.8109999,77.111526 28.510471,96.810997 52.811001,96.810997 77.111526,96.810997 96.810997,77.111526 96.810997,52.811001 96.810997,28.510471 77.111526,8.8109999 52.811001,8.8109999 z M52.811001,0.5 C81.701569,0.5 105.122,23.920433 105.122,52.811001 105.122,81.701569 81.701569,105.122 52.811001,105.122 23.920433,105.122 0.5,81.701569 0.5,52.811001 0.5,23.920433 23.920433,0.5 52.811001,0.5 z" HorizontalAlignment="Left" Height="123.622" Margin="179.623,44.951,0,0" Stretch="Fill" VerticalAlignment="Top" Width="123.622" Grid.Column="1" Grid.Row="1" >
+        <Path x:Name="path1" Data="M52.811001,8.8109999 C28.510471,8.8109999 8.8109999,28.510471 8.8109999,52.811001 8.8109999,77.111526 28.510471,96.810997 52.811001,96.810997 77.111526,96.810997 96.810997,77.111526 96.810997,52.811001 96.810997,28.510471 77.111526,8.8109999 52.811001,8.8109999 z M52.811001,0.5 C81.701569,0.5 105.122,23.920433 105.122,52.811001 105.122,81.701569 81.701569,105.122 52.811001,105.122 23.920433,105.122 0.5,81.701569 0.5,52.811001 0.5,23.920433 23.920433,0.5 52.811001,0.5 z" HorizontalAlignment="Left" Height="123.622" Margin="179.623,44.951,0,0" Stretch="Fill" VerticalAlignment="Top" Width="123.622" Grid.Column="1" Grid.Row="1" Visibility="Hidden" >
             <Path.Fill>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="Black" Offset="0"/>
@@ -61,15 +57,7 @@
                 </LinearGradientBrush>
             </Path.Fill>
         </Path>
-        <Path x:Name="path" HorizontalAlignment="Left" Stroke="Black" VerticalAlignment="Top" Data="M23.959523,0.5 L31.030591,7.5710669 21.065864,17.535795 63.827796,17.535795 63.827796,30.869795 21.440864,30.869795 30.905591,40.334522 23.834523,47.40559 0.5,24.071067 0.68077183,23.890296 0.62499952,23.834524 z" Height="37.406" Margin="10,0,0,0" Stretch="Fill" Width="59.828" Grid.Column="1">
-            <Path.Fill>
-                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                    <GradientStop Color="Black" Offset="0"/>
-                    <GradientStop Color="#FFF097E8" Offset="1"/>
-                </LinearGradientBrush>
-            </Path.Fill>
-        </Path>
-        <Rectangle HorizontalAlignment="Left" Height="4" Margin="189.878,104.521,0,0" Grid.Row="1" VerticalAlignment="Top" Width="53.75" Grid.Column="1" RenderTransformOrigin="1,0.5">
+        <Rectangle x:Name="rectangle" HorizontalAlignment="Left" Height="4" Margin="189.878,104.521,0,0" Grid.Row="1" VerticalAlignment="Top" Width="53.75" Grid.Column="1" RenderTransformOrigin="1,0.5" Visibility="Hidden">
             <Rectangle.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -85,7 +73,7 @@
                 </LinearGradientBrush>
             </Rectangle.Fill>
         </Rectangle>
-        <Rectangle Name="hourPointer" HorizontalAlignment="Left" Height="4" Margin="222.003,82.396,0,0" Grid.Row="1" VerticalAlignment="Top" Width="39" Grid.Column="1" RenderTransformOrigin="1.1,0.5" Fill="#FF2E2525">
+        <Rectangle Name="hourPointer" HorizontalAlignment="Left" Height="4" Margin="222.003,82.396,0,0" Grid.Row="1" VerticalAlignment="Top" Width="39" Grid.Column="1" RenderTransformOrigin="1.1,0.5" Fill="#FF2E2525" Visibility="Hidden">
             <Rectangle.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
