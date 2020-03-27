@@ -1,0 +1,10 @@
+C:\Users\slowi\source\repos\Modul_3\Modul_3\obj\Debug\Modul_3.csprojAssemblyReference.cache
+C:\Users\slowi\source\repos\Modul_3\Modul_3\obj\Debug\Modul_3.csproj.CoreCompileInputs.cache
+C:\Users\slowi\source\repos\Modul_3\Modul_3\bin\Debug\Modul_3.exe.config
+C:\Users\slowi\source\repos\Modul_3\Modul_3\bin\Debug\Modul_3.exe
+C:\Users\slowi\source\repos\Modul_3\Modul_3\bin\Debug\Modul_3.pdb
+C:\Users\slowi\source\repos\Modul_3\Modul_3\bin\Debug\Modul_3.logic.dll
+C:\Users\slowi\source\repos\Modul_3\Modul_3\bin\Debug\Modul_3.logic.pdb
+C:\Users\slowi\source\repos\Modul_3\Modul_3\obj\Debug\Modul_3.csproj.CopyComplete
+C:\Users\slowi\source\repos\Modul_3\Modul_3\obj\Debug\Modul_3.exe
+C:\Users\slowi\source\repos\Modul_3\Modul_3\obj\Debug\Modul_3.pdb
