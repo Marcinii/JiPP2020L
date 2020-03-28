@@ -46,6 +46,7 @@
     <Compile Include="LengthConverter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TempConverter.cs" />
+    <Compile Include="TimeConverter.cs" />
     <Compile Include="VolumeConverter.cs" />
     <Compile Include="WeightConverter.cs" />
   </ItemGroup>

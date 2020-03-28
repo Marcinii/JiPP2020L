@@ -10,6 +10,6 @@ namespace Konwerter
         List<string> Units { get; }
 
         float ConvertUnit(string from, string to, float Value);
-       
+        string ConvertUnit(string from, string to, string Value);
     }
 }

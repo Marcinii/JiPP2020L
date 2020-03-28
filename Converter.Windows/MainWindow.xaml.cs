@@ -13,6 +13,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Konwerter;
+using System.Globalization;
+using System.Windows.Media.Animation;
 
 namespace Converter.Windows
 {
@@ -21,12 +24,15 @@ namespace Converter.Windows
     /// </summary>
     public partial class MainWindow : Window
     {
+        public RotateTransform MinTrans = new RotateTransform();
+        public RotateTransform HourTrans = new RotateTransform();
         List<IEConverter> Converters = new List<IEConverter>()
             {
                 new WeightConverter(),
                 new Konwerter.LengthConverter(),
                 new TempConverter(),
-                new VolumeConverter()
+                new VolumeConverter(),
+                new Converter.Logic.TimeConverter()
 
             };
         IEConverter CurrentConverter;
@@ -74,8 +80,18 @@ namespace Converter.Windows
 
         private void DocelowaJednostka1_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if(DocelowaJednostka.SelectedItem != null && DocelowaJednostka1.SelectedItem != null && Wartosc.Text != null)
-            Wynik.Content = CurrentConverter.ConvertUnit(DocelowaJednostka.SelectedItem.ToString(), DocelowaJednostka1.SelectedItem.ToString(),float.Parse(Wartosc.Text));          
+            if (CurrentConverter.Name == "Czas")
+            {
+                MinTrans.Angle = (DateTime.ParseExact(Wartosc.Text, "HH:mm", CultureInfo.CurrentCulture).Minute * 6);
+                Minute.RenderTransform = MinTrans;
+                HourTrans.Angle = (DateTime.ParseExact(Wartosc.Text, "HH:mm", CultureInfo.CurrentCulture).Hour * 30);
+                Hour.RenderTransform = HourTrans;
+            }
+
+            if (DocelowaJednostka.SelectedItem != null && DocelowaJednostka1.SelectedItem != null && Wartosc.Text != null && CurrentConverter.Name != "Czas")
+                Wynik.Content = CurrentConverter.ConvertUnit(DocelowaJednostka.SelectedItem.ToString(), DocelowaJednostka1.SelectedItem.ToString(),float.Parse(Wartosc.Text)); 
+            else
+                Wynik.Content = CurrentConverter.ConvertUnit(DocelowaJednostka.SelectedItem.ToString(), DocelowaJednostka1.SelectedItem.ToString(), Wartosc.Text);
         }
     }
 }

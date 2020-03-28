@@ -51,5 +51,10 @@ namespace Konwerter
                 return 0f;
             }
         }
+
+        public string ConvertUnit(string from, string to, string Value)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

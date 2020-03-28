@@ -39,5 +39,10 @@ namespace Konwerter
             }
                 
         }
+
+        public string ConvertUnit(string from, string to, string Value)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

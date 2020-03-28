@@ -5,16 +5,56 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Converter.Windows"
         mc:Ignorable="d"
-        Title="MainWindow" Height="736.074" Width="1017.168">
-    <Grid>
-        <TextBox x:Name="Wartosc" HorizontalAlignment="Left" Height="42" Margin="420,96,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="107" FontSize="24" Background="#FFDA0B0B"/>
-        <ComboBox x:Name="DocelowaJednostka" HorizontalAlignment="Left" Margin="368,204,0,0" VerticalAlignment="Top" Width="214" Height="42" SelectionChanged="DocelowaJednostka_SelectionChanged" Initialized="DocelowaJednostka_Initialized"/>
-        <ComboBox x:Name="DocelowaJednostka1" HorizontalAlignment="Left" Margin="368,341,0,0" VerticalAlignment="Top" Width="214" Height="42" SelectionChanged="DocelowaJednostka1_SelectionChanged"/>
-        <Label Content="  WPISZ WARTOŚĆ" HorizontalAlignment="Left" Margin="368,24,0,0" VerticalAlignment="Top" Height="51" Width="214" FontSize="22"/>
-        <Label Content="Pierwotna jednostka" HorizontalAlignment="Left" Margin="384,150,0,0" VerticalAlignment="Top" Height="49" Width="198" FontSize="20"/>
-        <Label Content="Docelowa jednostka" HorizontalAlignment="Left" Margin="384,269,0,0" VerticalAlignment="Top" Height="49" Width="198" FontSize="20"/>
-        <Label Content="Wynik:" HorizontalAlignment="Left" Margin="433,450,0,0" VerticalAlignment="Top" Height="51" Width="94" FontSize="24" RenderTransformOrigin="1.629,-0.501"/>
-        <Label x:Name="Wynik" Content="" HorizontalAlignment="Left" Margin="420,501,0,0" VerticalAlignment="Top" Height="60" Width="111" FontSize="24" Background="#FF0B20EE"/>
+        Title="MainWindow" Height="803.561" Width="946.149">
+    <Grid HorizontalAlignment="Left" Width="1455.906" Margin="0,0,-517.757,0">
+        <TextBox x:Name="Wartosc" HorizontalAlignment="Left" Height="42" Margin="219,245,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="214" FontSize="24" Background="#FF747474"/>
+        <ComboBox x:Name="DocelowaJednostka" HorizontalAlignment="Left" Margin="219,80,0,0" VerticalAlignment="Top" Width="214" Height="42" SelectionChanged="DocelowaJednostka_SelectionChanged" Initialized="DocelowaJednostka_Initialized" RenderTransformOrigin="0.505,-0.587"/>
+        <ComboBox x:Name="DocelowaJednostka1" HorizontalAlignment="Left" Margin="219,164,0,0" VerticalAlignment="Top" Width="214" Height="42" SelectionChanged="DocelowaJednostka1_SelectionChanged"/>
+        <Label Content="  Wpisz wartość:" HorizontalAlignment="Left" Margin="0,245,0,0" VerticalAlignment="Top" Height="51" Width="198" FontSize="20"/>
+        <Label Content="Pierwotna jednostka:" HorizontalAlignment="Left" Margin="10,80,0,0" VerticalAlignment="Top" Height="49" Width="198" FontSize="20"/>
+        <Label Content="Docelowa jednostka:" HorizontalAlignment="Left" Margin="10,164,0,0" VerticalAlignment="Top" Height="49" Width="198" FontSize="20"/>
+        <Label Content="Wynik:" HorizontalAlignment="Left" Margin="10,327,0,0" VerticalAlignment="Top" Height="51" Width="94" FontSize="20" RenderTransformOrigin="1.629,-0.501"/>
+        <Label x:Name="Wynik" Content="" HorizontalAlignment="Left" Margin="219,327,0,0" VerticalAlignment="Top" Height="42" Width="214" FontSize="24" Background="#FFEEC50B"/>
+        <Ellipse x:Name="ellipse" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="298.721" Margin="556.805,245,0,0" Stroke="Black" VerticalAlignment="Top" Width="298.721" RenderTransformOrigin="0.5,0.5">
+            <Ellipse.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Ellipse.RenderTransform>
+        </Ellipse>
+        <Ellipse x:Name="ellipse1" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="30.703" Margin="690.814,379.009,0,0" Stroke="Black" VerticalAlignment="Top" Width="30.703" RenderTransformOrigin="0.806,1.215">
+            <Ellipse.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Ellipse.RenderTransform>
+        </Ellipse>
+        <Path x:Name="Minute" Data="M669.35917,393.84948 L669.35917,245" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="149.849" Margin="704.017,245,0,0" Stretch="Fill" Stroke="Black" VerticalAlignment="Top" Width="1" RenderTransformOrigin="0.5,1">
+            <Path.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Path.RenderTransform>
+        </Path>
+        <Path x:Name="Hour" Data="M669.359,394.849 L669.359,327" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="68.849" Margin="704.017,327,0,0" Stretch="Fill" Stroke="Black" VerticalAlignment="Top" Width="1" RenderTransformOrigin="0.5,1">
+            <Path.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="690"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Path.RenderTransform>
+        </Path>
 
     </Grid>
 </Window>
