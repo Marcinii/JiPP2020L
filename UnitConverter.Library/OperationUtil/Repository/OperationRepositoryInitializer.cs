@@ -1,8 +1,18 @@
 ﻿namespace UnitConverter.Library.OperationUtil.Repository
 {
     /// <summary>
-    /// Klasa inicjalizująca reppozytorium z konwerterami.
+    /// Klasa abstrakcyjna, która posiada zestaw metod do zainicjalizowania repozytorium z operacjami.
+    /// 
+    /// <param name="repository">Repozytorium, któe chcemy zainicjalizować</param>
+    /// <typeparamref name="T">
+    ///     Typ danych reprezentujący klasę repozytorium, które chcemy zainicjalizować.
+    /// </typeparamref>
+    /// <typeparamref name="O">
+    ///     Typ danych reprezentujący klasę elementu danego repozytorium
+    /// </typeparamref>
     /// </summary>
+    /// <see cref="OperationRepository{T}"/>
+    /// <see cref="Operation"/>
     public abstract class OperationRepositoryInitializer<T, O> where T : OperationRepository<O> where O : Operation
     {
         protected T repository { get; }
@@ -14,9 +24,8 @@
 
 
         /// <summary>
-        /// Inicjalizuje repozytorium z konwerterami. Każdy knwerter dostaje odpowiednie jednostki wraz ze wzorami konwertującymi
+        /// Metoda, w której inicjalizujemy repozytorium
         /// </summary>
-        /// <param name="operationRepository"></param>
         public abstract void initializeRepository();
     }
 }

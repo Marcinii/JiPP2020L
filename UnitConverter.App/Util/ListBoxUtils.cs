@@ -10,16 +10,18 @@ namespace UnitConverterApp.Util
     /// </summary>
     /// <typeparam name="T"></typeparam>
     /// <see cref="ISelectorUtils{T, I}"/>
-    class ListBoxUtils<T> : ISelectorUtils<ListBox, T>
+    public class ListBoxUtils<T> : ISelectorUtils<ListBox, T>
     {
-        public void initialize(ListBox selector, List<T> list)
+        public ListBoxUtils(ListBox selector) : base(selector) {}
+
+
+
+        public override void initialize(List<T> list)
         {
-            selector.ItemsSource = list.Select(item =>
+            selector.ItemsSource = list.Select(item => new ListBoxItem
             {
-                ListBoxItem listBoxItem = new ListBoxItem();
-                listBoxItem.Content = item;
-                listBoxItem.Cursor = Cursors.Hand;
-                return listBoxItem;
+                Content = item,
+                Cursor = Cursors.Hand
             }).ToList();
         }
     }

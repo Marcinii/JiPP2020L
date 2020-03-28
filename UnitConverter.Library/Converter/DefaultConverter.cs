@@ -7,10 +7,12 @@ namespace UnitConverter.Library.Converter
 
 
     /// <summary>
-    /// Klasa implementująca interfejs {IConverter} służąca do konwersji jednosek miar
+    /// Klasa implementująca interfejs <see cref="IConverter"/> służąca do konwersji jednosek miar
+    /// 
     /// <param name="value">Wprowadzona wartość wejściowa</param>
     /// <param name="fromUnit">Pole przechowujące informacje odnośnie jednostki, z której mamy konwertować</param>
     /// <param name="toUnit">Pole przechowujące informacje odnośnie jednostki, na którą mamy konwertować</param>
+    /// 
     /// <see cref="IConverter"/>
     /// </summary>
     public class DefaultConverter : IConverter<ICustomType>

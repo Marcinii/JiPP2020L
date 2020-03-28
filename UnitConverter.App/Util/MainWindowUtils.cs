@@ -44,6 +44,8 @@ namespace UnitConverter.App.Util
 
             mainWindow.formatNumberCheckBox.IsEnabled = false;
             mainWindow.formatNumberLabel.Cursor = Cursors.Arrow;
+
+            mainWindow.customTimeFormatSelectionGrid.Visibility = Visibility.Collapsed;
         }
 
 
@@ -58,12 +60,6 @@ namespace UnitConverter.App.Util
             {
                 ComboBoxItem selectedItem = (ComboBoxItem)mainWindow.commaDigitCountComboBox.SelectedItem;
                 string input = mainWindow.providedValueTextBox.Text;
-
-                //double res = doubleUtils.roundTo(mainWindow.operation.convert(
-                //    Convert.ToDouble(mainWindow.providedValueTextBox.Text.Replace(".", ",")),
-                //    mainWindow.fromUnit,
-                //    mainWindow.toUnit
-                //), (int)selectedItem.Content);
 
                 if (mainWindow.operationRepository.getSelectedOperation().getFromUnit().type == typeof(Custom12HTime))
                 {
@@ -84,9 +80,7 @@ namespace UnitConverter.App.Util
                     mainWindow.operationRepository.getSelectedOperation().getToUnit()
                 );
 
-                //mainWindow.convertedValueLabel.Content = ((bool) this.mainWindow.formatNumberCheckBox.IsChecked)
-                //    ? this.doubleUtils.toFormattedNumber(res)
-                //    : converter.convert().ToString();
+
 
                 this.value = converter.convert();
 

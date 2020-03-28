@@ -4,6 +4,13 @@ using UnitConverter.Library.TypeUtil.TypeException;
 
 namespace UnitConverter.Library.TypeUtil
 {
+
+    /// <summary>
+    /// Klasa dziedzicząca klasę <see cref="CustomObject{T}"/>, która reprezentuje
+    /// typ przechowujący liczbę zmiennoprzecinkową.
+    /// Liczba ta może być liczbą ujemną (choć nie musi), oraz może niezawierać cyfer po przecinku
+    /// </summary>
+    /// <see cref="CustomObject{T}"/>
     public class CustomDouble : CustomObject<double>
     {
         protected override string validationRegex => @"^[-]?[0-9]+((\.|\,)[0-9]+)?$";

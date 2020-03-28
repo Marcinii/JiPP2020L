@@ -1,8 +1,8 @@
 ﻿using System;
 using UnitConverter.Library;
-using UnitConverter.Library.OperationUtil;
 using UnitConverter.Library.OperationUtil.Repository;
 using UnitConverter.Library.OperationUtil.Runner;
+using UnitConverter.Library.TypeUtil;
 
 namespace UnitConverter.Terminal
 {
@@ -34,21 +34,16 @@ namespace UnitConverter.Terminal
                 Console.WriteLine("#----------------------------------------------------#");
 
                 Console.Write("> ");
-                int command = AppConsole.readInt();
 
-                while (command < 0 || command > repository.operations.Count)
+                AppConsole.readValueTo<CustomInteger>(command =>
                 {
-                    Console.WriteLine("!!! Nie rozpoznano komendy. Wprowadź poprawny numer komendy");
-                    Console.Write("> ");
-                    command = AppConsole.readInt();
-                }
-
-                if (command == 0) Environment.Exit(0);
+                    if (command == 0) Environment.Exit(0);
+                    repository.selectOperation(command);
+                });
 
                 Console.Clear();
 
                 CommandLineOperationRunner runner = new CommandLineOperationRunner(repository);
-                runner.selectOperation(command - 1);
                 runner.run();
 
                 Console.WriteLine();

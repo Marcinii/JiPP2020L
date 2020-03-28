@@ -3,9 +3,19 @@ using UnitConverter.Library.UnitUtil;
 
 namespace UnitConverter.Library.OperationUtil.Repository
 {
+
+    /// <summary>
+    /// Klasa dziedzicząca klasę abstrakcyjną <see cref="OperationRepositoryInitializer{T, O}"/>,
+    /// wraz z typami generycznymi <see cref="UnitOperationRepository"/> oraz <see cref="UnitOperation"/>
+    /// </summary>
+    /// <see cref="OperationRepositoryInitializer{T, O}"/>
+    /// <see cref="UnitOperationRepository" />
+    /// <see cref="UnitOperation" />
     public class UnitOperationRepositoryInitializer : OperationRepositoryInitializer<UnitOperationRepository, UnitOperation>
     {
         public UnitOperationRepositoryInitializer(UnitOperationRepository repository) : base(repository) {}
+
+
 
         public override void initializeRepository()
         {

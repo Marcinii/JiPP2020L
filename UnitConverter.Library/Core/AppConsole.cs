@@ -1,8 +1,7 @@
 ﻿using System;
-using System.Text.RegularExpressions;
+using UnitConverter.Library.OperationUtil.OpException;
 using UnitConverter.Library.TypeUtil;
 using UnitConverter.Library.TypeUtil.TypeException;
-using UnitConverter.Library.Validator;
 
 namespace UnitConverter.Library
 {
@@ -12,56 +11,60 @@ namespace UnitConverter.Library
     /// </summary>
     public class AppConsole
     {
-        /// <summary>
-        /// Metoda odczytuje i waliduje wprowadzoną liczbę całkowitą
-        /// </summary>
-        /// <returns>Zwraca w pełni poprawna liczbę całkowitą</returns>
-        public static int readInt()
-        {
-            string rawInput = Console.ReadLine();
-
-            while(rawInput.Length == 0 || !Regex.IsMatch(rawInput, @"^[-]?[0-9]+$"))
-            {
-                Console.WriteLine("!!! Wprowadzona wartość jest nieprawidłowa! Wprowadź liczbę całkowitą jeszcze raz:");
-                Console.Write("> ");
-                rawInput = Console.ReadLine();
-            }
-
-            return Convert.ToInt32(rawInput);
-        }
 
         /// <summary>
-        /// Metoda odczytuje i waliduje wprowadzoną liczbę całkowitą. 
-        /// Dodatkową funkcjonalnością tej metody jest dodanie swojego własnego walidatora.
+        /// Metoda odczytuje i waliduje wprowadzoną wartość mojego własnego typu zmiennej
+        /// Dodatkowo w ramach odczytu może wywołać metodę w przypadku, gdy zostanie wpisana parwidłowa wartość
         /// </summary>
-        /// <returns>Zwraca w pełni poprawna liczbę całkowitą</returns>
-        /// <see cref="IValidator{T}"/>
-        public static int readInt(CommandValidator validator)
-        {
-            int result = readInt();
-
-            while(validator.validate(result))
-            {
-                Console.WriteLine("!!! {0}", validator.getMessage());
-                Console.Write("> ");
-                result = readInt();
-            }
-
-            return result;
-        }
-
-        /// <summary>
-        /// Metoda odczytuje i waliduje wprowadzoną liczbę zmiennoprzecinkową
-        /// </summary>
-        /// <returns>Zwraca w pełni poprawna liczbę zmiennoprzecinkową</returns>
-        public static void readValueTo(ICustomType value)
+        /// <typeparam name="T">
+        ///     Typ zmiennej, który chcemy odczytać. Wazne, by był typu <see cref="ICustomType"/>
+        /// </typeparam>
+        /// <param name="callBackFunction">
+        ///     Funkcja, która ma się wywołać w przypadku, gdy wprowadzimy w konsoli prawidłową wartość
+        /// </param>
+        /// <returns>Zwraca w pełni prawidłową wartość mojego własnego typu zmiennych</returns>
+        /// <see cref="CustomTypeUtils"/>
+        /// <see cref="CustomTypeException"/>
+        public static T readValueTo<T>(Action<T> callBackFunction)
         {
             bool exceptionThrown = true;
-            while(exceptionThrown)
+            T res = (T) CustomTypeUtils.createInstanceFrom(typeof(T));
+
+            while (exceptionThrown)
             {
                 try
                 {
-                    value.fromString(Console.ReadLine());
+                    res = (T) readValueTo(typeof(T));
+                    callBackFunction(res);
+                    exceptionThrown = false;
+                }
+                catch (OperationException ex)
+                {
+                    Console.WriteLine("!!! {0}. Wprowadź wartość jeszcze raz", ex.Message);
+                    Console.Write("> ");
+                }
+            }
+
+            return res;
+        }
+
+        /// <summary>
+        /// Metoda odczytuje i waliduje wprowadzoną wartość mojego własnego typu zmiennej
+        /// </summary>
+        /// <returns>Zwraca w pełni prawidłową wartość mojego własnego typu zmiennych</returns>
+        /// <see cref="ICustomType"/>
+        /// <see cref="CustomTypeUtils"/>
+        /// <see cref="CustomTypeException"/>
+        public static ICustomType readValueTo(Type type)
+        {
+            bool exceptionThrown = true;
+            ICustomType res = CustomTypeUtils.createInstanceFrom(type);
+
+            while (exceptionThrown)
+            {
+                try
+                {
+                    res.fromString(Console.ReadLine());
                     exceptionThrown = false;
                 }
                 catch(CustomTypeException ex)
@@ -70,6 +73,8 @@ namespace UnitConverter.Library
                     Console.Write("> ");
                 }
             }
+
+            return res;
         }
     }
 }

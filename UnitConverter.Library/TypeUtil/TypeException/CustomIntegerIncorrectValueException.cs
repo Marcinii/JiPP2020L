@@ -3,12 +3,12 @@
     /// <summary>
     /// Klasa dziedzicząca klasę <see cref="CustomTypeIncorrectValueException"/>,
     /// która rzucana jest w momencie, gdy dojdzie do nieprawidłowego utworzenia
-    /// instancji typu <see cref="CustomTime"/>
+    /// instancji typu <see cref="CustomInteger"/>
     /// </summary>
     /// <see cref="CustomTypeIncorrectValueException"/>
-    /// <see cref="CustomTime"/>
-    public class CustomTimeIncorrectValueException : CustomTypeIncorrectValueException
+    /// <see cref="CustomInteger"/>
+    public class CustomIntegerIncorrectValueException : CustomTypeException
     {
-        public CustomTimeIncorrectValueException() : base("Wprowadzona godzina jest nieprawidłowa") {}
+        public CustomIntegerIncorrectValueException() : base("Podana wartość nie jest poprawną liczbą całkowitą") {}
     }
 }

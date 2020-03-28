@@ -2,6 +2,14 @@
 
 namespace UnitConverter.Library.OperationUtil.Runner
 {
+
+    /// <summary>
+    /// Klasa abstrakcyjna, która zawiera zestaw pól i metod do uruchamiania operacji
+    /// </summary>
+    /// <param name="operationRepository">Repozytorium, z którego chcemy uruchomić operację</param>
+    /// <typeparam name="T">Typ elementu przechowywanego w repozytorium</typeparam>
+    /// <see cref="Operation"/>
+    /// <see cref="OperationRepository{T}"/>
     public abstract class OperationRunner<T> where T : Operation
     {
         public OperationRepository<T> operationRepository { get; private set; }
@@ -11,8 +19,10 @@ namespace UnitConverter.Library.OperationUtil.Runner
             this.operationRepository = operationRepository;
         }
 
-        public void selectOperation(int command) => this.operationRepository.selectOperation(command);
 
+        /// <summary>
+        /// Metoda abstrakcyjna, która zawierać będzie procedury do wywołania operacji
+        /// </summary>
         public abstract void run();
     }
 }

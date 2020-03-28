@@ -3,8 +3,9 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:clock="clr-namespace:UnitConverter.App.AppUserControl.ClockControl"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="950" MinWidth="950" MinHeight="450" MouseMove="Window_MouseMove">
+        Title="MainWindow" Height="693" Width="950" MinWidth="950" MinHeight="450" MouseMove="Window_MouseMove">
     <Grid Margin="0,0,0,-1">
         <Grid.RowDefinitions>
             <RowDefinition Height="70" />
@@ -111,13 +112,13 @@
                             </Grid>
                         </StackPanel>
                     </GroupBox>
-                    <GroupBox x:Name="customTimeAdditionalOptionsGroupBox" Visibility="Collapsed">
+                    <GroupBox x:Name="customTimeAdditionalOptionsGroupBox" Visibility="Visible">
                         <GroupBox.Header>
                             <Label Content="Ustawienia dodatkowe" />
                         </GroupBox.Header>
 
                         <StackPanel>
-                            <Grid>
+                            <Grid x:Name="customTimeFormatSelectionGrid">
                                 <Grid.RowDefinitions>
                                     <RowDefinition Height="50" />
                                 </Grid.RowDefinitions>
@@ -130,9 +131,10 @@
                                        HorizontalAlignment="Right" VerticalAlignment="Center" Padding="0,0,5,0"
                                        Content="Pora"/>
                                 <ComboBox x:Name="timeFormatComboBox" Grid.Row="0" Grid.Column="1"
-                                          VerticalAlignment="Center" VerticalContentAlignment="Center" 
+                                          VerticalAlignment="Center" VerticalContentAlignment="Center"
                                           Height="31" Cursor="Hand" SelectedIndex="0" SelectionChanged="timeFormatComboBox_SelectionChanged" />
                             </Grid>
+                            <clock:Clock x:Name="clock" />
                         </StackPanel>
                     </GroupBox>
                 </StackPanel>

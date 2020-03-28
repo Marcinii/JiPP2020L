@@ -49,6 +49,9 @@
   <ItemGroup>
     <Compile Include="Core\AppConsole.cs" />
     <Compile Include="OperationUtil\OpException\OperationException.cs" />
+    <Compile Include="OperationUtil\OpException\OperationExistsException.cs" />
+    <Compile Include="OperationUtil\OpException\OperationNotFoundException.cs" />
+    <Compile Include="OperationUtil\OpException\UnitOperationNotFoundException.cs" />
     <Compile Include="OperationUtil\Repository\UnitOperationRepository.cs" />
     <Compile Include="OperationUtil\Repository\UnitOperationRepositoryInitializer.cs" />
     <Compile Include="OperationUtil\Runner\CommandLineOperationRunner.cs" />
@@ -57,16 +60,16 @@
     <Compile Include="OperationUtil\Operation.cs" />
     <Compile Include="TypeUtil\Custom12HTime.cs" />
     <Compile Include="TypeUtil\Custom12HTimeType.cs" />
+    <Compile Include="TypeUtil\CustomInteger.cs" />
     <Compile Include="TypeUtil\CustomTypeUtils.cs" />
     <Compile Include="TypeUtil\TypeException\CreateInstanceCustomTypeException.cs" />
     <Compile Include="TypeUtil\TypeException\CustomDoubleIncorrectValueException.cs" />
     <Compile Include="TypeUtil\CustomTime.cs" />
+    <Compile Include="TypeUtil\TypeException\CustomIntegerIncorrectValueException.cs" />
     <Compile Include="TypeUtil\TypeException\CustomTimeIncorrectValueException.cs" />
     <Compile Include="TypeUtil\TypeException\CustomTypeException.cs" />
     <Compile Include="TypeUtil\CustomTypeValueParser.cs" />
-    <Compile Include="TypeUtil\IConsoleReadable.cs" />
     <Compile Include="TypeUtil\TypeException\CustomTypeIncorrectValueException.cs" />
-    <Compile Include="Validator\CommandValidator.cs" />
     <Compile Include="Core\ConverterWizard.cs" />
     <Compile Include="Converter\DefaultConverter.cs" />
     <Compile Include="Converter\IConverter.cs" />

@@ -1,7 +1,6 @@
 ﻿using System;
 using UnitConverter.Library.OperationUtil;
 using UnitConverter.Library.TypeUtil;
-using UnitConverter.Library.Validator;
 
 namespace UnitConverter.Library.Core
 {
@@ -28,8 +27,6 @@ namespace UnitConverter.Library.Core
         /// <returns>Zwraca obiekt klasy WzardResult, która przechowuje dane wpisane w formularzu</returns>
         public ICustomType run()
         {
-            CommandValidator validator = new CommandValidator(this.operation.units.Count);
-
             Console.WriteLine("######################################################");
             Console.WriteLine("# Z czego chcesz skonwertować (wybierz jedną z opcji)?");
             Console.WriteLine("#----------------------------------------------------#");
@@ -42,7 +39,7 @@ namespace UnitConverter.Library.Core
 
 
             Console.Write("> ");
-            this.operation.selectFromUnit(AppConsole.readInt(validator) - 1);
+            AppConsole.readValueTo<CustomInteger>(command => this.operation.selectFromUnit(command - 1));
 
 
             Console.WriteLine("######################################################");
@@ -56,20 +53,12 @@ namespace UnitConverter.Library.Core
             Console.WriteLine("#----------------------------------------------------#");
 
             Console.Write("> ");
-            this.operation.selectToUnit(AppConsole.readInt(validator) - 1);
+            AppConsole.readValueTo<CustomInteger>(command => this.operation.selectToUnit(command - 1));
 
             Console.WriteLine("#----------------------------------------------------#");
             Console.Write("# Podaj wartość ({0}): ", this.operation.getFromUnit().name);
-
-
-            ICustomType res = CustomTypeUtils.createInstanceFrom(
-                this.operation.getFromUnit().type,
-                (ICustomType) Activator.CreateInstance(this.operation.getFromUnit().type)
-            );
-
-            AppConsole.readValueTo(res);
             
-            return res;
+            return AppConsole.readValueTo(this.operation.getFromUnit().type);
         }
     }
 }

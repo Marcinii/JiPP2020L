@@ -4,17 +4,24 @@ using System.Windows.Controls.Primitives;
 namespace UnitConverterApp.Util
 {
     /// <summary>
-    /// Interfejs służący do tworzenia klas zawierających zstaw metód do zarządzania odpowiednimi kontrolkami
+    /// Klasa abstrakcyjna służąca do tworzenia klas zawierających zstaw metód do zarządzania odpowiednimi kontrolkami
     /// </summary>
     /// <typeparam name="T">Klasa reprezentująca kontrolkę typu Selector</typeparam>
     /// <typeparam name="I">Klasa reprezentująca typ danych w kolekcji</typeparam>
-    interface ISelectorUtils<T, I> where T : Selector
+    public abstract class ISelectorUtils<T, I> where T : Selector
     {
+        protected T selector { get; private set; }
+
+        protected ISelectorUtils(T selector)
+        {
+            this.selector = selector;
+        }
+
         /// <summary>
-        /// Metoda, która ma za zadanie inicjalzację kontrolek
+        /// Metoda, która ma za zadanie inicjalizację kontrolek
         /// </summary>
         /// <param name="selector">kontrolka, do której elementy będą wstawione</param>
         /// <param name="list">Lista z elementami do wstawienia</param>
-        void initialize(T selector, List<I> list);
+        public abstract void initialize(List<I> list);
     }
 }
