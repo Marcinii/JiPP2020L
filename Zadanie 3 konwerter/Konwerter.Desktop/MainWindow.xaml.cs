@@ -165,6 +165,25 @@ namespace Konwerter.Desktop
                 OdlegloscTextBox_Mi.Text = converters[2].Konwertuj("ft", "Mi", value).ToString();
             }
             //KONIEC SEKCJI ODLEGŁOSĆI//
+            //KONIEC SEKCJI CZAS//
+            string godziny, minuty;
+            int godz = 0, min = 0;
+            godziny = GodzinaTextBox.Text;
+            int.TryParse(godziny, out godz);
+            minuty = MinutyTextBox.Text;
+            int.TryParse(minuty, out min);
+            if (godz >= 12)
+            {
+                godz -= 12;
+                ResultH12TextBlok.Text = godz.ToString() + ":" + min.ToString() + " PM";
+            }
+            else
+            {
+                ResultH12TextBlok.Text = godz.ToString() + ":" + min.ToString() + " AM";
+            }
+            RotateGodzinowa.Angle = (godz * 30);
+            RotateMinutnik.Angle = (min * 6);
+            //POCZĄTEK SEKCJI CZAS//
         }
     }
 }

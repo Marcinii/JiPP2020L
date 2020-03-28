@@ -5,7 +5,19 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Konwerter.Desktop"
         mc:Ignorable="d"
-        Title="KONWERTER JEDNOSTEK" Height="315.909" Width="405.681">
+        Title="KONWERTER JEDNOSTEK" Height="313.17" Width="544.462">
+    <Window.Resources>
+        <Storyboard x:Key="ObracajacyKwadrat" RepeatBehavior="Forever">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[2].(RotateTransform.Angle)" Storyboard.TargetName="rectangle">
+                <EasingDoubleKeyFrame KeyTime="0:0:10" Value="360"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+    </Window.Resources>
+    <Window.Triggers>
+        <EventTrigger RoutedEvent="FrameworkElement.Loaded">
+            <BeginStoryboard Storyboard="{StaticResource ObracajacyKwadrat}"/>
+        </EventTrigger>
+    </Window.Triggers>
     <Grid>
         <TextBox x:Name="TempTextBox_C" HorizontalAlignment="Left" Height="22" Margin="13,40,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="137" TextChanged="TextBox_TextChanged" TextAlignment="Right"/>
         <TextBox x:Name="TempTextBox_F" HorizontalAlignment="Left" Height="23" Margin="13,67,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="137" TextChanged="TextBox_TextChanged" TextAlignment="Right"/>
@@ -35,6 +47,42 @@
         <Label Content="K" HorizontalAlignment="Left" Height="22" Margin="350,247,0,0" VerticalAlignment="Top" Width="30" FontSize="11"/>
         <Label Content="Mi" HorizontalAlignment="Left" Height="22" Margin="350,218,0,0" VerticalAlignment="Top" Width="30" FontSize="11"/>
         <Label Content="Długości" HorizontalAlignment="Left" Margin="208,160,-11,0" VerticalAlignment="Top" Width="190" FontWeight="Bold"/>
+        <Label Content="Czas" HorizontalAlignment="Left" Margin="403,10,0,0" VerticalAlignment="Top" Width="123" FontWeight="Bold"/>
+        <TextBox x:Name="GodzinaTextBox" HorizontalAlignment="Left" Height="22" Margin="385,40,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="36" TextChanged="TextBox_TextChanged" TextAlignment="Right"/>
+        <TextBox x:Name="MinutyTextBox" HorizontalAlignment="Left" Height="22" Margin="434,40,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="36" TextChanged="TextBox_TextChanged" TextAlignment="Right"/>
+        <Label Content=":" HorizontalAlignment="Left" Margin="421,36,0,0" VerticalAlignment="Top"/>
+        <TextBlock x:Name="ResultH12TextBlok" HorizontalAlignment="Left" Margin="385,67,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="23" Width="85"/>
+        <Ellipse x:Name="Tarcza" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="100" Margin="385,95,0,0" Stroke="Black" VerticalAlignment="Top" Width="100"/>
+        <Path x:Name="Minutnik" Data="M434,145.35351 L434,102.08178" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="44.272" Margin="434,102.082,0,0" Stretch="Fill" Stroke="Black" VerticalAlignment="Top" Width="1" RenderTransformOrigin="0,1">
+            <Path.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform x:Name="RotateMinutnik" Angle="0"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Path.RenderTransform>
+        </Path>
+        <Path x:Name="Godzinowa" Data="M434,145.35351 L434,102.08178" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="35.272" Margin="434.2,110.15,0,0" Stretch="Fill" Stroke="Black" VerticalAlignment="Top" Width="2" RenderTransformOrigin="0,1">
+            <Path.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform x:Name="RotateGodzinowa" Angle="0"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Path.RenderTransform>
+        </Path>
+        <Rectangle x:Name="rectangle" Fill="#FF0909DA" HorizontalAlignment="Left" Height="45" Margin="421,218,0,0" Stroke="Black" VerticalAlignment="Top" Width="45" RenderTransformOrigin="0.5,0.5">
+            <Rectangle.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="0"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Rectangle.RenderTransform>
+        </Rectangle>
 
     </Grid>
 </Window>
