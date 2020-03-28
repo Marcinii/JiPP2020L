@@ -23,7 +23,11 @@ namespace KonwerterJednostek.Desktop
         public MainWindow()
         {
             InitializeComponent();
+
+
+
             //Temperatura
+
             comboboxTempJednZ.ItemsSource = new List<string>()
             {
                 "C",
@@ -81,15 +85,12 @@ namespace KonwerterJednostek.Desktop
             };
         }
 
-       
 
+        private void przyciskCzymJestem_Click(object sender, RoutedEventArgs e)
+        {
 
-
-
-
-
-
-        
+            labelIntro1.Foreground = Brushes.DarkGoldenrod;
+        }
 
         private void przyciskKonwersjaTemp_Click(object sender, RoutedEventArgs e)
         {
@@ -132,10 +133,48 @@ namespace KonwerterJednostek.Desktop
             //MessageBox.Show("Brawo!" + liczba);
             double wynikL = konw.Konwertuj(comboboxLitryJednZ.Text, comboboxLitryJednDo.Text, wejscieL);
             textblockWynik_Litry.Text = Convert.ToString(wynikL);
+
         }
 
 
+        private void buttonKonwertujGodzine_Click(object sender, RoutedEventArgs e)
+        {
+            KonwerterGodzina konw = new KonwerterGodzina();
 
+            string wejscieH = textboxGodzina24.Text;
+            int wejscieL = Convert.ToInt32(wejscieH);
+
+            string wejscieMIN = textboxMinuty24.Text;
+            double wejscieK = Convert.ToDouble(wejscieMIN);
+
+            if (wejscieL >= 12)
+                textboxMinutySUFIKS.Text = "PM";
+            else
+                textboxMinutySUFIKS.Text = "AM";
+
+            int wynikL = konw.Konwertuj(wejscieL);
+
+            textboxGodzina12.Text = Convert.ToString(wynikL);
+            textboxMinuty12.Text = Convert.ToString(wejscieK);
+
+
+            //mechanizm obracajacy wskazowka godziny
+            wskazowka1.Angle = 0;
+            wskazowka2.Angle = 0;
+
+            for (int i = 0; i < wynikL; i++)
+                wskazowka1.Angle += 30;
+
+            wskazowka1.Angle -= 90;
+
+            //mechanizm obracajacy wskazowka minut
+            wskazowka2.Angle = 0;
+
+            for (int i = 0; i < wejscieK; i++)
+                wskazowka2.Angle += 6;
+
+            wskazowka2.Angle -= 90;
+        }
 
 
 
@@ -206,5 +245,7 @@ namespace KonwerterJednostek.Desktop
         {
 
         }
+
+        
     }
 }

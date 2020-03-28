@@ -10,9 +10,9 @@ namespace KonwerterJednostek
 
         public List<string> Jednostki => new List<string>()
         {
-            "m", "M",
-            "km", "KM",
-            "mm", "MM"
+            "m",
+            "km",
+            "mm"
         };
         public double Konwertuj(string jednZ, string jednDo, double wartoscDoKonwersji)
         {

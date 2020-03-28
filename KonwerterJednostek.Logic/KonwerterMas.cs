@@ -10,9 +10,9 @@ namespace KonwerterJednostek
         public string Nazwa => "Masy";
         public List<string> Jednostki => new List<string>()
         {
-            "kg", "KG",
-            "f", "F",
-            "g", "G"
+            "kg",
+            "f",
+            "g"
         };
         public double Konwertuj(string jednZ, string jednDo, double wartoscDoKonwersji)
         {

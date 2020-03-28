@@ -6,59 +6,293 @@
         xmlns:local="clr-namespace:KonwerterJednostek.Desktop"
         mc:Ignorable="d"
         Title="MainWindow" Height="500" Width="800">
+    <Window.Resources>
+        <Storyboard x:Key="koloStoryBoard" RepeatBehavior="Forever">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[2].(RotateTransform.Angle)" Storyboard.TargetName="path">
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="360"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+
+
+        <Storyboard x:Key="topLabel1StoryBoard">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="labelWynik">
+                <EasingDoubleKeyFrame KeyTime="0:0:2" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="labelWyborJednostki2">
+                <EasingDoubleKeyFrame KeyTime="0:0:2" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="labelWyborJednostki1">
+                <EasingDoubleKeyFrame KeyTime="0:0:2" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="labelWyborJednostki1_Copy">
+                <EasingDoubleKeyFrame KeyTime="0:0:2" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Key="2ndRowStoryBoard">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="textblockWynikTemp">
+                <EasingDoubleKeyFrame KeyTime="0:0:2.5" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="przyciskKonwersja_Temp">
+                <EasingDoubleKeyFrame KeyTime="0:0:2.5" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="comboboxTempJednDo">
+                <EasingDoubleKeyFrame KeyTime="0:0:2.5" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="comboboxTempJednZ">
+                <EasingDoubleKeyFrame KeyTime="0:0:2.5" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="textBoxWartoscTemp">
+                <EasingDoubleKeyFrame KeyTime="0:0:2.5" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="labelTemperatura">
+                <EasingDoubleKeyFrame KeyTime="0:0:2.5" Value="0.975"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Key="3rdRowStoryBoard">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="textblockWynikMasa">
+                <EasingDoubleKeyFrame KeyTime="0:0:2.8" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="przyciskKonwersja_Masa">
+                <EasingDoubleKeyFrame KeyTime="0:0:2.8" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="comboboxMasaJednDo">
+                <EasingDoubleKeyFrame KeyTime="0:0:2.8" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="comboboxMasaJednZ">
+                <EasingDoubleKeyFrame KeyTime="0:0:2.8" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="textBoxWartoscMasa">
+                <EasingDoubleKeyFrame KeyTime="0:0:2.8" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="labelMasa">
+                <EasingDoubleKeyFrame KeyTime="0:0:2.8" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Key="4thRowStoryBoard">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="textblockWynik_Dlugosc">
+                <EasingDoubleKeyFrame KeyTime="0:0:3.1" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="przyciskKonwersja_Dlugosc">
+                <EasingDoubleKeyFrame KeyTime="0:0:3.1" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="comboboxDlugoscJednDo">
+                <EasingDoubleKeyFrame KeyTime="0:0:3.1" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="comboboxDlugoscJednZ">
+                <EasingDoubleKeyFrame KeyTime="0:0:3.1" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="textBoxWartoscDlugosc">
+                <EasingDoubleKeyFrame KeyTime="0:0:3.1" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="labelDlugosc">
+                <EasingDoubleKeyFrame KeyTime="0:0:3.1" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Key="5thRowStoryBoard">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="textblockWynik_Litry">
+                <EasingDoubleKeyFrame KeyTime="0:0:3.4" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="przyciskKonwersja_Litry">
+                <EasingDoubleKeyFrame KeyTime="0:0:3.4" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="comboboxLitryJednDo">
+                <EasingDoubleKeyFrame KeyTime="0:0:3.4" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="comboboxLitryJednZ">
+                <EasingDoubleKeyFrame KeyTime="0:0:3.4" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="textBoxWartoscLitry">
+                <EasingDoubleKeyFrame KeyTime="0:0:3.4" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="labelLitry">
+                <EasingDoubleKeyFrame KeyTime="0:0:3.4" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+            <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.Stroke).(SolidColorBrush.Color)" Storyboard.TargetName="Line">
+                <EasingColorKeyFrame KeyTime="0" Value="White"/>
+            </ColorAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.StrokeThickness)" Storyboard.TargetName="Line">
+                <EasingDoubleKeyFrame KeyTime="0" Value="4"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Key="warningStoryboard">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="labelWarning1">
+                <EasingDoubleKeyFrame KeyTime="0:0:2" Value="-0.333"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="labelWarning1">
+                <EasingDoubleKeyFrame KeyTime="0:0:2" Value="-35.333"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Key="Intro1Storyboard" RepeatBehavior="Forever">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[2].(RotateTransform.Angle)" Storyboard.TargetName="labelIntro1">
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="360"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+    </Window.Resources>
+    <Window.Triggers>
+        <EventTrigger RoutedEvent="FrameworkElement.Loaded">
+            <BeginStoryboard Storyboard="{StaticResource koloStoryBoard}"/>
+            <BeginStoryboard Storyboard="{StaticResource topLabel1StoryBoard}"/>
+            <BeginStoryboard Storyboard="{StaticResource 2ndRowStoryBoard}"/>
+            <BeginStoryboard Storyboard="{StaticResource 3rdRowStoryBoard}"/>
+            <BeginStoryboard Storyboard="{StaticResource 4thRowStoryBoard}"/>
+            <BeginStoryboard Storyboard="{StaticResource 5thRowStoryBoard}"/>
+            <BeginStoryboard Storyboard="{StaticResource warningStoryboard}"/>
+            <BeginStoryboard Storyboard="{StaticResource Intro1Storyboard}"/>
+        </EventTrigger>
+    </Window.Triggers>
     <Grid>
         <Grid.Background>
             <SolidColorBrush Color="Black"/>
         </Grid.Background>
         <Grid.RowDefinitions>
-            <RowDefinition Height="17*"/>
-            <RowDefinition Height="5*"/>
-            <RowDefinition Height="5*"/>
-            <RowDefinition Height="45*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="0*"/>
-            <ColumnDefinition Width="17*"/>
-            <ColumnDefinition Width="199*"/>
-            <ColumnDefinition Width="144*"/>
-            <ColumnDefinition Width="144*"/>
-            <ColumnDefinition Width="144*"/>
-            <ColumnDefinition Width="144*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
         </Grid.ColumnDefinitions>
-        <Button x:Name="przyciskKonwersja_Temp" Content="Konwertuj&#xD;&#xA;" HorizontalAlignment="Left" Margin="0,86,0,0" VerticalAlignment="Top" Height="20" Grid.Column="5" Width="144" Background="#FFF3CA20" Click="przyciskKonwersjaTemp_Click"/>
-        <Label x:Name="labelWyborJednostki1" Content="Wybór jednostki&#xA;konwertowanej" HorizontalAlignment="Left" Margin="0,24,0,0" VerticalAlignment="Top" Width="144" Grid.Column="3" Height="57" Foreground="#FFF3CA20" FontSize="14" FontWeight="Bold"/>
-        <TextBlock x:Name="textblockWynikTemp" Grid.Column="6" HorizontalAlignment="Left" Margin="10,86,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="20" Width="108" Foreground="#FFF3CA20"/>
-        <TextBlock x:Name="textblockWynikMasa" Grid.Column="6" HorizontalAlignment="Left" Margin="10,6,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="20" Width="108" Grid.Row="1" Foreground="#FFF3CA20"/>
-        <TextBlock x:Name="textblockWynik_Dlugosc" Grid.Column="6" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="20" Width="108" Grid.Row="2" Foreground="#FFF3CA20"/>
-        <TextBlock x:Name="textblockWynik_Litry" Grid.Column="6" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="20" Width="108" Grid.Row="3" Foreground="#FFF3CA20"/>
-        <ComboBox x:Name="comboboxTempJednDo" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Grid.Column="4" Margin="14,85,0,0" SelectionChanged="ComboBoxJednostkaDlugosc_SelectionChanged" Height="22"/>
-        <Label x:Name="labelWyborJednostki2" Content="Wybór jednostki&#xA;skonwertowanej" HorizontalAlignment="Left" Margin="0,24,0,0" VerticalAlignment="Top" Width="144" Grid.Column="4" Height="56" Foreground="#FFF3CA20" FontWeight="Bold" FontSize="14"/>
-        <Label x:Name="labelTemperatura" Content="TEMPERATURA&#xD;&#xA;&#xA;" HorizontalAlignment="Left" Margin="0,82,0,0" VerticalAlignment="Top" Width="90" Height="24" Grid.ColumnSpan="3" Foreground="#FFF3CA20" FontWeight="Bold"/>
-        <ComboBox x:Name="comboboxTempJednZ" Grid.Column="3" HorizontalAlignment="Left" Margin="10,86,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="comboboxTempJednZ_SelectionChanged" Height="22">
-            <ComboBox.Background>
-                <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
-                    <GradientStop Color="#FFF0F0F0" Offset="0"/>
+
+        <StackPanel Grid.Column="0">
+            <Label x:Name="labelTemperatura" Content="TEMPERATURA&#xD;&#xA;&#xA;" Margin="5,83,5,5" VerticalAlignment="Top" Width="122" Height="25" Foreground="#FFF3CA20" FontWeight="Bold" Opacity="0" />
+            <Label x:Name="labelMasa" Content="MASA&#xA;" Margin="5,2,5,5" VerticalAlignment="Top" Width="122" Height="25"  Foreground="#FFF3CA20" FontWeight="Bold" Opacity="0"/>
+            <Label x:Name="labelDlugosc" Content="DŁUGOŚĆ&#xA;"  Margin="5,2,5,5" VerticalAlignment="Top" Width="122" Height="25"   Foreground="#FFF3CA20" FontWeight="Bold" Opacity="0"/>
+            <Label x:Name="labelLitry" Content="LITRY&#xA;"  Margin="5,2,5,5" VerticalAlignment="Top" Width="122" Height="25"  Foreground="#FFF3CA20" FontWeight="Bold" Opacity="0"/>
+        </StackPanel>
+
+        <StackPanel Grid.Column="1">
+            <Label x:Name="labelWyborJednostki1_Copy" Content="Wartość&#xD;&#xA;&#xA;" HorizontalAlignment="Center" Margin="5,34,5,5" VerticalAlignment="Top" Width="122" Height="43" Grid.ColumnSpan="2" Foreground="#FFF3CA20" FontWeight="Bold" FontSize="14" Opacity="0"/>
+            <TextBox x:Name="textBoxWartoscTemp"  HorizontalAlignment="Center" Height="22" Margin="5,5,5,5" TextWrapping="Wrap" VerticalAlignment="Top" Width="122" Background="#FFF3CA20" FontWeight="Bold" FontSize="16" Opacity="0"/>
+            <TextBox x:Name="textBoxWartoscMasa"  HorizontalAlignment="Center" Height="22" Margin="5,5,5,5" TextWrapping="Wrap" VerticalAlignment="Top" Width="122" Grid.Row="1" TextChanged="textBoxWartoscMasa_TextChanged" Background="#FFF3CA20" FontWeight="Bold" FontSize="16" Opacity="0"/>
+            <TextBox x:Name="textBoxWartoscDlugosc"  HorizontalAlignment="Center" Height="22" Margin="5,5,5,5" TextWrapping="Wrap" VerticalAlignment="Top" Width="122" Grid.Row="2" TextChanged="textBoxWartoscDlugosc_TextChanged" Background="#FFF3CA20" FontWeight="Bold" FontSize="16" Opacity="0"/>
+            <TextBox x:Name="textBoxWartoscLitry"  HorizontalAlignment="Center" Height="22" Margin="5,5,5,5" TextWrapping="Wrap" VerticalAlignment="Top" Width="122" Grid.Row="3" TextChanged="textBoxWartoscLitry_TextChanged" Background="#FFF3CA20" FontWeight="Bold" FontSize="16" Opacity="0"/>
+        </StackPanel>
+
+        <StackPanel Grid.Column="2">
+            <Label x:Name="labelWyborJednostki1" Content="Wybór jednostki&#xA;konwertowanej" HorizontalAlignment="Center" Margin="5,20,5,5" VerticalAlignment="Top" Width="122"  Height="57" Foreground="#FFF3CA20" FontSize="14" FontWeight="Bold" Opacity="0"/>
+            <ComboBox x:Name="comboboxTempJednZ" Grid.Column="3" HorizontalAlignment="Center" Margin="5,5,5,5" VerticalAlignment="Top" Width="120" SelectionChanged="comboboxTempJednZ_SelectionChanged" Height="22" Opacity="0"></ComboBox>
+            <ComboBox x:Name="comboboxMasaJednZ" Grid.Column="3" HorizontalAlignment="Center" Margin="5,5,5,5" VerticalAlignment="Top" Width="120" SelectionChanged="comboboxMasaJednZ_SelectionChanged" Grid.Row="1" Height="22" Opacity="0"/>
+            <ComboBox x:Name="comboboxDlugoscJednZ" Grid.Column="3" HorizontalAlignment="Center" Margin="5,5,5,5" VerticalAlignment="Top" Width="120" SelectionChanged="comboboxDlugoscJednZ_SelectionChanged" Grid.Row="2" Height="22" Opacity="0"/>
+            <ComboBox x:Name="comboboxLitryJednZ" Grid.Column="3" HorizontalAlignment="Center" Margin="5,5,5,5" VerticalAlignment="Top" Width="120" SelectionChanged="comboboxLitryJednZ_SelectionChanged" Grid.Row="3" Height="22" Opacity="0"/>
+        </StackPanel>
+
+        <StackPanel Grid.Column="3">
+            <Label x:Name="labelWyborJednostki2" Content="Wybór jednostki&#xA;skonwertowanej" HorizontalAlignment="Center" Margin="5,21,5,5" VerticalAlignment="Top" Width="122"  Height="56" Foreground="#FFF3CA20" FontWeight="Bold" FontSize="14" Opacity="0"/>
+            <ComboBox x:Name="comboboxTempJednDo" HorizontalAlignment="Center" Margin="5,5,5,5" VerticalAlignment="Top" Width="120"  SelectionChanged="ComboBoxJednostkaDlugosc_SelectionChanged" Height="22" Opacity="0"/>
+            <ComboBox x:Name="comboboxMasaJednDo"  HorizontalAlignment="Center" Margin="5,5,5,5" VerticalAlignment="Top" Width="120" SelectionChanged="comboboxMasaJednDo_SelectionChanged"  Height="22" Opacity="0"/>
+            <ComboBox x:Name="comboboxDlugoscJednDo" HorizontalAlignment="Center" Margin="5,5,5,5" VerticalAlignment="Top" Width="120" SelectionChanged="comboboxDlugoscJednDo_SelectionChanged"  Height="22" Opacity="0"/>
+            <ComboBox x:Name="comboboxLitryJednDo" HorizontalAlignment="Center" Margin="5,5,5,5" VerticalAlignment="Top" Width="120" SelectionChanged="comboboxLitryJednDo_SelectionChanged"  Height="22" Opacity="0"/>
+        </StackPanel>
+
+        <StackPanel Grid.Column="4">
+            <Button x:Name="przyciskKonwersja_Temp" Content="Konwertuj&#xA;" HorizontalAlignment="Center" Margin="5,87,5,5" VerticalAlignment="Top" Height="22" Width="120" Background="#FFF3CA20" Click="przyciskKonwersjaTemp_Click" Opacity="0" />
+            <Button x:Name="przyciskKonwersja_Masa" Content="Konwertuj&#xA;" HorizontalAlignment="Center" Margin="5,5,5,5" VerticalAlignment="Top" Height="22"  Width="120" Background="#FFF3CA20" Click="przyciskKonwersjaMasa_Click" Opacity="0" />
+            <Button x:Name="przyciskKonwersja_Dlugosc" Content="Konwertuj&#xA;" HorizontalAlignment="Center" Margin="5,5,5,5" VerticalAlignment="Top" Height="22"  Width="120" Background="#FFF3CA20" Click="przyciskKonwersjaDlugosc_Click" Opacity="0" />
+            <Button x:Name="przyciskKonwersja_Litry" Content="Konwertuj&#xA;" HorizontalAlignment="Center" Margin="5,5,5,5" VerticalAlignment="Top" Height="22"  Width="120" Background="#FFF3CA20" Click="przyciskKonwersjaLitry_Click" Opacity="0" />
+        </StackPanel>
+
+        <StackPanel Grid.Column="5">
+            <Label x:Name="labelWynik" Content="Wynik&#xA;" HorizontalAlignment="Center" Margin="5,34,5,5" VerticalAlignment="Top" Width="122"  Height="42" Foreground="#FFF3CA20" FontSize="14" FontWeight="Bold" Opacity="0"/>
+            <TextBlock x:Name="textblockWynikTemp" HorizontalAlignment="Center" Margin="5,6,5,5" TextWrapping="Wrap" VerticalAlignment="Top" Height="22" Width="122" Foreground="Black" Background="#FFE8E8E8" FontWeight="Bold" FontSize="16" Opacity="0"/>
+            <TextBlock x:Name="textblockWynikMasa" HorizontalAlignment="Center" Margin="5,5,5,5" TextWrapping="Wrap" VerticalAlignment="Top" Height="22" Width="122" Foreground="Black" Background="#FFE8E8E8" FontWeight="Bold" FontSize="16" Opacity="0"/>
+            <TextBlock x:Name="textblockWynik_Dlugosc" HorizontalAlignment="Center" Margin="5,5,5,5" TextWrapping="Wrap" VerticalAlignment="Top" Height="22" Width="122" Foreground="Black" Background="#FFE8E8E8" FontWeight="Bold" FontSize="16" Opacity="0.01"/>
+            <TextBlock x:Name="textblockWynik_Litry" HorizontalAlignment="Center" Margin="5,5,5,5" TextWrapping="Wrap" VerticalAlignment="Top" Height="22" Width="122" Foreground="Black" Background="#FFE8E8E8" FontSize="16" FontWeight="Bold" Opacity="0"/>
+        </StackPanel>
+        <Path x:Name="path" Grid.Column="2" Data="M66,41.500001 C52.192882,41.5 41,52.469024 41,66 41,79.530975 52.192882,90.5 66,90.5 79.807117,90.5 91,79.530975 91,66 91,52.469024 79.807117,41.5 66,41.500001 z M66,0.5 C102.17465,0.5 131.5,29.825349 131.5,66 131.5,102.17465 102.17465,131.5 66,131.5 29.825349,131.5 0.5,102.17465 0.5,66 0.5,29.825349 29.825349,0.5 66,0.5 z" HorizontalAlignment="Left" Height="132" Margin="0,55.166,0,0" Grid.Row="1" Stretch="Fill" Stroke="Black" VerticalAlignment="Top" Width="132" RenderTransformOrigin="0.5,0.5">
+            <Path.LayoutTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Path.LayoutTransform>
+            <Path.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Path.RenderTransform>
+            <Path.Fill>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="Black" Offset="0"/>
                     <GradientStop Color="#FFF3CA20" Offset="1"/>
                 </LinearGradientBrush>
-            </ComboBox.Background>
-        </ComboBox>
-        <TextBox x:Name="textBoxWartoscTemp" Grid.Column="2" HorizontalAlignment="Left" Height="23" Margin="86,86,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="105" Background="#FFF3CA20"/>
-        <Label x:Name="labelWyborJednostki1_Copy" Content="Wartość&#xD;&#xA;&#xA;" HorizontalAlignment="Left" Margin="86,38,0,0" VerticalAlignment="Top" Width="115" Grid.Column="2" Height="43" Grid.ColumnSpan="2" Foreground="#FFF3CA20" FontWeight="Bold" FontSize="14"/>
-        <Label x:Name="labelMasa" Content="MASA&#xA;" HorizontalAlignment="Left" Margin="0,6,0,0" VerticalAlignment="Top" Width="90" Height="24" Grid.ColumnSpan="3" Grid.Row="1" Foreground="#FFF3CA20" FontWeight="Bold"/>
-        <TextBox x:Name="textBoxWartoscMasa" Grid.Column="2" HorizontalAlignment="Left" Height="23" Margin="86,6,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="105" Grid.Row="1" TextChanged="textBoxWartoscMasa_TextChanged" Background="#FFF3CA20"/>
-        <ComboBox x:Name="comboboxMasaJednZ" Grid.Column="3" HorizontalAlignment="Left" Margin="10,6,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="comboboxMasaJednZ_SelectionChanged" Grid.Row="1" Height="22"/>
-        <ComboBox x:Name="comboboxMasaJednDo" Grid.Column="4" HorizontalAlignment="Left" Margin="14,6,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="comboboxMasaJednDo_SelectionChanged" Grid.Row="1" Height="22"/>
-        <Button x:Name="przyciskKonwersja_Masa" Content="Konwertuj&#xA;" HorizontalAlignment="Left" Margin="0,6,0,0" VerticalAlignment="Top" Height="20" Grid.Column="5" Width="144" Background="#FFF3CA20" Click="przyciskKonwersjaMasa_Click" Grid.Row="1"/>
-        <Label x:Name="labelWynik" Content="Wynik&#xA;" HorizontalAlignment="Left" Margin="0,38,0,0" VerticalAlignment="Top" Width="144" Grid.Column="6" Height="42" Foreground="#FFF3CA20" FontSize="14" FontWeight="Bold"/>
-        <Label x:Name="labelDlugosc" Content="DŁUGOŚĆ&#xA;" HorizontalAlignment="Left" Margin="0,6,0,0" VerticalAlignment="Top" Width="90" Height="24" Grid.ColumnSpan="3" Grid.Row="2" Foreground="#FFF3CA20" FontWeight="Bold"/>
-        <TextBox x:Name="textBoxWartoscDlugosc" Grid.Column="2" HorizontalAlignment="Left" Height="23" Margin="86,7,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="105" Grid.Row="2" TextChanged="textBoxWartoscDlugosc_TextChanged" Background="#FFF3CA20"/>
-        <ComboBox x:Name="comboboxDlugoscJednZ" Grid.Column="3" HorizontalAlignment="Left" Margin="10,8,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="comboboxDlugoscJednZ_SelectionChanged" Grid.Row="2" Height="22"/>
-        <ComboBox x:Name="comboboxDlugoscJednDo" Grid.Column="4" HorizontalAlignment="Left" Margin="14,7,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="comboboxDlugoscJednDo_SelectionChanged" Grid.Row="2" Height="22"/>
-        <Button x:Name="przyciskKonwersja_Dlugosc" Content="Konwertuj&#xA;" HorizontalAlignment="Left" Margin="0,8,0,0" VerticalAlignment="Top" Height="20" Grid.Column="5" Width="144" Background="#FFF3CA20" Click="przyciskKonwersjaDlugosc_Click" Grid.Row="2"/>
-        <Label x:Name="labelLitry" Content="LITRY&#xA;" HorizontalAlignment="Left" Margin="0,5,0,0" VerticalAlignment="Top" Width="90" Height="24" Grid.ColumnSpan="3" Grid.Row="3" Foreground="#FFF3CA20" FontWeight="Bold"/>
-        <TextBox x:Name="textBoxWartoscLitry" Grid.Column="2" HorizontalAlignment="Left" Height="23" Margin="86,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="105" Grid.Row="3" TextChanged="textBoxWartoscLitry_TextChanged" Background="#FFF3CA20"/>
-        <ComboBox x:Name="comboboxLitryJednZ" Grid.Column="3" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="comboboxLitryJednZ_SelectionChanged" Grid.Row="3" Height="22"/>
-        <ComboBox x:Name="comboboxLitryJednDo" Grid.Column="4" HorizontalAlignment="Left" Margin="14,10,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="comboboxLitryJednDo_SelectionChanged" Grid.Row="3" Height="22"/>
-        <Button x:Name="przyciskKonwersja_Litry" Content="Konwertuj&#xA;" HorizontalAlignment="Left" Margin="0,10,0,0" VerticalAlignment="Top" Height="20" Grid.Column="5" Width="144" Background="#FFF3CA20" Click="przyciskKonwersjaLitry_Click" Grid.Row="3"/>
+            </Path.Fill>
+        </Path>
+
+        <Line x:Name="Line" Grid.Column="2" Grid.Row="1" X1="0" X2="100" Stroke="WhiteSmoke" RenderTransformOrigin="0,0.5" Margin="66.251,118.793,0,0" Height="2" StrokeThickness="4" Width="62.542" HorizontalAlignment="Left" VerticalAlignment="Top">
+            <Line.Fill>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="Black" Offset="0"/>
+                    <GradientStop Color="White" Offset="1"/>
+                </LinearGradientBrush>
+            </Line.Fill>
+            <Line.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform x:Name="wskazowka1" Angle="0"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Line.RenderTransform>
+        </Line>
+        <Label x:Name="labelH12" Content="12" Grid.Column="2" Width="25" Height="37.334" Margin="53.521,29.882,0,0" Grid.Row="1" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="0" FontWeight="Bold" FontSize="24" FlowDirection="RightToLeft" />
+        <Label x:Name="labelH6" Content="6" Grid.Column="2" Width="12" Height="37.334" Margin="60.521,177.882,0,0" Grid.Row="1" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="0" FontWeight="Bold" FontSize="24" FlowDirection="RightToLeft" RenderTransformOrigin="-0.182,0.472" />
+        <Label x:Name="labelH3" Content="3" Grid.Column="3" Width="12" Height="37.334" Margin="0,101.882,0,0" Grid.Row="1" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="0" FontWeight="Bold" FontSize="24" FlowDirection="RightToLeft" RenderTransformOrigin="-0.182,0.472" />
+        <Label x:Name="labelH9" Content="9" Grid.Column="1" Width="17" Height="37.334" Margin="115,101.882,0,0" Grid.Row="1" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="0" FontWeight="Bold" FontSize="24" FlowDirection="RightToLeft" RenderTransformOrigin="-0.182,0.472" />
+
+        <Button x:Name="buttonKonwertujGodzine" Content="Konwertuj" HorizontalAlignment="Left" Margin="15,99,0,0" Grid.Row="1" VerticalAlignment="Top" Width="107" Height="25" Click="buttonKonwertujGodzine_Click" FontWeight="Bold" FontSize="14"/>
+        <TextBox x:Name="textboxGodzina12" HorizontalAlignment="Left" Height="30" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="35" Foreground="Black" Background="#FFC9C9C9" FontWeight="Bold" Margin="27,185,0,0" FontSize="22" RenderTransformOrigin="0,1.583"/>
+        <TextBox x:Name="textboxGodzina24" HorizontalAlignment="Left" Height="30" Margin="27,55,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="35" Foreground="Black" Background="#FFF3CA20" FontWeight="Bold" FontSize="22"/>
+        <TextBox x:Name="textboxMinuty24" HorizontalAlignment="Left" Height="30" Margin="67,55,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="35" Foreground="Black" Background="#FFF3CA20" FontWeight="Bold" FontSize="22"/>
+        <TextBox x:Name="textboxMinuty12" HorizontalAlignment="Left" Height="30" Margin="67,185,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="35" Foreground="Black" Background="#FFC9C9C9" FontWeight="Bold" FontSize="22"/>
+        <TextBox x:Name="textboxMinutySUFIKS" HorizontalAlignment="Left" Height="30" Margin="107,185,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="45" Foreground="Black" Background="#FFC9C9C9" FontWeight="Bold" FontSize="22" Grid.ColumnSpan="2"/>
+        <Label x:Name="labelHH24" Content="Format 24 &#xD;&#xA;godzinny" Width="72" Height="45" Margin="15,5,0,0" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="0" FontWeight="Bold" FlowDirection="RightToLeft" RenderTransformOrigin="-7.733,0.571" FontStyle="Italic" FontSize="14" Grid.Row="1" />
+        <Label x:Name="labelHH12" Content="Format 12 &#xA;godzinny" Width="72" Height="48" Margin="15,132,0,0" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="0" FontWeight="Bold" FlowDirection="RightToLeft" RenderTransformOrigin="-7.733,0.571" FontStyle="Italic" FontSize="14" Grid.Row="1" />
+
+        <Line x:Name="Minutnik" Grid.Column="2" Grid.Row="1" X1="0" X2="100" Stroke="Red" RenderTransformOrigin="0,0.5" Margin="66,119,0,0" Height="2" StrokeThickness="4" Width="28" HorizontalAlignment="Left" VerticalAlignment="Top">
+            <Line.Fill>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="Black" Offset="0"/>
+                    <GradientStop Color="White" Offset="1"/>
+                </LinearGradientBrush>
+            </Line.Fill>
+            <Line.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform x:Name="wskazowka2" Angle="0"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Line.RenderTransform>
+        </Line>
+        <Label x:Name="labelWarning1" Grid.ColumnSpan="3" Content="Program nie jest zabezpieczony przed błędami ludzkimi" Grid.Column="3" HorizontalAlignment="Left" Height="34" Margin="10,234.5,0,-34" Grid.Row="1" VerticalAlignment="Top" Width="386" FontWeight="Bold" Foreground="#FFF3CA20" RenderTransformOrigin="0.5,0.5" FontSize="14">
+            <Label.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Label.RenderTransform>
+        </Label>
+        <Label x:Name="labelIntro1" Content="Konwerterem!" HorizontalAlignment="Left" Height="46" Margin="102,103,0,0" Grid.Row="1" VerticalAlignment="Top" Width="189" FontWeight="Bold" Foreground="Black" RenderTransformOrigin="0.5,0.5" FontSize="20" Grid.Column="3" Grid.ColumnSpan="3">
+            <Label.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Label.RenderTransform>
+        </Label>
+        <Button x:Name="przyciskCzymJestem" Content="Czym jestem?" Grid.Column="4" HorizontalAlignment="Left" Height="29" Grid.Row="1" VerticalAlignment="Top" Width="132 " Background="#FFF3CA20" FontWeight="Bold" FontSize="14" Click="przyciskCzymJestem_Click"/>
     </Grid>
 </Window>
