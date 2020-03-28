@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Linq;
 using System.Collections.Generic;
 using UnitConverter.Library.OperationUtil.OpException;
 using UnitConverter.Library.UnitUtil;

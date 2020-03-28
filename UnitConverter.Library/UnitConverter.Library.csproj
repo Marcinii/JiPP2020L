@@ -75,7 +75,6 @@
     <Compile Include="Converter\IConverter.cs" />
     <Compile Include="Validator\CustomTypeValidator.cs" />
     <Compile Include="Validator\IValidator.cs" />
-    <Compile Include="Validator\IValidatorMessagable.cs" />
     <Compile Include="OperationUtil\Repository\OperationRepositoryInitializer.cs" />
     <Compile Include="OperationUtil\Repository\OperationRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

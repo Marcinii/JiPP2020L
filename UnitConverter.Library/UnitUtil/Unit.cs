@@ -1,5 +1,4 @@
 ﻿using System;
-using UnitConverter.Library.TypeUtil;
 
 namespace UnitConverter.Library.UnitUtil
 {

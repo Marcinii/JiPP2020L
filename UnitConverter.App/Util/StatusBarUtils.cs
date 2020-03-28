@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Windows;
 using System.Windows.Controls;
 
 namespace UnitConverter.App.Util
@@ -19,6 +18,9 @@ namespace UnitConverter.App.Util
             this.label = label;
         }
 
+
+
+
         /// <summary>
         /// Metoda dodająca wiadomość, która będzie wyswietlana w pasku stanu w moencie, gdy najedziemy na odpowiednią kontrolkę
         /// przekazaną w parametrze {Control}
@@ -31,6 +33,7 @@ namespace UnitConverter.App.Util
         {
             this.statusBarMessages.Add(control, message);
         }
+
 
 
         /// <summary>
