@@ -25,17 +25,55 @@ namespace UnitConverter.Desktop
         {
             InitializeComponent();
             c1.ItemsSource = new ConverterService().GetConverters();
+            c1.SelectedIndex = 0;
+            c2.SelectedIndex = 0;
+            c3.SelectedIndex = 1;
         }
 
         private void c1_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             c2.ItemsSource = ((IConverter)c1.SelectedItem).Units;
             c3.ItemsSource = ((IConverter)c1.SelectedItem).Units;
+            c2.SelectedIndex = 0;
+            c3.SelectedIndex = 1;
+            if (c1.SelectedIndex != 4)
+            {
+                ((Rectangle)r2).Visibility = Visibility.Hidden;
+                ((Rectangle)r1).Visibility = Visibility.Hidden;
+                ((Ellipse)el).Visibility = Visibility.Hidden;
+            }
+            else
+            {
+                ((Rectangle)r2).Visibility = Visibility.Visible;
+                ((Rectangle)r1).Visibility = Visibility.Visible;
+                ((Ellipse)el).Visibility = Visibility.Visible;
+            }
         }
 
         private void but_Click(object sender, RoutedEventArgs e)
         {
-            block.Text = (((IConverter)c1.SelectedItem).Convert(c2.Text, c3.Text, double.Parse((box.Text)))).ToString();
+            if (c1.SelectedIndex != 4) { block.Text = (((IConverter)c1.SelectedItem).Convert(c2.Text, c3.Text, double.Parse((box.Text)))).ToString(); }
+            else
+            {
+                string czas = box.Text;
+                double godzina = double.Parse(czas.Substring(0, 2));
+                double minuta = double.Parse(czas.Substring(3, 2));
+                double newGodzina = ((IConverter)c1.SelectedItem).Convert(c2.Text, c3.Text, godzina);
+                string result;
+                if (godzina > 11 && godzina < 24)
+                {
+                    result = newGodzina.ToString() + czas.Substring(2, 3) + "PM";
+                }
+                else
+                {
+                    result = newGodzina.ToString() + czas.Substring(2, 3) + "AM";
+                }
+                if (!(Char.IsNumber(result[1]))){ result = "0" + result; }
+                block.Text = result;
+
+                ((Rectangle)r2).RenderTransform = new RotateTransform(newGodzina * 30);
+                ((Rectangle)r1).RenderTransform = new RotateTransform(minuta*6);
+            }
         }
     }
 }

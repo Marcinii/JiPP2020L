@@ -5,9 +5,37 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:UnitConverter.Desktop"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
+        Title="MainWindow" Height="450" Width="1200">
+    <Window.Resources>
+        <Storyboard x:Key="OnSelectionChanged1">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="el">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="1"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:2" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="r2">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="1"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:2" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="r1">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="1"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:2" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+    </Window.Resources>
+    <Window.Triggers>
+        <EventTrigger RoutedEvent="Selector.SelectionChanged" SourceName="c1">
+            <BeginStoryboard x:Name="OnSelectionChanged1_BeginStoryboard" Storyboard="{StaticResource OnSelectionChanged1}"/>
+        </EventTrigger>
+    </Window.Triggers>
+    <Grid x:Name="grid">
         <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
             <ColumnDefinition/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
@@ -25,11 +53,16 @@
             </ComboBox.ItemTemplate>
         </ComboBox>
         <TextBox x:Name="box" Grid.Row="0" Grid.Column="1" Margin="50,0,50,75" FontSize="20"></TextBox>
-        
+
         <ComboBox x:Name="c2" Grid.Row="1" Grid.Column="0" Margin="50,0,50,75" FontSize="20"/>
         <ComboBox x:Name="c3" Grid.Row="1" Grid.Column="1" Margin="50,0,50,75" FontSize="20"/>
-        
+
         <Button x:Name="but" Grid.Row="2" Grid.Column="0" Margin="50,0,50,75" FontSize="20" Click="but_Click">Convert</Button>
-        <TextBlock x:Name="block" Grid.Row="2" Grid.Column="1" Margin="50,0,50,0" FontSize="40" HorizontalAlignment="Center" VerticalAlignment="Center">asadf</TextBlock>
+        <TextBlock x:Name="block" Grid.Row="2" Grid.Column="1" Margin="50,0,50,0" FontSize="40" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
+
+
+        <Ellipse x:Name="el" Grid.Column="2" Fill="#FFF4F4F5" Height="380" Margin="0,0,0,0" Grid.RowSpan="3" Stroke="Black" VerticalAlignment="Top" HorizontalAlignment="Center" Width="380"/>
+        <Rectangle x:Name="r1" Grid.Column="2" Fill="#FFF4F4F5" HorizontalAlignment="Center" Height="190" Margin="0,0,0,0" Stroke="Black" VerticalAlignment="Top" Width="10" Grid.RowSpan="2" RenderTransformOrigin="0.5,1"/>
+        <Rectangle x:Name="r2" Grid.Column="2" Fill="#FFF4F4F5" HorizontalAlignment="Center" Height="95" Margin="0,100,0,0" Stroke="Black" VerticalAlignment="Top" Width="20" Grid.RowSpan="2" RenderTransformOrigin="0.5,1"/>
     </Grid>
 </Window>

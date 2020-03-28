@@ -15,7 +15,8 @@ namespace UnitConverter.Logic
                 new TemperatureConverter(),
                 new LengthConverter(),
                 new Weight(),
-                new Pressure()
+                new Pressure(),
+                new Zegar()
             };
         }
     }
