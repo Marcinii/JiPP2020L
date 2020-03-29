@@ -37,6 +37,12 @@ namespace UnitConverter.Desktop
             {
                 ((Storyboard)Resources["clockVisibility"]).Begin();
             }
+            else
+            {
+                ((Storyboard)Resources["clockVisibility"]).AutoReverse = true;
+                ((Storyboard)Resources["clockVisibility"]).Begin(this, true);
+                ((Storyboard)Resources["clockVisibility"]).Seek(this, new TimeSpan(0, 0, 0), TimeSeekOrigin.Duration);
+            }
 
             fromCombobox.ItemsSource =
                 ((IConverter)converterCombobox.SelectedItem).Units;
