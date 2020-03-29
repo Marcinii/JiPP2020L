@@ -23,6 +23,7 @@ namespace UnitConverter.Desktop
     /// </summary>
     public partial class MainWindow : Window
     {
+        bool isClockVisible = false;
         public MainWindow()
         {
             InitializeComponent();
@@ -30,18 +31,21 @@ namespace UnitConverter.Desktop
         }
 
         private void ConverterCombobox_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
+        {            
             string timeConverterName = new TimeConverter().Name;
             string selectedItemName = ((IConverter)converterCombobox.SelectedItem).Name.ToString();
-            if (selectedItemName.Equals(timeConverterName))
+            if (selectedItemName.Equals(timeConverterName) && isClockVisible==false)
             {
-                ((Storyboard)Resources["clockVisibility"]).Begin();
-            }
-            else
+                //((Storyboard)Resources["clockVisibility"]).Begin();
+                ((Storyboard)Resources["clockVisibility"]).AutoReverse = false;
+                ((Storyboard)Resources["clockVisibility"]).Begin(this, false);
+                isClockVisible = true;             
+            }else if (!selectedItemName.Equals(timeConverterName) && isClockVisible == true)
             {
                 ((Storyboard)Resources["clockVisibility"]).AutoReverse = true;
                 ((Storyboard)Resources["clockVisibility"]).Begin(this, true);
                 ((Storyboard)Resources["clockVisibility"]).Seek(this, new TimeSpan(0, 0, 0), TimeSeekOrigin.Duration);
+                isClockVisible = false;
             }
 
             fromCombobox.ItemsSource =
