@@ -28,17 +28,5 @@ namespace KonwerterJednostek
                 };
             return factor[from][to];
         }
-
-        //public double Convert(string from, string to, double valueToConvert)
-        //{
-        //    double result=0;
-        //    if (from.Equals("C") && to.Equals("F")){
-        //        result = (valueToConvert * 1.8) + 32;
-        //    }
-        //    else if (from.Equals("F") && to.Equals("C")){
-        //        result = (valueToConvert - 32) / 1.8;
-        //    }
-        //    return result;
-        //}
     }
 }

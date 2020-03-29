@@ -6,8 +6,6 @@ using System.Threading.Tasks;
 
 namespace KonwerterJednostek
 {
-
-
     public class LengthConverter : IConverter
     {
         public string Name => "Dlugosci";
