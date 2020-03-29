@@ -10,11 +10,11 @@ using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
+using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using UnitConverter.Logic;
-using LengthConverter = KonwerterJednostek.LengthConverter;
 
 namespace UnitConverter.Desktop
 {
@@ -27,10 +27,17 @@ namespace UnitConverter.Desktop
         {
             InitializeComponent();
             converterCombobox.ItemsSource = new ConverterService().GetConverters();
+            clockRotation.Angle = 100;
         }
 
         private void ConverterCombobox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            string selectedItemName = ((IConverter)converterCombobox.SelectedItem).Name.ToString();
+            if (selectedItemName.Equals("Czas"))
+            {
+                ((Storyboard)Resources["clockVisibility"]).Begin();
+            }
+
             fromCombobox.ItemsSource =
                 ((IConverter)converterCombobox.SelectedItem).Units;
             toCombobox.ItemsSource =
@@ -51,6 +58,16 @@ namespace UnitConverter.Desktop
                 inputValue);                                          
 
             resultTextblock.Text = result.ToString();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            ((Storyboard)Resources["circleStoryboard"]).Begin();
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            ((Storyboard)Resources["circleStoryboard"]).Stop();
         }
     }
 }
