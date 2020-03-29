@@ -32,8 +32,9 @@ namespace UnitConverter.Desktop
 
         private void ConverterCombobox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            string timeConverterName = new TimeConverter().Name;
             string selectedItemName = ((IConverter)converterCombobox.SelectedItem).Name.ToString();
-            if (selectedItemName.Equals("Czas"))
+            if (selectedItemName.Equals(timeConverterName))
             {
                 ((Storyboard)Resources["clockVisibility"]).Begin();
             }
