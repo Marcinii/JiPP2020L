@@ -5,7 +5,46 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:UnitKonwerter.Desktop"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="600">
+        Title="MainWindow" Height="350" Width="800">
+    <Window.Resources>
+        <Storyboard x:Key="Animacja" RepeatBehavior="Forever">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleY)" Storyboard.TargetName="rectangle">
+                <EasingDoubleKeyFrame KeyTime="0" Value="5.002"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="1.09"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:1.5" Value="0.955"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:2" Value="0.955"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:2.3" Value="4.844"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:3.3" Value="0.865"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="rectangle">
+                <EasingDoubleKeyFrame KeyTime="0" Value="89"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="173"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:1.5" Value="176"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:2" Value="176"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:2.3" Value="89.5"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:3.3" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)" Storyboard.TargetName="rectangle">
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="1"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:1.5" Value="1.786"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:2" Value="0.552"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:3.3" Value="0.552"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:3.6" Value="1.883"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:4.4" Value="1.007"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="rectangle">
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:1.5" Value="-57"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:2" Value="-146.5"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:3.3" Value="-146.5"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:3.6" Value="-50"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:4.4" Value="13.5"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+    </Window.Resources>
+    <Window.Triggers>
+        <EventTrigger RoutedEvent="FrameworkElement.Loaded"/>
+    </Window.Triggers>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
@@ -17,20 +56,42 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto" />
             <ColumnDefinition Width="Auto" />
-            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="Auto" MinWidth="505" />
+            <ColumnDefinition />
         </Grid.ColumnDefinitions>
-        <ComboBox x:Name="comboboxKonwertujZ" Grid.Column="2" HorizontalAlignment="Left" Margin="81,45,0,0" Grid.Row="2" VerticalAlignment="Top" Width="158" Height="22"/>
-        <ComboBox x:Name="comboboxKonwertujNa" Grid.Column="2" HorizontalAlignment="Left" Margin="321,45,0,0" Grid.Row="2" VerticalAlignment="Top" Width="158" Height="22"/>
-        <Label Content="Konwertuj z:" Grid.Column="2" HorizontalAlignment="Left" Margin="81,10,0,0" Grid.Row="2" VerticalAlignment="Top" Width="110" Height="30"/>
-        <Label Content="Konwertuj na:" Grid.Column="2" HorizontalAlignment="Left" Margin="321,10,0,0" Grid.Row="2" VerticalAlignment="Top" Width="110" Height="30"/>
-        <Button x:Name="buttonOblicz" Content="Oblicz" Grid.Column="2" Margin="196,29,0,0" Grid.Row="4" VerticalAlignment="Top" Height="47" HorizontalAlignment="Left" Width="200" Click="ButtonOblicz_Click"/>
-        <ComboBox x:Name="typKonwertera" Grid.Column="2" Margin="192,50,192,0" VerticalAlignment="Top" Width="200" SelectionChanged="TypKonwertera_SelectionChanged"/>
-        <TextBlock x:Name="textblockWynik" Grid.Column="2" HorizontalAlignment="Left" Margin="321,41,0,0" Grid.Row="3" TextWrapping="Wrap" VerticalAlignment="Top" Width="158" Height="37"/>
-        <Label Content="Typ konwertera:" Grid.Column="2" HorizontalAlignment="Left" Margin="196,10,0,0" VerticalAlignment="Top" RenderTransformOrigin="-1.182,-0.056" Width="200"/>
-        <TextBox x:Name="textboxInput" Grid.Column="2" HorizontalAlignment="Left" Height="37" Margin="81,41,0,0" Grid.Row="3" TextWrapping="Wrap" VerticalAlignment="Top" Width="158"/>
-        <Label Content="Wprowadz dane:" Grid.Column="2" HorizontalAlignment="Left" Margin="81,10,0,0" Grid.Row="3" VerticalAlignment="Top" Width="158"/>
-        <Label Content="Wynik:" Grid.Column="2" HorizontalAlignment="Left" Margin="321,10,0,0" Grid.Row="3" VerticalAlignment="Top" Width="158"/>
-
+        <ComboBox x:Name="comboboxKonwertujZ" Grid.Column="2" HorizontalAlignment="Left" Margin="218,49.96,0,0" VerticalAlignment="Top" Width="158" Height="22"/>
+        <ComboBox x:Name="comboboxKonwertujNa" Grid.Column="2" HorizontalAlignment="Left" Margin="396,50,0,0" VerticalAlignment="Top" Width="158" Height="22" Grid.RowSpan="3"/>
+        <Label Content="Konwertuj z:" Grid.Column="2" HorizontalAlignment="Left" Margin="247,20,0,0" VerticalAlignment="Top" Width="110" Height="30"/>
+        <Label Content="Konwertuj na:" Grid.Column="2" HorizontalAlignment="Left" Margin="426,20,0,0" VerticalAlignment="Top" Width="110" Height="30"/>
+        <Button x:Name="buttonOblicz" Content="Oblicz" Grid.Column="2" Margin="33,0,0,0" Grid.Row="4" VerticalAlignment="Top" Height="47" HorizontalAlignment="Left" Width="200" Click="ButtonOblicz_Click"/>
+        <ComboBox x:Name="typKonwertera" Grid.Column="2" Margin="33,50,351,0" VerticalAlignment="Top" SelectionChanged="TypKonwertera_SelectionChanged" Height="21.96" Width="180"/>
+        <TextBlock x:Name="textblockWynik" Grid.Column="2" HorizontalAlignment="Left" Margin="218,40.96,0,0" Grid.Row="2" TextWrapping="Wrap" VerticalAlignment="Top" Width="158" Height="37" Grid.RowSpan="2"/>
+        <Label Content="Typ konwertera:" Grid.Column="2" HorizontalAlignment="Left" Margin="33,20,0,0" VerticalAlignment="Top" RenderTransformOrigin="-1.182,-0.056" Width="200" Height="25.96"/>
+        <TextBox x:Name="textboxInput" Grid.Column="2" HorizontalAlignment="Left" Height="37" Margin="33,40.96,0,0" Grid.Row="2" TextWrapping="Wrap" VerticalAlignment="Top" Width="158" Grid.RowSpan="2"/>
+        <Label Content="Wprowadz dane:" Grid.Column="2" HorizontalAlignment="Left" Margin="33,10,0,0" Grid.Row="2" VerticalAlignment="Top" Width="158" Height="25.96"/>
+        <Label Content="Wynik:" Grid.Column="2" HorizontalAlignment="Left" Margin="218,10,0,0" Grid.Row="2" VerticalAlignment="Top" Width="158" Height="25.96"/>
+        <Button x:Name="StartAnimation" Content="Start" Grid.Column="3" HorizontalAlignment="Left" Margin="33,49.96,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
+        <Rectangle x:Name="rectangle" Grid.Column="3" HorizontalAlignment="Left" Height="44.48" Margin="33,28.04,0,0" Grid.Row="2" Stroke="Black" VerticalAlignment="Top" Width="145" RenderTransformOrigin="0.5,0.5">
+            <Rectangle.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Rectangle.RenderTransform>
+            <Rectangle.Fill>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="Black" Offset="0"/>
+                    <GradientStop Color="#FF3ECBEA" Offset="1"/>
+                </LinearGradientBrush>
+            </Rectangle.Fill>
+        </Rectangle>
+        <Button x:Name="StopAnimation" Content="Stop" Grid.Column="3" HorizontalAlignment="Left" Margin="113,49.96,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_1"/>
+        <Ellipse Grid.ColumnSpan="3" HorizontalAlignment="Left" Height="140" Margin="304.75,6.44,0,0" Grid.Row="3" Grid.RowSpan="2" Stroke="Black" VerticalAlignment="Top" Width="140" Fill="#FFD1D1D1" RenderTransformOrigin="0,1"/>
+        <Rectangle x:Name="minutowa" Grid.ColumnSpan="3" Fill="#FFFF0017" HorizontalAlignment="Left" Height="62" Margin="372.75,13.69,0,0" Grid.Row="3" Stroke="Red" VerticalAlignment="Top" Width="4" RenderTransformOrigin="0.5,1"/>
+        <Rectangle x:Name="godzinowa" Grid.ColumnSpan="3" Fill="Black" HorizontalAlignment="Left" Height="45" Margin="372.75,31.44,0,0" Grid.Row="3" Stroke="Black" VerticalAlignment="Top" Width="4" RenderTransformOrigin="0.5,1"/>
+        <Ellipse Grid.ColumnSpan="3" Fill="#FF171717" HorizontalAlignment="Left" Height="3" Margin="373.25,74.94,0,0" Grid.Row="3" Stroke="Black" VerticalAlignment="Top" Width="3"/>
 
 
     </Grid>

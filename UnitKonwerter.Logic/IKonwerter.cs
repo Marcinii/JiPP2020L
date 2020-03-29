@@ -11,7 +11,7 @@ namespace UnitKonwerter
         string Name{get; }
         List<string> Units { get; }
 
-        decimal Convert(string unitFrom, string unitTo, decimal valueToConvert);
+        string Convert(string unitFrom, string unitTo, string valueToConvert);
     
     }
 }

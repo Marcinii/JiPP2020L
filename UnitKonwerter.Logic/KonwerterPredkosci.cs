@@ -17,43 +17,43 @@ namespace UnitKonwerter
                 "mph"
             };
 
-        public decimal Convert(string unitFrom, string unitTo, decimal valueToConvert)
+        public string Convert(string unitFrom, string unitTo, string valueToConvert)
         {
-            decimal wynik = 0;
+            string wynik ="blad"; 
             if (unitFrom == "km/h" && unitTo == "m/s")
             {
-                wynik = decimal.Divide(valueToConvert, 3.6M);
+                wynik = (double.Parse(valueToConvert) / 3.6).ToString();
                 return wynik;
             }
             else
             {
                 if (unitFrom == "km/h" && unitTo == "mph")
                 {
-                    wynik = decimal.Multiply(valueToConvert, 0.6214M);
+                    wynik = (double.Parse(valueToConvert) / 0.6214).ToString();
                     return wynik;
                 }
 
                 if (unitFrom == "m/s" && unitTo == "km/h")
                 {
-                    wynik = decimal.Multiply(valueToConvert, 3.6M);
+                    wynik = (double.Parse(valueToConvert) * 3.6).ToString();
                     return wynik;
                 }
 
                 if (unitFrom == "m/s" && unitTo == "mph")
                 {
-                    wynik = decimal.Multiply(valueToConvert, 2.24M);
+                    wynik = (double.Parse(valueToConvert) * 2.4).ToString();
                     return wynik;
                 }
 
                 if (unitFrom == "mph" && unitTo == "km/h")
                 {
-                    wynik = decimal.Multiply(valueToConvert, 1.61M);
+                    wynik = (double.Parse(valueToConvert) * 1.6).ToString();
                     return wynik;
                 }
 
                 if (unitFrom == "mph" && unitTo == "m/s")
                 {
-                    wynik = decimal.Divide(valueToConvert, 2.24M);
+                    wynik = (double.Parse(valueToConvert) / 2.24).ToString();
                     return wynik;
                 }
                 return wynik;

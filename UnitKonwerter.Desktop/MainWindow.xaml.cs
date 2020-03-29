@@ -9,6 +9,7 @@ using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
+using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
@@ -30,7 +31,8 @@ namespace UnitKonwerter.Desktop
                 new KonwerterPredkosci(),
                 new KonwerterDlugosci(),
                 new KonwerterMasy(),
-                new KonwerterTemperatury()
+                new KonwerterTemperatury(),
+                new KonwerterGodzin()
             };
             typKonwertera.DisplayMemberPath = "Name";
 
@@ -46,18 +48,25 @@ namespace UnitKonwerter.Desktop
             else
             {
 
-
-
-                decimal value;
-                Decimal.TryParse(textboxInput.Text, out value);
-                decimal result = ((IKonwerter)typKonwertera.SelectedItem).Convert(comboboxKonwertujZ.SelectedValue.ToString(), comboboxKonwertujNa.SelectedValue.ToString(), value);
+                string inputtext = textboxInput.Text;
+                string value = inputtext;
+                string result = ((IKonwerter)typKonwertera.SelectedItem).Convert(comboboxKonwertujZ.SelectedValue.ToString(), comboboxKonwertujNa.SelectedValue.ToString(), value);
 
                 textblockWynik.Text = result.ToString();
+
+                if(typKonwertera.SelectedItem.GetType() == typeof(KonwerterGodzin))
+                {
+                    DateTime time;
+                    DateTime.TryParse(inputtext, out time);
+
+                    godzinowa.RenderTransform = new RotateTransform(30 * time.Hour);
+                    minutowa.RenderTransform = new RotateTransform(6 * time.Minute);
+
+                }
+
             }
 
-
         }
-
 
         private void TypKonwertera_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -65,6 +74,16 @@ namespace UnitKonwerter.Desktop
             comboboxKonwertujNa.ItemsSource = ((IKonwerter)typKonwertera.SelectedItem).Units;
             comboboxKonwertujZ.SelectedIndex = 0;
             comboboxKonwertujNa.SelectedIndex = 1;
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            ((Storyboard)Resources["Animacja"]).Begin();
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+             ((Storyboard)Resources["Animacja"]).Stop();
         }
     }
 }

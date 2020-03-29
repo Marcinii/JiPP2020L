@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="IKonwerter.cs" />
     <Compile Include="KonwerterDlugosci.cs" />
+    <Compile Include="KonwerterGodzin.cs" />
     <Compile Include="KonwerterMasy.cs" />
     <Compile Include="KonwerterTemperatury.cs" />
     <Compile Include="KonwerterPredkosci.cs" />

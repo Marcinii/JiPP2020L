@@ -16,18 +16,17 @@ namespace UnitKonwerter
                 "m"
             };
 
-        public decimal Convert(string unitFrom, string unitTo, decimal valueToConvert)
+        public string Convert(string unitFrom, string unitTo, string valueToConvert)
         {
 
-            decimal wynik = 0;
             if (unitFrom == "km")
             {
-                wynik = decimal.Multiply(valueToConvert, 1000M);
+                string wynik = (double.Parse(valueToConvert) * 1000).ToString();
                 return wynik;
             }
             else
             {
-                wynik = decimal.Divide(valueToConvert, 1000M);
+                string wynik = (double.Parse(valueToConvert) / 1000).ToString();
                 return wynik;
             }
         }

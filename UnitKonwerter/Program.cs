@@ -15,7 +15,8 @@ namespace UnitKonwerter
                 new KonwerterPredkosci(),
                 new KonwerterTemperatury(),
                 new KonwerterDlugosci(),
-                new KonwerterMasy()
+                new KonwerterMasy(),
+                new KonwerterGodzin()
             };
                 bool wyjscie = true;
                 while (wyjscie)
@@ -37,9 +38,9 @@ namespace UnitKonwerter
 
                     Console.WriteLine("Podaj liczbe do konwersji: ");
                     string inputValue = Console.ReadLine();
-                    decimal value = decimal.Parse(inputValue);
+                    double value = double.Parse(inputValue);
 
-                    decimal result = converters[wyborswitch - 1].Convert(unitFrom, unitTo, value);
+                    string result = converters[wyborswitch - 1].Convert(unitFrom, unitTo, value.ToString());
                     Console.WriteLine("Wynik konwersji: {0}", result);
                     wyjscie = false;
                 }

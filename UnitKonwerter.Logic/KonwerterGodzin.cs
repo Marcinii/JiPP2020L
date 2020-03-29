@@ -1,35 +1,34 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace UnitKonwerter
 {
-    public class KonwerterMasy : IKonwerter
+    public class KonwerterGodzin:IKonwerter
     {
-        public string Name => "Masy";
+        public string Name => "Godziny";
 
         public List<string> Units => new List<string>()
             {
-                "kg",
-                "F"
+                "24h",
+                "12h"
             };
 
         public string Convert(string unitFrom, string unitTo, string valueToConvert)
         {
             string wynik;
-            if (unitFrom == "kg")
+            if (unitFrom == "24h")
             {
-                wynik = (double.Parse(valueToConvert) *2.2046).ToString();
-
+                
+                wynik = DateTime.Parse(valueToConvert).ToString("hh:mm tt", CultureInfo.InvariantCulture);
                 return wynik;
             }
             else
-            {
-                wynik = (double.Parse(valueToConvert) / 2.2046).ToString();
+                wynik = DateTime.Parse(valueToConvert).ToString("HH:mm", CultureInfo.InvariantCulture);
                 return wynik;
-            }
         }
     }
 }

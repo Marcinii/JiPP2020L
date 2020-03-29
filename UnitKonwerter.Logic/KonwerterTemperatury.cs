@@ -16,17 +16,18 @@ namespace UnitKonwerter
                 "F"
             };
 
-        public decimal Convert(string unitFrom, string unitTo, decimal valueToConvert)
+        public string Convert(string unitFrom, string unitTo, string valueToConvert)
         {
-            decimal wynik = 0;
+            
             if (unitFrom == "C")
             {
-                wynik = decimal.Multiply(valueToConvert, 1.8M);
-                return wynik+32;
+                
+                string wynik = ((double.Parse(valueToConvert) * 9 / 5) + 32).ToString();
+                return wynik;
             }
             else
             {
-                wynik = decimal.Divide(valueToConvert-32, 1.8M);
+                string wynik = ((double.Parse(valueToConvert) -32)/1.8).ToString();
                 return wynik;
             }
         }
