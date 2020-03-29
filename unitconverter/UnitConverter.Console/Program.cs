@@ -12,7 +12,7 @@ namespace UnitConverter
                 new TemperatureConverter(),
                 new LenghtConverter(),
                 new WeightConverter(),
-                new SurfaceConverter()
+                new SpeedConverter()
 
             };
             Console.WriteLine("Wybierz opcję konwersji:");
