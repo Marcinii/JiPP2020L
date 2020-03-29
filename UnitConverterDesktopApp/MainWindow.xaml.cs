@@ -62,8 +62,7 @@ namespace UnitConverterDesktopApp
                 MinutePointer.Visibility = Visibility.Visible;
                 HourPointer.Visibility = Visibility.Visible;
                 ((Storyboard)Resources["ClockAppear"]).Begin();
-            }
-            
+            }  
             else
             {
                 ((Storyboard)Resources["ClockDisappear"]).Begin();
@@ -99,6 +98,9 @@ namespace UnitConverterDesktopApp
                     {  
                         var result = SelectedConverter.Convert(sourceUnit, targetUnit, inputValue);
                         ResultValueTextBlock.Text = result.ToString();
+                        
+                        Database.InsertResult(
+                            SelectedConverter.Name, sourceUnit, targetUnit, inputValue, result.ToString());
 
                         if (SelectedConverter.Name == "Clock")
                         {
@@ -111,6 +113,11 @@ namespace UnitConverterDesktopApp
                     }
                 }
             }
+        }
+        private void ShowStatsButton_Click(object sender, RoutedEventArgs e)
+        {
+            StatsWindow statsWindow = new StatsWindow();
+            statsWindow.Show();
         }
     }
 }

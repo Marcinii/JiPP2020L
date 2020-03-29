@@ -1,0 +1,20 @@
+﻿<Window x:Class="UnitConverterDesktopApp.StatsWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:UnitConverterDesktopApp"
+        mc:Ignorable="d"
+        Title="Stats Window" Height="450" Width="800">
+    <StackPanel>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+            </Grid.RowDefinitions>
+        </Grid>
+        <DataGrid 
+                x:Name="DataTable" 
+                />
+    </StackPanel>
+</Window>
