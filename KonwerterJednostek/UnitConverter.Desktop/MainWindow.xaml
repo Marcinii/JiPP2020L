@@ -35,6 +35,14 @@
                 <EasingDoubleKeyFrame KeyTime="0:0:2" Value="1"/>
                 <EasingDoubleKeyFrame KeyTime="0:0:3" Value="1"/>
             </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="button">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:3" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="button1">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:3" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
         </Storyboard>
     </Window.Resources>
     <Window.Triggers>
@@ -90,8 +98,8 @@
                 </LinearGradientBrush>
             </Path.Fill>
         </Path>
-        <Button Content="Button" Grid.Column="1" HorizontalAlignment="Left" Margin="272,259,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
-        <Button Content="Button" Grid.Column="1" HorizontalAlignment="Left" Margin="272,330,0,0" VerticalAlignment="Top" Width="76" Click="Button_Click_1"/>
+        <Button x:Name="button" Content="Begin" Grid.Column="1" HorizontalAlignment="Left" Margin="272,259,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click" Opacity="0"/>
+        <Button x:Name="button1" Content="Stop" Grid.Column="1" HorizontalAlignment="Left" Margin="272,330,0,0" VerticalAlignment="Top" Width="76" Click="Button_Click_1" Opacity="0"/>
         <Line x:Name="minuteArrow" X1="0" X2="100" Grid.Column="1" Stroke="Black" StrokeThickness="8" Margin="37.509,278.213,263.512,129.707" RenderTransformOrigin="1,0.5" Opacity="0">
             <Line.RenderTransform>
                 <TransformGroup>
