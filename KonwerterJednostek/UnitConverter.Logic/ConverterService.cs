@@ -16,7 +16,8 @@ namespace UnitConverter.Logic
                 new LengthConverter(),
                 new TemperatureConverter(),
                 new WeightConverter(),
-                new PowerConverter()
+                new PowerConverter(),
+                new TimeConverter()
             };
         }
 
