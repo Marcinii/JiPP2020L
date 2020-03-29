@@ -110,7 +110,7 @@
                 <TransformGroup>
                     <ScaleTransform ScaleY="-1"/>
                     <SkewTransform/>
-                    <RotateTransform/>
+                    <RotateTransform x:Name="minuteRotation" Angle="90"/>
                     <TranslateTransform/>
                 </TransformGroup>
             </Line.RenderTransform>
@@ -120,7 +120,7 @@
                 <TransformGroup>
                     <ScaleTransform ScaleY="-1"/>
                     <SkewTransform/>
-                    <RotateTransform x:Name="clockRotation" Angle="0"/>
+                    <RotateTransform x:Name="hourRotation" Angle="90"/>
                     <TranslateTransform/>
                 </TransformGroup>
             </Path.RenderTransform>
