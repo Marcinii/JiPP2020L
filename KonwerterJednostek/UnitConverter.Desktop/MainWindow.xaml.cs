@@ -26,7 +26,7 @@ namespace UnitConverter.Desktop
         public MainWindow()
         {
             InitializeComponent();
-            converterCombobox.ItemsSource = new ConverterService().GetConverters();         
+            converterCombobox.ItemsSource = new ConverterService().GetConverters();
         }
 
         private void ConverterCombobox_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -55,15 +55,15 @@ namespace UnitConverter.Desktop
                 .IndexOf((string)fromCombobox.SelectedItem),
                 ((IConverter)converterCombobox.SelectedItem).Units
                 .IndexOf((string)toCombobox.SelectedItem),
-                inputValue);                                          
+                inputValue);
 
             resultTextblock.Text = result.ToString();
 
-            double hourArrow = result > 12 ? result - 12 : result;
-            double minuteArrow = (hourArrow - (int)hourArrow)*100;
+            double hourArrowValue = result > 12 ? result - 12 : result;
+            double minuteArrowValue = (hourArrowValue - (int)hourArrowValue) * 100;
 
-            hourRotation.Angle = ((hourArrow / 12) * 360)+90;
-            minuteRotation.Angle = ((minuteArrow / 60) * 360)+90;
+            hourRotation.Angle = ((hourArrowValue / 12) * 360) + 90;
+            minuteRotation.Angle = ((minuteArrowValue / 60) * 360) + 90;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
