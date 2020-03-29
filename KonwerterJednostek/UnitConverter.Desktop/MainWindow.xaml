@@ -44,11 +44,20 @@
                 <EasingDoubleKeyFrame KeyTime="0:0:3" Value="1"/>
             </DoubleAnimationUsingKeyFrames>
         </Storyboard>
+        <!--<Storyboard x:Key="clockArrowsStoryboard">
+            <DoubleAnimationUsingKeyFrames x:Name="minuteArrowAnimation" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[2].(RotateTransform.Angle)" Storyboard.TargetName="minuteArrow">
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="180"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames x:Name="hourArrowAnimation" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[2].(RotateTransform.Angle)" Storyboard.TargetName="hourArrow">
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="180"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>-->
     </Window.Resources>
     <Window.Triggers>
         <EventTrigger RoutedEvent="FrameworkElement.Loaded">
             <BeginStoryboard Storyboard="{StaticResource circleStoryboard}"/>
             <BeginStoryboard Storyboard="{StaticResource buttonStoryboard}"/>
+            <!--<BeginStoryboard Storyboard="{StaticResource clockArrowsStoryboard}"/>-->
             <!--<BeginStoryboard Storyboard="{StaticResource clockVisibility}"/>-->
         </EventTrigger>
     </Window.Triggers>
