@@ -7,7 +7,7 @@ namespace UnitConverter.Lib
 {
     public class MassConverter : IConverter<double, Unit>
     {
-        public string Name => "Mass Converter";
+        public string Name => "Mass";
         public List<Unit> SupportedUnits => new List<Unit>() {
             Unit.Kilograms,
             Unit.Pounds,
@@ -15,6 +15,11 @@ namespace UnitConverter.Lib
         };
         public Tuple<double, Unit> Convert(double val, Unit inpUnit, Unit outUnit)
         {
+            if (inpUnit == outUnit)
+            {
+                return new Tuple<double, Unit>(val, outUnit);
+            }
+
             double outVal = 0;
             bool calculated = false;
 

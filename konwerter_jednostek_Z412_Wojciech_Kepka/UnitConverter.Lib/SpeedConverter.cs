@@ -7,7 +7,7 @@ namespace UnitConverter.Lib
 {
     public class SpeedConverter : IConverter<double, Unit>
     {
-        public string Name => "Speed Converter";
+        public string Name => "Speed";
         public List<Unit> SupportedUnits => new List<Unit>() {
             Unit.KilometersPerHour,
             Unit.MetersPerSecond,
@@ -16,6 +16,11 @@ namespace UnitConverter.Lib
         };
         public Tuple<double, Unit> Convert(double val, Unit inpUnit, Unit outUnit)
         {
+            if (inpUnit == outUnit)
+            {
+                return new Tuple<double, Unit>(val, outUnit);
+            }
+
             double outVal = 0;
             bool calculated = false;
 

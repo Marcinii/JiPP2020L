@@ -7,13 +7,18 @@ namespace UnitConverter.Lib
 {
     public class DistanceConverter : IConverter<double, Unit>
     {
-        public string Name => "Distance Converter";
+        public string Name => "Distance";
         public List<Unit> SupportedUnits => new List<Unit>() {
             Unit.Kilometers,
             Unit.Miles,
         };
         public Tuple<double, Unit> Convert(double val, Unit inpUnit, Unit outUnit)
         {
+            if (inpUnit == outUnit)
+            {
+                return new Tuple<double, Unit>(val, outUnit);
+            }
+
             double outVal = 0;
             bool calculated = false;
 

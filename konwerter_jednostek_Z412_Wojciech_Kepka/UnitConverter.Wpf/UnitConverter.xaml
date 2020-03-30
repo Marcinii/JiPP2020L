@@ -5,7 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:UnitConverter.Wpf"
         mc:Ignorable="d"
-        Title="UnitConverter" Height="450" Width="729.699">
+        Title="UnitConverter"
+        SizeToContent="WidthAndHeight"
+        ResizeMode="NoResize">
+    <!--Height="477" Width="480.533">-->
     <Window.Resources>
         <TransformGroup x:Key="HourTransform">
             <ScaleTransform/>
@@ -24,75 +27,176 @@
                 <EasingDoubleKeyFrame KeyTime="0:0:1" Value="1"/>
             </DoubleAnimationUsingKeyFrames>
             <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[2].(RotateTransform.Angle)" Storyboard.TargetName="hourPath">
-                <EasingDoubleKeyFrame KeyTime="0:0:2" Value="359.205"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:2" Value="360"/>
             </DoubleAnimationUsingKeyFrames>
             <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[2].(RotateTransform.Angle)" Storyboard.TargetName="minutePath">
-                <EasingDoubleKeyFrame KeyTime="0:0:2" Value="359.55"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:2" Value="360"/>
             </DoubleAnimationUsingKeyFrames>
         </Storyboard>
     </Window.Resources>
     <Window.Triggers>
     </Window.Triggers>
     <Grid>
-        <StackPanel>
-            <ComboBox Name="converterComboBox" Margin="10,5,10,5" SelectionChanged="converterComboBox_SelectionChanged">
-                <ComboBox.ItemTemplate>
-                    <DataTemplate>
-                        <TextBlock Text="{Binding}"></TextBlock>
-                    </DataTemplate>
-                </ComboBox.ItemTemplate>
-            </ComboBox>
-            <Grid>
-                <ComboBox Name="unitFromComboBox" Margin="10,5,10,5"></ComboBox>
+        <StackPanel Height="445">
+            <TabControl Height="445" SelectionChanged="TabControl_SelectionChanged">
+                <TabItem Header="Converter">
+                    <Grid>
+                        <StackPanel Background="White">
+                            <TextBlock Margin="10,10,10,0">Type:</TextBlock>
+                            <ComboBox Name="converterComboBox" Margin="10,5,10,5" SelectionChanged="converterComboBox_SelectionChanged">
+                                <ComboBox.ItemTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding}"></TextBlock>
+                                    </DataTemplate>
+                                </ComboBox.ItemTemplate>
+                            </ComboBox>
+                            <TextBlock Margin="10,10,10,0">Units:</TextBlock>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="1*"/>
+                                    <ColumnDefinition Width="0.1*"/>
+                                    <ColumnDefinition  Width="1*"/>
+                                </Grid.ColumnDefinitions>
+                                <ComboBox Name="unitFromComboBox" Margin="10,5,10,5" Grid.Column="0"></ComboBox>
+                                <TextBlock Grid.Column="1" Margin="0,10,0,10">To:</TextBlock>
+                                <ComboBox Name="unitToComboBox" Margin="10,5,10,5" Grid.Column="2"></ComboBox>
+                            </Grid>
+                            <TextBox Margin="10,5,10,5" Name="inputTextBox" Height="30" FontSize="16"></TextBox>
+                            <Button Height="30" Margin="30,20,30,20" Name="convertButton" FontSize="16" Click="convertButton_Click" Background="#FFFFB0B0">Convert</Button>
+                            <Grid x:Name="outputGrid">
+                                <Grid x:Name="clockGrid" Opacity="0">
+                                    <Grid x:Name="clock" Margin="10">
+                                        <Ellipse Fill="#FFF4F4F5" Height="167" Stroke="Black" Width="167.308" RenderTransformOrigin="0.5,0.5" Margin="110,0,118,0">
+                                            <Ellipse.RenderTransform>
+                                                <TransformGroup>
+                                                    <ScaleTransform/>
+                                                    <SkewTransform/>
+                                                    <RotateTransform Angle="0"/>
+                                                    <TranslateTransform/>
+                                                </TransformGroup>
+                                            </Ellipse.RenderTransform>
 
-            </Grid>
-            <TextBox Margin="10,5,10,5" Name="inputTextBox" Height="30" FontSize="16"></TextBox>
-            <Button Height="30" Margin="30,20,30,20" Name="convertButton" FontSize="16" Click="convertButton_Click">Konwertuj</Button>
+                                        </Ellipse>
+                                        <Path x:Name="minutePath" Data="M365,117.58 L365,34.647" Height="83.933" Stretch="Fill" Stroke="Black" Width="1" RenderTransformOrigin="0.5,1" Margin="193.5,0.345,201.5,82.722" >
+                                            <Path.Fill>
+                                                <ImageBrush/>
+                                            </Path.Fill>
+                                            <Path.RenderTransform>
+                                                <TransformGroup>
+                                                    <ScaleTransform/>
+                                                    <SkewTransform/>
+                                                    <RotateTransform Angle="0"/>
+                                                    <TranslateTransform/>
+                                                </TransformGroup>
+                                            </Path.RenderTransform>
+                                        </Path>
+                                        <Path x:Name="hourPath" Data="M365,117.58 L365,34.647" Fill="#FFF4F4F5" Height="42.744" Stretch="Fill" Stroke="Red" Width="1" RenderTransformOrigin="0.5,1" Margin="194,40.534,202,83.722">
+                                            <Path.RenderTransform>
+                                                <TransformGroup>
+                                                    <ScaleTransform/>
+                                                    <SkewTransform/>
+                                                    <RotateTransform Angle="0"/>
+                                                    <TranslateTransform/>
+                                                </TransformGroup>
+                                            </Path.RenderTransform>
+                                        </Path>
+                                    </Grid>
+                                </Grid>
+                                <TextBox x:Name="outTextBox" Opacity="0" HorizontalAlignment="Center" Height="23" TextWrapping="Wrap" Text="" IsReadOnly="True" VerticalAlignment="Top" Width="405"/>
+                            </Grid>
+                        </StackPanel>
+
+                    </Grid>
+                </TabItem>
+                <TabItem Header="Statistics" Height="22" VerticalAlignment="Bottom">
+                    <StackPanel>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="1*"></ColumnDefinition>
+                                <ColumnDefinition Width="1*"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <Grid Grid.Column="0">
+                                <StackPanel>
+                                    <TextBlock Grid.Column="0" HorizontalAlignment="Center" FontWeight="Bold">Top 3 Conversions</TextBlock>
+                                    <Expander Grid.Column="1">
+                                        <ListView x:Name="topConversionUnitsListView">
+                                            <ListView.View>
+                                                <GridView>
+                                                    <GridViewColumn Header="Converter" DisplayMemberBinding="{Binding converter}"></GridViewColumn>
+                                                    <GridViewColumn Header="Input Unit" DisplayMemberBinding="{Binding inputUnit}"></GridViewColumn>
+                                                    <GridViewColumn Header="Output Unit" DisplayMemberBinding="{Binding outputUnit}"></GridViewColumn>
+                                                    <GridViewColumn Header="Total" DisplayMemberBinding="{Binding count}"></GridViewColumn>
+                                                </GridView>
+                                            </ListView.View>
+                                        </ListView>
+                                    </Expander>
+                                </StackPanel>
+                            </Grid>
+                            <Grid Grid.Column="1">
+                                <StackPanel>
+                                    <TextBlock HorizontalAlignment="Center" FontWeight="Bold">Filters</TextBlock>
+                                    <Grid Margin="0,20,0,0">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="1*"></ColumnDefinition>
+                                            <ColumnDefinition Width="1*"></ColumnDefinition>
+                                        </Grid.ColumnDefinitions>
+                                        <StackPanel Grid.Column="0">
+                                            <TextBlock Margin="10,0">Start date:</TextBlock>
+                                            <DatePicker x:Name="startDatePicker" Margin="10,0" SelectedDateChanged="startDatePicker_SelectedDateChanged"/>
+                                            <TextBlock Margin="10,0">End date:</TextBlock>
+                                            <DatePicker x:Name="endDatePicker" Margin="10,0" SelectedDateChanged="endDatePicker_SelectedDateChanged"/>
+                                        </StackPanel>
+                                        <StackPanel Grid.Column="1">
+                                            <TextBlock Margin="10,0">Converter Type</TextBlock>
+                                            <ComboBox x:Name="converterFilterComboBox" Margin="10,0" SelectionChanged="converterFilter_SelectionChanged"></ComboBox>
+                                            <Button x:Name="clearFiltersButton" Width="80" Height="20" Margin="10,20,0,0" HorizontalAlignment="Left" Click="clearFiltersButton_Click">
+                                                Clear Filters
+                                            </Button>
+                                        </StackPanel>
+                                    </Grid>
+                                </StackPanel>
+                            </Grid>
+                        </Grid>
+
+
+
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="40"></RowDefinition>
+                                <RowDefinition Height="*"></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <Grid Grid.Row="0" x:Name="controlGrid" HorizontalAlignment="Center">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="80"></ColumnDefinition>
+                                    <ColumnDefinition Width="40"></ColumnDefinition>
+                                    <ColumnDefinition Width="80"></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                                <Button x:Name="previousPageButton" Grid.Column="0" Height="20" Background="#FFFFB0B0" Click="previousPageButton_Click">Previous</Button>
+                                <TextBlock x:Name="pageNumberTextBlock" Text="1" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
+                                <Button x:Name="nextPageButton" Grid.Column="2" Height="20" Background="#FFFFB0B0" Click="nextPageButton_Click">Next</Button>
+                            </Grid>
+                            <ListView x:Name="dbListView" HorizontalAlignment="Left" Height="298" VerticalAlignment="Top" Grid.Row="1" Margin="0,0,0,-40">
+                                <ListView.View>
+                                    <GridView>
+                                        <GridViewColumn Header="ID" DisplayMemberBinding="{Binding id}"></GridViewColumn>
+                                        <GridViewColumn Header="Date" DisplayMemberBinding="{Binding date}"></GridViewColumn>
+                                        <GridViewColumn Header="Type" DisplayMemberBinding="{Binding converter}"></GridViewColumn>
+                                        <GridViewColumn Header="Input Value" DisplayMemberBinding="{Binding inputValue}"></GridViewColumn>
+                                        <GridViewColumn Header="Input Unit" DisplayMemberBinding="{Binding inputUnit}"></GridViewColumn>
+                                        <GridViewColumn Header="Output Value" DisplayMemberBinding="{Binding outputValue}"></GridViewColumn>
+                                        <GridViewColumn Header="Output Unit" DisplayMemberBinding="{Binding outputUnit}"></GridViewColumn>
+                                    </GridView>
+                                </ListView.View>
+                            </ListView>
+                        </Grid>
+
+
+                    </StackPanel>
+                </TabItem>
+            </TabControl>
+
+
         </StackPanel>
-        <Grid x:Name="clockGrid"  Height="245" Margin="0,180,0,-6" Opacity="0">
-            <Ellipse Fill="#FFF4F4F5" Height="167.308" Margin="282.009,34.647,272.714,0" Stroke="Black" VerticalAlignment="Top" Width="167.308" RenderTransformOrigin="0.5,0.5">
-                <Ellipse.RenderTransform>
-                    <TransformGroup>
-                        <ScaleTransform/>
-                        <SkewTransform/>
-                        <RotateTransform Angle="0.224"/>
-                        <TranslateTransform/>
-                    </TransformGroup>
-                </Ellipse.RenderTransform>
-
-            </Ellipse>
-            <Path x:Name="minutePath" Data="M365,117.58 L365,34.647" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="83.933" Margin="365,34.647,0,0" Stretch="Fill" Stroke="Black" VerticalAlignment="Top" Width="1" RenderTransformOrigin="0.438,1.001">
-                <Path.RenderTransform>
-                    <TransformGroup>
-                        <ScaleTransform/>
-                        <SkewTransform/>
-                        <RotateTransform Angle="0"/>
-                        <TranslateTransform/>
-                    </TransformGroup>
-                </Path.RenderTransform>
-            </Path>
-            <Path x:Name="hourPath" Data="M365,117.58 L365,34.647" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="43.121" Margin="365,75.459,0,0" Stretch="Fill" Stroke="Red" VerticalAlignment="Top" Width="1" RenderTransformOrigin="0.438,1.001">
-                <Path.RenderTransform>
-                    <TransformGroup>
-                        <ScaleTransform/>
-                        <SkewTransform/>
-                        <RotateTransform Angle="0"/>
-                        <TranslateTransform/>
-                    </TransformGroup>
-                </Path.RenderTransform>
-            </Path>
-
-        </Grid>
-        <ListView Name="outListView" Height="245" Margin="0,180,0,-6" Opacity="0">
-            <ListView.View>
-                <GridView>
-                    <GridViewColumn Header="Value" DisplayMemberBinding="{Binding Item1}" Width="120"></GridViewColumn>
-                    <GridViewColumn Header="Unit" DisplayMemberBinding="{Binding Item2}" Width="40"></GridViewColumn>
-                </GridView>
-            </ListView.View>
-        </ListView>
-
-
 
 
     </Grid>

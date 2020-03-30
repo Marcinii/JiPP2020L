@@ -1,18 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using UnitConverter.Lib;
 using static UnitConverter.Lib.Units;
 
@@ -33,18 +26,18 @@ namespace UnitConverter.Wpf
         TimeConverter tConv = new TimeConverter();
         bool timeConversion = false;
         double hours; double minutes;
+        const int MaxRecordsPerPage = 20;
+        List<string> converterNames = new List<string>() {
+                "Distance",
+                "Mass",
+                "Temperature",
+                "Speed",
+                "Time",
+        };
         public MainWindow()
         {
             InitializeComponent();
-            converterComboBox.ItemsSource = new List<string>
-            {
-                "Distance Converter",
-                "Mass Converter",
-                "Temperature Converter",
-                "Speed Converter",
-                "Time Converter",
-            };
-
+            converterComboBox.ItemsSource = converterNames;
 
         }
 
@@ -53,21 +46,22 @@ namespace UnitConverter.Wpf
             inputTextBox.Clear();
             switch (converterComboBox.SelectedItem)
             {
-                case "Time Converter":
+                case "Time":
                     timeConversion = true;
                     unitFromComboBox.ItemsSource = tConv.SupportedUnits;
                     ((Storyboard)FindResource("ShowClock")).Begin();
-                    outListView.Opacity = 0;
+                    outTextBox.Opacity = 0;
                     break;
                 default:
                     timeConversion = false;
                     clockGrid.Opacity = 0;
-                    outListView.Opacity = 1;
+                    outTextBox.Opacity = 1;
                     foreach (IConverter<double, Unit> conv in converters)
                     {
-                        if ((string)converterComboBox.SelectedItem == conv.Name)
+                        if (converterComboBox.SelectedItem.ToString() == conv.Name)
                         {
                             unitFromComboBox.ItemsSource = conv.SupportedUnits;
+                            unitToComboBox.ItemsSource = conv.SupportedUnits;
                             break;
                         }
                     }
@@ -110,28 +104,165 @@ namespace UnitConverter.Wpf
                     MessageBox.Show("Invalid time format.\nAvailable formats:\nTwelveHour - 6:30 pm\nTwentyFourHour - 17:30 h");
                 }
 
-            } else
+            }
+            else
             {
-                var inpUnit = (Unit)unitFromComboBox.SelectedItem;
-                var inpVal = Double.Parse(inputTextBox.Text);
-                foreach (IConverter<double, Unit> conv in converters)
+                if (unitFromComboBox.SelectedItem != null
+                && unitToComboBox.SelectedItem != null
+                && inputTextBox.Text != "")
                 {
-                    if (conv.Name == converterComboBox.SelectedItem.ToString())
+                    var inpUnit = (Unit)unitFromComboBox.SelectedItem;
+                    var outUnit = (Unit)unitToComboBox.SelectedItem;
+                    var inpVal = Double.Parse(inputTextBox.Text);
+                    foreach (IConverter<double, Unit> conv in converters)
                     {
-                        var outVals = new List<Tuple<double, string>>();
-                        foreach (Unit u in conv.SupportedUnits)
+                        if (conv.Name == converterComboBox.SelectedItem.ToString())
                         {
-                            if (inpUnit != u)
+                            var outVal = conv.Convert(inpVal, inpUnit, outUnit);
+                            using (var context = new StatsDB())
                             {
-                                var outVal = conv.Convert(inpVal, inpUnit, u);
-                                outVals.Add(new Tuple<double, string>(outVal.Item1, UnitName(outVal.Item2)));
+                                context.Records.Add(new Record
+                                {
+                                    converter = conv.Name,
+                                    date = DateTime.Now,
+                                    inputValue = inpVal,
+                                    inputUnit = UnitName(inpUnit),
+                                    outputValue = outVal.Item1,
+                                    outputUnit = UnitName(outVal.Item2),
+                                });
+                                context.SaveChanges();
                             }
+                            outTextBox.Text = $"{outVal.Item1} {outVal.Item2}";
+                            break;
                         }
-                        outListView.ItemsSource = outVals;
-                        break;
                     }
                 }
             }
+        }
+
+        private void nextPageButton_Click(object sender, RoutedEventArgs e)
+        {
+            var currentPage = int.Parse(pageNumberTextBlock.Text);
+            List<Record> data = SelectRecords(currentPage + 1);
+
+            if (data.Count > 0)
+            {
+                dbListView.ItemsSource = data;
+                pageNumberTextBlock.Text = $"{currentPage + 1}";
+            }
+        }
+
+        private void previousPageButton_Click(object sender, RoutedEventArgs e)
+        {
+            var currentPage = int.Parse(pageNumberTextBlock.Text);
+
+            if (currentPage > 1)
+            {
+                List<Record> data = SelectRecords(currentPage - 1);
+                dbListView.ItemsSource = data;
+                pageNumberTextBlock.Text = $"{currentPage - 1}";
+            }
+        }
+
+        private void TabControl_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            string tabItem = ((sender as TabControl).SelectedItem as TabItem).Header as string;
+
+            if (tabItem == "Statistics")
+            {
+                List<Record> data = SelectRecords(1);
+                converterFilterComboBox.ItemsSource = new List<string> { "" }.Concat(converterNames);
+                dbListView.ItemsSource = data;
+                LoadTopConversionStats();
+            }
+        }
+
+        private void LoadTopConversionStats()
+        {
+            using (var context = new StatsDB())
+            {
+                var topRecords = context.Records
+                    .GroupBy(r => new { r.converter, r.inputUnit, r.outputUnit })
+                    .Select(g => new { g.Key.converter, g.Key.inputUnit, g.Key.outputUnit, count = g.Count() })
+                    .OrderByDescending(g => g.count)
+                    .Take(3);
+                topConversionUnitsListView.ItemsSource = topRecords.ToList();
+            }
+        }
+
+        private List<Record> SelectRecords(int page)
+        {
+            List<Record> records = new List<Record>();
+            if (page >= 1)
+            {
+                var i = 0;
+                var convFilter = converterFilterComboBox.SelectedItem;
+                var startDateFilter = startDatePicker.SelectedDate;
+                var endDateFilter = endDatePicker.SelectedDate;
+
+                using (var context = new StatsDB())
+                {
+                    var selectedRecords = context.Records.AsQueryable();
+                    if (convFilter != null && convFilter.ToString() != "")
+                    {
+                        selectedRecords = selectedRecords.Where(r => r.converter == convFilter.ToString());
+                    }
+                    if (startDateFilter != null)
+                    {
+                        selectedRecords = selectedRecords.Where(r => DbFunctions.TruncateTime(r.date) >= startDateFilter);
+                    }
+                    if (endDateFilter != null)
+                    {
+                        selectedRecords = selectedRecords.Where(r => DbFunctions.TruncateTime(r.date) <= endDateFilter);
+                    }
+                    foreach (Record r in selectedRecords.ToList())
+                    {
+                        if (i >= MaxRecordsPerPage * (page - 1))
+                        {
+                            bool add = true;
+
+                            if (add)
+                            {
+                                records.Add(r);
+                            }
+                        }
+                        if (records.Count == MaxRecordsPerPage)
+                        {
+                            break;
+                        }
+                        i++;
+                    }
+                }
+            }
+            return records;
+        }
+        
+        // Restartujemy strony jeżeli wybrano jeden z filtrów
+        private void RestartRecordsPage()
+        {
+            pageNumberTextBlock.Text = "1";
+            List<Record> data = SelectRecords(1);
+            dbListView.ItemsSource = data;
+        }
+        private void converterFilter_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            RestartRecordsPage();
+        }
+        private void startDatePicker_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
+        {
+            RestartRecordsPage();
+        }
+        private void endDatePicker_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
+        {
+            RestartRecordsPage();
+        }
+
+        private void clearFiltersButton_Click(object sender, RoutedEventArgs e)
+        {
+            converterFilterComboBox.SelectedIndex = 0;
+            startDatePicker.SelectedDate = null;
+            endDatePicker.SelectedDate = null;
+            RestartRecordsPage();
         }
     }
 }

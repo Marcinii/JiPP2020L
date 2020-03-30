@@ -7,7 +7,7 @@ namespace UnitConverter.Lib
 {
     public class TemperatureConverter : IConverter<double, Unit>
     {
-        public string Name => "Temperature Converter";
+        public string Name => "Temperature";
         public List<Unit> SupportedUnits => new List<Unit>() {
             Unit.Celsius,
             Unit.Fahrenheit,
@@ -15,6 +15,11 @@ namespace UnitConverter.Lib
         };
         public Tuple<double, Unit> Convert(double val, Unit inpUnit, Unit outUnit)
         {
+            if (inpUnit == outUnit)
+            {
+                return new Tuple<double, Unit>(val, outUnit);
+            }
+
             double outVal = 0;
             bool calculated = false;
 
@@ -50,7 +55,7 @@ namespace UnitConverter.Lib
                         outVal = KelvinToCelsius(val);
                         calculated = true;
                     }
-                    else if (outUnit == Unit.Kelvin)
+                    else if (outUnit == Unit.Fahrenheit)
                     {
                         outVal = KelvinToFahrenheit(val);
                         calculated = true;
