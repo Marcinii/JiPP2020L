@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="KASETY_412_23Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="JIPP4">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Converter" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="unitFrom" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="unitTo" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="valueBefore" Type="varchar" MaxLength="20" />
+          <Property Name="valueAfter" Type="varchar" MaxLength="20" />
+          <Property Name="errorEncountered" Type="bit" />
+          <Property Name="dateSent" Type="date" />
+        </EntityType>
+        <EntityContainer Name="KASETY_412_23ModelStoreContainer">
+          <EntitySet Name="JIPP4" EntityType="Self.JIPP4" Schema="Z412_23" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="KASETY_412_23Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="JIPP4">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Converter" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="unitFrom" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="unitTo" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="valueBefore" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="valueAfter" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="errorEncountered" Type="Boolean" />
+          <Property Name="dateSent" Type="DateTime" Precision="0" />
+        </EntityType>
+        <EntityContainer Name="KASETY_412_23Entities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="JIPP4" EntityType="Self.JIPP4" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="KASETY_412_23ModelStoreContainer" CdmEntityContainer="KASETY_412_23Entities1">
+          <EntitySetMapping Name="JIPP4">
+            <EntityTypeMapping TypeName="KASETY_412_23Model.JIPP4">
+              <MappingFragment StoreEntitySet="JIPP4">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Converter" ColumnName="Converter" />
+                <ScalarProperty Name="unitFrom" ColumnName="unitFrom" />
+                <ScalarProperty Name="unitTo" ColumnName="unitTo" />
+                <ScalarProperty Name="valueBefore" ColumnName="valueBefore" />
+                <ScalarProperty Name="valueAfter" ColumnName="valueAfter" />
+                <ScalarProperty Name="errorEncountered" ColumnName="errorEncountered" />
+                <ScalarProperty Name="dateSent" ColumnName="dateSent" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

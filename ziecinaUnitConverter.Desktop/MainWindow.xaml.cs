@@ -24,12 +24,20 @@ namespace ziecinaUnitConverter.Desktop
     {
         public static List<IConverter> converters;
         public static int chosenConverter;
-
+        DataInserter dataInserter = new DataInserter();
         public MainWindow()
         {
             InitializeComponent();
             //////////////////////////////////////////////////////////////
             
+            using(KASETY_412_23Entities1 context = new KASETY_412_23Entities1()) 
+            {
+                List<JIPP4> conversions = context.JIPP4.ToList();
+                foreach (JIPP4 e in conversions)
+                {
+                    blockResault.Text += (e.Converter) + "\n";
+                }
+            }
             ///////////////////////////////////////////////////////////////
             converters = new List<IConverter>()
             {
@@ -54,6 +62,8 @@ namespace ziecinaUnitConverter.Desktop
                 float toDisplay = MainWindow.converters[chosenConverter].Convert(listStartUnit.SelectedItem.ToString(), listEndUnit.SelectedItem.ToString(), input);
                 string toDisplayStr = toDisplay.ToString();
                 blockResault.Text = toDisplayStr;
+                DataInserter dataInserter = new DataInserter();
+                dataInserter.InsertData(MainWindow.converters[chosenConverter].Name, listStartUnit.SelectedItem.ToString(), listEndUnit.SelectedItem.ToString(), input, toDisplayStr, false);
             }
             catch
             {
@@ -81,7 +91,6 @@ namespace ziecinaUnitConverter.Desktop
                 string newHour = convH.Convert(text12h.Text, "AM");
                 blockResaultHour.Text = newHour;
                 string newHour2 = newHour;
-                ///////////////////////////////////////////////////////////
                 int hour = Convert.ToInt32(newHour[0]) * 10 + Convert.ToInt32(newHour[1]);
                 RotateTransform rotateTransform1 = new RotateTransform(hour * 30);
                 handHour.RenderTransform = rotateTransform1;
@@ -101,7 +110,6 @@ namespace ziecinaUnitConverter.Desktop
                 string newHour = convH.Convert(text12h.Text, "PM");
                 blockResaultHour.Text = newHour;
                 string newHour2 = newHour;
-                ///////////////////////////////////////////////////////////
                 int hour = Convert.ToInt32(newHour[0]) * 10 + Convert.ToInt32(newHour[1]);
                 RotateTransform rotateTransform1 = new RotateTransform(hour * 30);
                 handHour.RenderTransform = rotateTransform1;
