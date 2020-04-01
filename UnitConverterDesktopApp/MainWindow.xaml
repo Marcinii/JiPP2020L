@@ -54,7 +54,7 @@
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
-            <Button x:Name="ShowStatsButton" Grid.Row="0" Content="Show Statistics" Click="ShowStatsButton_Click"></Button>
+            <Button x:Name="ShowStatsButton" Grid.Row="0" Content="Show Statistics" Click="ShowStatsButton_Click" Background="#FF067C00" FontSize="16" Foreground="White" HorizontalAlignment="Right" BorderBrush="{x:Null}"></Button>
             <TextBlock x:Name="AppNameTextBlock" Grid.Row="1" TextAlignment="Left" Text="Unit Converter" Background="#FF067C00" Foreground="White" FontSize="24" Margin="10,0,0,0"/>
         </Grid>
         <StackPanel Grid.Column="0" Grid.Row="1">

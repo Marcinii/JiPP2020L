@@ -5,16 +5,60 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:UnitConverterDesktopApp"
         mc:Ignorable="d"
-        Title="Stats Window" Height="450" Width="800">
-    <StackPanel>
+        Title="Stats Window" Height="600" Width="800">
+    <StackPanel Margin="15">
+        <TextBlock x:Name="FilterByConverterTextBox"
+                   Text="Filter by Converter:">
+        </TextBlock>
+        <ListBox x:Name="FilterByConverterListBox"
+                 SelectionMode="Multiple">
+        </ListBox>
         <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"></RowDefinition>
                 <RowDefinition Height="*"></RowDefinition>
             </Grid.RowDefinitions>
+            <TextBlock x:Name="DateFromTextBox"
+                       Text="From:"
+                       Grid.Column="0"
+                       Grid.Row="0">
+            </TextBlock>
+            <DatePicker x:Name="DateFromPicker"
+                        Grid.Column="0"
+                        Grid.Row="1">
+            </DatePicker>
+            <TextBlock x:Name="DateToTextBox"
+                       Text="To:"
+                       Grid.Column="1"
+                       Grid.Row="0">
+            </TextBlock>
+            <DatePicker x:Name="DateToPicker"
+                        Grid.Column="1"
+                        Grid.Row="1">
+            </DatePicker>
         </Grid>
-        <DataGrid 
-                x:Name="DataTable" 
-                />
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <CheckBox x:Name="TopCheckBox"                
+                      Content="TOP 3"
+                      Grid.Column="0"
+                      HorizontalAlignment="Center">
+            </CheckBox>
+            <Button x:Name="FilterDataButton"
+                    Content="Filter"
+                    Grid.Column="1" Height="20" VerticalAlignment="Top" Click="FilterDataButton_Click">
+            </Button>
+        </Grid>
+        <DataGrid x:Name="DataTable"
+                  IsReadOnly="True"
+                  ColumnWidth="*">
+        </DataGrid>
     </StackPanel>
 </Window>

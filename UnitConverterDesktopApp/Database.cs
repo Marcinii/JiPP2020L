@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -25,7 +26,7 @@ namespace UnitConverterDesktopApp
                 context.SaveChanges();
             }
         }
-        public static List<Result> SelectResults()
+        public static List<Result> SelectAllResults()
         {
             using (ConverterDataModel context = new ConverterDataModel())
             {
@@ -33,5 +34,6 @@ namespace UnitConverterDesktopApp
                 return results;
             }
         }
+
     }
 }
