@@ -9,6 +9,7 @@ using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
+using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
@@ -18,9 +19,23 @@ namespace Konwerter.Desctop
 {
     public partial class MainWindow : Window
     {
+        private List<string> hours = new List<string>();
+        private List<string> hours_1 = new List<string>();
+        private List<string> minutes = new List<string>();
+
         public MainWindow()
         {
             InitializeComponent();
+            for (int i = 0; i < 60; i++)
+            {
+                minutes.Add((i < 10 ? "0" : "") + i.ToString());
+            }
+            Minuty.ItemsSource = minutes;
+            for (int i = 1; i < 25; i++)
+            {
+                hours_1.Add(i.ToString());
+            }
+            Godzina.ItemsSource = hours_1;
         }
 
         private void TempCombobox_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -78,6 +93,56 @@ namespace Konwerter.Desctop
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
+        }
+
+        private void Godzina_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (Minuty.SelectedItem != null)
+            {
+                if (Convert.ToInt32(Godzina.SelectedItem) < 12)
+                {
+                    CzasWynik.Text = Godzina.SelectedItem + ":" + Minuty.SelectedItem + "AM";
+                }
+                else
+                {
+                    CzasWynik.Text = (Convert.ToInt32(Godzina.SelectedItem) - 12).ToString() + ":" + Minuty.SelectedItem + "PM";
+                }
+            }
+            SetClock(Convert.ToInt32(Godzina.SelectedItem), Convert.ToInt32(Minuty.SelectedItem));
+        }
+
+        private void Minuty_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (Godzina.SelectedItem != null)
+            {
+                if (Convert.ToInt32(Godzina.SelectedItem) < 12)
+                {
+                    CzasWynik.Text = Godzina.SelectedItem + ":" + Minuty.SelectedItem + "AM";
+                }
+                else
+                {
+                    CzasWynik.Text = (Convert.ToInt32(Godzina.SelectedItem) - 12).ToString() + ":" + Minuty.SelectedItem + "PM";
+                }
+                SetClock(Convert.ToInt32(Godzina.SelectedItem), Convert.ToInt32(Minuty.SelectedItem));
+            }
+        }
+
+        private void SetClock(int hours, int minutes)
+        {
+            Minutes.Angle = minutes * (360 / 60);
+            Hours.Angle = hours * (360 / 12);
+        }
+
+        private void ButtonB_Click(object sender, RoutedEventArgs e)
+        {
+            Storyboard storyboard = (Storyboard) Resources["ClockOffStoryboard"];
+            storyboard.Begin();
+        }
+
+        private void ButtonA_Click(object sender, RoutedEventArgs e)
+        {
+            Storyboard storyboard = (Storyboard)Resources["ClockOnStoryboard"];
+            storyboard.Begin();
         }
     }
 }
