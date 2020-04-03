@@ -13,7 +13,9 @@ using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Data;
 using unitconverter.logic;
+
 
 namespace unitconverter.desktop
 {
@@ -38,6 +40,53 @@ namespace unitconverter.desktop
 
             unit_from.ItemsSource = unit_list;
             unit_to.ItemsSource = unit_list;
+        }
+
+        private void create_datatable()
+        {
+            List<conversions> data = db_operations.download_data();
+            DataTable stats = new DataTable();
+            List<DataColumn> columns = new List<DataColumn>()
+            {
+                new DataColumn("Lp", typeof(string)),
+                new DataColumn("Konwerter", typeof(string)),
+                new DataColumn("Z (jednostki)", typeof(string)),
+                new DataColumn("Do (jednostki)", typeof(string)),
+                new DataColumn("Z (wartość)", typeof(string)),
+                new DataColumn("Do (wartość)", typeof(string)),
+                new DataColumn("Kiedy", typeof(DateTime)),
+            };
+            /*DataColumn id = new DataColumn("Lp.", typeof(int));
+            DataColumn converter = new DataColumn("Konwerter", typeof(string));
+            DataColumn units_from = new DataColumn("Z (jednostki)", typeof(string));
+            DataColumn units_to = new DataColumn("Do (jednostki)", typeof(string));
+            DataColumn values_from = new DataColumn("Z (wartość)", typeof(string));
+            DataColumn values_to = new DataColumn("Do (wartość)", typeof(string));
+            DataColumn conversion_date = new DataColumn("Kiedy", typeof(DateTime));*/
+            foreach(DataColumn c in columns)
+            {
+                stats.Columns.Add(c);
+            }
+            int cout = 1;
+            foreach(conversions c in data)
+            {
+                DataRow row = stats.NewRow();
+                row[0] = cout.ToString();
+                row[1] = c.converter;
+                row[2] = c.units_from;
+                row[3] = c.units_to;
+                row[4] = c.value_from;
+                row[5] = c.value_to;
+                row[6] = c.conversion_date;
+                stats.Rows.Add(row);
+                cout++;
+            }
+            stats_datatable.ItemsSource = stats.DefaultView;
+        }
+
+        private void Stats_datatable_Loaded(object sender, RoutedEventArgs e)
+        {
+           create_datatable();
         }
 
         private List<string> choose_units()
@@ -103,10 +152,12 @@ namespace unitconverter.desktop
             if (should_use_custom_interpreter) {
                 string custom_conversion_result = converters[choosen_converter].custom_result_interpreter(conversion_result);
                 result.Inlines.Add(new Run(custom_conversion_result));
+                db_operations.insert_data(choosen_converter+1, from, to, value_to_convert, custom_conversion_result);
             }
             else
             {
                 result.Inlines.Add(new Run(conversion_result + " "));
+                db_operations.insert_data(choosen_converter+1, from, to, value_to_convert, conversion_result.ToString());
             }   
             if(choosen_converter == 4)
             {
@@ -136,6 +187,5 @@ namespace unitconverter.desktop
 
             }
         }
-
     }
 }

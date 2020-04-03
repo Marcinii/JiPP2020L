@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:unitconverter.desktop"
         mc:Ignorable="d"
-        Title="MainWindow" Height="400" Width="900">
+        Title="MainWindow" Height="600" Width="900">
     <Grid>
         <RadioButton x:Name="lenght" Content="Długości" HorizontalAlignment="Left" Margin="30,30,0,0" VerticalAlignment="Top" Height="30" Width="300" FontSize="20" Checked="lenght_checked"/>
         <RadioButton x:Name="temperature" Content="Temperatury" HorizontalAlignment="Left" Margin="30,60,0,0" VerticalAlignment="Top" Height="30" Width="300" FontSize="20" Checked="temperature_checked"/>
@@ -74,5 +74,6 @@
                 </TransformGroup>
             </Rectangle.RenderTransform>
         </Rectangle>
+        <DataGrid x:Name="stats_datatable" HorizontalAlignment="Left" Height="200" Margin="30,350,0,0" VerticalAlignment="Top" Width="840" Loaded="Stats_datatable_Loaded"/>
     </Grid>
 </Window>
