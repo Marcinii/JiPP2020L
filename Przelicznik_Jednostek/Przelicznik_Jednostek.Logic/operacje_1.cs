@@ -36,7 +36,7 @@ namespace Przelicznik_Jednostek
                         c = double.Parse(Console.ReadLine());
                         Console.WriteLine();
                         Console.WriteLine($"Temperatura {c} stopni Celcjusza.");
-                        operacja.celcjusz(c);
+                      //  operacja.celcjusz(c);
                         Console.WriteLine();
 
                         break;
@@ -47,7 +47,7 @@ namespace Przelicznik_Jednostek
                         // odesłanie do funkcji która tylko liczy
                         f = double.Parse(Console.ReadLine());
                         Console.WriteLine($"Temperatura {f} stopni Fahrenheita.");
-                        operacja.fahrenheit(f);
+                      //  operacja.fahrenheit(f);
                         Console.WriteLine();
                         break;
 
@@ -88,7 +88,7 @@ namespace Przelicznik_Jednostek
                         // odesłanie do funkcji która tylko liczy
                         km = double.Parse(Console.ReadLine());
                         Console.WriteLine($"Odleglosc {km} w Kilometrach.");
-                        operacja.kilometry(km);
+                      //  operacja.kilometry(km);
                         Console.WriteLine();
                         break;
 
@@ -98,7 +98,7 @@ namespace Przelicznik_Jednostek
                         // odesłanie do funkcji która tylko liczy
                         m = double.Parse(Console.ReadLine());
                         Console.WriteLine($"Odleglosc {m} w Milach.");
-                        operacja.mile(m);
+                        //operacja.mile(m);
                         Console.WriteLine();
                         break;
 
@@ -140,7 +140,7 @@ namespace Przelicznik_Jednostek
                         // odesłanie do funkcji która tylko liczy
                         kg = double.Parse(Console.ReadLine());
                         Console.WriteLine($"Waga {kg} w Kilogramach.");
-                        operacja.kilogramy(kg);
+                       // operacja.kilogramy(kg);
                         Console.WriteLine();
                         break;
 
@@ -150,7 +150,7 @@ namespace Przelicznik_Jednostek
                         // odesłanie do funkcji która tylko liczy
                         ibs = double.Parse(Console.ReadLine());
                         Console.WriteLine($"Waga {ibs} w Funtach.");
-                        operacja.funty(ibs);
+                      //  operacja.funty(ibs);
                         Console.WriteLine();
                         break;
 

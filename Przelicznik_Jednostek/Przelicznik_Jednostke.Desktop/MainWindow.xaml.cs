@@ -26,59 +26,83 @@ namespace Przelicznik_Jednostke.Desktop
             InitializeComponent();
             ComboBox_Unit.ItemsSource = new List<string>()
             {
-                "Przelicz na F",
-                "Przelicz na C",
-                "Przelicz na KM",
-                "Przelicz na M",
-                "Przelicz na Ibs",
-                "Przelicz na KG",
+                "Przelicz C na F",
+                "Przelicz F na C",
+                "Przelicz M na KM",
+                "Przelicz KM na M",
+                "Przelicz KM na Yd",
+                "Przelicz Yd na KM",
+                "Przelicz KG na Ibs",
+                "Przelicz Ibs na KG",
             };
         }
 
         private void Button_Convert_Click(object sender, RoutedEventArgs e)
         {
             //Dzialania operacja = new Dzialania();
-            if (ComboBox_Unit.SelectedItem == "Przelicz na F")
+            if (ComboBox_Unit.SelectedItem == "Przelicz C na F")
             {
                 string input = TexBox_Number.Text;
+                int q = 2;
                 double jednostka = double.Parse(input);
-                double wyniczek = new Dzialania().fahrenheit(jednostka);
-                TextBlock_Converted.Text = wyniczek.ToString();
+                 
+                TextBlock_Converted.Text = new Dzialania().which_submition(q,jednostka);
             }
-            if (ComboBox_Unit.SelectedItem == "Przelicz na C")
+            if (ComboBox_Unit.SelectedItem == "Przelicz F na C")
             {
                 string input = TexBox_Number.Text;
+                int q = 1;
                 double jednostka = double.Parse(input);
-                double wyniczek = new Dzialania().celcjusz(jednostka);
-                TextBlock_Converted.Text = wyniczek.ToString();
+                
+                TextBlock_Converted.Text = new Dzialania().which_submition(q,jednostka);
             }
-            if (ComboBox_Unit.SelectedItem == "Przelicz na KM")
+            if (ComboBox_Unit.SelectedItem == "Przelicz M na KM")
             {
                 string input = TexBox_Number.Text;
+                int q = 3;
                 double jednostka = double.Parse(input);
-                double wyniczek = new Dzialania().kilometry(jednostka);
-                TextBlock_Converted.Text = wyniczek.ToString();
+                TextBlock_Converted.Text = new Dzialania().which_submition(q,jednostka);
+
             }
-            if (ComboBox_Unit.SelectedItem == "Przelicz na M")
+            if (ComboBox_Unit.SelectedItem == "Przelicz KM na M")
             {
                 string input = TexBox_Number.Text;
+                int q = 4;
                 double jednostka = double.Parse(input);
-                double wyniczek = new Dzialania().mile(jednostka);
-                TextBlock_Converted.Text = wyniczek.ToString();
+                 
+                TextBlock_Converted.Text = new Dzialania().which_submition(q,jednostka);
             }
-            if (ComboBox_Unit.SelectedItem == "Przelicz na Ibs")
+            if (ComboBox_Unit.SelectedItem == "Przelicz KG na Ibs")
             {
                 string input = TexBox_Number.Text;
+                int q = 6;
                 double jednostka = double.Parse(input);
-                double wyniczek = new Dzialania().funty(jednostka);
-                TextBlock_Converted.Text = wyniczek.ToString();
+               
+                TextBlock_Converted.Text = new Dzialania().which_submition(q,jednostka);
             }
-            if (ComboBox_Unit.SelectedItem == "Przelicz na KG")
+            if (ComboBox_Unit.SelectedItem == "Przelicz Ibs na KG")
             {
                 string input = TexBox_Number.Text;
+                int q = 5;
                 double jednostka = double.Parse(input);
-                double wyniczek = new Dzialania().kilogramy(jednostka);
-                TextBlock_Converted.Text = wyniczek.ToString();
+               TextBlock_Converted.Text = new Dzialania().which_submition(q,jednostka);
+                 
+            }
+            if (ComboBox_Unit.SelectedItem == "Przelicz KM na Yd")
+            {
+                string input = TexBox_Number.Text;
+                int q = 7;
+                double jednostka = double.Parse(input);
+                TextBlock_Converted.Text = new Dzialania().which_submition(q, jednostka);
+
+            }
+            if (ComboBox_Unit.SelectedItem == "Przelicz Yd na KM")
+            {
+                string input = TexBox_Number.Text;
+                int q = 8;
+                double jednostka = double.Parse(input);
+                TextBlock_Converted.Text = new Dzialania().which_submition(q, jednostka);
+
             }
         }
     }

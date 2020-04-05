@@ -1,14 +1,17 @@
-﻿using System;
+﻿using Przelicznik_Jednostek.Logic;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
+
 namespace Przelicznik_Jednostek
 {
-   public class Dzialania
+   public class Dzialania: ISubmition
     {
-      public double celcjusz(double c)
+      private double celcjusz(double c)
         {
             double wynik;
             //działanie obliczające
@@ -17,7 +20,7 @@ namespace Przelicznik_Jednostek
            // Console.WriteLine();
         }
 
-        public double fahrenheit(double f)
+        private double fahrenheit(double f)
         {
             double wynik;
             //działanie obliczające
@@ -25,7 +28,7 @@ namespace Przelicznik_Jednostek
           //  Console.WriteLine($"Po przeliczeniu temperatura jest rowna: {wynik} stopni Celcjusza.");
           //  Console.WriteLine();
         }
-        public double kilometry(double km)
+        private double kilometry(double km)
         {
             double wynik;
             //działanie obliczające
@@ -33,7 +36,7 @@ namespace Przelicznik_Jednostek
          //   Console.WriteLine($"Po przeliczeniu odleglosc jest rowna: {wynik} Mil.");
          //   Console.WriteLine();
         }
-        public double mile(double m)
+        private double mile(double m)
         {
             double wynik;
             //działanie obliczające
@@ -41,7 +44,7 @@ namespace Przelicznik_Jednostek
           //  Console.WriteLine($"Po przeliczeniu odleglosc jest rowna: {wynik} Kilometrow.");
            // Console.WriteLine();
         }
-        public double kilogramy(double kg)
+        private double kilogramy(double kg)
         {
             double wynik;
             //działanie obliczające
@@ -49,12 +52,55 @@ namespace Przelicznik_Jednostek
             //Console.WriteLine($"Po przeliczeniu waga jest rowna: {wynik} Funtow.");
            // Console.WriteLine();
         }
-        public double funty(double ibs)
+        private double funty(double ibs)
         {
             double wynik;
           return   wynik = ibs / 2.2046;
           //  Console.WriteLine($"Po przeliczeniu waga jest rowna: {wynik} Kilogramow.");
           //  Console.WriteLine();
+        }
+        private double jard(double yd)
+        {
+            return yd * 1093.61;
+        }
+        private double km_yd(double km)
+        {
+            return km * 0.00091440271745352;
+        }
+        public string which_submition(int q, double z)
+        {
+            if (q == 1)
+            {
+                return celcjusz(z).ToString();
+            }
+            if (q == 2)
+            {
+                return fahrenheit(z).ToString();
+            }
+            if (q == 3)
+            {
+                return kilometry(z).ToString();
+            }
+            if (q == 4)
+            {
+                return mile(z).ToString();
+            }
+            if (q == 5)
+            { return kilogramy(z).ToString();
+            }
+            if (q == 6)
+            {
+                return funty(z).ToString();
+            }
+            if ( q == 7)
+            {
+                return jard(z).ToString();
+            }
+            if (q == 8)
+            {
+                return km_yd(z).ToString();
+            }
+            else return 0.ToString();
         }
 
     }
