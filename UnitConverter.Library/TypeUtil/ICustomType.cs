@@ -2,8 +2,11 @@
 {
     /// <summary>
     /// Interfejs, który reprezentuje nasz typ danych.
+    /// Implementuje dodatkowo interfejs <see cref="IObject"/>, który obejmuje inne typy danych, które mogą być
+    /// zgodne z IObject
     /// </summary>
-    public interface ICustomType {
+    /// <see cref="IObject"/>
+    public interface ICustomType : IObject {
 
         /// <summary>
         /// Metoda, która konwertuje wprowadzony ciąg znaków na nasz typ

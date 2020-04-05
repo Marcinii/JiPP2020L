@@ -1,11 +1,12 @@
 ﻿using System;
+using UnitConverter.Library.TypeUtil;
 
 namespace UnitConverter.Library.UnitUtil
 {
 
     /// <summary>
     /// Klasa reprezentująca typ, która przechowje dane odnoście jednostki miary
-    /// <param name="name">Nazwa jednostki</param>
+    /// <param name="type">Pole przechowujące informacje o typie danych jednostki miary</param>
     /// <param name="frombaseUnitFormula">
     ///     Jest to referencja do metody, która przechowuje wzór na skonwertowanie 
     ///     jednostki bazowej na jednostkę, w której obecnie się znajdujemy.
@@ -22,14 +23,12 @@ namespace UnitConverter.Library.UnitUtil
     /// <see cref="UnitFormula"/>
     public class Unit
     {
-        public string name { get; private set; }
-        public Type type { get; private set; }
+        public Type type;
         public UnitFormula fromBaseUnitFormula { get; private set; }
         public UnitFormula toBaseUnitFormula { get; private set; }
 
-        public Unit(string name, Type type, UnitFormula fromBaseUnitFormula, UnitFormula toBaseUnitFormula)
+        public Unit(Type type, UnitFormula fromBaseUnitFormula, UnitFormula toBaseUnitFormula)
         {
-            this.name = name;
             this.type = type;
             this.fromBaseUnitFormula = fromBaseUnitFormula;
             this.toBaseUnitFormula = toBaseUnitFormula;

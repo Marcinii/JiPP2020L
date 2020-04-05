@@ -47,5 +47,16 @@ namespace UnitConverter.App.Util
             this.valid = true;
             this.textBox.Background = Brushes.White;
         }
+
+
+
+        /// <summary>
+        /// Metoda, która sprawdza, czy wartość pola tekstowego nie jest pusta
+        /// </summary>
+        /// <returns>
+        ///     Zwraca true jeżeli pole tektowe ma wprowadzoną wartość,
+        ///     w przeciwnym przypadku false
+        /// </returns>
+        public bool isNullOrEmpty() => this.textBox.Text == null || this.textBox.Text == "";
     }
 }

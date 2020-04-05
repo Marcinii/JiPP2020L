@@ -8,6 +8,6 @@
     /// <see cref="OperationException"/>
     class OperationExistsException : OperationException
     {
-        public OperationExistsException() : base("Operacja o podanym numerze już istnieje") {}
+        public OperationExistsException() : base("Operacja o podanych parametrach już istnieje") {}
     }
 }

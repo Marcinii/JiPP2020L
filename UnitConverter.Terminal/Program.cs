@@ -1,8 +1,9 @@
-﻿using System;
-using UnitConverter.Library;
+﻿using UnitConverter.Library.OperationUtil;
 using UnitConverter.Library.OperationUtil.Repository;
-using UnitConverter.Library.OperationUtil.Runner;
-using UnitConverter.Library.TypeUtil;
+using UnitConverter.Library.TaskUtil;
+using UnitConverter.Terminal.Runner;
+using UnitConverter.Terminal.Task;
+using UnitConverter.Terminal.Util;
 
 namespace UnitConverter.Terminal
 {
@@ -12,44 +13,36 @@ namespace UnitConverter.Terminal
     /// </summary>
     class Program
     {
+        private OperationRepository repository;
+        private OperationRepositoryInitializer initializer;
 
-        static void Main(string[] args)
+        public Program()
         {
-            UnitOperationRepository repository = new UnitOperationRepository();
-            UnitOperationRepositoryInitializer initializer = new UnitOperationRepositoryInitializer(repository);
+            this.repository = new OperationRepository();
+            this.initializer = new OperationRepositoryInitializer(repository);
             initializer.initializeRepository();
 
+            repository.addOperation(
+                new VoidOperation(0, "Wyjście z programu", new FinishTask())
+            );
 
-            while (true)
+            ((SelectableTask)repository.findOperationById(1).task).getOperations().ForEach(op =>
             {
-                Console.Clear();
-                Console.WriteLine("######################################################");
-                Console.WriteLine("# Co chcesz skonwertować (wybierz jedną z opcji)?");
-                Console.WriteLine("#----------------------------------------------------#");
+                op.beforeRun(new ConversionOperationBeforeRunTaskRunFunction());
+                op.afterRun(new ConversionOperationAfterRunTaskRunFunction());
+            });
 
-                repository.operations.ForEach(operation => Console.WriteLine("# {0}. {1}", operation.id, operation.name));
-
-                Console.WriteLine("#----------------------------------------------------#");
-                Console.WriteLine("# 0. Wyjście z programu");
-                Console.WriteLine("#----------------------------------------------------#");
-
-                Console.Write("> ");
-
-                AppConsole.readValueTo<CustomInteger>(command =>
-                {
-                    if (command == 0) Environment.Exit(0);
-                    repository.selectOperation(command);
-                });
-
-                Console.Clear();
-
-                CommandLineOperationRunner runner = new CommandLineOperationRunner(repository);
-                runner.run();
-
-                Console.WriteLine();
-                Console.WriteLine("Naciśnij dowolny klawisz, by przejść dalej...");
-                _ = Console.ReadKey(true).KeyChar;
-            }
+            ProgramUtils.prepareGoBackOperations(repository.operations);
         }
+
+        internal void run()
+        {
+            CommandLineOperationRunner runner = new CommandLineOperationRunner();
+            runner.run(
+                new VoidOperation(-1, "", new SelectableTask(repository))
+            );
+        }
+
+        static void Main(string[] args) => new Program().run();
     }
 }

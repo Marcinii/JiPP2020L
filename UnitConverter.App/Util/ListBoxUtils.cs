@@ -1,7 +1,5 @@
 ﻿using System.Collections.Generic;
 using System.Windows.Controls;
-using System.Linq;
-using System.Windows.Input;
 
 namespace UnitConverterApp.Util
 {
@@ -14,15 +12,7 @@ namespace UnitConverterApp.Util
     {
         public ListBoxUtils(ListBox selector) : base(selector) {}
 
-
-
-        public override void initialize(List<T> list)
-        {
-            selector.ItemsSource = list.Select(item => new ListBoxItem
-            {
-                Content = item,
-                Cursor = Cursors.Hand
-            }).ToList();
-        }
+        public override void initialize(List<T> list) => selector.ItemsSource = list;
+        public override T getSelectedContent() => (T)selector.SelectedItem;
     }
 }

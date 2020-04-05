@@ -63,6 +63,9 @@
       <DependentUpon>Clock.xaml</DependentUpon>
     </Compile>
     <Compile Include="AppUserControl\ClockControl\RectangleMarginConverter.cs" />
+    <Compile Include="Converter\TimeFormatComboBoxValueConverter.cs" />
+    <Compile Include="Runner\MainWindowConversionAfterRunTaskRunFunction.cs" />
+    <Compile Include="Runner\MainWindowConversionBeforeRunTaskRunFunction.cs" />
     <Compile Include="Util\ComboBoxUtils.cs" />
     <Compile Include="Util\GroupBoxUtils.cs" />
     <Compile Include="Util\ListBoxUtils.cs" />

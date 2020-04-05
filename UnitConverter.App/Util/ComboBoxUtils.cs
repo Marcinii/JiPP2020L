@@ -1,7 +1,5 @@
 ﻿using System.Collections.Generic;
 using System.Windows.Controls;
-using System.Windows.Input;
-using System.Linq;
 
 namespace UnitConverterApp.Util
 {
@@ -12,23 +10,9 @@ namespace UnitConverterApp.Util
     /// <see cref="ISelectorUtils{T, I}"/>
     public class ComboBoxUtils<T> : ISelectorUtils<ComboBox, T>
     {
-        
         public ComboBoxUtils(ComboBox selector) : base(selector) {}
 
-        public override void initialize(List<T> list)
-        {
-            selector.ItemsSource = list.Select(item => new ComboBoxItem
-            {
-                Content = item,
-                Cursor = Cursors.Hand
-            }).ToList();
-        }
-
-
-        /// <summary>
-        /// Metoda zwracająca zaznaczoną wartość jako typ, który jest przechowywany w liście rozwijalnej
-        /// </summary>
-        /// <returns></returns>
-        public T getSelectedContent() => (T)((ComboBoxItem)selector.SelectedItem).Content;
+        public override void initialize(List<T> list) => selector.ItemsSource = list;
+        public override T getSelectedContent() => (T)selector.SelectedItem;
     }
 }

@@ -1,11 +1,8 @@
-﻿using System;
-using UnitConverter.Library.TypeUtil;
+﻿using UnitConverter.Library.TypeUtil;
 using UnitConverter.Library.UnitUtil;
 
 namespace UnitConverter.Library.Converter
 {
-
-
     /// <summary>
     /// Klasa implementująca interfejs <see cref="IConverter"/> służąca do konwersji jednosek miar
     /// 
@@ -36,17 +33,5 @@ namespace UnitConverter.Library.Converter
         /// </summary>
         /// <returns>Zwraca wartość liczby skonwertowanej na inną jednostkę</returns>
         public ICustomType convert() => this.toUnit.fromBaseUnitFormula(this.fromUnit.toBaseUnitFormula(this.value));
-
-
-        /// <summary>
-        /// Metoda wypisująca dane w konsoli
-        /// </summary>
-        public void print()
-        {
-            Console.WriteLine();
-            Console.WriteLine("#----------------------------------------------------#");
-            Console.WriteLine("# ({0}): {1} => ({2}): {3}", fromUnit.name, value, toUnit.name, convert());
-            Console.WriteLine("#----------------------------------------------------#");
-        }
     }
 }

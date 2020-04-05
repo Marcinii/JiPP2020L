@@ -1,8 +1,7 @@
-﻿using System.Text.RegularExpressions;
-using System.Windows;
-using System.Windows.Controls;
+﻿using System.Windows;
 using System.Windows.Input;
-using UnitConverter.Library.Converter;
+using UnitConverter.App.Runner;
+using UnitConverter.Library.TaskUtil;
 using UnitConverter.Library.TypeUtil;
 
 namespace UnitConverter.App.Util
@@ -10,10 +9,10 @@ namespace UnitConverter.App.Util
     /// <summary>
     /// Klasa, która wykonuje podstawowe operacje na kontrolkach w oknie <see cref="MainWindow"/>
     /// </summary>
-    class MainWindowUtils
+    public class MainWindowUtils
     {
         public MainWindow mainWindow { get; private set; }
-        public ICustomType value { get; private set; }
+        public ICustomType value { get; set; }
 
         public MainWindowUtils(MainWindow mainWindow)
         {
@@ -32,8 +31,6 @@ namespace UnitConverter.App.Util
 
             mainWindow.fromUnitListBox.IsEnabled = false;
             mainWindow.toUnitListBox.IsEnabled = false;
-
-            mainWindow.operationRepository.resetOperation();
 
             mainWindow.swapButton.IsEnabled = false;
 
@@ -57,46 +54,12 @@ namespace UnitConverter.App.Util
         {
             if(mainWindow.providedValueTextBox.Text != "")
             {
-                ComboBoxItem selectedItem = (ComboBoxItem)mainWindow.commaDigitCountComboBox.SelectedItem;
-                string input = mainWindow.providedValueTextBox.Text;
+                SelectableTask currentTask = (SelectableTask)mainWindow.operationRepository.getSelectedOperation().task;
 
-                if (mainWindow.operationRepository.getSelectedOperation().getFromUnit().type == typeof(Custom12HTime))
-                {
-                    if(mainWindow.providedValueTextBoxUtils.valid && !Regex.IsMatch(mainWindow.providedValueTextBox.Text, @"\s([Aa]|[Pp])[Mm]$"))
-                    {
-                        ComboBoxItem comboBoxItem = (ComboBoxItem) this.mainWindow.timeFormatComboBox.SelectedItem;
-                        Custom12HTimeType timeType =  (Custom12HTimeType) comboBoxItem.Content;
-                        input += " " + timeType.ToString();
-                    }
-                }
+                currentTask.getSelectedOperation().beforeRun(new MainWindowConversionBeforeRunTaskRunFunction(mainWindow));
+                currentTask.getSelectedOperation().afterRun(new MainWindowConversionAfterRunTaskRunFunction(this));
 
-                DefaultConverter converter = new DefaultConverter(
-                    CustomTypeUtils.createInstanceFrom(
-                        mainWindow.operationRepository.getSelectedOperation().getFromUnit().type,
-                        input
-                    ),
-                    mainWindow.operationRepository.getSelectedOperation().getFromUnit(),
-                    mainWindow.operationRepository.getSelectedOperation().getToUnit()
-                );
-
-
-
-                this.value = converter.convert();
-
-                if(mainWindow.operationRepository.getSelectedOperation().getToUnit().type == typeof(CustomDouble))
-                {
-                    mainWindow.convertedValueLabel.Content = ((CustomDouble)CustomTypeUtils.createInstanceFrom(
-                        mainWindow.operationRepository.getSelectedOperation().getToUnit().type,
-                        this.value
-                    )).roundTo((int)selectedItem.Content);
-                }
-                else
-                {
-                    mainWindow.convertedValueLabel.Content = CustomTypeUtils.createInstanceFrom(
-                        mainWindow.operationRepository.getSelectedOperation().getToUnit().type,
-                        this.value
-                    ).ToString();
-                }
+                currentTask.getSelectedOperation().run();
             }
         }
     }

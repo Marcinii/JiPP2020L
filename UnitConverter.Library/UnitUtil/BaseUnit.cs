@@ -8,6 +8,6 @@ namespace UnitConverter.Library.UnitUtil
     /// <see cref="Unit"/>
     public class BaseUnit : Unit
     {
-        public BaseUnit(string name, Type type) : base(name, type, value => value, value => value) { }
+        public BaseUnit(Type type) : base(type, value => value, value => value) { }
     }
 }

@@ -10,10 +10,5 @@
         /// </summary>
         /// <returns>Zwraca wartość liczby skonwertowanej na inną jednostkę</returns>
         T convert();
-
-        /// <summary>
-        /// Wyświetla w konsoli wynik konwersji
-        /// </summary>
-        void print();
     }
 }

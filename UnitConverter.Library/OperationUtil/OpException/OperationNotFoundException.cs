@@ -9,6 +9,6 @@
     /// <see cref="OperationException"/>
     public class OperationNotFoundException : OperationException
     {
-        public OperationNotFoundException() : base("Operacja o podanym numerze nie istnieje") {}
+        public OperationNotFoundException() : base("Operacja o podanych parametrach nie istnieje") {}
     }
 }

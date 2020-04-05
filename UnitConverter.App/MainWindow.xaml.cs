@@ -9,6 +9,10 @@ using UnitConverter.Library.OperationUtil.Repository;
 using UnitConverter.Library.TypeUtil.TypeException;
 using UnitConverter.Library.TypeUtil;
 using System;
+using UnitConverter.Library.TaskUtil;
+using UnitConverter.Library.TaskUtil.Parameter;
+using UnitConverter.Library.UnitUtil;
+using UnitConverter.Library.OperationUtil;
 
 namespace UnitConverter.App
 {
@@ -21,15 +25,18 @@ namespace UnitConverter.App
         private StatusBarUtils statusBarUtils;
         private GroupBoxUtils groupBoxUtils;
 
-        private ComboBoxUtils<string> measurementUnitComboBoxUtils;
-        private ComboBoxUtils<int> commaDigitCountComboBoxUtils;
-        private ComboBoxUtils<Custom12HTimeType> timeFormatComboBoxUtils;
+        private ListBoxUtils<SelectableTaskParameterOption> fromUnitListBoxUtils;
+        private ListBoxUtils<SelectableTaskParameterOption> toUnitListBoxUtils;
 
-        private ListBoxUtils<string> fromUnitListBoxUtils;
-        private ListBoxUtils<string> toUnitListBoxUtils;
+        private OperationRepositoryInitializer operationRepositoryInitializer;
 
-        public UnitOperationRepository operationRepository { get; private set; }
+        public ComboBoxUtils<Operation> measurementUnitComboBoxUtils { get; private set; }
+        public ComboBoxUtils<int> commaDigitCountComboBoxUtils { get; private set; }
+        public ComboBoxUtils<Custom12HTimeType> timeFormatComboBoxUtils { get; private set; }
+
         public TextBoxUtils providedValueTextBoxUtils { get; private set; }
+
+        public OperationRepository operationRepository { get; private set; }
 
 
 
@@ -37,7 +44,11 @@ namespace UnitConverter.App
         {
             InitializeComponent();
 
-            this.operationRepository = new UnitOperationRepository();
+            this.operationRepository = new OperationRepository();
+            this.operationRepositoryInitializer = new OperationRepositoryInitializer(this.operationRepository);
+
+            this.operationRepositoryInitializer.initializeRepository();
+
             this.mainWindowUtils = new MainWindowUtils(this);
             this.statusBarUtils = new StatusBarUtils(this.helperTextStatusBar);
             this.groupBoxUtils = new GroupBoxUtils();
@@ -45,15 +56,12 @@ namespace UnitConverter.App
             this.groupBoxUtils.addGroupBox(typeof(CustomDouble), this.customDoubleAdditionalOptionsComboBox);
             this.groupBoxUtils.addGroupBox(typeof(Custom12HTime), this.customTimeAdditionalOptionsGroupBox);
 
-            UnitOperationRepositoryInitializer initializer = new UnitOperationRepositoryInitializer(this.operationRepository);
-            initializer.initializeRepository();
-
-            this.measurementUnitComboBoxUtils = new ComboBoxUtils<string>(this.measurementUnitComboBox);
+            this.measurementUnitComboBoxUtils = new ComboBoxUtils<Operation>(this.measurementUnitComboBox);
             this.commaDigitCountComboBoxUtils = new ComboBoxUtils<int>(this.commaDigitCountComboBox);
             this.timeFormatComboBoxUtils = new ComboBoxUtils<Custom12HTimeType>(this.timeFormatComboBox);
 
-            this.fromUnitListBoxUtils = new ListBoxUtils<string>(this.fromUnitListBox);
-            this.toUnitListBoxUtils = new ListBoxUtils<string>(this.toUnitListBox);
+            this.fromUnitListBoxUtils = new ListBoxUtils<SelectableTaskParameterOption>(this.fromUnitListBox);
+            this.toUnitListBoxUtils = new ListBoxUtils<SelectableTaskParameterOption>(this.toUnitListBox);
 
             this.providedValueTextBoxUtils = new TextBoxUtils(this.providedValueTextBox);
 
@@ -69,13 +77,15 @@ namespace UnitConverter.App
             this.mainWindowUtils.resetForm();
 
             measurementUnitComboBoxUtils.initialize(
-                this.operationRepository.operations.Select(item => item.name).ToList()
+                ((SelectableTask)this.operationRepository.findOperationById(1).task).getOperations()
             );
 
             commaDigitCountComboBoxUtils.initialize(Enumerable.Range(0,8).ToList());
             timeFormatComboBoxUtils.initialize(Enum.GetValues(typeof(Custom12HTimeType)).Cast<Custom12HTimeType>().ToList());
 
             this.commaDigitCountComboBox.SelectedIndex = 3;
+
+            this.operationRepository.selectOperation(1);
         }
 
 
@@ -90,21 +100,29 @@ namespace UnitConverter.App
         {
             this.mainWindowUtils.resetForm();
 
-            this.operationRepository.selectOperation(this.measurementUnitComboBox.SelectedIndex + 1);
-
             this.fromUnitListBox.IsEnabled = true;
 
-            fromUnitListBoxUtils.initialize(this.operationRepository.getSelectedOperation().units.Select(item => item.name).ToList());
-            toUnitListBoxUtils.initialize(this.operationRepository.getSelectedOperation().units.Select(item => item.name).ToList());
+            SelectableTask currentTask = (SelectableTask)this.operationRepository.getSelectedOperation().task;
 
-            this.groupBoxUtils.activateGroupBoxByType(this.operationRepository.getSelectedOperation().type);
+            currentTask.selectOperation(this.measurementUnitComboBoxUtils.getSelectedContent().id);
+
+            Operation currentSelectedOperation = currentTask.getSelectedOperation();
+
+            SelectableTaskParameter fromConversion = (SelectableTaskParameter) currentSelectedOperation.task.getParameter("fromConversion");
+            SelectableTaskParameter toConversion = (SelectableTaskParameter) currentSelectedOperation.task.getParameter("toConversion");
+
+            fromUnitListBoxUtils.initialize(fromConversion.options);
+            toUnitListBoxUtils.initialize(toConversion.options);
+
+            this.groupBoxUtils.hideGroupBoxes();
         }
 
 
 
 
         /// <summary>
-        /// Metoda wykonująca się w momencie, gdy zostanie wywołane zdarzenie zmiany aktualnego wybranego elementu z listy <see cref="fromUnitListBox"/> (lista oznaczona etykietką 'Z czego chcesz skonwertować')
+        /// Metoda wykonująca się w momencie, gdy zostanie wywołane zdarzenie zmiany aktualnego 
+        /// wybranego elementu z listy <see cref="fromUnitListBox"/> (lista oznaczona etykietką 'Z czego chcesz skonwertować')
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -113,8 +131,12 @@ namespace UnitConverter.App
             if (this.fromUnitListBox.SelectedIndex < 0)
                 return;
 
-            this.operationRepository.getSelectedOperation().selectFromUnit(this.fromUnitListBox.SelectedIndex);
-            if (this.operationRepository.getSelectedOperation().isFromUnitSelected())
+            SelectableTask currentTask = (SelectableTask)this.operationRepository.getSelectedOperation().task;
+            SelectableTaskParameter fromConversion = (SelectableTaskParameter)currentTask.getSelectedOperation().task.getParameter("fromConversion");
+
+            fromConversion.selectOption(this.fromUnitListBoxUtils.getSelectedContent().id);
+
+            if (fromConversion.isOptionSelected())
             {
                 this.providedValueTextBox.IsEnabled = true;
                 this.toUnitListBox.IsEnabled = true;
@@ -128,6 +150,8 @@ namespace UnitConverter.App
                     this.providedValueTextBox.Clear();
                 }
             }
+
+            this.groupBoxUtils.activateGroupBoxByType(((Unit)fromConversion.value).type);
         }
 
 
@@ -143,16 +167,23 @@ namespace UnitConverter.App
             if (this.toUnitListBox.SelectedIndex < 0)
                 return;
 
-            this.operationRepository.getSelectedOperation().selectToUnit(this.toUnitListBox.SelectedIndex);
-            if (this.operationRepository.getSelectedOperation().isToUnitSelected())
+            SelectableTask currentTask = (SelectableTask)this.operationRepository.getSelectedOperation().task;
+            SelectableTaskParameter toConversion = (SelectableTaskParameter)currentTask.getSelectedOperation().task.getParameter("toConversion");
+
+            toConversion.selectOption(this.toUnitListBoxUtils.getSelectedContent().id);
+
+            if (toConversion.isOptionSelected())
             {
                 this.providedValueTextBox.IsEnabled = true;
                 this.swapButton.IsEnabled = true;
 
                 this.mainWindowUtils.updateConvertedLabel();
 
-                this.groupBoxUtils.activateGroupBoxByType(this.operationRepository.getSelectedOperation().getFromUnit().type);
-                if(this.operationRepository.getSelectedOperation().getFromUnit().type == typeof(Custom12HTime))
+                SelectableTaskParameter fromConversion = (SelectableTaskParameter)currentTask.getSelectedOperation().task.getParameter("fromConversion");
+                Unit fromUnit = (Unit)fromConversion.getSelectedOption().value;
+
+                this.groupBoxUtils.activateGroupBoxByType(fromUnit.type);
+                if(fromUnit.type == typeof(Custom12HTime))
                 {
                     this.clock.show();
                 }
@@ -175,11 +206,9 @@ namespace UnitConverter.App
         /// <param name="e"></param>
         private void providedValueTextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
-            string value = this.providedValueTextBox.Text;
-
             try
             {
-                if(value == null || value == "")
+                if(this.providedValueTextBoxUtils.isNullOrEmpty())
                 {
                     this.convertedValueLabel.Content = "0";
                     this.formatNumberLabel.Cursor = Cursors.Arrow;
@@ -194,8 +223,8 @@ namespace UnitConverter.App
                 }
 
                 this.providedValueTextBoxUtils.setToValid();
-                this.formatNumberCheckBox.IsEnabled = value != null && value != "";
-                this.commaDigitCountComboBox.IsEnabled = value != null && value != "";
+                this.formatNumberCheckBox.IsEnabled = !this.providedValueTextBoxUtils.isNullOrEmpty();
+                this.commaDigitCountComboBox.IsEnabled = !this.providedValueTextBoxUtils.isNullOrEmpty();
             }
             catch (CustomTypeIncorrectValueException)
             {
@@ -313,6 +342,8 @@ namespace UnitConverter.App
                 Regex.Replace(this.convertedValueLabel.Content.ToString(), @"\s", "")
             );
         }
+
+
 
 
         /// <summary>

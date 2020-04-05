@@ -1,4 +1,6 @@
-﻿namespace UnitConverter.Library.TypeUtil
+﻿using System.ComponentModel;
+
+namespace UnitConverter.Library.TypeUtil
 {
     /// <summary>
     /// Enumeracja, która służy do przechowania informacji o porze dnia dla godziny
@@ -7,6 +9,10 @@
     /// <see cref="Custom12HTime"/>
     public enum Custom12HTimeType
     {
-        AM = 0, PM = 1
+        [Description("Przed południem")]
+        AM = 0,
+
+        [Description("Po południu")]
+        PM = 1
     }
 }

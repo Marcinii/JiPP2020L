@@ -3,7 +3,7 @@ using UnitConverter.Library.OperationUtil.OpException;
 using UnitConverter.Library.TypeUtil;
 using UnitConverter.Library.TypeUtil.TypeException;
 
-namespace UnitConverter.Library
+namespace UnitConverter.Terminal.Core
 {
 
     /// <summary>
@@ -23,6 +23,9 @@ namespace UnitConverter.Library
         ///     Funkcja, która ma się wywołać w przypadku, gdy wprowadzimy w konsoli prawidłową wartość
         /// </param>
         /// <returns>Zwraca w pełni prawidłową wartość mojego własnego typu zmiennych</returns>
+        /// <exception cref="OperationException">
+        ///     Wyjątek rzucany w przypadku, gdy wystapią problemy związane z wyszukaniem lub zarządzaniem operacją
+        /// </exception>
         /// <see cref="CustomTypeUtils"/>
         /// <see cref="CustomTypeException"/>
         public static T readValueTo<T>(Action<T> callBackFunction)
@@ -48,10 +51,15 @@ namespace UnitConverter.Library
             return res;
         }
 
+
+
         /// <summary>
         /// Metoda odczytuje i waliduje wprowadzoną wartość mojego własnego typu zmiennej
         /// </summary>
         /// <returns>Zwraca w pełni prawidłową wartość mojego własnego typu zmiennych</returns>
+        /// <exception cref="CustomTypeException">
+        ///     Wyjątek rzucany w momencie, gdy zostanie wprowadzona nieprawidłowa wartość
+        /// </exception>
         /// <see cref="ICustomType"/>
         /// <see cref="CustomTypeUtils"/>
         /// <see cref="CustomTypeException"/>
@@ -68,6 +76,38 @@ namespace UnitConverter.Library
                     exceptionThrown = false;
                 }
                 catch(CustomTypeException ex)
+                {
+                    Console.WriteLine("!!! {0}. Wprowadź wartość jeszcze raz: ", ex.Message);
+                    Console.Write("> ");
+                }
+            }
+
+            return res;
+        }
+
+
+
+        /// <summary>
+        /// Metoda odczytuje i waliduje wprowadzoną liczbę całkowitą
+        /// </summary>
+        /// <returns>Zwraca w pełni prawidłową liczbę całkowitą</returns>
+        /// <exception cref="CustomIntegerIncorrectValueException">
+        ///     Wyjątek rzucany w momencie, gdy zostanie wprowadzona nieprawidłowa wartość
+        /// </exception>
+        /// <see cref="CustomInteger"/>
+        public static CustomInteger readCustomInteger()
+        {
+            bool exceptionThrown = true;
+            CustomInteger res = 0;
+
+            while (exceptionThrown)
+            {
+                try
+                {
+                    res.fromString(Console.ReadLine());
+                    exceptionThrown = false;
+                }
+                catch (CustomIntegerIncorrectValueException ex)
                 {
                     Console.WriteLine("!!! {0}. Wprowadź wartość jeszcze raz: ", ex.Message);
                     Console.Write("> ");
