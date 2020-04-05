@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="KASETY_412_23Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="KASETY_412_23Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="JIPP4">
           <Key>
             <PropertyRef Name="ID" />
@@ -14,15 +14,14 @@
           <Property Name="unitFrom" Type="varchar" MaxLength="20" Nullable="false" />
           <Property Name="unitTo" Type="varchar" MaxLength="20" Nullable="false" />
           <Property Name="valueBefore" Type="varchar" MaxLength="20" />
-          <Property Name="valueAfter" Type="varchar" MaxLength="20" />
+          <Property Name="valueAfter" Type="varchar" MaxLength="30" />
           <Property Name="errorEncountered" Type="bit" />
           <Property Name="dateSent" Type="date" />
         </EntityType>
         <EntityContainer Name="KASETY_412_23ModelStoreContainer">
           <EntitySet Name="JIPP4" EntityType="Self.JIPP4" Schema="Z412_23" store:Type="Tables" />
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="KASETY_412_23Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -35,7 +34,7 @@
           <Property Name="unitFrom" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="unitTo" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="valueBefore" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="valueAfter" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="valueAfter" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
           <Property Name="errorEncountered" Type="Boolean" />
           <Property Name="dateSent" Type="DateTime" Precision="0" />
         </EntityType>

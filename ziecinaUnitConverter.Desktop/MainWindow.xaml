@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ziecinaUnitConverter.Desktop"
         mc:Ignorable="d"
-        Title="MainWindow" Height="492.899" Width="779.521">
+        Title="MainWindow" Height="853.566" Width="1183.521">
     <Window.Resources>
         <Storyboard x:Key="clockMoving">
             <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[2].(RotateTransform.Angle)" Storyboard.TargetName="handHour">
@@ -46,7 +46,7 @@
         <Label Name="labelChooseConverter" Content="Wybierz konwerter jednostek" HorizontalAlignment="Left" Height="30" Margin="69,10,0,0" VerticalAlignment="Top" Width="175"/>
         <ComboBox Name="listConverters" HorizontalAlignment="Left" Height="33" Margin="20,57,0,0" VerticalAlignment="Top" Width="372" SelectionChanged="listConverters_SelectionChanged"/>
         <Label x:Name="labelHourConversion" Content="Zamiana formatu godzin" HorizontalAlignment="Left" Height="30" Margin="438,16,-323,0" VerticalAlignment="Top" Width="295"/>
-        <TextBox x:Name="text12h" HorizontalAlignment="Left" Height="33" Margin="442,57,-142,0" TextWrapping="Wrap" Text="08:00&#xD;&#xA;" VerticalAlignment="Top" Width="110" KeyUp="text12h_KeyUp"/>
+        <TextBox x:Name="text12h" HorizontalAlignment="Left" Height="18" Margin="442,66,0,0" TextWrapping="Wrap" Text="08:00&#xD;&#xA;" VerticalAlignment="Top" Width="110" KeyUp="text12h_KeyUp"/>
         <RadioButton x:Name="radioAM" IsChecked="{Binding IsChecked}" Content="AM" HorizontalAlignment="Left" Margin="579,49,-269,0" VerticalAlignment="Top" Width="100" GroupName="hourFormat"/>
         <RadioButton x:Name="radioPM" Content="PM" HorizontalAlignment="Left" Margin="579,69,-269,0" VerticalAlignment="Top" Width="100" GroupName="hourFormat"/>
         <TextBlock x:Name="blockResaultHour" HorizontalAlignment="Left" Height="36" Margin="442,123,-208,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="176" Grid.RowSpan="2" />
@@ -194,5 +194,17 @@
                 </Rectangle.Fill>
             </Rectangle>
         </Canvas>
+        <DatePicker x:Name="dateFromBox" HorizontalAlignment="Left" Height="27" Margin="18,391,0,-397" Grid.Row="1" VerticalAlignment="Top" Width="114" Text="Data od" AutomationProperties.HelpText="Data od"/>
+        <DatePicker x:Name="dateToBox" HorizontalAlignment="Left" Height="27" Margin="168,391,0,-397" Grid.Row="1" VerticalAlignment="Top" Width="113"/>
+        <ComboBox x:Name="queryConverterPicker" HorizontalAlignment="Left" Height="29" Margin="18,321,0,-329" Grid.Row="1" VerticalAlignment="Top" Width="254"/>
+        <Button x:Name="buttonConfirm" Content="Wyślij zapytanie" HorizontalAlignment="Left" Height="27" Margin="18,428,0,-434" Grid.Row="1" VerticalAlignment="Top" Width="104" Click="buttonConfirm_Click"/>
+        <Label Content="Wybierz konwerter" HorizontalAlignment="Left" Height="29" Margin="18,287,0,-295" Grid.Row="1" VerticalAlignment="Top" Width="143"/>
+        <Label Content="Data od" HorizontalAlignment="Left" Height="29" Margin="18,355,0,-363" Grid.Row="1" VerticalAlignment="Top" Width="114"/>
+        <Label Content="Data do" HorizontalAlignment="Left" Height="29" Margin="168,355,0,-363" Grid.Row="1" VerticalAlignment="Top" Width="97"/>
+        <Label Content="Top 3" HorizontalAlignment="Left" Height="26" Margin="18,461,0,-466" Grid.Row="1" VerticalAlignment="Top" Width="104"/>
+        <TextBlock x:Name="top3Resaults" HorizontalAlignment="Left" Height="80" Margin="12,498,0,-557" Grid.Row="1" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="253"/>
+        <TextBlock x:Name="textBlockResaults" Height="332" Margin="286,336,-346,-647" Grid.Row="1" Text="" VerticalAlignment="Top" RenderTransformOrigin="0.99,0.601" HorizontalAlignment="Left" Width="874"/>
+        <Button x:Name="buttonPreviousPage" Content="Poprzednia strona" HorizontalAlignment="Left" Height="24" Margin="398,292,-110,-295" Grid.Row="1" VerticalAlignment="Top" Width="122"/>
+        <Button x:Name="buttonNextPage" Content="Następna strona" HorizontalAlignment="Left" Height="24" Margin="556,292,-269,-295" Grid.Row="1" VerticalAlignment="Top" Width="123"/>
     </Grid>
 </Window>
