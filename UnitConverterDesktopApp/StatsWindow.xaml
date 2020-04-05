@@ -5,7 +5,30 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:UnitConverterDesktopApp"
         mc:Ignorable="d"
-        Title="Stats Window" Height="600" Width="800">
+        Title="Stats Window" Height="600" Width="800" Background="#FFF0F0F0">
+    <Window.Resources>
+        <Style TargetType="Button">
+            <Setter Property="Margin" Value="5"></Setter>
+            <Setter Property="FontSize" Value="16"></Setter>
+            <Setter Property="Background" Value="#FF067C00"></Setter>
+            <Setter Property="Foreground" Value="White"></Setter>
+        </Style>
+        <Style TargetType="TextBlock">
+            <Setter Property="Margin" Value="5"></Setter>
+        </Style>
+        <Style TargetType="ListBox">
+            <Setter Property="Margin" Value="5"></Setter>
+        </Style>
+        <Style TargetType="DatePicker">
+            <Setter Property="Margin" Value="5"></Setter>
+        </Style>
+        <Style TargetType="CheckBox">
+            <Setter Property="Margin" Value="5"></Setter>
+        </Style>
+        <Style TargetType="DataGrid">
+            <Setter Property="Margin" Value="5"></Setter>
+        </Style>
+    </Window.Resources>
     <StackPanel Margin="15">
         <TextBlock x:Name="FilterByConverterTextBox"
                    Text="Filter by Converter:">
@@ -53,12 +76,33 @@
             </CheckBox>
             <Button x:Name="FilterDataButton"
                     Content="Filter"
-                    Grid.Column="1" Height="20" VerticalAlignment="Top" Click="FilterDataButton_Click">
+                    Grid.Column="1" 
+                    Click="FilterDataButton_Click"/>
+        </Grid>
+        <DataGrid x:Name="TableForStats"
+                  IsReadOnly="True"
+                  ColumnWidth="*" Loaded="TableForStats_Loaded">
+        </DataGrid>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Button x:Name="Previous" 
+                    Content="Previous"
+                    Grid.Column="1" Click="Previous_Click">
+            </Button>
+            <TextBlock x:Name="PageCountTextBox"
+                       Grid.Column="2"
+                       TextAlignment="Center">
+            </TextBlock>
+            <Button x:Name="Next" 
+                    Content="Next"
+                    Grid.Column="3" Click="Next_Click">
             </Button>
         </Grid>
-        <DataGrid x:Name="DataTable"
-                  IsReadOnly="True"
-                  ColumnWidth="*">
-        </DataGrid>
     </StackPanel>
 </Window>

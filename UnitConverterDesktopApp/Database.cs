@@ -26,12 +26,39 @@ namespace UnitConverterDesktopApp
                 context.SaveChanges();
             }
         }
-        public static List<Result> SelectAllResults()
+        public static dynamic SelectResults(List<string> converters, DateTime? dateFrom, DateTime? dateTo, bool? topOnly)
         {
             using (ConverterDataModel context = new ConverterDataModel())
             {
-                List<Result> results = context.Results.ToList();
-                return results;
+                var results = context.Results.AsQueryable();
+
+                results = results.AsQueryable()
+                    .Where(r => converters.Any(c => r.ConverterName.Equals(c)));
+
+                if (dateFrom.HasValue)
+                {
+                    results = results.Where(
+                        r => DbFunctions.TruncateTime(r.ConversionDate) >= dateFrom);
+                }
+                if (dateTo.HasValue)
+                {
+                    results = results.Where(
+                        r => DbFunctions.TruncateTime(r.ConversionDate) <= dateTo);
+                }
+
+                if (topOnly != true)
+                {
+                    return results.ToList();
+                }
+                else
+                {
+                    var topResults = results
+                    .GroupBy(x => new { x.ConverterName, x.SourceUnit, x.TargetUnit })
+                    .Select(x => new { x.Key.ConverterName, x.Key.SourceUnit, x.Key.TargetUnit, Count = x.Count() })
+                    .OrderByDescending(x => x.Count)
+                    .Take(3);
+                    return topResults.ToList();
+                }
             }
         }
 

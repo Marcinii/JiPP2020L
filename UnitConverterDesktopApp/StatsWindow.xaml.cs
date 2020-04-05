@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
@@ -16,50 +17,24 @@ using unit_converter;
 
 namespace UnitConverterDesktopApp
 {
-    /// <summary>
-    /// Interaction logic for StatsWindows.xaml
-    /// </summary>
     public partial class StatsWindow : Window
     {
+        private IEnumerable<dynamic> _records;
+        private static readonly int _maxRecordsPerPage = 10;
+        private int _currentPage;
+        private double _lastPage;
+
         public StatsWindow()
         {
             InitializeComponent();
             FilterByConverterListBox.ItemsSource = new ConverterService().GetConverters().Keys;
+            _currentPage = 1;
         }
-        private void SelectResults(List<string> converters, DateTime? dateFrom, DateTime? dateTo, bool? topOnly)
+        public void PageCountRefresh()
         {
-            using (ConverterDataModel context = new ConverterDataModel())
-            {
-                var results = context.Results.AsQueryable();
-
-                results = results.AsQueryable()
-                    .Where(r => converters.Any(c => r.ConverterName.Equals(c)));
-                
-                if (dateFrom.HasValue)
-                {
-                    results = results.Where(
-                        r => DbFunctions.TruncateTime(r.ConversionDate) >= dateFrom);
-                }
-                if (dateTo.HasValue)
-                {
-                    results = results.Where(
-                        r => DbFunctions.TruncateTime(r.ConversionDate) <= dateTo);
-                }
-                
-                if (topOnly ?? false)  
-                    this.DataTable.ItemsSource = results.ToList();
-                else
-                {
-                    var topResults = results
-                    .GroupBy(x => new { x.ConverterName, x.SourceUnit, x.TargetUnit })
-                    .Select(x => new { x.Key.ConverterName, x.Key.SourceUnit, x.Key.TargetUnit, Count = x.Count() })
-                    .OrderByDescending(x => x.Count)
-                    .Take(3);
-                    this.DataTable.ItemsSource = topResults.ToList();
-                }
-            }
+            PageCountTextBox.Text = $"Page {_currentPage} of {_lastPage}";
         }
-        private void FilterDataButton_Click(object sender, RoutedEventArgs e)
+        private List<string> GetFilterByConverterItems()
         {
             List<string> nameFilters = new List<string>();
             if (FilterByConverterListBox.SelectedItems.Count == 0)
@@ -76,7 +51,51 @@ namespace UnitConverterDesktopApp
                     nameFilters.Add(s);
                 }
             }
-            this.SelectResults(nameFilters, this.DateFromPicker.SelectedDate, this.DateToPicker.SelectedDate, this.TopCheckBox.IsChecked);
+            return nameFilters;
+        }
+        private void RunQuery()
+        {
+            this._records = Database.SelectResults(
+                this.GetFilterByConverterItems(), this.DateFromPicker.SelectedDate, this.DateToPicker.SelectedDate, this.TopCheckBox.IsChecked);
+            _lastPage = Math.Ceiling((Enumerable.Count(this._records) / Convert.ToDouble(_maxRecordsPerPage)));
+        }
+        private void FilterDataButton_Click(object sender, RoutedEventArgs e)
+        {
+            RunQuery();
+            _currentPage = 1;
+            TableForStats.ItemsSource = this._records
+                .Skip((_currentPage - 1) * _maxRecordsPerPage)
+                .Take(_maxRecordsPerPage);
+            PageCountRefresh();
+        }
+        private void TableForStats_Loaded(object sender, RoutedEventArgs e)
+        {
+            RunQuery();
+            TableForStats.ItemsSource = this._records.Take(_maxRecordsPerPage);
+            PageCountRefresh();
+        }
+
+        private void Previous_Click(object sender, RoutedEventArgs e)
+        {
+            if (_currentPage - 1 > 0)
+            {
+                _currentPage--;
+                TableForStats.ItemsSource = this._records
+                    .Skip((_currentPage - 1) * _maxRecordsPerPage)
+                    .Take(_maxRecordsPerPage);
+                PageCountRefresh();
+            }
+        }
+        private void Next_Click(object sender, RoutedEventArgs e)
+        {        
+            if (_currentPage < _lastPage)
+            {
+                _currentPage++;
+                TableForStats.ItemsSource = this._records
+                    .Skip((_currentPage - 1) * _maxRecordsPerPage)
+                    .Take(_maxRecordsPerPage);
+                PageCountRefresh();
+            }
         }
     }
 }
