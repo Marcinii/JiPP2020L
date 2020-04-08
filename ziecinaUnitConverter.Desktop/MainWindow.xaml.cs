@@ -13,6 +13,7 @@ using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Text.RegularExpressions;
 using ziecina_zad1;
 
 namespace ziecinaUnitConverter.Desktop
@@ -24,7 +25,30 @@ namespace ziecinaUnitConverter.Desktop
     {
         public static List<IConverter> converters;
         public static int chosenConverter;
+        public static bool queriedOnce = false;
+        public static int currentPage = 0; //////////
         DataInserter dataInserter = new DataInserter();
+        List<JIPP4> conversions;
+
+        public string pageSwap()
+        {
+            using (KASETY_412_23Entities1 context = new KASETY_412_23Entities1())
+            {
+                string toReturn = "";
+                int tmpCnt = 0;
+                foreach (JIPP4 f in conversions)
+                {
+                    if (f.errorEncountered == false && tmpCnt < (20*currentPage) && tmpCnt >( (currentPage * 20) - 20))
+                    {
+                        toReturn += (f.dateSent).Value.ToString("dd/MM/yyy") + ": " + f.Converter + " - " + f.valueBefore + " " + f.unitFrom + " to " + f.valueAfter + " " + f.unitTo + "\n";
+                        
+                    }
+                    tmpCnt += 1;
+                }
+                return toReturn;
+            }
+        }
+
         public MainWindow()
         {
             InitializeComponent();
@@ -112,7 +136,8 @@ namespace ziecinaUnitConverter.Desktop
                     newHour = null;
                     isError = true;
                 }
-                dataInserter.InsertData("Konwerter czasu", "AM/PM", "24h", text12h.Text, newHour, isError);
+                string new12h = Regex.Replace(text12h.Text, @"\r\n?|\n", "");
+                dataInserter.InsertData("Konwerter czasu", "AM/PM", "24h", new12h, newHour, isError);
 
 
 
@@ -139,7 +164,8 @@ namespace ziecinaUnitConverter.Desktop
                     newHour = null;
                     isError = true;
                 }
-                dataInserter.InsertData("Konwerter czasu", "AM/PM", "24h", text12h.Text, newHour, isError);
+                string new12h = Regex.Replace(text12h.Text, @"\r\n?|\n", "");
+                dataInserter.InsertData("Konwerter czasu", "AM/PM", "24h", new12h, newHour, isError);
             }
             else if (radio24h.IsChecked == true)
             {
@@ -166,7 +192,8 @@ namespace ziecinaUnitConverter.Desktop
                     newHour = null;
                     isError = true;
                 }
-                dataInserter.InsertData("Konwerter czasu", "24h", "AM/PM", text12h.Text, newHour, isError);
+                string new12h = Regex.Replace(text12h.Text, @"\r\n?|\n", "");
+                dataInserter.InsertData("Konwerter czasu", "24h", "AM/PM", new12h, newHour, isError);
             }
             else
             {
@@ -185,37 +212,61 @@ namespace ziecinaUnitConverter.Desktop
                     string dateTo = "'" + dateToBox.SelectedDate.Value.ToString("yyy.MM.dd") + "'";
                     string convPick = "'" +  queryConverterPicker.SelectedItem.ToString() + "'";
                     string queryText1 = "SELECT * FROM JIPP4 WHERE Converter LIKE " + convPick + " AND dateSent >= " + dateFrom + " AND dateSent <= " + dateTo + ";";
-                    string queryText2  = "SELECT TOP 3 COUNT(*) AS 'Ilość', unitFrom, unitTo FROM JIPP4 WHERE Converter LIKE " + convPick + " AND dateSent >= " + dateFrom +
-                        " AND dateSent <= " + dateTo + " GROUP BY unitFrom, unitTo;";
-                    List <JIPP4> conversions = (context.JIPP4.SqlQuery(queryText1)).ToList();
+                    //string queryText2  = "SELECT TOP 3 COUNT(*) AS 'Ilość', unitFrom, unitTo FROM JIPP4 WHERE Converter LIKE " + convPick + " AND dateSent >= " + dateFrom +
+                    //    " AND dateSent <= " + dateTo + " GROUP BY unitFrom, unitTo;";
+                    conversions = (context.JIPP4.SqlQuery(queryText1)).ToList();
                     textBlockResaults.Text = "";
+                    //Result result = new Result();
+                    int tmpCnt = 0;
                     foreach (JIPP4 f in conversions)
                     {
-                        if (f.errorEncountered == false)
+                        if (f.errorEncountered == false && tmpCnt < 20)
                         {
                             textBlockResaults.Text += (f.dateSent).Value.ToString("dd/MM/yyy") + ": " + f.Converter + " - " + f.valueBefore + " " + f.unitFrom + " to " + f.valueAfter + " " + f.unitTo + "\n";
+                            var resaults = context.JIPP4.Add(f);
+                            tmpCnt += 1;
                         }
                     }
-                    //List<JIPP4> top3 = (context.JIPP4.SqlQuery(queryText2)).ToList();
-                    /* var top3Query = from p in context.JIPP4
-                               group p by p.unitFrom into g
-                               select new
-                               {
-                                   name = g.Key,
-                                   count = g.Count()
-                               };
-                    var top3Result = top3Query.FirstOrDefault<>;
-                     
-                    foreach (JIPP4 g in top3)
+                    queriedOnce = true;
+                    currentPage = 1;
+                    var results = context.JIPP4.AsQueryable()
+                    .GroupBy(x => new { x.Converter, x.unitFrom, x.unitTo})
+                    .Select(x => new {x.Key.Converter, x.Key.unitFrom, x.Key.unitTo, Count = x.Count() })
+                    .OrderByDescending(x => x.Count)
+                    .Take(3);
+                    //////////TODO todo
+                    var abc = results.ToList();
+                    top3Resaults.Text =  "";
+                    for (int i = 0; i < 3; i++)
                     {
-                        top3Resaults.Text = g.unitFrom;
+                        top3Resaults.Text += abc.ElementAt(i).Count + ": ";
+                        top3Resaults.Text += abc.ElementAt(i).unitFrom + " na ";
+                        top3Resaults.Text += abc.ElementAt(i).unitTo + "\n";
+                        
                     }
-                    */
                 }
                 else
                 {
                     textBlockResaults.Text = "Niepoprawne dane";
                 }
+            }
+        }
+
+        private void buttonPreviousPage_Click(object sender, RoutedEventArgs e)
+        {
+            if (queriedOnce == true && currentPage >=2)
+            {
+                currentPage -= 1;
+                textBlockResaults.Text = pageSwap();
+            }
+        }
+
+        private void buttonNextPage_Click(object sender, RoutedEventArgs e)
+        {
+            if (queriedOnce == true)
+            {
+                currentPage += 1;
+                textBlockResaults.Text = pageSwap();
             }
         }
     }
