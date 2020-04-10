@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Data.SqlClient;
+using System.Data;
 
 namespace KonwerterJednostek.Desktop
 {
@@ -24,7 +26,8 @@ namespace KonwerterJednostek.Desktop
         {
             InitializeComponent();
 
-
+            
+            
 
             //Temperatura
 
@@ -83,7 +86,14 @@ namespace KonwerterJednostek.Desktop
                 "m^3",
                 "l"
             };
-        }
+            comboboxFiltrKonwerterWybor.ItemsSource = new List<string>()
+            {
+                "TEMPERATURA",
+                "MASA",
+                "DLUGOSC",
+                "LITRY"
+            };
+    }
 
 
         private void przyciskCzymJestem_Click(object sender, RoutedEventArgs e)
@@ -92,16 +102,20 @@ namespace KonwerterJednostek.Desktop
             labelIntro1.Foreground = Brushes.DarkGoldenrod;
         }
 
+        
         private void przyciskKonwersjaTemp_Click(object sender, RoutedEventArgs e)
         {
             KonwerterTemperatura konw = new KonwerterTemperatura();
-
+            
             string wejscie = textBoxWartoscTemp.Text;
             double wejscieL = Convert.ToDouble(wejscie);
             //MessageBox.Show("Brawo!" + liczba);
             
             double wynikL = konw.Konwertuj(comboboxTempJednZ.Text, comboboxTempJednDo.Text, wejscieL); 
             textblockWynikTemp.Text = Convert.ToString(wynikL);
+            DateTime currentTime = DateTime.Now;
+            WlozDoBD rekord = new WlozDoBD();
+            rekord.WlozRekordy("TEMPERATURA", comboboxTempJednZ.Text, comboboxTempJednDo.Text, wejscieL, wynikL, currentTime);
         }
         private void przyciskKonwersjaMasa_Click(object sender, RoutedEventArgs e)
         {
@@ -109,9 +123,14 @@ namespace KonwerterJednostek.Desktop
 
             string wejscie = textBoxWartoscMasa.Text;
             double wejscieL = Convert.ToDouble(wejscie);
+
             //MessageBox.Show("Brawo!" + liczba);
             double wynikL = konw.Konwertuj(comboboxMasaJednZ.Text, comboboxMasaJednDo.Text, wejscieL);
             textblockWynikMasa.Text = Convert.ToString(wynikL);
+
+            DateTime currentTime = DateTime.Now;
+            WlozDoBD rekord = new WlozDoBD();
+            rekord.WlozRekordy("MASA", comboboxMasaJednZ.Text, comboboxMasaJednDo.Text, wejscieL, wynikL, currentTime);
         }
 
         private void przyciskKonwersjaDlugosc_Click(object sender, RoutedEventArgs e)
@@ -123,6 +142,10 @@ namespace KonwerterJednostek.Desktop
             //MessageBox.Show("Brawo!" + liczba);
             double wynikL = konw.Konwertuj(comboboxDlugoscJednZ.Text, comboboxDlugoscJednDo.Text, wejscieL);
             textblockWynik_Dlugosc.Text = Convert.ToString(wynikL);
+
+            DateTime currentTime = DateTime.Now;
+            WlozDoBD rekord = new WlozDoBD();
+            rekord.WlozRekordy("DLUGOSC", comboboxDlugoscJednZ.Text, comboboxDlugoscJednDo.Text, wejscieL, wynikL, currentTime);
         }
         private void przyciskKonwersjaLitry_Click(object sender, RoutedEventArgs e)
         {
@@ -134,7 +157,18 @@ namespace KonwerterJednostek.Desktop
             double wynikL = konw.Konwertuj(comboboxLitryJednZ.Text, comboboxLitryJednDo.Text, wejscieL);
             textblockWynik_Litry.Text = Convert.ToString(wynikL);
 
+            DateTime currentTime = DateTime.Now;
+            WlozDoBD rekord = new WlozDoBD();
+            rekord.WlozRekordy("LITRY", comboboxLitryJednZ.Text, comboboxLitryJednDo.Text, wejscieL, wynikL, currentTime);
         }
+
+
+
+
+
+
+
+
 
 
         private void buttonKonwertujGodzine_Click(object sender, RoutedEventArgs e)
@@ -246,6 +280,165 @@ namespace KonwerterJednostek.Desktop
 
         }
 
-        
+        private void konwerterWybor_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            
+        }
+
+        private void przyciskWyswietlTabele_Click(object sender, RoutedEventArgs e)
+        {
+            //WlozDoBD rekordy = new WlozDoBD();
+            //rekordy.OdczytajRekordy();
+            using (SqlConnection connection = new SqlConnection("Data Source=(local)\\SQLEXPRESS;Initial Catalog=jipp4;Integrated Security=True"))
+            {
+                connection.Open();
+
+                string Query = "select FORMAT (DataOperacji, 'dd-MM-yyyy') as DataOperacji,NazwaOperacji,Wartosc,JednostkaZ,JednostkaDo,Wynik from ZADANIE5  ";
+                SqlCommand command = new SqlCommand(Query, connection);
+                command.ExecuteNonQuery();
+
+                SqlDataAdapter dataAdp = new SqlDataAdapter(command);
+                DataTable dt = new DataTable("ZADANIE5");
+                dataAdp.Fill(dt);
+                datagridDane.ItemsSource = dt.DefaultView;
+                dataAdp.Update(dt);
+            }
+        }
+
+        private void comboboxFiltrKonwerterWybor_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            using (SqlConnection connection = new SqlConnection("Data Source=(local)\\SQLEXPRESS;Initial Catalog=jipp4;Integrated Security=True"))
+            {
+                connection.Open();
+
+                String Query = "Select * FROM [dbo].[ZADANIE5] Where NazwaOperacji=@Fnazwa";
+
+                //SqlParameter parametr = new SqlParameter("@Fnazwa", SqlDbType.VarChar) ;
+
+                SqlCommand command = new SqlCommand(Query, connection);
+
+                //MessageBox.Show(comboboxFiltrKonwerterWybor.SelectedValue.ToString());
+
+                command.Parameters.AddWithValue("@Fnazwa", comboboxFiltrKonwerterWybor.SelectedItem.ToString());
+
+                command.ExecuteNonQuery();
+
+                SqlDataAdapter dataAdp = new SqlDataAdapter(command);
+                DataTable dt = new DataTable("ZADANIE5");
+                dataAdp.Fill(dt);
+                datagridDane.ItemsSource = dt.DefaultView;
+                dataAdp.Update(dt);
+            }
+
+        }
+
+        private void przyciskFiltrujPoDacie_Click(object sender, RoutedEventArgs e)
+        {
+            using (SqlConnection connection = new SqlConnection("Data Source=(local)\\SQLEXPRESS;Initial Catalog=jipp4;Integrated Security=True"))
+            {
+                connection.Open();
+
+                String Query = "Select * FROM [dbo].[ZADANIE5] Where DataOperacji BETWEEN @FOD AND @FDO";
+
+                SqlCommand command = new SqlCommand(Query, connection);
+             
+                command.Parameters.AddWithValue("@FOD", datepickerOd.SelectedDate);
+                command.Parameters.AddWithValue("@FDO", datepickerDo.SelectedDate);
+
+                command.ExecuteNonQuery();
+
+                SqlDataAdapter dataAdp = new SqlDataAdapter(command);
+                DataTable dt = new DataTable("ZADANIE5");
+                dataAdp.Fill(dt);
+                datagridDane.ItemsSource = dt.DefaultView;
+                dataAdp.Update(dt);
+            }
+        }
+
+        private void checkboxFiltrujStronicowanie_Click(object sender, RoutedEventArgs e)
+        {
+            if (checkboxFiltrujStronicowanie.IsChecked!=false)
+            {
+                using (SqlConnection connection = new SqlConnection("Data Source=(local)\\SQLEXPRESS;Initial Catalog=jipp4;Integrated Security=True"))
+                {
+                    connection.Open();
+
+                    String Query = "Select TOP 20 * FROM [dbo].[ZADANIE5]";
+
+                    SqlCommand command = new SqlCommand(Query, connection);
+
+                    command.ExecuteNonQuery();
+
+                    SqlDataAdapter dataAdp = new SqlDataAdapter(command);
+                    DataTable dt = new DataTable("ZADANIE5");
+                    dataAdp.Fill(dt);
+                    datagridDane.ItemsSource = dt.DefaultView;
+                    dataAdp.Update(dt);
+                }
+            }
+            else
+            {
+                using (SqlConnection connection = new SqlConnection("Data Source=(local)\\SQLEXPRESS;Initial Catalog=jipp4;Integrated Security=True"))
+                {
+                    connection.Open();
+
+                    String Query = "Select * FROM [dbo].[ZADANIE5]";
+
+                    SqlCommand command = new SqlCommand(Query, connection);
+
+                    command.ExecuteNonQuery();
+
+                    SqlDataAdapter dataAdp = new SqlDataAdapter(command);
+                    DataTable dt = new DataTable("ZADANIE5");
+                    dataAdp.Fill(dt);
+                    datagridDane.ItemsSource = dt.DefaultView;
+                    dataAdp.Update(dt);
+                }
+            }
+        }
+
+        private void przyciskFiltrujNajpopularniejszyKonwerter_Click(object sender, RoutedEventArgs e)
+        {
+            using (SqlConnection connection = new SqlConnection("Data Source=(local)\\SQLEXPRESS;Initial Catalog=jipp4;Integrated Security=True"))
+            {
+                connection.Open();
+
+                String Query = "Select TOP(3) NazwaOperacji,Count(NazwaOperacji) AS IloscWystapien FROM [dbo].[ZADANIE5]  GROUP BY NazwaOperacji ORDER BY IloscWystapien DESC";
+
+                SqlCommand command = new SqlCommand(Query, connection);
+
+                command.ExecuteNonQuery();
+
+                SqlDataAdapter dataAdp = new SqlDataAdapter(command);
+                DataTable dt = new DataTable("ZADANIE5");
+                dataAdp.Fill(dt);
+                datagridDane.ItemsSource = dt.DefaultView;
+                dataAdp.Update(dt);
+            }
+        }
+
+        private void przyciskTopKonwersjeWgDat_Click(object sender, RoutedEventArgs e)
+        {
+            using (SqlConnection connection = new SqlConnection("Data Source=(local)\\SQLEXPRESS;Initial Catalog=jipp4;Integrated Security=True"))
+            {
+                connection.Open();
+
+                String Query = "Select TOP(3) NazwaOperacji,Count(NazwaOperacji) AS IloscWystapien FROM [dbo].[ZADANIE5] Where DataOperacji BETWEEN @FOD AND @FDO GROUP BY NazwaOperacji ORDER BY IloscWystapien DESC";
+
+                
+                SqlCommand command = new SqlCommand(Query, connection);
+                
+                command.Parameters.AddWithValue("@FOD", datepickerOd.SelectedDate);
+                command.Parameters.AddWithValue("@FDO", datepickerDo.SelectedDate);
+
+                command.ExecuteNonQuery();
+
+                SqlDataAdapter dataAdp = new SqlDataAdapter(command);
+                DataTable dt = new DataTable("ZADANIE5");
+                dataAdp.Fill(dt);
+                datagridDane.ItemsSource = dt.DefaultView;
+                dataAdp.Update(dt);
+            }
+        }
     }
 }
