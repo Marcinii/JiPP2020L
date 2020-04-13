@@ -1,5 +1,5 @@
 ﻿using UnitConverter.Library.TaskUtil;
-using UnitConverter.Library.TypeUtil;
+using UnitConverter.Library.TypeUtil.Number;
 
 namespace UnitConverter.Library.OperationUtil
 {
@@ -10,10 +10,10 @@ namespace UnitConverter.Library.OperationUtil
     /// <see cref="Operation"/>
     public class DefaultOperation : Operation
     {
-        public DefaultOperation(CustomInteger id, string name, Task<ICustomType> task) : base(id, name, task) {}
+        public DefaultOperation(CustomInteger id, string name, IRunnable task) : base(id, name, task) {}
 
-        public override void afterRun(TaskRunFunction taskAfterRunFunction) => ((Task<ICustomType>)task).afterRun(taskAfterRunFunction);
-        public override void beforeRun(TaskRunFunction taskBeforeRunFunction) => ((Task<ICustomType>)task).beforeRun(taskBeforeRunFunction);
-        public override void run() => ((Task<ICustomType>)task).run(this);
+        public override void afterRun(TaskRunFunction taskAfterRunFunction) => task.afterRun(taskAfterRunFunction);
+        public override void beforeRun(TaskRunFunction taskBeforeRunFunction) => task.beforeRun(taskBeforeRunFunction);
+        public override void run() => task.run(this);
     }
 }

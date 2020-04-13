@@ -12,16 +12,23 @@
     {
         private string _name;
         private string _label;
-        private bool _required;
+        private TaskParameterLevel _level;
         private SelectableTaskParameterOption[] _options;
+
+
+
 
         public SelectableTaskParameterBuilder()
         {
             this._name = "";
             this._label = "";
-            this._required = true;
+            this._level = TaskParameterLevel.REQUIRED;
             this._options = new SelectableTaskParameterOption[]{ };
         }
+
+
+
+
 
 
         /// <summary>
@@ -53,13 +60,14 @@
 
 
         /// <summary>
-        /// Metoda ustalająca, czy dany parametr jest wymagany do wprowadzenia
+        /// Metoda ustawiająca poziom widoczności parametru
         /// </summary>
-        /// <param name="required">Pole przechowujące informacje, czy dany parametr jest wymagany do wprowadzenia</param>
+        /// <param name="level">Poziom widoczności parametru</param>
         /// <returns></returns>
-        public SelectableTaskParameterBuilder required(bool required)
+        /// <see cref="TaskParameterLevel"/>
+        public SelectableTaskParameterBuilder label(TaskParameterLevel level)
         {
-            this._required = required;
+            this._level = level;
             return this;
         }
 
@@ -86,7 +94,7 @@
         /// <see cref="SelectableTaskParameter"/>
         public SelectableTaskParameter build()
         {
-            SelectableTaskParameter res = new SelectableTaskParameter(_name, _label, _required);
+            SelectableTaskParameter res = new SelectableTaskParameter(_name, _label, _level);
             res.addOptions(_options);
 
             return res;

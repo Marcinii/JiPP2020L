@@ -1,5 +1,4 @@
 ﻿using UnitConverter.Library.TaskUtil.Parameter;
-using UnitConverter.Library.TypeUtil;
 
 namespace UnitConverter.Library.TaskUtil
 {
@@ -9,10 +8,10 @@ namespace UnitConverter.Library.TaskUtil
     /// <param name="value">
     ///     Pole przechowujące obiekt, który będziemy budować
     /// </param>
-    /// <see cref="ICustomType"/>
+    /// <see cref="IRunnable"/>
     public class TaskBuilder
     {
-        private Task<ICustomType> value;
+        protected IRunnable value { get; set; }
 
 
         /// <summary>
@@ -20,9 +19,8 @@ namespace UnitConverter.Library.TaskUtil
         /// </summary>
         /// <param name="value">Instancja obieku, który posiada definicję zadania</param>
         /// <returns>Zwraca samego siebie</returns>
-        /// <see cref="Task{T}"/>
-        /// <see cref="ICustomType"/>
-        public TaskBuilder instance(Task<ICustomType> value)
+        /// <see cref="IRunnable"/>
+        public TaskBuilder instance(IRunnable value)
         {
             this.value = value;
             return this;
@@ -36,7 +34,7 @@ namespace UnitConverter.Library.TaskUtil
         /// <param name="value">Instancja obieku, który posiada definicję zadania</param>
         /// <returns>Zwraca samego siebie</returns>
         /// <see cref="TaskParameter"/>
-        public TaskBuilder parameters(params TaskParameter[] parameters)
+        public virtual TaskBuilder parameters(params TaskParameter[] parameters)
         {
             foreach (TaskParameter parameter in parameters)
                 value.addParameter(parameter);
@@ -47,10 +45,36 @@ namespace UnitConverter.Library.TaskUtil
 
 
         /// <summary>
+        /// Metoda dodająca obiekt, który przechowuje instrukje, uruchamiające się przed właściwym wywołaniem zadania
+        /// </summary>
+        /// <param name="function">Instancja obiektu, która reprezentujące funkcję uruchamiającą się przed wywołaniem zadania</param>
+        /// <returns></returns>
+        public TaskBuilder beforeRun(TaskRunFunction function)
+        {
+            this.value.beforeRun(function);
+            return this;
+        }
+
+
+
+        /// <summary>
+        /// Metoda dodająca obiekt, który przechowuje instrukje, uruchamiające się po właściwym wywołaniu zadania
+        /// </summary>
+        /// <param name="function">Instancja obiektu, która reprezentujące funkcję uruchamiającą się po wywołaniu zadania</param>
+        /// <returns></returns>
+        public TaskBuilder afterRun(TaskRunFunction function)
+        {
+            this.value.afterRun(function);
+            return this;
+        }
+
+
+
+        /// <summary>
         /// Metoda, która buduje obiekt i go zwraca
         /// </summary>
         /// <returns>Zbudowany obiekt</returns>
         /// <see cref="Task{T}"/>
-        public Task<ICustomType> build() => this.value;
+        public virtual IRunnable build() => this.value;
     }
 }

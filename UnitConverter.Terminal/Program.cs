@@ -1,4 +1,5 @@
-﻿using UnitConverter.Library.OperationUtil;
+﻿using UnitConverter.Library.History;
+using UnitConverter.Library.OperationUtil;
 using UnitConverter.Library.OperationUtil.Repository;
 using UnitConverter.Library.TaskUtil;
 using UnitConverter.Terminal.Runner;
@@ -15,11 +16,13 @@ namespace UnitConverter.Terminal
     {
         private OperationRepository repository;
         private OperationRepositoryInitializer initializer;
+        private CustomDatabaseContext customDatabaseContext;
 
         public Program()
         {
             this.repository = new OperationRepository();
-            this.initializer = new OperationRepositoryInitializer(repository);
+            this.customDatabaseContext = new CustomDatabaseContext();
+            this.initializer = new OperationRepositoryInitializer(repository, customDatabaseContext);
             initializer.initializeRepository();
 
             repository.addOperation(
@@ -31,6 +34,11 @@ namespace UnitConverter.Terminal
                 op.beforeRun(new ConversionOperationBeforeRunTaskRunFunction());
                 op.afterRun(new ConversionOperationAfterRunTaskRunFunction());
             });
+
+            Operation conversionOperation = repository.findOperationByName("Wyświetl statystyki konwersji");
+
+            conversionOperation.beforeRun(new FindAllConversionHistoryBeforeRunTaskTunFunction());
+            conversionOperation.afterRun(new FindAllConversionHistoryAfterRunTaskRunFunction());
 
             ProgramUtils.prepareGoBackOperations(repository.operations);
         }

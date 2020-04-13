@@ -1,6 +1,7 @@
 ﻿using System;
 using UnitConverter.Library.OperationUtil.OpException;
 using UnitConverter.Library.TypeUtil;
+using UnitConverter.Library.TypeUtil.Number;
 using UnitConverter.Library.TypeUtil.TypeException;
 
 namespace UnitConverter.Terminal.Core
@@ -56,6 +57,10 @@ namespace UnitConverter.Terminal.Core
         /// <summary>
         /// Metoda odczytuje i waliduje wprowadzoną wartość mojego własnego typu zmiennej
         /// </summary>
+        /// <param name="type">Typ danych, który zamierzamy odczytać z konsoli</param>
+        /// <param name="required">
+        ///     Pole, które decyduje, czy dana wartość jest wymagana do wprowadzenia
+        /// </param>
         /// <returns>Zwraca w pełni prawidłową wartość mojego własnego typu zmiennych</returns>
         /// <exception cref="CustomTypeException">
         ///     Wyjątek rzucany w momencie, gdy zostanie wprowadzona nieprawidłowa wartość
@@ -63,7 +68,7 @@ namespace UnitConverter.Terminal.Core
         /// <see cref="ICustomType"/>
         /// <see cref="CustomTypeUtils"/>
         /// <see cref="CustomTypeException"/>
-        public static ICustomType readValueTo(Type type)
+        public static ICustomType readValueTo(Type type, bool required = true)
         {
             bool exceptionThrown = true;
             ICustomType res = CustomTypeUtils.createInstanceFrom(type);
@@ -72,7 +77,11 @@ namespace UnitConverter.Terminal.Core
             {
                 try
                 {
-                    res.fromString(Console.ReadLine());
+                    string input = Console.ReadLine();
+                    if(required || input != "")
+                    {
+                        res.fromString(input);
+                    }
                     exceptionThrown = false;
                 }
                 catch(CustomTypeException ex)

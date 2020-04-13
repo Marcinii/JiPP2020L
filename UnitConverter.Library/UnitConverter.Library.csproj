@@ -7,7 +7,7 @@
     <ProjectGuid>{F43ED449-0BCD-4C2C-833C-0FF98CC0DD39}</ProjectGuid>
     <OutputType>Library</OutputType>
     <RootNamespace>UnitConverter.Library</RootNamespace>
-    <AssemblyName>UnitConverter</AssemblyName>
+    <AssemblyName>UnitConverter.Library</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -37,8 +37,17 @@
     <StartupObject />
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -47,6 +56,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="History\ConversionHistory.cs" />
+    <Compile Include="DatabaseContext\CustomDatabaseContext.cs" />
     <Compile Include="OperationUtil\DefaultOperation.cs" />
     <Compile Include="OperationUtil\OpException\OperationException.cs" />
     <Compile Include="OperationUtil\OpException\OperationExistsException.cs" />
@@ -55,10 +66,17 @@
     <Compile Include="OperationUtil\Runner\IOperationRunner.cs" />
     <Compile Include="OperationUtil\Operation.cs" />
     <Compile Include="OperationUtil\VoidOperation.cs" />
+    <Compile Include="TaskUtil\Group\TaskGroupBuilder.cs" />
+    <Compile Include="TaskUtil\Impl\FindAllConversionHistoryTask.cs" />
+    <Compile Include="TaskUtil\Group\ITaskGroup.cs" />
+    <Compile Include="TaskUtil\Impl\FindTopThreeConversionsTask.cs" />
+    <Compile Include="TaskUtil\Parameter\TaskParameterLevel.cs" />
+    <Compile Include="TaskUtil\Runner\ConversionTaskAfterRunTaskRunFunction.cs" />
     <Compile Include="TaskUtil\TaskException\TaskParameterNotFoundException.cs" />
     <Compile Include="TaskUtil\Impl\ConversionTask.cs" />
     <Compile Include="TaskUtil\Parameter\SelectableTaskParameterBuilder.cs" />
     <Compile Include="TaskUtil\TaskBuilder.cs" />
+    <Compile Include="TaskUtil\Group\TaskGroup.cs" />
     <Compile Include="TaskUtil\TaskRunFunction.cs" />
     <Compile Include="TaskUtil\IRunnable.cs" />
     <Compile Include="TaskUtil\ISelectableTask.cs" />
@@ -71,15 +89,20 @@
     <Compile Include="TaskUtil\Parameter\TaskParameterUtils.cs" />
     <Compile Include="TaskUtil\SelectableTask.cs" />
     <Compile Include="TaskUtil\Task.cs" />
-    <Compile Include="TypeUtil\Custom12HTime.cs" />
-    <Compile Include="TypeUtil\Custom12HTimeType.cs" />
-    <Compile Include="TypeUtil\CustomInteger.cs" />
+    <Compile Include="TypeUtil\DateTimeType\Custom12HTime.cs" />
+    <Compile Include="TypeUtil\DateTimeType\Custom12HTimeType.cs" />
+    <Compile Include="TypeUtil\DateTimeType\CustomDate.cs" />
+    <Compile Include="TypeUtil\Number\CustomInteger.cs" />
+    <Compile Include="TypeUtil\CustomString.cs" />
     <Compile Include="TypeUtil\CustomTypeUtils.cs" />
+    <Compile Include="TypeUtil\DateTimeType\ICustomDateTime.cs" />
+    <Compile Include="TypeUtil\Number\ICustomNumber.cs" />
     <Compile Include="TypeUtil\IObject.cs" />
+    <Compile Include="TypeUtil\TypeException\CustomDateIncorrectValueException.cs" />
     <Compile Include="TypeUtil\Void\CustomVoid.cs" />
     <Compile Include="TypeUtil\TypeException\CreateInstanceCustomTypeException.cs" />
     <Compile Include="TypeUtil\TypeException\CustomDoubleIncorrectValueException.cs" />
-    <Compile Include="TypeUtil\CustomTime.cs" />
+    <Compile Include="TypeUtil\DateTimeType\CustomTime.cs" />
     <Compile Include="TypeUtil\TypeException\CustomIntegerIncorrectValueException.cs" />
     <Compile Include="TypeUtil\TypeException\CustomTimeIncorrectValueException.cs" />
     <Compile Include="TypeUtil\TypeException\CustomTypeException.cs" />
@@ -93,7 +116,7 @@
     <Compile Include="OperationUtil\Repository\OperationRepositoryInitializer.cs" />
     <Compile Include="OperationUtil\Repository\OperationRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TypeUtil\CustomDouble.cs" />
+    <Compile Include="TypeUtil\Number\CustomDouble.cs" />
     <Compile Include="TypeUtil\ICustomType.cs" />
     <Compile Include="TypeUtil\CustomObject.cs" />
     <Compile Include="UnitUtil\BaseUnit.cs" />
@@ -102,6 +125,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

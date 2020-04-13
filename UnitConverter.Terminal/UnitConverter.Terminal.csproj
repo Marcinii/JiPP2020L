@@ -33,6 +33,14 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -49,6 +57,23 @@
     <Compile Include="Runner\CommandLineOperationRunner.cs" />
     <Compile Include="Runner\ConversionOperationAfterRunTaskRunFunction.cs" />
     <Compile Include="Runner\ConversionOperationBeforeRunTaskRunFunction.cs" />
+    <Compile Include="Runner\FindAllConversionHistoryAfterRunTaskRunFunction.cs" />
+    <Compile Include="Runner\FindAllConversionHistoryBeforeRunTaskTunFunction.cs" />
+    <Compile Include="TableUtil\Cell\ITableCell.cs" />
+    <Compile Include="TableUtil\Cell\TableCell.cs" />
+    <Compile Include="TableUtil\Cell\TableCellAlign.cs" />
+    <Compile Include="TableUtil\Cell\TableCellUtils.cs" />
+    <Compile Include="TableUtil\Drawer\TableDrawerFunction.cs" />
+    <Compile Include="TableUtil\Drawer\TableDrawerUtils.cs" />
+    <Compile Include="TableUtil\Style\TableLineSet.cs" />
+    <Compile Include="TableUtil\Row\TableRow.cs" />
+    <Compile Include="TableUtil\Row\TableRowBuilder.cs" />
+    <Compile Include="TableUtil\Style\TableStyle.cs" />
+    <Compile Include="TableUtil\Style\TableStyleUtils.cs" />
+    <Compile Include="TableUtil\Table.cs" />
+    <Compile Include="TableUtil\TableBuilder.cs" />
+    <Compile Include="TableUtil\Drawer\TableDrawer.cs" />
+    <Compile Include="TableUtil\TablePresenter.cs" />
     <Compile Include="Task\FinishTask.cs" />
     <Compile Include="Util\ProgramUtils.cs" />
   </ItemGroup>
@@ -60,6 +85,9 @@
       <Project>{f43ed449-0bcd-4c2c-833c-0ff98cc0dd39}</Project>
       <Name>UnitConverter.Library</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

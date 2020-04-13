@@ -1,4 +1,5 @@
 ﻿using System;
+using UnitConverter.Library.OperationUtil;
 using UnitConverter.Library.TaskUtil.Parameter;
 
 namespace UnitConverter.Library.TaskUtil
@@ -45,6 +46,30 @@ namespace UnitConverter.Library.TaskUtil
 
 
         /// <summary>
+        /// Metoda, która ma za zadanie dodać nową funckję do listy funkcji, które będą się uruchamiały przed
+        /// właściwym wywołaniem zadania
+        /// </summary>
+        /// <param name="taskBeforeRunFunction">
+        ///     Instancja funckji, która ma się wywołać
+        /// </param>
+        /// <see cref="TaskRunFunction"/>
+        void beforeRun(TaskRunFunction taskBeforeRunFunction);
+
+
+
+        /// <summary>
+        /// Metoda, która ma za zadanie dodać nową funckję do listy funkcji, które będą się uruchamiały po
+        /// właściwym wywołaniu zadania
+        /// </summary>
+        /// <param name="taskBeforeRunFunction">
+        ///     Instancja funckji, która ma się wywołać
+        /// </param>
+        /// <see cref="TaskRunFunction"/>
+        void afterRun(TaskRunFunction taskAfterRunFunction);
+
+
+
+        /// <summary>
         /// Metoda zwracająca kolekcję z parametrami
         /// </summary>
         /// <returns>Lista parametrów</returns>
@@ -60,5 +85,16 @@ namespace UnitConverter.Library.TaskUtil
         /// <returns>Zwraca istniejący w liscie parametr o podanej nazwie</returns>
         /// <see cref="TaskParameter"/>
         TaskParameter getParameter(string name);
+
+
+
+        /// <summary>
+        /// Metoda, która uruchamia zadanie. Najpierw wywołuje listę funkcji z pola <see cref="taskBeforeRunFunctions"/>,
+        /// potem wywołuje właściwe zadanie, a na koniec wywołuje listę funckji z pola <see cref="taskAfterRunFunctions"/>
+        /// </summary>
+        /// <param name="operation">Operacja, z którego dane zadanie zostało wywołane</param>
+        /// <returns>Zwraca obiekt, który jest wynikiem działania funkcji</returns>
+        /// <see cref="Operation"/>
+        object run(Operation operation);
     }
 }

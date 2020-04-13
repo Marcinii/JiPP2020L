@@ -25,5 +25,15 @@
         /// </summary>
         /// <returns>Zwraca wartość jako iąg znaków</returns>
         string ToString();
+
+
+
+        /// <summary>
+        /// Metoda abstrakcyjna, która sprawdza, czy wartość nie jest wprowadzona
+        /// </summary>
+        /// <returns>
+        ///     Zwraca prawdę, jeżeli wartość nie jest wprowadzona, w przeciwnym przypadku zwraca fałsz.
+        /// </returns>
+        bool isEmpty();
     }
 }

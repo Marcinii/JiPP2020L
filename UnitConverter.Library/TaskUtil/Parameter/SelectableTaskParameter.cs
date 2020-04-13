@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using UnitConverter.Library.TypeUtil;
+using UnitConverter.Library.TypeUtil.Number;
 
 namespace UnitConverter.Library.TaskUtil.Parameter
 {
@@ -18,7 +18,9 @@ namespace UnitConverter.Library.TaskUtil.Parameter
         public List<SelectableTaskParameterOption> options { get; private set; }
         public string label { get; private set; }
 
-        public SelectableTaskParameter(string name, string label, bool required = true) : base(name, default, required) {
+        public SelectableTaskParameter(string name, string label, TaskParameterLevel level = TaskParameterLevel.REQUIRED) 
+            : base(name, level) 
+        {
             this.selectedOptionIndex = -1;
             this.label = label;
             this.options = new List<SelectableTaskParameterOption>();

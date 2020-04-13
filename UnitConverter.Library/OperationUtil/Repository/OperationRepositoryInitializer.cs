@@ -1,7 +1,12 @@
-﻿using UnitConverter.Library.TaskUtil;
+﻿using UnitConverter.Library.History;
+using UnitConverter.Library.TaskUtil;
+using UnitConverter.Library.TaskUtil.Group;
 using UnitConverter.Library.TaskUtil.Impl;
 using UnitConverter.Library.TaskUtil.Parameter;
+using UnitConverter.Library.TaskUtil.Runner;
 using UnitConverter.Library.TypeUtil;
+using UnitConverter.Library.TypeUtil.DateTimeType;
+using UnitConverter.Library.TypeUtil.Number;
 using UnitConverter.Library.UnitUtil;
 
 namespace UnitConverter.Library.OperationUtil.Repository
@@ -16,10 +21,12 @@ namespace UnitConverter.Library.OperationUtil.Repository
     public class OperationRepositoryInitializer
     {
         private OperationRepository repository;
+        private CustomDatabaseContext customDatabaseContext;
 
-        public OperationRepositoryInitializer(OperationRepository repository)
+        public OperationRepositoryInitializer(OperationRepository repository, CustomDatabaseContext customDatabaseContext)
         {
             this.repository = repository;
+            this.customDatabaseContext = customDatabaseContext;
         }
 
 
@@ -146,8 +153,9 @@ namespace UnitConverter.Library.OperationUtil.Repository
                         .parameters(
                             fromConversionTaskParameterBuilder.options(temperaturesOptions).build(),
                             toConversionTaskParameterBuilder.options(temperaturesOptions).build(),
-                            new InputTaskParameter("value", 0)
+                            new InputTaskParameter("value", typeof(CustomInteger), 0)
                         )
+                        .afterRun(new ConversionTaskAfterRunTaskRunFunction("Konwersja temperatury", customDatabaseContext))
                         .build()
                 ),
                 new DefaultOperation(2, "Konwersja długości",
@@ -156,8 +164,9 @@ namespace UnitConverter.Library.OperationUtil.Repository
                         .parameters(
                             fromConversionTaskParameterBuilder.options(distanceOptions).build(),
                             toConversionTaskParameterBuilder.options(distanceOptions).build(),
-                            new InputTaskParameter("value", 0)
+                            new InputTaskParameter("value", typeof(CustomInteger))
                         )
+                        .afterRun(new ConversionTaskAfterRunTaskRunFunction("Konwersja długości", customDatabaseContext))
                         .build()
                 ),
                 new DefaultOperation(3, "Konwersja masy",
@@ -166,8 +175,9 @@ namespace UnitConverter.Library.OperationUtil.Repository
                         .parameters(
                             fromConversionTaskParameterBuilder.options(weightOptions).build(),
                             toConversionTaskParameterBuilder.options(weightOptions).build(),
-                            new InputTaskParameter("value", 0)
+                            new InputTaskParameter("value", typeof(CustomInteger))
                         )
+                        .afterRun(new ConversionTaskAfterRunTaskRunFunction("Konwersja masy", customDatabaseContext))
                         .build()
                 ),
                 new DefaultOperation(4, "Konwersja objętości",
@@ -176,8 +186,9 @@ namespace UnitConverter.Library.OperationUtil.Repository
                         .parameters(
                             fromConversionTaskParameterBuilder.options(velocityOptions).build(),
                             toConversionTaskParameterBuilder.options(velocityOptions).build(),
-                            new InputTaskParameter("value", 0)
+                            new InputTaskParameter("value", typeof(CustomInteger))
                         )
+                        .afterRun(new ConversionTaskAfterRunTaskRunFunction("Konwersja objętości", customDatabaseContext))
                         .build()
                 ),
                 new DefaultOperation(5, "Konwersja czasu",
@@ -186,13 +197,33 @@ namespace UnitConverter.Library.OperationUtil.Repository
                         .parameters(
                             fromConversionTaskParameterBuilder.options(timesOptions).build(),
                             toConversionTaskParameterBuilder.options(timesOptions).build(),
-                            new InputTaskParameter("value", 0)
+                            new InputTaskParameter("value", typeof(CustomTime))
                         )
+                        .afterRun(new ConversionTaskAfterRunTaskRunFunction("Konwersja czasu", customDatabaseContext))
                         .build()
                 )
             ));
 
             repository.addOperation(conversionOperation);
+
+
+
+
+            DefaultOperation statisticsOperation = new DefaultOperation(2, "Wyświetl statystyki konwersji",
+                TaskGroup.builder()
+                    .tasks(
+                        new FindAllConversionHistoryTask(customDatabaseContext),
+                        new FindTopThreeConversionsTask(customDatabaseContext)
+                    )
+                    .parameters(
+                        new InputTaskParameter("Nazwa konwertera", typeof(CustomString), TaskParameterLevel.OPTIONAL),
+                        new InputTaskParameter("Data początkowa", typeof(CustomDate), TaskParameterLevel.OPTIONAL),
+                        new InputTaskParameter("Data końcowa", typeof(CustomDate), TaskParameterLevel.OPTIONAL)
+                    )
+                    .build()
+            );
+
+            repository.addOperation(statisticsOperation);
         }
     }
 }

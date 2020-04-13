@@ -1,5 +1,5 @@
 ﻿using UnitConverter.Library.TaskUtil;
-using UnitConverter.Library.TypeUtil;
+using UnitConverter.Library.TypeUtil.Number;
 using UnitConverter.Library.TypeUtil.Void;
 
 namespace UnitConverter.Library.OperationUtil
@@ -14,6 +14,6 @@ namespace UnitConverter.Library.OperationUtil
 
         public override void afterRun(TaskRunFunction taskAfterRunFunction) => ((Task<CustomVoid>)task).afterRun(taskAfterRunFunction);
         public override void beforeRun(TaskRunFunction taskBeforeRunFunction) => ((Task<CustomVoid>)task).beforeRun(taskBeforeRunFunction);
-        public override void run() => ((Task<CustomVoid>)task).run(this).run();
+        public override void run() => ((CustomVoid)task.run(this)).run();
     }
 }

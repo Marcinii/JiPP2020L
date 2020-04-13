@@ -3,7 +3,6 @@ using UnitConverter.Library.Validator;
 
 namespace UnitConverter.Library.TypeUtil
 {
-
     /// <summary>
     /// Klasa, która ma za zadanie przetworzenie ciągu znaków na nasz typ danych
     /// </summary>

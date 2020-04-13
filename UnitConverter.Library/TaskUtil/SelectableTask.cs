@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using UnitConverter.Library.OperationUtil;
 using UnitConverter.Library.OperationUtil.Repository;
-using UnitConverter.Library.TypeUtil;
+using UnitConverter.Library.TypeUtil.Number;
 using UnitConverter.Library.TypeUtil.Void;
 
 namespace UnitConverter.Library.TaskUtil

@@ -3,7 +3,7 @@ using UnitConverter.Library.OperationUtil;
 using UnitConverter.Library.OperationUtil.Runner;
 using UnitConverter.Library.TaskUtil;
 using UnitConverter.Library.TaskUtil.Parameter;
-using UnitConverter.Library.TypeUtil;
+using UnitConverter.Library.TypeUtil.Number;
 using UnitConverter.Terminal.Core;
 
 namespace UnitConverter.Terminal.Runner
@@ -18,7 +18,8 @@ namespace UnitConverter.Terminal.Runner
     {
         private bool finished;
 
-        public CommandLineOperationRunner() {
+        public CommandLineOperationRunner()
+        {
             this.finished = false;
         }
 
@@ -52,9 +53,9 @@ namespace UnitConverter.Terminal.Runner
                     {
                         if (!currentTask.getSelectedOperation().task.getParameters().exists("commandLineRunner"))
                         {
-                            currentTask.getSelectedOperation().task.addParameter(
-                                new InputTaskParameter("commandLineRunner", this, false)
-                            );
+                            InputTaskParameter parameter = new InputTaskParameter("commandLineRunner", typeof(CommandLineOperationRunner), TaskParameterLevel.HIDDEN);
+                            parameter.value = this;
+                            currentTask.getSelectedOperation().task.addParameter(parameter);
                         }
                         else
                         {

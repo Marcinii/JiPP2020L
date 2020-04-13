@@ -14,10 +14,15 @@ namespace UnitConverter.Library.TaskUtil.Parameter
     {
         private List<TaskParameter> parameters;
 
+
+
+
         public TaskParameterCollection(params TaskParameter[] parameters)
         {
             this.parameters = new List<TaskParameter>(parameters);
         }
+
+
 
 
         /// <summary>
@@ -40,15 +45,14 @@ namespace UnitConverter.Library.TaskUtil.Parameter
             }
             set
             {
-                foreach (TaskParameter parameter in parameters)
+                parameters.ForEach(parameter =>
                 {
-                    if (parameter.name == value.name)
+                    if(parameter.name == value.name)
                     {
-                        parameter.value = value.value;
-                        parameter.required = value.required;
+                        parameter = value;
                         return;
                     }
-                }
+                });
             }
         }
 
@@ -92,7 +96,7 @@ namespace UnitConverter.Library.TaskUtil.Parameter
         public void forEachRequired(TaskParameterCollectionForEachFunction function)
         {
             foreach (TaskParameter parameter in parameters)
-                if (parameter.required)
+                if (parameter.level != TaskParameterLevel.HIDDEN)
                     function(parameter);
         }
 

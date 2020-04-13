@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Diagnostics;
+using UnitConverter.Library.TypeUtil.DateTimeType;
+using UnitConverter.Library.TypeUtil.Number;
 using UnitConverter.Library.TypeUtil.TypeException;
 
 namespace UnitConverter.Library.TypeUtil
@@ -37,7 +39,9 @@ namespace UnitConverter.Library.TypeUtil
                 case "CustomDouble": res = new CustomDouble(); break;
                 case "CustomTime": res = new CustomTime(); break;
                 case "Custom12HTime": res = new Custom12HTime(); break;
+                case "CustomDate": res = new CustomDate(); break;
                 case "CustomInteger": res = new CustomInteger(); break;
+                case "CustomString": res = new CustomString(); break;
                 default: throw new CreateInstanceCustomTypeException(string.Format("Wprowadzony typ \"{0}\' nie został rozpoznany", type.ToString()));
             }
 

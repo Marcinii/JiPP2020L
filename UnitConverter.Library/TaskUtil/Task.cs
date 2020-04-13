@@ -32,17 +32,15 @@ namespace UnitConverter.Library.TaskUtil
     ///     Taki zabieg ma pomóć w odpowiednim przetworzeniu wyniku zadania.
     /// </param>
     /// <param name="result">Pole przechowujące wynik wykonania zadania</param>
-    /// <see cref="IObject"/>
-    /// <see cref="IObject"/>
     /// <see cref="TaskParameterCollection"/>
     /// <see cref="TaskRunFunction"/>
-    public abstract class Task<T> : IRunnable where T : IObject
+    public abstract class Task<T> : IRunnable
     {
         protected TaskParameterCollection parameters { get; set; }
         protected List<TaskRunFunction> taskBeforeRunFunctions { get; set; }
         protected List<TaskRunFunction> taskAfterRunFunctions { get; set; }
 
-        private T result;
+        protected T result { get; set; }
 
         public Task()
         {
@@ -79,7 +77,7 @@ namespace UnitConverter.Library.TaskUtil
         /// </summary>
         /// <param name="parameter">Instancja obiektu reprezentujący parametr do zadania</param>
         /// <see cref="TaskParameter"/>
-        public void addParameter(TaskParameter parameter) => this.parameters.add(parameter);
+        public virtual void addParameter(TaskParameter parameter) => this.parameters.add(parameter);
 
 
 
@@ -88,7 +86,7 @@ namespace UnitConverter.Library.TaskUtil
         /// </summary>
         /// <param name="name">Nazwa parametru</param>
         /// <param name="value">Wartość parametru</param>
-        public void setParameter(string name, object value) => this.parameters[name].value = value;
+        public virtual void setParameter(string name, object value) => this.parameters[name].value = value;
 
 
         /// <summary>
@@ -155,7 +153,7 @@ namespace UnitConverter.Library.TaskUtil
         /// <param name="operation">Operacja, z którego dane zadanie zostało wywołane</param>
         /// <returns>Zwraca obiekt, który jest wynikiem działania funkcji</returns>
         /// <see cref="Operation"/>
-        public T run(Operation operation)
+        public object run(Operation operation)
         {
             this.taskBeforeRunFunctions.ForEach(f => f.apply(this));
             this.result = apply(operation);

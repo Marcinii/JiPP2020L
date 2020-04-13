@@ -1,4 +1,6 @@
-﻿namespace UnitConverter.Library.TypeUtil.TypeException
+﻿using UnitConverter.Library.TypeUtil.DateTimeType;
+
+namespace UnitConverter.Library.TypeUtil.TypeException
 {
     /// <summary>
     /// Klasa dziedzicząca klasę <see cref="CustomTypeIncorrectValueException"/>,

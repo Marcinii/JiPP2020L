@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using UnitConverter.Library.OperationUtil;
-using UnitConverter.Library.TypeUtil;
+using UnitConverter.Library.TypeUtil.Number;
 
 namespace UnitConverter.Library.TaskUtil
 {

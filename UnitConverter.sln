@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29326.143
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitConverter.App", "UnitConverter.App\UnitConverter.App.csproj", "{99A4E3E1-2BCD-45FB-8950-B4662BA78238}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitConverter.Application", "UnitConverter.Application\UnitConverter.Application.csproj", "{99A4E3E1-2BCD-45FB-8950-B4662BA78238}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitConverter.Library", "UnitConverter.Library\UnitConverter.Library.csproj", "{F43ED449-0BCD-4C2C-833C-0FF98CC0DD39}"
 EndProject

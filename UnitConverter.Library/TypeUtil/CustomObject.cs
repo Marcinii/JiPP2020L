@@ -1,4 +1,5 @@
-﻿using UnitConverter.Library.TypeUtil.TypeException;
+﻿using System;
+using UnitConverter.Library.TypeUtil.TypeException;
 using UnitConverter.Library.Validator;
 
 namespace UnitConverter.Library.TypeUtil
@@ -36,13 +37,23 @@ namespace UnitConverter.Library.TypeUtil
             this.typeParser = new CustomTypeValueParser(this, validator, exception);
         }
 
+
+
         public override string ToString() => $"{value}";
 
         public ICustomType fromString(string input)
         {
             if(!validator.validate(input)) throw exception;
-
-            this.value = this.parseValue(input);
+            
+            try
+            {
+                this.value = this.parseValue(input);
+            }
+            catch(Exception)
+            {
+                throw exception;
+            }
+            
             return this;
         }
 
@@ -54,6 +65,16 @@ namespace UnitConverter.Library.TypeUtil
         /// <param name="input">Wprowadzony cią znaków</param>
         /// <returns>Zwraca obiekt z przekonwertowaną wartość</returns>
         protected abstract T parseValue(string input);
+
+
+
+        /// <summary>
+        /// Metoda abstrakcyjna, która sprawdza, czy wartość nie jest wprowadzona
+        /// </summary>
+        /// <returns>
+        ///     Zwraca prawdę, jeżeli wartość nie jest wprowadzona, w przeciwnym przypadku zwraca fałsz.
+        /// </returns>
+        public abstract bool isEmpty();
 
 
 
