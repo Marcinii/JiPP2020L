@@ -24,6 +24,8 @@ namespace UnitConverter.Desktop
     public partial class MainWindow : Window
     {
         bool isClockVisible = false;
+        bool isRecordsSortedByConverterTypeDescending = false;
+        int paginationVariable=0;
         public MainWindow()
         {
             InitializeComponent();
@@ -69,6 +71,8 @@ namespace UnitConverter.Desktop
 
             resultTextblock.Text = result.ToString();
 
+            InsertDataToDatabase();
+
             double hourArrowValue = result > 12 ? result - 12 : result;
             double minuteArrowValue = (hourArrowValue - (int)hourArrowValue) * 100;
 
@@ -84,6 +88,142 @@ namespace UnitConverter.Desktop
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
             ((Storyboard)Resources["circleStoryboard"]).Stop();
+        }
+
+        private void InsertDataToDatabase()
+        {
+            using (ConverterDatabaseEntities context = new ConverterDatabaseEntities())
+            {
+                ConverterData newRecord = new ConverterData
+                {
+                    UsedConverter = ((IConverter)converterCombobox.SelectedItem).Name.ToString(),
+                    UnitFrom = fromCombobox.SelectedItem.ToString(),
+                    UnitTo = toCombobox.SelectedItem.ToString(),
+                    InputValue = inputTextbox.Text,
+                    OutputValue = resultTextblock.Text,
+                    ConvertDate = DateTime.Now
+                };
+                context.ConverterDatas.Add(newRecord);
+                context.SaveChanges();
+            }
+        }
+
+        private void DataFromDatabase_Loaded(object sender, RoutedEventArgs e)
+        {
+            using (ConverterDatabaseEntities context = new ConverterDatabaseEntities())
+            {
+                dataFromDatabase.ItemsSource = context.ConverterDatas.ToList();
+            }
+        }
+
+        private void ConverterTypeFilterAsc_Click(object sender, RoutedEventArgs e)
+        {            
+            using (ConverterDatabaseEntities context = new ConverterDatabaseEntities())
+            {
+                if (isRecordsSortedByConverterTypeDescending)
+                {
+                    dataFromDatabase.ItemsSource = context.ConverterDatas.
+                        OrderBy(d => d.UsedConverter).ToList();
+                    isRecordsSortedByConverterTypeDescending = false;
+                }
+                else
+                {
+                    dataFromDatabase.ItemsSource = context.ConverterDatas.
+                        OrderByDescending(d => d.UsedConverter).ToList();
+                    isRecordsSortedByConverterTypeDescending = true;
+                }
+
+
+            }
+        }
+
+        private void DateFilter_Click(object sender, RoutedEventArgs e)
+        {
+            using (ConverterDatabaseEntities context = new ConverterDatabaseEntities())
+            {
+                int yearFrom = dateFrom.SelectedDate.Value.Year;
+                int monthFrom = dateFrom.SelectedDate.Value.Month;
+                int dayFrom = dateFrom.SelectedDate.Value.Day;
+                int yearTo = dateTo.SelectedDate.Value.Year;
+                int monthTo = dateTo.SelectedDate.Value.Month;
+                int dayTo = dateTo.SelectedDate.Value.Day;
+                
+                dataFromDatabase.ItemsSource = context.ConverterDatas
+                    .Where(d =>
+                    d.ConvertDate >= new DateTime(yearFrom,monthFrom,dayFrom))
+                    .Where(d =>
+                    d.ConvertDate <= new DateTime(yearTo, monthTo, dayTo))
+                    .ToList();
+            }
+        }
+
+        private void PaginationButtonPrev_Click(object sender, RoutedEventArgs e)
+        {
+            using (ConverterDatabaseEntities context = new ConverterDatabaseEntities())
+            {                
+                dataFromDatabase.ItemsSource = context.ConverterDatas
+                    .ToList()
+                    .Skip(paginationVariable)
+                    .Take(10)
+                    .ToList();
+                paginationVariable -= 10;
+            }
+        }
+
+        private void PaginationButtonNext_Click(object sender, RoutedEventArgs e)
+        {
+            using (ConverterDatabaseEntities context = new ConverterDatabaseEntities())
+            {
+                dataFromDatabase.ItemsSource = context.ConverterDatas
+                    .ToList()
+                    .Skip(paginationVariable)
+                    .Take(10)
+                    .ToList();
+                paginationVariable += 10;
+            }
+        }
+
+        private void TypesOfConversions_Loaded(object sender, RoutedEventArgs e)
+        {
+            using (ConverterDatabaseEntities context = new ConverterDatabaseEntities())
+            {
+                typesOfConversions.ItemsSource = context.ConverterDatas
+                    .Select(d => d.UsedConverter)
+                    .Distinct()
+                    .ToList();
+            }
+        }
+
+        private void PopularConversions_Click(object sender, RoutedEventArgs e)
+        {
+            using (ConverterDatabaseEntities context = new ConverterDatabaseEntities())
+            {
+                dataFromDatabase.ItemsSource = context.ConverterDatas
+                    .ToList()
+                    .Where(d => d.ConvertDate >= new DateTime(
+                        dateFrom.SelectedDate.Value.Year,
+                        dateFrom.SelectedDate.Value.Month,
+                        dateFrom.SelectedDate.Value.Day))
+                    .Where(d => d.ConvertDate <= new DateTime(
+                        dateTo.SelectedDate.Value.Year,
+                        dateTo.SelectedDate.Value.Month,
+                        dateTo.SelectedDate.Value.Day))
+                    .GroupBy(d => d.UsedConverter)
+                    .Select(d => new { UsedConverter = d.Key, Count = d.Count() })
+                    .OrderByDescending(d => d.Count)
+                    .Take(3);
+            }
+        }
+
+        private void ConverterTypeFilter_valueFromCombobox_Click(object sender, RoutedEventArgs e)
+        {
+            using (ConverterDatabaseEntities context = new ConverterDatabaseEntities())
+            {
+                dataFromDatabase.ItemsSource = context.ConverterDatas
+                .Where(d => d.UsedConverter
+                == typesOfConversions.SelectedItem.ToString())
+                .ToList();
+            }
         }
     }
 }
