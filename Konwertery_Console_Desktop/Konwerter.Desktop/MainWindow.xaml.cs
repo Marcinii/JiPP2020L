@@ -19,6 +19,7 @@ namespace Konwerter.Desktop
 {
     public partial class MainWindow : Window
     {
+        CONVERSIONS conversion = new CONVERSIONS();
         public List<IConverter> converterList = new List<IConverter> {
             new LenghtConversion(),
             new WeightConversion(),
@@ -55,31 +56,32 @@ namespace Konwerter.Desktop
             switch (converterIndex)
             {
                 case 0:
+                    chosenConverter = converterList[0];
                     initLenghtConverter();
                     hideClock();
-                    chosenConverter = converterList[0];
                     break;
                 case 1:
+                    chosenConverter = converterList[1];
                     initWeightConverter();
                     hideClock();
-                    chosenConverter = converterList[1];
                     break;
                 case 2:
+                    chosenConverter = converterList[2];
                     initTemperatureConverter();
                     hideClock();
-                    chosenConverter = converterList[2];
                     break;
                 case 3:
+                    chosenConverter = converterList[3];
                     initPowerConverter();
                     hideClock();
-                    chosenConverter = converterList[3];
                     break;
                 case 4:
+                    chosenConverter = converterList[4];
                     initTimeConverter();
                     showClock();
                     ((Storyboard)Resources["zegarAnimation"]).Begin();
-                    chosenConverter = converterList[4];
                     break;
+
             }
         }
         private void initLenghtConverter()
@@ -128,19 +130,29 @@ namespace Konwerter.Desktop
             {
                 string conTo = convertTo.SelectedItem.ToString();
                 string conFrom = convertFrom.SelectedItem.ToString();
+                string result = chosenConverter.onConvert(quantity, conFrom, conTo);
 
                 if (chosenConverter.Equals(converterList[4]))
                 {
                     string[] lista = quantity.Split(':');
                     hourRotation.Angle = (360 / 12) * (Int32.Parse(lista[0])) + 90;
                     minuteRotation.Angle = (360 / 60) * (Int32.Parse(lista[1])) + 90;
-                    resultLabel.Content = chosenConverter.onConvert(quantity, conFrom, conTo);
+                    resultLabel.Content = result;
                 } 
                 else
                 {
-                    resultLabel.Content = chosenConverter.onConvert(quantity, conFrom, conTo);
+                    resultLabel.Content = result;
                 }
-                
+
+                conversion.name = chosenConverter.ConverterName;
+                conversion.unitFrom = conFrom;
+                conversion.unitTo = conTo;
+                conversion.valueToConvert = Convert.ToDecimal(quantity);
+                conversion.valueAfterConvert = Convert.ToDecimal(result);
+                conversion.dateOfConversion = DateTime.Now;
+
+                insertData(conversion);
+                conversion = new CONVERSIONS();
             }
         }
 
@@ -156,6 +168,15 @@ namespace Konwerter.Desktop
             path1.Visibility = Visibility.Hidden;
             rectangle.Visibility = Visibility.Hidden;
             hourPointer.Visibility = Visibility.Hidden;
+        }
+
+        public static void insertData(CONVERSIONS conv)
+        {
+            using (ConverterModelEntities context = new ConverterModelEntities())
+            {
+                context.CONVERSIONS.Add(conv);
+                context.SaveChanges();
+            }
         }
     }
 }

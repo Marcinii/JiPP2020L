@@ -49,3 +49,9 @@ D:\Repozytorium\Konwertery_Console_Desktop\Konwerter.Desktop\obj\Debug\Konwerter
 D:\Repozytorium\Konwertery_Console_Desktop\Konwerter.Desktop\obj\Debug\Konwerter.Desktop.csproj.CopyComplete
 D:\Repozytorium\Konwertery_Console_Desktop\Konwerter.Desktop\obj\Debug\Konwerter.Desktop.exe
 D:\Repozytorium\Konwertery_Console_Desktop\Konwerter.Desktop\obj\Debug\Konwerter.Desktop.pdb
+D:\Repozytorium\Konwertery_Console_Desktop\Konwerter.Desktop\bin\Debug\EntityFramework.dll
+D:\Repozytorium\Konwertery_Console_Desktop\Konwerter.Desktop\bin\Debug\Konwerter.Logic.dll.config
+D:\Repozytorium\Konwertery_Console_Desktop\Konwerter.Desktop\bin\Debug\EntityFramework.xml
+D:\Repozytorium\Konwertery_Console_Desktop\Konwerter.Desktop\bin\Debug\EntityFramework.SqlServer.dll
+D:\Repozytorium\Konwertery_Console_Desktop\Konwerter.Desktop\bin\Debug\EntityFramework.SqlServer.xml
+D:\Repozytorium\Konwertery_Console_Desktop\Konwerter.Desktop\obj\Debug\Konwerter.Desktop_Content.g.cs

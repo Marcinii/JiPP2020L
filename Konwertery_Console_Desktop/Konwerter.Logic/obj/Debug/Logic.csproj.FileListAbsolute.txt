@@ -3,8 +3,13 @@ D:\VStudio_projects\KonwerterKonsolowy\Konwerter.Logic\bin\Debug\Konwerter.Logic
 D:\VStudio_projects\KonwerterKonsolowy\Konwerter.Logic\obj\Debug\Konwerter.Logic.dll
 D:\VStudio_projects\KonwerterKonsolowy\Konwerter.Logic\obj\Debug\Konwerter.Logic.pdb
 D:\VStudio_projects\KonwerterKonsolowy\Konwerter.Logic\obj\Debug\Logic.csprojAssemblyReference.cache
-D:\Repozytorium\Konwertery_Console_Desktop\Konwerter.Logic\obj\Debug\Logic.csprojAssemblyReference.cache
 D:\Repozytorium\Konwertery_Console_Desktop\Konwerter.Logic\obj\Debug\Konwerter.Logic.dll
 D:\Repozytorium\Konwertery_Console_Desktop\Konwerter.Logic\obj\Debug\Konwerter.Logic.pdb
 D:\Repozytorium\Konwertery_Console_Desktop\Konwerter.Logic\bin\Debug\Konwerter.Logic.dll
 D:\Repozytorium\Konwertery_Console_Desktop\Konwerter.Logic\bin\Debug\Konwerter.Logic.pdb
+D:\Repozytorium\Konwertery_Console_Desktop\Konwerter.Logic\bin\Debug\Konwerter.Logic.dll.config
+D:\Repozytorium\Konwertery_Console_Desktop\Konwerter.Logic\bin\Debug\EntityFramework.dll
+D:\Repozytorium\Konwertery_Console_Desktop\Konwerter.Logic\bin\Debug\EntityFramework.SqlServer.dll
+D:\Repozytorium\Konwertery_Console_Desktop\Konwerter.Logic\bin\Debug\EntityFramework.xml
+D:\Repozytorium\Konwertery_Console_Desktop\Konwerter.Logic\bin\Debug\EntityFramework.SqlServer.xml
+D:\Repozytorium\Konwertery_Console_Desktop\Konwerter.Logic\obj\Debug\Logic.csproj.CopyComplete
