@@ -22,7 +22,7 @@ namespace Konwenter_jednostek
             {
                 return a - 12 ;
             }
-            else if (z == "12h" & doo == "24h" & a>12)
+            else if (z == "12h" & doo == "24h" & a<12)
             {
                 return a + 12;
             }
