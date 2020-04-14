@@ -20,6 +20,9 @@ namespace Project.Desktop
     /// </summary>
     public partial class MainWindow : Window
     {
+
+        private HistoryWindow hwindow;
+
         public MainWindow()
         {
             InitializeComponent();
@@ -30,6 +33,7 @@ namespace Project.Desktop
             ConverterListComboBox.SelectedIndex = 0;
             ValueToConvertTextBlock.Text = "0";
 
+            hwindow = new HistoryWindow();
         }
 
         private void ConverterListComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -44,8 +48,6 @@ namespace Project.Desktop
             else
                 ClockGrid.Visibility = Visibility.Hidden;
 
-
-            Recalculate();
         }
 
         private void Recalculate()
@@ -57,8 +59,8 @@ namespace Project.Desktop
                 //string result = ValueToConvertTextBlock.Text + " " + ConvertFromListComboBox.SelectedValue + " = ";
                 string result = ((IConverter)ConverterListComboBox.SelectedItem)
                      .Convert(
-                        (string)ConvertFromListComboBox.SelectedValue,
-                        (string)ConvertToListComboBox.SelectedValue,
+                        ConvertFromListComboBox.SelectedValue?.ToString(),
+                        ConvertToListComboBox.SelectedValue?.ToString(),
                         ValueToConvertTextBlock.Text);
                 //result += " " + ConvertToListComboBox.SelectedValue;
                 ResultTextBlock.Text = result;
@@ -71,6 +73,12 @@ namespace Project.Desktop
                     MinutesRectangle.RenderTransform = new RotateTransform((360 / 60) * temp.Minute);
                 }
 
+                
+                if(!ConvertFromListComboBox.SelectedValue.Equals(null) && !ConvertToListComboBox.SelectedValue.Equals(null))
+                    SaveLog((IConverter)ConverterListComboBox.SelectedItem, ConvertFromListComboBox.SelectedValue.ToString(), ConvertToListComboBox.SelectedValue.ToString(), ValueToConvertTextBlock.Text, result);
+
+
+
             }
             catch (FormatException)
             {
@@ -78,19 +86,49 @@ namespace Project.Desktop
             }
         }
 
-        private void ValueToConvertTextBlock_TextChanged(object sender, TextChangedEventArgs e)
+
+        private void SaveLog(IConverter type, string convertFrom, string ConvertTo, string valueToConvert, string valueAfterConversion)
         {
-            Recalculate();
+          
+            using (var db = new jippEntities())
+            {
+                var newItem = new ConversionHistory()
+                {
+                    Converter = type.Name,
+                    UnitFrom = convertFrom,
+                    UnitTo = ConvertTo,
+                    ValueBefore = valueToConvert,
+                    ValueAfter = valueAfterConversion,
+                    Date = DateTime.Now
+                };
+
+                db.ConversionHistory.Add(newItem);
+
+                db.SaveChanges();
+            }
         }
 
-        private void ConvertFromListComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void ValueToConvertTextBlock_KeyDown(object sender, KeyEventArgs e)
         {
-            Recalculate();
+            if(e.Key == Key.Enter)
+            {
+                Recalculate();
+            }
         }
 
-        private void ConvertToListComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        
+
+        private void ToggleHistoryButton_Click(object sender, RoutedEventArgs e)
         {
-            Recalculate();
+
+            hwindow.Show();
+
+        }
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            hwindow.Close();
+            Application.Current.Shutdown();
         }
     }
 }

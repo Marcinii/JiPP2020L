@@ -31,11 +31,11 @@ namespace Project
 
             if (unitFrom == "24h" && unitTo == "12h")
             {
-                return time.ToString("hh:mm:ss tt");
+                return time.ToString("hh:mm:ss tt", System.Globalization.CultureInfo.InvariantCulture);
             }
             else if (unitFrom == "12h" && unitTo == "24h")
             {
-                return time.ToString("HH:mm:ss");
+                return time.ToString("HH:mm:ss", System.Globalization.CultureInfo.InvariantCulture);
             }
 
             return "";

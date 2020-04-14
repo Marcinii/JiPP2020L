@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Project.Desktop"
         mc:Ignorable="d"
-        Title="Konwerter jednostek" Height="500" Width="600" MinWidth="600" MinHeight="500" ResizeMode="NoResize" >
+        Title="Konwerter jednostek" Height="500" Width="600" MinWidth="600" MinHeight="500" ResizeMode="NoResize" Closing="Window_Closing" >
     <Window.Resources>
         <Storyboard x:Key="Storyboard1" RepeatBehavior="Forever">
             <ThicknessAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Margin)" Storyboard.TargetName="image">
@@ -32,14 +32,15 @@
                 <RowDefinition Height="30"></RowDefinition>
             </Grid.RowDefinitions>
             <Label Height="30" Background="DarkMagenta" Foreground="White" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="3">Konwerter jednostek</Label>
-            <ComboBox x:Name="ConverterListComboBox" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="3" SelectionChanged="ConverterListComboBox_SelectionChanged" Margin="2,2,2,0"></ComboBox>
-            <ComboBox x:Name="ConvertFromListComboBox" Grid.Column="0" Grid.Row="2" SelectionChanged="ConvertFromListComboBox_SelectionChanged" Margin="2,2,0,2"></ComboBox>
-            <TextBox x:Name="ValueToConvertTextBlock" Grid.Column="1" Grid.Row="2" TextChanged="ValueToConvertTextBlock_TextChanged" Margin="2" TextAlignment="Center" VerticalContentAlignment="Center"></TextBox>
-            <ComboBox x:Name="ConvertToListComboBox" Grid.Column="2" Grid.Row="2" SelectionChanged="ConvertToListComboBox_SelectionChanged" Margin="0,2,2,2"></ComboBox>
+            <ComboBox x:Name="ConverterListComboBox" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" SelectionChanged="ConverterListComboBox_SelectionChanged" Margin="2,2,2,0"></ComboBox>
+            <Button x:Name="toggleHistoryButton" Grid.Column="2" Grid.Row="1" Margin="0,2,2,0" Content="Wyświetl historię" Click="ToggleHistoryButton_Click"></Button>
+            <ComboBox x:Name="ConvertFromListComboBox" Grid.Column="0" Grid.Row="2" Margin="2,2,0,2"></ComboBox>
+            <TextBox x:Name="ValueToConvertTextBlock" Grid.Column="1" Grid.Row="2"  Margin="2" TextAlignment="Center" VerticalContentAlignment="Center" KeyDown="ValueToConvertTextBlock_KeyDown"></TextBox>
+            <ComboBox x:Name="ConvertToListComboBox" Grid.Column="2" Grid.Row="2" Margin="0,2,2,2"></ComboBox>
             <TextBox x:Name="ResultTextBlock" TextAlignment="Center" IsReadOnly="True" FontSize="18" Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="3" VerticalContentAlignment="Center" Margin="2,0"></TextBox>
 
         </Grid>
-        <Grid x:Name="ClockGrid" Margin="0,120,0,0">
+        <Grid x:Name="ClockGrid" Margin="0,120,0,0" Visibility="Hidden">
             <Rectangle x:Name="MinutesRectangle" Fill="#FF25B406" Height="120" Stroke="Black" VerticalAlignment="Center" Margin="0,0,0,120" RenderTransformOrigin="0.5,1" Width="6" Panel.ZIndex="1" HorizontalAlignment="Center"></Rectangle>
             <Rectangle x:Name="HoursRectangle" Fill="#FFC5FF00" Height="90" Stroke="Black"  RenderTransformOrigin="0.5,1" Panel.ZIndex="1" Width="8" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,0,90"/>
             <Ellipse Fill="#FFCCCCCC" Height="300" Width="300" Stroke="Black" HorizontalAlignment="Center" VerticalAlignment="Center"/>
@@ -50,6 +51,5 @@
             <TextBlock Height="23" Text="9" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,0,275,0" FontSize="20"/>
             <Image x:Name="image" Margin="0,0,-50,0" Source="Untitled.png" Height="50" Width="50" VerticalAlignment="Bottom" HorizontalAlignment="Right"/>
         </Grid>
-
     </Grid>
 </Window>
