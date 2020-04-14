@@ -13,10 +13,10 @@ namespace Konwerter.Desktop
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class ConverterModelEntities : DbContext
+    public partial class ConverterDBEntities : DbContext
     {
-        public ConverterModelEntities()
-            : base("name=ConverterModelEntities")
+        public ConverterDBEntities()
+            : base("name=ConverterDBEntities")
         {
         }
     

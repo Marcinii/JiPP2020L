@@ -19,7 +19,7 @@ namespace Konwerter.Desktop
         public string unitFrom { get; set; }
         public string unitTo { get; set; }
         public System.DateTime dateOfConversion { get; set; }
-        public decimal valueToConvert { get; set; }
-        public decimal valueAfterConvert { get; set; }
+        public string valueToConvert { get; set; }
+        public string valueAfterConvert { get; set; }
     }
 }

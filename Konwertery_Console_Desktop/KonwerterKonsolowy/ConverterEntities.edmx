@@ -14,8 +14,8 @@
           <Property Name="unitFrom" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="unitTo" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="dateOfConversion" Type="date" Nullable="false" />
-          <Property Name="valueToConvert" Type="decimal" Precision="20" Scale="2" Nullable="false" />
-          <Property Name="valueAfterConvert" Type="decimal" Precision="20" Scale="2" Nullable="false" />
+          <Property Name="valueToConvert" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="valueAfterConvert" Type="varchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <EntityContainer Name="CONVERTER_DBModelStoreContainer">
           <EntitySet Name="CONVERSIONS" EntityType="Self.CONVERSIONS" Schema="dbo" store:Type="Tables" />
@@ -33,8 +33,8 @@
           <Property Name="unitFrom" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="unitTo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="dateOfConversion" Type="DateTime" Nullable="false" Precision="0" />
-          <Property Name="valueToConvert" Type="Decimal" Precision="20" Scale="2" Nullable="false" />
-          <Property Name="valueAfterConvert" Type="Decimal" Precision="20" Scale="2" Nullable="false" />
+          <Property Name="valueToConvert" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="valueAfterConvert" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
         </EntityType>
         <EntityContainer Name="CONVERTER_DBEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="CONVERSIONS" EntityType="Self.CONVERSIONS" />

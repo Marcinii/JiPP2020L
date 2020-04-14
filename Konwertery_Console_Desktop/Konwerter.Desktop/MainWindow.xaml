@@ -83,6 +83,17 @@
                 </TransformGroup>
             </Rectangle.RenderTransform>
         </Rectangle>
-        <DataGrid x:Name="dataGrid" Grid.Column="2" HorizontalAlignment="Left" Height="245" Margin="10,10,0,0" VerticalAlignment="Top" Width="297"/>
+        <DataGrid x:Name="statsGrid" ItemsSource="{Binding}" AutoGenerateColumns="False" Grid.Column="2" HorizontalAlignment="Left" Height="245" Margin="10,10,0,0" VerticalAlignment="Top" Width="297">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Data konwersji" Binding="{Binding Path=dateOfConversion}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Rodzaj konwersji" Binding="{Binding Path=name}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Z" Binding="{Binding Path=unitFrom}"></DataGridTextColumn>
+                <DataGridTextColumn Header="wartość" Binding="{Binding Path=valueToConvert}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Na" Binding="{Binding Path=unitTo}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Wynik" Binding="{Binding Path=valueAfterConvert}"></DataGridTextColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button x:Name="nextPageBtn" Content="&gt;&gt;" Grid.Column="2" HorizontalAlignment="Left" Margin="212,0,0,0" Grid.Row="1" VerticalAlignment="Top" Width="75" Click="nextPageBtn_Click"/>
+        <Button x:Name="previousPageBtn" Content="&lt;&lt;" Grid.Column="2" HorizontalAlignment="Left" Margin="42,0,0,0" Grid.Row="1" VerticalAlignment="Top" Width="76" Click="previousPageBtn_Click"/>
     </Grid>
 </Window>

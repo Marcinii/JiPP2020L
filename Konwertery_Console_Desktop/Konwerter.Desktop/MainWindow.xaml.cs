@@ -19,7 +19,10 @@ namespace Konwerter.Desktop
 {
     public partial class MainWindow : Window
     {
+        int initPagination = 0;
+        int borderPagination = 2;
         CONVERSIONS conversion = new CONVERSIONS();
+
         public List<IConverter> converterList = new List<IConverter> {
             new LenghtConversion(),
             new WeightConversion(),
@@ -27,10 +30,13 @@ namespace Konwerter.Desktop
             new PowerConversion(),
             new TimeConversion()
         };
+
         IConverter chosenConverter;
+
         public MainWindow()
         {
             InitializeComponent();
+            getDatabaseData(initPagination, borderPagination);
             initConverterBox();
             hourRotation.Angle = (360/12)*(6)+90;
             minuteRotation.Angle = (360 / 60) * (15) + 90;
@@ -147,12 +153,13 @@ namespace Konwerter.Desktop
                 conversion.name = chosenConverter.ConverterName;
                 conversion.unitFrom = conFrom;
                 conversion.unitTo = conTo;
-                conversion.valueToConvert = Convert.ToDecimal(quantity);
-                conversion.valueAfterConvert = Convert.ToDecimal(result);
+                conversion.valueToConvert = quantity;
+                conversion.valueAfterConvert = result;
                 conversion.dateOfConversion = DateTime.Now;
 
                 insertData(conversion);
                 conversion = new CONVERSIONS();
+                getDatabaseData(initPagination, borderPagination);
             }
         }
 
@@ -170,13 +177,45 @@ namespace Konwerter.Desktop
             hourPointer.Visibility = Visibility.Hidden;
         }
 
-        public static void insertData(CONVERSIONS conv)
+        public void insertData(CONVERSIONS conv)
         {
-            using (ConverterModelEntities context = new ConverterModelEntities())
+            using (ConverterDBEntities context = new ConverterDBEntities())
             {
                 context.CONVERSIONS.Add(conv);
                 context.SaveChanges();
             }
         }
+
+        public void getDatabaseData(int initPagination, int borderPagination)
+        {
+            using (ConverterDBEntities context = new ConverterDBEntities())
+            {
+                List<CONVERSIONS> conversions = context.CONVERSIONS.ToList();
+                List<CONVERSIONS> pagedList = new List<CONVERSIONS>();
+
+                for (int i = initPagination; i < borderPagination; i++)
+                {
+                    pagedList.Add(conversions.ElementAt(i));
+                }
+
+                statsGrid.ItemsSource = pagedList;
+            }
+        }
+
+        private void previousPageBtn_Click(object sender, RoutedEventArgs e)
+        {
+            this.initPagination = initPagination - 2;
+            this.borderPagination = borderPagination - 2;
+            getDatabaseData(initPagination, borderPagination);
+        }
+
+        private void nextPageBtn_Click(object sender, RoutedEventArgs e)
+        {
+            this.initPagination  = initPagination + 2;
+            this.borderPagination = borderPagination + 2;
+            getDatabaseData(initPagination, borderPagination);
+        }
+
+        
     }
 }

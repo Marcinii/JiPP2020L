@@ -83,9 +83,9 @@ namespace KonwerterKonsolowy
 
             Console.WriteLine("Wpisz ilosc:");
             quantity = Console.ReadLine();
-            conversionDb.valueToConvert = Convert.ToDecimal(quantity);
+            conversionDb.valueToConvert = quantity;
             string result = converter.onConvert(quantity, chooseFrom, chooseTo);
-            conversionDb.valueAfterConvert = Convert.ToDecimal(result);
+            conversionDb.valueAfterConvert = result;
             conversionDb.dateOfConversion = DateTime.Now;
 
             InsertDataEF(conversionDb);

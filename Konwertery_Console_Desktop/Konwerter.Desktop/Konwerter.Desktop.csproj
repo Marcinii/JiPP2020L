@@ -72,23 +72,23 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="ConversionModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ConversionModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ConversionModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ConversionModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ConversionModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ConversionModel.edmx</DependentUpon>
+    </Compile>
     <Compile Include="CONVERSIONS.cs">
-      <DependentUpon>ConverterEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ConverterEntities.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ConverterEntities.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ConverterEntities.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ConverterEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ConverterEntities.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ConverterEntities.edmx</DependentUpon>
+      <DependentUpon>ConversionModel.tt</DependentUpon>
     </Compile>
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
@@ -113,12 +113,12 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EntityDeploy Include="ConverterEntities.edmx">
+    <EntityDeploy Include="ConversionModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>ConverterEntities.Designer.cs</LastGenOutput>
+      <LastGenOutput>ConversionModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="ConverterEntities.edmx.diagram">
-      <DependentUpon>ConverterEntities.edmx</DependentUpon>
+    <None Include="ConversionModel.edmx.diagram">
+      <DependentUpon>ConversionModel.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -136,15 +136,15 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="ConverterEntities.Context.tt">
+    <Content Include="ConversionModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>ConverterEntities.Context.cs</LastGenOutput>
-      <DependentUpon>ConverterEntities.edmx</DependentUpon>
+      <DependentUpon>ConversionModel.edmx</DependentUpon>
+      <LastGenOutput>ConversionModel.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="ConverterEntities.tt">
+    <Content Include="ConversionModel.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>ConverterEntities.edmx</DependentUpon>
-      <LastGenOutput>ConverterEntities.cs</LastGenOutput>
+      <DependentUpon>ConversionModel.edmx</DependentUpon>
+      <LastGenOutput>ConversionModel.cs</LastGenOutput>
     </Content>
   </ItemGroup>
   <ItemGroup>
