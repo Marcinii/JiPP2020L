@@ -12,8 +12,8 @@ namespace Konwerter_jedn
 
       List<string> Jednostki { get; }
 
-        double naPodst(string Zjakiej, double dane); 
-        double naWybr(string Zjakiej, string DOjakiej, double dane); 
+        string naPodst(string Zjakiej, string dane); 
+        string naWybr(string Zjakiej, string DOjakiej, string dane); 
     }
 
 

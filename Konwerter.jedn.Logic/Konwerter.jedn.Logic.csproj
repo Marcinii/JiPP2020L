@@ -42,6 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="cisnienia.cs" />
+    <Compile Include="zegar.cs" />
     <Compile Include="IKonwerter_jedn.cs" />
     <Compile Include="masy.cs" />
     <Compile Include="odleglosci.cs" />

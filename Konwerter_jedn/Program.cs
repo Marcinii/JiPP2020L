@@ -16,6 +16,7 @@ namespace Konwerter_jedn
                 new cisnienia(),
                 new masy(),
                 new odleglosci(),
+                new zegar(),
             };
             bool shouldContinue = true;
             while (shouldContinue)
@@ -39,9 +40,9 @@ namespace Konwerter_jedn
                 Console.WriteLine("Wpisz wartosc do konwersji: ");
                 string wartosc = Console.ReadLine();
 
-                double zmienna = (double)Convert.ChangeType(wartosc, typeof(double)); 
+                //double zmienna = (double)Convert.ChangeType(wartosc, typeof(double)); 
 
-                double wynikKoncowy = konwertery[dzialanie - 1].naWybr(Zjakiej, DOjakiej, zmienna);
+                string wynikKoncowy = konwertery[dzialanie - 1].naWybr(Zjakiej, DOjakiej, wartosc);
                 Console.WriteLine("To jest {0}", wynikKoncowy);
                 
             }
