@@ -23,6 +23,7 @@ namespace WpfApp1
     /// </summary>
     public partial class MainWindow : Window
     {
+     
         public MainWindow()
         {
             InitializeComponent();
@@ -35,9 +36,9 @@ namespace WpfApp1
                 new zegar(),
             };
 
-            //Tarcza_Zegara.Visibility = Visibility.Hidden;
-            //Wskazowka_Godzinowa.Visibility = Visibility.Hidden;
-            //Wskazowka_Minutowa.Visibility = Visibility.Hidden;
+            Tarcza_Zegara.Visibility = Visibility.Hidden;
+            Wskazowka_Godzinowa.Visibility = Visibility.Hidden;
+            Wskazowka_Minutowa.Visibility = Visibility.Hidden;
         }
 
         private void Combobox_konwertery_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -45,19 +46,22 @@ namespace WpfApp1
             combobox_jednostki_z.ItemsSource = ((IKonwerter_jedn)combobox_konwertery.SelectedItem).Jednostki;
             combobox_jednostki_do.ItemsSource = ((IKonwerter_jedn)combobox_konwertery.SelectedItem).Jednostki;
 
-            if (combobox_konwertery.Name == "zegar")
+            switch (((IKonwerter_jedn)combobox_konwertery.SelectedItem).Nazwa)
             {
-                Tarcza_Zegara.Visibility = Visibility.Visible;
-                Wskazowka_Godzinowa.Visibility = Visibility.Visible;
-                Wskazowka_Minutowa.Visibility = Visibility.Visible;
-                ((Storyboard)FindResource("Zegar_Pokaz")).Begin();
-                
-            }
-            else
-            {
-                ((Storyboard)FindResource("Zegar_Ukryj")).Begin();
+                case "zegar":
+                    Tarcza_Zegara.Visibility = Visibility.Visible;
+                    Wskazowka_Godzinowa.Visibility = Visibility.Visible;
+                    Wskazowka_Minutowa.Visibility = Visibility.Visible;
+                    ((Storyboard)FindResource("Zegar_Pokaz")).Begin();
+                    break;
+                default:
+                    ((Storyboard)FindResource("Zegar_Ukryj")).Begin();
+                    break;
+
             }
         }
+
+
 
         private void Button_konwertuj_Click(object sender, RoutedEventArgs e)
         {
@@ -76,12 +80,13 @@ namespace WpfApp1
 
                 textbox_wynik.Text = wynik.ToString();
 
-                if(combobox_konwertery.Name == "zegar")
+                
+                if (((IKonwerter_jedn)combobox_konwertery.SelectedItem).Nazwa =="zegar")
                 {
-                    if (DateTime.TryParse(wynik, out DateTime timeToShow))
+                    if (DateTime.TryParse(wynik, out DateTime czas_na_zegarze))
                     {
-                        MinuteRotation.Angle = timeToShow.Minute * 6.0;
-                        HourRotation.Angle = (timeToShow.Hour * 30.0) + (timeToShow.Minute / 60.0 * 30.0);
+                        MinuteRotation.Angle = (czas_na_zegarze.Minute * 6.0)+90;
+                        HourRotation.Angle = (czas_na_zegarze.Hour * 30.0) + (czas_na_zegarze.Minute / 60.0 * 30.0)+90;
                     }
                 }
             }
