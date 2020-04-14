@@ -25,7 +25,7 @@
 
     </Window.Triggers>
 
-    <Grid Background="#FFEBEBEB">
+    <Grid Background="#FF120617">
         <Grid.RowDefinitions>
             <RowDefinition Height="1*"/>
             <RowDefinition Height="1*"/>
