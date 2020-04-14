@@ -8,7 +8,7 @@ namespace UnitConverter_M2
     {
         List<string> units { get; }
         string operationName { get; }
-        decimal convert(string from, string to, decimal valueToConvert);
+        string convert(string from, string to, decimal valueToConvert);
         string ToString();
     }
 }

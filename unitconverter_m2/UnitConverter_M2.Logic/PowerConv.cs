@@ -11,17 +11,19 @@ namespace UnitConverter_M2
         public List<string> units => new List<string>() { "w", "hp" };
 
 
-        public decimal convert(string from, string to, decimal valueToConvert)
+        public string convert(string from, string to, decimal valueToConvert)
         {
+            if (from.Equals(to)) return valueToConvert.ToString();
+
             if (from.Equals("w") && to.Equals("hp"))
             {
                 // z watow na konie parowe
-                return valueToConvert / (decimal)745.69;
+                return (valueToConvert / (decimal)745.69).ToString();
             }
             else
             {
                 // w przeciwnym wypadku
-                return valueToConvert * (decimal)745.69;
+                return (valueToConvert * (decimal)745.69).ToString();
             }
         }
 

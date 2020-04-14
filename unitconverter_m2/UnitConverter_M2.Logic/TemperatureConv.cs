@@ -9,17 +9,19 @@ namespace UnitConverter_M2
         public string operationName => "Temperatura";
         public List<string> units => new List<string>() { "f", "c" };
 
-        public decimal convert(string from, string to, decimal valueToConvert)
+        public string convert(string from, string to, decimal valueToConvert)
         {
+            if (from.Equals(to)) return valueToConvert.ToString();
+
             if (from.Equals("f") && to.Equals("c"))
             {
                 // z fahrenheita na celsjusza
-                return ((valueToConvert - 32) / 9) * 5;
+                return (((valueToConvert - 32) / 9) * 5).ToString();
             }
             else
             {
                 // w przeciwnym wypadku
-                return ((valueToConvert * 9) / 5) + 32;
+                return (((valueToConvert * 9) / 5) + 32).ToString();
             }
         }
 

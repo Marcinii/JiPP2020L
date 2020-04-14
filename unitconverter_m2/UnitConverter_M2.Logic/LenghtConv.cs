@@ -23,14 +23,14 @@ namespace UnitConverter_M2
 
         public List<string> units => new List<string>() {"m","km","mi"};
 
-        public decimal convert(string from, string to, decimal valueToConvert)
+        public string convert(string from, string to, decimal valueToConvert)
         {
             // normalizuj from do metrów (zamien na metry jakakolwiek to by nie byla jednostka
             decimal inMetersValue = meterNormalize.FirstOrDefault(t => t.Key == from).Value;
             valueToConvert *= inMetersValue;
 
             // zamien z metrow na dowolna inna jednostke
-            return valueToConvert / meterNormalize.FirstOrDefault(t => t.Key == to).Value;
+            return (valueToConvert / meterNormalize.FirstOrDefault(t => t.Key == to).Value).ToString();
         }
 
         // zwraca nazwe typu konwersji

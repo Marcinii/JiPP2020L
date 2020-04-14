@@ -5,61 +5,71 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:UnitConverter_M2.GUI"
         mc:Ignorable="d"
-        Title="MainWindow" Height="268" Width="511">
+        Title="MainWindow" Height="379.766" Width="535">
+    <Window.Resources>
+        <Storyboard x:Key="PojawienieZegara">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="ellipse">
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="rectangle">
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="ellipse1">
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="rectangle1">
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+    </Window.Resources>
     <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
-        </Grid.RowDefinitions>
-
         <Grid.ColumnDefinitions>
             <ColumnDefinition></ColumnDefinition>
             <ColumnDefinition></ColumnDefinition>
-            <ColumnDefinition></ColumnDefinition>
-            <ColumnDefinition></ColumnDefinition>
-            <ColumnDefinition></ColumnDefinition>
-            <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
-        <Label Content="Typ" HorizontalAlignment="Center"  VerticalAlignment="Center" Grid.Column="0" Grid.Row="0"/>
-        <Label Content="Przelicz z:" HorizontalAlignment="Center"  VerticalAlignment="Center" Grid.Column="1" Grid.Row="0"/>
-        <Label Content="Przelicz na:" HorizontalAlignment="Center"  VerticalAlignment="Center" Grid.Column="2" Grid.Row="0"/>
-        <Label Content="Wartość:" HorizontalAlignment="Center"  VerticalAlignment="Center" Grid.Column="3" Grid.Row="0"/>
-        <Label Content="Przelicz!" HorizontalAlignment="Center"  VerticalAlignment="Center" Grid.Column="4" Grid.Row="0"/>
-        <Label Content="Wynik:" HorizontalAlignment="Center"  VerticalAlignment="Center" Grid.Column="5" Grid.Row="0"/>
 
+        <StackPanel Grid.Column="0">
+            <Label Content="Konwerter - wybierz typ konwersji" Margin="1"/>
+            <ComboBox x:Name="typKonwersji" Margin="1" SelectionChanged="typKonwersji_SelectionChanged"/>
+            <Label Content="jednostka z:" Margin="1"/>
+            <ComboBox x:Name="jednostka1" Margin="1"/>
+            <Label Content="jednostka na:" Margin="1"/>
+            <ComboBox x:Name="jednostka2" Margin="1"/>
+            <Label Content="wartosc:" Margin="1"/>
+            <TextBox x:Name="wartosc" Height="23" TextWrapping="Wrap" Text="0.0" Margin="1"/>
+            <Button x:Name="przelicz" Content="Przelicz!" Margin="1" Click="przelicz_Click"/>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"></ColumnDefinition>
+                    <ColumnDefinition Width="1*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Label Content="Wynik:" Grid.Column="0" Margin="1"/>
+                <TextBox x:Name="wynik" Text="0.0" Grid.Column="1" Margin="1"/>
+            </Grid>
 
-        <Label Content="Długość" HorizontalAlignment="Center"  VerticalAlignment="Center" Grid.Column="0" Grid.Row="1"/>
-        <Label Content="Masa" HorizontalAlignment="Center"  VerticalAlignment="Center" Grid.Column="0" Grid.Row="2"/>
-        <Label Content="Moc" HorizontalAlignment="Center"  VerticalAlignment="Center" Grid.Column="0" Grid.Row="3"/>
-        <Label Content="Temperatura" HorizontalAlignment="Center"  VerticalAlignment="Center" Grid.Column="0" Grid.Row="4"/>
-
-        <TextBox x:Name="przelicz00" Grid.Column="1" HorizontalAlignment="Center" Height="23" Grid.Row="1" TextWrapping="Wrap" Text="" VerticalAlignment="Center" Width="60"/>
-        <TextBox x:Name="przelicz10" Grid.Column="1" HorizontalAlignment="Center" Height="23" Grid.Row="2" TextWrapping="Wrap" Text="" VerticalAlignment="Center" Width="60"/>
-        <TextBox x:Name="przelicz20" Grid.Column="1" HorizontalAlignment="Center" Height="23" Grid.Row="3" TextWrapping="Wrap" Text="" VerticalAlignment="Center" Width="60"/>
-        <TextBox x:Name="przelicz30" Grid.Column="1" HorizontalAlignment="Center" Height="23" Grid.Row="4" TextWrapping="Wrap" Text="" VerticalAlignment="Center" Width="60"/>
-
-        <TextBox x:Name="przelicz01" Grid.Column="2" HorizontalAlignment="Center" Height="23" Grid.Row="1" TextWrapping="Wrap" Text="" VerticalAlignment="Center" Width="60"/>
-        <TextBox x:Name="przelicz11" Grid.Column="2" HorizontalAlignment="Center" Height="23" Grid.Row="2" TextWrapping="Wrap" Text="" VerticalAlignment="Center" Width="60"/>
-        <TextBox x:Name="przelicz21" Grid.Column="2" HorizontalAlignment="Center" Height="23" Grid.Row="3" TextWrapping="Wrap" Text="" VerticalAlignment="Center" Width="60"/>
-        <TextBox x:Name="przelicz31" Grid.Column="2" HorizontalAlignment="Center" Height="23" Grid.Row="4" TextWrapping="Wrap" Text="" VerticalAlignment="Center" Width="60"/>
-
-        <Button x:Name="przelicz0" Content="Przelicz" Grid.Column="4" HorizontalAlignment="Center" Grid.Row="1" VerticalAlignment="Center" Width="60" Click="przelicz0_Click"/>
-        <Button x:Name="przelicz1" Content="Przelicz" Grid.Column="4" HorizontalAlignment="Center" Grid.Row="2" VerticalAlignment="Center" Width="60" Click="przelicz1_Click"/>
-        <Button x:Name="przelicz2" Content="Przelicz" Grid.Column="4" HorizontalAlignment="Center" Grid.Row="3" VerticalAlignment="Center" Width="60" Click="przelicz2_Click"/>
-        <Button x:Name="przelicz3" Content="Przelicz" Grid.Column="4" HorizontalAlignment="Center" Grid.Row="4" VerticalAlignment="Center" Width="60" Click="przelicz3_Click"/>
-
-        <Label x:Name="wynik0" Content="0.0" Grid.Column="5" HorizontalAlignment="Center" Grid.Row="1" VerticalAlignment="Center" Width="60"/>
-        <Label x:Name="wynik1" Content="0.0" Grid.Column="5" HorizontalAlignment="Center" Grid.Row="2" VerticalAlignment="Center" Width="60"/>
-        <Label x:Name="wynik2" Content="0.0" Grid.Column="5" HorizontalAlignment="Center" Grid.Row="3" VerticalAlignment="Center" Width="60"/>
-        <Label x:Name="wynik3" Content="0.0" Grid.Column="5" HorizontalAlignment="Center" Grid.Row="4" VerticalAlignment="Center" Width="60"/>
-        
-        <TextBox x:Name="wartosc0" Grid.Column="3" HorizontalAlignment="Center" Height="23" Grid.Row="1" TextWrapping="Wrap" Text="0.0" VerticalAlignment="Center" Width="60"/>
-        <TextBox x:Name="wartosc1" Grid.Column="3" HorizontalAlignment="Center" Height="23" Grid.Row="2" TextWrapping="Wrap" Text="0.0" VerticalAlignment="Center" Width="60"/>
-        <TextBox x:Name="wartosc2" Grid.Column="3" HorizontalAlignment="Center" Height="23" Grid.Row="3" TextWrapping="Wrap" Text="0.0" VerticalAlignment="Center" Width="60"/>
-        <TextBox x:Name="wartosc3" Grid.Column="3" HorizontalAlignment="Center" Height="23" Grid.Row="4" TextWrapping="Wrap" Text="0.0" VerticalAlignment="Center" Width="60"/>
+        </StackPanel>
+        <Ellipse x:Name="ellipse" Grid.Column="1" Fill="#FFF4F4F5" HorizontalAlignment="Center" Height="150" Margin="54.25,96.501,59.25,102.265" Stroke="Black" VerticalAlignment="Center" Width="150" Opacity="0"/>
+        <Rectangle x:Name="rectangle" Grid.Column="1" Fill="#FF000076" HorizontalAlignment="Left" Height="40" Margin="124.291,131.874,0,0" Stroke="Black" VerticalAlignment="Top" Width="10" RenderTransformOrigin="0.5,1" Opacity="0">
+            <Rectangle.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform x:Name="rotacjaGodziny" Angle="0"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Rectangle.RenderTransform>
+        </Rectangle>
+        <Ellipse x:Name="ellipse1" Grid.Column="1" Fill="Black" HorizontalAlignment="Left" Height="7" Margin="125.75,168.001,0,0" Stroke="Black" VerticalAlignment="Top" Width="7" Opacity="0"/>
+        <Rectangle x:Name="rectangle1" Grid.Column="1" Fill="#FF000076" HorizontalAlignment="Left" Height="75" Margin="124.291,96.874,0,0" Stroke="Black" VerticalAlignment="Top" Width="10" RenderTransformOrigin="0.5,1" Opacity="0">
+            <Rectangle.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform x:Name="rotacjaMinuty" Angle="0"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Rectangle.RenderTransform>
+        </Rectangle>
 
     </Grid>
 </Window>

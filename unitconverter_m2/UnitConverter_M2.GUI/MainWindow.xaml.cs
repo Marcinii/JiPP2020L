@@ -10,9 +10,11 @@ using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
+using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using UnitConverter_M2.Logic;
 
 namespace UnitConverter_M2.GUI
 {
@@ -24,38 +26,69 @@ namespace UnitConverter_M2.GUI
         public MainWindow()
         {
             InitializeComponent();
+            typKonwersji.ItemsSource = new ConvertersAvailable().getConverters();
         }
 
-        private void przelicz0_Click(object sender, RoutedEventArgs e)
+        private void typKonwersji_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            decimal temp;
-            LengthConv lc = new LengthConv();
-            temp = lc.convert(przelicz00.Text, przelicz01.Text, Decimal.Parse(wartosc0.Text, NumberStyles.Any, CultureInfo.InvariantCulture));
-            wynik0.Content = temp.ToString();
+            if (((IConv)typKonwersji.SelectedItem).ToString() == "Czas")
+            {
+                jednostka1.ItemsSource = new List<string>() { "24h" };
+                jednostka2.ItemsSource = new List<string>() { "12h" };
+                return;
+            }
+
+            jednostka1.ItemsSource = ((IConv)typKonwersji.SelectedItem).units;
+            jednostka2.ItemsSource = ((IConv)typKonwersji.SelectedItem).units;
         }
 
-        private void przelicz1_Click(object sender, RoutedEventArgs e)
+        private void przelicz_Click(object sender, RoutedEventArgs e)
         {
-            decimal temp;
-            MassConv lc = new MassConv();
-            temp = lc.convert(przelicz10.Text, przelicz11.Text, Decimal.Parse(wartosc1.Text, NumberStyles.Any, CultureInfo.InvariantCulture));
-            wynik1.Content = temp.ToString();
-        }
 
-        private void przelicz2_Click(object sender, RoutedEventArgs e)
-        {
-            decimal temp;
-            PowerConv lc = new PowerConv();
-            temp = lc.convert(przelicz20.Text, przelicz21.Text, Decimal.Parse(wartosc2.Text, NumberStyles.Any, CultureInfo.InvariantCulture));
-            wynik2.Content = temp.ToString();
-        }
+            decimal wartoscLiczbowa = 0;
+            bool czyPrzeliczono = false;
 
-        private void przelicz3_Click(object sender, RoutedEventArgs e)
-        {
-            decimal temp;
-            TemperatureConv lc = new TemperatureConv();
-            temp = lc.convert(przelicz30.Text, przelicz31.Text, Decimal.Parse(wartosc3.Text, NumberStyles.Any, CultureInfo.InvariantCulture));
-            wynik3.Content = temp.ToString();
+            string wartoscTekstowa = wartosc.Text;
+
+            if (((IConv)typKonwersji.SelectedItem).ToString() == "Czas")
+            {
+                wartoscTekstowa = wartoscTekstowa.Replace(":", ".");
+            } 
+           
+            czyPrzeliczono = decimal.TryParse(wartoscTekstowa, NumberStyles.Any, CultureInfo.InvariantCulture, out wartoscLiczbowa);
+
+
+            if (!czyPrzeliczono)
+            {
+                wynik.Text = "Blad w wejsciu!";
+                return;
+            }
+
+            if (jednostka1.SelectedIndex == -1 || jednostka2.SelectedIndex == -1 || typKonwersji.SelectedIndex == -1)
+            {
+                wynik.Text = "Brak wyboru jednostek!";
+                    return;
+            }
+
+            wynik.Text = ((IConv)typKonwersji.SelectedItem).convert(jednostka1.SelectedItem.ToString(),
+                                                                    jednostka2.SelectedItem.ToString(),
+                                                                    wartoscLiczbowa);
+
+            // ustawianie zegara
+            if (((IConv)typKonwersji.SelectedItem).ToString() == "Czas")
+            {
+                ((Storyboard)Resources["PojawienieZegara"]).Begin();
+
+                string godzinaDoWyswietlenia = wynik.Text.ToLower().Replace("am", "").Replace("pm", "");
+
+                int godzina = Int32.Parse(godzinaDoWyswietlenia.Split(new char[] { ':' })[0]);
+                int minuta = Int32.Parse(godzinaDoWyswietlenia.Split(new char[] { ':' })[1]);
+
+                rotacjaMinuty.Angle = 6 * minuta;
+                rotacjaGodziny.Angle = ((double)360 / 43200) * (3600 * godzina + 60 * minuta);
+            }
+
+
         }
     }
 }

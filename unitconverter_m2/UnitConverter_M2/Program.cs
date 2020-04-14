@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Globalization;
+using UnitConverter_M2.Logic;
 
 namespace UnitConverter_M2
 {
@@ -9,20 +10,15 @@ namespace UnitConverter_M2
         static void Main(string[] args)
         {
             Console.WriteLine("Konwerter: wybierz opcje konwersji:");
-            List<IConv> listOfConverters = new List<IConv>()
-            {
-                new TemperatureConv(),
-                new MassConv(),
-                new LengthConv(),
-                new PowerConv()
-            };
+            List<IConv> listOfConverters = new ConvertersAvailable().getConverters();
 
 
             while (true)
             {
                 string unitFrom, unitTo;
                 int typeOfConversion;
-                decimal valueToConvert, retVal;
+                decimal valueToConvert;
+                string retVal;
 
                 // wyswietl wszystkie opcje
                 for (int i = 0; i< listOfConverters.Count; i++) Console.WriteLine("({0}): {1}", i, listOfConverters[i]);
