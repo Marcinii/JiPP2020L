@@ -30,24 +30,11 @@ namespace Project.Desktop
             InitializeComponent();
 
             ConvertersComboBox.ItemsSource = (new ConverterService()).GetConverters();
-
-
-            db = new jippEntities();
-            RefreshHistory();
-
         }
 
-        IQueryable<ConversionHistory> items;
-        private jippEntities db;
 
-        private void RefreshHistory()
+        private IQueryable<ConversionHistory> Filter(IQueryable<ConversionHistory> items)
         {
-            //using (var db = new jippEntities())
-            //{
-
-            items = db.ConversionHistory.AsQueryable<ConversionHistory>();
-
-
             if (StartDateDatePicker.SelectedDate.HasValue)
                 items = items.Where(i => DbFunctions.TruncateTime(i.Date) >= StartDateDatePicker.SelectedDate);
             if (EndDateDatePicker.SelectedDate.HasValue)
@@ -56,34 +43,61 @@ namespace Project.Desktop
                 items = items.Where(i => i.Converter == ((IConverter)ConvertersComboBox.SelectedItem).Name);
 
 
+            return items;
 
-            int count = items.Count();
+        }
 
-            PageSelectorComboBox.Items.Clear();
 
-            for (int i = 0, j = 1; i < count; i += 20, j++)
+        public void LoadHistory()
+        {
+            using (var db = new jippEntities())
             {
-                PageSelectorComboBox.Items.Add(j);
+
+                var items = db.ConversionHistory.AsQueryable<ConversionHistory>();
+
+
+                items = Filter(items);
+
+
+                int count = items.Count();
+
+                PageSelectorComboBox.Items.Clear();
+
+                for (int i = 0, j = 1; i < count; i += 20, j++)
+                {
+                    PageSelectorComboBox.Items.Add(j);
+                }
+
+                PageSelectorComboBox.SelectedIndex = 0;
+
+                HistoryDataGrid.ItemsSource = items.OrderBy(i => i.Id).Take(20).ToList();
+
+                var mostPopular = items.GroupBy(i => new { i.Converter, i.UnitFrom, i.UnitTo }).Select(i => new { Type = i.Key, Count = i.Count() }).OrderByDescending(i => i.Count).Take(3).ToList();
+
+
+                MostPopularTextBlock.Text = "";
+
+                foreach (var a in mostPopular)
+                    MostPopularTextBlock.Text += a.Type.Converter + " [" + a.Type.UnitFrom + " -> " + a.Type.UnitTo + "] (" + a.Count + ")\n";
+
             }
-
-            PageSelectorComboBox.SelectedIndex = 0;
-
-            HistoryDataGrid.ItemsSource = items.OrderBy(i => i.Id).Take(20).ToList();
-
-            var mostPopular = items.GroupBy(i => new { i.Converter, i.UnitFrom, i.UnitTo }).Select(i => new { Type = i.Key, Count = i.Count() }).OrderByDescending(i => i.Count).Take(3).ToList();
-
-
-            MostPopularTextBlock.Text = "";
-
-            foreach (var a in mostPopular)
-                MostPopularTextBlock.Text += a.Type.Converter + " [" + a.Type.UnitFrom + " -> " + a.Type.UnitTo + "] (" + a.Count + ")\n";
-
-            //}
         }
         private void PageSelectorComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if(PageSelectorComboBox.SelectedIndex != -1)
-                HistoryDataGrid.ItemsSource = items.OrderBy(i => i.Id).Skip(20*(((int)PageSelectorComboBox.SelectedItem)-1)).Take(20).ToList();
+            using (var db = new jippEntities())
+            {
+
+                if (PageSelectorComboBox.SelectedIndex != -1)
+                {
+                    var items = db.ConversionHistory.AsQueryable<ConversionHistory>();
+                    items = Filter(items);
+                    HistoryDataGrid.ItemsSource = items.OrderBy(i => i.Id).Skip(20 * (((int)PageSelectorComboBox.SelectedItem) - 1)).Take(20).ToList();
+                }
+
+
+            }
+
+
         }
 
 
@@ -96,7 +110,7 @@ namespace Project.Desktop
 
         private void filterButon_Click(object sender, RoutedEventArgs e)
         {
-            RefreshHistory();
+            LoadHistory();
         }
 
         private void ClearfilterButon_Click(object sender, RoutedEventArgs e)
@@ -104,12 +118,9 @@ namespace Project.Desktop
             ConvertersComboBox.SelectedIndex = -1;
             StartDateDatePicker.SelectedDate = null;
             EndDateDatePicker.SelectedDate = null;
-            RefreshHistory();
+            LoadHistory();
         }
 
-        private void Window_Loaded(object sender, RoutedEventArgs e)
-        {
-            RefreshHistory();
-        }
+
     }
 }

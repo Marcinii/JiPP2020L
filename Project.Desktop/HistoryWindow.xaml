@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Project.Desktop"
         mc:Ignorable="d"
-        Title="Historia konwersji" Height="520" Width="530" Closing="Window_Closing" Loaded="Window_Loaded">
+        Title="Historia konwersji" Height="520" Width="530" Closing="Window_Closing">
     <Grid>
         <StackPanel Margin="2,2,2,2">
             <TextBlock FontSize="22">Filtry:</TextBlock>

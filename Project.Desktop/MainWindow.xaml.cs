@@ -122,6 +122,7 @@ namespace Project.Desktop
         {
 
             hwindow.Show();
+            hwindow.LoadHistory();
 
         }
 
