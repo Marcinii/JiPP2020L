@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Konwerter_jednostek"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="650" Width="1000">
     <Window.Resources>
         <Storyboard x:Key="StoryboardMin" >
             <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[2].(RotateTransform.Angle)" Storyboard.TargetName="min">
@@ -29,7 +29,7 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="1*"/>
             <ColumnDefinition Width="1*"/>
-            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="4*"/>
         </Grid.ColumnDefinitions>
 
 
@@ -40,7 +40,11 @@
             <Label x:Name="Napis4" Margin="10,5,10,5" Content="Wartość do konwersji"  Height="25" HorizontalAlignment="Right" />
             <Button x:Name="Button1" Margin="10,5,10,5" Content="Przelicz" HorizontalAlignment="Right" VerticalAlignment="Top" Width="120" Click="Button1_Click"  Height="25"/>
             <Label x:Name="Napis5" Margin="10,5,10,5" Content="Wartość po konwersji"  Height="25" HorizontalAlignment="Right"/>
-
+            <Label x:Name="Napis6" Margin="10,25,10,5" Content="STATYSTYKI" Height="25" HorizontalAlignment="Right"/>
+            <Label x:Name="Napis7" Margin="10,5,10,5" Content="Filtr rodzaj konwertera" Height="25" HorizontalAlignment="Right"/>
+            <Label x:Name="Napis8" Margin="10,5,10,5" Content="Filtr zakres dat od:" Height="25" HorizontalAlignment="Right"/>
+            <Label x:Name="Napis9" Margin="10,5,10,5" Content="do:" Height="25" HorizontalAlignment="Right"/>
+            <Button x:Name="Button2" Margin="10,5,10,5" Content="Wyświetl statystyki" HorizontalAlignment="Right" VerticalAlignment="Top" Width="120" Click="Button2_Click"  Height="25"/>
         </StackPanel>
 
         <StackPanel Grid.Column="1">
@@ -56,6 +60,15 @@
             <TextBox x:Name="TBoxWartosc" Margin="10,5,0,0" HorizontalAlignment="Left" VerticalAlignment="Center" Height="30" TextWrapping="Wrap" Width="120"/>
             <Label x:Name="Napisx" Margin="10,5,10,5" Content="" />
             <TextBlock x:Name="TBlockWynik" Margin="10,5,0,0" HorizontalAlignment="Left"  VerticalAlignment="Center" TextWrapping="Wrap"  Width="120" Height="25"/>
+            <ComboBox x:Name="SKonwerter"  Margin="10,60,0,0" HorizontalAlignment="Left"  Width="120" Height="30">
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding Nazwa}"/>
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
+            <TextBox x:Name="TBoxData1" Margin="10,5,0,0" HorizontalAlignment="Left" VerticalAlignment="Center" Height="30" TextWrapping="Wrap" Width="120" Text="rrrr-mm-dd"/>
+            <TextBox x:Name="TBoxData2" Margin="10,5,0,0" HorizontalAlignment="Left" VerticalAlignment="Center" Height="30" TextWrapping="Wrap" Width="120" Text="rrrr-mm-dd"/>
         </StackPanel>
         <Ellipse Grid.Column="2" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="100" Margin="10,10,0,0" Stroke="Black" VerticalAlignment="Top" Width="100"/>
         <Rectangle Grid.Column="2" Fill="#FF00000C" HorizontalAlignment="Left" Height="5" Margin="59,10,0,0" Stroke="Black" VerticalAlignment="Top" Width="2"/>
@@ -82,6 +95,11 @@
                 </TransformGroup>
             </Rectangle.RenderTransform>
         </Rectangle>
-
+        <Label x:Name="Napis10" Grid.Column="2" Margin="10,115,0,0" Content="Statystyki lista" Height="25" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <DataGrid x:Name="Tabela1" Grid.Column="2" HorizontalAlignment="Left" Height="235" Margin="10,140,0,0" VerticalAlignment="Top" Width="640"/>
+        <Button x:Name="Button3" Grid.Column="2" Margin="0,380,10,0" Content="Następna strona" HorizontalAlignment="Right" VerticalAlignment="Top" Width="120" Height="20" Click="Button3_Click"/>
+        <Button x:Name="Button4" Grid.Column="2" Margin="10,380,0,0" Content="Poprzednia strona" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Height="20" Click="Button4_Click"/>
+        <Label x:Name="Napis11" Grid.Column="2" Margin="10,414,0,0" Content="Statystyki Top 3" Height="25" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <DataGrid x:Name="Tabela2" Grid.Column="2" HorizontalAlignment="Left" Height="110" Margin="10,440,0,0" VerticalAlignment="Top" Width="318"/>
     </Grid>
 </Window>
