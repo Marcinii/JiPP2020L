@@ -13,6 +13,7 @@ using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Konwerter.Desktop.Repository;
 using Logic;
 
 namespace Konwerter.Desktop
@@ -21,6 +22,9 @@ namespace Konwerter.Desktop
     {
         int initPagination = 0;
         int borderPagination = 2;
+        int databaseSize;
+        string selectedFilterType = null;
+
         CONVERSIONS conversion = new CONVERSIONS();
 
         public List<IConverter> converterList = new List<IConverter> {
@@ -36,7 +40,7 @@ namespace Konwerter.Desktop
         public MainWindow()
         {
             InitializeComponent();
-            getDatabaseData(initPagination, borderPagination);
+            getPagedConversions(initPagination, borderPagination, selectedFilterType);
             initConverterBox();
             hourRotation.Angle = (360/12)*(6)+90;
             minuteRotation.Angle = (360 / 60) * (15) + 90;
@@ -50,6 +54,7 @@ namespace Konwerter.Desktop
                 list.Add(converter.ConverterName);
             }
             converterBox.ItemsSource = list;
+            convFilterBox.ItemsSource = list;
         }
 
         private void converterBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -159,7 +164,7 @@ namespace Konwerter.Desktop
 
                 insertData(conversion);
                 conversion = new CONVERSIONS();
-                getDatabaseData(initPagination, borderPagination);
+                getPagedConversions(initPagination, borderPagination, null);
             }
         }
 
@@ -177,45 +182,85 @@ namespace Konwerter.Desktop
             hourPointer.Visibility = Visibility.Hidden;
         }
 
-        public void insertData(CONVERSIONS conv)
+        public void insertData(CONVERSIONS conversion)
         {
-            using (ConverterDBEntities context = new ConverterDBEntities())
-            {
-                context.CONVERSIONS.Add(conv);
-                context.SaveChanges();
-            }
+            DatabaseModule.insert(conversion);
         }
 
-        public void getDatabaseData(int initPagination, int borderPagination)
+        public void getPagedConversions(int initPagination, int borderPagination, string type)
         {
-            using (ConverterDBEntities context = new ConverterDBEntities())
+            List<CONVERSIONS> allConversions;
+            if (type != null)
             {
-                List<CONVERSIONS> conversions = context.CONVERSIONS.ToList();
-                List<CONVERSIONS> pagedList = new List<CONVERSIONS>();
+                allConversions = DatabaseModule.getConversionsByType(type);
+            } 
+            else
+            {
+                allConversions = DatabaseModule.getAllConversions();
+            }
+            this.databaseSize = allConversions.Count;
+            List<CONVERSIONS> pagedList = new List<CONVERSIONS>();
 
+            if (borderPagination > databaseSize)
+            {
+                for (int i = initPagination; i < (borderPagination - databaseSize); i++)
+                {
+                    pagedList.Add(allConversions.ElementAt(i));
+                }
+            }
+            else
+            {
                 for (int i = initPagination; i < borderPagination; i++)
                 {
-                    pagedList.Add(conversions.ElementAt(i));
+                    pagedList.Add(allConversions.ElementAt(i));
                 }
-
-                statsGrid.ItemsSource = pagedList;
             }
+
+            
+            statsGrid.ItemsSource = pagedList;
         }
 
         private void previousPageBtn_Click(object sender, RoutedEventArgs e)
         {
-            this.initPagination = initPagination - 2;
-            this.borderPagination = borderPagination - 2;
-            getDatabaseData(initPagination, borderPagination);
+            this.initPagination -= 2;
+            this.borderPagination -= 2;
+            if (initPagination < 0)
+            {
+                initPagination = 0;
+                borderPagination = initPagination + 2;
+                previousPageBtn.IsEnabled = false;
+            } else
+            {
+                getPagedConversions(initPagination, borderPagination, selectedFilterType);
+                nextPageBtn.IsEnabled = true;
+            }
+            
         }
 
         private void nextPageBtn_Click(object sender, RoutedEventArgs e)
         {
-            this.initPagination  = initPagination + 2;
-            this.borderPagination = borderPagination + 2;
-            getDatabaseData(initPagination, borderPagination);
+            int border = borderPagination;
+            this.initPagination  +=  2;
+            this.borderPagination +=  2;
+            if (borderPagination > databaseSize)
+            {
+                getPagedConversions(border, ((borderPagination - databaseSize) + border), selectedFilterType);
+                nextPageBtn.IsEnabled = false;
+            } 
+            else
+            {
+                getPagedConversions(initPagination, borderPagination, selectedFilterType);
+                previousPageBtn.IsEnabled = true;
+            }
+            
         }
 
-        
+        private void convFilterBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            initPagination = 0;
+            borderPagination = 2;
+            this.selectedFilterType = converterList[convFilterBox.SelectedIndex].ConverterName;
+            getPagedConversions(initPagination, borderPagination, selectedFilterType);
+        }
     }
 }
