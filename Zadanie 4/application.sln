@@ -1,0 +1,61 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29806.167
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "application", "application.csproj", "{5AAB11C4-8AD7-4637-BE1D-E4FD9BBB17FE}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "grafiki", "grafiki", "{01AE9F88-9CF8-4877-887B-DD9793E2FE24}"
+	ProjectSection(SolutionItems) = preProject
+		grafiki\7248c876d0d9c5f99571c1936a2ee0da.jpg = grafiki\7248c876d0d9c5f99571c1936a2ee0da.jpg
+		grafiki\8a87ca422ad22ec555bdff67f2c68a5f.jpg = grafiki\8a87ca422ad22ec555bdff67f2c68a5f.jpg
+		grafiki\90439012_2880832245272968_3135228226595454976_n.jpg = grafiki\90439012_2880832245272968_3135228226595454976_n.jpg
+		..\DELETE.PNG = ..\DELETE.PNG
+		..\FIRST.PNG = ..\FIRST.PNG
+		..\GO.PNG = ..\GO.PNG
+		..\GO2.png = ..\GO2.png
+		grafiki\icons8-battery-level-48.png = grafiki\icons8-battery-level-48.png
+		grafiki\icons8-color-palette-48.png = grafiki\icons8-color-palette-48.png
+		grafiki\icons8-envelope-24.png = grafiki\icons8-envelope-24.png
+		grafiki\icons8-facebook-old-24.png = grafiki\icons8-facebook-old-24.png
+		grafiki\icons8-fast-forward-24.png = grafiki\icons8-fast-forward-24.png
+		grafiki\icons8-linkedin-24.png = grafiki\icons8-linkedin-24.png
+		grafiki\icons8-no-connection-24.png = grafiki\icons8-no-connection-24.png
+		grafiki\icons8-partly-cloudy-day-26.png = grafiki\icons8-partly-cloudy-day-26.png
+		grafiki\icons8-pause-24.png = grafiki\icons8-pause-24.png
+		grafiki\icons8-rewind-24.png = grafiki\icons8-rewind-24.png
+		E:\dodatki do kodu\icons8-search-24.png = E:\dodatki do kodu\icons8-search-24.png
+		grafiki\icons8-shuffle-24.png = grafiki\icons8-shuffle-24.png
+		grafiki\icons8-twitter-24.png = grafiki\icons8-twitter-24.png
+		..\LAST.png = ..\LAST.png
+		..\LEFT.PNG = ..\LEFT.PNG
+		..\LIKE.PNG = ..\LIKE.PNG
+		..\RIGHT.png = ..\RIGHT.png
+		..\SAVE.PNG = ..\SAVE.PNG
+		..\SKIP.PNG = ..\SKIP.PNG
+		..\SKIP2.png = ..\SKIP2.png
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{E46D5851-2114-4F11-8E6B-2BB141A3FDAF}"
+	ProjectSection(SolutionItems) = preProject
+		Page3.xaml = Page3.xaml
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5AAB11C4-8AD7-4637-BE1D-E4FD9BBB17FE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5AAB11C4-8AD7-4637-BE1D-E4FD9BBB17FE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5AAB11C4-8AD7-4637-BE1D-E4FD9BBB17FE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5AAB11C4-8AD7-4637-BE1D-E4FD9BBB17FE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {6F2D083C-C8E1-41FE-A46F-2E937BA13662}
+	EndGlobalSection
+EndGlobal
