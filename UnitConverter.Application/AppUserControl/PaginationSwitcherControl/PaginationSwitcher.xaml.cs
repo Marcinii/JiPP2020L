@@ -69,6 +69,17 @@ namespace UnitConverter.Application.AppUserControl.PaginationSwitcherControl
 
 
         /// <summary>
+        /// Metoda ma za zadanie restartować numer strony
+        /// </summary>
+        public void reset()
+        {
+            this.currentPage = 1;
+            this.onChange?.Invoke(this, new PaginationSwitcherEventArgs(this.currentPage));
+        }
+
+
+
+        /// <summary>
         /// Metoda, która ma za zadanie zmienić numer strony na pierwszą stronę
         /// </summary>
         /// <param name="sender"></param>

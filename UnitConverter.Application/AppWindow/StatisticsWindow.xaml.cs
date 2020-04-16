@@ -137,6 +137,7 @@ namespace UnitConverter.Application.AppWindow
         {
             this.selectedOperation.task.setParameter("Nazwa konwertera", (CustomString)this.converterNameTextBox.Text);
             this.selectedOperation.run();
+            this.paginationSwitcher.reset();
         }
 
 
@@ -163,6 +164,8 @@ namespace UnitConverter.Application.AppWindow
                     this.selectedOperation.task.setParameter("Data początkowa", new CustomDate());
                     this.selectedOperation.run();
                 }
+
+                this.paginationSwitcher.reset();
             }
             catch (CustomTypeException)
             {
@@ -194,6 +197,8 @@ namespace UnitConverter.Application.AppWindow
                     this.selectedOperation.task.setParameter("Data końcowa", new CustomDate());
                     this.selectedOperation.run();
                 }
+
+                this.paginationSwitcher.reset();
             }
             catch(CustomTypeException)
             {
