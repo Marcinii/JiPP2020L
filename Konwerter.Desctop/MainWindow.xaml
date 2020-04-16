@@ -6,7 +6,7 @@
        xmlns:local="clr-namespace:Konwerter.Desctop"
        mc:Ignorable="d"
        Background="Honeydew"
-       Title="" Height="600" Width="1000" WindowStartupLocation="CenterScreen">
+       Title="" Height="764.4" Width="1482.4" WindowStartupLocation="CenterScreen">
     <Window.Resources>
         <Storyboard x:Key="ClockOffStoryboard">
             <DoubleAnimationUsingKeyFrames Name="ClockOff" Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="ClockGrid">
@@ -133,31 +133,52 @@
 
             </StackPanel>
             <Grid x:Name="grid" Grid.Column="1" Margin="34.4,-14.617,10,14.617">
-                <Grid x:Name="ClockGrid" Margin="100.6,30,0,0">
-                    <Rectangle HorizontalAlignment="Left" Height="112" Margin="120,19.08,0,0" Stroke="#FF003AFF" StrokeThickness="14" VerticalAlignment="Top" Width="9.6" RenderTransformOrigin="0.5,1">
-                        <Rectangle.RenderTransform>
-                            <TransformGroup>
-                                <ScaleTransform/>
-                                <SkewTransform/>
-                                <RotateTransform x:Name="Minutes" Angle="0"/>
-                                <TranslateTransform/>
-                            </TransformGroup>
-                        </Rectangle.RenderTransform>
-                    </Rectangle>
-                    <Rectangle HorizontalAlignment="Left" Height="70.4" Margin="120,60.68,0,0" Stroke="#FF00FFB1" StrokeThickness="14" VerticalAlignment="Top" Width="9.6" RenderTransformOrigin="0.5,1">
-                        <Rectangle.RenderTransform>
-                            <TransformGroup>
-                                <ScaleTransform/>
-                                <SkewTransform/>
-                                <RotateTransform x:Name="Hours" Angle="0"/>
-                                <TranslateTransform/>
-                            </TransformGroup>
-                        </Rectangle.RenderTransform>
-                    </Rectangle>
-                    <Path Data="M125.1,122.18 C123.11177,122.18 121.5,123.79177 121.5,125.78 121.5,127.76823 123.11177,129.38 125.1,129.38 127.08823,129.38 128.7,127.76823 128.7,125.78 128.7,123.79177 127.08823,122.18 125.1,122.18 z M124.4,7 C189.23823,7 241.8,59.561771 241.8,124.4 241.8,189.23823 189.23823,241.8 124.4,241.8 59.561771,241.8 7,189.23823 7,124.4 7,59.561771 59.561771,7 124.4,7 z" HorizontalAlignment="Left" Height="248.8" Stretch="Fill" Stroke="#FFF35EDE" StrokeThickness="14" VerticalAlignment="Top" Width="248.8"/>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Grid Margin="0,0,10,88.67" Grid.Row="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="109*"/>
+                        <ColumnDefinition Width="441*"/>
+                    </Grid.ColumnDefinitions>
+                    <DataGrid x:Name="dataGrid" HorizontalAlignment="Left" Height="233.116" VerticalAlignment="Top" Width="550.2" Grid.ColumnSpan="2"/>
+                    <ComboBox SelectionChanged="selectConverter_SelectionChanged" x:Name="selectConverter" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Margin="0,-21.96,0,0" Grid.ColumnSpan="2"/>
+                    <DatePicker Name="dateFrom" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="1" Margin="32.559,-29,0,0"/>
+                    <DatePicker Name="dateTo" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="1" Margin="172.558,-29,0,0"/>
+                    <Button Click="Button_Click_1" Content="Filtruj" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Grid.Column="1" Margin="294.96,-27,0,0"/>
+                    <Button Content="Prev" Click="ButtonClickPrev" Margin="0,271,28.4,-5.67"/>
+                    <Button Content="Next" Click="ButtonClickNext" Margin="111,271,463.4,-5.67" Grid.ColumnSpan="2"/>
+                    <Button Content="Top Konwersje" Click="Button_Click_2" Margin="99.6,275,341.4,0.33" Grid.Column="1"/>
+                    <ListBox x:Name="topKonwersje" Margin="207.6,251,142.4,-5.67" Grid.Column="1"/>
                 </Grid>
-                <Button x:Name="ButtonA" Content="Switch On" Click="ButtonA_Click" HorizontalAlignment="Left" Margin="25.6,21.25,0,0" VerticalAlignment="Top" Width="75"/>
-                <Button x:Name="ButtonB" Content="Switch Off" Click="ButtonB_Click" HorizontalAlignment="Left" Margin="21,62,0,0" VerticalAlignment="Top" Width="75"/>
+                <Grid Margin="21,21.25,0,0" Grid.Row="0" >
+                    <Grid x:Name="ClockGrid" Margin="79.6,8.75,0,0">
+                        <Rectangle HorizontalAlignment="Left" Height="112" Margin="120,19.08,0,0" Stroke="#FF003AFF" StrokeThickness="14" VerticalAlignment="Top" Width="9.6" RenderTransformOrigin="0.5,1">
+                            <Rectangle.RenderTransform>
+                                <TransformGroup>
+                                    <ScaleTransform/>
+                                    <SkewTransform/>
+                                    <RotateTransform x:Name="Minutes" Angle="0"/>
+                                    <TranslateTransform/>
+                                </TransformGroup>
+                            </Rectangle.RenderTransform>
+                        </Rectangle>
+                        <Rectangle HorizontalAlignment="Left" Height="70.4" Margin="120,60.68,0,0" Stroke="#FF00FFB1" StrokeThickness="14" VerticalAlignment="Top" Width="9.6" RenderTransformOrigin="0.5,1">
+                            <Rectangle.RenderTransform>
+                                <TransformGroup>
+                                    <ScaleTransform/>
+                                    <SkewTransform/>
+                                    <RotateTransform x:Name="Hours" Angle="0"/>
+                                    <TranslateTransform/>
+                                </TransformGroup>
+                            </Rectangle.RenderTransform>
+                        </Rectangle>
+                        <Path Data="M125.1,122.18 C123.11177,122.18 121.5,123.79177 121.5,125.78 121.5,127.76823 123.11177,129.38 125.1,129.38 127.08823,129.38 128.7,127.76823 128.7,125.78 128.7,123.79177 127.08823,122.18 125.1,122.18 z M124.4,7 C189.23823,7 241.8,59.561771 241.8,124.4 241.8,189.23823 189.23823,241.8 124.4,241.8 59.561771,241.8 7,189.23823 7,124.4 7,59.561771 59.561771,7 124.4,7 z" HorizontalAlignment="Left" Height="248.8" Stretch="Fill" Stroke="#FFF35EDE" StrokeThickness="14" VerticalAlignment="Top" Width="248.8"/>
+                    </Grid>
+                    <Button x:Name="ButtonA" Content="Switch On" Click="ButtonA_Click" HorizontalAlignment="Left" Margin="4.6,0,0,0" VerticalAlignment="Top" Width="75"/>
+                    <Button x:Name="ButtonB" Content="Switch Off" Click="ButtonB_Click" HorizontalAlignment="Left" Margin="0,40.75,0,0" VerticalAlignment="Top" Width="75"/>
+                </Grid>
             </Grid>
         </Grid>
     </Border>

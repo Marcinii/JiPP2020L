@@ -35,8 +35,17 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\Konwerter\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\Konwerter\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -55,6 +64,25 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="DBManager.cs" />
+    <Compile Include="Statistic.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Statistic.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Statistic.cs">
+      <DependentUpon>Statistic.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Statistic.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Statistic.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Statistic1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Statistic.tt</DependentUpon>
+    </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -86,9 +114,17 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <EntityDeploy Include="Statistic.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Statistic.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Statistic.edmx.diagram">
+      <DependentUpon>Statistic.edmx</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>
@@ -99,6 +135,21 @@
       <Project>{fc59d585-ceb6-4ccc-9b0d-ca879af7c5c4}</Project>
       <Name>Konwerter.Logika</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Statistic.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Statistic.edmx</DependentUpon>
+      <LastGenOutput>Statistic.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Statistic.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Statistic.edmx</DependentUpon>
+      <LastGenOutput>Statistic1.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
