@@ -24,12 +24,30 @@ namespace KonwerterWPF
         private IKonwerter aktualnyKonwerter;
         private Godziny godziny = null;
         private Zegar zegar = null;
+        private Baza db = new Baza();
+        private string aktualnyKonwerterStr = "";
 
         public MainWindow()
         {
             InitializeComponent();
             aktualnyKonwerter = new CelsjuszNaFarenheit();
             zegar = new Zegar(GodzinyTransform, MinutyTransform);
+            OdswiezDataGrid();
+
+            List<string> rodzajeKonwerterow = new List<string>();
+            rodzajeKonwerterow.Add("Wszystkie");
+            rodzajeKonwerterow.Add("CelsjuszFarenheit");
+            rodzajeKonwerterow.Add("FarenheitCelsjusz");
+            rodzajeKonwerterow.Add("MetryKilometry");
+            rodzajeKonwerterow.Add("MileKilometry");
+            rodzajeKonwerterow.Add("KilometryMile");
+            rodzajeKonwerterow.Add("GodzinySekund");
+            rodzajeKonwerterow.Add("KilogramyFunty");
+            rodzajeKonwerterow.Add("FuntyKilogramy");
+            rodzajeKonwerterow.Add("Godziny24na12");
+            rodzajeKonwerterow.Add("Godziny12na24");
+            konwerteryList.ItemsSource = rodzajeKonwerterow;
+            konwerteryList.SelectedIndex = 0;
         }
 
         private void ZmienKonwerter(object sender, RoutedEventArgs e)
@@ -38,7 +56,8 @@ namespace KonwerterWPF
 
             ZegarGrid.Visibility = Visibility.Hidden;
             RadioButton checkBox = (RadioButton) sender;
-            switch(checkBox.Name)
+            aktualnyKonwerterStr = checkBox.Name;
+            switch (checkBox.Name)
             {
                 case "CelsjuszFarenheit":
                     aktualnyKonwerter = new CelsjuszNaFarenheit();
@@ -81,14 +100,46 @@ namespace KonwerterWPF
             {
                 godziny.AddInput(Wartosc.Text.ToString());
                 zegar.UstawCzas(godziny.ToDateTime());
+                db.DodajRekord(new KonwersjeTabela()
+                {
+                    czas = DateTime.Now,
+                    nazwa = aktualnyKonwerterStr,
+                    wartosc_a = Wartosc.Text.ToString(),
+                    wartosc_b = godziny.GetOutput()
+                });
+                OdswiezDataGrid();
                 MessageBox.Show("Wynik: " + godziny.GetOutput());
             }
             else
             {
                 double wartosc = double.Parse(Wartosc.Text.ToString());
                 aktualnyKonwerter.DodajWartosc(wartosc);
+                db.DodajRekord(new KonwersjeTabela()
+                {
+                    czas = DateTime.Now,
+                    nazwa = aktualnyKonwerterStr,
+                    wartosc_a = Wartosc.Text.ToString(),
+                    wartosc_b = aktualnyKonwerter.Przelicz().ToString()
+                });
+                OdswiezDataGrid();
                 MessageBox.Show("Wynik: " + aktualnyKonwerter.Przelicz());
             }
+            
+        }
+
+        private void OdswiezDataGrid()
+        {
+            dataGrid.ItemsSource = db.LadujDane();
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            dataGrid.ItemsSource = db.LadujPofiltrowane(konwerteryList.SelectedItem.ToString(), dateFrom.SelectedDate, dateTo.SelectedDate);
+        }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            dataGrid.ItemsSource = db.TopKonwersje();
         }
     }
 }
