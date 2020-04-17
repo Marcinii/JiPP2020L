@@ -52,18 +52,19 @@
         <Label Margin ="5,0,5,0" Grid.Row="0" Grid.Column = "3">Wynik</Label>
         <Label x:Name="uwaga_format" Margin ="5,0,5,0" Grid.Row="2" Grid.Column = "1" Visibility="Hidden">Format czasu 12/24: GG:MM</Label>
 
-        <TextBox x:Name="textbox_input" Margin ="5,0,5,0" Grid.Row="1" Grid.Column = "1" Background="#FFF0D264" ></TextBox>
+        <TextBox x:Name="textbox_input" Margin ="5,0,5,0" Grid.Row="1" Grid.Column = "1" Background="#FFF0D264" >10</TextBox>
         <TextBox x:Name="textbox_wynik" Margin ="5,0,5,0" Grid.Row="1" Grid.Column = "3" Background="#FF64A0F0" ></TextBox>
 
         <ComboBox x:Name="combobox_Rodzaj_konwersji"  Grid.Row="3" Grid.Column = "1" Background="#FFF0D264" SelectionChanged="combobox_Rodzaj_konwersji_SelectionChanged">
             <ComboBox.ItemTemplate>
                 <DataTemplate>
                     <TextBlock Text="{Binding Name}"/>
-                </DataTemplate>
+                </DataTemplate>                
             </ComboBox.ItemTemplate>
+            
         </ComboBox>
-        <ComboBox x:Name="combobox_Jednostka_bazowa"  Grid.Row="4" Grid.Column = "1" Background="#FFF0D264" ></ComboBox>
-        <ComboBox x:Name="combobox_Jednostka_wynikowa"  Grid.Row="5" Grid.Column = "1" Background="#FFF0D264" ></ComboBox>
+        <ComboBox x:Name="combobox_Jednostka_bazowa"  Grid.Row="4" Grid.Column = "1" Background="#FFF0D264"></ComboBox>
+        <ComboBox x:Name="combobox_Jednostka_wynikowa"  Grid.Row="5" Grid.Column = "1" Background="#FFF0D264"></ComboBox>
 
         <Button x:Name="button_action"  Grid.Row="8" Grid.Column = "1" Background="#FF2FAB37" Click="button_action_Click" >Konwertuj</Button>
         <Path x:Name="path" Data="M132.6,28.892001 C75.323652,28.892 28.892,75.323652 28.892001,132.6 28.892,189.87634 75.323652,236.308 132.6,236.308 189.87634,236.308 236.308,189.87634 236.308,132.6 236.308,75.323652 189.87634,28.892 132.6,28.892001 z M132.6,0.5 C205.55681,0.5 264.7,59.643185 264.7,132.6 264.7,205.55681 205.55681,264.7 132.6,264.7 59.643185,264.7 0.5,205.55681 0.5,132.6 0.5,59.643185 59.643185,0.5 132.6,0.5 z" HorizontalAlignment="Left" Margin="62.308,10,0,11.6" Stretch="Fill" Stroke="Black" Width="69.6" RenderTransformOrigin="0.5,0.5" Grid.RowSpan="3">

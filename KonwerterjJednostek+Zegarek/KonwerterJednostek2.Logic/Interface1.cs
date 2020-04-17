@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace KonwerterjJednostek2
+namespace KonwerterJednostek2.Logic
 {
     public interface IKonwerter
     {

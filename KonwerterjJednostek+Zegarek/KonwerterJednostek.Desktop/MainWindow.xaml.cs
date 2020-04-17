@@ -12,8 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using KonwerterjJednostek2;
-using KonwerterjJednostek2.Logic;
+using KonwerterJednostek2.Logic;
 
 
 
@@ -93,8 +92,8 @@ namespace KonwerterJednostek.Desktop
                 minutowa_rotacja.Angle = (minuta_kat + 15) * 6;                
             }
 
-            
-
+            WtyczkaBazaDanych W1 = new WtyczkaBazaDanych();
+            W1.WstawDaneEF(combobox_Rodzaj_konwersji.SelectedItem.ToString(), combobox_Jednostka_bazowa.SelectedItem.ToString(), combobox_Jednostka_wynikowa.SelectedItem.ToString(), double.Parse(textbox_input.Text), double.Parse(textbox_wynik.Text));
 
         }
     }

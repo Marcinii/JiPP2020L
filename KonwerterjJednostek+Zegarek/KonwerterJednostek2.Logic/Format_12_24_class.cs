@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace KonwerterjJednostek2
+namespace KonwerterJednostek2.Logic
 {
     public class Format_12_24_class : IKonwerter
     {
