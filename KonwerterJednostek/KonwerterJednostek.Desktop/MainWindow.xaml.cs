@@ -49,14 +49,13 @@ namespace KonwerterJednostek.Desktop
 
             bool success1 = double.TryParse(result.Substring(0, 2), out double deg1);
             if (!success1) { deg1 = 0; }
-            deg1 *= 30;
-            //deg1 += (deg0 / 12);
+            //InsertTESTING();
 
             fromDate.SelectedDate = new DateTime(1980, 1, 1);
             toDate.SelectedDate = new DateTime(2050, 1, 1);
 
             int.TryParse(page.Text, out int pageINT);
-            DisplayDataUsingEF(dg, pageINT);
+            DisplayDataUsingEF(dg, pageINT, (DateTime)fromDate.SelectedDate, (DateTime)toDate.SelectedDate, type.Text);
         }
         bool zegarBefore = false;
         private void combo0_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -276,12 +275,12 @@ namespace KonwerterJednostek.Desktop
             pt1.RenderTransform = rot1;
         }
 
-        public static void DisplayDataUsingEF(DataGrid dg, int page, DateTime fromDate, DateTime toDate)
+        public static void DisplayDataUsingEF(DataGrid dg, int page, DateTime fromDate, DateTime toDate, string Type)
         {
             using (StatsEntities context = new StatsEntities())
             {
-                //int.TryParse(page.Text,)
                 List<Stats> stats = context.Stats
+                    .Where(s => s.Date >= fromDate && s.Date < toDate && s.Type.StartsWith(Type))
                     .OrderBy(s => s.Id)
                     .Skip((page - 1) * 10)
                     .Take(10)
@@ -306,10 +305,34 @@ namespace KonwerterJednostek.Desktop
                 context.SaveChanges();
             }
         }
-
-        private void dg_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        public static void InsertTEST()
         {
-
+            using (StatsEntities context = new StatsEntities())
+            {
+                Stats newConversion = new Stats()
+                {
+                    Type = "Temperatura",
+                    UnitFrom = "24-hour",
+                    UnitTo = "12-hour",
+                    Date = new DateTime(2020,1,22),
+                    Value = "15:15",
+                    Result = "03:15PM"
+                };
+                context.Stats.Add(newConversion);
+                context.SaveChanges();
+            }
+        }
+        private void submitFilters(object sender,RoutedEventArgs e)
+        {
+            int.TryParse(page.Text, out int pageINT);
+            DisplayDataUsingEF(dg, pageINT, (DateTime)fromDate.SelectedDate, (DateTime)toDate.SelectedDate, type.Text);
+        }
+        private void submitFilters_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                submitFilters(null, null);
+            }
         }
     }
 }

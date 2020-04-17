@@ -240,17 +240,17 @@
         <StackPanel Orientation="Horizontal" Grid.Row="1" Grid.Column="0" Margin="10,10,10,10">
             <CheckBox Visibility="Hidden" HorizontalAlignment="Center" VerticalAlignment="Center"></CheckBox>
             <Label HorizontalAlignment="Center" VerticalAlignment="Center">Converter Type</Label>
-            <TextBox Width="300" Margin="20,0,20,0" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBox>
-            <Button HorizontalAlignment="Center" VerticalAlignment="Center">Submit</Button>
+            <TextBox x:Name="type" Width="300" Margin="20,0,20,0" HorizontalAlignment="Center" VerticalAlignment="Center" KeyDown="submitFilters_KeyDown"></TextBox>
+            <Button HorizontalAlignment="Center" VerticalAlignment="Center" Click="submitFilters">Submit</Button>
         </StackPanel>
         
         
         <StackPanel Orientation="Horizontal" Grid.Row="1" Grid.Column="1" Margin="10,10,10,10">
             <CheckBox Visibility="Hidden" Margin="50,0,0,0" HorizontalAlignment="Center" VerticalAlignment="Center"></CheckBox>
             <Label HorizontalAlignment="Center" VerticalAlignment="Center">Date Filter</Label>
-            <DatePicker x:Name="fromDate" Margin="50,0,0,0" HorizontalAlignment="Center" VerticalAlignment="Center"></DatePicker>
+            <DatePicker x:Name="fromDate" Margin="50,0,0,0" HorizontalAlignment="Center" VerticalAlignment="Center" KeyDown="submitFilters_KeyDown"></DatePicker>
             <DatePicker x:Name="toDate" Margin="20,0,0,0" HorizontalAlignment="Center" VerticalAlignment="Center"></DatePicker>
-            <Button Margin="20,0,0,0" HorizontalAlignment="Center" VerticalAlignment="Center">Submit</Button>
+            <Button Margin="20,0,0,0" HorizontalAlignment="Center" VerticalAlignment="Center" Click="submitFilters">Submit</Button>
         </StackPanel>
         
         
@@ -264,12 +264,12 @@
         
         <StackPanel Orientation="Horizontal" Grid.Row="2" Grid.Column="1" Margin="10,10,10,10">
             <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="200,0,0,0">Page</Label>
-            <TextBox x:Name="page" Width="100" Margin="20,0,20,0" HorizontalAlignment="Center" VerticalAlignment="Center" Text="1"></TextBox>
-            <Button HorizontalAlignment="Center" VerticalAlignment="Center">Show</Button>
+            <TextBox x:Name="page" Width="100" Margin="20,0,20,0" HorizontalAlignment="Center" VerticalAlignment="Center" Text="1" KeyDown="submitFilters_KeyDown"></TextBox>
+            <Button HorizontalAlignment="Center" VerticalAlignment="Center" Click="submitFilters">Show</Button>
         </StackPanel>
         
         
-        <DataGrid x:Name="dg" ItemsSource="{Binding}" AutoGenerateColumns="False" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" Margin="30,0,30,30" SelectionChanged="dg_SelectionChanged" Width="880" Height="250">
+        <DataGrid x:Name="dg" ItemsSource="{Binding}" AutoGenerateColumns="False" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" Margin="30,0,30,30" Width="880" Height="250">
             <DataGrid.Columns>
                 <DataGridTextColumn Width="25" Header="ID" Binding="{Binding Id}"/>
                 <DataGridTextColumn Width="140" Header="Konwertowany Typ" Binding="{Binding Type}"/>
