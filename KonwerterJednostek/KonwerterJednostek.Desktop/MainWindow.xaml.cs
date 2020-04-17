@@ -29,7 +29,7 @@ namespace KonwerterJednostek.Desktop
             Watch t = new Watch();
             int hour = (DateTime.Now).Hour;
             int minute = (DateTime.Now).Minute;
-            int second = (DateTime.Now).Second;
+            //int second = (DateTime.Now).Second;
 
             Clock_online();
 
@@ -101,51 +101,6 @@ namespace KonwerterJednostek.Desktop
                 zegarBefore = false;
                 Clock_online_restart();
             }
-            //if (((IConverter)combo0.SelectedItem).Name != "Zegar")
-            //{
-            //    int hour = (DateTime.Now).Hour;
-            //    int minute = (DateTime.Now).Minute;
-            //    int second = (DateTime.Now).Second;
-            //    string s1 = hour < 10 ? "0" + hour : hour.ToString();
-            //    string s2 = minute < 10 ? "0" + minute : minute.ToString();
-            //    string time = s1 + ":" + s2;
-
-            //    string result = t.UnitConv("f", "t", time);
-
-            //    bool success0 = double.TryParse(result.Substring(3, 2), out double deg0);
-            //    if (!success0) { deg0 = 0; }
-            //    deg0 *= 6;
-            //    Path pt0 = minutes;
-            //    RotateTransform rot0 = new RotateTransform(deg0);
-            //    pt0.RenderTransform = rot0;
-
-            //    bool success1 = double.TryParse(result.Substring(0, 2), out double deg1);
-            //    if (!success1) { deg1 = 0; }
-            //    deg1 *= 30;
-            //    deg1 += (deg0 / 12);
-            //    Path pt1 = hours;
-            //    RotateTransform rot1 = new RotateTransform(deg1);
-            //    pt1.RenderTransform = rot1;
-
-            //    double deg2 = second * 6;
-            //    Path pt2 = seconds;
-            //    RotateTransform rot2 = new RotateTransform(deg2);
-            //    pt2.RenderTransform = rot2;
-            //}
-            //else if (((IConverter)combo0.SelectedItem).Name == "Zegar")
-            //{
-            //    Path pt0 = minutes;
-            //    RotateTransform rot0 = new RotateTransform(0);
-            //    pt0.RenderTransform = rot0;
-
-            //    Path pt1 = hours;
-            //    RotateTransform rot1 = new RotateTransform(0);
-            //    pt1.RenderTransform = rot1;
-                
-            //    Path pt2 = seconds;
-            //    RotateTransform rot2 = new RotateTransform(0);
-            //    pt2.RenderTransform = rot2;
-            //}
         }
 
         private void button0_Click(object sender, RoutedEventArgs e)
@@ -175,6 +130,13 @@ namespace KonwerterJednostek.Desktop
                 RotateTransform rot1 = new RotateTransform(deg1);
                 pt1.RenderTransform = rot1;
             }
+            if (false) { }
+            InsertDataUsingEF
+                (((IConverter)combo0.SelectedItem).Name,
+                combo1.SelectedItem.ToString(),
+                combo2.SelectedItem.ToString(),
+                box0.Text,
+                block0.Text);
         }
 
         private void button1_Click(object sender, RoutedEventArgs e)
@@ -320,6 +282,40 @@ namespace KonwerterJednostek.Desktop
             Path pt1 = hours1;
             RotateTransform rot1 = new RotateTransform(0);
             pt1.RenderTransform = rot1;
+        }
+
+        public static void DisplayDataUsingEF()
+        {
+            using (StatsEntities context = new StatsEntities())
+            {
+                List<Stats> stats = context.Stats.ToList();
+                foreach(Stats s in stats)
+                {
+                    Console.WriteLine(s.Id + " " + s.Type + " " + s.UnitFrom + " " + s.UnitTo + " " + s.Date + " " + s.Value + " " + s.Result);
+                }
+            }
+        }
+        public static void InsertDataUsingEF(string Type,string UnitFrom, string UnitTo, string Value, string Result)
+        {
+            using (StatsEntities context = new StatsEntities())
+            {
+                Stats newConversion = new Stats()
+                {
+                    Type = Type,
+                    UnitFrom = UnitFrom,
+                    UnitTo = UnitTo,
+                    Date = DateTime.Now,
+                    Value = Value,
+                    Result = Result
+                };
+                context.Stats.Add(newConversion);
+                context.SaveChanges();
+            }
+        }
+
+        private void DataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
         }
     }
 }

@@ -233,8 +233,16 @@
                 </TransformGroup>
             </Path.RenderTransform>
         </Path>
-        <DataGrid Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Margin="30,0,30,30">
-            coś tam
+        <DataGrid x:Name="stats" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Margin="30,0,30,30" SelectionChanged="DataGrid_SelectionChanged">
+            <DataGrid.Columns>
+                <DataGridTextColumn Width="50" Header="ID" Binding="{Binding Id}"/>
+                <DataGridTextColumn Width="140" Header="Konwertowany Typ" Binding="{Binding Type}"/>
+                <DataGridTextColumn Width="140" Header="Z jakiej jednostki" Binding="{Binding UnitFrom}"/>
+                <DataGridTextColumn Width="140" Header="Do jakiej jednostki" Binding="{Binding UnitTo}"/>
+                <DataGridTextColumn Width="140" Header="Data Konwersji" Binding="{Binding Date}"/>
+                <DataGridTextColumn Width="140" Header="Wartość" Binding="{Binding Value}"/>
+                <DataGridTextColumn Width="140" Header="Wynik" Binding="{Binding Result}"/>
+            </DataGrid.Columns>
         </DataGrid>
     </Grid>
 </Window>
