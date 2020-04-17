@@ -146,10 +146,10 @@ namespace Konwerter_ver01.Desktop
             ((Storyboard)Resources["StoryboardKom12"]).Begin();
         }*/
 
-        private void WysStat_Click(object sender, RoutedEventArgs e)
+        private void WysWynikiB_Click(object sender, RoutedEventArgs e)
         {
-            
-                using (KonwerterDane context = new KonwerterDane())
+
+            using (KonwerterDane context = new KonwerterDane())
                 {
                     nrstrony = 0;
                     if (DateTime.TryParse(DataOd.Text, out DateTime dataod)) { } else dataod = new DateTime(2020, 04, 01);

@@ -128,7 +128,7 @@
                 </TransformGroup>
             </Rectangle.RenderTransform>
         </Rectangle>
-        <Button x:Name="WysStat" Margin="0,0,70,0" Content="Wyświetl statystyki" HorizontalAlignment="Right" VerticalAlignment="Top" Width="120" Click="WysStat_Click"  Height="25" Grid.Row="2" Background="#FFD16F41" FontWeight="Bold"/>
+        <Button x:Name="WysWynikiB" Margin="0,0,27,0" Content="Wyświetl zapisane wyniki" HorizontalAlignment="Right" VerticalAlignment="Top" Width="163" Click="WysWynikiB_Click"  Height="25" Grid.Row="2" Background="#FFD16F41" FontWeight="Bold"/>
 
         <DataGrid x:Name="Statystyki" HorizontalAlignment="Left" Height="200" Margin="12,38,0,0" VerticalAlignment="Top" Width="598" Grid.ColumnSpan="6" Grid.Row="2"/>
         <Button x:Name="NastepnaStrona" Margin="0,243,0,0" Content="Następna strona" HorizontalAlignment="Right" VerticalAlignment="Top" Width="120" Height="20" Click="NastepnaStrona_Click" Grid.Row="2" Grid.ColumnSpan="2" Grid.Column="4" Background="#FF2DAE56"/>
