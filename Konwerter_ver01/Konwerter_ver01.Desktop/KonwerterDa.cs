@@ -11,6 +11,7 @@ namespace Konwerter_ver01.Desktop
        
             public int Id { get; set; }
             public string WybKon { get; set; }
+            //public string WybKonWyn { get; set; }
             public string JednZ { get; set; }
             public string JednDo { get; set; }
             public string InputDane { get; set; }

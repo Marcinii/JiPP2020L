@@ -74,6 +74,7 @@
     </Compile>
     <Compile Include="KonwerterDa.cs" />
     <Compile Include="KonwerterDane.cs" />
+    <Compile Include="KonwerterDaSel.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>

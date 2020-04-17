@@ -29,6 +29,7 @@ namespace Konwerter_ver01.Desktop
             // nrstrony = 0;
             InitializeComponent();
             WybKon.ItemsSource = new ZestawKonw().GetConverter();
+            //WybKonWyn.ItemsSource = new ZestawKonw().GetConverter();
             // WybKonBaza.ItemsSource = new ZestawKonw().GetConverter();
 
             //CykCyk.Angle = 6;
@@ -45,8 +46,6 @@ namespace Konwerter_ver01.Desktop
 
         private void WybKon_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-
-
             JednZ.ItemsSource = ((IConverter)WybKon.SelectedItem).Jedn;
             JednDo.ItemsSource = ((IConverter)WybKon.SelectedItem).Jedn;
         }
@@ -154,14 +153,14 @@ namespace Konwerter_ver01.Desktop
                     nrstrony = 0;
                     if (DateTime.TryParse(DataOd.Text, out DateTime dataod)) { } else dataod = new DateTime(2020, 04, 01);
                     if (DateTime.TryParse(DataDo.Text, out DateTime datado)) { datado = new DateTime(datado.Year, datado.Month, datado.Day, 23, 59, 59); } else datado = DateTime.Now;
+                    
+                    List<KonwerterDa> konstat = context.KonwerterDaWy.Where(k => k.KonwerterCzas >= dataod).Where(k => k.KonwerterCzas <= datado).OrderBy(k => k.KonwerterCzas).Skip(nrstrony * 8).Take(8).ToList();
+                    //List<KonwerterDa> konstat2 = context.KonwerterDaWy.Where(k => k.WybKon == (((IConverter)WybKon.SelectedItem).Name)).Where(k => k.KonwerterCzas >= dataod).Where(k => k.KonwerterCzas <= datado).OrderBy(k => k.KonwerterCzas).Skip(nrstrony * 8).Take(8).ToList();
 
-                    List<KonwerterDa> konstat = context.KonwerterDaWy.Where(k => k.WybKon == (((IConverter)WybKon.SelectedItem).Name)).Where(k => k.KonwerterCzas >= dataod).Where(k => k.KonwerterCzas <= datado).OrderBy(k => k.KonwerterCzas).Skip(nrstrony * 8).Take(8).ToList();
-
-                    Statystyki.ItemsSource = konstat;
+                Statystyki.ItemsSource = konstat;
                 }
         }
         
-
         private void NastepnaStrona_Click(object sender, RoutedEventArgs e)
         {
             nrstrony++;
@@ -169,7 +168,7 @@ namespace Konwerter_ver01.Desktop
             {
                 if (DateTime.TryParse(DataOd.Text, out DateTime dataod)) { } else dataod = new DateTime(2020, 04, 01);
                 if (DateTime.TryParse(DataDo.Text, out DateTime datado)) { datado = new DateTime(datado.Year, datado.Month, datado.Day, 23, 59, 59); } else datado = DateTime.Now;
-                List<KonwerterDa> konstat = context.KonwerterDaWy.Where(k => k.WybKon == (((IConverter)WybKon.SelectedItem).Name)).Where(k => k.KonwerterCzas >= dataod).Where(k => k.KonwerterCzas <= datado).OrderBy(k => k.KonwerterCzas).Skip(nrstrony * 8).Take(8).ToList();
+                List<KonwerterDa> konstat = context.KonwerterDaWy.Where(k => k.KonwerterCzas >= dataod).Where(k => k.KonwerterCzas <= datado).OrderBy(k => k.KonwerterCzas).Skip(nrstrony * 8).Take(8).ToList();
 
                 Statystyki.ItemsSource = konstat;
             }
@@ -182,7 +181,7 @@ namespace Konwerter_ver01.Desktop
                 if (nrstrony != 0) nrstrony--;
                 if (DateTime.TryParse(DataOd.Text, out DateTime dataod)) { } else dataod = new DateTime(2020, 04, 01);
                 if (DateTime.TryParse(DataDo.Text, out DateTime datado)) { datado = new DateTime(datado.Year, datado.Month, datado.Day, 23, 59, 59); } else datado = DateTime.Now;
-                List<KonwerterDa> konstat = context.KonwerterDaWy.Where(k => k.WybKon == (((IConverter)WybKon.SelectedItem).Name)).Where(k => k.KonwerterCzas >= dataod).Where(k => k.KonwerterCzas <= datado).OrderBy(k => k.KonwerterCzas).Skip(nrstrony * 8).Take(8).ToList();
+                List<KonwerterDa> konstat = context.KonwerterDaWy.Where(k => k.KonwerterCzas >= dataod).Where(k => k.KonwerterCzas <= datado).OrderBy(k => k.KonwerterCzas).Skip(nrstrony * 8).Take(8).ToList();
 
                 Statystyki.ItemsSource = konstat;
             }
@@ -194,7 +193,50 @@ namespace Konwerter_ver01.Desktop
             {
                 if (DateTime.TryParse(DataOd.Text, out DateTime dataod)) { } else dataod = new DateTime(2020, 04, 01);
                 if (DateTime.TryParse(DataDo.Text, out DateTime datado)) { datado = new DateTime(datado.Year, datado.Month, datado.Day, 23, 59, 59); } else datado = DateTime.Now;
-                Tabela2.ItemsSource = context.KonwerterDaWy.Where(m => m.WybKon == (((IConverter)WybKon.SelectedItem).Name)).Where(m => m.KonwerterCzas >= dataod).Where(m => m.KonwerterCzas <= datado).GroupBy(m => new { m.WybKon, m.JednZ, m.JednDo }).Select(m => new { m.Key.WybKon, m.Key.JednZ, m.Key.JednDo, Ile_razy = m.Count() }).OrderByDescending(m => m.Ile_razy).Take(3).ToList();
+                Tabela2.ItemsSource = context.KonwerterDaWy.Where(m => m.KonwerterCzas >= dataod).Where(m => m.KonwerterCzas <= datado).GroupBy(m => new { m.WybKon, m.JednZ, m.JednDo }).Select(m => new { m.Key.WybKon, m.Key.JednZ, m.Key.JednDo, Ile_razy = m.Count() }).OrderByDescending(m => m.Ile_razy).Take(3).ToList();
+            }
+        }
+
+        
+
+        private void WysWynKon_Click(object sender, RoutedEventArgs e)
+        {
+            using (KonwerterDane context = new KonwerterDane())
+            {
+                nrstrony = 0;
+                if (DateTime.TryParse(DataOd.Text, out DateTime dataod)) { } else dataod = new DateTime(2020, 04, 01);
+                if (DateTime.TryParse(DataDo.Text, out DateTime datado)) { datado = new DateTime(datado.Year, datado.Month, datado.Day, 23, 59, 59); } else datado = DateTime.Now;
+
+                //List<KonwerterDa> konstat = context.KonwerterDaWy.Where(k => k.KonwerterCzas >= dataod).Where(k => k.KonwerterCzas <= datado).OrderBy(k => k.KonwerterCzas).Skip(nrstrony * 8).Take(8).ToList();
+                List<KonwerterDa> konstat = context.KonwerterDaWy.Where(k => k.WybKon == (((IConverter)WybKon.SelectedItem).Name)).Where(k => k.KonwerterCzas >= dataod).Where(k => k.KonwerterCzas <= datado).OrderBy(k => k.KonwerterCzas).Skip(nrstrony * 8).Take(8).ToList();
+
+                Statystyki.ItemsSource = konstat;
+            }
+        }
+
+        private void PopWyb_Click(object sender, RoutedEventArgs e)
+        {
+            using (KonwerterDane context = new KonwerterDane())
+            {
+                if (nrstrony != 0) nrstrony--;
+                if (DateTime.TryParse(DataOd.Text, out DateTime dataod)) { } else dataod = new DateTime(2020, 04, 01);
+                if (DateTime.TryParse(DataDo.Text, out DateTime datado)) { datado = new DateTime(datado.Year, datado.Month, datado.Day, 23, 59, 59); } else datado = DateTime.Now;
+                List<KonwerterDa> konstat = context.KonwerterDaWy.Where(k => k.WybKon == (((IConverter)WybKon.SelectedItem).Name)).Where(k => k.KonwerterCzas >= dataod).Where(k => k.KonwerterCzas <= datado).OrderBy(k => k.KonwerterCzas).Skip(nrstrony * 8).Take(8).ToList();
+
+                Statystyki.ItemsSource = konstat;
+            }
+        }
+
+        private void NastWyb_Click(object sender, RoutedEventArgs e)
+        {
+            nrstrony++;
+            using (KonwerterDane context = new KonwerterDane())
+            {
+                if (DateTime.TryParse(DataOd.Text, out DateTime dataod)) { } else dataod = new DateTime(2020, 04, 01);
+                if (DateTime.TryParse(DataDo.Text, out DateTime datado)) { datado = new DateTime(datado.Year, datado.Month, datado.Day, 23, 59, 59); } else datado = DateTime.Now;
+                List<KonwerterDa> konstat = context.KonwerterDaWy.Where(k => k.WybKon == (((IConverter)WybKon.SelectedItem).Name)).Where(k => k.KonwerterCzas >= dataod).Where(k => k.KonwerterCzas <= datado).OrderBy(k => k.KonwerterCzas).Skip(nrstrony * 8).Take(8).ToList();
+
+                Statystyki.ItemsSource = konstat;
             }
         }
     }
