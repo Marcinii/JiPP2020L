@@ -19,11 +19,11 @@ namespace Project1
         public decimal Convert(string unitFrom, string unitTo, decimal valueToConvert)
         {
 
-            if (unitFrom == "c" && unitTo == "f")
+            if (unitFrom == "C" && unitTo == "F")
             {
                 return (valueToConvert * 1.8m) + 32;
             }
-            else if (unitFrom == "f" && unitTo == "c")
+            else if (unitFrom == "F" && unitTo == "C")
             {
                 return (valueToConvert - 32) / 1.8m;
             }

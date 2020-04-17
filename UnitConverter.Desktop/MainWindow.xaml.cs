@@ -19,146 +19,97 @@ namespace UnitConverter.Desktop
     /// <summary>
     /// Logika interakcji dla klasy MainWindow.xaml
     /// </summary>
+    /// 
     public partial class MainWindow : Window
     {
-        List<IConverter> converters = new List<IConverter>()
-            {
-                new TemperatureConverter(),
-                new Project1.LengthConverter(),
-                new WeightConverter(),
-                new TimeConverter()
-            };
-
-        int choice = 1;
-        string unitFrom;
-        string unitTo;
 
         public MainWindow()
         {
             InitializeComponent();
 
 
-            List<string> converterNames = new List<string>();
-
-            for (int i = 0; i < converters.Count; i++)
+            comboboxConverter.ItemsSource = new List<IConverter>()
             {
-                converterNames.Add(converters[i].Name);
+                new Project1.LengthConverter(),
+                new TemperatureConverter(),
+                new WeightConverter(),
+                new TimeConverter()
+            };
+
+
+
             }
-
-            comboboxConverter.ItemsSource = converterNames;
-
-        }
+        string nameConv = "";
+        string nameConvDB = "";
 
         private void comboboxConverter_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            comboboxUnitFrom.ItemsSource = ((IConverter)comboboxConverter.SelectedItem).Units;
+            comboboxUnitTo.ItemsSource = ((IConverter)comboboxConverter.SelectedItem).Units;
 
-            if (comboboxConverter.SelectedItem == "Temperatura")
+            using (TestDataEntities contextGrid = new TestDataEntities())
             {
-                List<string> units = new List<string>()
-                {
-                    "C",
-                    "F"
-                };
-                comboboxUnitFrom.ItemsSource = units;
-                choice = 1;
+                List<ConverterRecord> records = contextGrid.ConverterRecords.ToList();
+                dbGrid.ItemsSource = records;
             }
-            else if (comboboxConverter.SelectedItem == "Długość")
-            {
-                List<string> units = new List<string>()
-                {
-                    "km",
-                    "mi"
-                };
-                comboboxUnitFrom.ItemsSource = units;
-                choice = 2;
-            }
-            else if (comboboxConverter.SelectedItem == "Masa")
-            {
-                List<string> units = new List<string>()
-                {
-                    "kg",
-                    "g",
-                    "lb"
-                };
-                comboboxUnitFrom.ItemsSource = units;
-                choice = 3;
-            }
-            else if (comboboxConverter.SelectedItem == "Czas")
-            {
-                List<string> units = new List<string>()
-                {
-                    "min",
-                    "s"
-                };
-                comboboxUnitFrom.ItemsSource = units;
-                choice = 4;
-            }
+
 
         }
 
-
-        private void comboboxUnitFrom_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void buttonConvert_Click(object sender, RoutedEventArgs e)
         {
+            string inputText = inputTextbox.Text;
+            decimal inputValue = decimal.Parse(inputText);
 
-            if (comboboxUnitFrom.SelectedItem == "C")
-            {
-                unitFrom = "c";
-                unitTo = "f";
-            }
-            else if (comboboxUnitFrom.SelectedItem == "F")
-            {
-                unitFrom = "f";
-                unitTo = "c";
-            }
-            else if (comboboxUnitFrom.SelectedItem == "km")
-            {
-                unitFrom = "km";
-                unitTo = "mi";
-            }
-            else if (comboboxUnitFrom.SelectedItem == "mi")
-            {
-                unitFrom = "mi";
-                unitTo = "km";
-            }
-            else if (comboboxUnitFrom.SelectedItem == "kg")
-            {
-                unitFrom = "kg";
-                unitTo = "lb";
-            }
-            else if (comboboxUnitFrom.SelectedItem == "g")
-            {
-                unitFrom = "kg";
-                unitTo = "lb";
-            }
-            else if (comboboxUnitFrom.SelectedItem == "lb")
-            {
-                unitFrom = "lb";
-                unitTo = "kg";
-            }
-            else if (comboboxUnitFrom.SelectedItem == "min")
-            {
-                unitFrom = "min";
-                unitTo = "s";
-            }
-            else if (comboboxUnitFrom.SelectedItem == "s")
-            {
-                unitFrom = "s";
-                unitTo = "min";
-            }
-            else
-            {
-                unitFrom = "c";
-                unitTo = "f";
-            }
-        }
-
-        private void inputTextbox_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            decimal value = decimal.Parse(inputTextbox.Text);
-
-            decimal result = converters[choice - 1].Convert(unitFrom, unitTo, value);
+            decimal result = ((IConverter)comboboxConverter.SelectedItem).Convert(
+                comboboxUnitFrom.SelectedItem.ToString(),
+                comboboxUnitTo.SelectedItem.ToString(),
+                inputValue);
 
             resultTextblock.Text = result.ToString();
+
+            nameConv = comboboxConverter.SelectedItem.ToString();
+
+            if (nameConv == "Project1.LengthConverter")
+            {
+                nameConvDB = "Długość";
+            }
+            else if (nameConv == "Project1.TemperatureConverter")
+            {
+                nameConvDB = "Temperatura";
+            }
+            else if (nameConv == "Project1.WeightConverter")
+            {
+                nameConvDB = "Masa";
+            }
+            else if (nameConv == "Project1.TimeConverter")
+            {
+                nameConvDB = "Czas";
+            }
+
+
+            using (TestDataEntities context = new TestDataEntities())
+            {
+
+                ConverterRecord newRecord = new ConverterRecord()
+                {
+                    NameConverter = nameConvDB,
+                    UnitFrom = comboboxUnitFrom.SelectedItem.ToString(),
+                    UnitTo = comboboxUnitTo.SelectedItem.ToString(),
+                    Value = inputValue,
+                    Result = result,
+                    DateRecord = DateTime.Now
+                };
+
+                context.ConverterRecords.Add(newRecord);
+                context.SaveChanges();
+
+            }
+
+
         }
+
+
+
     }
 }
