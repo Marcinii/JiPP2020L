@@ -8,3 +8,9 @@ C:\Users\Lenovo\source\repos\wwsi\KonwerterJednostek\KonwerterJednostek.Logic\bi
 C:\Users\Lenovo\source\repos\wwsi\KonwerterJednostek\KonwerterJednostek.Logic\obj\Debug\KonwerterJednostek.Logic.csprojAssemblyReference.cache
 C:\Users\Lenovo\source\repos\wwsi\KonwerterJednostek\KonwerterJednostek.Logic\obj\Debug\KonwerterJednostek.Logic.dll
 C:\Users\Lenovo\source\repos\wwsi\KonwerterJednostek\KonwerterJednostek.Logic\obj\Debug\KonwerterJednostek.Logic.pdb
+C:\Users\HP\source\repos\JiPP2020L\KonwerterJednostek\KonwerterJednostek.Logic\bin\Debug\KonwerterJednostek.Logic.dll
+C:\Users\HP\source\repos\JiPP2020L\KonwerterJednostek\KonwerterJednostek.Logic\bin\Debug\KonwerterJednostek.Logic.pdb
+C:\Users\HP\source\repos\JiPP2020L\KonwerterJednostek\KonwerterJednostek.Logic\obj\Debug\KonwerterJednostek.Logic.csprojAssemblyReference.cache
+C:\Users\HP\source\repos\JiPP2020L\KonwerterJednostek\KonwerterJednostek.Logic\obj\Debug\KonwerterJednostek.Logic.csproj.CoreCompileInputs.cache
+C:\Users\HP\source\repos\JiPP2020L\KonwerterJednostek\KonwerterJednostek.Logic\obj\Debug\KonwerterJednostek.Logic.dll
+C:\Users\HP\source\repos\JiPP2020L\KonwerterJednostek\KonwerterJednostek.Logic\obj\Debug\KonwerterJednostek.Logic.pdb

@@ -29,7 +29,6 @@ namespace KonwerterJednostek.Desktop
             Watch t = new Watch();
             int hour = (DateTime.Now).Hour;
             int minute = (DateTime.Now).Minute;
-            //int second = (DateTime.Now).Second;
 
             Clock_online();
 
@@ -47,24 +46,17 @@ namespace KonwerterJednostek.Desktop
             bool success0 = double.TryParse(result.Substring(3, 2), out double deg0);
             if (!success0) { deg0 = 0; }
             deg0 *= 6;
-            //Path pt0 = minutes;
-            //RotateTransform rot0 = new RotateTransform(deg0);
-            //pt0.RenderTransform = rot0;
 
             bool success1 = double.TryParse(result.Substring(0, 2), out double deg1);
             if (!success1) { deg1 = 0; }
             deg1 *= 30;
-            deg1 += (deg0 / 12);
-            //Path pt1 = hours;
-            //RotateTransform rot1 = new RotateTransform(deg1);
-            //pt1.RenderTransform = rot1;
+            //deg1 += (deg0 / 12);
 
-            //double deg2 = second * 6;
-            //Path pt2 = seconds;
-            //RotateTransform rot2 = new RotateTransform(deg2);
-            //pt2.RenderTransform = rot2;
+            fromDate.SelectedDate = new DateTime(1980, 1, 1);
+            toDate.SelectedDate = new DateTime(2050, 1, 1);
 
-
+            int.TryParse(page.Text, out int pageINT);
+            DisplayDataUsingEF(dg, pageINT);
         }
         bool zegarBefore = false;
         private void combo0_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -284,15 +276,17 @@ namespace KonwerterJednostek.Desktop
             pt1.RenderTransform = rot1;
         }
 
-        public static void DisplayDataUsingEF()
+        public static void DisplayDataUsingEF(DataGrid dg, int page, DateTime fromDate, DateTime toDate)
         {
             using (StatsEntities context = new StatsEntities())
             {
-                List<Stats> stats = context.Stats.ToList();
-                foreach(Stats s in stats)
-                {
-                    Console.WriteLine(s.Id + " " + s.Type + " " + s.UnitFrom + " " + s.UnitTo + " " + s.Date + " " + s.Value + " " + s.Result);
-                }
+                //int.TryParse(page.Text,)
+                List<Stats> stats = context.Stats
+                    .OrderBy(s => s.Id)
+                    .Skip((page - 1) * 10)
+                    .Take(10)
+                    .ToList();
+                dg.DataContext = stats;
             }
         }
         public static void InsertDataUsingEF(string Type,string UnitFrom, string UnitTo, string Value, string Result)
@@ -313,7 +307,7 @@ namespace KonwerterJednostek.Desktop
             }
         }
 
-        private void DataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void dg_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
         }

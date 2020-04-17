@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:KonwerterJednostek.Desktop"
         mc:Ignorable="d"
-        Title="MainWindow" Height="540" Width="960">
+        Title="MainWindow" Height="700" Width="1050">
     <Window.Resources>
         <Storyboard x:Key="sb0" RepeatBehavior="Forever">
             <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[2].(RotateTransform.Angle)" Storyboard.TargetName="seconds">
@@ -83,7 +83,9 @@
             <ColumnDefinition Width="1*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1.1*"/>
+            <RowDefinition Height="0.3*"/>
+            <RowDefinition Height="0.3*"/>
             <RowDefinition Height="1*"/>
         </Grid.RowDefinitions>
         <StackPanel Grid.Column="0" Grid.Row="0">
@@ -233,15 +235,49 @@
                 </TransformGroup>
             </Path.RenderTransform>
         </Path>
-        <DataGrid x:Name="stats" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Margin="30,0,30,30" SelectionChanged="DataGrid_SelectionChanged">
+
+
+        <StackPanel Orientation="Horizontal" Grid.Row="1" Grid.Column="0" Margin="10,10,10,10">
+            <CheckBox Visibility="Hidden" HorizontalAlignment="Center" VerticalAlignment="Center"></CheckBox>
+            <Label HorizontalAlignment="Center" VerticalAlignment="Center">Converter Type</Label>
+            <TextBox Width="300" Margin="20,0,20,0" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBox>
+            <Button HorizontalAlignment="Center" VerticalAlignment="Center">Submit</Button>
+        </StackPanel>
+        
+        
+        <StackPanel Orientation="Horizontal" Grid.Row="1" Grid.Column="1" Margin="10,10,10,10">
+            <CheckBox Visibility="Hidden" Margin="50,0,0,0" HorizontalAlignment="Center" VerticalAlignment="Center"></CheckBox>
+            <Label HorizontalAlignment="Center" VerticalAlignment="Center">Date Filter</Label>
+            <DatePicker x:Name="fromDate" Margin="50,0,0,0" HorizontalAlignment="Center" VerticalAlignment="Center"></DatePicker>
+            <DatePicker x:Name="toDate" Margin="20,0,0,0" HorizontalAlignment="Center" VerticalAlignment="Center"></DatePicker>
+            <Button Margin="20,0,0,0" HorizontalAlignment="Center" VerticalAlignment="Center">Submit</Button>
+        </StackPanel>
+        
+        
+        <StackPanel Orientation="Horizontal" Grid.Row="2" Grid.Column="0"  Margin="10,10,10,10">
+            <CheckBox HorizontalAlignment="Center" VerticalAlignment="Center" Visibility="Hidden"></CheckBox>
+            <Label HorizontalAlignment="Center" VerticalAlignment="Center">Most Popular</Label>
+            <TextBox Visibility="Hidden" Width="300" Margin="20,0,20,0" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBox>
+            <Button Visibility="Hidden" HorizontalAlignment="Center" VerticalAlignment="Center">Submit</Button>
+        </StackPanel>
+        
+        
+        <StackPanel Orientation="Horizontal" Grid.Row="2" Grid.Column="1" Margin="10,10,10,10">
+            <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="200,0,0,0">Page</Label>
+            <TextBox x:Name="page" Width="100" Margin="20,0,20,0" HorizontalAlignment="Center" VerticalAlignment="Center" Text="1"></TextBox>
+            <Button HorizontalAlignment="Center" VerticalAlignment="Center">Show</Button>
+        </StackPanel>
+        
+        
+        <DataGrid x:Name="dg" ItemsSource="{Binding}" AutoGenerateColumns="False" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" Margin="30,0,30,30" SelectionChanged="dg_SelectionChanged" Width="880" Height="250">
             <DataGrid.Columns>
-                <DataGridTextColumn Width="50" Header="ID" Binding="{Binding Id}"/>
+                <DataGridTextColumn Width="25" Header="ID" Binding="{Binding Id}"/>
                 <DataGridTextColumn Width="140" Header="Konwertowany Typ" Binding="{Binding Type}"/>
                 <DataGridTextColumn Width="140" Header="Z jakiej jednostki" Binding="{Binding UnitFrom}"/>
                 <DataGridTextColumn Width="140" Header="Do jakiej jednostki" Binding="{Binding UnitTo}"/>
                 <DataGridTextColumn Width="140" Header="Data Konwersji" Binding="{Binding Date}"/>
-                <DataGridTextColumn Width="140" Header="Wartość" Binding="{Binding Value}"/>
-                <DataGridTextColumn Width="140" Header="Wynik" Binding="{Binding Result}"/>
+                <DataGridTextColumn Width="80" Header="Wartość" Binding="{Binding Value}"/>
+                <DataGridTextColumn Width="200" Header="Wynik" Binding="{Binding Result}"/>
             </DataGrid.Columns>
         </DataGrid>
     </Grid>

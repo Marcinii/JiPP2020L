@@ -79,11 +79,11 @@ namespace KonwerterJednostek.Logic
             Weight a = new Weight(inputValue);
             if (from == Units[0] && to == Units[1])
             {
-                return a.lb + " lb";
+                return a.kg + " kg";
             }
             else if (from == Units[1] && to == Units[0])
             {
-                return a.kg + " kg";
+                return a.lb + " lb";
             }
             else { return Error.Info(); }
         }
