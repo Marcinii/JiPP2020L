@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Converter.Desktop"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="500">
+        Title="MainWindow" Height="350" Width="899.553">
     <Window.Resources>
         <Storyboard x:Key="TarczaStory">
             <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)" Storyboard.TargetName="Tarcza">
@@ -50,6 +50,14 @@
                 </TransformGroup>
             </Rectangle.RenderTransform>
         </Rectangle>
+        <DataGrid x:Name="LogList" HorizontalAlignment="Left" Height="221" Margin="483,22,0,0" VerticalAlignment="Top" Width="377" SelectionChanged="LogList_SelectionChanged"/>
+        <Button x:Name="RefreshButton" Content="Refresh" HorizontalAlignment="Left" Height="52" Margin="640,248,0,0" VerticalAlignment="Top" Width="45" Click="Refresh"/>
+        <Button x:Name="back" Content="back" HorizontalAlignment="Left" Height="46" Margin="566,248,0,0" VerticalAlignment="Top" Width="46" Click="pageback"/>
+        <Button x:Name="next" Content="next" HorizontalAlignment="Left" Height="52" Margin="719,248,0,0" VerticalAlignment="Top" Width="43" Click="pagenext"/>
+        <ComboBox x:Name="FiltrTyp" HorizontalAlignment="Left" Height="22" Margin="483,0,0,0" VerticalAlignment="Top" Width="81"/>
+        <DatePicker x:Name="Zakresod" HorizontalAlignment="Left" Height="22" Margin="564,0,0,0" VerticalAlignment="Top" Width="105" Text="Zakres od"/>
+        <DatePicker x:Name="Zakresdo" HorizontalAlignment="Left" Height="22" Margin="669,0,0,0" VerticalAlignment="Top" Width="106" Text="Zakres od"/>
+        <Button x:Name="Top3" Content="Top 3" HorizontalAlignment="Left" Height="22" Margin="775,0,0,0" VerticalAlignment="Top" Width="85" Click="showtop3"/>
 
 
     </Grid>
