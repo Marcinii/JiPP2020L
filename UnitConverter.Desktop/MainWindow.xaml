@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:UnitConverter.Desktop"
         mc:Ignorable="d"
-        Title="MainWindow" Height="160" Width="300">
+        Title="MainWindow" Height="543" Width="700">
     <Window.Resources>
         <Storyboard x:Key="changeColors">
             <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)" Storyboard.TargetName="Grid">
@@ -31,7 +31,7 @@
             <BeginStoryboard Storyboard="{StaticResource highlightsValue}"/>
         </EventTrigger>
     </Window.Triggers>
-    <Grid x:Name="Grid" Background="#FF4675B1" Margin="0">
+    <Grid x:Name="Grid" Background="#FF4675B1" Margin="0,0,-0.4,-0.4" Height="514" VerticalAlignment="Top">
         <ComboBox x:Name="typeComboBox" HorizontalAlignment="Left" Margin="20,10,0,0" VerticalAlignment="Top" Width="253" Height="26" SelectionChanged="TypeComboBox_SelectionChanged">
             <ComboBox.ItemTemplate>
                 <DataTemplate>
@@ -41,8 +41,20 @@
         </ComboBox>
         <ComboBox x:Name="UnitFrom" HorizontalAlignment="Left" Margin="167,53,0,0" VerticalAlignment="Top" Width="106" RenderTransformOrigin="0.748,1.054" SelectionChanged="UnitFrom_SelectionChanged"/>
         <ComboBox x:Name="UnitTo" HorizontalAlignment="Left" Margin="168,88,0,0" VerticalAlignment="Top" Width="105" SelectionChanged="UnitTo_SelectionChanged"/>
-        <TextBlock x:Name="UnitToValue" HorizontalAlignment="Left" Margin="20,88,0,20.4" TextWrapping="Wrap" Width="142"/>
+        <TextBlock x:Name="UnitToValue" HorizontalAlignment="Left" Margin="20,88,0,404" TextWrapping="Wrap" Width="142"/>
         <TextBox x:Name="UnitFromValue" HorizontalAlignment="Left" Height="23" Margin="20,53,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="142" TextChanged="UnitFromValue_TextChanged"/>
+        <DataGrid x:Name="StatisticsData" HorizontalAlignment="Left" ColumnWidth="*" Height="205" Margin="20,241,0,0" VerticalAlignment="Top" Width="650"/>
+        <ComboBox x:Name="TypeFilter" HorizontalAlignment="Left" Height="21" Margin="66,207,0,0" VerticalAlignment="Top" Width="134"/>
+        <TextBlock HorizontalAlignment="Left" Height="21" Margin="34,207,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="27" RenderTransformOrigin="-2.674,0.381"><Run Text="Type"/><LineBreak/><Run/></TextBlock>
+        <TextBlock HorizontalAlignment="Left" Height="21" Margin="223,207,0,0" TextWrapping="Wrap" Text="Date From" VerticalAlignment="Top" Width="65" RenderTransformOrigin="0.466,0.571"/>
+        <TextBlock HorizontalAlignment="Left" Height="21" Margin="460,207,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="51" RenderTransformOrigin="0.197,0.495"><Run Text="Date "/><Run Text="To"/></TextBlock>
+        <Button x:Name="FilterButton" Content="Filter and Refresh" HorizontalAlignment="Left" Height="31" Margin="241,464,0,0" VerticalAlignment="Top" Width="220" Click="FilterButton_Click"/>
+        <DatePicker x:Name="DateFromFilter" HorizontalAlignment="Left" Height="23" Margin="288,205,0,0" VerticalAlignment="Top" Width="157"/>
+        <DatePicker x:Name="DateToFilter" HorizontalAlignment="Left" Height="23" Margin="511,203,0,0" VerticalAlignment="Top" Width="157"/>
+        <TextBlock x:Name="PageNumber" HorizontalAlignment="Left" Height="20" Margin="581,471,0,0" TextWrapping="Wrap" Text="1" VerticalAlignment="Top" Width="22"/>
+        <Button x:Name="NextPage" Content="Next" HorizontalAlignment="Left" Height="31" Margin="608,464,0,0" VerticalAlignment="Top" Width="34" Click="NextPage_Click"/>
+        <Button x:Name="PreviousPage" Content="Previous" HorizontalAlignment="Left" Height="31" Margin="517,464,0,0" VerticalAlignment="Top" Width="49" Click="PreviousPage_Click"/>
+        <DataGrid x:Name="PopularData" HorizontalAlignment="Left" Height="80" ColumnWidth="*" Margin="20,120,0,0" VerticalAlignment="Top" Width="650"/>
 
     </Grid>
 </Window>

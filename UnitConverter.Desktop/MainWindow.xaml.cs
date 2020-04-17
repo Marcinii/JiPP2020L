@@ -43,6 +43,18 @@ namespace UnitConverter.Desktop
             UnitFrom.IsHitTestVisible = false;
             UnitTo.IsHitTestVisible = false;
 
+            TypeFilter.ItemsSource = new List<string>()
+            {
+                new TemperatureConverter().Name,
+                new WeightConverter().Name,
+                new LengthConverter().Name,
+                new TimeConverter().Name,
+                new ClockConverter().Name,
+            };
+            TypeFilter.SelectedIndex = 1;
+
+            FilterFromDB();
+
             SolidColorBrush mySolidColorBrush = new SolidColorBrush();
             mySolidColorBrush.Color = Color.FromRgb(255, 255, 255);
             Clock.Fill = mySolidColorBrush;
@@ -52,30 +64,36 @@ namespace UnitConverter.Desktop
             Clock.Name = "Clock";
             Thickness margin = Clock.Margin;
             margin.Left = 289;
+            margin.Top = -400;
             Clock.Margin = margin;
 
             Minutes.Stroke = Brushes.Black;
             Minutes.HorizontalAlignment = HorizontalAlignment.Left;
             Minutes.VerticalAlignment = VerticalAlignment.Center;
-            Minutes.X1 = 337;
-            Minutes.X2 = 337;
+            Minutes.X1 = 487;
+            Minutes.X2 = 487;
             Minutes.Y1 = 0;
             Minutes.Y2 = -40;
+            Thickness marginM = Minutes.Margin;
+            marginM.Top = -400;
+            Minutes.Margin = marginM;
             Minutes.StrokeThickness = 2;
 
             Hours.Stroke = Brushes.Black;
             Hours.HorizontalAlignment = HorizontalAlignment.Left;
             Hours.VerticalAlignment = VerticalAlignment.Center;
-            Hours.X1 = 337;
-            Hours.X2 = 337;
+            Hours.X1 = 487;
+            Hours.X2 = 487;
             Hours.Y1 = 0;
             Hours.Y2 = -25;
+            Thickness marginH = Hours.Margin;
+            marginH.Top = -400;
+            Hours.Margin = marginH;
             Hours.StrokeThickness = 4;
         }
 
         private void TypeComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            Main.Width = 300;
             Grid.Children.Remove(Clock);
             Grid.Children.Remove(Minutes);
             Grid.Children.Remove(Hours);
@@ -92,7 +110,6 @@ namespace UnitConverter.Desktop
             UnitTo.IsHitTestVisible = true;
             if (typeComboBox.SelectedItem.ToString() == "UnitConverter.ClockConverter")
             {
-                Main.Width = 400;
                 UnitFrom.ItemsSource = new List<string> { "24-hour" };
                 UnitFrom.SelectedItem = "24-hour";
                 UnitFrom.Focusable = false;
@@ -143,6 +160,22 @@ namespace UnitConverter.Desktop
                 double result = ((IConverter)typeComboBox.SelectedItem)
                     .convert(UnitFrom.SelectedItem.ToString(), UnitTo.SelectedItem.ToString(), value);
                 UnitToValue.Text = result.ToString();
+
+                using (ParadygmatyEntities context = new ParadygmatyEntities())
+                {
+                    STATISTIC newStatistic = new STATISTIC()
+                    {
+                        TYPE = ((IConverter)typeComboBox.SelectedItem).Name,
+                        DATE = DateTime.Now,
+                        VALUEFROM = value,
+                        VALUETO = result,
+                        UNITFROM = UnitFrom.Text,
+                        UNITTO = UnitTo.Text
+                    };
+                    context.STATISTICS.Add(newStatistic);
+
+                    context.SaveChanges();
+                }
             }
         }
 
@@ -165,6 +198,62 @@ namespace UnitConverter.Desktop
                     .convert(UnitFrom.SelectedItem.ToString(), UnitTo.SelectedItem.ToString(), value);
                 UnitToValue.Text = result.ToString();
             }
+        }
+
+        private void FilterButton_Click(object sender, RoutedEventArgs e)
+        {
+            FilterFromDB();
+        }
+
+        protected void FilterFromDB()
+        {
+            int value;
+            int.TryParse(PageNumber.Text, out value);
+            using (ParadygmatyEntities context = new ParadygmatyEntities())
+            {
+                List<STATISTIC> StatisticsList = context.STATISTICS
+                .Where(s => s.TYPE == TypeFilter.SelectedItem.ToString())
+                .Where(s => DateFromFilter.SelectedDate != null ? s.DATE > DateFromFilter.SelectedDate.Value : true)
+                .Where(s => DateToFilter.SelectedDate != null ? s.DATE < DateToFilter.SelectedDate.Value : true)
+                .OrderBy(s => s.TYPE)
+                .Skip(value > 1 ? (20 * (value - 1)) : 0)
+                .Take(20)
+                .ToList();
+
+                var PopularList = context.STATISTICS
+                .Where(s => s.TYPE == TypeFilter.SelectedItem.ToString())
+                .Where(s => DateFromFilter.SelectedDate != null ? s.DATE > DateFromFilter.SelectedDate.Value : true)
+                .Where(s => DateToFilter.SelectedDate != null ? s.DATE < DateToFilter.SelectedDate.Value : true)
+                .GroupBy(x => new { x.TYPE, x.UNITFROM, x.UNITTO })
+                .Select(x =>  new { x.Key.TYPE, x.Key.UNITFROM, x.Key.UNITTO, Count = x.Count() })
+                .OrderByDescending(x => x.Count)
+                .Take(3)
+                .ToList();
+
+                StatisticsData.ItemsSource = StatisticsList;
+                PopularData.ItemsSource = PopularList;
+            }
+        }
+
+        private void PreviousPage_Click(object sender, RoutedEventArgs e)
+        {
+            int value;
+            int.TryParse(PageNumber.Text, out value);
+            if (value > 1)
+            {
+                value--;
+                PageNumber.Text = value.ToString();
+                FilterFromDB();
+            }
+        }
+
+        private void NextPage_Click(object sender, RoutedEventArgs e)
+        {
+            int value;
+            int.TryParse(PageNumber.Text, out value);
+            value++;
+            PageNumber.Text = value.ToString();
+            FilterFromDB();
         }
     }
 }
