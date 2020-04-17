@@ -49,13 +49,13 @@ namespace KonwerterJednostek.Desktop
 
             bool success1 = double.TryParse(result.Substring(0, 2), out double deg1);
             if (!success1) { deg1 = 0; }
-            //InsertTESTING();
+            //InsertTEST();
 
             fromDate.SelectedDate = new DateTime(1980, 1, 1);
             toDate.SelectedDate = new DateTime(2050, 1, 1);
 
             int.TryParse(page.Text, out int pageINT);
-            DisplayDataUsingEF(dg, pageINT, (DateTime)fromDate.SelectedDate, (DateTime)toDate.SelectedDate, type.Text);
+            DisplayDataUsingEF(popular, dg, pageINT, (DateTime)fromDate.SelectedDate, (DateTime)toDate.SelectedDate, type.Text);
         }
         bool zegarBefore = false;
         private void combo0_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -275,7 +275,7 @@ namespace KonwerterJednostek.Desktop
             pt1.RenderTransform = rot1;
         }
 
-        public static void DisplayDataUsingEF(DataGrid dg, int page, DateTime fromDate, DateTime toDate, string Type)
+        public static void DisplayDataUsingEF(DataGrid popular, DataGrid dg, int page, DateTime fromDate, DateTime toDate, string Type)
         {
             using (StatsEntities context = new StatsEntities())
             {
@@ -286,6 +286,18 @@ namespace KonwerterJednostek.Desktop
                     .Take(10)
                     .ToList();
                 dg.DataContext = stats;
+
+                List<Stats> term = context.Stats
+                    .Where(s => s.Date >= fromDate && s.Date < toDate && s.Type.StartsWith(Type))
+                    .ToList();
+
+                List<string> pop = term.Select(s => s.Type).ToList();
+
+                popular.ItemsSource = term.GroupBy(l => new { l.Type, l.UnitFrom, l.UnitTo })
+                    .Select(g => new { g.Key.Type, g.Key.UnitFrom, g.Key.UnitTo, count = g.Count() })
+                    .OrderByDescending(g => g.count)
+                    .ToList()
+                    .Take(3);
             }
         }
         public static void InsertDataUsingEF(string Type,string UnitFrom, string UnitTo, string Value, string Result)
@@ -311,7 +323,7 @@ namespace KonwerterJednostek.Desktop
             {
                 Stats newConversion = new Stats()
                 {
-                    Type = "Temperatura",
+                    Type = "Waga",
                     UnitFrom = "24-hour",
                     UnitTo = "12-hour",
                     Date = new DateTime(2020,1,22),
@@ -325,7 +337,7 @@ namespace KonwerterJednostek.Desktop
         private void submitFilters(object sender,RoutedEventArgs e)
         {
             int.TryParse(page.Text, out int pageINT);
-            DisplayDataUsingEF(dg, pageINT, (DateTime)fromDate.SelectedDate, (DateTime)toDate.SelectedDate, type.Text);
+            DisplayDataUsingEF(popular, dg, pageINT, (DateTime)fromDate.SelectedDate, (DateTime)toDate.SelectedDate, type.Text);
         }
         private void submitFilters_KeyDown(object sender, KeyEventArgs e)
         {
