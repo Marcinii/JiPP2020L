@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:UnitConverter_M2.GUI"
         mc:Ignorable="d"
-        Title="MainWindow" Height="379.766" Width="535">
+        Title="MainWindow" Height="379.766" Width="941.5">
     <Window.Resources>
         <Storyboard x:Key="PojawienieZegara">
             <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="ellipse">
@@ -22,10 +22,14 @@
             </DoubleAnimationUsingKeyFrames>
         </Storyboard>
     </Window.Resources>
+
+
+
+
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition></ColumnDefinition>
-            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition Width="125*"></ColumnDefinition>
+            <ColumnDefinition Width="342*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
 
         <StackPanel Grid.Column="0">
@@ -48,8 +52,8 @@
             </Grid>
 
         </StackPanel>
-        <Ellipse x:Name="ellipse" Grid.Column="1" Fill="#FFF4F4F5" HorizontalAlignment="Center" Height="150" Margin="54.25,96.501,59.25,102.265" Stroke="Black" VerticalAlignment="Center" Width="150" Opacity="0"/>
-        <Rectangle x:Name="rectangle" Grid.Column="1" Fill="#FF000076" HorizontalAlignment="Left" Height="40" Margin="124.291,131.874,0,0" Stroke="Black" VerticalAlignment="Top" Width="10" RenderTransformOrigin="0.5,1" Opacity="0">
+        <Ellipse x:Name="ellipse" Fill="#FFF4F4F5" HorizontalAlignment="Center" Height="71" Margin="89,271,91,7" Stroke="Black" VerticalAlignment="Center" Width="70" Opacity="0"/>
+        <Rectangle x:Name="rectangle" Fill="#FF000076" HorizontalAlignment="Left" Height="19" Margin="122,287,0,0" Stroke="Black" VerticalAlignment="Top" Width="5" RenderTransformOrigin="0.5,1" Opacity="0">
             <Rectangle.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -59,8 +63,8 @@
                 </TransformGroup>
             </Rectangle.RenderTransform>
         </Rectangle>
-        <Ellipse x:Name="ellipse1" Grid.Column="1" Fill="Black" HorizontalAlignment="Left" Height="7" Margin="125.75,168.001,0,0" Stroke="Black" VerticalAlignment="Top" Width="7" Opacity="0"/>
-        <Rectangle x:Name="rectangle1" Grid.Column="1" Fill="#FF000076" HorizontalAlignment="Left" Height="75" Margin="124.291,96.874,0,0" Stroke="Black" VerticalAlignment="Top" Width="10" RenderTransformOrigin="0.5,1" Opacity="0">
+        <Ellipse x:Name="ellipse1" Fill="Black" HorizontalAlignment="Left" Height="3" Margin="123,305,0,0" Stroke="Black" VerticalAlignment="Top" Width="3" Opacity="0"/>
+        <Rectangle x:Name="rectangle1" Fill="#FF000076" HorizontalAlignment="Left" Height="35" Margin="122,271,0,0" Stroke="Black" VerticalAlignment="Top" Width="5" RenderTransformOrigin="0.5,1" Opacity="0">
             <Rectangle.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -70,6 +74,18 @@
                 </TransformGroup>
             </Rectangle.RenderTransform>
         </Rectangle>
+        <DataGrid x:Name="tabelaDanych" Grid.Column="1" HorizontalAlignment="Left" Height="242" Margin="0,107,0,0" VerticalAlignment="Top" Width="684"/>
+        <Button Content="&lt;&lt;" Grid.Column="1" HorizontalAlignment="Left" Margin="5,84,0,0" VerticalAlignment="Top" Width="40" Click="Button_Click"/>
+        <Button Content="&gt;&gt;" Grid.Column="1" HorizontalAlignment="Left" Margin="639,84,0,0" VerticalAlignment="Top" Width="40" Click="Button_Click_1"/>
+        <ComboBox x:Name="filtrowanieTypu" Grid.Column="1" HorizontalAlignment="Left" Margin="101,84,0,0" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Typ:" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="1" Margin="69,81,0,0"/>
+        <DatePicker x:Name="dataOd" Grid.Column="1" HorizontalAlignment="Left" Margin="263,83,0,0" VerticalAlignment="Top"/>
+        <DatePicker x:Name="dataDo" Grid.Column="1" HorizontalAlignment="Left" Margin="370,83,0,0" VerticalAlignment="Top"/>
+        <Label Content="Daty:" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="1" Margin="226,80,0,0"/>
+        <Button Content="Filtruj" HorizontalAlignment="Left" VerticalAlignment="Top" Width="60" Grid.Column="1" Margin="477,84,0,0" Click="Button_Click_2"/>
+        <Button Content="Wyczysc Filtry" HorizontalAlignment="Left" VerticalAlignment="Top" Width="80" Grid.Column="1" Margin="542,84,0,0" Click="Button_Click_3"/>
+        <CheckBox x:Name="top3radio" Content="Top 3" Grid.Column="1" HorizontalAlignment="Left" Margin="477,64,0,0" VerticalAlignment="Top"/>
+
 
     </Grid>
 </Window>
