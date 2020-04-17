@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using konwerter.logic;
-
+using Microsoft.VisualBasic;
 using System.Windows.Media.Animation;
 
 namespace konwerter.deskop
@@ -26,18 +26,16 @@ namespace konwerter.deskop
         public MainWindow()
         {
             InitializeComponent();
-
-            combobox.ItemsSource = converters;
+            combobox.ItemsSource = Converters;
+            rodzaj_statystyki.ItemsSource = Converters;
         }
-
-        public List<string> converters => new List<string>()
+        public List<string> Converters => new List<string>()
         {
             "Temperatura",
             "Długosci",
             "Masa",
             "Dane",
         };
-
 
         private void buttonPrzelicz_Click(object sender, RoutedEventArgs e)
         {
@@ -68,10 +66,26 @@ namespace konwerter.deskop
                     OutputText.Text = result4.ToString();
                     break;
             }
+            DateTime TimeNow = DateTime.Now;
+            using (ProgramowanieEntities context = new ProgramowanieEntities())
+            {
+                Baza001 newbaza001 = new Baza001()
+                {
+                    converter = input,
+                    unitFrom = unitFrom,
+                    unitTo = unitTo,
+                    inputValue = value,
+                    outputValue = OutputText.Text,
+                    time = TimeNow,
+
+                };
+                context.Baza001.Add(newbaza001);
+                context.SaveChanges();
+            }
 
         }
         private void buttonTime_Click(object sender, RoutedEventArgs e)
-        { 
+        {
             int godz1 = (int)InputTime.Text[0] - '0';
             int godz2 = (int)InputTime.Text[1] - '0';
             int godz = godz1 * 10 + godz2;
@@ -87,11 +101,11 @@ namespace konwerter.deskop
                 ty = " PM";
 
             decimal Time = new time_converter().ConvTime(godz, min);
-            
-            OutputTime.Text = Time.ToString()+ x + min.ToString() + ty;
+
+            OutputTime.Text = Time.ToString() + x + min.ToString() + ty;
 
             int angel1 = 0;
-            if      (godz == 0) angel1 = 90;
+            if (godz == 0) angel1 = 90;
             else if (godz == 1) angel1 = 120;
             else if (godz == 2) angel1 = 150;
             else if (godz == 3) angel1 = 180;
@@ -171,7 +185,160 @@ namespace konwerter.deskop
 
             minRotation.Angle = angel2;
         }
-    }
 
-    }
+        public void filtr_rodzaj_konwertera()
+        {
+            string rodzajbox = rodzaj_statystyki.Text;
 
+            if (rodzajbox == "Temperatura")
+                using (ProgramowanieEntities context = new ProgramowanieEntities())
+                {
+                    List<Baza001> Baza001 = context.Baza001
+                        .Where(b => b.converter == "Temperatura")
+                        .OrderBy(b => b.id)
+                        .Skip(nextpage)
+                        .Take(20)
+                        .ToList();
+
+                    BazaStatystyk.ItemsSource = Baza001;
+                }
+            else if (rodzajbox == "Długosci")
+                using (ProgramowanieEntities context = new ProgramowanieEntities())
+                {
+                    List<Baza001> Baza001 = context.Baza001
+                        .Where(b => b.converter == "Długosci")
+                        .OrderBy(b => b.id)
+                        .Skip(nextpage)
+                        .Take(20)
+                        .ToList();
+
+                    BazaStatystyk.ItemsSource = Baza001;
+                }
+            else if (rodzajbox == "Masa")
+                using (ProgramowanieEntities context = new ProgramowanieEntities())
+                {
+                    List<Baza001> Baza001 = context.Baza001
+                        .Where(b => b.converter == "Masa")
+                        .OrderBy(b => b.id)
+                        .Skip(nextpage)
+                        .Take(20)
+                        .ToList();
+
+                    BazaStatystyk.ItemsSource = Baza001;
+                }
+            else if (rodzajbox == "Dane")
+                using (ProgramowanieEntities context = new ProgramowanieEntities())
+                {
+                    List<Baza001> Baza001 = context.Baza001
+                        .Where(b => b.converter == "Dane")
+                        .OrderBy(b => b.id)
+                        .Skip(nextpage)
+                        .Take(20)
+                        .ToList();
+
+                    BazaStatystyk.ItemsSource = Baza001;
+                }
+        }
+
+        public void data_konwersji()
+        {
+            if (databox2.Text == "Brak daty" && databox1.Text == "Brak daty")
+            {
+            }
+            else
+            {
+                string date1 = databox1.Text;
+                DateTime date11 = DateTime.Parse(date1);
+
+                string date2 = databox2.Text;
+                DateTime date22 = DateTime.Parse(date2);
+
+                using (ProgramowanieEntities context = new ProgramowanieEntities())
+                {
+                    List<Baza001> Baza001 = context.Baza001
+                        .Where(b => b.time > date11)
+                        .Where(b => b.time < date22)
+                        .OrderBy(b => b.id)
+                        .Skip(nextpage)
+                        .Take(20)
+                        .ToList();
+
+                    foreach (Baza001 b in Baza001)
+                    {
+                        BazaStatystyk.ItemsSource = Baza001;
+                    }
+                }
+            }
+        }
+
+        public void buttonDataGrid_Click(object sender, RoutedEventArgs e)
+        {
+            filtr_rodzaj_konwertera();
+        }
+
+        private void buttonDataGrid1_Click(object sender, RoutedEventArgs e)
+        {
+            data_konwersji();
+        }
+
+        private int nextpage = 0;
+
+        public void Next_Click(object sender, RoutedEventArgs e)
+        {
+            nextpage = nextpage + 20;
+            coutpage.Text = nextpage.ToString();
+            filtr_rodzaj_konwertera();
+        }
+
+        private void Back_Click(object sender, RoutedEventArgs e)
+        {
+            nextpage = nextpage - 20;
+            coutpage.Text = nextpage.ToString();
+            filtr_rodzaj_konwertera();
+        }
+
+        private void stat_Click(object sender, RoutedEventArgs e)
+        {
+            using (ProgramowanieEntities context = new ProgramowanieEntities())
+            {
+
+                if (databox2.Text == "Brak daty" && databox1.Text == "Brak daty")
+                {
+                    var result = context.Baza001.AsEnumerable()
+                                   .GroupBy(b => b.converter)
+                                   .Select(b => new { Str = b.Key, Count = b.Count() })
+                                   .OrderByDescending(b => b.Count)
+                                   .Take(3);
+
+                    foreach (var item in result)
+                    {
+                        BazaStatystyk.ItemsSource = result;
+                    }
+                }
+                else
+                {
+                    string date1 = databox1.Text;
+                    DateTime date11 = DateTime.Parse(date1);
+
+                    string date2 = databox2.Text;
+                    DateTime date22 = DateTime.Parse(date2);
+
+                    var result = context.Baza001.AsEnumerable()
+                                   .Where(b => b.time > date11)
+                                   .Where(b => b.time < date22)
+                                   .GroupBy(b => b.converter)
+                                   .Select(b => new { Str = b.Key, Count = b.Count() })
+                                   .OrderByDescending(b => b.Count)
+                                   .Take(3);
+
+                    foreach (var item in result)
+                    {
+                        BazaStatystyk.ItemsSource = result;
+                    }
+                }
+
+            }
+
+        }
+    }
+}
