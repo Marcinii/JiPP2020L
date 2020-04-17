@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -34,7 +35,17 @@ namespace DesktopAPP
             
             
         }
+        public void saveinDatabase()
+        {
 
+            DATABASE.insertdatausingEF();
+        }
+        public void DisplayData()
+        {
+            DATABASE.DisplayDataUsingEF();
+        
+
+        }
         private void convCombobox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             unitFrombox.ItemsSource = ((IConverter)convCombobox.SelectedItem).Units;
@@ -87,6 +98,24 @@ namespace DesktopAPP
 
 
                 ((Storyboard)Resources["Storyboard1"]).Begin();
+               
+
+                using (companydataEntities1 context = new companydataEntities1())
+                {
+                    tabelakonw newbaza001 = new tabelakonw()
+                    {
+                        konwerter = "a",
+                        UnitFrom = "b",
+                        UnitTo = "c",
+                        inputValue = "c",
+                        outputValue = "c",
+                        time = DateTime.Now,
+
+                    };
+                    context.tabelakonw.Add(newbaza001);
+                    context.SaveChanges();
+                }
+
             }
         }
 
