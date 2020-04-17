@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:KonwerterJednostekLK.DesktopApp"
         mc:Ignorable="d"
-        Title="Konwerter Jednostek" Height="396.651" Width="654.323">
+        Title="Konwerter Jednostek" Height="753.81" Width="654.323">
     <Window.Resources>
         <Storyboard x:Key="KolorowyZegar" RepeatBehavior="Forever">
             <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.Fill).(GradientBrush.GradientStops)[6].(GradientStop.Offset)" Storyboard.TargetName="ellipse">
@@ -149,7 +149,7 @@
         <Label x:Name="label12" Grid.Column="1" HorizontalAlignment="Left" Height="40" Margin="142,116,0,0" VerticalAlignment="Top" Width="40" FontSize="25" Content="12" Grid.ColumnSpan="2">
 
         </Label>
-        <Label x:Name="label6" Content=" 6" Grid.Column="1" HorizontalAlignment="Center" Height="40" Margin="142,229,140,97" VerticalAlignment="Center" Width="40" FontSize="25" RenderTransformOrigin="0.525,0.55" Grid.ColumnSpan="2">
+        <Label x:Name="label6" Content=" 6" Grid.Column="1" HorizontalAlignment="Center" Height="40" Margin="142,229,140,454" VerticalAlignment="Center" Width="40" FontSize="25" RenderTransformOrigin="0.525,0.55" Grid.ColumnSpan="2">
             <Label.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform ScaleY="1" ScaleX="1"/>
@@ -180,7 +180,7 @@
             </Label.RenderTransform>
         </Label>
         <Path x:Name="Minute"  Grid.Column="2" Data="M483.61557,196.55293 L483.61557,106.71493" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="77" Margin="0.471,116.164,0,0" Stretch="Fill" Stroke="Black" VerticalAlignment="Top" Width="1" RenderTransformOrigin="1,1"/>
-        <Path x:Name="Hour" Data="M506.9794,170.06483 L558.97915,171.06483" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="2" Margin="137.297,167.172,0,0" Stretch="Fill" Stroke="Black" VerticalAlignment="Top" Width="53" Grid.Column="1" RenderTransformOrigin="1,1" Grid.ColumnSpan="2">
+        <Path x:Name="Hour" Data="M506.9794,170.06483 L558.97915,171.06483" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="2" Margin="135.964,167.172,0,0" Stretch="Fill" Stroke="Black" VerticalAlignment="Top" Width="53" Grid.Column="1" RenderTransformOrigin="1,1" Grid.ColumnSpan="2">
             <Path.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -192,6 +192,14 @@
         </Path>
         <Button x:Name="stopButton" Content="Animacja Stop" Grid.Column="2" HorizontalAlignment="Left" Height="27" Margin="42,310,0,0" VerticalAlignment="Top" Width="90" Click="stopButton_Click"/>
         <Button x:Name="beginButton" Content="Animacja Start" Grid.Column="1" HorizontalAlignment="Left" Margin="33,310,0,0" VerticalAlignment="Top" Width="90" Height="27" Click="button_Click"/>
+        <DataGrid x:Name="converterLogsDataGrid" HorizontalAlignment="Left" Height="161" Margin="42,491,0,0" VerticalAlignment="Top" Width="556" SelectionChanged="converterLogsDataGrid_SelectionChanged" Grid.ColumnSpan="3"/>
+        <Button x:Name="showLogsButton" Content="Pokaż ostatnie 20 logów" HorizontalAlignment="Left" Margin="42,455,0,0" VerticalAlignment="Top" Width="136" Click="showLogsButton_Click"/>
+        <Button x:Name="pageLeftButton" Content="w lewo" HorizontalAlignment="Left" Margin="173,662,0,0" VerticalAlignment="Top" Width="75" Click="pageLeftButton_Click"/>
+        <Button x:Name="pageRightButton" Content="w prawo" HorizontalAlignment="Left" Margin="87,662,0,0" VerticalAlignment="Top" Width="75" Click="pageRightButton_Click" Grid.ColumnSpan="2" Grid.Column="1"/>
+        <Label x:Name="label2" Content="Label" HorizontalAlignment="Left" Margin="303,659,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
+
+        <ComboBox x:Name="comboBoxSort" Grid.Column="2" HorizontalAlignment="Left" Margin="1,457,0,0" VerticalAlignment="Top" Width="141" Height="30" SelectionChanged="comboBox_SelectionChanged"/>
+        <Label x:Name="label4" Content="Posortuj według wybranego konwertera:" HorizontalAlignment="Left" Margin="253,457,0,0" VerticalAlignment="Top" Width="226" Grid.ColumnSpan="2" Height="30"/>
 
 
     </Grid>

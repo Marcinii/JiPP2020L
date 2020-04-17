@@ -14,6 +14,7 @@ using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using PagedList;
 
 namespace KonwerterJednostekLK.DesktopApp
 {
@@ -22,7 +23,9 @@ namespace KonwerterJednostekLK.DesktopApp
     /// </summary>
     public partial class MainWindow : Window
     {
-
+        int pagenumber = 1;
+        IPagedList<Converters> list;
+        
         public MainWindow()
         {
             InitializeComponent();
@@ -34,7 +37,7 @@ namespace KonwerterJednostekLK.DesktopApp
              converters[2].getName, // masy
              converters[3].getName, // jednostek        
             };
-
+            comboBoxSort.ItemsSource = konwerteryComboBox.ItemsSource;
 
             List<string> time = new List<string>()
             {
@@ -67,7 +70,7 @@ namespace KonwerterJednostekLK.DesktopApp
             int converter = konwerteryComboBox.SelectedIndex;
             int from = fromComboBox.SelectedIndex;
             int to = toComboBox.SelectedIndex;
-           
+
             
             string inputValue = ValueTextBox.Text.ToString();
             float value = float.Parse(inputValue);
@@ -93,8 +96,8 @@ namespace KonwerterJednostekLK.DesktopApp
                 float result = new UnitConverter().Convert(from, to, value);
                 Wynik.Text = result.ToString();
             }
-            
 
+            InstertDataToDB();
 
         }
 
@@ -186,7 +189,97 @@ namespace KonwerterJednostekLK.DesktopApp
 
         }
 
-        
+        public void DisplaySomeLogs()
+        {
+            string konwerter = comboBoxSort.SelectedItem.ToString();
+            using (ConverterInformationDBEntities context = new ConverterInformationDBEntities())
+            {
+                List<Converters> converters = context.Converters.ToList();
+
+                converterLogsDataGrid.ItemsSource = converters.Where(e => e.ConverterName == konwerter)
+                                                         .OrderByDescending(el => el.Id);                                            
+            }
+        }
+
+        public void InstertDataToDB()
+        {
+            using(ConverterInformationDBEntities context = new ConverterInformationDBEntities())
+            {
+                Converters converter = new Converters(){
+                    ConverterName = konwerteryComboBox.Text.ToString(),
+                    ConversionFrom = fromComboBox.Text.ToString(),
+                    ConversionTo = toComboBox.Text.ToString(),
+                    ConversionDate = DateTime.Now
+                };
+                context.Converters.Add(converter);
+                context.SaveChanges();
+            }
+        }
+
+ 
+        private async void showLogsButton_Click(object sender, RoutedEventArgs e)
+        {
+            list = await GetPagedListAsync();
+            pageLeftButton.IsEnabled = list.HasPreviousPage;
+            pageRightButton.IsEnabled = list.HasNextPage;
+            converterLogsDataGrid.ItemsSource = list.ToList();
+            label2.Content = string.Format("Page {0}/{1}", pagenumber, list.PageCount);
+
+        }
+
+        private void converterLogsDataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            
+        }
+
+        public async Task<IPagedList<Converters>> GetPagedListAsync(int pageNumber =1, int pageSize = 20)
+        {
+            return await Task.Factory.StartNew(() =>
+            {
+                using (ConverterInformationDBEntities context = new ConverterInformationDBEntities())
+                {
+                    return context.Converters.OrderBy(x => x.Id).ToPagedList(pageNumber, pageSize);
+                }
+            });
+
+        }
+
+        private async void pageLeftButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (list.HasPreviousPage)
+            {
+                list = await GetPagedListAsync(--pagenumber);
+                pageLeftButton.IsEnabled = list.HasPreviousPage;
+                pageRightButton.IsEnabled = list.HasNextPage;
+                converterLogsDataGrid.ItemsSource = list.ToList();
+                label2.Content = string.Format("Page {0}/{1}", pagenumber, list.PageCount);
+            }
+        }
+
+        private async void pageRightButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (list.HasNextPage)
+            {
+                list = await GetPagedListAsync(++pagenumber);
+                pageLeftButton.IsEnabled = list.HasPreviousPage;
+                pageRightButton.IsEnabled = list.HasNextPage;
+                converterLogsDataGrid.ItemsSource = list.ToList();
+                label2.Content = string.Format("Page {0}/{1}", pagenumber, list.PageCount);
+            }
+        }
+
+        private void comboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            DisplaySomeLogs(); 
+        }
+
+     
+        private void textBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+       
     }
 }
 
