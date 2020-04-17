@@ -34,17 +34,59 @@ namespace unitconverter.desktop
                 new c_time()
         };
         int choosen_converter;
+        int choosen_f_converter = 0;
+        DateTime? date_from;
+        DateTime? date_to;
+        int from_lp = 0;
+        int how_much_take_lp = 20;
+
         public MainWindow()
         {
             InitializeComponent();
 
             unit_from.ItemsSource = unit_list;
             unit_to.ItemsSource = unit_list;
+            create_filters();
         }
 
-        private void create_datatable()
+        private void F_converter_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            List<conversions> data = db_operations.download_data();
+            string selected_f_converter = f_converter.SelectedItem.ToString();
+            int index_from_list = 1;
+            foreach (Iconverter converter in converters)
+            {   
+                if (converter.name == selected_f_converter)
+                {
+                    choosen_f_converter = index_from_list;
+                }
+                index_from_list++;
+            }
+            create_datatable(choosen_f_converter, date_from, date_to, from_lp, how_much_take_lp);
+        }
+
+        private void create_filters()
+        {
+            List<string> f_converters = new List<string>() { };
+            f_converters.Add("Wszystko");
+            foreach (Iconverter converter in converters)
+            {
+                f_converters.Add(converter.name);
+            }
+            f_converter.ItemsSource = f_converters;
+            f_date_from.Text = "Data od - rrrr-mm-dd";
+            f_date_to.Text = "Data do - rrrr-mm-dd";
+        }
+
+        private void filter(object sender, RoutedEventArgs e)
+        {
+            date_from = f_date_from.SelectedDate;
+            date_to = f_date_to.SelectedDate;
+            create_datatable(choosen_f_converter, date_from, date_to, from_lp, how_much_take_lp);
+        }
+
+        private void create_datatable(int f_converter, DateTime? f_date_from, DateTime? f_date_to, int from_lp, int how_much_take_lp)
+        {
+            List<conversions> data = db_operations.download_data(f_converter, f_date_from, f_date_to, from_lp, how_much_take_lp);
             DataTable stats = new DataTable();
             List<DataColumn> columns = new List<DataColumn>()
             {
@@ -56,13 +98,6 @@ namespace unitconverter.desktop
                 new DataColumn("Do (wartość)", typeof(string)),
                 new DataColumn("Kiedy", typeof(DateTime)),
             };
-            /*DataColumn id = new DataColumn("Lp.", typeof(int));
-            DataColumn converter = new DataColumn("Konwerter", typeof(string));
-            DataColumn units_from = new DataColumn("Z (jednostki)", typeof(string));
-            DataColumn units_to = new DataColumn("Do (jednostki)", typeof(string));
-            DataColumn values_from = new DataColumn("Z (wartość)", typeof(string));
-            DataColumn values_to = new DataColumn("Do (wartość)", typeof(string));
-            DataColumn conversion_date = new DataColumn("Kiedy", typeof(DateTime));*/
             foreach(DataColumn c in columns)
             {
                 stats.Columns.Add(c);
@@ -72,7 +107,7 @@ namespace unitconverter.desktop
             {
                 DataRow row = stats.NewRow();
                 row[0] = cout.ToString();
-                row[1] = c.converter;
+                row[1] = converters[c.converter-1].name;
                 row[2] = c.units_from;
                 row[3] = c.units_to;
                 row[4] = c.value_from;
@@ -82,11 +117,30 @@ namespace unitconverter.desktop
                 cout++;
             }
             stats_datatable.ItemsSource = stats.DefaultView;
+            string rank_show = db_operations.make_rank(data);
+            rank.Text = "Najczęściej: " + rank_show;
         }
+
+
 
         private void Stats_datatable_Loaded(object sender, RoutedEventArgs e)
         {
-           create_datatable();
+           create_datatable(choosen_f_converter, date_from, date_to, from_lp, how_much_take_lp);
+        }
+
+        private void previous(object sender, RoutedEventArgs e)
+        {
+            if (from_lp > 0)
+            {
+                from_lp -= 20;
+                create_datatable(choosen_f_converter, date_from, date_to, from_lp, how_much_take_lp);
+            }
+        }
+
+        private void next(object sender, RoutedEventArgs e)
+        {
+            from_lp += 20;
+            create_datatable(choosen_f_converter, date_from, date_to, from_lp, how_much_take_lp);
         }
 
         private List<string> choose_units()
