@@ -14,6 +14,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using UnitConverter.Logic;
+using System.Data.SqlClient;
+using System.Data;
 
 namespace UnitConverter.Desktop
 {
@@ -80,7 +82,44 @@ namespace UnitConverter.Desktop
         {
             ((Storyboard)Resources["circleStoryboard"]).Stop();
         }
+
+        private void DataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+         
+           DisplayDataUsingADONET();
+
+            void DisplayDataUsingADONET()
+            {
+                string sql = "SELECT * FROM dbo.tab";
+                System.Data.SqlClient.SqlConnection connection = new SqlConnection("Data Source=DESKTOP-NGSM7L3\'MSSQLSERVER01;Initial Catalog=zadanieC.semestr4.4;Integrated Security=True");
+                {
+                    connection.Open();
+
+
+
+                    using (SqlCommand cmdSel = new SqlCommand(sql, connection))
+                    {
+                        System.Data.DataTable dt = new System.Data.DataTable();
+                        SqlDataAdapter da = new SqlDataAdapter(cmdSel);
+                        da.Fill(dt);
+
+
+
+                        dataGrid.ItemsSource = dt.DefaultView;
+
+
+
+                    }
+                    connection.Close();
+                }
+            }
+
  
+ 
+
+            
+        }
+    
     }
 }
 /*

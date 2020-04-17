@@ -57,6 +57,7 @@
             <TextBox x:Name="inputTextBox" Margin="10,5,10,5" Height="25"/>
             <Button x:Name="convertButton" Margin="10,5,10,5" Height="25" Click="convertButton_Click">Konwertuj</Button>
             <TextBlock x:Name="outputTextBlock" Margin="10,5,10,5" Height="25"/>
+            <DataGrid x:Name="dataGrid" Height="100" SelectionChanged="DataGrid_SelectionChanged"/>
         </StackPanel>
         <Path x:Name="path" Grid.Column="1" Data="M56.800001,32.100001 C43.158567,32.1 32.1,43.158567 32.100001,56.800001 32.1,70.441435 43.158567,81.500002 56.800001,81.500002 70.441435,81.500002 81.500002,70.441435 81.500002,56.800001 81.500002,43.158567 70.441435,32.1 56.800001,32.100001 z M56.800001,0.5 C87.893633,0.5 113.1,25.706369 113.1,56.800001 113.1,87.893633 87.893633,113.1 56.800001,113.1 25.706369,113.1 0.5,87.893633 0.5,56.800001 0.5,25.706369 25.706369,0.5 56.800001,0.5 z" HorizontalAlignment="Left" Margin="38.2,25.5,0,279.9" Width="113.6" RenderTransformOrigin="0.5,0.5" Grid.ColumnSpan="2">
             <Path.RenderTransform>
@@ -89,6 +90,7 @@
             </Path.RenderTransform>
         </Path>
         <Ellipse x:Name="Signal_Convert" Grid.ColumnSpan="2" Grid.Column="1" HorizontalAlignment="Left" Height="51" Margin="68.5,163.5,0,0" Stroke="Red" StrokeThickness="12" VerticalAlignment="Top" Width="52" Fill="#FFFF4C4C"/>
+        <TextBox HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
 
     </Grid>
 </Window>
