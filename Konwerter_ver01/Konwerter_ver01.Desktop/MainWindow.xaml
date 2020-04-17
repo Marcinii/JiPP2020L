@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Konwerter_ver01.Desktop"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="850">
+        Title="MainWindow" Height="850" Width="850">
     <Window.Resources>
         <Storyboard x:Key="StoryboardKom12">
             <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="Kom1_kom12">
@@ -30,11 +30,11 @@
     </Window.Triggers>
 
 
-    <Grid Background="#FFD2ECA4">
+    <Grid Background="#FFD2ECA4" Height="814" VerticalAlignment="Top">
         <Grid.RowDefinitions>
-            <RowDefinition Height="136*"/>
-            <RowDefinition Height="130*"/>
-            <RowDefinition Height="153*"/>
+            <RowDefinition Height="27*"/>
+            <RowDefinition Height="37*"/>
+            <RowDefinition Height="86*"/>
 
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
@@ -46,7 +46,8 @@
             <ColumnDefinition Width="65"/>
             <ColumnDefinition Width="90"/>
             <ColumnDefinition Width="99"/>
-            <ColumnDefinition/>
+            <ColumnDefinition Width="128"/>
+            <ColumnDefinition Width="5*"/>
         </Grid.ColumnDefinitions>
         <Label Content="Konwerter jednostek" Margin="4,40,4,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Height="39" FontFamily="Vladimir Script" FontSize="24" TextOptions.TextHintingMode="Animated" TextOptions.TextFormattingMode="Display" FontWeight="Bold">
             <Label.RenderTransform>
@@ -70,10 +71,18 @@
         <TextBlock x:Name="Kom1_Copy" HorizontalAlignment="Center" Margin="6,0" TextWrapping="Wrap" Text="Wybierz konwerter" VerticalAlignment="Bottom" Width="188" Height="24" Foreground="Black" Background="#FFA7DE9B" TextAlignment="Center" FontFamily="Verdana"/>
         <TextBlock x:Name="Kom1_Copy3" HorizontalAlignment="Center" Margin="4,0,5,0" Grid.Row="1" TextWrapping="Wrap" Text="Z jedn." VerticalAlignment="Top" Width="56" Height="24" Foreground="Black" Background="#FFA7DE00" TextAlignment="Center" FontFamily="Verdana" Grid.Column="1"/>
         <TextBlock x:Name="Kom1_Wej" HorizontalAlignment="Center" Margin="7,0" TextWrapping="Wrap" Text="Wybierz jednostkę wejściową" VerticalAlignment="Bottom" Width="76" Height="60" Foreground="Black" Background="#FFA7DE00" TextAlignment="Center" FontFamily="Verdana" Grid.Column="2"/>
-        <TextBlock x:Name="Kom1_kom12" HorizontalAlignment="Center" Margin="6,0,6,0" TextWrapping="Wrap" Text="Podaj godzinę w formacie hh:mmAM/PM" VerticalAlignment="Bottom" Width="90" Height="60" Foreground="Black" Background="#FFA7DE00" TextAlignment="Center" FontFamily="Verdana" Grid.Column="3"/>
+        <TextBlock x:Name="Kom1_kom12" HorizontalAlignment="Center" Margin="5,0" TextWrapping="Wrap" Text="Podaj godzinę w formacie hh:mmAM/PM" VerticalAlignment="Bottom" Width="90" Height="60" Foreground="Black" Background="#FFA7DE00" TextAlignment="Center" FontFamily="Verdana" Grid.Column="3"/>
         <TextBlock x:Name="Kom1_Copy7" HorizontalAlignment="Center" Margin="5,0,6,0" Grid.Row="1" TextWrapping="Wrap" Text="Do jedn." VerticalAlignment="Top" Width="54" Height="24" Foreground="Black" Background="#FFA7DE00" TextAlignment="Center" FontFamily="Verdana" Grid.Column="4" />
         <TextBlock x:Name="Kom1_Wyj" HorizontalAlignment="Center" Margin="8,0" TextWrapping="Wrap" Text="Wybierz jednostkę wyściową" VerticalAlignment="Bottom" Width="74" Height="60" Foreground="Black" Background="#FFA7DE00" TextAlignment="Center" FontFamily="Verdana" Grid.Column="5" />
-        <TextBlock x:Name="Wynik_kom" Grid.Column="7" HorizontalAlignment="Center" Height="35" Margin="32,0,31,0" TextWrapping="Wrap" VerticalAlignment="Bottom" Width="70" TextAlignment="Center"><Run FontSize="16" FontFamily="Verdana" Text="Wynik"/></TextBlock>
+        <TextBlock x:Name="Wynik_kom" Grid.Column="7" HorizontalAlignment="Center" Height="35" Margin="37,0,21,0" TextWrapping="Wrap" VerticalAlignment="Bottom" Width="70" TextAlignment="Center" RenderTransformOrigin="0.5,0.5">
+            <TextBlock.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform AngleX="-24.677"/>
+                    <RotateTransform/>
+                    <TranslateTransform X="-8.041"/>
+                </TransformGroup>
+            </TextBlock.RenderTransform><Run FontSize="16" FontFamily="Verdana" Text="Wynik"/></TextBlock>
         <TextBlock x:Name="Wynik" Grid.Column="7" HorizontalAlignment="Left" Margin="0,0,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Height="24" Width="123" Background="White"/>
         <ComboBox x:Name="JednZ" Grid.Column="2" HorizontalAlignment="Center" Margin="5,0" Grid.Row="1" VerticalAlignment="Top" Width="80" Height="22"/>
         <ComboBox x:Name="JednDo" Grid.Column="5" HorizontalAlignment="Center" Margin="5,0" Grid.Row="1" VerticalAlignment="Top" Width="80" Height="22"/>
@@ -82,7 +91,7 @@
 
         <Button x:Name="Wykonajtemp" Content="Wykonaj" HorizontalAlignment="Center" Margin="8,0,7,0" VerticalAlignment="Top" Width="84" Height="25" Grid.Column="6" Grid.Row="1" Background="#FF27AA6E" BorderBrush="#FF894F15" FontFamily="Verdana" FontSize="16" Click="Wykonajtemp_Click"/>
 
-        <Ellipse x:Name="ellipse" Grid.ColumnSpan="7" HorizontalAlignment="Left" Height="118" Margin="136,85,0,0" Grid.Row="1" Grid.RowSpan="2" Stroke="Black" VerticalAlignment="Top" Width="557">
+        <Ellipse x:Name="ellipse" Grid.ColumnSpan="7" HorizontalAlignment="Left" Height="118" Margin="129,62,0,0" Grid.Row="1" Stroke="Black" VerticalAlignment="Top" Width="557">
             <Ellipse.Fill>
                 <RadialGradientBrush GradientOrigin="0.5,0.82" RadiusY="0.498" RadiusX="0.498" >
                     <GradientStop Color="Black" Offset="0.817"/>
@@ -91,15 +100,15 @@
                 </RadialGradientBrush>
             </Ellipse.Fill>
         </Ellipse>
-        <Button x:Name="WynikButton" Content="Pokaż&#xD;&#xA;wynik&#xD;&#xA;graficznie" Grid.Column="7" HorizontalAlignment="Center" Margin="0,30,0,0" Grid.Row="1" VerticalAlignment="Top" Width="92" Height="60" Background="#FFD1CD81" BorderBrush="#FF991010" Foreground="#FF072566" FontFamily="Tahoma" FontSize="14" FontWeight="Bold" FontStyle="Italic" BorderThickness="2,2,2,0" Click="WynikButton_Click">
+        <Button x:Name="WynikButton" Content="Pokaż&#xD;&#xA;wynik&#xD;&#xA;graficznie" Grid.Column="7" HorizontalAlignment="Center" Margin="27,30,9,0" Grid.Row="1" VerticalAlignment="Top" Width="92" Height="60" Background="#FFD1CD81" BorderBrush="#FF991010" Foreground="#FF072566" FontFamily="Tahoma" FontSize="14" FontWeight="Bold" FontStyle="Italic" BorderThickness="2,2,2,0" Click="WynikButton_Click">
             <Button.Effect>
                 <BlurEffect KernelType="Box" RenderingBias="Performance" Radius="1"/>
             </Button.Effect>
         </Button>
-        <TextBlock x:Name="WynikGraf" Grid.Column="2" HorizontalAlignment="Left" Margin="22,118,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Grid.ColumnSpan="4" Width="254" Height="62" FontFamily="Rockwell Extra Bold" FontSize="22" TextAlignment="Center" Grid.RowSpan="2"/>
-        <Rectangle x:Name="Zegarek" Grid.Column="7" HorizontalAlignment="Center" VerticalAlignment="Center" Height="110" Margin="0,0,0,0" Grid.Row="2" Stroke="Black" Width="110" Fill="#FF9C1515"/>
-        
-        <Rectangle Grid.Column="7" Fill="#FFF" HorizontalAlignment="Center" Margin ="0,31,0,0" Height="45" Grid.Row="2" Stroke="Black" VerticalAlignment="Top" Width="8" RenderTransformOrigin="1,1">
+        <TextBlock x:Name="WynikGraf" Grid.Column="2" HorizontalAlignment="Left" Margin="10,95,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Grid.ColumnSpan="4" Width="262" Height="62" FontFamily="Rockwell Extra Bold" FontSize="22" TextAlignment="Center"/>
+        <Rectangle x:Name="Zegarek" Grid.Column="7" HorizontalAlignment="Center" VerticalAlignment="Top" Height="110" Margin="13,20,5,0" Grid.Row="2" Stroke="Black" Width="110" Fill="#FF9C1515"/>
+
+        <Rectangle Grid.Column="7" Fill="#FFF" HorizontalAlignment="Center" Margin ="69,31,51,0" Height="45" Grid.Row="2" Stroke="Black" VerticalAlignment="Top" Width="8" RenderTransformOrigin="1,1">
             <Rectangle.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -109,15 +118,27 @@
                 </TransformGroup>
             </Rectangle.RenderTransform>
         </Rectangle>
-        <Rectangle Grid.Column="7" Fill="#FFD8C6C6" HorizontalAlignment="Center" Margin ="0,11,0,0" Height="65" Grid.Row="2" Stroke="Black" VerticalAlignment="Top" Width="4" RenderTransformOrigin="1,1">
-        <Rectangle.RenderTransform>
-            <TransformGroup>
-                <ScaleTransform/>
-                <SkewTransform/>
-                <RotateTransform x:Name="CykCyk" Angle="0"/>
-                <TranslateTransform/>
-            </TransformGroup>
-        </Rectangle.RenderTransform>
+        <Rectangle Grid.Column="7" Fill="#FFD8C6C6" HorizontalAlignment="Center" Margin ="71,11,53,0" Height="65" Grid.Row="2" Stroke="Black" VerticalAlignment="Top" Width="4" RenderTransformOrigin="1,1">
+            <Rectangle.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform x:Name="CykCyk" Angle="0"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Rectangle.RenderTransform>
         </Rectangle>
+        <Button x:Name="WysStat" Margin="0,0,70,0" Content="Wyświetl statystyki" HorizontalAlignment="Right" VerticalAlignment="Top" Width="120" Click="WysStat_Click"  Height="25" Grid.Row="2" Background="#FFD16F41" FontWeight="Bold"/>
+
+        <DataGrid x:Name="Statystyki" HorizontalAlignment="Left" Height="200" Margin="12,38,0,0" VerticalAlignment="Top" Width="598" Grid.ColumnSpan="6" Grid.Row="2"/>
+        <Button x:Name="NastepnaStrona" Margin="0,243,0,0" Content="Następna strona" HorizontalAlignment="Right" VerticalAlignment="Top" Width="120" Height="20" Click="NastepnaStrona_Click" Grid.Row="2" Grid.ColumnSpan="2" Grid.Column="4" Background="#FF2DAE56"/>
+        <Button x:Name="PoprzdniaStrona" Margin="12,243,0,0" Content="Poprzednia strona" VerticalAlignment="Top" Height="20" Click="PoprzedniaStrona_Click" Grid.Row="2" HorizontalAlignment="Left" Width="120" Background="#FF2DAE56"/>
+        <Label x:Name="Najczesciej" Margin="12,281,27,0" Content="Najczęściej używane" Height="25" VerticalAlignment="Top" Grid.Row="2" RenderTransformOrigin="0.625,4.68" Grid.ColumnSpan="3"/>
+        <DataGrid x:Name="Tabela2" HorizontalAlignment="Left" Height="85" Margin="10,306,0,0" VerticalAlignment="Top" Width="318" Grid.ColumnSpan="3" Grid.Row="2"/>
+        <TextBox x:Name="DataOd" Margin="0,0,11,434" HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="25" TextWrapping="Wrap" Width="114" Text="rrrr-mm-dd" Grid.ColumnSpan="2" Grid.Column="2" Grid.Row="2"/>
+        <TextBox x:Name="DataDo" Margin="27,10,10,0" VerticalAlignment="Top" Height="25" TextWrapping="Wrap" Text="rrrr-mm-dd" Grid.ColumnSpan="2" Grid.Column="4" Grid.Row="2"/>
+        <Button x:Name="StatystykiNajczesciej" Grid.ColumnSpan="2" Content="Wyświetl TOP3" HorizontalAlignment="Left" Margin="142,284,0,0" Grid.Row="2" VerticalAlignment="Top" Width="89" RenderTransformOrigin="-0.907,-0.25" Background="#FF2DAE56" Click="StatystykiNajczesciej_Click"/>
+        <Label Content="Zakres dat od " Grid.Column="1" Margin="43,7,0,0" Grid.Row="2" VerticalAlignment="Top" RenderTransformOrigin="-11.727,-11.269" HorizontalAlignment="Left" Width="87" Grid.ColumnSpan="2"/>
+
     </Grid>
 </Window>

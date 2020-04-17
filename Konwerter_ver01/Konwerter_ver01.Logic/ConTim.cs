@@ -10,7 +10,8 @@ namespace Konwerter_ver01
     public class ConTim : IConverter
     {
         public string Name => "Zegar";
-
+        //public string JednZ = "24h";
+        //public string JednDo = "12h";
         public List<string> Jedn => new List<string>()
         {
         "24h", "12h"
