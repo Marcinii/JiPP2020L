@@ -104,7 +104,9 @@ namespace Modul_3.Desktop
 
             }
             else outputTextBlock.Text = result.ToString();
+            DBDodaj dodaj = new DBDodaj();
 
+            dodaj.dodac(((Ikonwerter)converterCombobox.SelectedItem).nazwa, ListaJednostek.SelectedItem.ToString(), (decimal)inputValue, (decimal)result);
 
         }
         private void converterCombobox_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -117,6 +119,12 @@ namespace Modul_3.Desktop
         {
 
 
+        }
+
+        private void Statystki_Click(object sender, RoutedEventArgs e)
+        {
+            Window1 nwd = new Window1();
+            nwd.Show();
         }
     }
 }

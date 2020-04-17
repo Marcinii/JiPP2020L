@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="JIPPModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Stata">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Rodzaj_Konwertera" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Wybrana_jednostka" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Data_Konwersji" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Wartosc_podana" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="Wartosc_uzyskana" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+  </EntityType>
+  <EntityContainer Name="JIPPEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Statas" EntityType="Self.Stata" />
+  </EntityContainer>
+</Schema>

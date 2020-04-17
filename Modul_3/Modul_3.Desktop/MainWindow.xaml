@@ -293,6 +293,11 @@
             <TextBlock x:Name="outputTextBlock" Margin="10,5,10,5" Height="25"/>
 
         </StackPanel>
+        <Button Grid.Column="0" Grid.Row="1" x:Name="Statystki" Content="Statystyki" Margin="5" Click="Statystki_Click" VerticalAlignment="Bottom" >
+            <Button.Background>
+                <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.ActiveCaptionColorKey}}"/>
+            </Button.Background>
+        </Button>
         <Label x:Name="label" Content="KONWERTER JEDNSTEK" Grid.Column="0" FontSize="20" FontFamily="Stencil" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center" OpacityMask="{x:Null}" RenderTransformOrigin="0.5,0.5">
             <Label.RenderTransform>
                 <TransformGroup>

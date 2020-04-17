@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="JIPPModelStoreContainer" CdmEntityContainer="JIPPEntities">
+    <EntitySetMapping Name="Statas">
+      <EntityTypeMapping TypeName="JIPPModel.Stata">
+        <MappingFragment StoreEntitySet="Stata">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Rodzaj_Konwertera" ColumnName="Rodzaj_Konwertera" />
+          <ScalarProperty Name="Wybrana_jednostka" ColumnName="Wybrana_jednostka" />
+          <ScalarProperty Name="Data_Konwersji" ColumnName="Data_Konwersji" />
+          <ScalarProperty Name="Wartosc_podana" ColumnName="Wartosc_podana" />
+          <ScalarProperty Name="Wartosc_uzyskana" ColumnName="Wartosc_uzyskana" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
