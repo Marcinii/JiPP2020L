@@ -55,7 +55,7 @@ namespace Konwerter.GUI
             deg1 += (deg0 / 12);
         }
         bool zegarBefore = false;
-        private void combo0_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void combo1_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             box0.Text = "";
             Watch t = new Watch();
@@ -267,5 +267,6 @@ namespace Konwerter.GUI
             RotateTransform rot1 = new RotateTransform(0);
             pt1.RenderTransform = rot1;
         }
-    }
+
+         }
 }
