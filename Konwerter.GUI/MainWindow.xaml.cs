@@ -315,7 +315,7 @@ namespace Konwerter.GUI
         }
         public void Clock_online_stop()
         {
-            Path sec = seconds;
+            Path sec = Seconds;
             Path m = minutes;
             Path h = hours;
             Path m1 = minutes1;
