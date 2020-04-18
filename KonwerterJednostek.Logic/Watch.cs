@@ -71,7 +71,7 @@ namespace KonwerterJednostek.Logic
             throw new NotImplementedException();
         }
 
-        public string UnitConv(string from, string to, string number)
+        public string UnitConv(string uniFrom, string unitTo, string number)
         {
             Watch t = new Watch(number);
             if (number.Length != 5 || number.Substring(2, 1) != ":" ||

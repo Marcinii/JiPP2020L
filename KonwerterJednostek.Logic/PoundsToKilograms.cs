@@ -51,10 +51,5 @@ namespace KonwerterJednostek.Logic
             }
             else { return Error.Info(); }
         }
-
-        public static implicit operator PoundsToKilograms(KilogramsToPounds v)
-        {
-            throw new NotImplementedException();
-        }
     }
 }

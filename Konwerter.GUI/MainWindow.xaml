@@ -511,7 +511,7 @@
         <Button x:Name="PM" Content="+PM" Grid.Column="7" HorizontalAlignment="Left" Margin="10,64,0,0" Grid.Row="9" VerticalAlignment="Top" Width="63" Click="PM_Click" Height="20"/>
         <Button x:Name="AM" Content="+AM" Grid.Column="7" HorizontalAlignment="Left" Margin="73,64,0,0" Grid.Row="9" VerticalAlignment="Top" Width="62" Click="AM_Click" Height="20"/>
         <Button x:Name="CLEAN" Content="CLEAN" Grid.Column="7" HorizontalAlignment="Left" Margin="10,84,0,0" Grid.Row="9" VerticalAlignment="Top" Width="125" Click="CLEAN_Click" Height="20"/>
-        <ComboBox x:Name="combo0" Grid.ColumnSpan="2" HorizontalAlignment="Left" Margin="0,36,0,0" Grid.Row="1" VerticalAlignment="Top" Width="300" Grid.Column="3" Height="22" SelectionChanged="ComboBox_SelectionChanged"/>
+        <ComboBox x:Name="combo0" Grid.ColumnSpan="2" HorizontalAlignment="Left" Margin="0,36,0,0" Grid.Row="1" VerticalAlignment="Top" Width="300" Grid.Column="3" Height="22" SelectionChanged="combo0_SelectionChanged"/>
         <ComboBox x:Name="combo1" HorizontalAlignment="Left" Margin="2,83,0,0" Grid.Row="1" VerticalAlignment="Top" Width="300" Height="22" Grid.ColumnSpan="3" SelectionChanged="ComboBox_SelectionChanged_1" Grid.Column="1"/>
         <ComboBox x:Name="combo2" Grid.Column="5" HorizontalAlignment="Left" Margin="0,85,0,0" Grid.Row="1" VerticalAlignment="Top" Width="296" Grid.ColumnSpan="2"/>
         <Label Content="Wybierz rodzaj Konwersji" Grid.Column="2" HorizontalAlignment="Left" Margin="147,8,0,0" Grid.Row="1" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
