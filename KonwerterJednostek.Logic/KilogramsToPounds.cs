@@ -8,6 +8,19 @@ namespace KonwerterJednostek.Logic
 {
     public class KilogramsToPounds : IKonwerter
     {
+        public double lb;
+        public double kg;
+        private double inputValue;
+
+        public KilogramsToPounds(double inputValue)
+        {
+            this.inputValue = inputValue;
+        }
+
+        public KilogramsToPounds()
+        {
+        }
+
         public List<string> Units => new List<string>()
         {
             "kg",
@@ -21,6 +34,23 @@ namespace KonwerterJednostek.Logic
         public double Convert(double valueToConvert)
         {
             return valueToConvert * 2.2046;
+        }
+
+
+        public string UnitConv(string from, string to, string number)
+        {
+            bool success = double.TryParse(number, out double inputValue);
+            if (!success) { inputValue = 0; }
+            KilogramsToPounds a = new KilogramsToPounds(inputValue);
+            if (from == Units[0] && to == Units[1])
+            {
+                return a.kg + " kg";
+            }
+            else if (from == Units[1] && to == Units[0])
+            {
+                return a.lb + " lb";
+            }
+            else { return Error.Info(); }
         }
     }
 }

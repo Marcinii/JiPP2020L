@@ -19,7 +19,7 @@ namespace KonwerterJednostek.Logic
                 new KilogramsToPounds(),
                 new PoundsToKilograms(),
                 new MilesToKilometres(),
-                new MilesToKilometres(),
+                new KilometresToMiles(),
                 new Time12To24(),
                 new Time24To12()
             };

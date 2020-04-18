@@ -10,6 +10,17 @@ namespace KonwerterJednostek.Logic
     {
         public double c;
         public double f;
+        private double inputValue;
+
+        public CelciusToFarenheit(double inputValue)
+        {
+            this.inputValue = inputValue;
+        }
+
+        public CelciusToFarenheit()
+        {
+        }
+
         public List<string> Units => new List<string>()
         {
             "c",

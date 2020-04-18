@@ -8,5 +8,7 @@ namespace KonwerterJednostek.Logic
 {
     class Error
     {
+        public static string Info() { return "Wprowadzono błędne dane :("; }
+
     }
 }
