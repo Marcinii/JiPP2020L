@@ -267,7 +267,7 @@
         
         
         <StackPanel Orientation="Horizontal" Grid.Row="2" Grid.Column="1" Margin="10,10,10,10">
-            <CheckBox Visibility="Hidden" Margin="50,0,0,0" HorizontalAlignment="Center" VerticalAlignment="Center"></CheckBox>
+            <CheckBox Visibility="Hidden" Margin="20,0,0,0" HorizontalAlignment="Center" VerticalAlignment="Center"></CheckBox>
             <Label HorizontalAlignment="Center" VerticalAlignment="Center">Date Filter</Label>
             <DatePicker x:Name="fromDate" Margin="50,0,0,0" HorizontalAlignment="Center" VerticalAlignment="Center" KeyDown="submitFilters_KeyDown"></DatePicker>
             <DatePicker x:Name="toDate" Margin="20,0,0,0" HorizontalAlignment="Center" VerticalAlignment="Center" KeyDown="submitFilters_KeyDown"></DatePicker>
