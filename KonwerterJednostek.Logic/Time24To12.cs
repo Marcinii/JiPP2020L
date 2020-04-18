@@ -9,19 +9,20 @@ namespace KonwerterJednostek.Logic
 {
     public class Time24To12 : IKonwerter
     {
-        public double T24;
         public double T12;
-        private double inputValue;
-
-        public Time24To12(double inputValue)
-        {
-            this.inputValue = inputValue;
-        }
-
+        public double T24;
+        private double valueToConvert;
         public Time24To12()
         {
+            this.T12 = 0;
+            this.T24 = 0;
+            this.valueToConvert = 0;
         }
 
+        public Time24To12(double valueToConvert)
+        {
+            this.valueToConvert = valueToConvert;
+        }
         public List<string> Units => new List<string>()
         {
             "T24",
@@ -49,16 +50,16 @@ namespace KonwerterJednostek.Logic
             }
         }
 
-        public string UnitConv(string from, string to, string number)
+        public string UnitConv(string unitFrom, string unitTo, string number)
         {
-                bool success = double.TryParse(number, out double inputValue);
-                if (!success) { inputValue = 0; }
-                Time24To12 a = new Time24To12(inputValue);
-                if (from == Units[0] && to == Units[1])
+                bool success = double.TryParse(number, out double valueToConvert);
+                if (!success) { valueToConvert = 0; }
+                Time24To12 a = new Time24To12(valueToConvert);
+                if (unitFrom == Units[0] && unitTo == Units[1])
                 {
                     return a.T24 + " 24h";
                 }
-                else if (from == Units[1] && to == Units[0])
+                else if (unitFrom == Units[1] && unitTo == Units[0])
                 {
                     return a.T12 + " 12h";
                 }

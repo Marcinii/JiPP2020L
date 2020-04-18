@@ -8,19 +8,20 @@ namespace KonwerterJednostek.Logic
 {
     public class KilometresToMiles : IKonwerter
     {
-        public double km;
         public double mil;
-        private double inputValue;
-
-        public KilometresToMiles(double inputValue)
-        {
-            this.inputValue = inputValue;
-        }
-
+        public double km;
+        private double valueToConvert;
         public KilometresToMiles()
         {
+            this.km = 0;
+            this.mil = 0;
+            this.valueToConvert = 0;
         }
 
+        public KilometresToMiles(double valueToConvert)
+        {
+            this.valueToConvert = valueToConvert;
+        }
         public List<string> Units => new List<string>()
         {
             "km",
@@ -35,17 +36,17 @@ namespace KonwerterJednostek.Logic
             return valueToConvert *0.62137;
         }
 
-        public string UnitConv(string from, string to, string number)
+        public string UnitConv(string unitFrom, string unitTo, string number)
         {
 
-                bool success = double.TryParse(number, out double inputValue);
-                if (!success) { inputValue = 0; }
-            KilometresToMiles a = new KilometresToMiles(inputValue);
-                if (from == Units[0] && to == Units[1])
+                bool success = double.TryParse(number, out double valueToConvert);
+                if (!success) { valueToConvert = 0; }
+            KilometresToMiles a = new KilometresToMiles(valueToConvert);
+                if (unitFrom == Units[0] && unitTo == Units[1])
                 {
                     return a.km + " km";
                 }
-                else if (from == Units[1] && to == Units[0])
+                else if (unitFrom == Units[1] && unitTo == Units[0])
                 {
                     return a.mil + " mil";
                 }

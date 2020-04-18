@@ -8,20 +8,20 @@ namespace KonwerterJednostek.Logic
 {
     public class PoundsToKilograms : IKonwerter
     {
-
         public double kg;
         public double lb;
-        private double inputValue;
-
-        public PoundsToKilograms(double inputValue)
-        {
-            this.inputValue = inputValue;
-        }
-
+        private double valueToConvert;
         public PoundsToKilograms()
         {
+            this.kg = 0;
+            this.lb = 0;
+            this.valueToConvert = 0;
         }
 
+        public PoundsToKilograms(double valueToConvert)
+        {
+            this.valueToConvert = valueToConvert;
+        }
         public List<string> Units => new List<string>()
         {
             "kg",
@@ -36,16 +36,16 @@ namespace KonwerterJednostek.Logic
             return valueToConvert / 2.2046;
         }
 
-        public string UnitConv(string from, string to, string number)
+        public string UnitConv(string unitFrom, string unitTo, string number)
         {
-            bool success = double.TryParse(number, out double inputValue);
-            if (!success) { inputValue = 0; }
-            PoundsToKilograms a = new PoundsToKilograms(inputValue);
-            if (from == Units[0] && to == Units[1])
+            bool success = double.TryParse(number, out double valueToConvert);
+            if (!success) { valueToConvert = 0; }
+            PoundsToKilograms a = new PoundsToKilograms(valueToConvert);
+            if (unitFrom == Units[0] && unitTo == Units[1])
             {
                 return a.kg + " kg";
             }
-            else if (from == Units[1] && to == Units[0])
+            else if (unitFrom == Units[1] && unitTo == Units[0])
             {
                 return a.lb + " lb";
             }

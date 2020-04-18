@@ -10,16 +10,19 @@ namespace KonwerterJednostek.Logic
     {
         public double c;
         public double f;
-        private double inputValue;
-
-        public CelciusToFarenheit(double inputValue)
-        {
-            this.inputValue = inputValue;
-        }
-
+        private double valueToConvert;
         public CelciusToFarenheit()
         {
+            this.c = 0;
+            this.f = 0;
+            this.valueToConvert = 0;
         }
+
+        public CelciusToFarenheit(double valueToConvert)
+        {
+            this.valueToConvert = valueToConvert;
+        }
+
 
         public List<string> Units => new List<string>()
         {
@@ -36,16 +39,16 @@ namespace KonwerterJednostek.Logic
             return (valueToConvert * 1.8) + 32;
         }
 
-        public string UnitConv(string from, string to, string number)
+        public string UnitConv(string unitFrom, string unitTo, string number)
         {
-            bool success = double.TryParse(number, out double inputValue);
-            if (!success) { inputValue = 0; }
-            CelciusToFarenheit a = new CelciusToFarenheit(inputValue);
-            if (from == Units[0] && to == Units[1])
+            bool success = double.TryParse(number, out double valueToConvert);
+            if (!success) { valueToConvert = 0; }
+            CelciusToFarenheit a = new CelciusToFarenheit(valueToConvert);
+            if (unitFrom == Units[0] && unitTo == Units[1])
             {
                 return a.c + " c";
             }
-            else if (from == Units[1] && to == Units[0])
+            else if (unitFrom == Units[1] && unitTo == Units[0])
             {
                 return a.f + " f";
             }

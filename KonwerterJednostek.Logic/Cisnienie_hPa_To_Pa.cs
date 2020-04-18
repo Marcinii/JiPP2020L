@@ -12,17 +12,18 @@ namespace KonwerterJednostek.Logic
 
         public double pa;
         public double hpa;
-        private double inputValue;
-
-        public Cisnienie_hPa_To_Pa(double inputValue)
-        {
-            this.inputValue = Cisnienie_hPa_To_Pa.
-        }
-
+        private double valueToConvert;
         public Cisnienie_hPa_To_Pa()
         {
+            this.pa = 0;
+            this.hpa = 0;
+            this.valueToConvert = 0;
         }
 
+        public Cisnienie_hPa_To_Pa(double valueToConvert)
+        {
+            this.valueToConvert = valueToConvert;
+        }
         public string Name => "Ciśnienie";
 
         public List<string> Units => new List<string>()
@@ -38,16 +39,16 @@ namespace KonwerterJednostek.Logic
             return valueToConvert * 100;
         }
 
-        public string UnitConv(string from, string to, string number)
+        public string UnitConv(string unitFrom, string unitTo, string number)
         {
-            bool success = double.TryParse(number, out double inputValue);
-            if (!success) { inputValue = 0; }
-            Cisnienie_hPa_To_Pa a = new Cisnienie_hPa_To_Pa(inputValue);
-            if (from == Units[0] && to == Units[1])
+            bool success = double.TryParse(number, out double valueToConvert);
+            if (!success) { valueToConvert = 0; }
+            Cisnienie_hPa_To_Pa a = new Cisnienie_hPa_To_Pa(valueToConvert);
+            if (unitFrom == Units[0] && unitTo == Units[1])
             {
                 return a.pa + " pa";
             }
-            else if (from == Units[1] && to == Units[0])
+            else if (unitFrom == Units[1] && unitTo == Units[0])
             {
                 return a.hpa + " hpa";
             }
