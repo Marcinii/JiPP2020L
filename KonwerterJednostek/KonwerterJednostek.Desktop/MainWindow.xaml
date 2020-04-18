@@ -59,7 +59,7 @@
                 <EasingDoubleKeyFrame KeyTime="0:0:2" Value="1"/>
             </DoubleAnimationUsingKeyFrames>
         </Storyboard>
-        
+
         <Storyboard x:Key="ChoosingConverterStoryboard">
             <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="MinuteBox">
                 <EasingDoubleKeyFrame KeyTime="0:0:1.5" Value="1"/>
@@ -74,7 +74,7 @@
     </Window.Resources>
     <Window.Triggers>
         <EventTrigger RoutedEvent="FrameworkElement.Loaded">
-            
+
         </EventTrigger>
     </Window.Triggers>
     <Grid RenderTransformOrigin="0.5,0.5" Margin="0,0,0,-8">
@@ -128,6 +128,39 @@
         <TextBox x:Name="MinuteBox" HorizontalAlignment="Left" Height="30" Margin="250,260,0,0" Text="0" VerticalAlignment="Top" Width="125" Opacity="0"/>
         <TextBlock x:Name="HourBlock" HorizontalAlignment="Left" Height="30" Margin="171,210,0,0" TextWrapping="Wrap" Text="Godzina:" VerticalAlignment="Top" Width="52" Opacity="0"/>
         <TextBlock x:Name="MinuteBlock" HorizontalAlignment="Left" Height="30" Margin="171,260,0,0" TextWrapping="Wrap" Text="Minuty:" VerticalAlignment="Top" Width="52" Opacity="0"/>
+        <DataGrid x:Name="DataGridHistory" HorizontalAlignment="Left" Height="146" Margin="250,295,0,0" VerticalAlignment="Top" Width="578" RenderTransformOrigin="0.495,0.538"/>
+
+        <Button x:Name="Next" Content="Dalej" HorizontalAlignment="Left" Height="20" Margin="647,457,0,0" VerticalAlignment="Top" Width="86" Click="Next_Click"/>
+        <Button x:Name="Back" Content="Wstecz" HorizontalAlignment="Left" Height="20" Margin="289,457,0,0" VerticalAlignment="Top" Width="86" Click="Back_Click"/>
+        <TextBlock x:Name="numberPage" HorizontalAlignment="Left" Height="20" Margin="484,457,0,0" TextWrapping="Wrap" Text="Strona 1" VerticalAlignment="Top" Width="55" RenderTransformOrigin="0.497,0.45"/>
+        <ComboBox x:Name="FiltrPoRodzKonw" HorizontalAlignment="Left" Height="25" Margin="854,335,0,0" VerticalAlignment="Top" Width="158" SelectionChanged="FiltrPoRodzKonw_SelectionChanged">
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding Name}" />
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
+
+        <TextBlock HorizontalAlignment="Left" Height="19" Margin="855,311,0,0" TextWrapping="Wrap" Text="Po rodzaju konwertera" VerticalAlignment="Top" Width="157"/>
+        <TextBlock HorizontalAlignment="Left" Height="27" Margin="917,277,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="34"><Run Text="Filtuj"/><Run Text=":"/></TextBlock>
+        <Grid RenderTransformOrigin="0.5,0.5">
+
+            <Image Margin="400,20,400,382" Source="KonwerterJednostek.png" Stretch="Fill"/>
+            <TextBlock HorizontalAlignment="Left" Height="30" Margin="256,120,0,0" TextWrapping="Wrap" Text="Wybierz dziedzinę konwertera:" VerticalAlignment="Top" Width="172"/>
+            <TextBlock HorizontalAlignment="Left" Height="30" Margin="420,180,0,0" TextWrapping="Wrap" Text="Jednostka z której konwertujesz:" VerticalAlignment="Top" Width="179"/>
+            <TextBlock HorizontalAlignment="Left" Height="30" Margin="280,180,0,0" TextWrapping="Wrap" Text="Wartość:" VerticalAlignment="Top" Width="52"/>
+            <TextBlock HorizontalAlignment="Left" Height="30" Margin="630,210,0,0" TextWrapping="Wrap" Text="=" VerticalAlignment="Top" Width="52"/>
+            <TextBlock HorizontalAlignment="Left" Height="30" Margin="730,180,0,0" TextWrapping="Wrap" Text="Wynik:" VerticalAlignment="Top" Width="52"/>
+            <TextBlock HorizontalAlignment="Left" Height="30" Margin="840,180,0,0" TextWrapping="Wrap" Text="Jednostka na którą konwertujesz:" VerticalAlignment="Top" Width="179"/>
+            <TextBlock HorizontalAlignment="Left" Height="27" Margin="917,277,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="34"><Run Text="Filtuj"/><Run Text=":"/></TextBlock>
+            <TextBox x:Name="wartoscOd" HorizontalAlignment="Left" Height="25" Margin="917,414,0,0" TextWrapping="Wrap" Text="rrrr, mm, dd" VerticalAlignment="Top" Width="94"/>
+            <TextBox x:Name="wartoscDo" HorizontalAlignment="Left" Height="25" Margin="917,454,0,0" TextWrapping="Wrap" Text="rrrr, mm, dd" VerticalAlignment="Top" Width="94"/>
+            <TextBlock HorizontalAlignment="Left" Height="25" Margin="854,414,0,0" TextWrapping="Wrap" Text="Od:" VerticalAlignment="Top" Width="46"/>
+            <TextBlock HorizontalAlignment="Left" Height="25" Margin="854,454,0,0" TextWrapping="Wrap" Text="Do:" VerticalAlignment="Top" Width="46"/>
+            <Button x:Name="dateStatisticBaton" Content="Po zakresie dat (rrrr, mm, dd)" HorizontalAlignment="Left" Height="25" Margin="854,374,0,0" VerticalAlignment="Top" Width="157" Click="dateStatisticBaton_Click"/>
+            <Button x:Name="showTheMostPopularBaton" Content="Wyświetl 3 najpopularniejsze" HorizontalAlignment="Left" Height="25" Margin="420,268,0,0" VerticalAlignment="Top" Width="179" Click="showTheMostPopularBaton_Click"/>
+
+        </Grid>
 
     </Grid>
 </Window>
