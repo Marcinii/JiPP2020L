@@ -8,6 +8,10 @@ namespace KonwerterJednostek.Logic
 {
     public interface IKonwerter
     {
+
+
+        //void UnitConv();
+        //string UnitConv(string from, string to, string noumber);
         string Name { get; }
         List<string> Units { get; }
         object Convert(object valueToConvert);
