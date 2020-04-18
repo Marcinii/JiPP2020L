@@ -35,7 +35,7 @@ namespace KonwerterJednostek2.Logic
 
                 };
 
-                context.TabelaKonwerters.Add(newTabelaKonwerter);
+                context.TabelaKonwerter.Add(newTabelaKonwerter);
 
                 context.SaveChanges();
             }

@@ -37,14 +37,18 @@ namespace KonwerterJednostek.Desktop
             WyswietlDaneEF_TOP3(DataGridStatystyka_TOP3, 1);
 
             textbox_numer_strony.Text = "1";
-            
+
+
+            DatePickerDataOd.SelectedDate = new DateTime(2020, 1, 1);
+            DatePickerDataDo.SelectedDate = new DateTime(2021, 1, 1);
+
         }
 
         public static void WyswietlDaneEF(DataGrid DataGridStatystyka, int Strona)
         {
             using (BazaDanychKonwerterEntities12 context = new BazaDanychKonwerterEntities12())
             {              
-                List<TabelaKonwerter> TabelaKonwerters = context.TabelaKonwerters
+                List<TabelaKonwerter> TabelaKonwerters = context.TabelaKonwerter
                     .OrderBy(T => T.ID)
                     .Skip((Strona - 1) * 10)
                     .Take(10)
@@ -53,36 +57,19 @@ namespace KonwerterJednostek.Desktop
             }
         }
 
-
-
-
-        public static void WyswietlDaneEF_Filtr(DataGrid DataGridStatystyka, int Strona, string RodzajKonwertersji)
-        {
-            using (BazaDanychKonwerterEntities12 context = new BazaDanychKonwerterEntities12())
-            {
-                List<TabelaKonwerter> TabelaKonwerters = context.TabelaKonwerters
-                    .Where(T => T.RodzajKonwertera.StartsWith(RodzajKonwertersji))
-                    .OrderBy(T => T.ID)
-                    .Skip((Strona - 1) * 10)
-                    .Take(10)
-                    .ToList();
-                DataGridStatystyka.DataContext = TabelaKonwerters;
-            }
-        }
-
         public static void WyswietlDaneEF_TOP3(DataGrid DataGridStatystyka_TOP3, int Strona)
         {
             using (BazaDanychKonwerterEntities12 context = new BazaDanychKonwerterEntities12())
             {
-                List<TabelaKonwerter> stats = context.TabelaKonwerters
+                List<TabelaKonwerter> stats = context.TabelaKonwerter
                     .OrderBy(T => T.ID)
                     .Skip((Strona - 1) * 10)
                     .Take(10)
                     .ToList();
                 DataGridStatystyka_TOP3.DataContext = stats;
 
-                List<TabelaKonwerter> term = context.TabelaKonwerters
-                    //.Where(s => s.Date >= fromDate && s.Date < toDate && s.Type.StartsWith(Type))
+                List<TabelaKonwerter> term = context.TabelaKonwerter
+                    //  .Where(T => T.Data >= DataOd && T.Data < DataDo && T.RodzajKonwertera.StartsWith(RodzajKonwertersji))
                     .ToList();
 
                 List<string> pop = term.Select(T => T.RodzajKonwertera).ToList();
@@ -95,20 +82,36 @@ namespace KonwerterJednostek.Desktop
             }
         }
 
-        public static void WyswietlDaneEF_Filtr_TOP3(DataGrid DataGridStatystyka_TOP3, int Strona, string RodzajKonwertersji)
+
+
+        public static void WyswietlDaneEF_Filtr(DataGrid DataGridStatystyka, int Strona, string RodzajKonwertersji, DateTime DataOd, DateTime DataDo)
         {
             using (BazaDanychKonwerterEntities12 context = new BazaDanychKonwerterEntities12())
             {
-                List<TabelaKonwerter> stats = context.TabelaKonwerters
-                    .Where(T => T.RodzajKonwertera.StartsWith(RodzajKonwertersji))
+                List<TabelaKonwerter> TabelaKonwerters = context.TabelaKonwerter
+                    .Where(T => T.Data >= DataOd && T.Data < DataDo && T.RodzajKonwertera.StartsWith(RodzajKonwertersji))
+                    .OrderBy(T => T.ID)
+                    .Skip((Strona - 1) * 10)
+                    .Take(10)
+                    .ToList();
+                DataGridStatystyka.DataContext = TabelaKonwerters;
+            }
+        }
+
+        public static void WyswietlDaneEF_Filtr_TOP3(DataGrid DataGridStatystyka_TOP3, int Strona, string RodzajKonwertersji, DateTime DataOd, DateTime DataDo)
+        {
+            using (BazaDanychKonwerterEntities12 context = new BazaDanychKonwerterEntities12())
+            {
+                List<TabelaKonwerter> stats = context.TabelaKonwerter
+                    .Where(T => T.Data >= DataOd && T.Data < DataDo && T.RodzajKonwertera.StartsWith(RodzajKonwertersji))
                     .OrderBy(T => T.ID)
                     .Skip((Strona - 1) * 10)
                     .Take(10)
                     .ToList();
                 DataGridStatystyka_TOP3.DataContext = stats;
 
-                List<TabelaKonwerter> term = context.TabelaKonwerters
-                    //.Where(s => s.Date >= fromDate && s.Date < toDate && s.Type.StartsWith(Type))
+                List<TabelaKonwerter> term = context.TabelaKonwerter
+                    .Where(T => T.Data >= DataOd && T.Data < DataDo && T.RodzajKonwertera.StartsWith(RodzajKonwertersji))
                     .ToList();
 
                 List<string> pop = term.Select(T => T.RodzajKonwertera).ToList();
@@ -210,8 +213,9 @@ namespace KonwerterJednostek.Desktop
 
         private void button_Filtruj_Click(object sender, RoutedEventArgs e)
         {
-            WyswietlDaneEF_Filtr(DataGridStatystyka, 1, combobox_Filtr_Rodzaj_konwersji.SelectedItem.ToString());
-            WyswietlDaneEF_Filtr_TOP3(DataGridStatystyka_TOP3, 1, combobox_Filtr_Rodzaj_konwersji.SelectedItem.ToString());
+            
+            WyswietlDaneEF_Filtr(DataGridStatystyka, 1, combobox_Filtr_Rodzaj_konwersji.SelectedItem.ToString(), (DateTime)DatePickerDataOd.SelectedDate, (DateTime)DatePickerDataDo.SelectedDate);
+            WyswietlDaneEF_Filtr_TOP3(DataGridStatystyka, 1, combobox_Filtr_Rodzaj_konwersji.SelectedItem.ToString(), (DateTime)DatePickerDataOd.SelectedDate, (DateTime)DatePickerDataDo.SelectedDate);
         }
 
         private void button_Odfiltruj_Click(object sender, RoutedEventArgs e)

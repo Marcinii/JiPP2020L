@@ -21,10 +21,10 @@ namespace KonwerterJednostek2.Logic
         }
     
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
-         {
+        {
             throw new UnintentionalCodeFirstException();
-         }
+        }
     
-        public virtual DbSet<TabelaKonwerter> TabelaKonwerters{ get; set; }
+        public virtual DbSet<TabelaKonwerter> TabelaKonwerter { get; set; }
     }
 }

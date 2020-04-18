@@ -18,9 +18,8 @@ namespace KonwerterJednostek2.Logic
         public string RodzajKonwertera { get; set; }
         public string Jednostka_IN { get; set; }
         public string Jednostka_OUT { get; set; }
-        public DateTime Data { get; set; }
+        public Nullable<System.DateTime> Data { get; set; }
         public string Liczba_IN { get; set; }
         public string Liczba_OUT { get; set; }
     }
 }
-    
