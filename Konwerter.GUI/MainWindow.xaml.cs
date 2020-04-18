@@ -121,11 +121,6 @@ namespace Konwerter.GUI
             }
         }
 
-        private void button1_Click(object sender, RoutedEventArgs e)
-        {
-            System.Windows.Application.Current.Shutdown();
-        }
-
         private void box0_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.Key == Key.Enter)

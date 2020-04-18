@@ -516,8 +516,8 @@
         <ComboBox x:Name="combo2" Grid.Column="5" HorizontalAlignment="Left" Margin="0,85,0,0" Grid.Row="1" VerticalAlignment="Top" Width="296" Grid.ColumnSpan="2"/>
         <Label Content="Wybierz rodzaj Konwersji" Grid.Column="3" HorizontalAlignment="Left" Margin="44,9,0,0" Grid.Row="1" VerticalAlignment="Top"/>
         <Label Content="Podaj Wartosc Do Konwersji" HorizontalAlignment="Left" Margin="16,54,0,0" Grid.Row="1" VerticalAlignment="Top" Grid.ColumnSpan="2" Grid.Column="1"/>
-        <Label Content="Podaj Wartość wyniku Konwersji&#xD;&#xA;" Grid.Column="4" HorizontalAlignment="Left" Margin="148,58,0,0" Grid.Row="1" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
-        <TextBox x:Name="box0" Grid.ColumnSpan="2" Grid.Column="3" HorizontalAlignment="Left" Height="23" Margin="46,82,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="219"/>
+        <Label Content="Podaj Wartość wyniku Konwersji&#xD;&#xA;" Grid.Column="5" HorizontalAlignment="Left" Margin="8,41,0,0" Grid.Row="1" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
+        <TextBox x:Name="box0" Grid.ColumnSpan="2" Grid.Column="3" HorizontalAlignment="Left" Height="23" Margin="46,82,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="219" KeyUp="box0_KeyDown"/>
 
         <Path x:Name="minutes" Grid.Column="1" Data="M6.1000078,31.332997 L15.100009,31.332997 15.100009,130.333 6.1000078,130.333 z M9.8307915,0.5 L20.900009,30.332993 0.5,30.332993 z" HorizontalAlignment="Center" Height="80" Margin="0,50,0,0" Stretch="Fill" Stroke="Black" VerticalAlignment="Top" Width="10" RenderTransformOrigin="0.5,1" Panel.ZIndex="2">
             <Path.Fill>
@@ -634,7 +634,10 @@
                 </TransformGroup>
             </Path.RenderTransform>
         </Path>
-        <TextBlock x:Name="block0" Grid.Column="3" HorizontalAlignment="Left" Margin="14,126,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Wynik" VerticalAlignment="Top"/>
+        <TextBlock x:Name="block0" Grid.Column="4" HorizontalAlignment="Left" Margin="11,121,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Wynik" VerticalAlignment="Top"/>
+        <Button x:Name="button0" Content="Button" Grid.Column="3" HorizontalAlignment="Left" Margin="10,119,0,0" Grid.Row="1" VerticalAlignment="Top" Width="75" Click="button0_Click"/>
+
+
 
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="150"/>

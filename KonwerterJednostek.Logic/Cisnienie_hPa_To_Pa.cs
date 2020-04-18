@@ -16,7 +16,7 @@ namespace KonwerterJednostek.Logic
 
         public Cisnienie_hPa_To_Pa(double inputValue)
         {
-            this.inputValue = inputValue;
+            this.inputValue = Cisnienie_hPa_To_Pa.
         }
 
         public Cisnienie_hPa_To_Pa()
