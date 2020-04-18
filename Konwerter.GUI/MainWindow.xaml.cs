@@ -227,95 +227,10 @@ namespace Konwerter.GUI
             int minute = (DateTime.Now).Minute;
             int second = (DateTime.Now).Second;
 
-            EasingDoubleKeyFrame keyFrame0 = ((this.Resources["sb0"]
-            as Storyboard).Children[0]
-            as DoubleAnimationUsingKeyFrames).KeyFrames[0]
-            as EasingDoubleKeyFrame;
-
-            EasingDoubleKeyFrame keyFrame1 = ((this.Resources["sb0"]
-            as Storyboard).Children[0]
-            as DoubleAnimationUsingKeyFrames).KeyFrames[1]
-            as EasingDoubleKeyFrame;
-
-            second += 1;
-            keyFrame0.Value = second * 6;
-            keyFrame1.Value = second * 6 + 360;
-
-            EasingDoubleKeyFrame keyFrame2 = ((this.Resources["msb0"]
-            as Storyboard).Children[0]
-            as DoubleAnimationUsingKeyFrames).KeyFrames[0]
-            as EasingDoubleKeyFrame;
-
-            EasingDoubleKeyFrame keyFrame3 = ((this.Resources["msb0"]
-            as Storyboard).Children[0]
-            as DoubleAnimationUsingKeyFrames).KeyFrames[1]
-            as EasingDoubleKeyFrame;
-
-            keyFrame2.Value = minute * 6;
-            keyFrame3.Value = minute * 6 + 6;
-            keyFrame3.KeyTime = TimeSpan.FromSeconds(60 - second);
-
-            EasingDoubleKeyFrame keyFrame4 = ((this.Resources["msb1"]
-            as Storyboard).Children[0]
-            as DoubleAnimationUsingKeyFrames).KeyFrames[0]
-            as EasingDoubleKeyFrame;
-
-            EasingDoubleKeyFrame keyFrame5 = ((this.Resources["msb1"]
-            as Storyboard).Children[0]
-            as DoubleAnimationUsingKeyFrames).KeyFrames[1]
-            as EasingDoubleKeyFrame;
-
-            EasingDoubleKeyFrame keyFrame6 = ((this.Resources["msb1"]
-            as Storyboard).Children[0]
-            as DoubleAnimationUsingKeyFrames).KeyFrames[2]
-            as EasingDoubleKeyFrame;
-
-            keyFrame4.Value = minute * 6 + 6;
-            keyFrame4.KeyTime = new TimeSpan(0, 0, 0, 0);
-            keyFrame5.Value = minute * 6 + 6;
-            keyFrame5.KeyTime = new TimeSpan(0, 0, 0, 60 - second);
-            keyFrame6.Value = minute * 6 + 366;
-            keyFrame6.KeyTime = new TimeSpan(0, 1, 0, 60 - second);
-
-            EasingDoubleKeyFrame keyFrame7 = ((this.Resources["hsb0"]
-            as Storyboard).Children[0]
-            as DoubleAnimationUsingKeyFrames).KeyFrames[0]
-            as EasingDoubleKeyFrame;
-
-            EasingDoubleKeyFrame keyFrame8 = ((this.Resources["hsb0"]
-            as Storyboard).Children[0]
-            as DoubleAnimationUsingKeyFrames).KeyFrames[1]
-            as EasingDoubleKeyFrame;
-
-            keyFrame7.Value = hour * 30 + minute * 6 / 12;
-            keyFrame8.Value = hour * 30 + minute * 6 / 12 + 0.5;
-            keyFrame8.KeyTime = TimeSpan.FromSeconds(60 - second);
-
-            EasingDoubleKeyFrame keyFrame9 = ((this.Resources["hsb1"]
-            as Storyboard).Children[0]
-            as DoubleAnimationUsingKeyFrames).KeyFrames[0]
-            as EasingDoubleKeyFrame;
-
-            EasingDoubleKeyFrame keyFrame10 = ((this.Resources["hsb1"]
-            as Storyboard).Children[0]
-            as DoubleAnimationUsingKeyFrames).KeyFrames[1]
-            as EasingDoubleKeyFrame;
-
-            EasingDoubleKeyFrame keyFrame11 = ((this.Resources["hsb1"]
-            as Storyboard).Children[0]
-            as DoubleAnimationUsingKeyFrames).KeyFrames[2]
-            as EasingDoubleKeyFrame;
-
-            keyFrame9.Value = hour * 30 + minute * 6 / 12 + 0.5;
-            keyFrame9.KeyTime = new TimeSpan(0, 0, 0, 0);
-            keyFrame10.Value = hour * 30 + minute * 6 / 12 + 0.5;
-            keyFrame10.KeyTime = new TimeSpan(0, 0, 0, 60 - second);
-            keyFrame11.Value = hour * 30 + minute * 6 / 12 + 360.5;
-            keyFrame11.KeyTime = new TimeSpan(0, 24, 0, 60 - second);
         }
         public void Clock_online_stop()
         {
-            Path sec = Seconds;
+            Path sec = seconds;
             Path m = minutes;
             Path h = hours;
             Path m1 = minutes1;
