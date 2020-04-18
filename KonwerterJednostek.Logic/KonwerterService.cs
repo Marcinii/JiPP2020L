@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace KonwerterJednostek.Logic
 {
-    class KonverterService
+    public class KonwerterService
     {
         public List<IKonwerter> GetConverters()
         {
