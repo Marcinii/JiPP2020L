@@ -27,8 +27,6 @@ namespace KonwerterJednostek.Logic
             "kg",
             "lb"
         };
-
-
         public string Name => "Kilograms To Pounds";
 
         object IKonwerter.Convert(object valueToConvert) => Convert((double) valueToConvert);
@@ -36,8 +34,6 @@ namespace KonwerterJednostek.Logic
         {
             return valueToConvert * 2.2046;
         }
-
-
         public string UnitConv(string unitFrom, string unitTo, string number)
         {
             bool success = double.TryParse(number, out double valueToConvert);

@@ -52,7 +52,6 @@
   <ItemGroup>
     <Compile Include="Error.cs" />
     <Compile Include="KonwerterService.cs" />
-    <Compile Include="Model1.cs" />
     <Compile Include="Time12To24.cs" />
     <Compile Include="Time24To12.cs" />
     <Compile Include="CelciusToFarenheit.cs" />
