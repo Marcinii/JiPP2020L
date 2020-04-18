@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace KonwerterJednostek.Logic
 {
-    class Error
+   public class Error
     {
         public static string Info() { return "Wprowadzono błędne dane :("; }
 

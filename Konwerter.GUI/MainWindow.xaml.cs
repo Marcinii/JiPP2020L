@@ -29,14 +29,7 @@ namespace Konwerter.GUI
         public MainWindow()
         {
             InitializeComponent();
-            // static Regex t24regex = new Regex(@"(\d+):(\d+)");
-            //KonwerterJednostek.Logic.IKonwerter.Convert;
-            //var match = t24regex.Match(valueToConvert);
-            // var hour = int.Parse(match.Groups[1].Value);
-            // var minute = int.Parse(match.Groups[2].Value);
 
-            // ClockRotate1.Angle = 6750;//24 na 12  Ustawione na wzkazówke 12
-            // ClockRotate2.Angle = 4950;//12 na 24  Ustawione na wzkazówke malych 12
             Watch t = new Watch();
             int hour = (DateTime.Now).Hour;
             int minute = (DateTime.Now).Minute;
@@ -52,30 +45,14 @@ namespace Konwerter.GUI
             string s1 = hour < 10 ? "0" + hour : hour.ToString();
             string s2 = minute < 10 ? "0" + minute : minute.ToString();
             string time = s1 + ":" + s2;
-
             string result = t.UnitConv("f", "t", time);
-
             bool success0 = double.TryParse(result.Substring(3, 2), out double deg0);
             if (!success0) { deg0 = 0; }
             deg0 *= 6;
-            //Path pt0 = minutes;
-            //RotateTransform rot0 = new RotateTransform(deg0);
-            //pt0.RenderTransform = rot0;
-
             bool success1 = double.TryParse(result.Substring(0, 2), out double deg1);
             if (!success1) { deg1 = 0; }
             deg1 *= 30;
             deg1 += (deg0 / 12);
-            //Path pt1 = hours;
-            //RotateTransform rot1 = new RotateTransform(deg1);
-            //pt1.RenderTransform = rot1;
-
-            //double deg2 = second * 6;
-            //Path pt2 = seconds;
-            //RotateTransform rot2 = new RotateTransform(deg2);
-            //pt2.RenderTransform = rot2;
-
-
         }
         bool zegarBefore = false;
         private void combo0_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -113,6 +90,52 @@ namespace Konwerter.GUI
                 Clock_online_restart();
             }
 
+        }
+
+        private void button0_Click(object sender, RoutedEventArgs e)
+        {
+            string inputText = box0.Text;
+
+            string result = (combo1.SelectedItem != null && combo2.SelectedItem != null) ? ((IKonwerter)combo0.SelectedItem).UnitConv(
+                combo1.SelectedItem.ToString(),
+                combo2.SelectedItem.ToString(),
+                inputText) : Error.Info();
+            block0.Text = result;
+
+            if (((IKonwerter)combo0.SelectedItem).Name == "Zegar")
+            {
+                bool success0 = double.TryParse(block0.Text.Substring(3, 2), out double deg0);
+                if (!success0) { deg0 = 0; }
+                deg0 *= 6;
+                Path pt0 = minutes1;
+                RotateTransform rot0 = new RotateTransform(deg0);
+                pt0.RenderTransform = rot0;
+
+                bool success1 = double.TryParse(block0.Text.Substring(0, 2), out double deg1);
+                if (!success1) { deg1 = 0; }
+                deg1 *= 30;
+                deg1 += (deg0 / 12);
+                Path pt1 = hours1;
+                RotateTransform rot1 = new RotateTransform(deg1);
+                pt1.RenderTransform = rot1;
+            }
+        }
+
+        private void button1_Click(object sender, RoutedEventArgs e)
+        {
+            System.Windows.Application.Current.Shutdown();
+        }
+
+        private void box0_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                button0_Click(null, null);
+            }
+            else if (e.Key == Key.Escape)
+            {
+                System.Windows.Application.Current.Shutdown();
+            }
         }
 
         private void Button1_Click(object sender, RoutedEventArgs e)
