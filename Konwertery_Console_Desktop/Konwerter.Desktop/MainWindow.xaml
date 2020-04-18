@@ -83,7 +83,7 @@
                 </TransformGroup>
             </Rectangle.RenderTransform>
         </Rectangle>
-        <DataGrid x:Name="statsGrid" ItemsSource="{Binding}" AutoGenerateColumns="False" Grid.Column="2" HorizontalAlignment="Left" Height="303" Margin="186,14,0,0" VerticalAlignment="Top" Width="399">
+        <DataGrid x:Name="statsGrid" ItemsSource="{Binding}" AutoGenerateColumns="False" Grid.Column="2" HorizontalAlignment="Left" Height="303" Margin="241,14,0,0" VerticalAlignment="Top" Width="344">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Data konwersji" Binding="{Binding Path=dateOfConversion}"></DataGridTextColumn>
                 <DataGridTextColumn Header="Rodzaj konwersji" Binding="{Binding Path=name}"></DataGridTextColumn>
@@ -95,9 +95,16 @@
         </DataGrid>
         <Button x:Name="nextPageBtn" Content="&gt;&gt;" Grid.Column="2" HorizontalAlignment="Left" Margin="510,334,0,0" VerticalAlignment="Top" Width="75" Click="nextPageBtn_Click" Height="20"/>
         <Button x:Name="previousPageBtn" Content="&lt;&lt;" Grid.Column="2" HorizontalAlignment="Left" Margin="186,334,0,0" VerticalAlignment="Top" Width="76" Click="previousPageBtn_Click" IsEnabled="False" Height="20"/>
-        <DatePicker Grid.Column="2" HorizontalAlignment="Left" Margin="269,45,0,0" VerticalAlignment="Top" Height="24" Width="119" Grid.Row="1"/>
-        <DatePicker Grid.Column="2" HorizontalAlignment="Left" Margin="388,45,0,0" VerticalAlignment="Top" Height="24" Width="118" Grid.Row="1"/>
+        <DatePicker x:Name="dateFrom" Grid.Column="2" HorizontalAlignment="Left" Margin="269,45,0,0" VerticalAlignment="Top" Height="24" Width="119" Grid.Row="1" SelectedDateChanged="dateFrom_SelectedDateChanged"/>
+        <DatePicker x:Name="dateTo" Grid.Column="2" HorizontalAlignment="Left" Margin="388,45,0,0" VerticalAlignment="Top" Height="24" Width="118" Grid.Row="1" SelectedDateChanged="dateTo_SelectedDateChanged"/>
         <ComboBox x:Name="convFilterBox" Grid.Column="2" HorizontalAlignment="Left" Margin="269,7,0,0" VerticalAlignment="Top" Width="237" Height="22" Grid.Row="1" SelectionChanged="convFilterBox_SelectionChanged"/>
-        <Button x:Name="button" Content="Filtruj" Grid.Column="2" HorizontalAlignment="Left" Margin="340,82,0,0" Grid.Row="1" VerticalAlignment="Top" Width="95"/>
+        <Button x:Name="button" Content="Filtruj" Grid.Column="2" HorizontalAlignment="Left" Margin="340,82,0,0" Grid.Row="1" VerticalAlignment="Top" Width="95" Click="button_Click"/>
+        <DataGrid x:Name="mostPopularGrid" ItemsSource="{Binding}" AutoGenerateColumns="False" Grid.Column="2" HorizontalAlignment="Left" Height="146" Margin="10,14,0,0" VerticalAlignment="Top" Width="212">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Typ" Binding="{Binding Path=name}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Z" Binding="{Binding Path=unitFrom}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Na" Binding="{Binding Path=unitTo}"></DataGridTextColumn>
+            </DataGrid.Columns>
+        </DataGrid>
     </Grid>
 </Window>

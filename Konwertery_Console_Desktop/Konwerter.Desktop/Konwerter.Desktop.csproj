@@ -64,6 +64,8 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="MostPopularConversion.cs" />
+    <Compile Include="MostPopularEntity.cs" />
     <Compile Include="Repository\DatabaseModule.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>

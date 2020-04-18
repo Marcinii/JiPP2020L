@@ -21,9 +21,12 @@ namespace Konwerter.Desktop
     public partial class MainWindow : Window
     {
         int initPagination = 0;
-        int borderPagination = 2;
+        int borderPagination = 20;
         int databaseSize;
         string selectedFilterType = null;
+
+        string dateFromParam = null;
+        string dateToParam = null;
 
         CONVERSIONS conversion = new CONVERSIONS();
 
@@ -40,10 +43,12 @@ namespace Konwerter.Desktop
         public MainWindow()
         {
             InitializeComponent();
-            getPagedConversions(initPagination, borderPagination, selectedFilterType);
+            getPagedConversions(initPagination, borderPagination, selectedFilterType, dateFromParam, dateToParam);
+            getMostPopular();
             initConverterBox();
             hourRotation.Angle = (360/12)*(6)+90;
             minuteRotation.Angle = (360 / 60) * (15) + 90;
+
         }
 
         private void initConverterBox()
@@ -164,7 +169,7 @@ namespace Konwerter.Desktop
 
                 insertData(conversion);
                 conversion = new CONVERSIONS();
-                getPagedConversions(initPagination, borderPagination, null);
+                getPagedConversions(initPagination, borderPagination, null, dateFromParam, dateToParam);
             }
         }
 
@@ -187,13 +192,13 @@ namespace Konwerter.Desktop
             DatabaseModule.insert(conversion);
         }
 
-        public void getPagedConversions(int initPagination, int borderPagination, string type)
+        public void getPagedConversions(int initPagination, int borderPagination, string type, string dateFrom, string dateTo)
         {
             List<CONVERSIONS> allConversions;
-            if (type != null)
+            if (type != null && dateFrom != null && dateTo != null)
             {
-                allConversions = DatabaseModule.getConversionsByType(type);
-            } 
+                allConversions = DatabaseModule.getConversionsByParams(type, dateFrom, dateTo);
+            }
             else
             {
                 allConversions = DatabaseModule.getAllConversions();
@@ -203,7 +208,7 @@ namespace Konwerter.Desktop
 
             if (borderPagination > databaseSize)
             {
-                for (int i = initPagination; i < (borderPagination - databaseSize); i++)
+                for (int i = initPagination; i < databaseSize; i++)
                 {
                     pagedList.Add(allConversions.ElementAt(i));
                 }
@@ -220,18 +225,34 @@ namespace Konwerter.Desktop
             statsGrid.ItemsSource = pagedList;
         }
 
+        public void getMostPopular()
+        {
+            List<MostPopularConversion> allPopularConversions;
+            allPopularConversions = DatabaseModule.getAllMostPopular();
+            mostPopularGrid.ItemsSource = allPopularConversions;
+        }
+
+        private void convFilterBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            initPagination = 0;
+            borderPagination = 20;
+            this.selectedFilterType = converterList[convFilterBox.SelectedIndex].ConverterName;
+            getPagedConversions(initPagination, borderPagination, selectedFilterType, dateFromParam, dateToParam);
+            mostPopularGrid.ItemsSource = DatabaseModule.getMostPopularByType(selectedFilterType);
+        }
+
         private void previousPageBtn_Click(object sender, RoutedEventArgs e)
         {
-            this.initPagination -= 2;
-            this.borderPagination -= 2;
+            this.initPagination -= 20;
+            this.borderPagination -= 20;
             if (initPagination < 0)
             {
                 initPagination = 0;
-                borderPagination = initPagination + 2;
+                borderPagination = initPagination + 20;
                 previousPageBtn.IsEnabled = false;
             } else
             {
-                getPagedConversions(initPagination, borderPagination, selectedFilterType);
+                getPagedConversions(initPagination, borderPagination, selectedFilterType, dateFromParam, dateToParam);
                 nextPageBtn.IsEnabled = true;
             }
             
@@ -240,27 +261,41 @@ namespace Konwerter.Desktop
         private void nextPageBtn_Click(object sender, RoutedEventArgs e)
         {
             int border = borderPagination;
-            this.initPagination  +=  2;
-            this.borderPagination +=  2;
+            this.initPagination  +=  20;
+            this.borderPagination +=  20;
             if (borderPagination > databaseSize)
             {
-                getPagedConversions(border, ((borderPagination - databaseSize) + border), selectedFilterType);
+                getPagedConversions(border, ((borderPagination - databaseSize) + border), selectedFilterType, dateFromParam, dateToParam);
                 nextPageBtn.IsEnabled = false;
+                previousPageBtn.IsEnabled = true;
             } 
             else
             {
-                getPagedConversions(initPagination, borderPagination, selectedFilterType);
-                previousPageBtn.IsEnabled = true;
+                getPagedConversions(initPagination, borderPagination, selectedFilterType, dateFromParam, dateToParam);
             }
             
         }
 
-        private void convFilterBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void button_Click(object sender, RoutedEventArgs e)
         {
             initPagination = 0;
-            borderPagination = 2;
-            this.selectedFilterType = converterList[convFilterBox.SelectedIndex].ConverterName;
-            getPagedConversions(initPagination, borderPagination, selectedFilterType);
+            borderPagination = 20;
+            getPagedConversions(initPagination, borderPagination, selectedFilterType, dateFromParam, dateToParam);
+            mostPopularGrid.ItemsSource = DatabaseModule.getMostPopularByType(selectedFilterType);
+        }
+
+        private void dateFrom_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
+        {
+            string pickedDate = dateFrom.SelectedDate.ToString();
+            DateTime day = DateTime.Parse(pickedDate);
+            dateFromParam = day.ToString("yyyy/MM/dd");
+        }
+
+        private void dateTo_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
+        {
+            string pickedDate = dateTo.SelectedDate.ToString();
+            DateTime day = DateTime.Parse(pickedDate);
+            dateToParam = day.ToString("yyyy/MM/dd");
         }
     }
 }
