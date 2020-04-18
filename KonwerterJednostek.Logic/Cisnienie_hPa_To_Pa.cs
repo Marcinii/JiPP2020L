@@ -18,6 +18,7 @@ namespace KonwerterJednostek.Logic
         };
 
         object IKonwerter.Convert(object valueToConvert) => Convert((double) valueToConvert);
+       
         public double Convert(double valueToConvert)
         {
             return valueToConvert * 100;
