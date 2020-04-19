@@ -1,0 +1,18 @@
+C:\Users\Admin\source\repos\ConsoleApp17\unitConverter.Logic\bin\Debug\unitConverter.Logic.dll
+C:\Users\Admin\source\repos\ConsoleApp17\unitConverter.Logic\bin\Debug\unitConverter.Logic.pdb
+C:\Users\Admin\source\repos\ConsoleApp17\unitConverter.Logic\obj\Debug\unitConverter.Logic.csprojAssemblyReference.cache
+C:\Users\Admin\source\repos\ConsoleApp17\unitConverter.Logic\obj\Debug\unitConverter.Logic.csproj.CoreCompileInputs.cache
+C:\Users\Admin\source\repos\ConsoleApp17\unitConverter.Logic\obj\Debug\unitConverter.Logic.dll
+C:\Users\Admin\source\repos\ConsoleApp17\unitConverter.Logic\obj\Debug\unitConverter.Logic.pdb
+C:\Users\piotr\Downloads\JiPP2020L-Z410-Piotr-Pietrucha\Zadanie 2 - KonwerterJednostek\unitConverter.Logic\bin\Debug\unitConverter.Logic.dll
+C:\Users\piotr\Downloads\JiPP2020L-Z410-Piotr-Pietrucha\Zadanie 2 - KonwerterJednostek\unitConverter.Logic\bin\Debug\unitConverter.Logic.pdb
+C:\Users\piotr\Downloads\JiPP2020L-Z410-Piotr-Pietrucha\Zadanie 2 - KonwerterJednostek\unitConverter.Logic\obj\Debug\unitConverter.Logic.csprojAssemblyReference.cache
+C:\Users\piotr\Downloads\JiPP2020L-Z410-Piotr-Pietrucha\Zadanie 2 - KonwerterJednostek\unitConverter.Logic\obj\Debug\unitConverter.Logic.csproj.CoreCompileInputs.cache
+C:\Users\piotr\Downloads\JiPP2020L-Z410-Piotr-Pietrucha\Zadanie 2 - KonwerterJednostek\unitConverter.Logic\obj\Debug\unitConverter.Logic.dll
+C:\Users\piotr\Downloads\JiPP2020L-Z410-Piotr-Pietrucha\Zadanie 2 - KonwerterJednostek\unitConverter.Logic\obj\Debug\unitConverter.Logic.pdb
+C:\Users\Admin\Desktop\JiPP2020L-Z410-Piotr-Pietrucha-20200419T104418Z-001\JiPP2020L-Z410-Piotr-Pietrucha\Zadanie 2 - KonwerterJednostek\unitConverter.Logic\bin\Debug\unitConverter.Logic.dll
+C:\Users\Admin\Desktop\JiPP2020L-Z410-Piotr-Pietrucha-20200419T104418Z-001\JiPP2020L-Z410-Piotr-Pietrucha\Zadanie 2 - KonwerterJednostek\unitConverter.Logic\bin\Debug\unitConverter.Logic.pdb
+C:\Users\Admin\Desktop\JiPP2020L-Z410-Piotr-Pietrucha-20200419T104418Z-001\JiPP2020L-Z410-Piotr-Pietrucha\Zadanie 2 - KonwerterJednostek\unitConverter.Logic\obj\Debug\unitConverter.Logic.csprojAssemblyReference.cache
+C:\Users\Admin\Desktop\JiPP2020L-Z410-Piotr-Pietrucha-20200419T104418Z-001\JiPP2020L-Z410-Piotr-Pietrucha\Zadanie 2 - KonwerterJednostek\unitConverter.Logic\obj\Debug\unitConverter.Logic.csproj.CoreCompileInputs.cache
+C:\Users\Admin\Desktop\JiPP2020L-Z410-Piotr-Pietrucha-20200419T104418Z-001\JiPP2020L-Z410-Piotr-Pietrucha\Zadanie 2 - KonwerterJednostek\unitConverter.Logic\obj\Debug\unitConverter.Logic.dll
+C:\Users\Admin\Desktop\JiPP2020L-Z410-Piotr-Pietrucha-20200419T104418Z-001\JiPP2020L-Z410-Piotr-Pietrucha\Zadanie 2 - KonwerterJednostek\unitConverter.Logic\obj\Debug\unitConverter.Logic.pdb
