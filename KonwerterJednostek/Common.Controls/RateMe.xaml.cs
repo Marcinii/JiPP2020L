@@ -24,5 +24,38 @@ namespace Common.Controls
         {
             InitializeComponent();
         }
+
+        private int _rateValue=0;
+
+        public int RateValue
+        {
+            get { return _rateValue; }
+            set 
+            {
+                //powinnismy sprawdzac czy wartosc jest poprawna (0-5)
+                //jesli nie, to powinien byc rzucany wyjatek
+                _rateValue = value;
+
+                UpdateButtons();
+            }
+        }
+
+        //odznaczanie przycisku!
+        private void UpdateButtons()
+        {
+            foreach(var b in ratesGrid.Children)
+            {
+                ((Button)b).Background = new SolidColorBrush(Colors.White);
+            }
+            if (_rateValue > 0)
+            {
+                ((Button)ratesGrid.Children[_rateValue - 1]).Background = new SolidColorBrush(Colors.Blue);
+            }
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            RateValue = ratesGrid.Children.IndexOf((Button)sender) + 1;
+        }
     }
 }

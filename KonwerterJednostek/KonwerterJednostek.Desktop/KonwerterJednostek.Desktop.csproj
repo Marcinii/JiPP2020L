@@ -107,6 +107,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Common.Controls\Common.Controls.csproj">
+      <Project>{93ec808e-0307-475b-a225-9459832dbabb}</Project>
+      <Name>Common.Controls</Name>
+    </ProjectReference>
     <ProjectReference Include="..\KonwerterJednostek.Logic\KonwerterJednostek.Logic.csproj">
       <Project>{8ecde6d8-8b8f-48e7-b37e-f121a0b96440}</Project>
       <Name>KonwerterJednostek.Logic</Name>

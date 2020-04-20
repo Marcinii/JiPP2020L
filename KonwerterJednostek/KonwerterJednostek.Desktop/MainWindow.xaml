@@ -4,8 +4,9 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:KonwerterJednostek.Desktop"
+        xmlns:commonControls="clr-namespace:Common.Controls;assembly=Common.Controls"
         mc:Ignorable="d"
-        Title="MainWindow" Height="700" Width="1050">
+        Title="MainWindow" Height="750" Width="1060">
     <Window.Resources>
         <Storyboard x:Key="sb0" RepeatBehavior="Forever">
             <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[2].(RotateTransform.Angle)" Storyboard.TargetName="seconds">
@@ -83,10 +84,11 @@
             <ColumnDefinition Width="1*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="1*"/>
-            <RowDefinition Height="0.5*"/>
-            <RowDefinition Height="0.2*"/>
-            <RowDefinition Height="1*"/>
+            <RowDefinition Height="26*"/>
+            <RowDefinition Height="5*"/>
+            <RowDefinition Height="13*"/>
+            <RowDefinition Height="5*"/>
+            <RowDefinition Height="26*"/>
         </Grid.RowDefinitions>
         <StackPanel Grid.Column="0" Grid.Row="0">
             <ComboBox x:Name="combo0" Margin="10,5,10,5" SelectionChanged="combo0_SelectionChanged">
@@ -102,8 +104,8 @@
                     <ColumnDefinition Width="54*"/>
                     <ColumnDefinition Width="198*"/>
                 </Grid.ColumnDefinitions>
-                <ComboBox x:Name="combo1" Margin="10,5,10.4,5" Grid.ColumnSpan="2"/>
-                <ComboBox x:Name="combo2" Margin="9.6,5,9.8,5" Grid.Column="2"/>
+                <ComboBox x:Name="combo1" Margin="10,5,10,5" Grid.ColumnSpan="2"/>
+                <ComboBox x:Name="combo2" Margin="10,5,10,5" Grid.Column="2"/>
             </Grid>
             <TextBox x:Name="box0" Margin="10,5,10,5" Height="25" KeyDown="box0_KeyDown"/>
             <Button x:Name="button0" Margin="10,5,10,5" Height="25" Click="button0_Click">Konwertuj</Button>
@@ -237,8 +239,16 @@
         </Path>
 
 
+        <Grid Grid.Row="1" Grid.Column="0" Margin="10,10,10,10">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+            <Label Grid.Column="0" Margin="0,0,10,0" HorizontalAlignment="Left" VerticalAlignment="Center">Ocena aplikacji: 43,43! 43,43!</Label>
+            <commonControls:RateMe x:Name="rateControl" Grid.Column="1" Margin="10,0,0,0" RateValue="0"/>
+        </Grid>
 
-        <StackPanel Orientation="Horizontal" Grid.Row="1" Grid.Column="0"  Margin="10,10,10,10">
+        <StackPanel Orientation="Horizontal" Grid.Row="2" Grid.Column="0"  Margin="10,10,10,10">
             <CheckBox HorizontalAlignment="Center" VerticalAlignment="Center" Visibility="Hidden"></CheckBox>
             <Label HorizontalAlignment="Center" VerticalAlignment="Center">Most Popular</Label>
             <DataGrid x:Name="popular" Margin="50,0,0,0" ItemsSource="{Binding}" AutoGenerateColumns="False">
@@ -252,13 +262,13 @@
         </StackPanel>
 
 
-        <StackPanel Orientation="Horizontal" Grid.Row="1" Grid.Column="1" Margin="10,10,10,10">
+        <StackPanel Orientation="Horizontal" Grid.Row="2" Grid.Column="1" Margin="10,10,10,10">
             <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="200,0,0,0">Page</Label>
             <TextBox x:Name="page" Width="100" Margin="20,0,20,0" HorizontalAlignment="Center" VerticalAlignment="Center" Text="1" KeyDown="submitFilters_KeyDown"></TextBox>
             <Button HorizontalAlignment="Center" VerticalAlignment="Center" Click="submitFilters">Show</Button>
         </StackPanel>
 
-        <StackPanel Orientation="Horizontal" Grid.Row="2" Grid.Column="0" Margin="10,10,10,10">
+        <StackPanel Orientation="Horizontal" Grid.Row="3" Grid.Column="0" Margin="10,10,10,10">
             <CheckBox Visibility="Hidden" HorizontalAlignment="Center" VerticalAlignment="Center"></CheckBox>
             <Label HorizontalAlignment="Center" VerticalAlignment="Center">Converter Type</Label>
             <TextBox x:Name="type" Width="300" Margin="20,0,20,0" HorizontalAlignment="Center" VerticalAlignment="Center" KeyDown="submitFilters_KeyDown"></TextBox>
@@ -266,16 +276,16 @@
         </StackPanel>
         
         
-        <StackPanel Orientation="Horizontal" Grid.Row="2" Grid.Column="1" Margin="10,10,10,10">
+        <StackPanel Orientation="Horizontal" Grid.Row="3" Grid.Column="1" Margin="10,10,10,10">
             <CheckBox Visibility="Hidden" Margin="20,0,0,0" HorizontalAlignment="Center" VerticalAlignment="Center"></CheckBox>
             <Label HorizontalAlignment="Center" VerticalAlignment="Center">Date Filter</Label>
             <DatePicker x:Name="fromDate" Margin="50,0,0,0" HorizontalAlignment="Center" VerticalAlignment="Center" KeyDown="submitFilters_KeyDown"></DatePicker>
             <DatePicker x:Name="toDate" Margin="20,0,0,0" HorizontalAlignment="Center" VerticalAlignment="Center" KeyDown="submitFilters_KeyDown"></DatePicker>
             <Button Margin="20,0,0,0" HorizontalAlignment="Center" VerticalAlignment="Center" Click="submitFilters">Submit</Button>
         </StackPanel>
+
         
-        
-        <DataGrid x:Name="dg" ItemsSource="{Binding}" AutoGenerateColumns="False" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" Margin="30,0,30,30" Width="880" Height="250">
+        <DataGrid x:Name="dg" ItemsSource="{Binding}" AutoGenerateColumns="False" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" Margin="30,0,30,30" Width="880" Height="250">
             <DataGrid.Columns>
                 <DataGridTextColumn Width="25" Header="ID" Binding="{Binding Id}"/>
                 <DataGridTextColumn Width="140" Header="Conversion Type" Binding="{Binding Type}"/>

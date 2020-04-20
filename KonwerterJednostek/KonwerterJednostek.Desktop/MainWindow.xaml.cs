@@ -26,6 +26,9 @@ namespace KonwerterJednostek.Desktop
         {
             InitializeComponent();
 
+            //mozemy odczytac z bazy danych wartosc oceny
+            rateControl.RateValue = 2;
+
             Watch t = new Watch();
             int hour = (DateTime.Now).Hour;
             int minute = (DateTime.Now).Minute;

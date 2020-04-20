@@ -1,0 +1,13 @@
+C:\Users\HP\source\repos\JiPP2020L\KonwerterJednostek\Common.Controls\bin\Debug\Common.Controls.dll
+C:\Users\HP\source\repos\JiPP2020L\KonwerterJednostek\Common.Controls\bin\Debug\Common.Controls.pdb
+C:\Users\HP\source\repos\JiPP2020L\KonwerterJednostek\Common.Controls\obj\Debug\Common.Controls.csprojAssemblyReference.cache
+C:\Users\HP\source\repos\JiPP2020L\KonwerterJednostek\Common.Controls\obj\Debug\RateMe.g.cs
+C:\Users\HP\source\repos\JiPP2020L\KonwerterJednostek\Common.Controls\obj\Debug\Common.Controls_MarkupCompile.cache
+C:\Users\HP\source\repos\JiPP2020L\KonwerterJednostek\Common.Controls\obj\Debug\Common.Controls_MarkupCompile.lref
+C:\Users\HP\source\repos\JiPP2020L\KonwerterJednostek\Common.Controls\obj\Debug\RateMe.baml
+C:\Users\HP\source\repos\JiPP2020L\KonwerterJednostek\Common.Controls\obj\Debug\Common.Controls.g.resources
+C:\Users\HP\source\repos\JiPP2020L\KonwerterJednostek\Common.Controls\obj\Debug\Common.Controls.Properties.Resources.resources
+C:\Users\HP\source\repos\JiPP2020L\KonwerterJednostek\Common.Controls\obj\Debug\Common.Controls.csproj.GenerateResource.cache
+C:\Users\HP\source\repos\JiPP2020L\KonwerterJednostek\Common.Controls\obj\Debug\Common.Controls.csproj.CoreCompileInputs.cache
+C:\Users\HP\source\repos\JiPP2020L\KonwerterJednostek\Common.Controls\obj\Debug\Common.Controls.dll
+C:\Users\HP\source\repos\JiPP2020L\KonwerterJednostek\Common.Controls\obj\Debug\Common.Controls.pdb

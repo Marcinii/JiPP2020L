@@ -54,3 +54,5 @@ C:\Users\HP\source\repos\JiPP2020L\KonwerterJednostek\KonwerterJednostek.Desktop
 C:\Users\HP\source\repos\JiPP2020L\KonwerterJednostek\KonwerterJednostek.Desktop\bin\Debug\EntityFramework.SqlServer.dll
 C:\Users\HP\source\repos\JiPP2020L\KonwerterJednostek\KonwerterJednostek.Desktop\bin\Debug\EntityFramework.xml
 C:\Users\HP\source\repos\JiPP2020L\KonwerterJednostek\KonwerterJednostek.Desktop\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\HP\source\repos\JiPP2020L\KonwerterJednostek\KonwerterJednostek.Desktop\bin\Debug\Common.Controls.dll
+C:\Users\HP\source\repos\JiPP2020L\KonwerterJednostek\KonwerterJednostek.Desktop\bin\Debug\Common.Controls.pdb
