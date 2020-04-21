@@ -224,6 +224,23 @@ namespace UnitConverter.Library.OperationUtil.Repository
             );
 
             repository.addOperation(statisticsOperation);
+
+
+
+
+            DefaultOperation ratingOperation = new DefaultOperation(3, "Oceń aplikację",
+                TaskGroup.builder()
+                    .tasks(
+                        new FindLastRatingTask(customDatabaseContext),
+                        new RatingTask(customDatabaseContext)
+                    )
+                    .parameters(
+                        new InputTaskParameter("Ocena", typeof(int))
+                    )
+                    .build()
+            );
+
+            repository.addOperation(ratingOperation);
         }
     }
 }

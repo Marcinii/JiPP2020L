@@ -2,6 +2,7 @@
 using UnitConverter.Library.OperationUtil;
 using UnitConverter.Library.OperationUtil.Repository;
 using UnitConverter.Library.TaskUtil;
+using UnitConverter.Library.TaskUtil.Group;
 using UnitConverter.Terminal.Runner;
 using UnitConverter.Terminal.Task;
 using UnitConverter.Terminal.Util;
@@ -39,6 +40,11 @@ namespace UnitConverter.Terminal
 
             conversionOperation.beforeRun(new FindAllConversionHistoryBeforeRunTaskTunFunction());
             conversionOperation.afterRun(new FindAllConversionHistoryAfterRunTaskRunFunction());
+
+            Operation ratingOperation = repository.findOperationByName("Oceń aplikację");
+
+            ((TaskGroup)ratingOperation.task).getAllTasks()[1].beforeRun(new RatingBeforeRunTaskRunFunction());
+            ((TaskGroup)ratingOperation.task).getAllTasks()[1].afterRun(new RatingAfterRunTaskRunFunction());
 
             ProgramUtils.prepareGoBackOperations(repository.operations);
         }

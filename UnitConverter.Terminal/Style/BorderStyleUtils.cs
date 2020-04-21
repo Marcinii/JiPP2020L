@@ -1,21 +1,21 @@
-﻿namespace UnitConverter.Terminal.TableUtil.Style
+﻿namespace UnitConverter.Terminal.Style
 {
     /// <summary>
     /// Klasa zawierająca zestaw metod do zarządzania zestawem linii do rysowania obramowania tabeli
     /// </summary>
-    public class TableStyleUtils
+    public class BorderStyleUtils
     {
         /// <summary>
         /// Metoda zwracająca zestaw znaków na podstawie ustawionego stylu
         /// </summary>
         /// <param name="style">Styl obramowania</param>
         /// <returns>Obiekt z zestawem znaków służących do wysowania obramowania tabeli</returns>
-        public static TableLineSet getStyle(TableStyle style)
+        public static BorderLineSet getStyle(BorderStyle style)
         {
             switch (style)
             {
-                case TableStyle.BASIC:
-                    return new TableLineSet()
+                case BorderStyle.BASIC:
+                    return new BorderLineSet()
                     {
                         lineHorizontal = '-',
                         lineVertical = '|',
@@ -30,8 +30,8 @@
                         bottomRightCorner = '+'
                     };
 
-                case TableStyle.DOUBLE_LINE:
-                    return new TableLineSet()
+                case BorderStyle.DOUBLE_LINE:
+                    return new BorderLineSet()
                     {
                         lineHorizontal = '═',
                         lineVertical = '║',

@@ -1,4 +1,4 @@
-﻿namespace UnitConverter.Terminal.TableUtil.Style
+﻿namespace UnitConverter.Terminal.Style
 {
     /// <summary>
     /// Klasa przechowująca zestaw znaków, które posłużą do narysowania obramowania tabeli
@@ -14,7 +14,7 @@
     /// <param name="topRightCorner">Znak prawego górnego rogu tabeli</param>
     /// <param name="bottomLeftCorner">Znak lewego dolnego rogu tabeli</param>
     /// <param name="bottomRightCorner">Znak prawego dolnego rogu tabeli</param>
-    public class TableLineSet
+    public class BorderLineSet
     {
         public char lineHorizontal { get; set; }
         public char lineVertical { get; set; }

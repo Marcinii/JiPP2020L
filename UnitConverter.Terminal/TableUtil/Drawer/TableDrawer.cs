@@ -1,10 +1,10 @@
 ﻿using System.Collections.Generic;
-using UnitConverter.Terminal.TableUtil.Style;
+using UnitConverter.Terminal.Style;
 
 namespace UnitConverter.Terminal.TableUtil.Drawer
 {
     /// <summary>
-    /// Klasa, która ma za zadanie narusować tabele w konsoli
+    /// Klasa, która ma za zadanie narysować tabele w konsoli
     /// </summary>
     /// <param name="table">Tabela do narysowania</param>
     /// <param name="tableDrawerUtils">
@@ -24,10 +24,10 @@ namespace UnitConverter.Terminal.TableUtil.Drawer
 
 
 
-        public TableDrawer(Table table, TableStyle style = TableStyle.DOUBLE_LINE)
+        public TableDrawer(Table table, BorderStyle style = BorderStyle.DOUBLE_LINE)
         {
             this.table = table;
-            this.tableDrawerUtils = new TableDrawerUtils(table, TableStyleUtils.getStyle(style));
+            this.tableDrawerUtils = new TableDrawerUtils(table, BorderStyleUtils.getStyle(style));
             this.functions = new List<TableDrawerFunction>();
         }
 

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnitConverter.Library.OperationUtil;
 using UnitConverter.Library.TaskUtil.Parameter;
 using UnitConverter.Library.TypeUtil;
+using UnitConverter.Library.TypeUtil.Void;
 
 namespace UnitConverter.Library.TaskUtil
 {
@@ -157,6 +158,10 @@ namespace UnitConverter.Library.TaskUtil
         {
             this.taskBeforeRunFunctions.ForEach(f => f.apply(this));
             this.result = apply(operation);
+
+            if (typeof(T) == typeof(CustomVoid))
+                ((CustomVoid)Convert.ChangeType(this.result, typeof(CustomVoid))).run();
+
             this.taskAfterRunFunctions.ForEach(f => f.apply(this));
 
             return this.result;

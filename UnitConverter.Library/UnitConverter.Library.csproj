@@ -66,10 +66,13 @@
     <Compile Include="OperationUtil\Runner\IOperationRunner.cs" />
     <Compile Include="OperationUtil\Operation.cs" />
     <Compile Include="OperationUtil\VoidOperation.cs" />
+    <Compile Include="RatingUtil\Rating.cs" />
     <Compile Include="TaskUtil\Group\TaskGroupBuilder.cs" />
     <Compile Include="TaskUtil\Impl\FindAllConversionHistoryTask.cs" />
     <Compile Include="TaskUtil\Group\ITaskGroup.cs" />
+    <Compile Include="TaskUtil\Impl\FindLastRatingTask.cs" />
     <Compile Include="TaskUtil\Impl\FindTopThreeConversionsTask.cs" />
+    <Compile Include="TaskUtil\Impl\RatingTask.cs" />
     <Compile Include="TaskUtil\Parameter\TaskParameterLevel.cs" />
     <Compile Include="TaskUtil\Runner\ConversionTaskAfterRunTaskRunFunction.cs" />
     <Compile Include="TaskUtil\TaskException\TaskParameterNotFoundException.cs" />

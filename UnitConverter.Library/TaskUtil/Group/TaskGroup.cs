@@ -64,6 +64,11 @@ namespace UnitConverter.Library.TaskUtil.Group
         {
             foreach (IRunnable task in tasks)
                 this.tasks.Add(task);
+
+            for(int i = 1; i < this.tasks.Count; i++)
+            {
+                tasks[i].addParameter(new InputTaskParameter("$prev", tasks[i - 1].getResultType(), TaskParameterLevel.HIDDEN));
+            }
         }
 
 
@@ -73,7 +78,14 @@ namespace UnitConverter.Library.TaskUtil.Group
         {
             result.Clear();
             for (int i = 0; i < tasks.Count; i++)
+            {
+                if (i >= 1)
+                {
+                    tasks[i].setParameter("$prev", tasks[i - 1].getResult());
+                }
+
                 result.Add(tasks[i].run(operation));
+            }
 
             return result;
         }

@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using UnitConverter.Library.TypeUtil;
+using UnitConverter.Terminal.Style;
 using UnitConverter.Terminal.TableUtil.Cell;
 using UnitConverter.Terminal.TableUtil.Row;
-using UnitConverter.Terminal.TableUtil.Style;
 
 namespace UnitConverter.Terminal.TableUtil.Drawer
 {
@@ -19,15 +19,15 @@ namespace UnitConverter.Terminal.TableUtil.Drawer
     /// </param>
     /// <param name="charLength">Pole przechowujące sumaryczną długość tabeli</param>
     /// <see cref="Table"/>
-    /// <see cref="TableLineSet"/>
+    /// <see cref="BorderLineSet"/>
     public class TableDrawerUtils
     {
         private Table table;
-        private TableLineSet tableLineSet;
+        private BorderLineSet tableLineSet;
         private List<int> cellLengths;
         private int charLength;
 
-        public TableDrawerUtils(Table table, TableLineSet tableLineSet)
+        public TableDrawerUtils(Table table, BorderLineSet tableLineSet)
         {
             this.table = table;
             this.tableLineSet = tableLineSet;
