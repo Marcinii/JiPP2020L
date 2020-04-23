@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Common.Controls"
              mc:Ignorable="d" 
-             d:DesignHeight="150" d:DesignWidth="800">
+             d:DesignHeight="200" d:DesignWidth="1000">
     <UserControl.Resources>
         <Style x:Key="FocusVisual">
             <Setter Property="Control.Template">
@@ -37,10 +37,10 @@
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="{x:Type Button}">
-                        <Ellipse x:Name="ellipse" Fill="{TemplateBinding Background}" Stroke="Black"/>
+                        <Path x:Name="ellipse" Data="M 98,10 L 75,78 L 5,78 L 62,123 L 40,191 L 98,149 L 158,191 L 135,123 L 194,78 L 122,78 L 98,10" Fill="{TemplateBinding Background}" Stroke="Black" Stretch="Fill"/>
                         <ControlTemplate.Triggers>
                             <Trigger Property="IsMouseOver" Value="true">
-                                <Setter Property="Fill" TargetName="ellipse" Value="Red"/>
+                                <Setter Property="Fill" TargetName="ellipse" Value="Gray"/>
                             </Trigger>
                         </ControlTemplate.Triggers>
                     </ControlTemplate>
@@ -56,10 +56,10 @@
             <ColumnDefinition/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <Button Grid.Column="0" Margin="1,0,0,0" Background="White" Style="{DynamicResource StarButtonStyle}" Click="Button_Click"/>
-        <Button Grid.Column="1" Margin="1,0,0,0" Background="White" Style="{DynamicResource StarButtonStyle}" Click="Button_Click"/>
-        <Button Grid.Column="2" Margin="1,0,0,0" Background="White" Style="{DynamicResource StarButtonStyle}" Click="Button_Click"/>
-        <Button Grid.Column="3" Margin="1,0,0,0" Background="White" Style="{DynamicResource StarButtonStyle}" Click="Button_Click"/>
-        <Button Grid.Column="4" Margin="1,0,0,0" Background="White" Style="{DynamicResource StarButtonStyle}" Click="Button_Click"/>
+        <Button Grid.Column="0" Margin="10,0,0,0" Background="White" Style="{DynamicResource StarButtonStyle}" Click="Button_Click"/>
+        <Button Grid.Column="1" Margin="10,0,0,0" Background="White" Style="{DynamicResource StarButtonStyle}" Click="Button_Click"/>
+        <Button Grid.Column="2" Margin="10,0,0,0" Background="White" Style="{DynamicResource StarButtonStyle}" Click="Button_Click"/>
+        <Button Grid.Column="3" Margin="10,0,0,0" Background="White" Style="{DynamicResource StarButtonStyle}" Click="Button_Click"/>
+        <Button Grid.Column="4" Margin="10,0,0,0" Background="White" Style="{DynamicResource StarButtonStyle}" Click="Button_Click"/>
     </Grid>
 </UserControl>

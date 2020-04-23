@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -26,40 +27,85 @@ namespace KonwerterJednostek.Desktop
         {
             InitializeComponent();
 
+
+
             //mozemy odczytac z bazy danych wartosc oceny
-            rateControl.RateValue = 2;
+            int rate;
+            using (RateModel context = new RateModel())
+            {
+                Rate tmp = context.Rate.First(a => a.id == 1);
+                rate = tmp.value;
+            }
+                
+            rateControl.RateValue = rate;
 
-            Watch t = new Watch();
-            int hour = (DateTime.Now).Hour;
-            int minute = (DateTime.Now).Minute;
+            ConvertCommand = new RelayCommand(obj => Convert(),
+                            obj => combo1.SelectedItem != null &&
+                            combo2.SelectedItem != null &&
+                            string.IsNullOrEmpty(box0.Text) != true);
+            button0.Command = ConvertCommand;
 
-            Clock_online();
-
-            combo0.ItemsSource = new ConverterService().GetConverters();
-            combo0.SelectedIndex = 0;
+            cc1 = new RelayCommand(obj => Button1(),
+                                    obj => string.IsNullOrEmpty(block0.Text) != true);
+            button1.Command = cc1;
 
             
+            cc2 = new RelayCommand(obj => SubmitFilters1(),
+                                obj => string.IsNullOrEmpty(page.Text) != true &&
+                                int.TryParse(page.Text, out int pageNumber) == true &&
+                                pageNumber > 0);
+            pageBut.Command = cc2;
 
-            string s1 = hour < 10 ? "0" + hour : hour.ToString();
-            string s2 = minute < 10 ? "0" + minute : minute.ToString();
-            string time = s1 + ":" + s2;
+            cc3 = new RelayCommand(obj => SubmitFilters1(),
+                                obj => float.TryParse(type.Text, out float term) != true);
+            typeBut.Command = cc3;
 
-            string result = t.UnitConv("f", "t", time);
+            cc4 = new RelayCommand(obj => SubmitFilters1(),
+                                obj => fromDate.SelectedDate != null &&
+                                toDate.SelectedDate != null);
+            dateBut.Command = cc4;
 
-            bool success0 = double.TryParse(result.Substring(3, 2), out double deg0);
-            if (!success0) { deg0 = 0; }
-            deg0 *= 6;
+            if (true)
+            {
+                Watch t = new Watch();
+                int hour = (DateTime.Now).Hour;
+                int minute = (DateTime.Now).Minute;
 
-            bool success1 = double.TryParse(result.Substring(0, 2), out double deg1);
-            if (!success1) { deg1 = 0; }
-            //InsertTEST();
+                Clock_online();
 
-            fromDate.SelectedDate = new DateTime(1980, 1, 1);
-            toDate.SelectedDate = new DateTime(2050, 1, 1);
+                combo0.ItemsSource = new ConverterService().GetConverters();
+                combo0.SelectedIndex = 0;
 
-            int.TryParse(page.Text, out int pageINT);
-            DisplayDataUsingEF(popular, dg, pageINT, (DateTime)fromDate.SelectedDate, (DateTime)toDate.SelectedDate, type.Text);
+
+
+                string s1 = hour < 10 ? "0" + hour : hour.ToString();
+                string s2 = minute < 10 ? "0" + minute : minute.ToString();
+                string time = s1 + ":" + s2;
+
+                string result = t.UnitConv("f", "t", time);
+
+                bool success0 = double.TryParse(result.Substring(3, 2), out double deg0);
+                if (!success0) { deg0 = 0; }
+                deg0 *= 6;
+
+                bool success1 = double.TryParse(result.Substring(0, 2), out double deg1);
+                if (!success1) { deg1 = 0; }
+                //InsertTEST();
+
+                DateTime from = new DateTime(1980, 1, 1);
+                DateTime to = new DateTime(2050, 1, 1);
+
+                int.TryParse(page.Text, out int pageINT);
+                DisplayDataUsingEF(popular, dg, pageINT, from, to, type.Text);
+            }
         }
+
+        private RelayCommand ConvertCommand;
+        private RelayCommand cc1;
+        private RelayCommand cc2;
+        private RelayCommand cc3;
+        private RelayCommand cc4;
+
         bool zegarBefore = false;
         private void combo0_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -99,15 +145,21 @@ namespace KonwerterJednostek.Desktop
 
         private void button0_Click(object sender, RoutedEventArgs e)
         {
+            Convert();
+            
+            
+        }
+        private void Convert()
+        {
             string inputText = box0.Text;
 
-            string result = (combo1.SelectedItem!=null && combo2.SelectedItem!=null) ? ((IConverter)combo0.SelectedItem).UnitConv(
+            string result = (combo1.SelectedItem != null && combo2.SelectedItem != null) ? ((IConverter)combo0.SelectedItem).UnitConv(
                 combo1.SelectedItem.ToString(),
                 combo2.SelectedItem.ToString(),
                 inputText) : Error.Info();
             block0.Text = result;
 
-            if(((IConverter)combo0.SelectedItem).Name == "Zegar")
+            if (((IConverter)combo0.SelectedItem).Name == "Zegar")
             {
                 bool success0 = double.TryParse(block0.Text.Substring(3, 2), out double deg0);
                 if (!success0) { deg0 = 0; }
@@ -132,10 +184,19 @@ namespace KonwerterJednostek.Desktop
                 box0.Text,
                 block0.Text);
         }
+        private void Button1()
+        {
+            System.Windows.Application.Current.Shutdown();
+        }
+        private void SubmitFilters1()
+        {
+            int.TryParse(page.Text, out int pageINT);
+            DisplayDataUsingEF(popular, dg, pageINT, (DateTime)fromDate.SelectedDate, (DateTime)toDate.SelectedDate, type.Text);
+        }
 
         private void button1_Click(object sender, RoutedEventArgs e)
         {
-            System.Windows.Application.Current.Shutdown();
+            Button1();
         }
 
         private void box0_KeyDown(object sender, KeyEventArgs e)
@@ -339,14 +400,26 @@ namespace KonwerterJednostek.Desktop
         }
         private void submitFilters(object sender,RoutedEventArgs e)
         {
-            int.TryParse(page.Text, out int pageINT);
-            DisplayDataUsingEF(popular, dg, pageINT, (DateTime)fromDate.SelectedDate, (DateTime)toDate.SelectedDate, type.Text);
+            SubmitFilters1();
         }
         private void submitFilters_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.Key == Key.Enter)
             {
                 submitFilters(null, null);
+            }
+        }
+
+        private void rateControl_RateValueChanged(object sender, Common.Controls.RateMe.RateEventArgs e)
+        {
+            // e.Value
+            //zapisać do bazy zmieniona wartosc do bazy
+            using (RateModel context = new RateModel())
+            {
+                var rate = context.Rate.First(a => a.id == 1);
+                if (rate.value != e.Value) { rate.value = e.Value; }
+                else { rate.value = 0; }
+                context.SaveChanges();
             }
         }
     }

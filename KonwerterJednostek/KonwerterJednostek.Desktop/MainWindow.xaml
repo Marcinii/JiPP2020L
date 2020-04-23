@@ -108,9 +108,9 @@
                 <ComboBox x:Name="combo2" Margin="10,5,10,5" Grid.Column="2"/>
             </Grid>
             <TextBox x:Name="box0" Margin="10,5,10,5" Height="25" KeyDown="box0_KeyDown"/>
-            <Button x:Name="button0" Margin="10,5,10,5" Height="25" Click="button0_Click">Konwertuj</Button>
+            <Button x:Name="button0" Margin="10,5,10,5" Height="25">Konwertuj</Button>
             <TextBlock x:Name="block0" Margin="10,5,10,5" Height="25"/>
-            <Button x:Name="button1" DockPanel.Dock="Bottom" Margin="10,5,10,5" Height="25" Click="button1_Click" RenderTransformOrigin="0.5,0.5">
+            <Button x:Name="button1" DockPanel.Dock="Bottom" Margin="10,5,10,5" Height="25" RenderTransformOrigin="0.5,0.5">
                 <Button.RenderTransform>
                     <TransformGroup>
                         <ScaleTransform/>
@@ -241,11 +241,11 @@
 
         <Grid Grid.Row="1" Grid.Column="0" Margin="10,10,10,10">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="1*"/>
-                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1.2*"/>
+                <ColumnDefinition Width="0.8*"/>
             </Grid.ColumnDefinitions>
-            <Label Grid.Column="0" Margin="0,0,10,0" HorizontalAlignment="Left" VerticalAlignment="Center">Ocena aplikacji: 43,43! 43,43!</Label>
-            <commonControls:RateMe x:Name="rateControl" Grid.Column="1" Margin="10,0,0,0" RateValue="0"/>
+            <Label Grid.Column="0" Margin="0,0,10,0" HorizontalAlignment="Left" VerticalAlignment="Center">Ocena aplikacji:</Label>
+            <commonControls:RateMe x:Name="rateControl" Grid.Column="1" Margin="10,0,0,0"  RateValueChanged="rateControl_RateValueChanged"/>
         </Grid>
 
         <StackPanel Orientation="Horizontal" Grid.Row="2" Grid.Column="0"  Margin="10,10,10,10">
@@ -265,14 +265,14 @@
         <StackPanel Orientation="Horizontal" Grid.Row="2" Grid.Column="1" Margin="10,10,10,10">
             <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="200,0,0,0">Page</Label>
             <TextBox x:Name="page" Width="100" Margin="20,0,20,0" HorizontalAlignment="Center" VerticalAlignment="Center" Text="1" KeyDown="submitFilters_KeyDown"></TextBox>
-            <Button HorizontalAlignment="Center" VerticalAlignment="Center" Click="submitFilters">Show</Button>
+            <Button x:Name="pageBut" HorizontalAlignment="Center" VerticalAlignment="Center">Show</Button>
         </StackPanel>
 
         <StackPanel Orientation="Horizontal" Grid.Row="3" Grid.Column="0" Margin="10,10,10,10">
             <CheckBox Visibility="Hidden" HorizontalAlignment="Center" VerticalAlignment="Center"></CheckBox>
             <Label HorizontalAlignment="Center" VerticalAlignment="Center">Converter Type</Label>
-            <TextBox x:Name="type" Width="300" Margin="20,0,20,0" HorizontalAlignment="Center" VerticalAlignment="Center" KeyDown="submitFilters_KeyDown"></TextBox>
-            <Button HorizontalAlignment="Center" VerticalAlignment="Center" Click="submitFilters">Submit</Button>
+            <TextBox x:Name="type" Width="300" Margin="20,0,20,0" HorizontalAlignment="Center" VerticalAlignment="Center" Text="0" KeyDown="submitFilters_KeyDown"></TextBox>
+            <Button x:Name="typeBut" HorizontalAlignment="Center" VerticalAlignment="Center">Submit</Button>
         </StackPanel>
         
         
@@ -281,7 +281,7 @@
             <Label HorizontalAlignment="Center" VerticalAlignment="Center">Date Filter</Label>
             <DatePicker x:Name="fromDate" Margin="50,0,0,0" HorizontalAlignment="Center" VerticalAlignment="Center" KeyDown="submitFilters_KeyDown"></DatePicker>
             <DatePicker x:Name="toDate" Margin="20,0,0,0" HorizontalAlignment="Center" VerticalAlignment="Center" KeyDown="submitFilters_KeyDown"></DatePicker>
-            <Button Margin="20,0,0,0" HorizontalAlignment="Center" VerticalAlignment="Center" Click="submitFilters">Submit</Button>
+            <Button x:Name="dateBut" Margin="20,0,0,0" HorizontalAlignment="Center" VerticalAlignment="Center" >Submit</Button>
         </StackPanel>
 
         
