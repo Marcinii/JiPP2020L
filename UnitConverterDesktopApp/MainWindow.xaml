@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:UnitConverterDesktopApp"
+        xmlns:commonControls="clr-namespace:Common.Controls;assembly=Common.Controls"
         mc:Ignorable="d"
         Title="MainWindow" Height="700" Width="500" Background="#FFF0F0F0" >
     <Window.Resources>
@@ -53,9 +54,12 @@
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
             <Button x:Name="ShowStatsButton" Grid.Row="0" Content="Show Statistics" Background="#FF067C00" FontSize="16" Foreground="White" HorizontalAlignment="Right" BorderBrush="{x:Null}"></Button>
             <TextBlock x:Name="AppNameTextBlock" Grid.Row="1" TextAlignment="Left" Text="Unit Converter" Background="#FF067C00" Foreground="White" FontSize="24" Margin="10,0,0,0"/>
+            <commonControls:Rate x:Name="RateControl" Grid.Row="3" RateValueChanged="RateControl_RateValueChanged"></commonControls:Rate>    
         </Grid>
         <StackPanel Grid.Column="0" Grid.Row="1">
             <TextBlock x:Name="CategoryTextBlock" Text="Select Category for conversion" RenderTransformOrigin="1.295,0.657" FontSize="11" Margin="10,10,10,0"/>
@@ -71,7 +75,7 @@
             <Border BorderThickness="2" BorderBrush="#FFACACAC" Background="White" Margin="10,2" MinHeight="27">
                 <TextBlock x:Name="ResultValueTextBlock" FontSize="14" TextAlignment="Center"/>
             </Border>
-        </StackPanel>
+            </StackPanel>
         <Path x:Name="HourPointer" Data="M58,514.33333 L60.666667,571"  HorizontalAlignment="Left" Height="45" Margin="240.348,50.436,0,0" Grid.Row="2" Stretch="Fill" VerticalAlignment="Top" Width="2.668" Stroke="Black" StrokeThickness="3" RenderTransformOrigin="0.5,1">
             <Path.RenderTransform>
                 <TransformGroup>

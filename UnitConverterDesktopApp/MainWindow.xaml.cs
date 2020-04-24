@@ -1,20 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
 using System.Windows.Media.Animation;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using unit_converter;
+using static Common.Controls.Rate;
 
 namespace UnitConverterDesktopApp
 {
@@ -34,6 +24,9 @@ namespace UnitConverterDesktopApp
             ShieldClock.Visibility = Visibility.Hidden;
             MinutePointer.Visibility = Visibility.Hidden;
             HourPointer.Visibility = Visibility.Hidden;
+
+            // Odczytaj ocene aplikacji z bazy danych
+            RateControl.RateValue = 1;
 
             ConvertCommand = new RelayCommand(obj => Convert(), obj =>
                CategoryComboBox.SelectedItem != null &&
@@ -114,6 +107,12 @@ namespace UnitConverterDesktopApp
         {
             StatsWindow statsWindow = new StatsWindow();
             statsWindow.Show();
+        }
+
+        private void RateControl_RateValueChanged(object sender, EventArgs e)
+        {
+            MessageBox.Show((e as RateEventArgs).Value.ToString());
+            // zapisujemy do bazy danych wartosc e jako ocene apllikacji
         }
     }
 }

@@ -1,13 +1,15 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28307.779
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29920.165
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitConverterConsoleApp", "unit-converter\UnitConverterConsoleApp.csproj", "{26A0F535-4EA5-4DB7-8BAF-A4BF8AC80853}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitConverterLib", "UnitConverterLib\UnitConverterLib.csproj", "{C484945B-7E73-4834-A6BA-C57F239B38C4}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitConverterDesktopApp", "UnitConverterDesktopApp\UnitConverterDesktopApp.csproj", "{500E92A8-7FD6-447C-83BD-1F7CD8CA15AD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common.Controls", "Common.Controls\Common.Controls.csproj", "{213C860D-FA02-497C-B06D-FAAF2692D2DF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{500E92A8-7FD6-447C-83BD-1F7CD8CA15AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{500E92A8-7FD6-447C-83BD-1F7CD8CA15AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{500E92A8-7FD6-447C-83BD-1F7CD8CA15AD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{213C860D-FA02-497C-B06D-FAAF2692D2DF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{213C860D-FA02-497C-B06D-FAAF2692D2DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{213C860D-FA02-497C-B06D-FAAF2692D2DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{213C860D-FA02-497C-B06D-FAAF2692D2DF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
