@@ -37,7 +37,15 @@
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="{x:Type Button}">
-                        <Ellipse x:Name="star" Fill="{TemplateBinding Background}" Stroke="Black"></Ellipse>
+                        <Path x:Name="star"
+                              Stroke="Black" 
+                              Fill="{TemplateBinding Background}" 
+                              StrokeThickness="1" 
+                              StrokeStartLineCap="Round" 
+                              StrokeEndLineCap="Round" 
+                              StrokeLineJoin="Round"
+                              Stretch="Uniform"
+                              Data="M 0,0 l 10,0 l 5,-10 l 5,10 l 10,0 l -7,10 l 2,10 l -10,-5 l -10,5 l 2,-10 Z" />
                         <ControlTemplate.Triggers>
                             <Trigger Property="IsMouseOver" Value="true">
                                 <Setter Property="Fill" TargetName="star" Value="{StaticResource Button.MouseOver.Background}"/>
@@ -57,14 +65,14 @@
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"></ColumnDefinition>
-            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="0.5*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
         <TextBlock x:Name="RateAppTextBlock" 
                    Grid.Column="0" 
-                   Text="Rate the app:" 
+                   Text="Rate the app: " 
                    Background="#FF067C00" 
                    Foreground="White"
-                   TextAlignment="Center"
+                   TextAlignment="Right"
                    VerticalAlignment="Center"
                    FontSize="14">
         </TextBlock>
