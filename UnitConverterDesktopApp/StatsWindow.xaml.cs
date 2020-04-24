@@ -29,6 +29,21 @@ namespace UnitConverterDesktopApp
             InitializeComponent();
             FilterByConverterListBox.ItemsSource = new ConverterService().GetConverters().Keys;
             _currentPage = 1;
+
+            FilterDataCommand = new RelayCommand(obj => FilterData());
+            FilterDataButton.Command = FilterDataCommand;
+
+            PreviousCommand = new RelayCommand(
+                obj => Previous(), 
+                obj => _currentPage - 1 > 0
+            );
+            PreviousButton.Command = PreviousCommand;
+
+            NextCommand = new RelayCommand(
+                obj => Next(),
+                obj => _currentPage < _lastPage
+            );
+            NextButton.Command = NextCommand;
         }
         public void PageCountRefresh()
         {
@@ -59,7 +74,8 @@ namespace UnitConverterDesktopApp
                 this.GetFilterByConverterItems(), this.DateFromPicker.SelectedDate, this.DateToPicker.SelectedDate, this.TopCheckBox.IsChecked);
             _lastPage = Math.Ceiling((Enumerable.Count(this._records) / Convert.ToDouble(_maxRecordsPerPage)));
         }
-        private void FilterDataButton_Click(object sender, RoutedEventArgs e)
+        public RelayCommand FilterDataCommand;
+        private void FilterData()
         {
             RunQuery();
             _currentPage = 1;
@@ -75,27 +91,24 @@ namespace UnitConverterDesktopApp
             PageCountRefresh();
         }
 
-        private void Previous_Click(object sender, RoutedEventArgs e)
+        RelayCommand PreviousCommand;
+        private void Previous()
         {
-            if (_currentPage - 1 > 0)
-            {
-                _currentPage--;
-                TableForStats.ItemsSource = this._records
-                    .Skip((_currentPage - 1) * _maxRecordsPerPage)
-                    .Take(_maxRecordsPerPage);
-                PageCountRefresh();
-            }
+            _currentPage--;
+            TableForStats.ItemsSource = this._records
+                .Skip((_currentPage - 1) * _maxRecordsPerPage)
+                .Take(_maxRecordsPerPage);
+            PageCountRefresh();
         }
-        private void Next_Click(object sender, RoutedEventArgs e)
+
+        RelayCommand NextCommand;
+        private void Next()
         {        
-            if (_currentPage < _lastPage)
-            {
-                _currentPage++;
-                TableForStats.ItemsSource = this._records
-                    .Skip((_currentPage - 1) * _maxRecordsPerPage)
-                    .Take(_maxRecordsPerPage);
-                PageCountRefresh();
-            }
+            _currentPage++;
+            TableForStats.ItemsSource = this._records
+                .Skip((_currentPage - 1) * _maxRecordsPerPage)
+                .Take(_maxRecordsPerPage);
+            PageCountRefresh();
         }
     }
 }

@@ -34,13 +34,22 @@ namespace UnitConverterDesktopApp
             ShieldClock.Visibility = Visibility.Hidden;
             MinutePointer.Visibility = Visibility.Hidden;
             HourPointer.Visibility = Visibility.Hidden;
-        }
 
+            ConvertCommand = new RelayCommand(obj => Convert(), obj =>
+               CategoryComboBox.SelectedItem != null &&
+               SourceUnitComboBox.SelectedItem != null &&
+               TargetUnitComboBox.SelectedItem != null &&
+               !string.IsNullOrEmpty(InputValueTextBox.Text)
+            );
+            ConvertButton.Command = ConvertCommand;
+
+            ShowStatsCommand = new RelayCommand(obj => ShowStats());
+            ShowStatsButton.Command = ShowStatsCommand;
+        }
         private void CategoryComboBox_Loaded(object sender, RoutedEventArgs e)
         {
             CategoryComboBox.ItemsSource = AvailableConverters.Keys;
         }
-
         private void CategoryComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if (!SourceUnitComboBox.IsEnabled)
@@ -69,52 +78,39 @@ namespace UnitConverterDesktopApp
             }
         }
 
-        private void ConvertButton_Click(object sender, RoutedEventArgs e)
+        public RelayCommand ConvertCommand;
+        private void Convert()
         {
             ResultValueTextBlock.Text = "";
 
-            if (CategoryComboBox.SelectedItem == null)
+            string sourceUnit = SourceUnitComboBox.SelectedItem.ToString();
+            string targetUnit = TargetUnitComboBox.SelectedItem.ToString();
+            string inputValue = InputValueTextBox.Text;
+
+            if (!SelectedConverter.IsInputValid(inputValue, sourceUnit))
             {
-                MessageBox.Show("Please select the category!");
+                MessageBox.Show("Invalid value!");
             }
             else
-            {
-                if (SourceUnitComboBox.SelectedItem == null ||
-                    TargetUnitComboBox.SelectedItem == null)
-                {
-                    MessageBox.Show("Please select units!");
-                }
-                else
-                {
-                    string sourceUnit = SourceUnitComboBox.SelectedItem.ToString();
-                    string targetUnit = TargetUnitComboBox.SelectedItem.ToString();
-                    string inputValue = InputValueTextBox.Text;
-
-                    if (!SelectedConverter.IsInputValid(inputValue, sourceUnit))
-                    {
-                        MessageBox.Show("Invalid value!");
-                    }
-                    else
-                    {  
-                        var result = SelectedConverter.Convert(sourceUnit, targetUnit, inputValue);
-                        ResultValueTextBlock.Text = result.ToString();
+            {  
+                var result = SelectedConverter.Convert(sourceUnit, targetUnit, inputValue);
+                ResultValueTextBlock.Text = result.ToString();
                         
-                        Database.InsertResult(
-                            SelectedConverter.Name, sourceUnit, targetUnit, inputValue, result.ToString());
+                Database.InsertResult(
+                    SelectedConverter.Name, sourceUnit, targetUnit, inputValue, result.ToString());
 
-                        if (SelectedConverter.Name == "Clock")
-                        {
-                            if (DateTime.TryParse(result, out DateTime timeToShow))
-                            {
-                                MinuteRotation.Angle = timeToShow.Minute * 6.0;
-                                HourRotation.Angle = (timeToShow.Hour * 30.0) + (timeToShow.Minute / 60.0 * 30.0);
-                            }
-                        }
+                if (SelectedConverter.Name == "Clock")
+                {
+                    if (DateTime.TryParse(result, out DateTime timeToShow))
+                    {
+                        MinuteRotation.Angle = timeToShow.Minute * 6.0;
+                        HourRotation.Angle = (timeToShow.Hour * 30.0) + (timeToShow.Minute / 60.0 * 30.0);
                     }
                 }
             }
         }
-        private void ShowStatsButton_Click(object sender, RoutedEventArgs e)
+        public RelayCommand ShowStatsCommand;
+        private void ShowStats()
         {
             StatsWindow statsWindow = new StatsWindow();
             statsWindow.Show();

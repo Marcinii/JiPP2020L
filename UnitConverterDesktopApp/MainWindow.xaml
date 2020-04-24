@@ -54,7 +54,7 @@
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
-            <Button x:Name="ShowStatsButton" Grid.Row="0" Content="Show Statistics" Click="ShowStatsButton_Click" Background="#FF067C00" FontSize="16" Foreground="White" HorizontalAlignment="Right" BorderBrush="{x:Null}"></Button>
+            <Button x:Name="ShowStatsButton" Grid.Row="0" Content="Show Statistics" Background="#FF067C00" FontSize="16" Foreground="White" HorizontalAlignment="Right" BorderBrush="{x:Null}"></Button>
             <TextBlock x:Name="AppNameTextBlock" Grid.Row="1" TextAlignment="Left" Text="Unit Converter" Background="#FF067C00" Foreground="White" FontSize="24" Margin="10,0,0,0"/>
         </Grid>
         <StackPanel Grid.Column="0" Grid.Row="1">
@@ -66,7 +66,7 @@
             <ComboBox x:Name="TargetUnitComboBox" HorizontalContentAlignment="Center" BorderThickness="2" IsEditable="True" IsReadOnly="True" Text="- Select Unit -" IsEnabled="False" FontSize="14" Margin="10,0"/>
             <TextBlock x:Name="InputValueTextBlock" Text="Enter the value for conversion" RenderTransformOrigin="1.295,0.657" FontSize="11" Margin="10,10,10,0"/>
             <TextBox x:Name="InputValueTextBox" BorderThickness="2" FontSize="14" BorderBrush="#FFACACAC" Margin="10,2,10,0" TextAlignment="Center" MinHeight="27"/>
-            <Button x:Name="ConvertButton" Content="Convert" FontSize="16" Click="ConvertButton_Click" Background="#FF067C00" Foreground="White" Margin="10,20"/>
+            <Button x:Name="ConvertButton" Content="Convert" FontSize="16" Background="#FF067C00" Foreground="White" Margin="10,20"/>
             <TextBlock x:Name="ResultLabelTextBlock" Text="Result" RenderTransformOrigin="1.295,0.657" FontSize="11" Margin="10,0"/>
             <Border BorderThickness="2" BorderBrush="#FFACACAC" Background="White" Margin="10,2" MinHeight="27">
                 <TextBlock x:Name="ResultValueTextBlock" FontSize="14" TextAlignment="Center"/>

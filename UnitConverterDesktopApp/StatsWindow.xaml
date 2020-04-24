@@ -76,8 +76,7 @@
             </CheckBox>
             <Button x:Name="FilterDataButton"
                     Content="Filter"
-                    Grid.Column="1" 
-                    Click="FilterDataButton_Click"/>
+                    Grid.Column="1" />
         </Grid>
         <DataGrid x:Name="TableForStats"
                   IsReadOnly="True"
@@ -91,17 +90,17 @@
                 <ColumnDefinition Width="*"></ColumnDefinition>
                 <ColumnDefinition Width="*"></ColumnDefinition>
             </Grid.ColumnDefinitions>
-            <Button x:Name="Previous" 
+            <Button x:Name="PreviousButton" 
                     Content="Previous"
-                    Grid.Column="1" Click="Previous_Click">
+                    Grid.Column="1">
             </Button>
             <TextBlock x:Name="PageCountTextBox"
                        Grid.Column="2"
                        TextAlignment="Center">
             </TextBlock>
-            <Button x:Name="Next" 
+            <Button x:Name="NextButton" 
                     Content="Next"
-                    Grid.Column="3" Click="Next_Click">
+                    Grid.Column="3">
             </Button>
         </Grid>
     </StackPanel>
