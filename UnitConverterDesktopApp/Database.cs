@@ -59,6 +59,34 @@ namespace UnitConverterDesktopApp
                 }
             }
         }
+        public static void InsertRating(int rateValue)
+        {
+            using (ConverterDataModel context = new ConverterDataModel())
+            {
+                Rating rating = new Rating()
+                {
+                    RatingValue = rateValue,
+                    RatingDate = DateTime.Now,
+                };
+                context.Ratings.Add(rating);
+                context.SaveChanges();
+            }
+        }
+        public static Rating GetRating()
+        {
+            using (ConverterDataModel context = new ConverterDataModel())
+            {
+                var rating = context.Ratings
+                                    .OrderByDescending(r => r.RatingDate)
+                                    .FirstOrDefault();
 
+                return new Rating()
+                {
+                    Id = rating.Id,
+                    RatingValue = rating.RatingValue,
+                    RatingDate = rating.RatingDate
+                };
+            }
+        }
     }
 }

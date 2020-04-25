@@ -54,12 +54,10 @@
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
-            <Button x:Name="ShowStatsButton" Grid.Row="0" Content="Show Statistics" Background="#FF067C00" FontSize="16" Foreground="White" HorizontalAlignment="Right" BorderBrush="{x:Null}"></Button>
+            <Button x:Name="ShowStatsButton" Grid.Row="0" Content="Show Statistics" Background="#FF067C00" FontSize="16" Foreground="White" HorizontalAlignment="Right" Margin="10" BorderBrush="{x:Null}"></Button>
             <TextBlock x:Name="AppNameTextBlock" Grid.Row="1" TextAlignment="Left" Text="Unit Converter" Background="#FF067C00" Foreground="White" FontSize="24" Margin="10,0,0,0"/>
-            <commonControls:Rate x:Name="RateControl" Grid.Row="3" RateValueChanged="RateControl_RateValueChanged"></commonControls:Rate>    
+            <commonControls:Rate x:Name="RateControl" Grid.Row="3" RateValueChanged="RateControl_RateValueChanged" Margin="10" ></commonControls:Rate>    
         </Grid>
         <StackPanel Grid.Column="0" Grid.Row="1">
             <TextBlock x:Name="CategoryTextBlock" Text="Select Category for conversion" RenderTransformOrigin="1.295,0.657" FontSize="11" Margin="10,10,10,0"/>

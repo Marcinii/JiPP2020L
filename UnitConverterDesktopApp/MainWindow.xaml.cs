@@ -25,9 +25,6 @@ namespace UnitConverterDesktopApp
             MinutePointer.Visibility = Visibility.Hidden;
             HourPointer.Visibility = Visibility.Hidden;
 
-            // Odczytaj ocene aplikacji z bazy danych
-            RateControl.RateValue = 4;
-
             ConvertCommand = new RelayCommand(obj => Convert(), obj =>
                CategoryComboBox.SelectedItem != null &&
                SourceUnitComboBox.SelectedItem != null &&
@@ -38,6 +35,9 @@ namespace UnitConverterDesktopApp
 
             ShowStatsCommand = new RelayCommand(obj => ShowStats());
             ShowStatsButton.Command = ShowStatsCommand;
+
+            // Odczytaj ocene aplikacji z bazy danych
+            RateControl.RateValue = Database.GetRating().RatingValue;
         }
         private void CategoryComboBox_Loaded(object sender, RoutedEventArgs e)
         {
@@ -111,8 +111,8 @@ namespace UnitConverterDesktopApp
 
         private void RateControl_RateValueChanged(object sender, EventArgs e)
         {
-            MessageBox.Show((e as RateEventArgs).Value.ToString());
-            // zapisujemy do bazy danych wartosc e jako ocene apllikacji
+            // Zapisz ocene do bazy danych
+            Database.InsertRating((e as RateEventArgs).Value);
         }
     }
 }

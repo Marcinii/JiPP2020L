@@ -8,5 +8,6 @@ namespace UnitConverterDesktopApp
             : base("name=ConverterDataModel") { }
 
         public DbSet<Result> Results { get; set; }
+        public DbSet<Rating> Ratings { get; set; }
     }
 }
