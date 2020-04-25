@@ -26,7 +26,7 @@ namespace UnitConverterDesktopApp
             HourPointer.Visibility = Visibility.Hidden;
 
             // Odczytaj ocene aplikacji z bazy danych
-            RateControl.RateValue = 1;
+            RateControl.RateValue = 4;
 
             ConvertCommand = new RelayCommand(obj => Convert(), obj =>
                CategoryComboBox.SelectedItem != null &&

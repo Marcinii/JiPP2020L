@@ -1,17 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace Common.Controls
 {
@@ -20,7 +10,20 @@ namespace Common.Controls
     /// </summary>
     public partial class Rate : UserControl
     {
-        public int RateValue { get; set; }
+        private int _rateValue;
+
+        public int RateValue { 
+            get { return _rateValue; } 
+            set
+            {
+                if (value > 0 && value <= 5)
+                {
+                    _rateValue = value;
+                    ClearStarsRating();
+                    SetStarsRating(_rateValue);
+                }   
+            }
+        }
         public Rate()
         {
             InitializeComponent();
@@ -42,20 +45,26 @@ namespace Common.Controls
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            RateValue = StarsGrid.Children.IndexOf((Button)sender) + 1;
+            RateValueChanged(this, new RateEventArgs(RateValue));
+        }
+
+        private void ClearStarsRating()
+        {
             foreach (var b in StarsGrid.Children)
             {
                 ((Button)b).Background = new SolidColorBrush(Colors.White);
             }
+        }
 
+        private void SetStarsRating(int rating)
+        {
             foreach (var currentButton in StarsGrid.Children)
             {
-                if (StarsGrid.Children.IndexOf((Button)currentButton) > StarsGrid.Children.IndexOf((Button)sender)) break;
+                if (StarsGrid.Children.IndexOf((Button)currentButton) == rating) break;
 
                 ((Button)currentButton).Background = new SolidColorBrush(Colors.Yellow);
             }
-
-            RateValue = StarsGrid.Children.IndexOf((Button)sender) + 1;
-            RateValueChanged(this, new RateEventArgs(RateValue));
         }
     }
 }
