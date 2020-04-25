@@ -64,6 +64,7 @@
     <Compile Include="Rate.xaml.cs">
       <DependentUpon>Rate.xaml</DependentUpon>
     </Compile>
+    <Compile Include="RelayCommand.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>

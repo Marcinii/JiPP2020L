@@ -109,10 +109,10 @@ namespace UnitConverterDesktopApp
             statsWindow.Show();
         }
 
-        private void RateControl_RateValueChanged(object sender, EventArgs e)
+        private void RateControl_RateValueChanged(object sender, RateEventArgs e)
         {
             // Zapisz ocene do bazy danych
-            Database.InsertRating((e as RateEventArgs).Value);
+            Database.InsertRating(e.Value);
         }
     }
 }

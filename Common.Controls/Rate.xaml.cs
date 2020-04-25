@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
 
@@ -19,14 +18,30 @@ namespace Common.Controls
                 if (value > 0 && value <= 5)
                 {
                     _rateValue = value;
-                    ClearStarsRating();
-                    SetStarsRating(_rateValue);
+                    UpdateStars(_rateValue);             
                 }   
             }
         }
         public Rate()
         {
             InitializeComponent();
+
+            RateAppCommand = new RelayCommand((object sender) => RateApp(sender));
+
+            FirstStarButton.Command = RateAppCommand;
+            FirstStarButton.CommandParameter = FirstStarButton;
+
+            SecondStarButton.Command = RateAppCommand;
+            SecondStarButton.CommandParameter = SecondStarButton;
+
+            ThirdStarButton.Command = RateAppCommand;
+            ThirdStarButton.CommandParameter = ThirdStarButton;
+
+            FourthStarButton.Command = RateAppCommand;
+            FourthStarButton.CommandParameter = FourthStarButton;
+
+            FifthStarButton.Command = RateAppCommand;
+            FifthStarButton.CommandParameter = FifthStarButton;
         }
 
         public event EventHandler<RateEventArgs> RateValueChanged;
@@ -43,27 +58,25 @@ namespace Common.Controls
             }
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
+        public RelayCommand RateAppCommand;
+        private void RateApp(object sender)
+        {       
             RateValue = StarsGrid.Children.IndexOf((Button)sender) + 1;
             RateValueChanged(this, new RateEventArgs(RateValue));
         }
 
-        private void ClearStarsRating()
+        private void UpdateStars(int rating)
         {
             foreach (var b in StarsGrid.Children)
             {
                 ((Button)b).Background = new SolidColorBrush(Colors.White);
             }
-        }
 
-        private void SetStarsRating(int rating)
-        {
-            foreach (var currentButton in StarsGrid.Children)
+            foreach (var b in StarsGrid.Children)
             {
-                if (StarsGrid.Children.IndexOf((Button)currentButton) == rating) break;
+                if (StarsGrid.Children.IndexOf((Button)b) == rating) break;
 
-                ((Button)currentButton).Background = new SolidColorBrush(Colors.Yellow);
+                ((Button)b).Background = new SolidColorBrush(Colors.Yellow);
             }
         }
     }

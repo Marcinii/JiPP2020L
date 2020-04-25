@@ -86,31 +86,26 @@
             <Button x:Name="FirstStarButton" 
                 Grid.Column="0" 
                 Background="White"
-                Click="Button_Click" 
                 Style="{DynamicResource StarButtonStyle}"
             />
             <Button x:Name="SecondStarButton" 
                 Grid.Column="1" 
                 Background="White"
-                Click="Button_Click" 
                 Style="{DynamicResource StarButtonStyle}"
             />
             <Button x:Name="ThirdStarButton" 
                 Grid.Column="2" 
                 Background="White"
-                Click="Button_Click" 
                 Style="{DynamicResource StarButtonStyle}"
             />
             <Button x:Name="FourthStarButton" 
                 Grid.Column="3" 
                 Background="White"
-                Click="Button_Click" 
                 Style="{DynamicResource StarButtonStyle}"
             />
             <Button x:Name="FifthStarButton" 
                 Grid.Column="4" 
                 Background="White"
-                Click="Button_Click" 
                 Style="{DynamicResource StarButtonStyle}"
             />
         </Grid>
