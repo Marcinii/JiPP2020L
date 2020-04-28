@@ -1,0 +1,113 @@
+﻿<Window x:Class="Project.Desktop.Database"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Project.Desktop"
+        mc:Ignorable="d"
+        Title="Database" Height="450" Width="900" WindowStartupLocation="Manual" ResizeMode="NoResize">
+    <Window.Resources>
+        <ResourceDictionary>
+
+            <Style TargetType="{x:Type Label}"/>
+            <Style TargetType="{x:Type Label}" BasedOn="{StaticResource {x:Type Label}}" x:Key ="LabelExtension">
+
+            </Style>
+        </ResourceDictionary>
+    </Window.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto">
+
+            </RowDefinition>
+            <RowDefinition Height="Auto">
+
+            </RowDefinition>
+        </Grid.RowDefinitions>
+        <ComboBox Grid.Row="0" x:Name="ConverterBox" VerticalAlignment="Top" HorizontalAlignment="Left" Width="151" Margin="150,10"/>
+        <Label Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Top" Content="Konwerter :" Width="110" Height="25" Margin="40,8" FontSize="13" />
+        <Label Grid.Row="0" Style="{StaticResource LabelExtension}" VerticalAlignment="Top" HorizontalAlignment="Left" Height="22" Width="111" Margin="40,10" BorderBrush="#acacac" BorderThickness="1"/>
+        <Label Grid.Row="0" Style="{StaticResource LabelExtension}" VerticalAlignment="Top" HorizontalAlignment="Left" Height="22" Width="36" Margin="300,10" BorderBrush="#acacac" BorderThickness="1"/>
+        <Label Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Top" Content="Od :" Width="38" Height="25" Margin="300,8" FontSize="13" />
+        <TextBox Grid.Row="0" x:Name="TextBox1" Width="61" Height="22" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="335,10"/>        
+        <Canvas>
+            <Path x:Name="Cursor1" Grid.Row="0" Data="M343,16 L343,22" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="13" Margin="338,15.9,0,0" Stretch="Fill" Stroke="Black" VerticalAlignment="Top" Width="0.8">
+                <Path.Triggers>
+                    <EventTrigger RoutedEvent="Path.Loaded">
+                        <BeginStoryboard>
+                            <Storyboard  x:Name="Cursor1StoryBoard" 
+
+                                         RepeatBehavior="Forever">
+                                <ColorAnimationUsingKeyFrames 
+
+                                        Storyboard.TargetProperty="Stroke"
+
+                                        Duration="0:0:0:1"
+
+                                        FillBehavior="HoldEnd">
+                                    <ColorAnimationUsingKeyFrames.KeyFrames >
+                                        <DiscreteColorKeyFrame KeyTime="0:0:0.750" 
+
+                        Value="Transparent" />
+                                        <DiscreteColorKeyFrame KeyTime="0:0:0.000" 
+
+                        Value="black"/>
+                                    </ColorAnimationUsingKeyFrames.KeyFrames>
+                                </ColorAnimationUsingKeyFrames>
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </EventTrigger>
+                </Path.Triggers>
+            </Path>
+        </Canvas>
+        <Label Grid.Row="0" Style="{StaticResource LabelExtension}" VerticalAlignment="Top" HorizontalAlignment="Left" Height="22" Width="31" Margin="395,10,10,10" BorderBrush="#acacac" BorderThickness="1"/>
+        <Label Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Top" Content="Do :" Width="38" Height="25" Margin="393,8" FontSize="13" />
+        <Label Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Top" Content="Pokaż :" Width="68" Height="25" Margin="738,8,8,8" FontSize="13" />
+        <TextBox Grid.Row="0" x:Name="TextBox2" Width="61" Height="22" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="425,10,10,10"/>
+        <Label Grid.Row="0" Style="{StaticResource LabelExtension}" VerticalAlignment="Top" HorizontalAlignment="Left" Height="22" Width="51" Margin="740,10,10,10" BorderBrush="#acacac" BorderThickness="1"/>
+        <Canvas>
+            <Path x:Name="Cursor2" Grid.Row="0" Data="M343,16 L343,22" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="13" Margin="428,15.9,0,0" Stretch="Fill" Stroke="Black" VerticalAlignment="Top" Width="0.8">
+                <Path.Triggers>
+                    <EventTrigger RoutedEvent="Path.Loaded">
+                        <BeginStoryboard>
+                            <Storyboard  x:Name="Cursor2StoryBoard" 
+
+                                         RepeatBehavior="Forever">
+                                <ColorAnimationUsingKeyFrames 
+
+                                        Storyboard.TargetProperty="Stroke"
+
+                                        Duration="0:0:0:1"
+
+                                        FillBehavior="HoldEnd">
+                                    <ColorAnimationUsingKeyFrames.KeyFrames >
+                                        <DiscreteColorKeyFrame KeyTime="0:0:0.750" 
+
+                        Value="Transparent" />
+                                        <DiscreteColorKeyFrame KeyTime="0:0:0.000" 
+
+                        Value="black"/>
+                                    </ColorAnimationUsingKeyFrames.KeyFrames>
+                                </ColorAnimationUsingKeyFrames>
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </EventTrigger>
+                </Path.Triggers>
+            </Path>
+        </Canvas>
+        <ComboBox Grid.Row="0" x:Name="ShowAmount" Width="40" Height="22" Margin="735,10,10,10"/>
+        <DataGrid Grid.Row="1" x:Name="UserData" HorizontalAlignment="Left" VerticalAlignment="Top" Width="790" Height="350" Margin="40,10,40,5" AutoGenerateColumns="False"  ItemsSource="{Binding CList}" BorderBrush="Black" Background="White" IsReadOnly="True" CanUserDeleteRows="False" CanUserAddRows="False" HeadersVisibility="Column">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ID Konwertera" Binding="{Binding ID_Converter}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Nazwa konwertera" Binding="{Binding Converter_Type}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Jednostka z" Binding="{Binding Unit_from}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Jednostka do" Binding="{Binding Unit_to}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Data konwersji" Binding="{Binding Date_of_Conversion}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Wartość po konwersji" Binding="{Binding Converted_Value}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Ocena użytkownika" Binding="{Binding Rating_Value}" Width="*"></DataGridTextColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Calendar Grid.Row="1" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="305,0,0,0" Width="Auto" x:Name="DatabaseCal" />
+
+    </Grid>
+</Window>
