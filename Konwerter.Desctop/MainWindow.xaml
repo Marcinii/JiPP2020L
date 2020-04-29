@@ -4,6 +4,7 @@
        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
        xmlns:local="clr-namespace:Konwerter.Desctop"
+       xmlns:rateme="clr-namespace:RateUs;assembly=RateUs"
        mc:Ignorable="d"
        Background="Honeydew"
        Title="" Height="764.4" Width="1482.4" WindowStartupLocation="CenterScreen">
@@ -35,7 +36,7 @@
                         <ColumnDefinition Width="*"/>
                         <ColumnDefinition Width="*"/>
                         <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="1.8*"/>
+                        <ColumnDefinition Width="2.5*"/>
                     </Grid.ColumnDefinitions>
 
                     <Grid.RowDefinitions>
@@ -123,13 +124,16 @@
                     <TextBlock Text="Czas" FontWeight="Bold" Grid.Column="4" Grid.Row="0" Margin="15 5"/>
                     <TextBlock Text="Wstaw czas h : m" Grid.Column="4" Grid.Row="1" Margin="10,5,10,0" Height="15.96" VerticalAlignment="Top"/>
 
-                    <ComboBox x:Name="Godzina" SelectionChanged="Godzina_SelectionChanged" ItemsSource="{Binding hours}" Grid.Column="4" Grid.Row="2" Margin="10,2,0,0" Width="40" MaxHeight="20" HorizontalAlignment="Left"/>
+                    <ComboBox x:Name="Godzina" ItemsSource="{Binding hours}" Grid.Column="4" Grid.Row="2" Margin="10,2,0,0" Width="40" MaxHeight="20" HorizontalAlignment="Left"/>
                     <TextBlock Text=":" Grid.Column="4" Grid.Row="2" Margin="55,5,-5,20.96" Grid.RowSpan="2"/>
-                    <ComboBox x:Name="Minuty" ItemsSource="{Binding minutes}" SelectionChanged="Minuty_SelectionChanged" Grid.Column="4" Grid.Row="1" Margin="65.4,22.96,0,20.96" Width="40" MaxHeight="20" HorizontalAlignment="Left" Grid.RowSpan="3"/>
+                    <ComboBox x:Name="Minuty" ItemsSource="{Binding minutes}" Grid.Column="4" Grid.Row="1" Margin="65.4,22.96,0,20.96" Width="40" MaxHeight="20" HorizontalAlignment="Left" Grid.RowSpan="3"/>
+                    <Button Content="Przelicz" Name="PrzeliczCzas" Grid.Column="4" Grid.Row="3"/>
                     <TextBlock Text="Czas format 12 h:" Grid.Column="4" Grid.Row="4" Margin="10 5"/>
+                    
                     <TextBlock x:Name="CzasWynik" Text="" Grid.Column="4" Grid.Row="5" Margin="9.6,4.8,57.6,5.2" FontSize="20" FontWeight="Bold" Background="#FFDCD2DB"/>
                     <Button Grid.Row="10" Grid.ColumnSpan="10" Click="Button_Click" Content="Zakoncz Program" Background="Red" Width="200" Height="50" Margin="0 100"/>
                 </Grid>
+                <rateme:RateControl Height="89" Margin="382,0,422,0" Name="rateControl"/>
 
             </StackPanel>
             <Grid x:Name="grid" Grid.Column="1" Margin="34.4,-14.617,10,14.617">

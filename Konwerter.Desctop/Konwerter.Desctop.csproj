@@ -65,6 +65,25 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="DBManager.cs" />
+    <Compile Include="RateModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RateModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RateModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RateModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RateModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RateModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="RateTable.cs">
+      <DependentUpon>RateModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RelayCommand.cs" />
     <Compile Include="Statistic.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -123,6 +142,13 @@
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>Statistic.Designer.cs</LastGenOutput>
     </EntityDeploy>
+    <EntityDeploy Include="RateModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>RateModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="RateModel.edmx.diagram">
+      <DependentUpon>RateModel.edmx</DependentUpon>
+    </None>
     <None Include="Statistic.edmx.diagram">
       <DependentUpon>Statistic.edmx</DependentUpon>
     </None>
@@ -135,11 +161,25 @@
       <Project>{fc59d585-ceb6-4ccc-9b0d-ca879af7c5c4}</Project>
       <Name>Konwerter.Logika</Name>
     </ProjectReference>
+    <ProjectReference Include="..\RateUs\RateUs.csproj">
+      <Project>{51e5bc47-75b2-483a-9e95-109ba7c2a0eb}</Project>
+      <Name>RateUs</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="RateModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>RateModel.edmx</DependentUpon>
+      <LastGenOutput>RateModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="RateModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>RateModel.edmx</DependentUpon>
+      <LastGenOutput>RateModel.cs</LastGenOutput>
+    </Content>
     <Content Include="Statistic.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Statistic.edmx</DependentUpon>

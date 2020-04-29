@@ -14,6 +14,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using KonwerterJednostek;
+using UnitConverter.Desktop;
+using static RateUs.RateControl;
 
 namespace Konwerter.Desctop
 {
@@ -48,6 +50,58 @@ namespace Konwerter.Desctop
             konwertery.Add("KonwerterCzas");
             selectConverter.ItemsSource = konwertery;
             selectConverter.SelectedIndex = 0;
+
+            using (RateMeBaseEntities context = new RateMeBaseEntities())
+            {
+                RateTable rateTable = context.RateTable.ToList().Last();
+                if(rateTable != null)
+                {
+                    rateControl.RateValue = rateTable.Ocena;
+                }
+            }
+
+            rateControl.OnRateValue += this.RateControl_OnRateValue;
+
+            relayCommand = new RelayCommand(obj => Konwertuj(), obj => Godzina.SelectedItem != null && Minuty.SelectedItem != null);
+           PrzeliczCzas.Command = relayCommand;
+        }
+
+        private RelayCommand relayCommand;
+
+        private void Konwertuj()
+        {
+            if (Convert.ToInt32(Godzina.SelectedItem) < 12)
+            {
+                CzasWynik.Text = Godzina.SelectedItem + ":" + Minuty.SelectedItem + "AM";
+            }
+            else
+            {
+                CzasWynik.Text = (Convert.ToInt32(Godzina.SelectedItem) - 12).ToString() + ":" + Minuty.SelectedItem + "PM";
+            }
+
+            SetClock(Convert.ToInt32(Godzina.SelectedItem), Convert.ToInt32(Minuty.SelectedItem));
+
+            db.SaveToDB(new Statistic()
+            {
+                conversion_data = DateTime.Now,
+                converter_type = "KonwerterCzas",
+                unit_from = "24h",
+                unit_to = "12h",
+                insert_data = Godzina.SelectedItem + ":" + Minuty.SelectedItem,
+                output_data = CzasWynik.Text
+            }, dataGrid);
+        }
+
+        private void RateControl_OnRateValue(object sender, RateEventArgs e)
+        {
+            using (RateMeBaseEntities context = new RateMeBaseEntities())
+            {
+                context.RateTable.Add(new RateTable()
+                {
+                    Ocena = e.Value
+                });
+                context.SaveChanges();
+            }
         }
 
         private void TempCombobox_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -145,61 +199,6 @@ namespace Konwerter.Desctop
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
-        }
-
-        private void Godzina_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            if (Minuty.SelectedItem != null)
-            {
-                if (Convert.ToInt32(Godzina.SelectedItem) < 12)
-                {
-                    CzasWynik.Text = Godzina.SelectedItem + ":" + Minuty.SelectedItem + "AM";
-                }
-                else
-                {
-                    CzasWynik.Text = (Convert.ToInt32(Godzina.SelectedItem) - 12).ToString() + ":" + Minuty.SelectedItem + "PM";
-                }
-
-                SetClock(Convert.ToInt32(Godzina.SelectedItem), Convert.ToInt32(Minuty.SelectedItem));
-
-                db.SaveToDB(new Statistic()
-                {
-                    conversion_data = DateTime.Now,
-                    converter_type = "KonwerterCzas",
-                    unit_from = "24h",
-                    unit_to = "12h",
-                    insert_data = Godzina.SelectedItem + ":" + Minuty.SelectedItem,
-                    output_data = CzasWynik.Text
-                },dataGrid);
-            }
-        }
-
-        private void Minuty_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            if (Godzina.SelectedItem != null)
-            {
-                if (Convert.ToInt32(Godzina.SelectedItem) < 12)
-                {
-                    CzasWynik.Text = Godzina.SelectedItem + ":" + Minuty.SelectedItem + "AM";
-                }
-                else
-                {
-                    CzasWynik.Text = (Convert.ToInt32(Godzina.SelectedItem) - 12).ToString() + ":" + Minuty.SelectedItem + "PM";
-                }
-
-                SetClock(Convert.ToInt32(Godzina.SelectedItem), Convert.ToInt32(Minuty.SelectedItem));
-
-                db.SaveToDB(new Statistic()
-                {
-                    conversion_data = DateTime.Now,
-                    converter_type = "KonwerterCzas",
-                    unit_from = "24h",
-                    unit_to = "12h",
-                    insert_data = Godzina.SelectedItem + ":" + Minuty.SelectedItem,
-                    output_data = CzasWynik.Text
-                }, dataGrid);
-
-            }
         }
 
         private void SetClock(int hours, int minutes)

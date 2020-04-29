@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Konwerter.Logika", "..\Konw
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Konwerter.Desctop", "..\Konwerter.Desctop\Konwerter.Desctop.csproj", "{0675F106-08BB-49BD-BFC9-8FDC44A80035}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RateUs", "..\RateUs\RateUs.csproj", "{51E5BC47-75B2-483A-9E95-109BA7C2A0EB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{0675F106-08BB-49BD-BFC9-8FDC44A80035}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0675F106-08BB-49BD-BFC9-8FDC44A80035}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0675F106-08BB-49BD-BFC9-8FDC44A80035}.Release|Any CPU.Build.0 = Release|Any CPU
+		{51E5BC47-75B2-483A-9E95-109BA7C2A0EB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{51E5BC47-75B2-483A-9E95-109BA7C2A0EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{51E5BC47-75B2-483A-9E95-109BA7C2A0EB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{51E5BC47-75B2-483A-9E95-109BA7C2A0EB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
