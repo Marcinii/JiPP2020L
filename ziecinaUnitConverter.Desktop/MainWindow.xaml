@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ziecinaUnitConverter.Desktop"
+        xmlns:commonControls="clr-namespace:Common.Controls;assembly=Common.Controls"
         mc:Ignorable="d"
         Title="MainWindow" Height="853.566" Width="1183.521">
     <Window.Resources>
@@ -206,5 +207,7 @@
         <TextBlock x:Name="textBlockResaults" Height="332" Margin="286,336,-346,-647" Grid.Row="1" Text="" VerticalAlignment="Top" RenderTransformOrigin="0.99,0.601" HorizontalAlignment="Left" Width="874"/>
         <Button x:Name="buttonPreviousPage" Content="Poprzednia strona" HorizontalAlignment="Left" Height="24" Margin="398,292,-110,-295" Grid.Row="1" VerticalAlignment="Top" Width="122" Click="buttonPreviousPage_Click"/>
         <Button x:Name="buttonNextPage" Content="Następna strona" HorizontalAlignment="Left" Height="24" Margin="556,292,-269,-295" Grid.Row="1" VerticalAlignment="Top" Width="123" Click="buttonNextPage_Click"/>
+        <Label x:Name="labelRateApp" Content="Oceń aplikację:" HorizontalAlignment="Left" Height="30" Margin="932,16,-292,0" VerticalAlignment="Top" Width="174"/>
+        <commonControls:RateApp Margin="848,57,-319,33"/>
     </Grid>
 </Window>

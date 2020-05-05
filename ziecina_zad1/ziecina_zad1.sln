@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ziecinaUnitConverter.Logic"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ziecinaUnitConverter.Desktop", "..\ziecinaUnitConverter.Desktop\ziecinaUnitConverter.Desktop.csproj", "{BE24A95C-0FE6-4034-B8F8-4764E57ACE10}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common.Controls", "..\Common.Controls\Common.Controls.csproj", "{44750FF2-9AF7-45BE-A67B-8257CA9FF9BC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{BE24A95C-0FE6-4034-B8F8-4764E57ACE10}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BE24A95C-0FE6-4034-B8F8-4764E57ACE10}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BE24A95C-0FE6-4034-B8F8-4764E57ACE10}.Release|Any CPU.Build.0 = Release|Any CPU
+		{44750FF2-9AF7-45BE-A67B-8257CA9FF9BC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{44750FF2-9AF7-45BE-A67B-8257CA9FF9BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{44750FF2-9AF7-45BE-A67B-8257CA9FF9BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{44750FF2-9AF7-45BE-A67B-8257CA9FF9BC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

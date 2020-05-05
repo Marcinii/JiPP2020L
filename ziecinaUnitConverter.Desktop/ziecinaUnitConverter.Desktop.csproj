@@ -207,6 +207,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Common.Controls\Common.Controls.csproj">
+      <Project>{44750ff2-9af7-45be-a67b-8257ca9ff9bc}</Project>
+      <Name>Common.Controls</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ziecinaUnitConverter.Logic\ziecinaUnitConverter.Logic.csproj">
       <Project>{e05b020d-6557-4d51-bade-ba0862da4feb}</Project>
       <Name>ziecinaUnitConverter.Logic</Name>

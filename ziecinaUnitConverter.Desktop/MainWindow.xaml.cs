@@ -86,11 +86,9 @@ namespace ziecinaUnitConverter.Desktop
             try
             {
                 float whateva = Convert.ToSingle(input);
-                //blockResault.Text = "k liczba";
                 float toDisplay = MainWindow.converters[chosenConverter].Convert(listStartUnit.SelectedItem.ToString(), listEndUnit.SelectedItem.ToString(), input);
                 string toDisplayStr = toDisplay.ToString();
                 blockResault.Text = toDisplayStr;
-                //DataInserter dataInserter = new DataInserter();
                 dataInserter.InsertData(MainWindow.converters[chosenConverter].Name, listStartUnit.SelectedItem.ToString(), listEndUnit.SelectedItem.ToString(), input, toDisplayStr, false);
             }
             catch
@@ -212,11 +210,8 @@ namespace ziecinaUnitConverter.Desktop
                     string dateTo = "'" + dateToBox.SelectedDate.Value.ToString("yyy.MM.dd") + "'";
                     string convPick = "'" +  queryConverterPicker.SelectedItem.ToString() + "'";
                     string queryText1 = "SELECT * FROM JIPP4 WHERE Converter LIKE " + convPick + " AND dateSent >= " + dateFrom + " AND dateSent <= " + dateTo + ";";
-                    //string queryText2  = "SELECT TOP 3 COUNT(*) AS 'Ilość', unitFrom, unitTo FROM JIPP4 WHERE Converter LIKE " + convPick + " AND dateSent >= " + dateFrom +
-                    //    " AND dateSent <= " + dateTo + " GROUP BY unitFrom, unitTo;";
                     conversions = (context.JIPP4.SqlQuery(queryText1)).ToList();
                     textBlockResaults.Text = "";
-                    //Result result = new Result();
                     int tmpCnt = 0;
                     foreach (JIPP4 f in conversions)
                     {
