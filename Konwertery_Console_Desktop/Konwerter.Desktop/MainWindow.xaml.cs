@@ -20,6 +20,7 @@ namespace Konwerter.Desktop
 {
     public partial class MainWindow : Window
     {
+        bool isOcenaOpened;
         int initPagination = 0;
         int borderPagination = 20;
         int databaseSize;
@@ -297,5 +298,6 @@ namespace Konwerter.Desktop
             DateTime day = DateTime.Parse(pickedDate);
             dateToParam = day.ToString("yyyy/MM/dd");
         }
+
     }
 }

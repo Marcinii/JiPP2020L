@@ -13,3 +13,4 @@ D:\Repozytorium\Konwertery_Console_Desktop\Konwerter.Logic\bin\Debug\EntityFrame
 D:\Repozytorium\Konwertery_Console_Desktop\Konwerter.Logic\bin\Debug\EntityFramework.xml
 D:\Repozytorium\Konwertery_Console_Desktop\Konwerter.Logic\bin\Debug\EntityFramework.SqlServer.xml
 D:\Repozytorium\Konwertery_Console_Desktop\Konwerter.Logic\obj\Debug\Logic.csproj.CopyComplete
+D:\Repozytorium\Konwertery_Console_Desktop\Konwerter.Logic\obj\Debug\Logic.csprojAssemblyReference.cache

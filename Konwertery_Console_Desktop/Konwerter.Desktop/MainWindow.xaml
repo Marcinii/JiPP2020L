@@ -106,5 +106,14 @@
                 <DataGridTextColumn Header="Na" Binding="{Binding Path=unitTo}"></DataGridTextColumn>
             </DataGrid.Columns>
         </DataGrid>
+        <StackPanel x:Name="ratePanel" Grid.Row="1">
+            <ToggleButton x:Name="rateBtn" Height="33" Margin="35,35,35,35" IsChecked="{Binding isOcenaOpened, Mode=TwoWay}" Content="Oceń aplikację"/>
+            <Popup x:Name="ocenaPopup" IsOpen="{Binding IsChecked, ElementName=rateBtn}">
+                <Border Background="White">
+                    <local:Ocena></local:Ocena>
+                </Border>
+            </Popup>
+        </StackPanel>
+
     </Grid>
 </Window>
