@@ -29,19 +29,43 @@ namespace Konwerter_jednostek
     public partial class MainWindow : Window
     {
         public int str { get; set; }
+        public int strMax { get; set; }
 
         public MainWindow()
         {
 
             str = 0;
+            strMax = 0;
             InitializeComponent();
 
             CBOpcja.ItemsSource = new KonwerterSerwis().GetConverters();
             SKonwerter.ItemsSource = new KonwerterSerwis().GetConverters();
 
 
+            using (BazaDanychOcena context = new BazaDanychOcena())
+            {
+                List<OcenaBaza> oc = context.OcenaDB
+                    .Where(x => x.Id == context.OcenaDB.Count())
+                    .ToList();
+                ocenaControl.OcenaWartosc = oc[0].Ocena;
+            }
+            
 
+            ConvertCommand = new RelayCommand(obj => Convert(),obj =>
+                CBZ.SelectedItem != null && CBNa.SelectedItem !=null && string.IsNullOrEmpty(TBoxWartosc.Text) != true);
+            Button1.Command = ConvertCommand;
+
+            StatystykiCommand = new RelayCommand(obj => Statystyki(), obj => SKonwerter.SelectedItem != null);
+            Button2.Command = StatystykiCommand;
+
+            PoprzedniaCommand = new RelayCommand(obj => Poprzednia(), obj => str > 0);
+            Button4.Command = PoprzedniaCommand;
+
+            NastepnaCommand = new RelayCommand(obj => Nastepna(), obj => strMax > str);
+            Button3.Command = NastepnaCommand;
         }
+
+
 
         private void CBOpcja_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -54,7 +78,8 @@ namespace Konwerter_jednostek
             }
         }
 
-        private void Button1_Click(object sender, RoutedEventArgs e)
+        private RelayCommand ConvertCommand;
+        private void Convert()
         {
 
             string WartoscWe = TBoxWartosc.Text;
@@ -71,6 +96,19 @@ namespace Konwerter_jednostek
                 RotacjaGodz.Angle = a2 + a1 / 12.0;
             }
             WstawRekordDoBD(((IKonwerter)CBOpcja.SelectedItem).Nazwa, CBZ.Text, wartosc, CBNa.Text, TBlockWynik.Text);
+        }
+
+        public static void WstawRekordDoOceny(int ocena)
+        {
+            using (BazaDanychOcena context = new BazaDanychOcena())
+            {
+                OcenaBaza NowyRekord = new OcenaBaza()
+                {
+                    Ocena = ocena
+                };
+                context.OcenaDB.Add(NowyRekord);
+                context.SaveChanges();
+            }
         }
 
         public static void WstawRekordDoBD(string RK, string JZ, string WDK, string JN, string WPK)
@@ -94,9 +132,8 @@ namespace Konwerter_jednostek
 
         }
 
-
-
-        private void Button2_Click(object sender, RoutedEventArgs e)
+        private RelayCommand StatystykiCommand;
+        private void Statystyki()
         {
             using (BazaDanych context = new BazaDanych())
             {
@@ -124,10 +161,19 @@ namespace Konwerter_jednostek
                 .OrderByDescending(v => v.Krotnosc)
                 .Take(3)
                 .ToList();
+
+                strMax = context.Konwersje
+                .Where(m => m.RodzajKonwertera == (((IKonwerter)SKonwerter.SelectedItem).Nazwa))
+                .Where(m => m.DataKonwersji >= d1)
+                .Where(m => m.DataKonwersji <= d2)
+                .Count();
+                if (strMax % 10 == 0) strMax = strMax / 10-1;
+                else strMax = strMax / 10 ;
             }
         }
 
-        private void Button3_Click(object sender, RoutedEventArgs e)
+        private RelayCommand NastepnaCommand;
+        private void Nastepna()
         {
             str++;
             using (BazaDanych context = new BazaDanych())
@@ -149,7 +195,8 @@ namespace Konwerter_jednostek
 
         }
 
-        private void Button4_Click(object sender, RoutedEventArgs e)
+        private RelayCommand PoprzedniaCommand;
+        private void Poprzednia()
         {
             using (BazaDanych context = new BazaDanych())
             {
@@ -168,6 +215,11 @@ namespace Konwerter_jednostek
                 Tabela1.ItemsSource = kon;
                 
             }
+        }
+
+        private void ocenaControl_OcenaWartoscZmiana(object sender, Common.Controls.ocena.RateEventArgs e)
+        {
+            WstawRekordDoOceny(e.Value);
         }
     }
 }

@@ -14,6 +14,7 @@ namespace Konwerter_jednostek
         public DbSet<Konwersja> Konwersje { get; set; }
 
 
+
     }
 
 
