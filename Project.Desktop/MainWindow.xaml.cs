@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using UnitConverter.Desktop;
+using static Common.Controls.Rate;
 
 namespace Project.Desktop
 {
@@ -30,18 +32,38 @@ namespace Project.Desktop
             ConverterListComboBox.ItemsSource = new ConverterService().GetConverters();
             ConverterListComboBox.DisplayMemberPath = "Name";
 
-            ConverterListComboBox.SelectedIndex = 0;
-            ValueToConvertTextBlock.Text = "0";
+
 
             hwindow = new HistoryWindow();
+
+            RateButtons.RateValueChanged += RateButtons_RateValueChanged;
+
+            using (var db = new jippEntities())
+            {
+
+                RateButtons.RateValue = db.ProgramValues.First().Value;
+            }
+
+            ConvertCommand = new RelayCommand(obj => Convert(), obj=> ValueToConvertTextBlock.Text.Length > 0 && ConvertFromListComboBox.SelectedItem != null && ConvertToListComboBox.SelectedItem != null);
+
+            ConvertButton.Command = ConvertCommand;
+
+
+        }
+
+        private void RateButtons_RateValueChanged(object sender, RateEventArgs e)
+        {
+            using (var db = new jippEntities())
+            {
+                db.ProgramValues.First().Value = RateButtons.RateValue;
+                db.SaveChanges();
+            }
         }
 
         private void ConverterListComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             ConvertFromListComboBox.ItemsSource = ((IConverter)ConverterListComboBox.SelectedItem).Units;
             ConvertToListComboBox.ItemsSource = ((IConverter)ConverterListComboBox.SelectedItem).Units;
-            ConvertFromListComboBox.SelectedIndex = 0;
-            ConvertToListComboBox.SelectedIndex = 1;
 
             if (ConverterListComboBox.SelectedItem.GetType() == typeof(ClockConverter))
                 ClockGrid.Visibility = Visibility.Visible;
@@ -50,7 +72,11 @@ namespace Project.Desktop
 
         }
 
-        private void Recalculate()
+
+        private RelayCommand ConvertCommand;
+
+
+        private void Convert()
         {
             
             try
@@ -108,14 +134,6 @@ namespace Project.Desktop
             }
         }
 
-        private void ValueToConvertTextBlock_KeyDown(object sender, KeyEventArgs e)
-        {
-            if(e.Key == Key.Enter)
-            {
-                Recalculate();
-            }
-        }
-
         
 
         private void ToggleHistoryButton_Click(object sender, RoutedEventArgs e)
@@ -129,6 +147,7 @@ namespace Project.Desktop
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
             hwindow.Close();
+
             Application.Current.Shutdown();
         }
     }

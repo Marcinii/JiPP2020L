@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="jippModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="jippModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="ConversionHistory">
           <Key>
             <PropertyRef Name="Id" />
@@ -17,11 +17,19 @@
           <Property Name="ValueBefore" Type="varchar" MaxLength="30" Nullable="false" />
           <Property Name="ValueAfter" Type="varchar" MaxLength="30" Nullable="false" />
         </EntityType>
+        <EntityType Name="ProgramValues">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Value" Type="int" Nullable="false" />
+        </EntityType>
         <EntityContainer Name="jippModelStoreContainer">
           <EntitySet Name="ConversionHistory" EntityType="Self.ConversionHistory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ProgramValues" EntityType="Self.ProgramValues" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="jippModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -39,7 +47,16 @@
         </EntityType>
         <EntityContainer Name="jippEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="ConversionHistory" EntityType="Self.ConversionHistory" />
+          <EntitySet Name="ProgramValues" EntityType="jippModel.ProgramValues" />
         </EntityContainer>
+        <EntityType Name="ProgramValues">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Value" Type="Int32" Nullable="false" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -56,6 +73,15 @@
                 <ScalarProperty Name="UnitTo" ColumnName="UnitTo" />
                 <ScalarProperty Name="ValueBefore" ColumnName="ValueBefore" />
                 <ScalarProperty Name="ValueAfter" ColumnName="ValueAfter" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProgramValues">
+            <EntityTypeMapping TypeName="jippModel.ProgramValues">
+              <MappingFragment StoreEntitySet="ProgramValues">
+                <ScalarProperty Name="Value" ColumnName="Value" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

@@ -26,5 +26,6 @@ namespace Project.Desktop
         }
     
         public virtual DbSet<ConversionHistory> ConversionHistory { get; set; }
+        public virtual DbSet<ProgramValues> ProgramValues { get; set; }
     }
 }
