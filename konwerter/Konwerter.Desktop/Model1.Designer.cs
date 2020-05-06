@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model 'C:\Users\kolod\source\repos\Marcinii\JiPP2020L\konwerter\Konwerter.Desktop\History_Model.edmx'. 
+﻿// T4 code generation is enabled for model 'C:\Users\kolod\source\repos\Marcinii\JiPP2020L\konwerter\Konwerter.Desktop\Model1.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.

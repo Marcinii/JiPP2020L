@@ -13,10 +13,10 @@ namespace Konwerter.Desktop
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class HistoryDataEntities : DbContext
+    public partial class DataEntities : DbContext
     {
-        public HistoryDataEntities()
-            : base("name=HistoryDataEntities")
+        public DataEntities()
+            : base("name=DataEntities")
         {
         }
     
@@ -26,5 +26,6 @@ namespace Konwerter.Desktop
         }
     
         public virtual DbSet<Konwert_History> Konwert_History { get; set; }
+        public virtual DbSet<Rate_History> Rate_History { get; set; }
     }
 }

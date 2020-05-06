@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Konwerter.Desktop"
+        xmlns:CommonControls="clr-namespace:Common.Controls;assembly=Common.Controls"
         mc:Ignorable="d"
         Title="Konwerter Jednostek" Height="391.452" Width="479.738">
     <Window.Resources>
@@ -30,7 +31,9 @@
                     <TextBlock x:Name="ResultTempTextBlock" HorizontalAlignment="Left" Margin="52,64,0,0" TextWrapping="Wrap" Text="wynik" VerticalAlignment="Top" Height="23" Width="130" TextAlignment="Right"/>
                     <ComboBox x:Name="From_ChoiseTempUnitComboBox" HorizontalAlignment="Left" Margin="187,36,0,0" VerticalAlignment="Top" Width="61" SelectionChanged="ComboBox_SelectionChanged" Height="23" SelectedIndex="0"/>
                     <ComboBox x:Name="To_ChoiseTempUnitComboBox" HorizontalAlignment="Left" Margin="187,64,0,0" VerticalAlignment="Top" Width="61" SelectionChanged="ComboBox_SelectionChanged" Height="23" SelectedIndex="0"/>
-                    <Button x:Name="Temp_Button" Content="Przelicz" HorizontalAlignment="Left" Margin="253,49,0,0" VerticalAlignment="Top" Width="75" Click="Temp_Button_Click"/>
+                    <Button x:Name="Temp_Button" Content="Przelicz" HorizontalAlignment="Left" Margin="253,49,0,0" VerticalAlignment="Top" Width="75"/>
+                    <CommonControls:RateControl x:Name="RateControl" HorizontalAlignment="Left" Height="38" Margin="154,115,0,0" VerticalAlignment="Top" Width="190" Loaded="RateControl_Loaded" Wartosc_Oceny_Changed="RateControl_Wartosc_Oceny_Changed_1"  />
+                    <Label Content="Oceń aplikację -&gt;" HorizontalAlignment="Left" Margin="46,120,0,0" VerticalAlignment="Top" Width="103"/>
                 </Grid>
             </TabItem>
             <TabItem x:Name="Mass_Tab" Header="Masy">
@@ -39,7 +42,7 @@
                     <TextBlock x:Name="ResultMassTextBlock" HorizontalAlignment="Left" Margin="52,64,0,0" TextWrapping="Wrap" Text="wynik" VerticalAlignment="Top" Height="23" Width="130" TextAlignment="Right"/>
                     <ComboBox x:Name="From_ChoiseMassUnitComboBox" HorizontalAlignment="Left" Margin="187,36,0,0" VerticalAlignment="Top" Width="61" SelectionChanged="ComboBox_SelectionChanged" Height="23" SelectedIndex="0"/>
                     <ComboBox x:Name="To_ChoiseMassUnitComboBox" HorizontalAlignment="Left" Margin="187,64,0,0" VerticalAlignment="Top" Width="61" SelectionChanged="ComboBox_SelectionChanged" Height="23" SelectedIndex="0"/>
-                    <Button x:Name="Mass_Button" Content="Przelicz" HorizontalAlignment="Left" Margin="253,49,0,0" VerticalAlignment="Top" Width="75" Click="Mass_Button_Click"/>
+                    <Button x:Name="Mass_Button" Content="Przelicz" HorizontalAlignment="Left" Margin="253,49,0,0" VerticalAlignment="Top" Width="75"/>
                 </Grid>
             </TabItem>
             <TabItem x:Name="Lenhg_Tab" Header="Odległości" HorizontalAlignment="Left" Height="20" VerticalAlignment="Top" Width="77" Margin="-1,0,0,0">
@@ -48,20 +51,21 @@
                     <TextBlock x:Name="ResultLenghTextBlock" HorizontalAlignment="Left" Margin="52,64,0,0" TextWrapping="Wrap" Text="wynik" VerticalAlignment="Top" Height="23" Width="130" TextAlignment="Right"/>
                     <ComboBox x:Name="From_ChoiseLenghUnitComboBox" HorizontalAlignment="Left" Margin="187,36,0,0" VerticalAlignment="Top" Width="61" SelectionChanged="ComboBox_SelectionChanged" Height="23" SelectedIndex="0"/>
                     <ComboBox x:Name="To_ChoiseLenghUnitComboBox" HorizontalAlignment="Left" Margin="187,64,0,0" VerticalAlignment="Top" Width="61" SelectionChanged="ComboBox_SelectionChanged" Height="23" SelectedIndex="0"/>
-                    <Button x:Name="Lenght_Button" Content="Przelicz" HorizontalAlignment="Left" Margin="253,49,0,0" VerticalAlignment="Top" Width="75" Click="Lenght_Button_Click"/>
+                    <Button x:Name="Lenght_Button" Content="Przelicz" HorizontalAlignment="Left" Margin="253,49,0,0" VerticalAlignment="Top" Width="75"/>
                 </Grid>
             </TabItem>
             <TabItem x:Name="Data_Tab" Header="Pojemność Danych" HorizontalAlignment="Left" Height="20" VerticalAlignment="Top" Width="126" Margin="-1,0,-71,0">
                 <Grid Background="#FFE5E5E5">
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition/>
+                        <ColumnDefinition Width="28*"/>
+                        <ColumnDefinition Width="11*"/>
                         <ColumnDefinition Width="0*"/>
                     </Grid.ColumnDefinitions>
                     <TextBox x:Name="InputDataTextBox" HorizontalAlignment="Left" Height="23" Margin="52,36,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="130" TextChanged="InputTextBox_TextChanged" AutomationProperties.HelpText="0" TextAlignment="Right"/>
                     <TextBlock x:Name="ResultDataTextBlock" HorizontalAlignment="Left" Margin="52,64,0,0" TextWrapping="Wrap" Text="wynik" VerticalAlignment="Top" Height="23" Width="130" TextAlignment="Right"/>
                     <ComboBox x:Name="From_ChoiseDataUnitComboBox" HorizontalAlignment="Left" Margin="187,36,0,0" VerticalAlignment="Top" Width="61" SelectionChanged="ComboBox_SelectionChanged" Height="23" SelectedIndex="0"/>
                     <ComboBox x:Name="To_ChoiseDataUnitComboBox" HorizontalAlignment="Left" Margin="187,64,0,0" VerticalAlignment="Top" Width="61" SelectionChanged="ComboBox_SelectionChanged" Height="23" SelectedIndex="0"/>
-                    <Button x:Name="Data_Button" Content="Przelicz" HorizontalAlignment="Left" Margin="253,49,0,0" VerticalAlignment="Top" Width="75" Click="Data_Button_Click"/>
+                    <Button x:Name="Data_Button" Content="Przelicz" HorizontalAlignment="Left" Margin="253,49,0,0" VerticalAlignment="Top" Width="75"/>
                 </Grid>
             </TabItem>
             <TabItem x:Name="Time_Tab" Header="Czas" HorizontalAlignment="Left" Height="20" VerticalAlignment="Top" Width="52" Margin="-1,0,0,0">
@@ -109,7 +113,7 @@
                             </TransformGroup>
                         </Path.RenderTransform>
                     </Path>
-                    <Button x:Name="Time_Button" Content="Przelicz" HorizontalAlignment="Left" Margin="20,51,0,0" VerticalAlignment="Top" Width="76" Click="Time_Button_Click"/>
+                    <Button x:Name="Time_Button" Content="Przelicz" HorizontalAlignment="Left" Margin="20,51,0,0" VerticalAlignment="Top" Width="76"/>
                 </Grid>
             </TabItem>
             <TabItem x:Name="History_Tab" Header="Historia" HorizontalAlignment="Left" Height="20" VerticalAlignment="Top" Width="52" Margin="-1,0,0,0">

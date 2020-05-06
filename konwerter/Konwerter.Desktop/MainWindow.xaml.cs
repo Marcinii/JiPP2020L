@@ -13,7 +13,9 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Data.SqlClient;
+using Common.Controls;
 using konwerter;
+using UnitConverter.Desktop;
 
 namespace Konwerter.Desktop
 {
@@ -46,12 +48,41 @@ namespace Konwerter.Desktop
             From_ChoiseLenghUnitComboBox.ItemsSource = converters[2].Units;
             To_ChoiseLenghUnitComboBox.ItemsSource = converters[2].Units;
             From_ChoiseDataUnitComboBox.ItemsSource = converters[3].Units;
-            To_ChoiseDataUnitComboBox.ItemsSource = converters[3].Units;            
+            To_ChoiseDataUnitComboBox.ItemsSource = converters[3].Units;
+
+            using (var historia = new DataEntities())
+            {
+                var dane = historia.Rate_History.AsQueryable();
+                List<Rate_History> tmp = dane.OrderByDescending(LP => LP.IDRate).Take(1).ToList();
+                foreach(var a in tmp)
+                {
+                    RateControl.Wartosc_Oceny = a.RateValue;
+                }
+            }
+            TempConvertCommand = new RelayCommand(obj => Temp_Convert(), obj => string.IsNullOrEmpty(InputTempTextBox.Text)
+            != true && From_ChoiseTempUnitComboBox.SelectedItem != To_ChoiseTempUnitComboBox.SelectedValue);
+            Temp_Button.Command = TempConvertCommand;
+            
+            MassConvertCommand = new RelayCommand(obj => Mass_Convert(), obj => string.IsNullOrEmpty(InputMassTextBox.Text)
+            != true && From_ChoiseMassUnitComboBox.SelectedItem != To_ChoiseMassUnitComboBox.SelectedValue);
+            Mass_Button.Command = MassConvertCommand;
+            
+            LenghtConvertCommand = new RelayCommand(obj => Lenght_Convert(), obj => string.IsNullOrEmpty(InputLenghTextBox.Text)
+            != true && From_ChoiseLenghUnitComboBox.SelectedItem != To_ChoiseLenghUnitComboBox.SelectedValue);
+            Lenght_Button.Command = LenghtConvertCommand;
+
+            DataConvertCommand = new RelayCommand(obj => Data_Convert(), obj => string.IsNullOrEmpty(InputDataTextBox.Text)
+            != true && From_ChoiseDataUnitComboBox.SelectedItem != To_ChoiseDataUnitComboBox.SelectedValue);
+            Data_Button.Command = DataConvertCommand;
+
+            TimeConvertCommand = new RelayCommand(obj => Time_Convert(), obj => string.IsNullOrEmpty(InputTimeHourTextBox.Text)!= true 
+            && string.IsNullOrEmpty(InputTimeMinTextBox.Text) != true);
+            Time_Button.Command = TimeConvertCommand;
         }
 
         public static void DisplayDataUsingEF()
         {
-            using (HistoryDataEntities context = new HistoryDataEntities())
+            using (DataEntities context = new DataEntities())
             {
                 List<Konwert_History> history_conversion = context.Konwert_History.ToList();
 
@@ -65,8 +96,10 @@ namespace Konwerter.Desktop
         {           
            
         }
-        
-        private void Temp_Button_Click(object sender, RoutedEventArgs e)
+
+        private RelayCommand TempConvertCommand;
+
+        private void Temp_Convert()
         {
             string inputValueTemp = InputTempTextBox.Text;
             decimal value_Temp;
@@ -80,7 +113,7 @@ namespace Konwerter.Desktop
                 ResultTempTextBlock.Text = "Error";
                 MessageBox.Show("Podaj poprawną wartość liczbową");
             }
-            using (HistoryDataEntities context = new HistoryDataEntities())
+            using (DataEntities context = new DataEntities())
             {
                 Konwert_History rec = new Konwert_History()
                 {
@@ -94,7 +127,10 @@ namespace Konwerter.Desktop
                 context.SaveChanges();
             }
         }
-        private void Mass_Button_Click(object sender, RoutedEventArgs e)
+
+        private RelayCommand MassConvertCommand;
+        
+        private void Mass_Convert()
         {
             string inputValueMass = InputMassTextBox.Text;
             decimal value_Mass;
@@ -108,7 +144,7 @@ namespace Konwerter.Desktop
                 ResultMassTextBlock.Text = "Error";
                 MessageBox.Show("Podaj poprawną wartość liczbową");
             }
-            using (HistoryDataEntities context = new HistoryDataEntities())
+            using (DataEntities context = new DataEntities())
             {
                 Konwert_History rec = new Konwert_History()
                 {
@@ -123,7 +159,9 @@ namespace Konwerter.Desktop
             }
         }
 
-        private void Lenght_Button_Click(object sender, RoutedEventArgs e)
+        private RelayCommand LenghtConvertCommand;
+        
+        private void Lenght_Convert()
         {
             string inputValueLengh = InputLenghTextBox.Text;
             decimal value_Lengh;
@@ -137,7 +175,7 @@ namespace Konwerter.Desktop
                 ResultLenghTextBlock.Text = "Error";
                 MessageBox.Show("Podaj poprawną wartość liczbową");
             }
-            using (HistoryDataEntities context = new HistoryDataEntities())
+            using (DataEntities context = new DataEntities())
             {
                 Konwert_History rec = new Konwert_History()
                 {
@@ -152,7 +190,9 @@ namespace Konwerter.Desktop
             }
         }
 
-        private void Data_Button_Click(object sender, RoutedEventArgs e)
+        private RelayCommand DataConvertCommand;
+
+        private void Data_Convert()
         {
             string inputValueData = InputDataTextBox.Text;
             decimal value_Data;
@@ -166,7 +206,7 @@ namespace Konwerter.Desktop
                 ResultDataTextBlock.Text = "Error";
                 MessageBox.Show("Podaj poprawną wartość liczbową");
             }
-            using (HistoryDataEntities context = new HistoryDataEntities())
+            using (DataEntities context = new DataEntities())
             {
                 Konwert_History rec = new Konwert_History()
                 {
@@ -181,7 +221,9 @@ namespace Konwerter.Desktop
             }
         }
 
-        private void Time_Button_Click(object sender, RoutedEventArgs e)
+        private RelayCommand TimeConvertCommand;
+
+        private void Time_Convert()
         {
             string input_hour = InputTimeHourTextBox.Text;
             string input_min = InputTimeMinTextBox.Text;
@@ -240,7 +282,7 @@ namespace Konwerter.Desktop
         public void Daj_historie()
         {
             var biezaca = int.Parse(strona.Content.ToString());
-            using (var historia = new HistoryDataEntities())
+            using (var historia = new DataEntities())
             {
                 var dane = historia.Konwert_History.AsQueryable();
                 if (date_od.SelectedDate != null)
@@ -279,13 +321,31 @@ namespace Konwerter.Desktop
 
         private void Top_5_Click(object sender, RoutedEventArgs e)
         {
-            using (var dane = new HistoryDataEntities())
+            using (var dane = new DataEntities())
             {
                 var items = dane.Konwert_History.GroupBy(X => new { X.Jednostka_z, X.Wartosc_z, X.Jednostka_do, X.Wartosc_do });
                 var top5 = items.Select(x => new { ile = x.Count(), x.Key.Jednostka_z, x.Key.Jednostka_do, x.Key.Wartosc_z, x.Key.Wartosc_do})
                     .OrderByDescending(x => x.ile)
                     .Take(5);
                 History_Data_Grid.ItemsSource = top5.ToList();
+            }
+        }
+
+        private void RateControl_Loaded(object sender, RoutedEventArgs e)
+        {
+            
+        }
+
+        private void RateControl_Wartosc_Oceny_Changed_1(object sender, Common.Controls.RateEventArgs e)
+        {
+            using (DataEntities cont = new DataEntities())
+            {
+                Rate_History rec = new Rate_History()
+                {
+                    RateValue = e.Value
+                };
+                cont.Rate_History.Add(rec);
+                cont.SaveChanges();
             }
         }
     }

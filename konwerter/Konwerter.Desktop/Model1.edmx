@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="HistoryDataModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="DataModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Konwert_History">
           <Key>
             <PropertyRef Name="ID" />
@@ -16,13 +16,22 @@
           <Property Name="Wartosc_do" Type="decimal" Precision="18" Scale="5" Nullable="false" />
           <Property Name="Jednostka_do" Type="varchar" MaxLength="4" Nullable="false" />
         </EntityType>
-        <EntityContainer Name="HistoryDataModelStoreContainer">
+        <EntityType Name="Rate_History">
+          <Key>
+            <PropertyRef Name="IDRate" />
+          </Key>
+          <Property Name="IDRate" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RateValue" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="DataModelStoreContainer">
           <EntitySet Name="Konwert_History" EntityType="Self.Konwert_History" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Rate_History" EntityType="Self.Rate_History" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="HistoryDataModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="DataModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="Konwert_History">
           <Key>
             <PropertyRef Name="ID" />
@@ -34,24 +43,40 @@
           <Property Name="Wartosc_do" Type="Decimal" Precision="18" Scale="5" Nullable="false" />
           <Property Name="Jednostka_do" Type="String" MaxLength="4" FixedLength="false" Unicode="false" Nullable="false" />
         </EntityType>
-        <EntityContainer Name="HistoryDataEntities" annotation:LazyLoadingEnabled="true">
+        <EntityType Name="Rate_History">
+          <Key>
+            <PropertyRef Name="IDRate" />
+          </Key>
+          <Property Name="IDRate" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RateValue" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="DataEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Konwert_History" EntityType="Self.Konwert_History" />
+          <EntitySet Name="Rate_History" EntityType="Self.Rate_History" />
         </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="HistoryDataModelStoreContainer" CdmEntityContainer="HistoryDataEntities">
+        <EntityContainerMapping StorageEntityContainer="DataModelStoreContainer" CdmEntityContainer="DataEntities">
           <EntitySetMapping Name="Konwert_History">
-            <EntityTypeMapping TypeName="HistoryDataModel.Konwert_History">
+            <EntityTypeMapping TypeName="DataModel.Konwert_History">
               <MappingFragment StoreEntitySet="Konwert_History">
-                <ScalarProperty Name="Data" ColumnName="Data" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Data" ColumnName="Data" />
                 <ScalarProperty Name="Wartosc_z" ColumnName="Wartosc_z" />
                 <ScalarProperty Name="Jednostka_z" ColumnName="Jednostka_z" />
                 <ScalarProperty Name="Wartosc_do" ColumnName="Wartosc_do" />
                 <ScalarProperty Name="Jednostka_do" ColumnName="Jednostka_do" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Rate_History">
+            <EntityTypeMapping TypeName="DataModel.Rate_History">
+              <MappingFragment StoreEntitySet="Rate_History">
+                <ScalarProperty Name="IDRate" ColumnName="IDRate" />
+                <ScalarProperty Name="RateValue" ColumnName="RateValue" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
