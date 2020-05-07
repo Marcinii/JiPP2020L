@@ -152,6 +152,6 @@
         <Button x:Name="NastWyb" Content="Następne" Grid.Column="5" HorizontalAlignment="Left" Margin="5,270,0,0" Grid.Row="2" VerticalAlignment="Top" Width="75" RenderTransformOrigin="3,0.7" />
         <Button x:Name="PopWyb" Content="Poprzednie" Grid.Column="3" HorizontalAlignment="Left" Margin="20,270,0,0" Grid.Row="2" VerticalAlignment="Top" Width="75" RenderTransformOrigin="-0.413,0.6" />
         <Label Content="Oceń apkę" Grid.Column="6" HorizontalAlignment="Left" Margin="0,376,0,0" Grid.Row="2" VerticalAlignment="Top" Width="99" FontWeight="Bold" FontSize="14"/>
-        <commonControls:RateMe x:Name="rateControl" Grid.Column="5" Grid.ColumnSpan="3" Margin="10,410,51,10" Grid.Row="2" RateValueChanged="RateMe_RateValueChanged"/>
+        <commonControls:RateMe x:Name="rateControl" Grid.Column="5" Grid.ColumnSpan="3" Margin="10,410,51,10" Grid.Row="2" RateValueChanged="rateControl_RateValueChanged_1"/>
     </Grid>
 </Window>

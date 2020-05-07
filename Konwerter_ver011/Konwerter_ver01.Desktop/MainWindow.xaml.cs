@@ -23,7 +23,7 @@ namespace Konwerter_ver01.Desktop
     /// </summary>
     public partial class MainWindow : Window
     {
-
+        
         public int nrstrony { get; set; }
         public int stronaostatnia { get; set; }
         public MainWindow()
@@ -35,12 +35,15 @@ namespace Konwerter_ver01.Desktop
             //WybKonWyn.ItemsSource = new ZestawKonw().GetConverter();
             // WybKonBaza.ItemsSource = new ZestawKonw().GetConverter();
 
+            rateControl.RateValue = 5;
+
+            //rateControl.RateValueChanged += RateControl_RateValueChanged;
+
             using (RateDane context = new RateDane())
             {
-                List<RateDa> oc = context.RateDaWy.Where(f => f.IdRate == context.RateDaWy.Count()).ToList();
-                rateControl.RateValue = oc[1].RateValue;
+                List<RateDa> rate = context.RateDaWy.Where(f => f.IdRate == context.RateDaWy.Count()).ToList();
+                rateControl.RateValue = rate[0].RateValue;
             }
-
 
             Wykonajtemp_ClickCommand = new RelayCommand(obj => Wykonajtemp_Click(), obj => JednZ.SelectedItem != null && JednDo.SelectedItem != null && string.IsNullOrEmpty(Dane.Text) != true);
             Wykonajtemp.Command = Wykonajtemp_ClickCommand;
@@ -52,7 +55,7 @@ namespace Konwerter_ver01.Desktop
 
             PoprzedniaStrona_ClickCommand = new RelayCommand(obj => PoprzedniaStrona_Click(), obj => nrstrony > 0);
             PoprzedniaStrona.Command = PoprzedniaStrona_ClickCommand;
-            NastepnaStrona_ClickCommand = new RelayCommand(obj => NastepnaStrona_Click(), obj => nrstrony < stronaostatnia);
+            NastepnaStrona_ClickCommand = new RelayCommand(obj => NastepnaStrona_Click(), obj => nrstrony< stronaostatnia);
             NastepnaStrona.Command = NastepnaStrona_ClickCommand;
 
             PopWyb_ClickCommand = new RelayCommand(obj => PopWyb_Click(), obj => nrstrony > 0);
@@ -72,7 +75,11 @@ namespace Konwerter_ver01.Desktop
              JednDospe.ItemsSource = new Konwerter_ver01.ConSpe().Jedn;
              */
         }
-        
+
+        //private void RateControl_RateValueChanged(object sender, Common.Controls.RateMe.RateEventArgs e)
+        //{
+        //    throw new NotImplementedException();
+        //}
 
         private void WybKon_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -112,13 +119,13 @@ namespace Konwerter_ver01.Desktop
             }
 
         }
-        public static void RekordDoRate(int _rateValue)
+        public static void RateDoBD(int Value)
         {
             using (RateDane context = new RateDane())
             {
                 RateDa NowyRekord = new RateDa()
                 {
-                    RateValue = _rateValue
+                    RateValue = Value
                 };
                 context.RateDaWy.Add(NowyRekord);
                 context.SaveChanges();
@@ -192,13 +199,13 @@ namespace Konwerter_ver01.Desktop
         {
 
             using (KonwerterDane context = new KonwerterDane())
-            {
-                nrstrony = 0;
-                if (DateTime.TryParse(DataOd.Text, out DateTime dataod)) { } else dataod = new DateTime(2020, 04, 01);
-                if (DateTime.TryParse(DataDo.Text, out DateTime datado)) { datado = new DateTime(datado.Year, datado.Month, datado.Day, 23, 59, 59); } else datado = DateTime.Now;
-
-                List<KonwerterDa> konstat = context.KonwerterDaWy.Where(k => k.KonwerterCzas >= dataod).Where(k => k.KonwerterCzas <= datado).OrderBy(k => k.KonwerterCzas).Skip(nrstrony * 8).Take(8).ToList();
-                //List<KonwerterDa> konstat2 = context.KonwerterDaWy.Where(k => k.WybKon == (((IConverter)WybKon.SelectedItem).Name)).Where(k => k.KonwerterCzas >= dataod).Where(k => k.KonwerterCzas <= datado).OrderBy(k => k.KonwerterCzas).Skip(nrstrony * 8).Take(8).ToList();
+                {
+                    nrstrony = 0;
+                    if (DateTime.TryParse(DataOd.Text, out DateTime dataod)) { } else dataod = new DateTime(2020, 04, 01);
+                    if (DateTime.TryParse(DataDo.Text, out DateTime datado)) { datado = new DateTime(datado.Year, datado.Month, datado.Day, 23, 59, 59); } else datado = DateTime.Now;
+                    
+                    List<KonwerterDa> konstat = context.KonwerterDaWy.Where(k => k.KonwerterCzas >= dataod).Where(k => k.KonwerterCzas <= datado).OrderBy(k => k.KonwerterCzas).Skip(nrstrony * 8).Take(8).ToList();
+                    //List<KonwerterDa> konstat2 = context.KonwerterDaWy.Where(k => k.WybKon == (((IConverter)WybKon.SelectedItem).Name)).Where(k => k.KonwerterCzas >= dataod).Where(k => k.KonwerterCzas <= datado).OrderBy(k => k.KonwerterCzas).Skip(nrstrony * 8).Take(8).ToList();
 
                 Statystyki.ItemsSource = konstat;
 
@@ -291,11 +298,10 @@ namespace Konwerter_ver01.Desktop
             }
         }
 
-        private void RateMe_RateValueChanged(object sender, Common.Controls.RateMe.RateEventArgs e)
+        private void rateControl_RateValueChanged_1(object sender, Common.Controls.RateMe.RateEventArgs e)
         {
-            RekordDoRate(e.Value);
+            RateDoBD(e.Value);
         }
     }
-    
 }
 
