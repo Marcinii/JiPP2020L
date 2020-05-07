@@ -39,7 +39,13 @@ namespace WpfApp1
             Tarcza_Zegara.Visibility = Visibility.Hidden;
             Wskazowka_Godzinowa.Visibility = Visibility.Hidden;
             Wskazowka_Minutowa.Visibility = Visibility.Hidden;
+
+            //komendy
+            KonwertujCommand = new RelayCommand(obj => Konwertuj());
+            button_konwertuj.Command = KonwertujCommand;
         }
+        //komendy
+        public RelayCommand KonwertujCommand;
 
         private void Combobox_konwertery_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -62,8 +68,8 @@ namespace WpfApp1
         }
 
 
-
-        private void Button_konwertuj_Click(object sender, RoutedEventArgs e)
+        //komendy
+        private void Konwertuj()
         {
             
             if (!double.TryParse(textbox_wpisz_wartosc.Text, out double wpisanaWartoscDouble) &&

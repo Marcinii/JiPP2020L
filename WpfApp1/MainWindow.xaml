@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp1"
+        xmlns:commonControls="clr-namespace:Common.Controls;assembly=Common.Controls"
         mc:Ignorable="d"
         Title="MainWindow" Height="300" Width="650">
     <Window.Resources>
@@ -39,14 +40,14 @@
         </Grid.ColumnDefinitions>
 
         <TextBlock x:Name="textblock_wybierz_konwerter" Margin="10,10,9.8,0" VerticalAlignment="Top" Text="1. wybierz konwerter" Height="16" Background="#FF120617" Foreground="#FF189339"/>
-        <ComboBox x:Name="combobox_konwertery" Margin="10,35,9.8,0" VerticalAlignment="Top" Height="22" SelectionChanged="Combobox_konwertery_SelectionChanged" BorderBrush="#FF158237" Background="#FF120617" Foreground="#FF120617"/>
+        <ComboBox x:Name="combobox_konwertery" Margin="10,35,9.8,0" VerticalAlignment="Top" Height="22" SelectionChanged="Combobox_konwertery_SelectionChanged" BorderBrush="#FF158237" Background="#FF158237" Foreground="#FF158237" OpacityMask="#FF158237"/>
         <TextBlock x:Name="konwersja_z_textblock" Grid.Column="1" Margin="10.2,10,9.6,0" Text="2. konwersja z:" VerticalAlignment="Top" Height="16" Foreground="#FF189339" />
-        <ComboBox x:Name="combobox_jednostki_z" Grid.Column="1" Margin="10.2,35,9.6,0" VerticalAlignment="Top" Height="22" />
+        <ComboBox x:Name="combobox_jednostki_z" Grid.Column="1" Margin="10.2,35,9.6,0" VerticalAlignment="Top" Height="22" BorderBrush="#FF158237" Foreground="#FF158237" Background="#FF158237" OpacityMask="#FF158237" />
         <TextBlock x:Name="textblock_wpisz_wartosc" Grid.Column="1" Margin="10.2,70,9.6,0" Text="3. wpisz wartosc" VerticalAlignment="Top" Height="16" Foreground="#FF189339" />
-        <TextBox x:Name="textbox_wpisz_wartosc" Grid.Column="1" Height="23" Margin="10.2,100,9.6,0" VerticalAlignment="Top" />
+        <TextBox x:Name="textbox_wpisz_wartosc" Grid.Column="1" Height="23" Margin="10.2,100,9.6,0" VerticalAlignment="Top" Background="#FF270F31" BorderBrush="#FF158237" Foreground="#FF158237" />
         <TextBlock x:Name="textblock_konwersja_na" Grid.Column="2" Margin="10.4,10,10.4,0" Text="4. konwersja na:" VerticalAlignment="Top" Height="16" Foreground="#FF189339" />
-        <ComboBox x:Name="combobox_jednostki_do" Grid.Column="2" Margin="10.4,35,10.4,0" VerticalAlignment="Top" Height="22" />
-        <Button x:Name="button_konwertuj" Grid.Column="3" Content="Konwertuj" Margin="10,35,10,10" VerticalAlignment="Top" Height="19" Click="Button_konwertuj_Click" BorderBrush="#FF158237" Background="#FF270F31" Foreground="#FF179335" />
+        <ComboBox x:Name="combobox_jednostki_do" Grid.Column="2" Margin="10.4,35,10.4,0" VerticalAlignment="Top" Height="22" Background="#FF158237" BorderBrush="#FF158237" Foreground="#FF158237" OpacityMask="#FF158237" />
+        <Button x:Name="button_konwertuj" Grid.Column="3" Content="Konwertuj" Margin="10,35,10,10" VerticalAlignment="Top" Height="19" BorderBrush="#FF158237" Background="#FF270F31" Foreground="#FF179335" />
         <TextBox x:Name="textbox_wynik" Grid.Column="3" Height="23" Margin="9.6,70,10.2,0" Text="wynik" VerticalAlignment="Top" Background="#FF270F31" BorderBrush="#FF0C0110" Foreground="#FF18862B" />
         <Path x:Name="Tarcza_Zegara" Grid.Column="3" HorizontalAlignment="Left" Grid.Row="1" VerticalAlignment="Top" Data="M55.901502,6.5149998 C28.626641,6.5149999 6.5159998,28.625641 6.5159996,55.900502 6.5159998,83.175362 28.626641,105.286 55.901502,105.286 83.176362,105.286 105.287,83.175362 105.287,55.900502 105.287,28.625641 83.176362,6.5149999 55.901502,6.5149998 z M55.901502,0 C86.775048,0 111.803,25.02773 111.803,55.901001 111.803,86.77427 86.775048,111.802 55.901502,111.802 25.027953,111.802 0,86.77427 0,55.901001 0,25.02773 25.027953,0 55.901502,0 z" Height="111.802" Margin="35.411,16.516,0,0" Stretch="Fill" Width="111.803" Fill="#FF42B90C"/>
         <Ellipse x:Name="Wskazowka_Godzinowa" Grid.Column="3" Fill="#FFB90C0C" HorizontalAlignment="Left" Height="6.557" Margin="60.206,68.113,0,0" Grid.Row="1" VerticalAlignment="Top" Width="33.607" RenderTransformOrigin="1,0.5">
@@ -69,6 +70,9 @@
                 </TransformGroup>
             </Ellipse.RenderTransform>
         </Ellipse>
+        <TextBlock x:Name="textblock_ocen" HorizontalAlignment="Left" Height="30" Margin="62,94.8,0,0" TextWrapping="Wrap" Text="Oceń aplikację:" VerticalAlignment="Top" Width="88" Foreground="#FF169333" Grid.Row="1"/>
+        <commonControls:RateMe x:Name="button_ocen" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="20.2,93.8,0,0" Grid.Row="1" VerticalAlignment="Top" Width="121"/>
+
 
 
 
