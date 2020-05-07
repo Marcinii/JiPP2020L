@@ -50,23 +50,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Model17.Context.cs">
+    <Compile Include="ModelBazodanowy12.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Model17.Context.tt</DependentUpon>
+      <DependentUpon>ModelBazodanowy12.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model17.cs">
+    <Compile Include="ModelBazodanowy12.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Model17.tt</DependentUpon>
+      <DependentUpon>ModelBazodanowy12.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model17.Designer.cs">
+    <Compile Include="ModelBazodanowy12.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Model17.edmx</DependentUpon>
+      <DependentUpon>ModelBazodanowy12.edmx</DependentUpon>
     </Compile>
     <Compile Include="TabelaKonwerter.cs">
-      <DependentUpon>Model17.tt</DependentUpon>
+      <DependentUpon>ModelBazodanowy12.tt</DependentUpon>
     </Compile>
     <Compile Include="WtyczkaBazaDanych.cs" />
     <Compile Include="Czas_class.cs" />
@@ -80,12 +80,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.Config" />
-    <EntityDeploy Include="Model17.edmx">
+    <EntityDeploy Include="ModelBazodanowy12.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Model17.Designer.cs</LastGenOutput>
+      <LastGenOutput>ModelBazodanowy12.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="Model17.edmx.diagram">
-      <DependentUpon>Model17.edmx</DependentUpon>
+    <None Include="ModelBazodanowy12.edmx.diagram">
+      <DependentUpon>ModelBazodanowy12.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
   </ItemGroup>
@@ -93,15 +93,15 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Model17.Context.tt">
+    <Content Include="ModelBazodanowy12.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Model17.edmx</DependentUpon>
-      <LastGenOutput>Model17.Context.cs</LastGenOutput>
+      <DependentUpon>ModelBazodanowy12.edmx</DependentUpon>
+      <LastGenOutput>ModelBazodanowy12.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Model17.tt">
+    <Content Include="ModelBazodanowy12.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Model17.edmx</DependentUpon>
-      <LastGenOutput>Model17.cs</LastGenOutput>
+      <DependentUpon>ModelBazodanowy12.edmx</DependentUpon>
+      <LastGenOutput>ModelBazodanowy12.cs</LastGenOutput>
     </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -9,7 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KonwerterJednostek2.Logic",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KonwerterJednostek.Desktop", "KonwerterJednostek.Desktop\KonwerterJednostek.Desktop.csproj", "{65D7EC61-EE7D-4F73-AD42-D75C911DBCAB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OcenaApki2", "OcenaApki2\OcenaApki2.csproj", "{6D8EEAD3-2134-47FA-ABF4-8437E7DD8BB3}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common.Controls", "Common.Controls\Common.Controls.csproj", "{6F5D71AB-2173-4A36-ABF4-37DD4A5F6B5E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,10 +29,10 @@ Global
 		{65D7EC61-EE7D-4F73-AD42-D75C911DBCAB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{65D7EC61-EE7D-4F73-AD42-D75C911DBCAB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{65D7EC61-EE7D-4F73-AD42-D75C911DBCAB}.Release|Any CPU.Build.0 = Release|Any CPU
-		{6D8EEAD3-2134-47FA-ABF4-8437E7DD8BB3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{6D8EEAD3-2134-47FA-ABF4-8437E7DD8BB3}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{6D8EEAD3-2134-47FA-ABF4-8437E7DD8BB3}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{6D8EEAD3-2134-47FA-ABF4-8437E7DD8BB3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6F5D71AB-2173-4A36-ABF4-37DD4A5F6B5E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6F5D71AB-2173-4A36-ABF4-37DD4A5F6B5E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6F5D71AB-2173-4A36-ABF4-37DD4A5F6B5E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6F5D71AB-2173-4A36-ABF4-37DD4A5F6B5E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

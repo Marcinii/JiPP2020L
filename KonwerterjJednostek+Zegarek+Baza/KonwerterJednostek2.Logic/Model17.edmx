@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="BazaDanychKonwerterModel12.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="BazaDanychKonwerterModel17.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="TabelaKonwerter">
           <Key>
             <PropertyRef Name="ID" />
@@ -16,15 +16,21 @@
           <Property Name="Data" Type="datetime" />
           <Property Name="Liczba_IN" Type="varchar" MaxLength="64" />
           <Property Name="Liczba_OUT" Type="varchar" MaxLength="64" />
+          <Property Name="Ocena" Type="int" />
         </EntityType>
-        <EntityContainer Name="BazaDanychKonwerterModel12StoreContainer">
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'BazaDanychKonwerter.dbo.Table_OstatniaWartosc' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="Table_OstatniaWartosc">
+          <Property Name="OstaniaWartosc" Type="int" />
+        </EntityType>-->
+        <EntityContainer Name="BazaDanychKonwerterModel17StoreContainer">
           <EntitySet Name="TabelaKonwerter" EntityType="Self.TabelaKonwerter" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
       </Schema>
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="BazaDanychKonwerterModel12" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="BazaDanychKonwerterModel17" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="TabelaKonwerter">
           <Key>
             <PropertyRef Name="ID" />
@@ -36,8 +42,9 @@
           <Property Name="Data" Type="DateTime" Precision="3" />
           <Property Name="Liczba_IN" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
           <Property Name="Liczba_OUT" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+          <Property Name="Ocena" Type="Int32" />
         </EntityType>
-        <EntityContainer Name="BazaDanychKonwerterEntities12" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="BazaDanychKonwerterEntities17" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="TabelaKonwerter" EntityType="Self.TabelaKonwerter" />
         </EntityContainer>
       </Schema>
@@ -45,9 +52,9 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="BazaDanychKonwerterModel12StoreContainer" CdmEntityContainer="BazaDanychKonwerterEntities12">
+        <EntityContainerMapping StorageEntityContainer="BazaDanychKonwerterModel17StoreContainer" CdmEntityContainer="BazaDanychKonwerterEntities17">
           <EntitySetMapping Name="TabelaKonwerter">
-            <EntityTypeMapping TypeName="BazaDanychKonwerterModel12.TabelaKonwerter">
+            <EntityTypeMapping TypeName="BazaDanychKonwerterModel17.TabelaKonwerter">
               <MappingFragment StoreEntitySet="TabelaKonwerter">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="RodzajKonwertera" ColumnName="RodzajKonwertera" />
@@ -56,6 +63,7 @@
                 <ScalarProperty Name="Data" ColumnName="Data" />
                 <ScalarProperty Name="Liczba_IN" ColumnName="Liczba_IN" />
                 <ScalarProperty Name="Liczba_OUT" ColumnName="Liczba_OUT" />
+                <ScalarProperty Name="Ocena" ColumnName="Ocena" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

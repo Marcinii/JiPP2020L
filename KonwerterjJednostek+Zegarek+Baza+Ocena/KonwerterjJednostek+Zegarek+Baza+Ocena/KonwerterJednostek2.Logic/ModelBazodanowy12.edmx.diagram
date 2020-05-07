@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="908f1a2e3cf24f11a534dbb8a75e90f9" Name="Diagram1">
+      <Diagram DiagramId="7c988464f1ab4ca1acdeadb52b942634" Name="Diagram1">
         <EntityTypeShape EntityType="BazaDanychKonwerterModel12.TabelaKonwerter" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
       </Diagram>
     </edmx:Diagrams>

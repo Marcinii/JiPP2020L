@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="BazaDanychKonwerterModel15.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="TabelaKonwerter">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RodzajKonwertera" Type="varchar" MaxLength="64" />
+          <Property Name="Jednostka_IN" Type="varchar" MaxLength="64" />
+          <Property Name="Jednostka_OUT" Type="varchar" MaxLength="64" />
+          <Property Name="Data" Type="datetime" />
+          <Property Name="Liczba_IN" Type="varchar" MaxLength="64" />
+          <Property Name="Liczba_OUT" Type="varchar" MaxLength="64" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'BazaDanychKonwerter.dbo.Table_OstatniaWartosc' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="Table_OstatniaWartosc">
+          <Property Name="OstaniaWartosc" Type="int" />
+        </EntityType>-->
+        <EntityContainer Name="BazaDanychKonwerterModel15StoreContainer">
+          <EntitySet Name="TabelaKonwerter" EntityType="Self.TabelaKonwerter" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="BazaDanychKonwerterModel15" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="TabelaKonwerter">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RodzajKonwertera" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+          <Property Name="Jednostka_IN" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+          <Property Name="Jednostka_OUT" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+          <Property Name="Data" Type="DateTime" Precision="3" />
+          <Property Name="Liczba_IN" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+          <Property Name="Liczba_OUT" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityContainer Name="BazaDanychKonwerterEntities15" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="TabelaKonwerter" EntityType="Self.TabelaKonwerter" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="BazaDanychKonwerterModel15StoreContainer" CdmEntityContainer="BazaDanychKonwerterEntities15">
+          <EntitySetMapping Name="TabelaKonwerter">
+            <EntityTypeMapping TypeName="BazaDanychKonwerterModel15.TabelaKonwerter">
+              <MappingFragment StoreEntitySet="TabelaKonwerter">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="RodzajKonwertera" ColumnName="RodzajKonwertera" />
+                <ScalarProperty Name="Jednostka_IN" ColumnName="Jednostka_IN" />
+                <ScalarProperty Name="Jednostka_OUT" ColumnName="Jednostka_OUT" />
+                <ScalarProperty Name="Data" ColumnName="Data" />
+                <ScalarProperty Name="Liczba_IN" ColumnName="Liczba_IN" />
+                <ScalarProperty Name="Liczba_OUT" ColumnName="Liczba_OUT" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

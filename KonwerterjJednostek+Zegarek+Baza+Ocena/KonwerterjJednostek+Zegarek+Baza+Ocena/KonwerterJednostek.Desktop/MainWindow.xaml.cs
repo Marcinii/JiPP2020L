@@ -19,7 +19,6 @@ using KonwerterJednostek2.Logic;
 
 
 
-
 namespace KonwerterJednostek.Desktop
 {
     /// <summary>
@@ -47,7 +46,7 @@ namespace KonwerterJednostek.Desktop
 
         public static void WyswietlDaneEF(DataGrid DataGridStatystyka, int Strona)
         {
-            using (BazaDanychKonwerterEntities17 context = new BazaDanychKonwerterEntities17())
+            using (BazaDanychKonwerterEntities12 context = new BazaDanychKonwerterEntities12())
             {              
                 List<TabelaKonwerter> TabelaKonwerters = context.TabelaKonwerter
                     .OrderBy(T => T.ID)
@@ -60,7 +59,7 @@ namespace KonwerterJednostek.Desktop
 
         public static void WyswietlDaneEF_TOP3(DataGrid DataGridStatystyka_TOP3, int Strona)
         {
-            using (BazaDanychKonwerterEntities17 context = new BazaDanychKonwerterEntities17())
+            using (BazaDanychKonwerterEntities12 context = new BazaDanychKonwerterEntities12())
             {
                 List<TabelaKonwerter> stats = context.TabelaKonwerter
                     .OrderBy(T => T.ID)
@@ -87,7 +86,7 @@ namespace KonwerterJednostek.Desktop
 
         public static void WyswietlDaneEF_Filtr(DataGrid DataGridStatystyka, int Strona, string RodzajKonwertersji, DateTime DataOd, DateTime DataDo)
         {
-            using (BazaDanychKonwerterEntities17 context = new BazaDanychKonwerterEntities17())
+            using (BazaDanychKonwerterEntities12 context = new BazaDanychKonwerterEntities12())
             {
                 List<TabelaKonwerter> TabelaKonwerters = context.TabelaKonwerter
                     .Where(T => T.Data >= DataOd && T.Data < DataDo && T.RodzajKonwertera.StartsWith(RodzajKonwertersji))
@@ -101,7 +100,7 @@ namespace KonwerterJednostek.Desktop
 
         public static void WyswietlDaneEF_Filtr_TOP3(DataGrid DataGridStatystyka_TOP3, int Strona, string RodzajKonwertersji, DateTime DataOd, DateTime DataDo)
         {
-            using (BazaDanychKonwerterEntities17 context = new BazaDanychKonwerterEntities17())
+            using (BazaDanychKonwerterEntities12 context = new BazaDanychKonwerterEntities12())
             {
                 List<TabelaKonwerter> stats = context.TabelaKonwerter
                     .Where(T => T.Data >= DataOd && T.Data < DataDo && T.RodzajKonwertera.StartsWith(RodzajKonwertersji))

@@ -4,16 +4,17 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{F9532C2A-B3BA-4F72-8F38-8D48FF008C0F}</ProjectGuid>
-    <OutputType>Library</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>KonwerterJednostek2.Logic</RootNamespace>
-    <AssemblyName>KonwerterJednostek2.Logic</AssemblyName>
+    <ProjectGuid>{FDF6398E-57C5-40B6-AEEB-DE27CB6F2BB5}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>KonwerterjJednostek2</RootNamespace>
+    <AssemblyName>KonwerterjJednostek2</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -23,6 +24,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -50,59 +52,21 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Model17.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Model17.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model17.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Model17.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model17.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Model17.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="TabelaKonwerter.cs">
-      <DependentUpon>Model17.tt</DependentUpon>
-    </Compile>
-    <Compile Include="WtyczkaBazaDanych.cs" />
-    <Compile Include="Czas_class.cs" />
-    <Compile Include="Format_12_24_class.cs" />
-    <Compile Include="Interface1.cs" />
-    <Compile Include="KonwerterSerwis.cs" />
-    <Compile Include="Masa_class.cs" />
-    <Compile Include="Odleglosc_class.cs" />
+    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Temperatura_class.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.Config" />
-    <EntityDeploy Include="Model17.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Model17.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <None Include="Model17.edmx.diagram">
-      <DependentUpon>Model17.edmx</DependentUpon>
-    </None>
+    <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+    <ProjectReference Include="..\KonwerterJednostek2.Logic\KonwerterJednostek2.Logic.csproj">
+      <Project>{f9532c2a-b3ba-4f72-8f38-8d48ff008c0f}</Project>
+      <Name>KonwerterJednostek2.Logic</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Model17.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Model17.edmx</DependentUpon>
-      <LastGenOutput>Model17.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="Model17.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Model17.edmx</DependentUpon>
-      <LastGenOutput>Model17.cs</LastGenOutput>
-    </Content>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -4,7 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:KonwerterJednostek.Desktop"
-        xmlns:OcenaApki2="clr-namespace:OcenaApki2;assembly=OcenaApki2"
+        xmlns:CommonControls="clr-namespace:Common.Controls;assembly=Common.Controls"
         mc:Ignorable="d"
         Title="MainWindow" Height="808.6" Width="787.6">
     <Window.Resources>
@@ -50,14 +50,11 @@
         <Label Margin ="5,0,5,0" Grid.Row="3" Grid.Column = "0">Wybierz rodzaj miary do konwersji</Label>
         <Label Margin ="5,0,5,0" Grid.Row="4" Grid.Column = "0">Wybierz jednostkę bazową</Label>
         <Label Margin ="5,0,5,0" Grid.Row="5" Grid.Column = "0">Wybierz jednostkę docelową</Label>
-        <Label Margin ="155,0.2,0.4,-0.8" Grid.Row="7" Grid.ColumnSpan="2">Wynik</Label>
-        <Label Margin ="113,32.2,42.4,-32.8" Grid.Row="7" Grid.ColumnSpan="2">Ocena aplikacji</Label>
+        <Label Margin ="155,5.2,0.4,-5.8" Grid.Row="7" Grid.ColumnSpan="2">Wynik</Label>
         <Label x:Name="uwaga_format" Margin ="5,0,5,0" Grid.Row="2" Grid.Column = "1" Visibility="Hidden">Format czasu 12/24: GG:MM</Label>
 
         <TextBox x:Name="textbox_input" Margin ="5,0,5,0" Grid.Row="1" Grid.Column = "1" Background="#FFF0D264" >10</TextBox>
-        <TextBox x:Name="textbox_wynik" Margin ="205,0.2,0.4,-0.8" Grid.Row="7" Background="#FF64A0F0" Grid.ColumnSpan="2" />
-
-        <OcenaApki2:Rate Margin="205,30.2,0.4,-32.8" Grid.Row="7" Grid.ColumnSpan="2"/>
+        <TextBox x:Name="textbox_wynik" Margin ="205,5.2,0.4,-5.8" Grid.Row="7" Background="#FF64A0F0" Grid.ColumnSpan="2" />
 
         <TextBox x:Name="textbox_numer_strony" Margin ="60.2,384.2,85,-375.8" Grid.Row="7" Background="#FF2F3DAB" Grid.Column="3" Foreground="White" />
 
@@ -68,7 +65,8 @@
                 </DataTemplate>
             </ComboBox.ItemTemplate>
         </ComboBox>
-
+        <Label Grid.ColumnSpan="2" Margin="109,40.2,96.4,-39.8" Grid.Row="7">Oceń aplikację</Label>
+        <CommonControls:RateMe Grid.ColumnSpan="2" Margin="205,39.2,0.4,-38.8" Grid.Row="7"></CommonControls:RateMe>
         <ComboBox x:Name="combobox_Filtr_Rodzaj_konwersji"  Grid.Row="7" Background="#FF2F3DAB" Margin="46,75.2,16.2,-70.8" BorderBrush="#FF9B4E4E" Foreground="#FFD99090" SelectionChanged="combobox_Filtr_Rodzaj_konwersji_SelectionChanged">
             <ComboBox.ItemTemplate>
                 <DataTemplate>

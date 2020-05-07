@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model 'C:\Users\TCHOR\Dropbox\WWSI\2 rok\4 semestr\JiPP\Lab4\KonwerterjJednostek+Zegarek\KonwerterJednostek2.Logic\ModelBazodanowy12.edmx'. 
+﻿// T4 code generation is enabled for model 'C:\Users\TCHOR\Source\Repos\JiPP2020L\KonwerterjJednostek+Zegarek+Baza\KonwerterJednostek2.Logic\ModelOcena.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.

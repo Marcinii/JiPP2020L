@@ -105,13 +105,13 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Common.Controls\Common.Controls.csproj">
+      <Project>{6f5d71ab-2173-4a36-abf4-37dd4a5f6b5e}</Project>
+      <Name>Common.Controls</Name>
+    </ProjectReference>
     <ProjectReference Include="..\KonwerterJednostek2.Logic\KonwerterJednostek2.Logic.csproj">
       <Project>{f9532c2a-b3ba-4f72-8f38-8d48ff008c0f}</Project>
       <Name>KonwerterJednostek2.Logic</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\OcenaApki2\OcenaApki2.csproj">
-      <Project>{6d8eead3-2134-47fa-abf4-8437e7dd8bb3}</Project>
-      <Name>OcenaApki2</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
