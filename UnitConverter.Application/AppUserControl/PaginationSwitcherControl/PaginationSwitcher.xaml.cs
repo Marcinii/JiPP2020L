@@ -1,5 +1,6 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
+using UnitConverter.Application.Command;
 using UnitConverter.Library.TypeUtil.Number;
 
 namespace UnitConverter.Application.AppUserControl.PaginationSwitcherControl
@@ -21,14 +22,10 @@ namespace UnitConverter.Application.AppUserControl.PaginationSwitcherControl
 
         public CustomInteger currentPage
         {
-            get { return (CustomInteger)GetValue(currentPageProperty); }
+            get => (CustomInteger)GetValue(currentPageProperty);
             set {
-                this.firstPageButton.IsEnabled = value > 1;
-                this.previousPageButton.IsEnabled = value > 1;
-                this.lastPageButton.IsEnabled = value < this.pages;
-                this.nextPageButton.IsEnabled = value < this.pages;
-
                 SetValue(currentPageProperty, value);
+                this.onChange?.Invoke(this, new PaginationSwitcherEventArgs(value));
             }
         }
         
@@ -58,12 +55,23 @@ namespace UnitConverter.Application.AppUserControl.PaginationSwitcherControl
         {
             InitializeComponent();
 
-            this.firstPageButton.IsEnabled = currentPage != 1;
-            this.previousPageButton.IsEnabled = currentPage != 1;
-            this.lastPageButton.IsEnabled = currentPage != this.pages;
-            this.nextPageButton.IsEnabled = currentPage != this.pages;
-
             this.DataContext = this;
+
+            this.firstPageButton.Command = new ButtonCommand(
+                x => reset(), x => currentPage > 1
+            );
+
+            this.previousPageButton.Command = new ButtonCommand(
+                x => previousPage(), x => currentPage > 1
+            );
+
+            this.nextPageButton.Command = new ButtonCommand(
+                x => nextPage(), x => currentPage < this.pages
+            );
+
+            this.lastPageButton.Command = new ButtonCommand(
+                x => lastPage(), x => currentPage < this.pages
+            );
         }
 
 
@@ -71,24 +79,7 @@ namespace UnitConverter.Application.AppUserControl.PaginationSwitcherControl
         /// <summary>
         /// Metoda ma za zadanie restartować numer strony
         /// </summary>
-        public void reset()
-        {
-            this.currentPage = 1;
-            this.onChange?.Invoke(this, new PaginationSwitcherEventArgs(this.currentPage));
-        }
-
-
-
-        /// <summary>
-        /// Metoda, która ma za zadanie zmienić numer strony na pierwszą stronę
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void firstPageButton_Click(object sender, RoutedEventArgs e)
-        {
-            this.currentPage = 1;
-            this.onChange?.Invoke(this, new PaginationSwitcherEventArgs(this.currentPage));
-        }
+        public void reset() => this.currentPage = 1;
 
 
 
@@ -97,11 +88,7 @@ namespace UnitConverter.Application.AppUserControl.PaginationSwitcherControl
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void previousPageButton_Click(object sender, RoutedEventArgs e)
-        {
-            currentPage--;
-            this.onChange?.Invoke(this, new PaginationSwitcherEventArgs(this.currentPage));
-        }
+        private void previousPage() => currentPage--;
 
 
 
@@ -110,11 +97,7 @@ namespace UnitConverter.Application.AppUserControl.PaginationSwitcherControl
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void nextPageButton_Click(object sender, RoutedEventArgs e)
-        {
-            currentPage++;
-            this.onChange?.Invoke(this, new PaginationSwitcherEventArgs(this.currentPage));
-        }
+        private void nextPage() => currentPage++;
 
 
 
@@ -123,10 +106,6 @@ namespace UnitConverter.Application.AppUserControl.PaginationSwitcherControl
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void lastPageButton_Click(object sender, RoutedEventArgs e)
-        {
-            this.currentPage = this.pages;
-            this.onChange?.Invoke(this, new PaginationSwitcherEventArgs(this.currentPage));
-        }
+        private void lastPage() => this.currentPage = this.pages;
     }
 }

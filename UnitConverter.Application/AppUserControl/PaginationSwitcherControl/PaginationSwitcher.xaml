@@ -23,12 +23,12 @@
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
 
-        <Button x:Name="firstPageButton" Grid.Column="0" Content="&lt;&lt;" Click="firstPageButton_Click" />
-        <Button x:Name="previousPageButton" Grid.Column="1" Content="&lt;" Click="previousPageButton_Click" />
+        <Button x:Name="firstPageButton" Grid.Column="0" Content="&lt;&lt;"/>
+        <Button x:Name="previousPageButton" Grid.Column="1" Content="&lt;" />
         <Label x:Name="currentPageLabel" Grid.Column="2" Content="{Binding currentPage, FallbackValue=1}" FontSize="16" 
                                      VerticalContentAlignment="Center" HorizontalContentAlignment="Center"
                                      Height="40"/>
-        <Button x:Name="nextPageButton" Grid.Column="3" Content="&gt;" Click="nextPageButton_Click" />
-        <Button x:Name="lastPageButton" Grid.Column="4" Content="&gt;&gt;" Click="lastPageButton_Click" />
+        <Button x:Name="nextPageButton" Grid.Column="3" Content="&gt;" />
+        <Button x:Name="lastPageButton" Grid.Column="4" Content="&gt;&gt;" />
     </Grid>
 </UserControl>

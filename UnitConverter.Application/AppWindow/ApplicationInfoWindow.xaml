@@ -58,7 +58,7 @@
                 <ColumnDefinition />
             </Grid.ColumnDefinitions>
 
-            <Button x:Name="applicationInfoCloseButton" Grid.Column="1" Margin="20,10" Click="applicationInfoCloseButton_Click">OK</Button>
+            <Button x:Name="applicationInfoCloseButton" Grid.Column="1" Margin="20,10" Content="OK" />
         </Grid>
     </Grid>
 </Window>

@@ -1,4 +1,5 @@
 ﻿using System.Windows;
+using UnitConverter.Application.Command;
 
 namespace UnitConverter.Application.AppWindow
 {
@@ -10,15 +11,10 @@ namespace UnitConverter.Application.AppWindow
         public ApplicationInfoWindow()
         {
             InitializeComponent();
+
+            this.applicationInfoCloseButton.Command = new ButtonCommand(
+                x => this.Close()
+            );
         }
-
-
-
-        /// <summary>
-        /// Metoda, która zamyka okno (nie zamykając całej aplikacji)
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void applicationInfoCloseButton_Click(object sender, RoutedEventArgs e) => this.Close();
     }
 }

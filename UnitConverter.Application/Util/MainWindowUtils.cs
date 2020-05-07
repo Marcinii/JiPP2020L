@@ -32,8 +32,6 @@ namespace UnitConverter.Application.Util
             mainWindow.fromUnitListBox.IsEnabled = false;
             mainWindow.toUnitListBox.IsEnabled = false;
 
-            mainWindow.swapButton.IsEnabled = false;
-
             mainWindow.commaDigitCountComboBox.IsEnabled = false;
 
             mainWindow.convertedValueGrid.Visibility = Visibility.Hidden;

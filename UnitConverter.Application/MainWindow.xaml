@@ -38,6 +38,8 @@
                 <MenuItem x:Name="closeApplicationMenuItem" Header="Zamknij" Click="closeApplicationMenuItem_Click" />
             </MenuItem>
             <MenuItem Header="Pomoc">
+                <MenuItem x:Name="displayRatingWindowMenuItem" Header="Oceń aplikację" Click="displayRatingWindowMenuItem_Click" />
+                <Separator />
                 <MenuItem x:Name="displayApplicationInfoMenuItem" Header="Informacje o programie" Click="displayApplicationInfoMenuItem_Click" />
             </MenuItem>
         </Menu>
@@ -209,8 +211,7 @@
 
                 <Button x:Name="swapButton" Grid.Row="1" Grid.Column="1" 
                     HorizontalAlignment="Center" VerticalAlignment="Center" 
-                    Width="30" Height="30" Padding="5" Cursor="Hand"
-                    Click="swapButton_Click">
+                    Width="30" Height="30" Padding="5" Cursor="Hand">
                     <Image Source="img/swap.png" IsEnabled="False" />
                 </Button>
 

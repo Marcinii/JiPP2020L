@@ -14,6 +14,7 @@ using UnitConverter.Library.TypeUtil.DateTimeType;
 using UnitConverter.Library.TypeUtil.Number;
 using UnitConverter.Application.AppWindow;
 using UnitConverter.Application.Util;
+using UnitConverter.Application.Command;
 
 namespace UnitConverter.Application
 {
@@ -85,6 +86,11 @@ namespace UnitConverter.Application
 
             this.operationRepository.selectOperation(1);
             this.selectedOperation = this.operationRepository.getSelectedOperation();
+
+            this.swapButton.Command = new ButtonCommand(
+                x => swap(), 
+                x => this.toUnitListBox.SelectedItem != null
+            );
         }
 
 
@@ -174,7 +180,6 @@ namespace UnitConverter.Application
             if (toConversion.isOptionSelected())
             {
                 this.providedValueTextBox.IsEnabled = true;
-                this.swapButton.IsEnabled = true;
 
                 this.mainWindowUtils.updateConvertedLabel();
 
@@ -245,12 +250,11 @@ namespace UnitConverter.Application
 
 
         /// <summary>
-        /// Metoda wywołująca się w momencie, gdy przycisk <see cref="swapButton"/> zostanie kliknięty.
-        /// Ma ona za zadanie zamianę miejscami jednoski w listach <see cref="fromUnitListBox"/> i <see cref="toUnitListBox"/>
+        /// Metoda ma za zadanie zamianę miejscami jednoski w listach <see cref="fromUnitListBox"/> i <see cref="toUnitListBox"/>
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void swapButton_Click(object sender, RoutedEventArgs e)
+        private void swap()
         {
             int temp = this.fromUnitListBox.SelectedIndex;
             this.fromUnitListBox.SelectedIndex = this.toUnitListBox.SelectedIndex;
@@ -312,7 +316,7 @@ namespace UnitConverter.Application
 
 
         /// <summary>
-        /// Metoda wywołująca się w momencie gdy stan checkbox'a <see cref=formatNumberCheckBox"/> się zmieni.
+        /// Metoda wywołująca się w momencie gdy stan checkbox'a <see cref="formatNumberCheckBox"/> się zmieni.
         /// Metoda ta zmienia sposób wyświetlania skonwertowanej liczby w aplikacji na podstawie stanu checkbox'a.
         /// Jeżeli checkbox jest aktywny, wówczas formatowanie jest aplikowane. Jesli nie, wówczas liczba jest wyświetlana normalnie
         /// </summary>
@@ -385,5 +389,15 @@ namespace UnitConverter.Application
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void displayApplicationInfoMenuItem_Click(object sender, RoutedEventArgs e) => new ApplicationInfoWindow().Show();
+
+
+
+        /// <summary>
+        /// Metoda wywołująca się w momencie kliknięcia elementu menu <see cref="displayRatingWindowMenuItem"/>.
+        /// Metoda ta otwiera okienko wyświetlające widżet do ocenienia aplikacji
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void displayRatingWindowMenuItem_Click(object sender, RoutedEventArgs e) => new RatingInfoWindow().Show();
     }
 }

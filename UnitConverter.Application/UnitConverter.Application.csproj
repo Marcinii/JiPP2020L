@@ -75,12 +75,23 @@
     </Compile>
     <Compile Include="AppUserControl\PaginationSwitcherControl\PaginationSwitcherEventArgs.cs" />
     <Compile Include="AppUserControl\PaginationSwitcherControl\PaginationSwitcherEventHandler.cs" />
+    <Compile Include="AppUserControl\RatingControl\Rating.xaml.cs">
+      <DependentUpon>Rating.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AppUserControl\RatingControl\RatingEventArgs.cs" />
+    <Compile Include="AppUserControl\RatingControl\RatingEventHandler.cs" />
     <Compile Include="AppWindow\ApplicationInfoWindow.xaml.cs">
       <DependentUpon>ApplicationInfoWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="AppWindow\RatingInfoWindow.xaml.cs">
+      <DependentUpon>RatingInfoWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Command\ButtonCommand.cs" />
     <Compile Include="Converter\TimeFormatComboBoxValueConverter.cs" />
+    <Compile Include="Runner\FindLastRatingAfterRunTaskRunFunction.cs" />
     <Compile Include="Runner\MainWindowConversionAfterRunTaskRunFunction.cs" />
     <Compile Include="Runner\MainWindowConversionBeforeRunTaskRunFunction.cs" />
+    <Compile Include="Runner\RatingAfterRunTaskRunFunction.cs" />
     <Compile Include="Runner\StatisticsWindowFindAllConversionHistoryAfterRunTaskRunFunction.cs" />
     <Compile Include="Util\ComboBoxUtils.cs" />
     <Compile Include="Util\GroupBoxUtils.cs" />
@@ -100,7 +111,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="AppUserControl\RatingControl\Rating.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="AppWindow\ApplicationInfoWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AppWindow\RatingInfoWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

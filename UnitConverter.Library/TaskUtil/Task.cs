@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnitConverter.Library.OperationUtil;
 using UnitConverter.Library.TaskUtil.Parameter;
 using UnitConverter.Library.TypeUtil;
@@ -38,16 +39,16 @@ namespace UnitConverter.Library.TaskUtil
     public abstract class Task<T> : IRunnable
     {
         protected TaskParameterCollection parameters { get; set; }
-        protected List<TaskRunFunction> taskBeforeRunFunctions { get; set; }
-        protected List<TaskRunFunction> taskAfterRunFunctions { get; set; }
+        protected HashSet<TaskRunFunction> taskBeforeRunFunctions { get; set; }
+        protected HashSet<TaskRunFunction> taskAfterRunFunctions { get; set; }
 
         protected T result { get; set; }
 
         public Task()
         {
             this.parameters = this.addParametres();
-            this.taskBeforeRunFunctions = new List<TaskRunFunction>();
-            this.taskAfterRunFunctions = new List<TaskRunFunction>();
+            this.taskBeforeRunFunctions = new HashSet<TaskRunFunction>();
+            this.taskAfterRunFunctions = new HashSet<TaskRunFunction>();
             this.result = default;
         }
 
@@ -156,13 +157,13 @@ namespace UnitConverter.Library.TaskUtil
         /// <see cref="Operation"/>
         public object run(Operation operation)
         {
-            this.taskBeforeRunFunctions.ForEach(f => f.apply(this));
+            this.taskBeforeRunFunctions.ToList().ForEach(f => f.apply(this));
             this.result = apply(operation);
 
             if (typeof(T) == typeof(CustomVoid))
                 ((CustomVoid)Convert.ChangeType(this.result, typeof(CustomVoid))).run();
 
-            this.taskAfterRunFunctions.ForEach(f => f.apply(this));
+            this.taskAfterRunFunctions.ToList().ForEach(f => f.apply(this));
 
             return this.result;
         }

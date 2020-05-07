@@ -5,7 +5,7 @@ namespace UnitConverter.Application.Util
 {
 
     /// <summary>
-    /// Klasa zawierająca zestaw metód służących do zarządzania kontrolką <see cref=TextBox"/>
+    /// Klasa zawierająca zestaw metód służących do zarządzania kontrolką <see cref="TextBox"/>
     /// <param name="textBox">
     ///     Pole tekstowe do zarządzania
     /// </param>
