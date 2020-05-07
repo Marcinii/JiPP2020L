@@ -65,6 +65,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="RelayCommand.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -109,6 +110,10 @@
     <ProjectReference Include="..\unitconverter.logic\unitconverter.logic.csproj">
       <Project>{1debd1ab-0cb7-40c8-befe-bf9684964021}</Project>
       <Name>unitconverter.logic</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\User_controls\User_controls.csproj">
+      <Project>{69cb41f6-77e6-4ccf-90d2-dd9d25f950a7}</Project>
+      <Name>User_controls</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -148,5 +148,30 @@ namespace unitconverter.logic
                 context.SaveChanges();
             }
         }
+
+        public static void insert_rate(int gave_rate)
+        {
+            using (Code1st_unitsconverterstats context = new Code1st_unitsconverterstats())
+            {
+                rates new_record = new rates()
+                {
+                    rate = gave_rate
+                };
+                context.rates.Add(new_record);
+                context.SaveChanges();
+            }
+        }
+
+        public static List<rates> download_last_rate()
+        {
+            using (Code1st_unitsconverterstats context = new Code1st_unitsconverterstats())
+            {
+                List<rates> records = context.rates
+                    .OrderByDescending(r => r.id)
+                    .Take(1)
+                    .ToList();
+                return records;
+            }
+        }
     }
 }

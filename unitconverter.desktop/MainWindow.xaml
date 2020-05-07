@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:unitconverter.desktop"
+        xmlns:User_controls="clr-namespace:User_controls;assembly=User_controls"
         mc:Ignorable="d"
         Title="MainWindow" Height="600" Width="1200">
     <Grid>
@@ -18,16 +19,18 @@
         <TextBox x:Name="value" HorizontalAlignment="Left" Margin="230,230,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="30" Width="200" FontSize="20"/>
         <TextBlock x:Name="result_label" HorizontalAlignment="Left" Margin="30,260,0,0" TextWrapping="Wrap" Text="Wynik:" VerticalAlignment="Top" Height="30" Width="200" FontSize="20"/>
         <TextBlock x:Name="result" HorizontalAlignment="Left" Margin="230,260,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="30" Width="200" FontSize="20"/>
-        <Button Content="Oblicz" HorizontalAlignment="Left" Margin="30,300,0,0" VerticalAlignment="Top" Width="200" Height="30" FontSize="20" Click="count"/>
+        <Button x:Name ="button_count" Content="Oblicz" HorizontalAlignment="Left" Margin="30,300,0,0" VerticalAlignment="Top" Width="200" Height="30" FontSize="20"/>
         <ComboBox x:Name="f_converter" HorizontalAlignment="Left" Margin="950,30,0,0" VerticalAlignment="Top" Width="200" FontSize="20" SelectedIndex="0" SelectionChanged="F_converter_SelectionChanged"/>
-        <Button Content="Pokaż" HorizontalAlignment="Left" Margin="950,200,0,0" VerticalAlignment="Top" Width="200" Height="30" FontSize="20" Click="filter"/>
-        <Button Content="Poprzednia" HorizontalAlignment="Left" Margin="920,250,0,0" VerticalAlignment="Top" Width="100" Height="30" FontSize="20" Click="previous"/>
-        <Button Content="Następna" HorizontalAlignment="Left" Margin="1080,250,0,0" VerticalAlignment="Top" Width="100" Height="30" FontSize="20" Click="next"/>
+        <Button x:Name ="button_filter" Content="Pokaż" HorizontalAlignment="Left" Margin="950,200,0,0" VerticalAlignment="Top" Width="200" Height="30" FontSize="20" />
+        <Button x:Name ="button_previous" Content="Poprzednia" HorizontalAlignment="Left" Margin="920,250,0,0" VerticalAlignment="Top" Width="100" Height="30" FontSize="20" />
+        <Button x:Name ="button_next" Content="Następna" HorizontalAlignment="Left" Margin="1080,250,0,0" VerticalAlignment="Top" Width="100" Height="30" FontSize="20"/>
         <TextBlock x:Name="c_from_label" HorizontalAlignment="Left" Margin="910,100,0,0" TextWrapping="Wrap" Text="od:" VerticalAlignment="Top" Height="30" Width="30" FontSize="20" RenderTransformOrigin="-0.165,0.517"/>
         <TextBlock x:Name="c_to_label" HorizontalAlignment="Left" Margin="910,150,0,0" TextWrapping="Wrap" Text="do:" VerticalAlignment="Top" Height="30" Width="30" FontSize="20" RenderTransformOrigin="-0.165,0.517"/>
         <DatePicker Name="f_date_from" Margin="950,100,42,430" SelectedDateFormat="Long" RenderTransformOrigin="0.022,0.436"/>
         <DatePicker Name="f_date_to" Margin="950,150,42,380" SelectedDateFormat="Long"/>
         <TextBlock x:Name="rank" HorizontalAlignment="Left" Margin="920,350,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Height="30" Width="260" FontSize="20" RenderTransformOrigin="-0.165,0.517"/>
+        <TextBlock x:Name="rate_label" HorizontalAlignment="Left" Margin="920,400,0,0" TextWrapping="Wrap"  Text="Oceń aplikację!" VerticalAlignment="Top" Height="30" Width="260" FontSize="20" RenderTransformOrigin="-0.165,0.517"/>
+        <User_controls:rate_app x:Name ="rate" Height="30" Width="150" HorizontalAlignment="Left" Margin="920,350,0,0" rate_value_changed="Rate_rate_value_changed"/>
         <Ellipse Fill="#FFE0E0E0" HorizontalAlignment="Left" Height="300" Margin="530,30,0,0" Stroke="Black" VerticalAlignment="Top" Width="300" RenderTransformOrigin="0.5,0.5"/>
         <Rectangle x:Name="xaml_minute" HorizontalAlignment="Left" Height="140" Margin="675,40,0,0" VerticalAlignment="Top" Width="10" RenderTransformOrigin="0.5,1" Fill="#FFEA1717">
             <Rectangle.RenderTransform>

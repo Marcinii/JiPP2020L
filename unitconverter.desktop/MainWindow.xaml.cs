@@ -15,7 +15,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Data;
 using unitconverter.logic;
-
+using UnitConverter.Desktop;
 
 namespace unitconverter.desktop
 {
@@ -47,6 +47,27 @@ namespace unitconverter.desktop
             unit_from.ItemsSource = unit_list;
             unit_to.ItemsSource = unit_list;
             create_filters();
+            List<rates> last_rate_record = db_operations.download_last_rate();
+            int last_rate = 0;
+            foreach (rates r in last_rate_record)
+            {
+                last_rate = r.rate;
+            }
+            rate.rate_value = last_rate;
+
+            countcommand = new RelayCommand(obj => count(), 
+                obj => unit_from.SelectedItem != null && unit_to.SelectedItem != null && string.IsNullOrEmpty(value.Text) != true);
+            button_count.Command = countcommand;
+            
+            filtercommand = new RelayCommand(obj => filter());
+            button_filter.Command = filtercommand;
+
+            previouscommand = new RelayCommand(obj => previous(), obj => from_lp != 0);
+            button_previous.Command = previouscommand;
+
+            nextcommand = new RelayCommand(obj => next());
+            button_next.Command = nextcommand;
+
         }
 
         private void F_converter_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -76,8 +97,8 @@ namespace unitconverter.desktop
             f_date_from.Text = "Data od - rrrr-mm-dd";
             f_date_to.Text = "Data do - rrrr-mm-dd";
         }
-
-        private void filter(object sender, RoutedEventArgs e)
+        private RelayCommand filtercommand;
+        private void filter()
         {
             date_from = f_date_from.SelectedDate;
             date_to = f_date_to.SelectedDate;
@@ -127,8 +148,8 @@ namespace unitconverter.desktop
         {
            create_datatable(choosen_f_converter, date_from, date_to, from_lp, how_much_take_lp);
         }
-
-        private void previous(object sender, RoutedEventArgs e)
+        private RelayCommand previouscommand;
+        private void previous()
         {
             if (from_lp > 0)
             {
@@ -136,8 +157,8 @@ namespace unitconverter.desktop
                 create_datatable(choosen_f_converter, date_from, date_to, from_lp, how_much_take_lp);
             }
         }
-
-        private void next(object sender, RoutedEventArgs e)
+        private RelayCommand nextcommand;
+        private void next()
         {
             from_lp += 20;
             create_datatable(choosen_f_converter, date_from, date_to, from_lp, how_much_take_lp);
@@ -183,7 +204,8 @@ namespace unitconverter.desktop
             unit_list = new c_time().units_names;
             create_objects(4);
         }
-        private void count(object sender, RoutedEventArgs e)
+        private RelayCommand countcommand;
+        private void count(/*object sender, RoutedEventArgs e*/)
         {
             string from = unit_from.SelectedItem.ToString();
             string to = unit_to.SelectedItem.ToString();
@@ -240,6 +262,11 @@ namespace unitconverter.desktop
                 //
 
             }
+        }
+
+        private void Rate_rate_value_changed(object sender, User_controls.rate_app.rate_event_args e)
+        {
+            db_operations.insert_rate(e.value);
         }
     }
 }
