@@ -64,6 +64,8 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Grade.cs" />
+    <Compile Include="GradeModel.cs" />
     <Compile Include="MostPopularConversion.cs" />
     <Compile Include="MostPopularEntity.cs" />
     <Compile Include="Ocena.xaml.cs">

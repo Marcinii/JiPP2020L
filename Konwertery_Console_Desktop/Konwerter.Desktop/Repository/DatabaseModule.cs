@@ -79,5 +79,14 @@ namespace Konwerter.Desktop.Repository
                 return conversions;
             }
         }
+
+        public static void insertGrade(GRADES item)
+        {
+            using (GradeModel context = new GradeModel())
+            {
+                context.GRADES.Add(item);
+                context.SaveChanges();
+            }
+        }
     }
 }

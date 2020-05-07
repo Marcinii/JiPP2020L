@@ -12,17 +12,30 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Konwerter.Desktop.Repository;
 
 namespace Konwerter.Desktop
 {
-    /// <summary>
-    /// Interaction logic for Ocena.xaml
-    /// </summary>
     public partial class Ocena : UserControl
     {
+        GRADES ocena = new GRADES();
+
         public Ocena()
         {
             InitializeComponent();
+        }
+
+        private void slider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+            ocena.grade = Convert.ToInt64(gradeSlider.Value);
+            gradeLabel.Content = ocena.grade;
+        }
+
+        private void sendGradeBtn_Click(object sender, RoutedEventArgs e)
+        {
+            DatabaseModule.insertGrade(ocena);
+            gradeLabel.Content = "Wysłano";
+            ocena = new GRADES();
         }
     }
 }
