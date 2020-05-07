@@ -37,25 +37,14 @@
             <Setter Property="Template">  <!-- TU SĄ DZIAŁANIA -->
                 <Setter.Value>
                     <ControlTemplate TargetType="{x:Type Button}">
-                        <Border x:Name="border" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="true">
-                            <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
-                        </Border>
+                        <Ellipse x:Name="circle" Fill = "{TemplateBinding Background}" Stroke="{TemplateBinding BorderBrush}"/>
                         <ControlTemplate.Triggers>
                             <Trigger Property="IsDefaulted" Value="true">
-                                <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
+                                <Setter Property="Stroke" TargetName="circle" Value="Red"/>
                             </Trigger>
                             <Trigger Property="IsMouseOver" Value="true">
-                                <Setter Property="Background" TargetName="border" Value="{StaticResource Button.MouseOver.Background}"/>
-                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.MouseOver.Border}"/>
-                            </Trigger>
-                            <Trigger Property="IsPressed" Value="true">
-                                <Setter Property="Background" TargetName="border" Value="{StaticResource Button.Pressed.Background}"/>
-                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.Pressed.Border}"/>
-                            </Trigger>
-                            <Trigger Property="IsEnabled" Value="false">
-                                <Setter Property="Background" TargetName="border" Value="{StaticResource Button.Disabled.Background}"/>
-                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.Disabled.Border}"/>
-                                <Setter Property="TextElement.Foreground" TargetName="contentPresenter" Value="{StaticResource Button.Disabled.Foreground}"/>
+                                <Setter Property="Fill" TargetName="circle" Value="Orange"/>
+                                <Setter Property="Stroke" TargetName="circle" Value="Black"/>
                             </Trigger>
                         </ControlTemplate.Triggers>
                     </ControlTemplate>
@@ -63,7 +52,7 @@
             </Setter>
         </Style>
     </UserControl.Resources>
-    <Grid>
+    <Grid x:Name="ratesGrid">
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
             <ColumnDefinition/>
@@ -71,10 +60,10 @@
             <ColumnDefinition/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <Button Grid.Column="0" Background="White" Style="{DynamicResource CircleButton}"/>
-        <Button Grid.Column="1" Background="White"/>
-        <Button Grid.Column="2" Background="White"/>
-        <Button Grid.Column="3" Background="White"/>
-        <Button Grid.Column="4" Background="White"/>
+        <Button Grid.Column="0" Background="LightGray" BorderBrush="Black" Margin ="2" Style="{DynamicResource CircleButton}" Click="Button_Click"/>
+        <Button Grid.Column="1" Background="LightGray" BorderBrush="Black" Margin ="2" Style="{DynamicResource CircleButton}" Click="Button_Click"/>
+        <Button Grid.Column="2" Background="LightGray" BorderBrush="Black" Margin ="2" Style="{DynamicResource CircleButton}" Click="Button_Click"/>
+        <Button Grid.Column="3" Background="LightGray" BorderBrush="Black" Margin ="2" Style="{DynamicResource CircleButton}" Click="Button_Click"/>
+        <Button Grid.Column="4" Background="LightGray" BorderBrush="Black" Margin ="2" Style="{DynamicResource CircleButton}" Click="Button_Click"/>
     </Grid>
 </UserControl>

@@ -24,5 +24,48 @@ namespace Common.Controls
         {
             InitializeComponent();
         }
+
+        private int _rateValue = 0;
+
+        public int RateValue
+        {
+            get { return _rateValue; }
+            set
+            {
+                if (value >= 1 && value <= 5)
+                {
+                    _rateValue = value;
+                }else
+                {
+                    _rateValue = 0;
+                }
+                UpdateButtons(_rateValue);
+            }
+        }
+
+        private void UpdateButtons(int _rateValue)
+        {
+            int i = 0;
+            foreach(var b in ratesGrid.Children)
+            {
+                ////////////////////////////////
+                // TUTAJ WYSŁAĆ OCENĘ DO BAZY // chyba jednak nie
+                ////////////////////////////////
+                if (i < _rateValue)
+                {
+                    ((Button)b).Background = new SolidColorBrush(Colors.Yellow);
+                }else
+                {
+                    ((Button)b).Background = new SolidColorBrush(Colors.LightGray);
+                }
+                i++;
+            }
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e) //kliknięcie kółka
+        {
+            RateValue = ratesGrid.Children.IndexOf((Button)sender) + 1;
+            
+        }
     }
 }
