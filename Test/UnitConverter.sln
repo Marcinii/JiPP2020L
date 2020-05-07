@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitConverter.Logic", "Unit
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitConverter.Desktop", "UnitConverter.Desktop\UnitConverter.Desktop.csproj", "{C6DF0253-E8E8-439D-9316-2BB79D3D27B2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CommanControleUsers", "CommanControleUsers\CommanControleUsers.csproj", "{6316AC90-3DEA-4C39-9F8E-5E870D998B5C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{C6DF0253-E8E8-439D-9316-2BB79D3D27B2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C6DF0253-E8E8-439D-9316-2BB79D3D27B2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C6DF0253-E8E8-439D-9316-2BB79D3D27B2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6316AC90-3DEA-4C39-9F8E-5E870D998B5C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6316AC90-3DEA-4C39-9F8E-5E870D998B5C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6316AC90-3DEA-4C39-9F8E-5E870D998B5C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6316AC90-3DEA-4C39-9F8E-5E870D998B5C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

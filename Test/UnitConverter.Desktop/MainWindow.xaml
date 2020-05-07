@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:UnitConverter.Desktop"
+        xmlns:ccp="clr-namespace:CommanControleUsers;assembly=CommanControleUsers"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Window.Resources>
@@ -57,7 +58,19 @@
             <TextBox x:Name="inputTextBox" Margin="10,5,10,5" Height="25"/>
             <Button x:Name="convertButton" Margin="10,5,10,5" Height="25" Click="convertButton_Click">Konwertuj</Button>
             <TextBlock x:Name="outputTextBlock" Margin="10,5,10,5" Height="25"/>
-            <DataGrid x:Name="dataGrid" Height="100" SelectionChanged="DataGrid_SelectionChanged"/>
+            <DataGrid x:Name="dataGrid" Height="100" SelectionChanged="DataGrid_SelectionChanged" RenderTransformOrigin="0.5,0.5">
+                <DataGrid.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform AngleX="0.187"/>
+                        <RotateTransform/>
+                        <TranslateTransform X="0.163"/>
+                    </TransformGroup>
+                </DataGrid.RenderTransform>
+            </DataGrid>
+            <Label Height="186" >
+                <ccp:RateMePls x:Name="RateControl" Height="30" Width="380" RateValue="4" Loaded="RateMePls_Loaded"/>
+            </Label>
         </StackPanel>
         <Path x:Name="path" Grid.Column="1" Data="M56.800001,32.100001 C43.158567,32.1 32.1,43.158567 32.100001,56.800001 32.1,70.441435 43.158567,81.500002 56.800001,81.500002 70.441435,81.500002 81.500002,70.441435 81.500002,56.800001 81.500002,43.158567 70.441435,32.1 56.800001,32.100001 z M56.800001,0.5 C87.893633,0.5 113.1,25.706369 113.1,56.800001 113.1,87.893633 87.893633,113.1 56.800001,113.1 25.706369,113.1 0.5,87.893633 0.5,56.800001 0.5,25.706369 25.706369,0.5 56.800001,0.5 z" HorizontalAlignment="Left" Margin="38.2,25.5,0,279.9" Width="113.6" RenderTransformOrigin="0.5,0.5" Grid.ColumnSpan="2">
             <Path.RenderTransform>

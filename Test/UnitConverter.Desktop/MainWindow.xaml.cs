@@ -29,7 +29,19 @@ namespace UnitConverter.Desktop
             InitializeComponent();
 
             converterCombobox.ItemsSource = new ConverterService().GetConverters();
-        
+
+            //odczyt z bazy
+
+
+            RateControl.RateValue = 2;
+
+  
+
+        }
+
+        private void RateControl_RateValueChange(int value)
+        {
+            //zapis do bazy danych
         }
 
         private void converterCombobox_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -119,7 +131,20 @@ namespace UnitConverter.Desktop
 
             
         }
-    
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void RateMePls_Loaded(object sender, RoutedEventArgs e)
+        {
+
+        }
+        private void RateControl_RateValueChange(object sender, System.Data.Common.Controls.RateEventArgs e)
+        {
+           
+        }
     }
 }
 /*
