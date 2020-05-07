@@ -70,6 +70,25 @@
     <Compile Include="Baza.cs" />
     <Compile Include="KonwersjeTabela.cs" />
     <Compile Include="Model1.cs" />
+    <Compile Include="RateModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RateModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RateModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RateModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RateModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RateModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="RateTable.cs">
+      <DependentUpon>RateModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RelayCommand.cs" />
     <Compile Include="Zegar.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -108,9 +127,37 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <EntityDeploy Include="RateModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>RateModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="RateModel.edmx.diagram">
+      <DependentUpon>RateModel.edmx</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Controls\Controls.csproj">
+      <Project>{58183497-81b9-4fa5-ab41-6f2a5fcc24f5}</Project>
+      <Name>Controls</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="RateModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>RateModel.edmx</DependentUpon>
+      <LastGenOutput>RateModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="RateModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>RateModel.edmx</DependentUpon>
+      <LastGenOutput>RateModel.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

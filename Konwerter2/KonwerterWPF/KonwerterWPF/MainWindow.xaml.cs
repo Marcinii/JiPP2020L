@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using KonwerterLogika;
+using UnitConverter.Desktop;
 
 namespace KonwerterWPF
 {
@@ -26,6 +27,7 @@ namespace KonwerterWPF
         private Zegar zegar = null;
         private Baza db = new Baza();
         private string aktualnyKonwerterStr = "";
+        private RelayCommand convertCommand;
 
         public MainWindow()
         {
@@ -48,6 +50,37 @@ namespace KonwerterWPF
             rodzajeKonwerterow.Add("Godziny12na24");
             konwerteryList.ItemsSource = rodzajeKonwerterow;
             konwerteryList.SelectedIndex = 0;
+
+            LoadRateMe();
+            rateMe.OnRateChanged += RateMe_OnRateChanged;
+
+            convertCommand = new RelayCommand(obj => Convert(), obj => Wartosc.Text != "");
+            convertButton.Command = convertCommand;
+        }
+
+        private void LoadRateMe()
+        {
+            using (RateEnt context = new RateEnt())
+            {
+                List<RateTable> rates = context.RateTables.ToList();
+                if(rates.Count > 0)
+                {
+                    rateMe.RateValue = rates.Last().Rate;
+                }
+            }
+        }
+
+        private void RateMe_OnRateChanged(int value)
+        {
+            using (RateEnt context = new RateEnt())
+            {
+                context.RateTables.Add(new RateTable()
+                {
+                    Date = DateTime.Now,
+                    Rate = value,
+                });
+                context.SaveChanges();
+            }
         }
 
         private void ZmienKonwerter(object sender, RoutedEventArgs e)
@@ -94,9 +127,9 @@ namespace KonwerterWPF
             }
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void Convert()
         {
-            if(godziny != null)
+            if (godziny != null)
             {
                 godziny.AddInput(Wartosc.Text.ToString());
                 zegar.UstawCzas(godziny.ToDateTime());
@@ -124,7 +157,6 @@ namespace KonwerterWPF
                 OdswiezDataGrid();
                 MessageBox.Show("Wynik: " + aktualnyKonwerter.Przelicz());
             }
-            
         }
 
         private void OdswiezDataGrid()

@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:KonwerterWPF"
         mc:Ignorable="d"
+        xmlns:rateme="clr-namespace:Controls;assembly=Controls"
         Title="MainWindow" Height="622.681" Width="978.357">
     <Grid>
         <Grid.ColumnDefinitions>
@@ -27,7 +28,9 @@
             <Label Content="Wprowadź wartość:"></Label>
             <TextBox x:Name="Wartosc"/>
 
-            <Button Content="Przelicz" Click="Button_Click"/>
+            <Button Content="Przelicz" Name="convertButton"/>
+            <Label Content="Ocena aplikacji:" Margin="5"/>
+            <rateme:RateMe Name="rateMe" Width="300" Height="50" Margin="2"/>
         </StackPanel>
         <Grid Grid.Column="1">
             <Grid.RowDefinitions>
