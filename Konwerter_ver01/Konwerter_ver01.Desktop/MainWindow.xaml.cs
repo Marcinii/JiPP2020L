@@ -38,7 +38,7 @@ namespace Konwerter_ver01.Desktop
             using (RateDane context = new RateDane())
             {
                 List<RateDa> RateValue = context.RateDaWy.Where(f => f.IdRate == context.RateDaWy.Count()).ToList();
-                rateControl.RateValue = RateValue[1].RateValue;
+                rateControl.RateValue = RateValue[0].RateValue;
             }
 
 
