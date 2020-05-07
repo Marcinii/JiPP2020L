@@ -14,7 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Konwerter_ver01;
-
+using UnitConverter.Desktop;
 
 namespace Konwerter_ver01.Desktop
 {
@@ -23,14 +23,36 @@ namespace Konwerter_ver01.Desktop
     /// </summary>
     public partial class MainWindow : Window
     {
+        
         public int nrstrony { get; set; }
+        public int stronaostatnia { get; set; }
         public MainWindow()
         {
-            // nrstrony = 0;
+            nrstrony = 0;
+            stronaostatnia = 0;
             InitializeComponent();
             WybKon.ItemsSource = new ZestawKonw().GetConverter();
             //WybKonWyn.ItemsSource = new ZestawKonw().GetConverter();
             // WybKonBaza.ItemsSource = new ZestawKonw().GetConverter();
+
+            Wykonajtemp_ClickCommand = new RelayCommand(obj => Wykonajtemp_Click(), obj => JednZ.SelectedItem != null && JednDo.SelectedItem != null && string.IsNullOrEmpty(Dane.Text) != true);
+            Wykonajtemp.Command = Wykonajtemp_ClickCommand;
+            WynikButton_ClickCommand = new RelayCommand(obj => WynikButton_Click(), obj => JednZ.SelectedItem != null && JednDo.SelectedItem != null && string.IsNullOrEmpty(Dane.Text) != true);
+            WynikButton.Command = WynikButton_ClickCommand;
+
+            WysWynKon_ClickCommand = new RelayCommand(obj => WysWynKon_Click(), obj => WybKon.SelectedItem != null);
+            WysWynKon.Command = WysWynKon_ClickCommand;
+
+            PoprzedniaStrona_ClickCommand = new RelayCommand(obj => PoprzedniaStrona_Click(), obj => nrstrony > 0);
+            PoprzedniaStrona.Command = PoprzedniaStrona_ClickCommand;
+            NastepnaStrona_ClickCommand = new RelayCommand(obj => NastepnaStrona_Click(), obj => nrstrony< stronaostatnia);
+            NastepnaStrona.Command = NastepnaStrona_ClickCommand;
+
+            PopWyb_ClickCommand = new RelayCommand(obj => PopWyb_Click(), obj => nrstrony > 0);
+            PopWyb.Command = PopWyb_ClickCommand;
+            NastWyb_ClickCommand = new RelayCommand(obj => NastWyb_Click(), obj => nrstrony < stronaostatnia);
+            NastWyb.Command = NastWyb_ClickCommand;
+
 
             //CykCyk.Angle = 6;
             /* JednZtemp.ItemsSource = new Konwerter_ver01.ConTemp().Jedn;
@@ -50,7 +72,8 @@ namespace Konwerter_ver01.Desktop
             JednDo.ItemsSource = ((IConverter)WybKon.SelectedItem).Jedn;
         }
 
-        private void Wykonajtemp_Click(object sender, RoutedEventArgs e)
+        private RelayCommand Wykonajtemp_ClickCommand;
+        private void Wykonajtemp_Click()
         {
             string InputDane = Dane.Text;
             //double inputValue;
@@ -81,8 +104,8 @@ namespace Konwerter_ver01.Desktop
             }
 
         }
-
-        private void WynikButton_Click(object sender, RoutedEventArgs e)
+        private RelayCommand WynikButton_ClickCommand;
+        private void WynikButton_Click()
         {
             ((Storyboard)Resources["StoryboardJajo"]).Begin();
             string InputDane = Dane.Text;
@@ -158,10 +181,14 @@ namespace Konwerter_ver01.Desktop
                     //List<KonwerterDa> konstat2 = context.KonwerterDaWy.Where(k => k.WybKon == (((IConverter)WybKon.SelectedItem).Name)).Where(k => k.KonwerterCzas >= dataod).Where(k => k.KonwerterCzas <= datado).OrderBy(k => k.KonwerterCzas).Skip(nrstrony * 8).Take(8).ToList();
 
                 Statystyki.ItemsSource = konstat;
-                }
+
+                stronaostatnia = context.KonwerterDaWy.Where(c => c.KonwerterCzas >= dataod).Where(c => c.KonwerterCzas <= datado).Count();
+                if (stronaostatnia % 8 == 0) { stronaostatnia = stronaostatnia / 8 - 1; }
+                else stronaostatnia = stronaostatnia / 8;
+            }
         }
-        
-        private void NastepnaStrona_Click(object sender, RoutedEventArgs e)
+        private RelayCommand NastepnaStrona_ClickCommand;
+        private void NastepnaStrona_Click()
         {
             nrstrony++;
             using (KonwerterDane context = new KonwerterDane())
@@ -174,7 +201,8 @@ namespace Konwerter_ver01.Desktop
             }
         }
 
-        private void PoprzedniaStrona_Click(object sender, RoutedEventArgs e)
+        private RelayCommand PoprzedniaStrona_ClickCommand;
+        private void PoprzedniaStrona_Click()
         {
             using (KonwerterDane context = new KonwerterDane())
             {
@@ -197,9 +225,9 @@ namespace Konwerter_ver01.Desktop
             }
         }
 
-        
+        private RelayCommand WysWynKon_ClickCommand;
 
-        private void WysWynKon_Click(object sender, RoutedEventArgs e)
+        private void WysWynKon_Click()
         {
             using (KonwerterDane context = new KonwerterDane())
             {
@@ -211,10 +239,13 @@ namespace Konwerter_ver01.Desktop
                 List<KonwerterDa> konstat = context.KonwerterDaWy.Where(k => k.WybKon == (((IConverter)WybKon.SelectedItem).Name)).Where(k => k.KonwerterCzas >= dataod).Where(k => k.KonwerterCzas <= datado).OrderBy(k => k.KonwerterCzas).Skip(nrstrony * 8).Take(8).ToList();
 
                 Statystyki.ItemsSource = konstat;
+                stronaostatnia = context.KonwerterDaWy.Where(c => c.WybKon == (((IConverter)WybKon.SelectedItem).Name)).Where(c => c.KonwerterCzas >= dataod).Where(c => c.KonwerterCzas <= datado).Count();
+                if (stronaostatnia % 8 == 0) stronaostatnia = stronaostatnia / 8 - 1;
+                else stronaostatnia = stronaostatnia / 8;
             }
         }
-
-        private void PopWyb_Click(object sender, RoutedEventArgs e)
+        private RelayCommand PopWyb_ClickCommand;
+        private void PopWyb_Click()
         {
             using (KonwerterDane context = new KonwerterDane())
             {
@@ -226,8 +257,8 @@ namespace Konwerter_ver01.Desktop
                 Statystyki.ItemsSource = konstat;
             }
         }
-
-        private void NastWyb_Click(object sender, RoutedEventArgs e)
+        private RelayCommand NastWyb_ClickCommand;
+        private void NastWyb_Click()
         {
             nrstrony++;
             using (KonwerterDane context = new KonwerterDane())
