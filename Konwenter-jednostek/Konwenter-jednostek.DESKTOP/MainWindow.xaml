@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Konwenter_jednostek.DESKTOP"
+        xmlns:kontrolki="clr-namespace:kontrolki;assembly=kontrolki"
         mc:Ignorable="d"
         Title="Konwenter Jednostek" Height="525" Width="914">
     <Window.Resources>
@@ -63,6 +64,24 @@
             <ColumnDefinition Width="664*"/>
             <ColumnDefinition Width="129*"/>
         </Grid.ColumnDefinitions>
+
+        <Grid x:Name="kontrolka_oceny_all" Margin="11,233,255,212">
+
+            <Grid x:Name="kontrolka_oceny">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                </Grid.ColumnDefinitions>
+
+                <Label>Oceń aplikacje:</Label>
+                <kontrolki:Ocena x:Name="ocenaControl" Grid.Column="1" OcenaValueChanged="ocenaControl_OcenaValueChanged"  />
+
+            </Grid>
+           
+            
+
+        </Grid>
+
         <Canvas x:Name="Zegar" Width="200" Height="200" Margin="696,10,10,284" RenderTransformOrigin="0.5,0.5" Grid.ColumnSpan="2">
             <Canvas.RenderTransform>
                 <TransformGroup>
@@ -104,9 +123,9 @@
         <Label x:Name="czasLabel" Content="Konwenter Czasu" HorizontalAlignment="Left" Margin="10,116,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="czasTextBox" HorizontalAlignment="Left" Height="23" Margin="116,120,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="27" RenderTransformOrigin="0.519,-0.174"/>
         <TextBox x:Name="czas_minutyTextBox" HorizontalAlignment="Left" Height="23" Margin="150,120,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="27"/>
-        <Button x:Name="button1" Content="Test Wskazówek" HorizontalAlignment="Left" VerticalAlignment="Top" Width="155" Margin="513,36,0,0" Click="Button_Click"/>
+        <Button x:Name="button1" Content="Test Wskazówek" HorizontalAlignment="Left" VerticalAlignment="Top" Width="155" Margin="513,36,0,0" />
         <TextBlock x:Name="showTextBlock" HorizontalAlignment="Left" Margin="696,10,0,0" TextWrapping="Wrap" Text="ON" Background="green" VerticalAlignment="Top" Height="20" Width="25" FontWeight="Bold" />
-        <Button x:Name="button2" Content="Pokaż / Ukryj Zegar" HorizontalAlignment="Left" VerticalAlignment="Top" Width="200" Margin="491,10,0,0" Click="button2_Click"/>
+        <Button x:Name="button2" Content="Pokaż / Ukryj Zegar" HorizontalAlignment="Left" VerticalAlignment="Top" Width="200" Margin="491,10,0,0" />
         <ComboBox
             x:Name="konwenterComboBox"
             HorizontalAlignment="Left"
@@ -120,22 +139,15 @@
             </ComboBox.ItemTemplate>
         </ComboBox>
 
-
-
-
-
-
-
-
         <ComboBox x:Name="zComboBox" HorizontalAlignment="Left" Margin="116,41,0,0" VerticalAlignment="Top" Width="162"/>
         <ComboBox x:Name="dooComboBox" HorizontalAlignment="Left" Margin="283,41,0,0" VerticalAlignment="Top" Width="145"/>
         <TextBox x:Name="wpiszTextBox" HorizontalAlignment="Left" Height="23" Margin="150,68,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="81"/>
-        <Button x:Name="konwertujButton" Content="Konwertuj" HorizontalAlignment="Left" Margin="295,68,0,0" VerticalAlignment="Top" Width="118" Click="konwertujButton_Click"/>
+        <Button x:Name="konwertujButton" Content="Konwertuj" HorizontalAlignment="Left" Margin="295,68,0,0" VerticalAlignment="Top" Width="118" />
         <TextBlock x:Name="wyswietlTextBlock" HorizontalAlignment="Left" Margin="150,96,0,0" TextWrapping="Wrap" Text="." VerticalAlignment="Top" Height="23" Width="81"/>
         <TextBlock x:Name="dooTextBlock1" HorizontalAlignment="Left" Margin="215,96,0,0" TextWrapping="Wrap" Text="." VerticalAlignment="Top" RenderTransformOrigin="-0.588,1.128"/>
         <TextBlock x:Name="zTextBlock" HorizontalAlignment="Left" Margin="236,69,0,0" TextWrapping="Wrap" Text="." VerticalAlignment="Top" Height="23" Width="76"/>
-        <DataGrid x:Name="daneDataGrid" HorizontalAlignment="Left" Height="202" Margin="11,217,0,0" VerticalAlignment="Top" Width="561"/>
-        <Button x:Name="testButton" Content="Wyswietl ostatnie wpisy" HorizontalAlignment="Left" Margin="11,192,0,0" VerticalAlignment="Top" Width="144" Click="testButton_Click"/>
+        <DataGrid x:Name="daneDataGrid" HorizontalAlignment="Left" Height="202" Margin="0,282,0,0" VerticalAlignment="Top" Width="561"/>
+        <Button x:Name="Pokaz_baze_danych" Content="Wyswietl ostatnie wpisy" HorizontalAlignment="Left" Margin="11,192,0,0" VerticalAlignment="Top" Width="144" />
         <ComboBox x:Name="filtrComboBox" HorizontalAlignment="Left" Margin="452,192,0,0" VerticalAlignment="Top" Width="120"
             SelectionChanged="filtrComboBox_SelectionChanged">
             <ComboBox.ItemTemplate>
@@ -144,8 +156,8 @@
                 </DataTemplate>
             </ComboBox.ItemTemplate>
         </ComboBox>
-        <Button x:Name="Data2Button" Content="Zakres do" HorizontalAlignment="Left" Margin="43.5,389,0,0" VerticalAlignment="Top" Width="75" Grid.Column="1" Click="Data2Button_Click"/>
-        <Button x:Name ="Data1Button" Content="Zakres od" HorizontalAlignment="Left" Margin="605,389,0,0" VerticalAlignment="Top" Width="75" Grid.ColumnSpan="2" Click="Data1Button_Click"/>
+        <Button x:Name="Data2Button" Content="Zakres do" HorizontalAlignment="Left" Margin="43.5,389,0,0" VerticalAlignment="Top" Width="75" Grid.Column="1"/>
+        <Button x:Name ="Data1Button" Content="Zakres od" HorizontalAlignment="Left" Margin="605,389,0,0" VerticalAlignment="Top" Width="75" Grid.ColumnSpan="2"/>
         <Label Content="Filtruj po:" HorizontalAlignment="Left" Margin="386,192,0,0" VerticalAlignment="Top" Width="61" RenderTransformOrigin="1.721,0.615" />
 
 

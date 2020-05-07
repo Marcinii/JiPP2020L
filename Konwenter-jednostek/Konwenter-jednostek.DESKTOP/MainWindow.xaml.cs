@@ -37,9 +37,35 @@ namespace Konwenter_jednostek.DESKTOP
             };
            
         filtrComboBox.ItemsSource = konwenterComboBox.ItemsSource;
-       
-           
+            //odczytanie informacji z bazy danych ostatniej zapisanej oceny
+            using (konwenterBazaEntities context = new konwenterBazaEntities())
+            {
+                List<test> Ocena_aplikacji = context.test.ToList();
+                test ocenaValuefromDataBase = Ocena_aplikacji.Where(el => el.opis == "Ocena aplikacji").Last<test>();
+                ocenaControl.OcenaValue = ocenaValuefromDataBase.value;
+                ;
+            }
+
+            KonwertujCommand = new RelayCommand(obj => Konwertuj());
+            konwertujButton.Command = KonwertujCommand;
+            TestZegarowCommand = new RelayCommand(obj => TestZegarow());
+            button1.Command = TestZegarowCommand;
+            OnOffZegarCommand = new RelayCommand(obj => OnOffZegar());
+            button2.Command = OnOffZegarCommand;
+            ShowDataBaseCommand = new RelayCommand(obj => ShowDataBase());
+            Pokaz_baze_danych.Command = ShowDataBaseCommand;
+            StartDateCommand = new RelayCommand(obj => StartDate());
+            Data1Button.Command = StartDateCommand;
+            EndDateCommand = new RelayCommand(obj => EndDate());
+            Data2Button.Command = EndDateCommand;
         }
+
+        public RelayCommand KonwertujCommand;
+        public RelayCommand TestZegarowCommand;
+        public RelayCommand OnOffZegarCommand;
+        public RelayCommand ShowDataBaseCommand;
+        public RelayCommand StartDateCommand;
+        public RelayCommand EndDateCommand;
 
         private void ZmienGodzineNaZegarze(double godziny)
             {
@@ -64,13 +90,13 @@ namespace Konwenter_jednostek.DESKTOP
 
         private void czasTextBox_TextChanged(object sender, TextChangedEventArgs e) { }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void TestZegarow()
         {
             ((Storyboard)Resources["Storyboard1"]).Begin();
             ((Storyboard)Resources["Storyboard2"]).Begin();
         }
         bool on = true;
-        private void button2_Click(object sender, RoutedEventArgs e)
+        private void OnOffZegar()
             {
                 
                 if (on)
@@ -92,13 +118,13 @@ namespace Konwenter_jednostek.DESKTOP
 
         public  void DisplayDataEF()
             {
-                using(konwenterBazaEntities context = new konwenterBazaEntities())
-                {
+            using (konwenterBazaEntities context = new konwenterBazaEntities())
+            {
                 List<dane> dane_wszystkie = context.dane.ToList();
                 daneDataGrid.ItemsSource = dane_wszystkie;
                 daneDataGrid.ItemsSource = dane_wszystkie.OrderByDescending(el => el.id);
-
-                }
+            }
+                
 
             }
 
@@ -144,8 +170,8 @@ namespace Konwenter_jednostek.DESKTOP
             zComboBox.ItemsSource = ((IKonwenter)konwenterComboBox.SelectedItem).Jednostki;
             dooComboBox.ItemsSource = ((IKonwenter)konwenterComboBox.SelectedItem).Jednostki;
         }
-
-        private void konwertujButton_Click(object sender, RoutedEventArgs e)
+        
+        private void Konwertuj()
         {
             
             string inputText = wpiszTextBox.Text;
@@ -194,7 +220,7 @@ namespace Konwenter_jednostek.DESKTOP
                 ZmienGodzineNaZegarze(double.Parse(czasTextBox.Text));
             }
 
-        public void testButton_Click(object sender, RoutedEventArgs e)
+        public void ShowDataBase()
         {
             DisplayDataEF();
         }
@@ -204,21 +230,36 @@ namespace Konwenter_jednostek.DESKTOP
             DisplayDataEF11();
         }
 
-        private void Data1Button_Click(object sender, RoutedEventArgs e)
+        private void StartDate()
         {
             if (Data1.Visibility == Visibility.Hidden) Data1.Visibility = Visibility.Visible;
             else Data1.Visibility = Visibility.Hidden;
         }
         
-        private void Data2Button_Click(object sender, RoutedEventArgs e)
+        private void EndDate()
         {
             if (Data2.Visibility == Visibility.Hidden) Data2.Visibility = Visibility.Visible;
             else Data2.Visibility = Visibility.Hidden;
         }
 
-        
+        private void ocenaControl_OcenaValueChanged(object sender, kontrolki.Ocena.OcenaEventArgs e)
+        {
+            //zapisywanie informacji do bazy danych
 
-       
+             using (konwenterBazaEntities context = new konwenterBazaEntities())
+             {
+                 test newtest = new test()
+                 {
+                     opis = "Ocena aplikacji",
+                     value = e.Value
+                 };
+                 context.test.Add(newtest);
+                 context.SaveChanges();
+             }
+             
+        }
+        
+      
     }
 }
 

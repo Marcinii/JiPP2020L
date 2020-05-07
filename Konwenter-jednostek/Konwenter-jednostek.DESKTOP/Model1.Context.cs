@@ -26,5 +26,6 @@ namespace Konwenter_jednostek.DESKTOP
         }
     
         public virtual DbSet<dane> dane { get; set; }
+        public virtual DbSet<test> test { get; set; }
     }
 }

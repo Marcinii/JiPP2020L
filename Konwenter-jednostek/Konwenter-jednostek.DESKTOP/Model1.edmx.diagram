@@ -6,6 +6,7 @@
     <edmx:Diagrams>
       <Diagram DiagramId="dc2418e6ec5f44a7ad863f84defe7b1e" Name="Diagram1">
         <EntityTypeShape EntityType="konwenterBazaModel.dane" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="konwenterBazaModel.test" Width="1.5" PointX="3.375" PointY="0.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

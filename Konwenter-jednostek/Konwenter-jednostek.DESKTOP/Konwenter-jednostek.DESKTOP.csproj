@@ -65,6 +65,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="RelayCommand.cs" />
+    <Compile Include="test.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -131,6 +135,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\kontrolki\kontrolki.csproj">
+      <Project>{0ec514de-5854-4625-9be2-ddf7eea0e5d7}</Project>
+      <Name>kontrolki</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Konwenter-jednostek.LOGIC\Konwenter-jednostek.LOGIC.csproj">
       <Project>{0255baf3-b0c1-4716-a5e9-99ed89b25c07}</Project>
       <Name>Konwenter-jednostek.LOGIC</Name>

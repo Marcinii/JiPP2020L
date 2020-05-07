@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Konwenter-jednostek.LOGIC",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Konwenter-jednostek.DESKTOP", "Konwenter-jednostek.DESKTOP\Konwenter-jednostek.DESKTOP.csproj", "{778837E3-FE0D-40C7-873B-0393B5B597A4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "kontrolki", "kontrolki\kontrolki.csproj", "{0EC514DE-5854-4625-9BE2-DDF7EEA0E5D7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{778837E3-FE0D-40C7-873B-0393B5B597A4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{778837E3-FE0D-40C7-873B-0393B5B597A4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{778837E3-FE0D-40C7-873B-0393B5B597A4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0EC514DE-5854-4625-9BE2-DDF7EEA0E5D7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0EC514DE-5854-4625-9BE2-DDF7EEA0E5D7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0EC514DE-5854-4625-9BE2-DDF7EEA0E5D7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0EC514DE-5854-4625-9BE2-DDF7EEA0E5D7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
