@@ -13,6 +13,7 @@ namespace UnitConverter.Wpf
         }
 
         public virtual DbSet<Record> Records { get; set; }
+        public virtual DbSet<Rating> Ratings { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -26,6 +27,10 @@ namespace UnitConverter.Wpf
 
             modelBuilder.Entity<Record>()
                 .Property(e => e.outputUnit)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<Rating>()
+                .Property(e => e.name)
                 .IsUnicode(false);
         }
     }

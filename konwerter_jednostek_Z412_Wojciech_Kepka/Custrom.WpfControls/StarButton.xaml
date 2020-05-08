@@ -1,0 +1,17 @@
+﻿<UserControl x:Class="Custrom.WpfControls.StarButton"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Custrom.WpfControls"
+             mc:Ignorable="d" 
+             d:DesignHeight="30" d:DesignWidth="30">
+    <Grid>
+        <Button Background="#00000000" BorderThickness="0" Click="Button_Click">
+            <Viewbox>
+                <Path x:Name="starPath" Data="M0,13.665778 L10.166807,12.498789 14.375198,-0.38406313 18.416925,12.581814 29.583408,14.16607 21.687799,19.815748 22.362043,29.373073 14.763805,22.176408 6.7500947,29.091424 7.3126009,19.815748 z" HorizontalAlignment="Left" Height="30.739" Margin="0,-0.375,-0.583,-0.364" Stretch="Fill" Stroke="Black" VerticalAlignment="Top" Width="30.583" StrokeThickness="0.5"/>
+            </Viewbox>
+        </Button>
+    </Grid>
+
+</UserControl>

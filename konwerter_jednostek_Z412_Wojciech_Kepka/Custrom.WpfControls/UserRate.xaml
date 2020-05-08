@@ -1,0 +1,24 @@
+﻿<UserControl x:Class="Custrom.WpfControls.UserRate"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Custrom.WpfControls"
+             mc:Ignorable="d" 
+             d:DesignHeight="30" d:DesignWidth="150">
+    <Grid x:Name="starGrid">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"></ColumnDefinition>
+            <ColumnDefinition Width="1*"></ColumnDefinition>
+            <ColumnDefinition Width="1*"></ColumnDefinition>
+            <ColumnDefinition Width="1*"></ColumnDefinition>
+            <ColumnDefinition Width="1*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <local:StarButton Grid.Column="0" MouseEnter="StarButton_MouseEnter" MouseLeave="StarButton_MouseLeave" ></local:StarButton>
+        <local:StarButton Grid.Column="1" MouseEnter="StarButton_MouseEnter" MouseLeave="StarButton_MouseLeave" ></local:StarButton>
+        <local:StarButton Grid.Column="2" MouseEnter="StarButton_MouseEnter" MouseLeave="StarButton_MouseLeave" ></local:StarButton>
+        <local:StarButton Grid.Column="3" MouseEnter="StarButton_MouseEnter" MouseLeave="StarButton_MouseLeave" ></local:StarButton>
+        <local:StarButton Grid.Column="4" MouseEnter="StarButton_MouseEnter" MouseLeave="StarButton_MouseLeave" ></local:StarButton>
+    </Grid>
+
+</UserControl>

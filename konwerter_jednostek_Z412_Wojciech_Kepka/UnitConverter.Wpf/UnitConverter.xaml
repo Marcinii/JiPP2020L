@@ -4,11 +4,11 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:UnitConverter.Wpf"
+        xmlns:custom="clr-namespace:Custrom.WpfControls;assembly=Custrom.WpfControls"
         mc:Ignorable="d"
         Title="UnitConverter"
         SizeToContent="WidthAndHeight"
         ResizeMode="NoResize">
-    <!--Height="477" Width="480.533">-->
     <Window.Resources>
         <TransformGroup x:Key="HourTransform">
             <ScaleTransform/>
@@ -38,10 +38,11 @@
     </Window.Triggers>
     <Grid>
         <StackPanel Height="445">
-            <TabControl Height="445" SelectionChanged="TabControl_SelectionChanged">
+            <TabControl SelectionChanged="TabControl_SelectionChanged">
                 <TabItem Header="Converter">
                     <Grid>
                         <StackPanel Background="White">
+
                             <TextBlock Margin="10,10,10,0">Type:</TextBlock>
                             <ComboBox Name="converterComboBox" Margin="10,5,10,5" SelectionChanged="converterComboBox_SelectionChanged">
                                 <ComboBox.ItemTemplate>
@@ -62,7 +63,7 @@
                                 <ComboBox Name="unitToComboBox" Margin="10,5,10,5" Grid.Column="2"></ComboBox>
                             </Grid>
                             <TextBox Margin="10,5,10,5" Name="inputTextBox" Height="30" FontSize="16"></TextBox>
-                            <Button Height="30" Margin="30,20,30,20" Name="convertButton" FontSize="16" Click="convertButton_Click" Background="#FFFFB0B0">Convert</Button>
+                            <Button Height="30" Margin="30,20,30,20" Name="convertButton" FontSize="16" Background="#FFFFB0B0">Convert</Button>
                             <Grid x:Name="outputGrid">
                                 <Grid x:Name="clockGrid" Opacity="0">
                                     <Grid x:Name="clock" Margin="10">
@@ -105,7 +106,6 @@
                                 <TextBox x:Name="outTextBox" Opacity="0" HorizontalAlignment="Center" Height="23" TextWrapping="Wrap" Text="" IsReadOnly="True" VerticalAlignment="Top" Width="405"/>
                             </Grid>
                         </StackPanel>
-
                     </Grid>
                 </TabItem>
                 <TabItem Header="Statistics" Height="22" VerticalAlignment="Bottom">
@@ -149,7 +149,7 @@
                                         <StackPanel Grid.Column="1">
                                             <TextBlock Margin="10,0">Converter Type</TextBlock>
                                             <ComboBox x:Name="converterFilterComboBox" Margin="10,0" SelectionChanged="converterFilter_SelectionChanged"></ComboBox>
-                                            <Button x:Name="clearFiltersButton" Width="80" Height="20" Margin="10,20,0,0" HorizontalAlignment="Left" Click="clearFiltersButton_Click">
+                                            <Button x:Name="clearFiltersButton" Width="80" Height="20" Margin="10,20,0,0" HorizontalAlignment="Left">
                                                 Clear Filters
                                             </Button>
                                         </StackPanel>
@@ -157,9 +157,6 @@
                                 </StackPanel>
                             </Grid>
                         </Grid>
-
-
-
                         <Grid>
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="40"></RowDefinition>
@@ -171,9 +168,9 @@
                                     <ColumnDefinition Width="40"></ColumnDefinition>
                                     <ColumnDefinition Width="80"></ColumnDefinition>
                                 </Grid.ColumnDefinitions>
-                                <Button x:Name="previousPageButton" Grid.Column="0" Height="20" Background="#FFFFB0B0" Click="previousPageButton_Click">Previous</Button>
+                                <Button x:Name="previousPageButton" Grid.Column="0" Height="20" Background="#FFFFB0B0">Previous</Button>
                                 <TextBlock x:Name="pageNumberTextBlock" Text="1" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
-                                <Button x:Name="nextPageButton" Grid.Column="2" Height="20" Background="#FFFFB0B0" Click="nextPageButton_Click">Next</Button>
+                                <Button x:Name="nextPageButton" Grid.Column="2" Height="20" Background="#FFFFB0B0">Next</Button>
                             </Grid>
                             <ListView x:Name="dbListView" HorizontalAlignment="Left" Height="298" VerticalAlignment="Top" Grid.Row="1" Margin="0,0,0,-40">
                                 <ListView.View>
@@ -193,8 +190,17 @@
 
                     </StackPanel>
                 </TabItem>
+                <TabItem Header="Rating">
+                    <Grid Width="200" Height="50">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1*"></ColumnDefinition>
+                            <ColumnDefinition Width="1*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Label Grid.Column="0" VerticalAlignment="Center">Rate this app:</Label>
+                        <custom:UserRate x:Name="userRatingControl" Grid.Column="1" UserRatingChanged="UserRate_UserRatingChanged"></custom:UserRate>
+                    </Grid>
+                </TabItem>
             </TabControl>
-
 
         </StackPanel>
 

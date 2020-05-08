@@ -2,10 +2,12 @@
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
+using System.Net;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
+using UnitConverter.Desktop;
 using UnitConverter.Lib;
 using static UnitConverter.Lib.Units;
 
@@ -38,7 +40,33 @@ namespace UnitConverter.Wpf
         {
             InitializeComponent();
             converterComboBox.ItemsSource = converterNames;
+            InitRelayCmds();
+        }
 
+        private void InitRelayCmds()
+        {
+            if (timeConversion)
+            {
+                ConvertCmd = new RelayCommand(obj => ConvertTime());
+            }
+            else
+            {
+                ConvertCmd = new RelayCommand(obj => Convert(),
+                    obj => unitFromComboBox.SelectedItem != null
+                        && unitToComboBox.SelectedItem != null
+                        && inputTextBox.Text != "");
+            }
+            convertButton.Command = ConvertCmd;
+
+            // Pages
+            NextPageCmd = new RelayCommand(obj => NextPage());
+            nextPageButton.Command = NextPageCmd;
+            PrevPageCmd = new RelayCommand(obj => PrevPage());
+            previousPageButton.Command = PrevPageCmd;
+
+            // Filters
+            ClearFiltersCmd = new RelayCommand(obj => ClearFilters());
+            clearFiltersButton.Command = ClearFiltersCmd;
         }
 
         private void converterComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -49,6 +77,7 @@ namespace UnitConverter.Wpf
                 case "Time":
                     timeConversion = true;
                     unitFromComboBox.ItemsSource = tConv.SupportedUnits;
+                    unitToComboBox.ItemsSource = tConv.SupportedUnits;
                     ((Storyboard)FindResource("ShowClock")).Begin();
                     outTextBox.Opacity = 0;
                     break;
@@ -68,79 +97,71 @@ namespace UnitConverter.Wpf
                     break;
             }
         }
-
-        private void convertButton_Click(object sender, RoutedEventArgs e)
+        private RelayCommand ConvertCmd;
+        private void ConvertTime()
         {
-            if (timeConversion)
+            var inpFormat = (TimeFormat)unitFromComboBox.SelectedItem;
+            var inpVal = inputTextBox.Text;
+            try
             {
-                var inpFormat = (TimeFormat)unitFromComboBox.SelectedItem;
-                var inpVal = inputTextBox.Text;
-                try
+                var outTime = tConv.Convert(inpVal, inpFormat, OppositeFormat(inpFormat));
+                if (outTime.Item2 == TimeFormat.TwentyFourHour)
                 {
-                    var outTime = tConv.Convert(inpVal, inpFormat, OppositeFormat(inpFormat));
-                    if (outTime.Item2 == TimeFormat.TwentyFourHour)
-                    {
-                        var parts = outTime.Item1.Split(' ')[0].Split(':');
-                        hours = double.Parse(parts[0]);
-                        minutes = double.Parse(parts[1]);
+                    var parts = outTime.Item1.Split(' ')[0].Split(':');
+                    hours = double.Parse(parts[0]);
+                    minutes = double.Parse(parts[1]);
 
-                    }
-                    RotateTransform minuteRotation = new RotateTransform
-                    {
-                        Angle = 360 / (60 / minutes)
-                    };
-                    TransformGroup minuteTransform = new TransformGroup();
-                    minuteTransform.Children.Add(minuteRotation);
-                    minutePath.RenderTransform = minuteTransform;
-
-                    RotateTransform hourRotation = new RotateTransform();
-                    hourRotation.Angle = 360 / (12 / hours);
-                    TransformGroup hourTransform = new TransformGroup();
-                    hourTransform.Children.Add(hourRotation);
-                    hourPath.RenderTransform = hourTransform;
                 }
-                catch (InvalidTimeFormat)
+                RotateTransform minuteRotation = new RotateTransform
                 {
-                    MessageBox.Show("Invalid time format.\nAvailable formats:\nTwelveHour - 6:30 pm\nTwentyFourHour - 17:30 h");
-                }
+                    Angle = 360 / (60 / minutes)
+                };
+                TransformGroup minuteTransform = new TransformGroup();
+                minuteTransform.Children.Add(minuteRotation);
+                minutePath.RenderTransform = minuteTransform;
 
+                RotateTransform hourRotation = new RotateTransform();
+                hourRotation.Angle = 360 / (12 / hours);
+                TransformGroup hourTransform = new TransformGroup();
+                hourTransform.Children.Add(hourRotation);
+                hourPath.RenderTransform = hourTransform;
             }
-            else
+            catch (InvalidTimeFormat)
             {
-                if (unitFromComboBox.SelectedItem != null
-                && unitToComboBox.SelectedItem != null
-                && inputTextBox.Text != "")
+                MessageBox.Show("Invalid time format.\nAvailable formats:\nTwelveHour - 6:30 pm\nTwentyFourHour - 17:30 h");
+            }
+        }
+        private void Convert()
+        {
+            var inpUnit = (Unit)unitFromComboBox.SelectedItem;
+            var outUnit = (Unit)unitToComboBox.SelectedItem;
+            var inpVal = Double.Parse(inputTextBox.Text);
+            foreach (IConverter<double, Unit> conv in converters)
+            {
+                if (conv.Name == converterComboBox.SelectedItem.ToString())
                 {
-                    var inpUnit = (Unit)unitFromComboBox.SelectedItem;
-                    var outUnit = (Unit)unitToComboBox.SelectedItem;
-                    var inpVal = Double.Parse(inputTextBox.Text);
-                    foreach (IConverter<double, Unit> conv in converters)
+                    var outVal = conv.Convert(inpVal, inpUnit, outUnit);
+                    using (var context = new StatsDB())
                     {
-                        if (conv.Name == converterComboBox.SelectedItem.ToString())
+                        context.Records.Add(new Record
                         {
-                            var outVal = conv.Convert(inpVal, inpUnit, outUnit);
-                            using (var context = new StatsDB())
-                            {
-                                context.Records.Add(new Record
-                                {
-                                    converter = conv.Name,
-                                    date = DateTime.Now,
-                                    inputValue = inpVal,
-                                    inputUnit = UnitName(inpUnit),
-                                    outputValue = outVal.Item1,
-                                    outputUnit = UnitName(outVal.Item2),
-                                });
-                                context.SaveChanges();
-                            }
-                            outTextBox.Text = $"{outVal.Item1} {outVal.Item2}";
-                            break;
-                        }
+                            converter = conv.Name,
+                            date = DateTime.Now,
+                            inputValue = inpVal,
+                            inputUnit = UnitName(inpUnit),
+                            outputValue = outVal.Item1,
+                            outputUnit = UnitName(outVal.Item2),
+                        });
+                        context.SaveChanges();
                     }
+                    outTextBox.Text = $"{outVal.Item1} {outVal.Item2}";
+                    break;
                 }
             }
         }
 
-        private void nextPageButton_Click(object sender, RoutedEventArgs e)
+        private RelayCommand NextPageCmd;
+        private void NextPage()
         {
             var currentPage = int.Parse(pageNumberTextBlock.Text);
             List<Record> data = SelectRecords(currentPage + 1);
@@ -151,8 +172,8 @@ namespace UnitConverter.Wpf
                 pageNumberTextBlock.Text = $"{currentPage + 1}";
             }
         }
-
-        private void previousPageButton_Click(object sender, RoutedEventArgs e)
+        private RelayCommand PrevPageCmd;
+        private void PrevPage()
         {
             var currentPage = int.Parse(pageNumberTextBlock.Text);
 
@@ -236,7 +257,7 @@ namespace UnitConverter.Wpf
             }
             return records;
         }
-        
+
         // Restartujemy strony jeżeli wybrano jeden z filtrów
         private void RestartRecordsPage()
         {
@@ -257,12 +278,26 @@ namespace UnitConverter.Wpf
             RestartRecordsPage();
         }
 
-        private void clearFiltersButton_Click(object sender, RoutedEventArgs e)
+        private RelayCommand ClearFiltersCmd;
+        private void ClearFilters()
         {
             converterFilterComboBox.SelectedIndex = 0;
             startDatePicker.SelectedDate = null;
             endDatePicker.SelectedDate = null;
             RestartRecordsPage();
+        }
+
+        private void UserRate_UserRatingChanged(object sender, Custrom.WpfControls.UserRate.UserRatingEventArgs e)
+        {
+            using (var context = new StatsDB())
+            {
+                context.Ratings.Add(new Rating
+                {
+                    name = Dns.GetHostName(),
+                    rating = e.Rating
+                });
+                context.SaveChanges();
+            }
         }
     }
 }
