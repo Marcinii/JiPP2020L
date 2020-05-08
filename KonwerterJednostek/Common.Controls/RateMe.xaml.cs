@@ -27,6 +27,8 @@ namespace Common.Controls
 
         private int rateValue=0;
 
+        public event EventHandler<RateEventArgs> RateValueChanged;
+
         public int RateValue
         {
             get { return rateValue; }
@@ -38,6 +40,11 @@ namespace Common.Controls
                 }
                 rateValue = value;
                 updateButtons();
+
+                if (RateValueChanged != null)
+                {
+                    RateValueChanged(this, new RateEventArgs() { value = rateValue });
+                }
             }
         }
 
@@ -54,19 +61,18 @@ namespace Common.Controls
                 {
                     ((Button)ratesGrid.Children[i]).Background = new SolidColorBrush(Colors.Blue);
                 }
-            }
-            //if (rateValue == RateValue)
-            //{
-            //    for (int i = 0; i < rateValue; i++)
-            //    {
-            //        ((Button)ratesGrid.Children[i]).Background = new SolidColorBrush(Colors.White);
-            //    }
-            //}
+            }            
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             RateValue = ratesGrid.Children.IndexOf((Button)sender) + 1;
         }
+        
+    }
+
+    public class RateEventArgs: EventArgs
+    {
+        public int value { get; set; }
     }
 }
