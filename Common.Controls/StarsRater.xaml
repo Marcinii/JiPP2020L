@@ -62,7 +62,7 @@
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
 
-        <Button Grid.Column="0" Background="white" Margin="1" Style="{DynamicResource StarButtonStyle}" Click="Button_Click" />
+        <Button Grid.Column="0" Background="white" Margin="1" Style="{DynamicResource StarButtonStyle}" Click="Button_Click"/>
         <Button Grid.Column="1" Background="white" Margin="1" Style="{DynamicResource StarButtonStyle}" Click="Button_Click"/>
         <Button Grid.Column="2" Background="white" Margin="1" Style="{DynamicResource StarButtonStyle}" Click="Button_Click"/>
         <Button Grid.Column="3" Background="white" Margin="1" Style="{DynamicResource StarButtonStyle}" Click="Button_Click"/>

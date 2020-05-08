@@ -1,4 +1,5 @@
-﻿using KonwerterJednostek.Logic;
+﻿using Common.Controls;
+using KonwerterJednostek.Logic;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,7 +26,8 @@ namespace Konwerter.GUI
     public partial class MainWindow : Window
     {
         private const int Length = 5;
-        //Server=localhost;Database=master;Trusted_Connection=True;
+        BazaKonwerterEntities DBContext = new BazaKonwerterEntities();
+        //
         public MainWindow()
         {
             InitializeComponent();
@@ -53,7 +55,29 @@ namespace Konwerter.GUI
             if (!success1) { deg1 = 0; }
             deg1 *= 30;
             deg1 += (deg0 / 12);
+
+            // Wczytaj początkową wartość RateValue
+            var query = from o in DBContext.Ocena
+                        where o.id == 1
+                        select o;
+            RateControl.RateValue = query.First().Rating;
+            // Podłącz się do zdarzenia RateValueChanged
+            RateControl.RateValueChanged += onRateValueChanged;
         }
+
+        private void onRateValueChanged(object sender, RateEventArgs e)
+        {
+            var newRating = new Ocena
+            {
+                id = 1,
+                Rating = e.Value
+            };
+            var currentRating = (from o in DBContext.Ocena
+                        where o.id == 1
+                        select o).First();
+            DBContext.Entry(currentRating).CurrentValues.SetValues(newRating);
+        }
+
         bool zegarBefore = false;
         private void combo1_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {

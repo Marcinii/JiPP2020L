@@ -46,10 +46,9 @@ namespace Common.Controls
                         RateValueChanged(this, new RateEventArgs() { Value = _rateValue });
                     }
                 }
-                else if(_rateValue <= 0 && _rateValue >= 5)
-                        {
+                else {
                     ((Button)ratesGrid.Children[_rateValue - 1]).Background = new SolidColorBrush(Colors.Red);
-                }
+                     }
             }
     }
 

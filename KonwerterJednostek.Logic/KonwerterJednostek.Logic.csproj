@@ -52,6 +52,27 @@
   <ItemGroup>
     <Compile Include="Error.cs" />
     <Compile Include="KonwerterService.cs" />
+    <Compile Include="Ocena.cs">
+      <DependentUpon>ReatingModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ReatingModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ReatingModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ReatingModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ReatingModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ReatingModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ReatingModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="TabelaWynikow.cs">
+      <DependentUpon>ReatingModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Time12To24.cs" />
     <Compile Include="Time24To12.cs" />
     <Compile Include="CelciusToFarenheit.cs" />
@@ -70,6 +91,28 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+    <EntityDeploy Include="ReatingModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ReatingModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="ReatingModel.edmx.diagram">
+      <DependentUpon>ReatingModel.edmx</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ReatingModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ReatingModel.edmx</DependentUpon>
+      <LastGenOutput>ReatingModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="ReatingModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ReatingModel.edmx</DependentUpon>
+      <LastGenOutput>ReatingModel.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
