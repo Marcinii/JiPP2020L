@@ -40,6 +40,17 @@ namespace WpfApp1
             Wskazowka_Godzinowa.Visibility = Visibility.Hidden;
             Wskazowka_Minutowa.Visibility = Visibility.Hidden;
 
+            // Odczytaj ocene aplikacji z bazy danych
+            //RateControl.RateValue = Database.GetRating().RatingValue;
+
+            using (KASETY_412_15Entities context = new KASETY_412_15Entities())
+            {
+                var ocena = context.rate
+                                    .OrderByDescending(r => r.id)
+                                    .FirstOrDefault();
+                button_ocen.RateValue = ocena.rate1;
+            }
+
             //komendy
             KonwertujCommand = new RelayCommand(obj => Konwertuj());
             button_konwertuj.Command = KonwertujCommand;
@@ -66,7 +77,6 @@ namespace WpfApp1
 
             }
         }
-
 
         //komendy
         private void Konwertuj()
@@ -95,6 +105,19 @@ namespace WpfApp1
                         HourRotation.Angle = (czas_na_zegarze.Hour * 30.0) + (czas_na_zegarze.Minute / 60.0 * 30.0)+90;
                     }
                 }
+            }
+        }
+
+        private void Button_ocen_RateValueChanged(object sender, Common.Controls.RateMe.RateEventArgs e)
+        {
+            using (KASETY_412_15Entities context = new KASETY_412_15Entities())
+            {
+                var ocena = new rate()
+                {
+                    rate1 = e.Value
+                };
+                context.rate.Add(ocena);
+                context.SaveChanges();
             }
         }
     }

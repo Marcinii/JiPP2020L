@@ -66,7 +66,7 @@ namespace Common.Controls
         private void RateApp(object sender)
         {
             RateValue = StarsGrid.Children.IndexOf((Button)sender) + 1;
-            //RateValueChanged(this, new RateEventArgs(RateValue));
+            RateValueChanged(this, new RateEventArgs(RateValue));
         }
 
         private void UpdateStars(int rating)

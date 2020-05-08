@@ -71,7 +71,7 @@
             </Ellipse.RenderTransform>
         </Ellipse>
         <TextBlock x:Name="textblock_ocen" HorizontalAlignment="Left" Height="30" Margin="62,94.8,0,0" TextWrapping="Wrap" Text="Oceń aplikację:" VerticalAlignment="Top" Width="88" Foreground="#FF169333" Grid.Row="1"/>
-        <commonControls:RateMe x:Name="button_ocen" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="20.2,93.8,0,0" Grid.Row="1" VerticalAlignment="Top" Width="121"/>
+        <commonControls:RateMe x:Name="button_ocen" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="20.2,93.8,0,0" Grid.Row="1" VerticalAlignment="Top" Width="121" RateValueChanged="Button_ocen_RateValueChanged"/>
 
 
 
