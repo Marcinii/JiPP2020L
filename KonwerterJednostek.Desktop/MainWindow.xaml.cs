@@ -14,6 +14,8 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Data.SqlClient;
 using System.Data;
+using System.Security.AccessControl;
+using Wspolne.Kontrolki;
 
 namespace KonwerterJednostek.Desktop
 {
@@ -26,90 +28,115 @@ namespace KonwerterJednostek.Desktop
         {
             InitializeComponent();
 
-            
-            
+            //Odczytuje wartosc Oceny z bazy danych
+            using (SqlConnection connection = new SqlConnection("Data Source=(local)\\SQLEXPRESS;Initial Catalog=jipp4;Integrated Security=True"))
+            {
+                connection.Open();
+
+                string Query = "select TOP 1 Ocena from ZADANIE6 ORDER BY ID DESC ";
+                using (SqlCommand command = new SqlCommand(Query, connection))
+                {
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        reader.Read();
+                        controlOcena.OcenWartosc = reader.GetInt32(0);
+                        reader.Close();
+                    }
+                }
+            }
+
+
+            //Sekcja komend ICommand
+            KomendaKonwersjiTemp = new RelayCommand(obj => KonwertujTemp(), obj => comboboxTempJednZ.SelectedItem != null && comboboxTempJednDo.SelectedItem != null && !string.IsNullOrWhiteSpace(textBoxWartoscTemp.Text)) ;
+            przyciskKonwersja_Temp.Command = KomendaKonwersjiTemp;
+
+            KomendaKonwersjiLitry = new RelayCommand(obj => KonwertujLitry(), obj => comboboxLitryJednZ.SelectedItem != null && comboboxLitryJednDo.SelectedItem != null && !string.IsNullOrWhiteSpace(textBoxWartoscLitry.Text));
+            przyciskKonwersja_Litry.Command = KomendaKonwersjiLitry;
+
+            KomendaKonwersjiMasa = new RelayCommand(obj => KonwertujMasa(), obj => comboboxMasaJednZ.SelectedItem != null && comboboxMasaJednDo.SelectedItem != null && !string.IsNullOrWhiteSpace(textBoxWartoscMasa.Text));
+            przyciskKonwersja_Masa.Command = KomendaKonwersjiMasa;
+
+            KomendaKonwersjiDlugosc = new RelayCommand(obj => KonwertujDlugosc(), obj => comboboxDlugoscJednZ.SelectedItem != null && comboboxDlugoscJednDo.SelectedItem != null && !string.IsNullOrWhiteSpace(textBoxWartoscDlugosc.Text));
+            przyciskKonwersja_Dlugosc.Command = KomendaKonwersjiDlugosc;
+
+            KomendaKonwersjiGodzina = new RelayCommand(obj => KonwertujGodzine(), obj => !string.IsNullOrWhiteSpace(textboxGodzina24.Text) && !string.IsNullOrWhiteSpace(textboxMinuty24.Text));
+            buttonKonwertujGodzine.Command = KomendaKonwersjiGodzina;
+
+            KomendaFiltrPoDacie = new RelayCommand(obj => FiltrujPoDacie(), obj => datepickerOd.SelectedDate != null && datepickerDo.SelectedDate != null);
+            przyciskFiltrujPoDacie.Command = KomendaFiltrPoDacie;
+
+            KomendaFiltrPoZakresieDat = new RelayCommand(obj => FiltrujPoZakresieDat(), obj => datepickerOd.SelectedDate != null && datepickerDo.SelectedDate != null);
+            przyciskTopKonwersjeWgDat.Command = KomendaFiltrPoZakresieDat;
 
             //Temperatura
-
             comboboxTempJednZ.ItemsSource = new List<string>()
             {
-                "C",
-                "F",
-                "K"
+                "C", "F", "K"
             };
 
             comboboxTempJednDo.ItemsSource = new List<string>()
             {
-                "C",
-                "F",
-                "K"
+                "C", "F", "K"
             };
 
             //Masa
             comboboxMasaJednZ.ItemsSource = new List<string>()
             {
-                "f",
-                "kg",
-                "g"
+                "f", "kg", "g"
             };
 
             comboboxMasaJednDo.ItemsSource = new List<string>()
             {
-                "f",
-                "kg",
-                "g"
+                "f", "kg", "g"
             };
 
             //Dlugosc
             comboboxDlugoscJednZ.ItemsSource = new List<string>()
             {
-                "km",
-                "m",
-                "mm"
+                "km", "m", "mm"
             };
 
             comboboxDlugoscJednDo.ItemsSource = new List<string>()
             {
-                "km",
-                "m",
-                "mm"
+                "km", "m", "mm"
             };
             //Litry
             comboboxLitryJednZ.ItemsSource = new List<string>()
             {
-                "m^3",
-                "l"                
+                "m^3", "l"                
             };
 
             comboboxLitryJednDo.ItemsSource = new List<string>()
             {
-                "m^3",
-                "l"
+                "m^3", "l"
             };
             comboboxFiltrKonwerterWybor.ItemsSource = new List<string>()
             {
-                "TEMPERATURA",
-                "MASA",
-                "DLUGOSC",
-                "LITRY"
+                "TEMPERATURA", "MASA", "DLUGOSC", "LITRY"
             };
     }
-
-
         private void przyciskCzymJestem_Click(object sender, RoutedEventArgs e)
         {
 
             labelIntro1.Foreground = Brushes.DarkGoldenrod;
         }
 
-        
-        private void przyciskKonwersjaTemp_Click(object sender, RoutedEventArgs e)
+        //Sekcja RelayCommand
+        private RelayCommand KomendaKonwersjiTemp;
+        private RelayCommand KomendaKonwersjiLitry;
+        private RelayCommand KomendaKonwersjiMasa;
+        private RelayCommand KomendaKonwersjiDlugosc;
+        private RelayCommand KomendaKonwersjiGodzina;
+        private RelayCommand KomendaFiltrPoDacie;
+        private RelayCommand KomendaFiltrPoZakresieDat;
+
+        //Sekcja przyciskow do konwersji
+        private void KonwertujTemp()
         {
             KonwerterTemperatura konw = new KonwerterTemperatura();
             
             string wejscie = textBoxWartoscTemp.Text;
             double wejscieL = Convert.ToDouble(wejscie);
-            //MessageBox.Show("Brawo!" + liczba);
             
             double wynikL = konw.Konwertuj(comboboxTempJednZ.Text, comboboxTempJednDo.Text, wejscieL); 
             textblockWynikTemp.Text = Convert.ToString(wynikL);
@@ -117,7 +144,7 @@ namespace KonwerterJednostek.Desktop
             WlozDoBD rekord = new WlozDoBD();
             rekord.WlozRekordy("TEMPERATURA", comboboxTempJednZ.Text, comboboxTempJednDo.Text, wejscieL, wynikL, currentTime);
         }
-        private void przyciskKonwersjaMasa_Click(object sender, RoutedEventArgs e)
+        private void KonwertujMasa()
         {
             KonwerterMas konw = new KonwerterMas();
 
@@ -133,7 +160,7 @@ namespace KonwerterJednostek.Desktop
             rekord.WlozRekordy("MASA", comboboxMasaJednZ.Text, comboboxMasaJednDo.Text, wejscieL, wynikL, currentTime);
         }
 
-        private void przyciskKonwersjaDlugosc_Click(object sender, RoutedEventArgs e)
+        private void KonwertujDlugosc()
         {
             KonwerterDlugosc konw = new KonwerterDlugosc();
 
@@ -147,7 +174,7 @@ namespace KonwerterJednostek.Desktop
             WlozDoBD rekord = new WlozDoBD();
             rekord.WlozRekordy("DLUGOSC", comboboxDlugoscJednZ.Text, comboboxDlugoscJednDo.Text, wejscieL, wynikL, currentTime);
         }
-        private void przyciskKonwersjaLitry_Click(object sender, RoutedEventArgs e)
+        private void KonwertujLitry()
         {
             KonwerterLitry konw = new KonwerterLitry();
 
@@ -162,16 +189,7 @@ namespace KonwerterJednostek.Desktop
             rekord.WlozRekordy("LITRY", comboboxLitryJednZ.Text, comboboxLitryJednDo.Text, wejscieL, wynikL, currentTime);
         }
 
-
-
-
-
-
-
-
-
-
-        private void buttonKonwertujGodzine_Click(object sender, RoutedEventArgs e)
+        private void KonwertujGodzine()
         {
             KonwerterGodzina konw = new KonwerterGodzina();
 
@@ -211,79 +229,19 @@ namespace KonwerterJednostek.Desktop
         }
 
 
-
-
-
-
-
-
-
-
-
-
-        private void ComboBoxJednostkaDlugosc_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
-        }
-
-        private void comboboxTempJednZ_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
-        }
-        private void comboboxTempJednDo_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
-        }
-
-        private void textBoxWartoscMasa_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
-        }
-
-        private void textBoxWartoscDlugosc_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
-        }
-
-        private void comboboxDlugoscJednZ_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
-        }
-
-        private void comboboxMasaJednZ_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
-        }
-
-        private void comboboxDlugoscJednDo_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
-        }
-
-        private void comboboxMasaJednDo_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
-        }
-
-        private void textBoxWartoscLitry_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
-        }
-
-        private void comboboxLitryJednZ_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
-        }
-
-        private void comboboxLitryJednDo_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
-        }
-
-        private void konwerterWybor_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            
-        }
+        private void ComboBoxJednostkaDlugosc_SelectionChanged(object sender, SelectionChangedEventArgs e){ }
+        private void comboboxTempJednZ_SelectionChanged(object sender, SelectionChangedEventArgs e){}
+        private void comboboxTempJednDo_SelectionChanged(object sender, SelectionChangedEventArgs e){}
+        private void textBoxWartoscMasa_TextChanged(object sender, TextChangedEventArgs e){}
+        private void textBoxWartoscDlugosc_TextChanged(object sender, TextChangedEventArgs e){ }
+        private void comboboxDlugoscJednZ_SelectionChanged(object sender, SelectionChangedEventArgs e) {}
+        private void comboboxMasaJednZ_SelectionChanged(object sender, SelectionChangedEventArgs e){ }
+        private void comboboxDlugoscJednDo_SelectionChanged(object sender, SelectionChangedEventArgs e){}
+        private void comboboxMasaJednDo_SelectionChanged(object sender, SelectionChangedEventArgs e){ }
+        private void textBoxWartoscLitry_TextChanged(object sender, TextChangedEventArgs e) {}
+        private void comboboxLitryJednZ_SelectionChanged(object sender, SelectionChangedEventArgs e) {}
+        private void comboboxLitryJednDo_SelectionChanged(object sender, SelectionChangedEventArgs e) {}
+        private void konwerterWybor_SelectionChanged(object sender, SelectionChangedEventArgs e) { }
 
         private void przyciskWyswietlTabele_Click(object sender, RoutedEventArgs e)
         {
@@ -332,7 +290,7 @@ namespace KonwerterJednostek.Desktop
 
         }
 
-        private void przyciskFiltrujPoDacie_Click(object sender, RoutedEventArgs e)
+        private void FiltrujPoZakresieDat()
         {
             using (SqlConnection connection = new SqlConnection("Data Source=(local)\\SQLEXPRESS;Initial Catalog=jipp4;Integrated Security=True"))
             {
@@ -417,7 +375,7 @@ namespace KonwerterJednostek.Desktop
             }
         }
 
-        private void przyciskTopKonwersjeWgDat_Click(object sender, RoutedEventArgs e)
+        private void FiltrujPoDacie()
         {
             using (SqlConnection connection = new SqlConnection("Data Source=(local)\\SQLEXPRESS;Initial Catalog=jipp4;Integrated Security=True"))
             {
@@ -439,6 +397,11 @@ namespace KonwerterJednostek.Desktop
                 datagridDane.ItemsSource = dt.DefaultView;
                 dataAdp.Update(dt);
             }
+        }
+
+        private void Ocen_Loaded(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

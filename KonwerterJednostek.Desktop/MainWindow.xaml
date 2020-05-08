@@ -3,6 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:wspolneKontrolki="clr-namespace:Wspolne.Kontrolki;assembly=Wspolne.Kontrolki"
         xmlns:local="clr-namespace:KonwerterJednostek.Desktop"
         mc:Ignorable="d"
         Title="MainWindow" Height="500" Width="1500">
@@ -195,10 +196,10 @@
         </StackPanel>
 
         <StackPanel Grid.Column="4">
-            <Button x:Name="przyciskKonwersja_Temp" Content="Konwertuj&#xA;" HorizontalAlignment="Center" Margin="5,87,5,5" VerticalAlignment="Top" Height="22" Width="120" Background="#FFF3CA20" Click="przyciskKonwersjaTemp_Click" Opacity="0" />
-            <Button x:Name="przyciskKonwersja_Masa" Content="Konwertuj&#xA;" HorizontalAlignment="Center" Margin="5,5,5,5" VerticalAlignment="Top" Height="22"  Width="120" Background="#FFF3CA20" Click="przyciskKonwersjaMasa_Click" Opacity="0" />
-            <Button x:Name="przyciskKonwersja_Dlugosc" Content="Konwertuj&#xA;" HorizontalAlignment="Center" Margin="5,5,5,5" VerticalAlignment="Top" Height="22"  Width="120" Background="#FFF3CA20" Click="przyciskKonwersjaDlugosc_Click" Opacity="0" />
-            <Button x:Name="przyciskKonwersja_Litry" Content="Konwertuj&#xA;" HorizontalAlignment="Center" Margin="5,5,5,5" VerticalAlignment="Top" Height="22"  Width="120" Background="#FFF3CA20" Click="przyciskKonwersjaLitry_Click" Opacity="0" />
+            <Button x:Name="przyciskKonwersja_Temp" Content="Konwertuj&#xA;" HorizontalAlignment="Center" Margin="5,87,5,5" VerticalAlignment="Top" Height="22" Width="120" Background="#FFF3CA20"  Opacity="0" />
+            <Button x:Name="przyciskKonwersja_Masa" Content="Konwertuj&#xA;" HorizontalAlignment="Center" Margin="5,5,5,5" VerticalAlignment="Top" Height="22"  Width="120" Background="#FFF3CA20" Opacity="0" />
+            <Button x:Name="przyciskKonwersja_Dlugosc" Content="Konwertuj&#xA;" HorizontalAlignment="Center" Margin="5,5,5,5" VerticalAlignment="Top" Height="22"  Width="120" Background="#FFF3CA20" Opacity="0" />
+            <Button x:Name="przyciskKonwersja_Litry" Content="Konwertuj&#xA;" HorizontalAlignment="Center" Margin="5,5,5,5" VerticalAlignment="Top" Height="22"  Width="120" Background="#FFF3CA20" Opacity="0" />
         </StackPanel>
 
         <StackPanel Grid.Column="5">
@@ -207,6 +208,12 @@
             <TextBlock x:Name="textblockWynikMasa" HorizontalAlignment="Center" Margin="5,5,5,5" TextWrapping="Wrap" VerticalAlignment="Top" Height="22" Width="122" Foreground="Black" Background="#FFE8E8E8" FontWeight="Bold" FontSize="16" Opacity="0"/>
             <TextBlock x:Name="textblockWynik_Dlugosc" HorizontalAlignment="Center" Margin="5,5,5,5" TextWrapping="Wrap" VerticalAlignment="Top" Height="22" Width="122" Foreground="Black" Background="#FFE8E8E8" FontWeight="Bold" FontSize="16" Opacity="0.01"/>
             <TextBlock x:Name="textblockWynik_Litry" HorizontalAlignment="Center" Margin="5,5,5,5" TextWrapping="Wrap" VerticalAlignment="Top" Height="22" Width="122" Foreground="Black" Background="#FFE8E8E8" FontSize="16" FontWeight="Bold" Opacity="0"/>
+        </StackPanel>
+        <StackPanel Grid.Column="6" Grid.Row="0">
+            <Label x:Name="labelOcenaAplikacji" Content="Ocena aplikacji" Grid.Column="8" HorizontalAlignment="Left" Margin="10,46,0,0" VerticalAlignment="Top" Width="105" Foreground="#FFF3CA20"/>
+            <!--<wspolneKontrolki:Ocen x:Name="controlOcena" Loaded="Ocen_Loaded"  Height="25" WartoscOcenyZmieniona="controlOcena_WartoscOcenyZmieniona" />-->
+
+            <wspolneKontrolki:Ocen x:Name="controlOcena" Height="25"/>
         </StackPanel>
         <StackPanel Grid.Column="8" Grid.Row="0">
         </StackPanel>
@@ -256,7 +263,7 @@
         <Label x:Name="labelH3" Content="3" Grid.Column="2" Width="12" Height="37" Margin="43,102,0,0" Grid.Row="1" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="0" FontWeight="Bold" FontSize="24" FlowDirection="RightToLeft" RenderTransformOrigin="-0.182,0.472" />
         <Label x:Name="labelH9" Content="9" Grid.Column="1" Width="17" Height="37" Margin="26,102,0,0" Grid.Row="1" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="0" FontWeight="Bold" FontSize="24" FlowDirection="RightToLeft" RenderTransformOrigin="-0.182,0.472" />
 
-        <Button x:Name="buttonKonwertujGodzine" Content="Konwertuj" HorizontalAlignment="Left" Margin="15,99,0,0" Grid.Row="1" VerticalAlignment="Top" Width="107" Height="25" Click="buttonKonwertujGodzine_Click" FontWeight="Bold" FontSize="14"/>
+        <Button x:Name="buttonKonwertujGodzine" Content="Konwertuj" HorizontalAlignment="Left" Margin="15,99,0,0" Grid.Row="1" VerticalAlignment="Top" Width="107" Height="25" FontWeight="Bold" FontSize="14"/>
         <TextBox x:Name="textboxGodzina12" HorizontalAlignment="Left" Height="30" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="35" Foreground="Black" Background="#FFC9C9C9" FontWeight="Bold" Margin="27,185,0,0" FontSize="22" RenderTransformOrigin="0,1.583"/>
         <TextBox x:Name="textboxGodzina24" HorizontalAlignment="Left" Height="30" Margin="27,55,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="35" Foreground="Black" Background="#FFF3CA20" FontWeight="Bold" FontSize="22"/>
         <TextBox x:Name="textboxMinuty24" HorizontalAlignment="Left" Height="30" Margin="67,55,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="35" Foreground="Black" Background="#FFF3CA20" FontWeight="Bold" FontSize="22"/>
@@ -308,7 +315,7 @@
         </ComboBox>
         <DatePicker x:Name="datepickerOd" Grid.Column="9" HorizontalAlignment="Left" Margin="36,152,0,0" VerticalAlignment="Top" Width="103" SelectedDateFormat="Short" Grid.ColumnSpan="2" Height="24"/>
         <DatePicker x:Name="datepickerDo" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="9" Margin="36,177,0,0" Width="103" Text="Data Do" RenderTransformOrigin="-1.71,-1.458" Grid.ColumnSpan="2"/>
-        <Button x:Name="przyciskFiltrujPoDacie" Content="Filtruj datę" Grid.Column="9" HorizontalAlignment="Left" Height="29" Margin="36,206,0,0" VerticalAlignment="Top" Width="103" Grid.ColumnSpan="2" Click="przyciskFiltrujPoDacie_Click" Background="#FFF3CA20" FontWeight="Bold"/>
+        <Button x:Name="przyciskFiltrujPoDacie" Content="Filtruj datę" Grid.Column="9" HorizontalAlignment="Left" Height="29" Margin="36,206,0,0" VerticalAlignment="Top" Width="103" Grid.ColumnSpan="2"  Background="#FFF3CA20" FontWeight="Bold"/>
         <Label x:Name="labelDataDO" Content="DO" Grid.Column="9" HorizontalAlignment="Left" Height="25" Margin="5,177,0,0" VerticalAlignment="Top" Width="31" Foreground="White"/>
         <Label x:Name="labelDataOD" Content="OD" Grid.Column="9" HorizontalAlignment="Left" Height="24" Margin="5,152,0,0" VerticalAlignment="Top" Width="31" Foreground="White"/>
         <Label x:Name="labelFiltrujPoKonwerterze" Content="Filtruj po konwerterze" HorizontalAlignment="Left" Height="25" Margin="116,177,0,33" Width="138" Foreground="White" Grid.Column="7" Grid.ColumnSpan="3" FontWeight="Bold"/>
@@ -325,7 +332,7 @@
         <Label x:Name="labelStronnicuj" Content="Stronnicuj do max &#xD;&#xA;20 rekordów" Grid.Column="10" Margin="69,177,0,0" VerticalAlignment="Top" Foreground="White" HorizontalAlignment="Left" Width="118" RenderTransformOrigin="0.511,0.769" Grid.ColumnSpan="2" FontWeight="Bold"/>
         <Button x:Name="przyciskFiltrujNajpopularniejszyKonwerter" Content="Top 3 konwersje&#xD;&#xA;" Grid.Column="11" HorizontalAlignment="Left" Margin="10,35,0,0" Grid.Row="1" VerticalAlignment="Top" Width="104" Height="27" Click="przyciskFiltrujNajpopularniejszyKonwerter_Click" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontWeight="Bold" Background="#FFF3CA20"/>
         <Label x:Name="labelFiltrujNajpopularniejszyKonwerter" Content="Najpopularniejsi" Grid.Column="11" HorizontalAlignment="Left" Height="29" Margin="10,10,0,0" Grid.Row="1" VerticalAlignment="Top" Width="104" Foreground="White" FontWeight="Bold"/>
-        <Button x:Name="przyciskTopKonwersjeWgDat" Content="Top 3 konwersje&#xD;&#xA;wg dat&#xA;" Grid.Column="11" HorizontalAlignment="Left" Margin="10,84,0,0" Grid.Row="1" VerticalAlignment="Top" Width="104" Height="40" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontWeight="Bold" Click="przyciskTopKonwersjeWgDat_Click" Background="#FFF3CA20"/>
+        <Button x:Name="przyciskTopKonwersjeWgDat" Content="Top 3 konwersje&#xD;&#xA;wg dat&#xA;" Grid.Column="11" HorizontalAlignment="Left" Margin="10,84,0,0" Grid.Row="1" VerticalAlignment="Top" Width="104" Height="40" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontWeight="Bold"  Background="#FFF3CA20"/>
         <Label x:Name="labelTopKonwersjeWgDat" Content="» ale najpierw &#xD;&#xA;wybierz daty!" Grid.Column="11" HorizontalAlignment="Left" Height="34" Margin="10,124,0,0" Grid.Row="1" VerticalAlignment="Top" Width="104" Foreground="White" FontSize="9" FontWeight="Bold"/>
 
     </Grid>

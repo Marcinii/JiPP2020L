@@ -49,6 +49,7 @@
     <Compile Include="KonwerterLitry.cs" />
     <Compile Include="KonwerterMas.cs" />
     <Compile Include="KonwerterTemperatura.cs" />
+    <Compile Include="OcenaDB.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="WlozDoBD.cs" />
   </ItemGroup>
