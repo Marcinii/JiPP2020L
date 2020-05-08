@@ -87,7 +87,7 @@
                 <ComboBox x:Name="toCombobox" Grid.Column="3" Margin="10,5,10,5"/>
             </Grid>
             <TextBox x:Name="inputTextbox" Height="25" Margin="10"/>
-            <Button x:Name="convertButton" Height="25" Width="300" Margin="5" Click="ConvertButton_Click" Opacity="0">Konwersja</Button>
+            <Button x:Name="convertButton" Height="25" Width="300" Margin="5" Opacity="0">Konwersja</Button>
             <TextBlock x:Name="resultTextblock" Margin="5" Height="25">wynik...</TextBlock>
 
             <Grid>
