@@ -1,0 +1,113 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:UnitConverter.Desktop" 
+        xmlns:igGauge="http://schemas.infragistics.com/xaml"
+        xmlns:RareAPP="clr-namespace:RareAPP;assembly=RareAPP"
+        x:Class="UnitConverter.Desktop.MainWindow"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="489.286" Width="800">
+    <Window.Resources>
+        <Storyboard x:Key="Animacja" RepeatBehavior="Forever" >
+            <PointAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransformOrigin)" Storyboard.TargetName="AnimacjaProstokat">
+                <EasingPointKeyFrame KeyTime="0:0:1" Value="0.5,0.5"/>
+            </PointAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[2].(RotateTransform.Angle)" Storyboard.TargetName="AnimacjaProstokat">
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="360"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+    </Window.Resources>
+    <Window.Triggers>
+        <EventTrigger RoutedEvent="FrameworkElement.Loaded">
+            <BeginStoryboard Storyboard="{StaticResource Animacja}"/>
+        </EventTrigger>
+    </Window.Triggers>
+    <Grid>
+        <Path Opacity="0.45" Data="M80.268997,0.5 C124.3242,0.5 160.038,32.373967 160.038,71.692499 160.038,111.01103 124.3242,142.885 80.268997,142.885 36.213797,142.885 0.5,111.01103 0.5,71.692499 0.5,32.373967 36.213797,0.5 80.268997,0.5 z" Margin="615.625,249.804,15.837,42" Stretch="Fill" >
+            <Path.Fill>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="DarkCyan" Offset="0"/>
+                    <GradientStop Color="DarkBlue" Offset="1"/>
+                </LinearGradientBrush>
+            </Path.Fill>
+        </Path>
+        <StackPanel Grid.Column="0" HorizontalAlignment="Left" Width="794" Margin="0,10,-790,0" Height="441" VerticalAlignment="Top" Grid.ColumnSpan="2">
+            <TextBlock Margin="10,5,10,5" Height="25"><Run Text="Wybierz typ konwersji."/></TextBlock>
+            <ComboBox x:Name="ConverterCombobox" Margin="10,5,10,5" SelectionChanged="ConverterCombobox_SelectionChanged">
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding Name}"/>
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
+            <TextBlock Margin="10,5,10,5" Height="25"><Run Text="Wybierz jakie jednostki chcesz zamienić."/></TextBlock>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                </Grid.ColumnDefinitions>
+
+                <ComboBox x:Name="unitFromCombobox" Margin="10,5,10,5"/>
+                <ComboBox x:Name="unitToCombobox" Grid.Column="1" Margin="10,5,10,5"/>
+            </Grid>
+            <TextBlock Margin="10,5,10,5" Height="25"><Run Text="Podaj wartość do konwersji."/></TextBlock>
+            <TextBox x:Name="inputTextBox" Margin="10,5,10,5" Height="25"/>
+            <Button x:Name="ConvertButton" Margin="10,5,10,5" Height="25"  Content="Konwertuj"/>
+            <TextBlock Margin="10,5,10,5" Height="25"><Run Text="To Twój wynik."/></TextBlock>
+            <TextBlock x:Name="outputTextBlock" Margin="10,5,10,5" Height="25"><InlineUIContainer/><InlineUIContainer>                
+                </InlineUIContainer></TextBlock>
+
+        </StackPanel>
+        <Rectangle Fill="#FFF1A41D" Margin="630,328,94,110" RenderTransformOrigin="1,0.5">
+            <Rectangle.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform  x:Name="WskHour" Angle="90"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Rectangle.RenderTransform>
+        </Rectangle>
+        <Rectangle Fill="#FFFF0E0E" Margin="642,329,95,111" RenderTransformOrigin="1,0.5" >
+            <Rectangle.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform x:Name="WskMin" Angle="90"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Rectangle.RenderTransform>
+        </Rectangle>
+        <Rectangle
+        x:Name="AnimacjaProstokat" 
+        Fill="Blue" Margin="567,258,215,126" RenderTransformOrigin="1,0.5">
+            <Rectangle.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="-1"/>
+                    <SkewTransform/>
+                    <RotateTransform x:Name="ProstoatAngle"  Angle="0"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Rectangle.RenderTransform>
+        </Rectangle>
+        <DataGrid x:Name="DaneSQL"  RenderTransformOrigin="0.516,1.247" Margin="10,309,314,0"
+                  VerticalAlignment="Top" RowHeight="17"                  
+                  BorderBrush="Gray" BorderThickness="2"  
+                  IsReadOnly="True" AreRowDetailsFrozen="True"    CanUserSortColumns = "True" 
+                  CanUserReorderColumns="False"  CanUserResizeColumns="False"  
+                  SelectionMode="Extended" GridLinesVisibility="Vertical" HeadersVisibility="All"  
+                  Background="LightGray" 
+                 RowBackground="LightYellow" AlternatingRowBackground="LightBlue" Height="100" >
+        </DataGrid>
+        <Button x:Name="Filtruj" RenderTransformOrigin="2.839,6.439" 
+                Content="Filtruj" Margin="483,309,254,110"/>
+
+        <ComboBox Name="Data_od_combo" Margin="483,346,194,77" />
+        <ComboBox Name="Data_do_combo" Margin="483,379,194,44" />
+        <Label Margin="10,414,703,7" RenderTransformOrigin="0.167,0.748">Oceń Apke:</Label>
+        <RareAPP:RateMyApp Margin="89,414,401,10" x:Name="RateMe" />
+    </Grid>
+
+</Window>
