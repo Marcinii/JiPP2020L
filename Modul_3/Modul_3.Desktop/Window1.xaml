@@ -23,14 +23,14 @@
                 </DataTemplate>
             </ComboBox.ItemTemplate>
         </ComboBox>
-        <Button x:Name="poprzedni" Content="Poprzedni" Grid.Column="1" HorizontalAlignment="Left" Margin="186.6,276,0,0" VerticalAlignment="Top" Width="75" Click="Poprzedni_Click" RenderTransformOrigin="1.063,0.514"/>
-        <Button x:Name="nastepny" Content="Następny" Grid.Column="1" HorizontalAlignment="Left" Margin="329.6,276,0,0" VerticalAlignment="Top" Width="75" Click="Nastepny_Click" RenderTransformOrigin="0.381,3.271"/>
+        <Button x:Name="poprzedni" Content="Poprzedni" Grid.Column="1" HorizontalAlignment="Left" Margin="186.6,276,0,0" VerticalAlignment="Top" Width="75"  RenderTransformOrigin="1.063,0.514"/>
+        <Button x:Name="nastepny" Content="Następny" Grid.Column="1" HorizontalAlignment="Left" Margin="329.6,276,0,0" VerticalAlignment="Top" Width="75"  RenderTransformOrigin="0.381,3.271"/>
         <DataGrid x:Name="Topka" Grid.Column="1" HorizontalAlignment="Left" Height="100" Margin="165.6,338,0,0" VerticalAlignment="Top" Width="260"/>
         <Calendar x:Name="OdKal" SelectionMode="SingleDate" HorizontalAlignment="Left" Margin="-38,40,0,0" VerticalAlignment="Top" Height="160" Width="271" SelectedDatesChanged="OdKal_SelectedDatesChanged"/>
         <Calendar x:Name="DoKal" HorizontalAlignment="Left" Margin="8,223,0,0" VerticalAlignment="Top" SelectedDatesChanged="DoKal_SelectedDatesChanged"/>
         <TextBlock x:Name="OdButton" HorizontalAlignment="Left" Margin="8,205,0,0" TextWrapping="Wrap" Text="Data od" VerticalAlignment="Top" RenderTransformOrigin="-2.005,2.319" Foreground="#FFF90707" FontWeight="Bold" Width="180"/>
         <TextBlock x:Name="DoButton" HorizontalAlignment="Left" Margin="8,394,0,0" TextWrapping="Wrap" Text="Data do" VerticalAlignment="Top" Width="176" />
-        <Button x:Name="Pokaz" Content="Pokaz" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="177" Click="Pokaz_Click" Margin="10,415,0,0" RenderTransformOrigin="-0.076,2.297" Height="45"/>
+        <Button x:Name="Pokaz" Content="Pokaz" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="177" Margin="10,415,0,0" RenderTransformOrigin="-0.076,2.297" Height="45"/>
 
 
 

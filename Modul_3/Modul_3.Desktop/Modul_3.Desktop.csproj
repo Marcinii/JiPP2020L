@@ -65,6 +65,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Model1.cs" />
+    <Compile Include="RelayCommand.cs" />
     <Compile Include="Window1.xaml.cs">
       <DependentUpon>Window1.xaml</DependentUpon>
     </Compile>
@@ -113,6 +114,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Kontrolki\Kontrolki.csproj">
+      <Project>{0c36ee36-fa3e-41f4-a002-06ae0eb28543}</Project>
+      <Name>Kontrolki</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Modul_3.logic\Modul_3.logic.csproj">
       <Project>{4a01633d-422d-40d5-b847-d74fe5c3177a}</Project>
       <Name>Modul_3.logic</Name>
@@ -120,6 +125,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="opular-images-blank-analogue-clock-face-11562920866otsb8p3u8a.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -26,5 +26,6 @@ namespace Modul_3
         }
     
         public virtual DbSet<Stata> Statas { get; set; }
+        public virtual DbSet<Ocena> Ocenas { get; set; }
     }
 }

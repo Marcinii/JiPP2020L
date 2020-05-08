@@ -35,9 +35,23 @@ namespace Modul_3.Desktop
              .Take(3)
              .ToList();
             }
+            ConvertCommand = new RelayCommand(obj => Convert(), obj =>
+               converterCombobox.SelectedItem != null && string.IsNullOrEmpty(DoButton.Text) != true &&
+               string.IsNullOrEmpty(OdButton.Text) != true);
+            Pokaz.Command = ConvertCommand;
+
+            PoprzedniCommand = new RelayCommand(obj => Poprzedni(), obj =>
+             i > 0);
+            poprzedni.Command = PoprzedniCommand;
+
+            NastepnyCommand = new RelayCommand(obj => Nastepny());
+            nastepny.Command = NastepnyCommand;
         }
 
-        private void Poprzedni_Click(object sender, RoutedEventArgs e)
+
+        private RelayCommand PoprzedniCommand;
+
+        private void Poprzedni()
         {
             using (JIPPEntities context = new JIPPEntities())
             {
@@ -71,7 +85,9 @@ namespace Modul_3.Desktop
             }
         }
 
-        private void Nastepny_Click(object sender, RoutedEventArgs e)
+        private RelayCommand NastepnyCommand;
+
+        private void Nastepny()
         {
             using (JIPPEntities context = new JIPPEntities())
             {
@@ -123,8 +139,9 @@ namespace Modul_3.Desktop
             DoDate = DoKal.SelectedDate.Value;
             DoButton.Text = DoDate.ToString(format);
         }
+        private RelayCommand ConvertCommand;
 
-        private void Pokaz_Click(object sender, RoutedEventArgs e)
+        private void Convert()
         {
             using (JIPPEntities context = new JIPPEntities())
             {

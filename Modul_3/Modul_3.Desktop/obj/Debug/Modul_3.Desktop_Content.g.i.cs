@@ -8,6 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("opular-images-blank-analogue-clock-face-11562920866otsb8p3u8a.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("model2.context.tt")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("model2.tt")]
 
 

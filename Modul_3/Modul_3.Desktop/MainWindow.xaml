@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Modul_3.Desktop"
+        xmlns:CC="clr-namespace:Kontrolki;assembly=Kontrolki"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
 
@@ -285,11 +286,15 @@
             <Button x:Name="btTime" Content="Czas" Margin="5" Click="BtTime_Click"/>
             <Button x:Name="Zamia" Content="Zamina czasu" Margin="5" Click="Zamia_Click"  />
 
+            <Label>Ocena Aplikacji:</Label>
+            <CC:GwCon x:Name="rateControl" Height="81" Margin="5,5,4.8,5" />
+
+
         </StackPanel>
         <ComboBox x:Name="ListaJednostek" Grid.Column="1"  Margin="10" Grid.Row="1" VerticalAlignment="Top"/>
         <StackPanel Grid.Column="2" Grid.Row="1" Margin="0.323,0,0,158.853">
             <TextBox x:Name="inputTextBox" Margin="10,5,10,5" Height="25"/>
-            <Button x:Name="convertButton" Margin="10,5,10,5" Height="25" Click="convertButton_Click">Konwertuj</Button>
+            <Button x:Name="convertButton" Margin="10,5,10,5" Height="25" >Konwertuj</Button>
             <TextBlock x:Name="outputTextBlock" Margin="10,5,10,5" Height="25"/>
 
         </StackPanel>
@@ -370,7 +375,7 @@
                         <GradientStop Color="Aqua" Offset="0"/>
                     </LinearGradientBrush>
                 </Ellipse.Stroke>
-               
+
 
             </Ellipse>
         </Border>
@@ -378,7 +383,7 @@
 
 
         <Ellipse x:Name="kolkowsrodku" Grid.Column="2" Fill="#FFDD1818" HorizontalAlignment="Left" Height="8.318" Margin="127.941,262.299,0,0" Grid.Row="1" Stroke="Black" VerticalAlignment="Top" Width="8.318" Opacity="0"/>
-   
+
         <Path x:Name="hour" Grid.Column="2" Data="M661.03333,274.53333 L661.03333,326.10108" HorizontalAlignment="Left" Height="52.035" Margin="131.699,214.742,0,0" Grid.Row="1" Stretch="Fill" Stroke="#FF0857DD" VerticalAlignment="Top" Width="1" RenderTransformOrigin="1,1" Opacity="0">
             <Path.RenderTransform>
                 <TransformGroup>

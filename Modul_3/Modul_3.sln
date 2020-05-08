@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Modul_3.logic", "Modul_3.lo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Modul_3.Desktop", "Modul_3.Desktop\Modul_3.Desktop.csproj", "{4630A9E4-DA85-4D1F-9793-49388954F757}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kontrolki", "Kontrolki\Kontrolki.csproj", "{0C36EE36-FA3E-41F4-A002-06AE0EB28543}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{4630A9E4-DA85-4D1F-9793-49388954F757}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4630A9E4-DA85-4D1F-9793-49388954F757}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4630A9E4-DA85-4D1F-9793-49388954F757}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0C36EE36-FA3E-41F4-A002-06AE0EB28543}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0C36EE36-FA3E-41F4-A002-06AE0EB28543}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0C36EE36-FA3E-41F4-A002-06AE0EB28543}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0C36EE36-FA3E-41F4-A002-06AE0EB28543}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -59,3 +59,5 @@ C:\Users\slowi\source\repos\JiPP2020L\Modul_3\Modul_3.Desktop\obj\Debug\Window1.
 C:\Users\slowi\source\repos\JiPP2020L\Modul_3\Modul_3.Desktop\bin\Debug\EntityFramework.SqlServer.dll
 C:\Users\slowi\source\repos\JiPP2020L\Modul_3\Modul_3.Desktop\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\slowi\source\repos\JiPP2020L\Modul_3\Modul_3.Desktop\obj\Debug\Window1.baml
+C:\Users\slowi\Source\Repos\JiPP2020L\Modul_3\Modul_3.Desktop\bin\Debug\Kontrolki.dll
+C:\Users\slowi\Source\Repos\JiPP2020L\Modul_3\Modul_3.Desktop\bin\Debug\Kontrolki.pdb

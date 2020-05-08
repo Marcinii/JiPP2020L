@@ -6,6 +6,7 @@
     <edmx:Diagrams>
       <Diagram DiagramId="d5933c9206d248c1b7c587930d4a5ac2" Name="Diagram1">
         <EntityTypeShape EntityType="JIPPModel.Stata" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JIPPModel.Ocena" Width="1.5" PointX="3.375" PointY="0.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

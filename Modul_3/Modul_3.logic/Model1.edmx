@@ -4,7 +4,14 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="JIPPModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="JIPPModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Ocena">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Oceny" Type="int" Nullable="false" />
+        </EntityType>
         <EntityType Name="Stata">
           <Key>
             <PropertyRef Name="ID" />
@@ -17,10 +24,10 @@
           <Property Name="Wartosc_uzyskana" Type="decimal" Precision="18" Scale="0" Nullable="false" />
         </EntityType>
         <EntityContainer Name="JIPPModelStoreContainer">
+          <EntitySet Name="Ocena" EntityType="Self.Ocena" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Stata" EntityType="Self.Stata" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="JIPPModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -37,7 +44,15 @@
         </EntityType>
         <EntityContainer Name="JIPPEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Statas" EntityType="Self.Stata" />
+          <EntitySet Name="Ocenas" EntityType="JIPPModel.Ocena" />
         </EntityContainer>
+        <EntityType Name="Ocena">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Oceny" Type="Int32" Nullable="false" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -53,6 +68,14 @@
                 <ScalarProperty Name="Data_Konwersji" ColumnName="Data_Konwersji" />
                 <ScalarProperty Name="Wartosc_podana" ColumnName="Wartosc_podana" />
                 <ScalarProperty Name="Wartosc_uzyskana" ColumnName="Wartosc_uzyskana" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Ocenas">
+            <EntityTypeMapping TypeName="JIPPModel.Ocena">
+              <MappingFragment StoreEntitySet="Ocena">
+                <ScalarProperty Name="Oceny" ColumnName="Oceny" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

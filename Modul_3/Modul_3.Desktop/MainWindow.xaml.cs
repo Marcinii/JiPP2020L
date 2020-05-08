@@ -45,6 +45,30 @@ namespace Modul_3.Desktop
             Storyboard hours = (Storyboard)hour2.FindResource("sbhour");
             hours.Begin();
             hours.Seek(new TimeSpan(0, DateTime.Now.Hour, DateTime.Now.Minute, DateTime.Now.Second, 0));
+
+            using (JIPPEntities context = new JIPPEntities())
+            {
+                List<Ocena> ocenas = context.Ocenas
+                    .OrderByDescending(e => e.ID)
+                    .ToList();
+                rateControl.RateValue=ocenas[0].Oceny;
+             
+            }
+
+                rateControl.RataVAlueChange += RateControl_RataVAlueChange;
+
+            ConvertCommand = new RelayCommand(obj => Convert(), obj =>
+                converterCombobox.SelectedItem != null && ListaJednostek.SelectedItem != null &&
+                string.IsNullOrEmpty(inputTextBox.Text) != true);
+            convertButton.Command = ConvertCommand;
+
+
+        }
+
+        private void RateControl_RataVAlueChange(int value)
+        {
+            DBOcena dodaj = new DBOcena();
+            dodaj.dodac2(rateControl.RateValue);
         }
         private void Temp_Click_1(object sender, RoutedEventArgs e)
         {
@@ -83,8 +107,9 @@ namespace Modul_3.Desktop
 
         }
 
+        private RelayCommand ConvertCommand;
 
-        private void convertButton_Click(object sender, RoutedEventArgs e)
+        private void Convert()
         {
             string inputText = inputTextBox.Text;
 
@@ -126,5 +151,6 @@ namespace Modul_3.Desktop
             Window1 nwd = new Window1();
             nwd.Show();
         }
+      
     }
 }

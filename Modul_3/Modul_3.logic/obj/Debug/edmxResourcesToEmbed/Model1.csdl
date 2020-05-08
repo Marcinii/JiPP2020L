@@ -13,5 +13,13 @@
   </EntityType>
   <EntityContainer Name="JIPPEntities" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="Statas" EntityType="Self.Stata" />
+    <EntitySet Name="Ocenas" EntityType="JIPPModel.Ocena" />
   </EntityContainer>
+  <EntityType Name="Ocena">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Oceny" Type="Int32" Nullable="false" />
+  </EntityType>
 </Schema>

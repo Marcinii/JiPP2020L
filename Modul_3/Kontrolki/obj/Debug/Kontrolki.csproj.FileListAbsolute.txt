@@ -1,0 +1,13 @@
+C:\Users\slowi\source\repos\JiPP2020L\Modul_3\Kontrolki\bin\Debug\Kontrolki.dll
+C:\Users\slowi\source\repos\JiPP2020L\Modul_3\Kontrolki\bin\Debug\Kontrolki.pdb
+C:\Users\slowi\source\repos\JiPP2020L\Modul_3\Kontrolki\obj\Debug\Kontrolki.csprojAssemblyReference.cache
+C:\Users\slowi\source\repos\JiPP2020L\Modul_3\Kontrolki\obj\Debug\GwCon.g.cs
+C:\Users\slowi\source\repos\JiPP2020L\Modul_3\Kontrolki\obj\Debug\Kontrolki_MarkupCompile.cache
+C:\Users\slowi\source\repos\JiPP2020L\Modul_3\Kontrolki\obj\Debug\Kontrolki_MarkupCompile.lref
+C:\Users\slowi\source\repos\JiPP2020L\Modul_3\Kontrolki\obj\Debug\GwCon.baml
+C:\Users\slowi\source\repos\JiPP2020L\Modul_3\Kontrolki\obj\Debug\Kontrolki.g.resources
+C:\Users\slowi\source\repos\JiPP2020L\Modul_3\Kontrolki\obj\Debug\Kontrolki.Properties.Resources.resources
+C:\Users\slowi\source\repos\JiPP2020L\Modul_3\Kontrolki\obj\Debug\Kontrolki.csproj.GenerateResource.cache
+C:\Users\slowi\source\repos\JiPP2020L\Modul_3\Kontrolki\obj\Debug\Kontrolki.csproj.CoreCompileInputs.cache
+C:\Users\slowi\source\repos\JiPP2020L\Modul_3\Kontrolki\obj\Debug\Kontrolki.dll
+C:\Users\slowi\source\repos\JiPP2020L\Modul_3\Kontrolki\obj\Debug\Kontrolki.pdb

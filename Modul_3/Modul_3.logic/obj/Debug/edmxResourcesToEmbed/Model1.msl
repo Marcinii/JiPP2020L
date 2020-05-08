@@ -13,5 +13,13 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="Ocenas">
+      <EntityTypeMapping TypeName="JIPPModel.Ocena">
+        <MappingFragment StoreEntitySet="Ocena">
+          <ScalarProperty Name="Oceny" ColumnName="Oceny" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>
