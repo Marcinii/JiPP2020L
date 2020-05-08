@@ -32,20 +32,12 @@ namespace UnitConverter.Desktop
             InitializeComponent();
             converterCombobox.ItemsSource = new ConverterService().GetConverters();
 
-
-            //rateButtons.RateValueChanged += RateButtons_RateValueChanged;
-        }
-
-        //private void RateButtons_RateValueChanged(int value)
-        //{
-        //    converterCombobox.SelectedIndex = 1;
-        //    fromCombobox.SelectedItem = "rate";
-        //    toCombobox.SelectedItem = "rate";
-        //    inputTextbox.Text = "rate";
-        //    resultTextblock.Text = "rate";
-        //    rateButtons.RateValue = value;
-        //    InsertDataToDatabase();
-        //}
+            ConvertCommand = new RelayCommand(obj => Convert(),
+                obj => fromCombobox.SelectedItem !=null
+                && toCombobox.SelectedItem != null 
+                && string.IsNullOrEmpty(inputTextbox.Text)!=true);
+            convertButton.Command = ConvertCommand;
+        }     
 
         private void ConverterCombobox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {            
@@ -71,7 +63,9 @@ namespace UnitConverter.Desktop
                 ((IConverter)converterCombobox.SelectedItem).Units;
         }
 
-        private void ConvertButton_Click(object sender, RoutedEventArgs e)
+        private RelayCommand ConvertCommand;
+
+        private void Convert()
         {
             string inputText = inputTextbox.Text;
             double inputValue;
