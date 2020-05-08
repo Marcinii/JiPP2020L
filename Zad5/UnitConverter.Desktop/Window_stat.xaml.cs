@@ -20,6 +20,7 @@ namespace UnitConverter.Desktop
     /// <summary>
     /// Logika interakcji dla klasy Window_stat.xaml
     /// </summary>
+    /// zadanie  5
     public partial class Window_stat : Window
     {
         private int _maxPage = 0;
