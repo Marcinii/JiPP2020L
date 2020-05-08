@@ -5,6 +5,13 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
     <Schema Namespace="KASETY_412_23Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="AppRatings">
+          <Key>
+            <PropertyRef Name="RatingId" />
+          </Key>
+          <Property Name="RatingId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RatingScore" Type="int" Nullable="false" />
+        </EntityType>
         <EntityType Name="JIPP4">
           <Key>
             <PropertyRef Name="ID" />
@@ -19,6 +26,7 @@
           <Property Name="dateSent" Type="date" />
         </EntityType>
         <EntityContainer Name="KASETY_412_23ModelStoreContainer">
+          <EntitySet Name="AppRatings" EntityType="Self.AppRatings" Schema="Z412_23" store:Type="Tables" />
           <EntitySet Name="JIPP4" EntityType="Self.JIPP4" Schema="Z412_23" store:Type="Tables" />
         </EntityContainer>
       </Schema></edmx:StorageModels>
@@ -40,7 +48,15 @@
         </EntityType>
         <EntityContainer Name="KASETY_412_23Entities1" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="JIPP4" EntityType="Self.JIPP4" />
+          <EntitySet Name="AppRatings" EntityType="KASETY_412_23Model.AppRatings" />
         </EntityContainer>
+        <EntityType Name="AppRatings">
+          <Key>
+            <PropertyRef Name="RatingId" />
+          </Key>
+          <Property Name="RatingId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RatingScore" Type="Int32" Nullable="false" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -58,6 +74,14 @@
                 <ScalarProperty Name="valueAfter" ColumnName="valueAfter" />
                 <ScalarProperty Name="errorEncountered" ColumnName="errorEncountered" />
                 <ScalarProperty Name="dateSent" ColumnName="dateSent" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AppRatings">
+            <EntityTypeMapping TypeName="KASETY_412_23Model.AppRatings">
+              <MappingFragment StoreEntitySet="AppRatings">
+                <ScalarProperty Name="RatingScore" ColumnName="RatingScore" />
+                <ScalarProperty Name="RatingId" ColumnName="RatingId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

@@ -6,6 +6,7 @@
     <edmx:Diagrams>
       <Diagram DiagramId="e6b13a686ac94d19b7232c755ef326c1" Name="Diagram1">
         <EntityTypeShape EntityType="KASETY_412_23Model.JIPP4" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="KASETY_412_23Model.AppRatings" Width="1.5" PointX="3.375" PointY="0.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

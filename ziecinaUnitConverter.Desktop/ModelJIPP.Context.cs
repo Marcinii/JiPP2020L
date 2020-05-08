@@ -26,5 +26,6 @@ namespace ziecinaUnitConverter.Desktop
         }
     
         public virtual DbSet<JIPP4> JIPP4 { get; set; }
+        public virtual DbSet<AppRatings> AppRatings { get; set; }
     }
 }

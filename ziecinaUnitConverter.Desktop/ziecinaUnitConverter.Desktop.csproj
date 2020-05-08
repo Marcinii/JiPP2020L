@@ -148,6 +148,9 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="AppRatings.cs">
+      <DependentUpon>ModelJIPP.tt</DependentUpon>
+    </Compile>
     <Compile Include="DataInserter.cs" />
     <Compile Include="JIPP4.cs">
       <DependentUpon>ModelJIPP.tt</DependentUpon>

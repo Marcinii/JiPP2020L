@@ -38,10 +38,10 @@ namespace ziecinaUnitConverter.Desktop
                 int tmpCnt = 0;
                 foreach (JIPP4 f in conversions)
                 {
-                    if (f.errorEncountered == false && tmpCnt < (20*currentPage) && tmpCnt >( (currentPage * 20) - 20))
+                    if (f.errorEncountered == false && tmpCnt < (20 * currentPage) && tmpCnt > ((currentPage * 20) - 20))
                     {
                         toReturn += (f.dateSent).Value.ToString("dd/MM/yyy") + ": " + f.Converter + " - " + f.valueBefore + " " + f.unitFrom + " to " + f.valueAfter + " " + f.unitTo + "\n";
-                        
+
                     }
                     tmpCnt += 1;
                 }
@@ -49,9 +49,21 @@ namespace ziecinaUnitConverter.Desktop
             }
         }
 
+
         public MainWindow()
         {
+            
+
             InitializeComponent();
+            using (KASETY_412_23Entities1 context = new KASETY_412_23Entities1())
+            {
+                List<AppRatings> ratingsContainer;
+                string queryTextn = "SELECT top 1 RatingId, RatingScore FROM AppRatings order by RatingId desc;";
+                ratingsContainer = context.AppRatings.SqlQuery(queryTextn).ToList();
+                int oldRating = ratingsContainer[0].RatingScore;
+                RateButtons.RateValue = oldRating;
+            }
+            RateButtons.RateValueChanged += RateApp_RateValueChanged;
             ///////////////// PRZYKŁAD ZAPYTANIA /////////////////////////
             //////////////////////////////////////////////////////////////
             /* 
@@ -123,7 +135,7 @@ namespace ziecinaUnitConverter.Desktop
                 RotateTransform rotateTransform2 = new RotateTransform(0);
                 handSecond.RenderTransform = rotateTransform2;
                 ((Storyboard)Resources["clockMovingSecond"]).Begin();
-                
+
                 int minute = Convert.ToInt32(newHour2[3]) * 10 + Convert.ToInt32(newHour2[4]);
                 RotateTransform rotateTransform3 = new RotateTransform(((minute - 528) * 6));
                 handMinute.RenderTransform = rotateTransform3;
@@ -157,7 +169,7 @@ namespace ziecinaUnitConverter.Desktop
                 handMinute.RenderTransform = rotateTransform3;
                 //blockResaultHour.Text = minute.ToString();
                 bool isError = false;
-                if(newHour== "Niepoprawny format daty")
+                if (newHour == "Niepoprawny format daty")
                 {
                     newHour = null;
                     isError = true;
@@ -196,7 +208,7 @@ namespace ziecinaUnitConverter.Desktop
             else
             {
                 blockResaultHour.Text = "Proszę wybrać startowy format";
-                
+
             }
         }
 
@@ -208,7 +220,7 @@ namespace ziecinaUnitConverter.Desktop
                 {
                     string dateFrom = "'" + dateFromBox.SelectedDate.Value.ToString("yyy.MM.dd") + "'";
                     string dateTo = "'" + dateToBox.SelectedDate.Value.ToString("yyy.MM.dd") + "'";
-                    string convPick = "'" +  queryConverterPicker.SelectedItem.ToString() + "'";
+                    string convPick = "'" + queryConverterPicker.SelectedItem.ToString() + "'";
                     string queryText1 = "SELECT * FROM JIPP4 WHERE Converter LIKE " + convPick + " AND dateSent >= " + dateFrom + " AND dateSent <= " + dateTo + ";";
                     conversions = (context.JIPP4.SqlQuery(queryText1)).ToList();
                     textBlockResaults.Text = "";
@@ -225,19 +237,19 @@ namespace ziecinaUnitConverter.Desktop
                     queriedOnce = true;
                     currentPage = 1;
                     var results = context.JIPP4.AsQueryable()
-                    .GroupBy(x => new { x.Converter, x.unitFrom, x.unitTo})
-                    .Select(x => new {x.Key.Converter, x.Key.unitFrom, x.Key.unitTo, Count = x.Count() })
+                    .GroupBy(x => new { x.Converter, x.unitFrom, x.unitTo })
+                    .Select(x => new { x.Key.Converter, x.Key.unitFrom, x.Key.unitTo, Count = x.Count() })
                     .OrderByDescending(x => x.Count)
                     .Take(3);
                     //////////TODO todo
                     var abc = results.ToList();
-                    top3Resaults.Text =  "";
+                    top3Resaults.Text = "";
                     for (int i = 0; i < 3; i++)
                     {
                         top3Resaults.Text += abc.ElementAt(i).Count + ": ";
                         top3Resaults.Text += abc.ElementAt(i).unitFrom + " na ";
                         top3Resaults.Text += abc.ElementAt(i).unitTo + "\n";
-                        
+
                     }
                 }
                 else
@@ -249,7 +261,7 @@ namespace ziecinaUnitConverter.Desktop
 
         private void buttonPreviousPage_Click(object sender, RoutedEventArgs e)
         {
-            if (queriedOnce == true && currentPage >=2)
+            if (queriedOnce == true && currentPage >= 2)
             {
                 currentPage -= 1;
                 textBlockResaults.Text = pageSwap();
@@ -263,6 +275,12 @@ namespace ziecinaUnitConverter.Desktop
                 currentPage += 1;
                 textBlockResaults.Text = pageSwap();
             }
+        }
+        private void RateApp_RateValueChanged(int value)
+        {
+            int assdaync = value;
+            //zapis do DB
+
         }
     }
 }

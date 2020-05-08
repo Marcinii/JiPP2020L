@@ -24,6 +24,7 @@ namespace Common.Controls
         {
             InitializeComponent();
         }
+        public event RateDelegate RateValueChanged;
 
         private int _rateValue = 0;
 
@@ -40,6 +41,11 @@ namespace Common.Controls
                     _rateValue = 0;
                 }
                 UpdateButtons(_rateValue);
+
+                if (RateValueChanged != null)
+                {
+                    RateValueChanged(_rateValue);
+                }
             }
         }
 
@@ -67,5 +73,7 @@ namespace Common.Controls
             RateValue = ratesGrid.Children.IndexOf((Button)sender) + 1;
             
         }
+        public delegate void RateDelegate(int value);
+
     }
 }

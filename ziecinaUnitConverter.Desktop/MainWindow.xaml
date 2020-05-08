@@ -208,6 +208,6 @@
         <Button x:Name="buttonPreviousPage" Content="Poprzednia strona" HorizontalAlignment="Left" Height="24" Margin="398,292,-110,-295" Grid.Row="1" VerticalAlignment="Top" Width="122" Click="buttonPreviousPage_Click"/>
         <Button x:Name="buttonNextPage" Content="Następna strona" HorizontalAlignment="Left" Height="24" Margin="556,292,-269,-295" Grid.Row="1" VerticalAlignment="Top" Width="123" Click="buttonNextPage_Click"/>
         <Label x:Name="labelRateApp" Content="Oceń aplikację:" HorizontalAlignment="Left" Height="30" Margin="932,16,-292,0" VerticalAlignment="Top" Width="174"/>
-        <commonControls:RateApp Margin="848,57,-319,33"/>
+        <commonControls:RateApp x:Name="RateButtons" Margin="848,57,-319,33" />
     </Grid>
 </Window>
