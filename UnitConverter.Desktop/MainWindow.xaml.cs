@@ -54,6 +54,11 @@ namespace UnitConverter.Desktop
             TypeFilter.SelectedIndex = 1;
 
             FilterFromDB();
+            using (ParadygmatyEntities context = new ParadygmatyEntities())
+            {
+                var Ratings = context.RATINGS.ToList();
+                RatingControl.RatingVal = (int) Ratings[0].RATINGS;
+            }
 
             SolidColorBrush mySolidColorBrush = new SolidColorBrush();
             mySolidColorBrush.Color = Color.FromRgb(255, 255, 255);
@@ -90,6 +95,14 @@ namespace UnitConverter.Desktop
             marginH.Top = -400;
             Hours.Margin = marginH;
             Hours.StrokeThickness = 4;
+
+            FilterCommand = new RelayCommand(obj => Filter());
+            PreviousPageCommand = new RelayCommand(obj => GoPreviousPage());
+            NextPageCommand = new RelayCommand(obj => GoNextPage());
+
+            FilterButton.Command = FilterCommand;
+            PreviousPage.Command = PreviousPageCommand;
+            NextPage.Command = NextPageCommand;
         }
 
         private void TypeComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -130,14 +143,11 @@ namespace UnitConverter.Desktop
                 double hours;
                 if (double.TryParse(time[0], out hours))
                 {
-                  
-                    Console.WriteLine(hours);
                     double result = ((IConverter)typeComboBox.SelectedItem)
                         .convert("24-hour", "12-hour", hours);
                     string hourString = result.ToString();
                     string minuteString = time.Length > 1 ? $":{time[1]}" : "";
                     string suffixString = hours > 12 ? "pm" : "am";
-                    Console.WriteLine(suffixString);
                     UnitToValue.Text = $"{hourString}{minuteString} {suffixString}";
                     RotateTransform rotateHours = new RotateTransform(hours * 30, 337, 0);
                     Hours.RenderTransform = rotateHours;
@@ -200,7 +210,9 @@ namespace UnitConverter.Desktop
             }
         }
 
-        private void FilterButton_Click(object sender, RoutedEventArgs e)
+        private RelayCommand FilterCommand;
+
+        private void Filter()
         {
             FilterFromDB();
         }
@@ -235,7 +247,9 @@ namespace UnitConverter.Desktop
             }
         }
 
-        private void PreviousPage_Click(object sender, RoutedEventArgs e)
+        private RelayCommand PreviousPageCommand;
+
+        private void GoPreviousPage()
         {
             int value;
             int.TryParse(PageNumber.Text, out value);
@@ -247,13 +261,25 @@ namespace UnitConverter.Desktop
             }
         }
 
-        private void NextPage_Click(object sender, RoutedEventArgs e)
+        private RelayCommand NextPageCommand;
+
+        private void GoNextPage()
         {
             int value;
             int.TryParse(PageNumber.Text, out value);
             value++;
             PageNumber.Text = value.ToString();
             FilterFromDB();
+        }
+
+        private void RatingControl_RatingValueChanged(object sender, Common.Controls.Rate.RatingEventArgs e)
+        {
+            using (ParadygmatyEntities context = new ParadygmatyEntities())
+            {
+                var rating = context.RATINGS.First(row => row.ID == 1);
+                rating.RATINGS = e.Value;
+                context.SaveChanges();
+            }
         }
     }
 }

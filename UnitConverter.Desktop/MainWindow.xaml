@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:UnitConverter.Desktop"
+        xmlns:commonControls="clr-namespace:Common.Controls;assembly=Common.Controls"
         mc:Ignorable="d"
         Title="MainWindow" Height="543" Width="700">
     <Window.Resources>
@@ -48,13 +49,13 @@
         <TextBlock HorizontalAlignment="Left" Height="21" Margin="34,207,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="27" RenderTransformOrigin="-2.674,0.381"><Run Text="Type"/><LineBreak/><Run/></TextBlock>
         <TextBlock HorizontalAlignment="Left" Height="21" Margin="223,207,0,0" TextWrapping="Wrap" Text="Date From" VerticalAlignment="Top" Width="65" RenderTransformOrigin="0.466,0.571"/>
         <TextBlock HorizontalAlignment="Left" Height="21" Margin="460,207,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="51" RenderTransformOrigin="0.197,0.495"><Run Text="Date "/><Run Text="To"/></TextBlock>
-        <Button x:Name="FilterButton" Content="Filter and Refresh" HorizontalAlignment="Left" Height="31" Margin="241,464,0,0" VerticalAlignment="Top" Width="220" Click="FilterButton_Click"/>
+        <Button x:Name="FilterButton" Content="Filter and Refresh" HorizontalAlignment="Left" Height="31" Margin="241,464,0,0" VerticalAlignment="Top" Width="220"/>
         <DatePicker x:Name="DateFromFilter" HorizontalAlignment="Left" Height="23" Margin="288,205,0,0" VerticalAlignment="Top" Width="157"/>
         <DatePicker x:Name="DateToFilter" HorizontalAlignment="Left" Height="23" Margin="511,203,0,0" VerticalAlignment="Top" Width="157"/>
         <TextBlock x:Name="PageNumber" HorizontalAlignment="Left" Height="20" Margin="581,471,0,0" TextWrapping="Wrap" Text="1" VerticalAlignment="Top" Width="22"/>
-        <Button x:Name="NextPage" Content="Next" HorizontalAlignment="Left" Height="31" Margin="608,464,0,0" VerticalAlignment="Top" Width="34" Click="NextPage_Click"/>
-        <Button x:Name="PreviousPage" Content="Previous" HorizontalAlignment="Left" Height="31" Margin="517,464,0,0" VerticalAlignment="Top" Width="49" Click="PreviousPage_Click"/>
+        <Button x:Name="NextPage" Content="Next" HorizontalAlignment="Left" Height="31" Margin="608,464,0,0" VerticalAlignment="Top" Width="34"/>
+        <Button x:Name="PreviousPage" Content="Previous" HorizontalAlignment="Left" Height="31" Margin="517,464,0,0" VerticalAlignment="Top" Width="49"/>
         <DataGrid x:Name="PopularData" HorizontalAlignment="Left" Height="80" ColumnWidth="*" Margin="20,120,0,0" VerticalAlignment="Top" Width="650"/>
-
+        <commonControls:Rate HorizontalAlignment="Left" Width="145" Margin="44,466,0,23" Name="RatingControl" RatingValueChanged="RatingControl_RatingValueChanged"/>
     </Grid>
 </Window>

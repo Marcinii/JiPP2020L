@@ -26,5 +26,6 @@ namespace UnitConverter.Desktop
         }
     
         public virtual DbSet<STATISTIC> STATISTICS { get; set; }
+        public virtual DbSet<RATING> RATINGS { get; set; }
     }
 }

@@ -64,6 +64,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="RATING.cs">
+      <DependentUpon>StatisticsModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RelayCommand.cs" />
     <Compile Include="STATISTIC.cs">
       <DependentUpon>StatisticsModel.tt</DependentUpon>
     </Compile>
@@ -130,6 +134,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Common.Controls\Common.Controls.csproj">
+      <Project>{73033112-b6a3-4a4e-a20e-037373fb0016}</Project>
+      <Name>Common.Controls</Name>
+    </ProjectReference>
     <ProjectReference Include="..\UnitConverter.Logic\UnitConverter.Logic.csproj">
       <Project>{67ee5181-56bf-405f-b9ec-c855b9ada740}</Project>
       <Name>UnitConverter.Logic</Name>

@@ -6,6 +6,7 @@
     <edmx:Diagrams>
       <Diagram DiagramId="f7f024b0411747e8af6227e868c48262" Name="Diagram1">
         <EntityTypeShape EntityType="ParadygmatyModel.STATISTIC" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ParadygmatyModel.RATING" Width="1.5" PointX="3.375" PointY="0.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -5,6 +5,13 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
     <Schema Namespace="ParadygmatyModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="RATING">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="RATINGS" Type="int" />
+        </EntityType>
         <EntityType Name="STATISTICS">
           <Key>
             <PropertyRef Name="ID" />
@@ -12,12 +19,13 @@
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="TYPE" Type="varchar" MaxLength="30" />
           <Property Name="UNITFROM" Type="varchar" MaxLength="30" />
-          <Property Name="DATE" Type="smalldatetime" />
+          <Property Name="DATE" Type="datetime2" Precision="7" />
           <Property Name="VALUEFROM" Type="float" />
           <Property Name="VALUETO" Type="float" />
           <Property Name="UNITTO" Type="varchar" MaxLength="30" />
         </EntityType>
         <EntityContainer Name="ParadygmatyModelStoreContainer">
+          <EntitySet Name="RATING" EntityType="Self.RATING" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="STATISTICS" EntityType="Self.STATISTICS" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
       </Schema></edmx:StorageModels>
@@ -30,7 +38,7 @@
           </Key>
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="TYPE" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
-          <Property Name="DATE" Type="DateTime" Precision="0" />
+          <Property Name="DATE" Type="DateTime" Precision="7" />
           <Property Name="VALUEFROM" Type="Double" />
           <Property Name="VALUETO" Type="Double" />
           <Property Name="UNITFROM" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
@@ -38,7 +46,15 @@
         </EntityType>
         <EntityContainer Name="ParadygmatyEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="STATISTICS" EntityType="Self.STATISTIC" />
+          <EntitySet Name="RATINGs" EntityType="ParadygmatyModel.RATING" />
         </EntityContainer>
+        <EntityType Name="RATING">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="RATINGS" Type="Int32" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -55,6 +71,14 @@
                 <ScalarProperty Name="DATE" ColumnName="DATE" />
                 <ScalarProperty Name="VALUEFROM" ColumnName="VALUEFROM" />
                 <ScalarProperty Name="VALUETO" ColumnName="VALUETO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RATINGs">
+            <EntityTypeMapping TypeName="ParadygmatyModel.RATING">
+              <MappingFragment StoreEntitySet="RATING">
+                <ScalarProperty Name="RATINGS" ColumnName="RATINGS" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
