@@ -16,6 +16,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
+
 //using KonwerterJednostek.Logic;
 
 namespace Konwerter.GUI
@@ -32,29 +33,13 @@ namespace Konwerter.GUI
         {
             InitializeComponent();
 
-            Watch t = new Watch();
-            int hour = (DateTime.Now).Hour;
-            int minute = (DateTime.Now).Minute;
-            int second = (DateTime.Now).Second;
-
-            Clock_online();
-
             combo0.ItemsSource = new KonwerterService().GetConverters();
-            combo0.SelectedIndex = 0;
 
-
-
-            string s1 = hour < 10 ? "0" + hour : hour.ToString();
-            string s2 = minute < 10 ? "0" + minute : minute.ToString();
-            string time = s1 + ":" + s2;
-            string result = t.UnitConv("f", "t", time);
-            bool success0 = double.TryParse(result.Substring(3, 2), out double deg0);
-            if (!success0) { deg0 = 0; }
-            deg0 *= 6;
-            bool success1 = double.TryParse(result.Substring(0, 2), out double deg1);
-            if (!success1) { deg1 = 0; }
-            deg1 *= 30;
-            deg1 += (deg0 / 12);
+            ConvertCommand = new RelayCommand(
+                obj => DoConvert(),
+                obj => combo1.SelectedItem != null && combo2.SelectedItem != null && !string.IsNullOrEmpty(box0.Text)
+            );
+            button0.Command = ConvertCommand;
 
             // Wczytaj początkową wartość RateValue
             var query = from o in DBContext.Ocena
@@ -63,8 +48,8 @@ namespace Konwerter.GUI
             RateControl.RateValue = query.First().Rating;
             // Podłącz się do zdarzenia RateValueChanged
             RateControl.RateValueChanged += onRateValueChanged;
+        
         }
-
         private void onRateValueChanged(object sender, RateEventArgs e)
         {
             var newRating = new Ocena
@@ -72,13 +57,38 @@ namespace Konwerter.GUI
                 id = 1,
                 Rating = e.Value
             };
-            var currentRating = (from o in DBContext.Ocena
-                        where o.id == 1
-                        select o).First();
-            DBContext.Entry(currentRating).CurrentValues.SetValues(newRating);
+            (from o in DBContext.Ocena
+             where o.id == 1
+             select o).First().Rating = e.Value;
+           // DBContext.SaveChanges();
+
         }
 
-        bool zegarBefore = false;
+        private RelayCommand ConvertCommand;
+
+        private void DoConvert()
+        {
+            block0.Text = KonwerterJednostek.Logic.Dispatcher.ConvertWithDispatch(combo1.Text, combo2.Text, double.Parse(box0.Text)).ToString() + combo2.Text;
+        }
+
+        private void converterCombobox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            combo0.ItemsSource = ((IKonwerter)combo0.SelectedItem).Units;
+            combo0.ItemsSource = ((IKonwerter)combo0.SelectedItem).Units;
+        }
+        private void UnitConv()
+        {
+            string inputText = box0.Text;
+            string inputValue = inputText; // !! TryParse
+
+            string result = ((IKonwerter)combo0.SelectedItem).UnitConv(
+                combo1.SelectedItem.ToString(),
+                combo2.SelectedItem.ToString(),
+                inputValue);
+
+            block0.Text = result.ToString();
+        }
+
         private void combo1_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             box0.Text = "";
@@ -230,66 +240,6 @@ namespace Konwerter.GUI
 
             int minute2 = int.Parse(TBlock12.Text.Substring(3, TBlock12.Text.IndexOf(":")));
             ClockRotate4.Angle = (minute2 * 6) - 90;
-        }
-
-        private void PM_Click(object sender, RoutedEventArgs e)
-        {
-            TBox12.Text = TBox12.Text + "PM";
-        }
-
-        private void AM_Click(object sender, RoutedEventArgs e)
-        {
-            TBox12.Text = TBox12.Text + "AM";
-        }
-
-        private void CLEAN_Click(object sender, RoutedEventArgs e)
-        {
-            TBox12.Text = string.Empty;
-            TBox12.Clear();
-        }
-
-
-        public void Clock_online()
-        {
-            int hour = (DateTime.Now).Hour;
-            int minute = (DateTime.Now).Minute;
-            int second = (DateTime.Now).Second;
-
-        }
-        public void Clock_online_stop()
-        {
-            Path sec = seconds;
-            Path m = minutes;
-            Path h = hours;
-            Path m1 = minutes1;
-            Path h1 = hours1;
-            sec.Visibility = Visibility.Hidden;
-            m.Visibility = Visibility.Hidden;
-            h.Visibility = Visibility.Hidden;
-            m1.Visibility = Visibility.Visible;
-            h1.Visibility = Visibility.Visible;
-
-        }
-        public void Clock_online_restart()
-        {
-            Path sec = seconds;
-            Path m = minutes;
-            Path h = hours;
-            Path m1 = minutes1;
-            Path h1 = hours1;
-            sec.Visibility = Visibility.Visible;
-            m.Visibility = Visibility.Visible;
-            h.Visibility = Visibility.Visible;
-            m1.Visibility = Visibility.Hidden;
-            h1.Visibility = Visibility.Hidden;
-
-            Path pt0 = minutes1;
-            RotateTransform rot0 = new RotateTransform(0);
-            pt0.RenderTransform = rot0;
-
-            Path pt1 = hours1;
-            RotateTransform rot1 = new RotateTransform(0);
-            pt1.RenderTransform = rot1;
         }
 
         private void StarsRater_Loaded(object sender, RoutedEventArgs e)
