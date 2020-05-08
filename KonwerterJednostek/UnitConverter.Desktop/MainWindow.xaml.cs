@@ -26,10 +26,12 @@ namespace UnitConverter.Desktop
         bool isClockVisible = false;
         bool isRecordsSortedByConverterTypeDescending = false;
         int paginationVariable=0;
+
         public MainWindow()
         {
             InitializeComponent();
             converterCombobox.ItemsSource = new ConverterService().GetConverters();
+            
         }
 
         private void ConverterCombobox_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -101,7 +103,8 @@ namespace UnitConverter.Desktop
                     UnitTo = toCombobox.SelectedItem.ToString(),
                     InputValue = inputTextbox.Text,
                     OutputValue = resultTextblock.Text,
-                    ConvertDate = DateTime.Now
+                    ConvertDate = DateTime.Now,
+                    Rate = rateButtons.RateValue
                 };
                 context.ConverterDatas.Add(newRecord);
                 context.SaveChanges();
@@ -223,6 +226,20 @@ namespace UnitConverter.Desktop
                 .Where(d => d.UsedConverter
                 == typesOfConversions.SelectedItem.ToString())
                 .ToList();
+            }
+        }
+
+        private void RateMe_Loaded(object sender, RoutedEventArgs e)
+        {
+            using (ConverterDatabaseEntities context = new ConverterDatabaseEntities())
+            {
+                int? lastRateFromDatabase = context.ConverterDatas
+                    .OrderByDescending(r => r.Id).FirstOrDefault().Rate;
+
+                if (lastRateFromDatabase != null)
+                    rateButtons.RateValue = lastRateFromDatabase ?? default(int);
+
+
             }
         }
     }
