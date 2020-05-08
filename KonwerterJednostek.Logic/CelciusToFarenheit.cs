@@ -32,10 +32,10 @@ namespace KonwerterJednostek.Logic
 
         public string Name => "Celcius To Farenheit";
 
-        object IKonwerter.Convert(object valueToConvert) => Convert((double) valueToConvert);
+        object IKonwerter.Convert(object valueToConvert) => Convert((double)valueToConvert);
         public double Convert(double valueToConvert)
         {
-            
+
             return (valueToConvert * 1.8) + 32;
         }
 
@@ -46,11 +46,11 @@ namespace KonwerterJednostek.Logic
             CelciusToFarenheit a = new CelciusToFarenheit(valueToConvert);
             if (unitFrom == Units[0] && unitTo == Units[1])
             {
-                return a.c + " c";
+                return a.c + " C";
             }
             else if (unitFrom == Units[1] && unitTo == Units[0])
             {
-                return a.f + " f";
+                return a.f + " F";
             }
             else { return Error.Info(); }
         }

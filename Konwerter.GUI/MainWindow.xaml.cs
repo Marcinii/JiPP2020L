@@ -25,7 +25,7 @@ namespace Konwerter.GUI
     public partial class MainWindow : Window
     {
         private const int Length = 5;
-
+        //Server=localhost;Database=master;Trusted_Connection=True;
         public MainWindow()
         {
             InitializeComponent();
@@ -79,16 +79,16 @@ namespace Konwerter.GUI
                 combo1.SelectedIndex = 0;
                 combo2.SelectedIndex = 1;
             }
-            if (((IKonwerter)combo0.SelectedItem).Name == "Zegar" && !zegarBefore)
-            {
-                zegarBefore = true;
-                Clock_online_stop();
-            }
-            else if (((IKonwerter)combo0.SelectedItem).Name != "Zegar" && zegarBefore)
-            {
-                zegarBefore = false;
-                Clock_online_restart();
-            }
+            //if (((IKonwerter)combo0.SelectedItem).Name == "Zegar" && !zegarBefore)
+          // {
+           //     zegarBefore = true;
+          //      Clock_online_stop();
+          //  }
+          //  else if (((IKonwerter)combo0.SelectedItem).Name != "Zegar" && zegarBefore)
+          //  {
+         //       zegarBefore = false;
+         //       Clock_online_restart();
+         //   }
 
         }
 
@@ -186,7 +186,7 @@ namespace Konwerter.GUI
 
             ((Storyboard)Resources["Animacja_Zegarow"]).Stop();//Zatrzymanie animacji startowej
 
-            TBlock24.Text = (string) KonwerterJednostek.Logic.Dispatcher.ConvertWithDispatch("T24", "T12", TBox24.Text);// wykonanie funkcji 24 to 12
+            TBlock24.Text = (string)KonwerterJednostek.Logic.Dispatcher.ConvertWithDispatch("T24", "T12", TBox24.Text);// wykonanie funkcji 24 to 12
             int godzina1 = int.Parse(TBlock24.Text.Substring(0, TBlock24.Text.IndexOf(":")));
             ClockRotate1.Angle = (godzina1 * 30) - 90;
 
@@ -268,5 +268,9 @@ namespace Konwerter.GUI
             pt1.RenderTransform = rot1;
         }
 
-         }
+        private void StarsRater_Loaded(object sender, RoutedEventArgs e)
+        {
+
+        }
+    }
 }

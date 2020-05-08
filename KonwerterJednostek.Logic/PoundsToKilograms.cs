@@ -24,8 +24,8 @@ namespace KonwerterJednostek.Logic
         }
         public List<string> Units => new List<string>()
         {
-            "kg",
-            "lb"
+            "lb",
+            "kg"
         };
 
         public string Name => "Pounds To Kilograms";

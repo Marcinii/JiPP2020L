@@ -24,8 +24,8 @@ public class FahrenheitToCelcius : IKonwerter
         }
         public List<string> Units => new List<string>()
         {
-            "C",
-            "F"
+            "F",
+            "C"
         };
 
         public string Name => "Fahrenheit To Celcius";

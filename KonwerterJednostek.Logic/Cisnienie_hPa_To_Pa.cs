@@ -28,8 +28,8 @@ namespace KonwerterJednostek.Logic
 
         public List<string> Units => new List<string>()
         {
-            "Pa",
-            "hPa"
+            "hPa",
+            "Pa"
         };
 
         object IKonwerter.Convert(object valueToConvert) => Convert((double) valueToConvert);
