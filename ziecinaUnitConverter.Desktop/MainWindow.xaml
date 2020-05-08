@@ -205,8 +205,8 @@
         <Label Content="Top 3" HorizontalAlignment="Left" Height="26" Margin="18,461,0,-466" Grid.Row="1" VerticalAlignment="Top" Width="104"/>
         <TextBlock x:Name="top3Resaults" HorizontalAlignment="Left" Height="80" Margin="12,498,0,-557" Grid.Row="1" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="253"/>
         <TextBlock x:Name="textBlockResaults" Height="332" Margin="286,336,-346,-647" Grid.Row="1" Text="" VerticalAlignment="Top" RenderTransformOrigin="0.99,0.601" HorizontalAlignment="Left" Width="874"/>
-        <Button x:Name="buttonPreviousPage" Content="Poprzednia strona" HorizontalAlignment="Left" Height="24" Margin="398,292,-110,-295" Grid.Row="1" VerticalAlignment="Top" Width="122" Click="buttonPreviousPage_Click"/>
-        <Button x:Name="buttonNextPage" Content="Następna strona" HorizontalAlignment="Left" Height="24" Margin="556,292,-269,-295" Grid.Row="1" VerticalAlignment="Top" Width="123" Click="buttonNextPage_Click"/>
+        <Button x:Name="buttonPreviousPage" Content="Poprzednia strona" HorizontalAlignment="Left" Height="24" Margin="398,292,-110,-295" Grid.Row="1" VerticalAlignment="Top" Width="122" />
+        <Button x:Name="buttonNextPage" Content="Następna strona" HorizontalAlignment="Left" Height="24" Margin="556,292,-269,-295" Grid.Row="1" VerticalAlignment="Top" Width="123" />
         <Label x:Name="labelRateApp" Content="Oceń aplikację:" HorizontalAlignment="Left" Height="30" Margin="932,16,-292,0" VerticalAlignment="Top" Width="174"/>
         <commonControls:RateApp x:Name="RateButtons" Margin="846,57,-317,33"  RateValueChanged="RateButtons_RateValueChanged"/>
     </Grid>

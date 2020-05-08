@@ -81,6 +81,15 @@ namespace ziecinaUnitConverter.Desktop
             ConfirmQueryCommand = new UnitConverter.Desktop.RelayCommand(obj => ConfirmQuery(), obj =>
             queryConverterPicker.SelectedItem != null && dateFromBox.SelectedDate != null && dateToBox.SelectedDate != null
             );
+
+            NextPageCommand = new UnitConverter.Desktop.RelayCommand(obj => NextPage(), obj =>
+            queriedOnce == true 
+            );
+            PreviousPageCommand = new UnitConverter.Desktop.RelayCommand(obj => PreviousPage(), obj =>
+            queriedOnce == true && currentPage >= 2
+            );
+            buttonPreviousPage.Command = PreviousPageCommand;
+            buttonNextPage.Command = NextPageCommand;
             buttonConfirm.Command = ConfirmQueryCommand;
         }
 
@@ -253,20 +262,22 @@ namespace ziecinaUnitConverter.Desktop
             }
         }
 
-        private void buttonPreviousPage_Click(object sender, RoutedEventArgs e)
-        {
-            if (queriedOnce == true && currentPage >= 2)
-            {
-                currentPage -= 1;
-                textBlockResaults.Text = pageSwap();
-            }
-        }
-
-        private void buttonNextPage_Click(object sender, RoutedEventArgs e)
+        private UnitConverter.Desktop.RelayCommand NextPageCommand;
+        private UnitConverter.Desktop.RelayCommand PreviousPageCommand;
+        private void NextPage()
         {
             if (queriedOnce == true)
             {
                 currentPage += 1;
+                textBlockResaults.Text = pageSwap();
+            }
+        }
+
+        private void PreviousPage()
+        {
+            if (queriedOnce == true)
+            {
+                currentPage -= 1;
                 textBlockResaults.Text = pageSwap();
             }
         }
