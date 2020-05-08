@@ -1,0 +1,6 @@
+C:\Users\HP\source\repos\secret\Zad5-Konwerter-Z401-Piotr-Szubiczuk\Konwerter.Logika\bin\Debug\Konwerter.Logika.dll
+C:\Users\HP\source\repos\secret\Zad5-Konwerter-Z401-Piotr-Szubiczuk\Konwerter.Logika\bin\Debug\Konwerter.Logika.pdb
+C:\Users\HP\source\repos\secret\Zad5-Konwerter-Z401-Piotr-Szubiczuk\Konwerter.Logika\obj\Debug\Konwerter.Logika.csprojAssemblyReference.cache
+C:\Users\HP\source\repos\secret\Zad5-Konwerter-Z401-Piotr-Szubiczuk\Konwerter.Logika\obj\Debug\Konwerter.Logika.csproj.CoreCompileInputs.cache
+C:\Users\HP\source\repos\secret\Zad5-Konwerter-Z401-Piotr-Szubiczuk\Konwerter.Logika\obj\Debug\Konwerter.Logika.dll
+C:\Users\HP\source\repos\secret\Zad5-Konwerter-Z401-Piotr-Szubiczuk\Konwerter.Logika\obj\Debug\Konwerter.Logika.pdb

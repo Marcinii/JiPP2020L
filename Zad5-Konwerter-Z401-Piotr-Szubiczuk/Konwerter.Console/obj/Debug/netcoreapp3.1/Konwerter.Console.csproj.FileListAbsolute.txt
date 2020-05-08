@@ -1,0 +1,16 @@
+C:\Users\HP\source\repos\secret\Zad5-Konwerter-Z401-Piotr-Szubiczuk\Konwerter.Console\bin\Debug\netcoreapp3.1\Konwerter.Console.exe
+C:\Users\HP\source\repos\secret\Zad5-Konwerter-Z401-Piotr-Szubiczuk\Konwerter.Console\bin\Debug\netcoreapp3.1\Konwerter.Console.deps.json
+C:\Users\HP\source\repos\secret\Zad5-Konwerter-Z401-Piotr-Szubiczuk\Konwerter.Console\bin\Debug\netcoreapp3.1\Konwerter.Console.runtimeconfig.json
+C:\Users\HP\source\repos\secret\Zad5-Konwerter-Z401-Piotr-Szubiczuk\Konwerter.Console\bin\Debug\netcoreapp3.1\Konwerter.Console.runtimeconfig.dev.json
+C:\Users\HP\source\repos\secret\Zad5-Konwerter-Z401-Piotr-Szubiczuk\Konwerter.Console\bin\Debug\netcoreapp3.1\Konwerter.Console.dll
+C:\Users\HP\source\repos\secret\Zad5-Konwerter-Z401-Piotr-Szubiczuk\Konwerter.Console\bin\Debug\netcoreapp3.1\Konwerter.Console.pdb
+C:\Users\HP\source\repos\secret\Zad5-Konwerter-Z401-Piotr-Szubiczuk\Konwerter.Console\bin\Debug\netcoreapp3.1\Konwerter.Logika.dll
+C:\Users\HP\source\repos\secret\Zad5-Konwerter-Z401-Piotr-Szubiczuk\Konwerter.Console\bin\Debug\netcoreapp3.1\Konwerter.Logika.pdb
+C:\Users\HP\source\repos\secret\Zad5-Konwerter-Z401-Piotr-Szubiczuk\Konwerter.Console\obj\Debug\netcoreapp3.1\Konwerter.Console.csprojAssemblyReference.cache
+C:\Users\HP\source\repos\secret\Zad5-Konwerter-Z401-Piotr-Szubiczuk\Konwerter.Console\obj\Debug\netcoreapp3.1\Konwerter.Console.csproj.CoreCompileInputs.cache
+C:\Users\HP\source\repos\secret\Zad5-Konwerter-Z401-Piotr-Szubiczuk\Konwerter.Console\obj\Debug\netcoreapp3.1\Konwerter.Console.AssemblyInfoInputs.cache
+C:\Users\HP\source\repos\secret\Zad5-Konwerter-Z401-Piotr-Szubiczuk\Konwerter.Console\obj\Debug\netcoreapp3.1\Konwerter.Console.AssemblyInfo.cs
+C:\Users\HP\source\repos\secret\Zad5-Konwerter-Z401-Piotr-Szubiczuk\Konwerter.Console\obj\Debug\netcoreapp3.1\Konwerter.Console.csproj.CopyComplete
+C:\Users\HP\source\repos\secret\Zad5-Konwerter-Z401-Piotr-Szubiczuk\Konwerter.Console\obj\Debug\netcoreapp3.1\Konwerter.Console.dll
+C:\Users\HP\source\repos\secret\Zad5-Konwerter-Z401-Piotr-Szubiczuk\Konwerter.Console\obj\Debug\netcoreapp3.1\Konwerter.Console.pdb
+C:\Users\HP\source\repos\secret\Zad5-Konwerter-Z401-Piotr-Szubiczuk\Konwerter.Console\obj\Debug\netcoreapp3.1\Konwerter.Console.genruntimeconfig.cache
