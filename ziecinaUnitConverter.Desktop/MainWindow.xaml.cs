@@ -63,20 +63,7 @@ namespace ziecinaUnitConverter.Desktop
                 int oldRating = ratingsContainer[0].RatingScore;
                 RateButtons.RateValue = oldRating;
             }
-            RateButtons.RateValueChanged += RateApp_RateValueChanged;
-            ///////////////// PRZYKŁAD ZAPYTANIA /////////////////////////
-            //////////////////////////////////////////////////////////////
-            /* 
-            using(KASETY_412_23Entities1 context = new KASETY_412_23Entities1()) 
-            {
-                List<JIPP4> conversions = context.JIPP4.ToList();
-                foreach (JIPP4 e in conversions)
-                {
-                    blockResault.Text += (e.Converter) + "\n";
-                }
-            }
-            */
-            ///////////////////////////////////////////////////////////////
+
             converters = new List<IConverter>()
             {
                 new ConvertTemperature(),
@@ -90,6 +77,11 @@ namespace ziecinaUnitConverter.Desktop
                 queryConverterPicker.Items.Add(converters[i].Name);
             }
             queryConverterPicker.Items.Add("Konwerter czasu");
+
+            ConfirmQueryCommand = new UnitConverter.Desktop.RelayCommand(obj => ConfirmQuery(), obj =>
+            queryConverterPicker.SelectedItem != null && dateFromBox.SelectedDate != null && dateToBox.SelectedDate != null
+            );
+            buttonConfirm.Command = ConfirmQueryCommand;
         }
 
         private void textValues_KeyUp(object sender, KeyEventArgs e)
@@ -212,11 +204,13 @@ namespace ziecinaUnitConverter.Desktop
             }
         }
 
-        private void buttonConfirm_Click(object sender, RoutedEventArgs e)
+        private UnitConverter.Desktop.RelayCommand ConfirmQueryCommand;
+
+        private void ConfirmQuery()
         {
             using (KASETY_412_23Entities1 context = new KASETY_412_23Entities1())
             {
-                if (queryConverterPicker.SelectedItem != null && dateFromBox.SelectedDate != null && dateToBox.SelectedDate != null)
+                if (queryConverterPicker.SelectedItem != null && dateFromBox.SelectedDate != null && dateToBox.SelectedDate != null) //skorzystać z tego
                 {
                     string dateFrom = "'" + dateFromBox.SelectedDate.Value.ToString("yyy.MM.dd") + "'";
                     string dateTo = "'" + dateToBox.SelectedDate.Value.ToString("yyy.MM.dd") + "'";
@@ -276,11 +270,26 @@ namespace ziecinaUnitConverter.Desktop
                 textBlockResaults.Text = pageSwap();
             }
         }
-        private void RateApp_RateValueChanged(int value)
-        {
-            int assdaync = value;
-            //zapis do DB
 
+
+        private void RateButtons_RateValueChanged(object sender, Common.Controls.RateApp.RateEventArgs e)
+        {
+            int newValue = e.RateValue;
+            using (KASETY_412_23Entities1 context = new KASETY_412_23Entities1())
+            {
+                string queryTextn = "INSERT INTO AppRatings (RatingScore) VALUES(" + newValue.ToString() + ");";
+                List<AppRatings> ratingsContainer;
+                try
+                {
+                    ratingsContainer = context.AppRatings.SqlQuery(queryTextn).ToList();
+                    //bez przypisania do zmiennej zapytanie nie dawało żadnych efektów w bazie danych
+                }
+                catch
+                {
+
+                }
+                
+            }
         }
     }
 }

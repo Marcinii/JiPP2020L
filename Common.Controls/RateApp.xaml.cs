@@ -24,7 +24,7 @@ namespace Common.Controls
         {
             InitializeComponent();
         }
-        public event RateDelegate RateValueChanged;
+        public event EventHandler<RateEventArgs> RateValueChanged;
 
         private int _rateValue = 0;
 
@@ -44,7 +44,7 @@ namespace Common.Controls
 
                 if (RateValueChanged != null)
                 {
-                    RateValueChanged(_rateValue);
+                    RateValueChanged(this, new RateEventArgs() {RateValue = _rateValue });
                 }
             }
         }
@@ -73,7 +73,11 @@ namespace Common.Controls
             RateValue = ratesGrid.Children.IndexOf((Button)sender) + 1;
             
         }
-        public delegate void RateDelegate(int value);
+
+        public class RateEventArgs : EventArgs
+        {
+            public int RateValue { get; set; }
+        }
 
     }
 }
