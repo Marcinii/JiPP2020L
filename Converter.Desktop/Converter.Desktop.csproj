@@ -64,6 +64,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Rate.cs">
+      <DependentUpon>ConverterModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RelayCommand.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -133,6 +137,10 @@
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Converter.Controls\Converter.Controls.csproj">
+      <Project>{da12ff53-8f55-4e50-9b52-177c0c2af980}</Project>
+      <Name>Converter.Controls</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Converter.Logic\Converter.Logic.csproj">
       <Project>{9b7e4685-83a6-4b3c-82d4-142ab2dc9514}</Project>
       <Name>Converter.Logic</Name>

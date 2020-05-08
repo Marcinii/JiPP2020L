@@ -39,13 +39,42 @@ namespace Converter.Desktop
             };
             FiltrTyp.ItemsSource = Category.ItemsSource;
 
+            using (converterEntities context = new converterEntities())
+            {
+                List<Rate> rate = context.Rate.ToList();
+                if (rate.Count > 0)
+                {
+                    Console.WriteLine(rate.Last().rate1);
+                    rateControl.RateV = rate.Last().rate1.GetValueOrDefault(0); 
+                }
+                
+            };
             
                 
 
             Tarcza.Visibility = Visibility.Hidden;
             Godzinowa.Visibility = Visibility.Hidden;
             Minutowa.Visibility = Visibility.Hidden;
+
+
+            convertCommand = new RelayCommand(obj => Convert(), obj => UnitFrom.SelectedItem != null && UnitTo.SelectedItem != null && 
+                String.IsNullOrEmpty(Toconvert.Text) != true);
+            Makeit.Command = convertCommand;
+
+            refreshCommand = new RelayCommand(obj => Refresh());
+            RefreshButton.Command = refreshCommand;
+
+            pagebackCommand = new RelayCommand(obj => pageback());
+            back.Command = pagebackCommand;
+
+            pagenextCommand = new RelayCommand(obj => pagenext());
+            next.Command = pagenextCommand;
+
+            showtop3Command = new RelayCommand(obj => showtop3());
+            Top3.Command = showtop3Command;
         }
+
+
 
         private void selectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -67,7 +96,8 @@ namespace Converter.Desktop
             }
         }
 
-        private void Convert(object sender, RoutedEventArgs e)
+        private RelayCommand convertCommand;
+        private void Convert()
         {
             if (((IConverter)Category.SelectedItem).Name == "Zegar")
             {
@@ -118,7 +148,8 @@ namespace Converter.Desktop
             }
         }
 
-        private void Refresh(object sender, RoutedEventArgs e)
+        private RelayCommand refreshCommand;
+        private void Refresh()
         {
             using (converterEntities context = new converterEntities())
             {
@@ -136,7 +167,8 @@ namespace Converter.Desktop
 
         }
 
-        private void pageback(object sender, RoutedEventArgs e)
+        private RelayCommand pagebackCommand;
+        private void pageback()
         {
             strona--;
 
@@ -146,7 +178,8 @@ namespace Converter.Desktop
             }
         }
 
-        private void pagenext(object sender, RoutedEventArgs e)
+        private RelayCommand pagenextCommand;
+        private void pagenext()
         {
             if (strona != maxpage)
             {
@@ -159,7 +192,8 @@ namespace Converter.Desktop
             }
         }
 
-        private void showtop3(object sender, RoutedEventArgs e)
+        private RelayCommand showtop3Command;
+        private void showtop3()
         {
             using (converterEntities context = new converterEntities())
             {
@@ -193,6 +227,20 @@ namespace Converter.Desktop
             }
 
             return log;
+        }
+
+        private void RateControl_RateChanged(object sender, Converter.Controls.RateArgs e)
+        {
+            using (converterEntities context = new converterEntities())
+            {
+                Rate r = new Rate()
+                {
+                    rate1 = e.Value
+                };
+
+                context.Rate.Add(r);
+                context.SaveChanges();
+            }
         }
     }
 }

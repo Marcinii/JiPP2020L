@@ -6,6 +6,7 @@
     <edmx:Diagrams>
       <Diagram DiagramId="9490d3b6c67346f1ac91ed36f0a4ae7b" Name="Diagram1">
         <EntityTypeShape EntityType="converterModel.Log" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="converterModel.Rate" Width="1.5" PointX="3.375" PointY="0.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

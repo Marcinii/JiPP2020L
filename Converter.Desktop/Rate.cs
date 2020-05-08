@@ -12,14 +12,9 @@ namespace Converter.Desktop
     using System;
     using System.Collections.Generic;
     
-    public partial class Log
+    public partial class Rate
     {
         public int id { get; set; }
-        public string typ { get; set; }
-        public string jednostkaz { get; set; }
-        public string jednostkado { get; set; }
-        public System.DateTime data { get; set; }
-        public string wartoscprzed { get; set; }
-        public string wartoscpo { get; set; }
+        public Nullable<int> rate1 { get; set; }
     }
 }

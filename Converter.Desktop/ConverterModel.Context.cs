@@ -26,5 +26,6 @@ namespace Converter.Desktop
         }
     
         public virtual DbSet<Log> Log { get; set; }
+        public virtual DbSet<Rate> Rate { get; set; }
     }
 }
