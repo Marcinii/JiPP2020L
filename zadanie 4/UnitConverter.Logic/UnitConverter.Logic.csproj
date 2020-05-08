@@ -50,5 +50,10 @@
     <Compile Include="TimeConverter.cs" />
     <Compile Include="WeightConverter.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="..\.editorconfig">
+      <Link>.editorconfig</Link>
+    </None>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

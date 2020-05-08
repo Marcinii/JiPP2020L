@@ -26,5 +26,6 @@ namespace DesktopAPP
         }
     
         public virtual DbSet<zapissql> zapissql { get; set; }
+        public virtual DbSet<ocenatable> ocenatable { get; set; }
     }
 }

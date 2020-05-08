@@ -15,6 +15,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using przelicznik;
 using przelicznik.Logic;
+using UnitConverter.Desktop;
 
 namespace DesktopAPP
 {
@@ -24,7 +25,7 @@ namespace DesktopAPP
     public partial class MainWindow : Window
     {
         int clock = 0;
-        
+      
 
         public MainWindow()
         {
@@ -33,33 +34,45 @@ namespace DesktopAPP
             convCombobox.ItemsSource = new KonwerterService().GetConverters();
             statscombobox.ItemsSource = new KonwerterService().GetConverters();
 
+            using (HomebaseEntities1 context = new HomebaseEntities1())
+            {
+                int results = context.ocenatable
+                    .OrderByDescending(o => o.idocena)
+                    .Select(o => o.ocena).FirstOrDefault();
+                rateControl.Rate =results;
+               
+            }
+            ConvertCommand = new RelayCommand(obj => Convert(), obj => unitFrombox.SelectedItem != null && unitTobox.SelectedItem != null && string.IsNullOrEmpty(inputTextBox.Text) != true);
+            Button.Command = ConvertCommand;
+            ConvertCommand = new RelayCommand(obj => clockbtn(), obj => unitFrombox.SelectedItem != null && unitTobox.SelectedItem != null && string.IsNullOrEmpty(inputTextBox.Text) != true);
+            clockbutton.Command = ConvertCommand;
+            ConvertCommand = new RelayCommand(obj => btnfordate(), obj => unitFrombox.SelectedItem != null && unitTobox.SelectedItem != null && string.IsNullOrEmpty(inputTextBox.Text) != true);
+            buttonfordate.Command = ConvertCommand;
+            ConvertCommand = new RelayCommand(obj => leftbtncl(), obj => unitFrombox.SelectedItem != null && unitTobox.SelectedItem != null && string.IsNullOrEmpty(inputTextBox.Text) != true);
+            leftbtn.Command = ConvertCommand;
+            ConvertCommand = new RelayCommand(obj => rightbtncl(), obj => unitFrombox.SelectedItem != null && unitTobox.SelectedItem != null && string.IsNullOrEmpty(inputTextBox.Text) != true);
+            rightbtn.Command = ConvertCommand;
+            ConvertCommand = new RelayCommand(obj => mousebtn(), obj => unitFrombox.SelectedItem != null && unitTobox.SelectedItem != null && string.IsNullOrEmpty(inputTextBox.Text) != true);
+            mostusedbtn.Command = ConvertCommand;
+            
+
         }
-       
         private void convCombobox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             unitFrombox.ItemsSource = ((IConverter)convCombobox.SelectedItem).Units;
             unitTobox.ItemsSource = ((IConverter)convCombobox.SelectedItem).Units;
-           
-             
-
-
-
         }
-        private void clockbutton_Click(object sender, RoutedEventArgs e)
-        {
-           
-           
+        private void clockbtn()
+        {      
             dwukropektext.Text = ":";
             minutybox.Visibility = 0;
             minutesb.Visibility = 0;
-            clock = 1;
-           
+            clock = 1;          
 
         }
-        public void Button_Click(object sender, RoutedEventArgs e)
+        private RelayCommand ConvertCommand;
+        public void Convert()
         {
-           
-
 
             string inputText = inputTextBox.Text;
             decimal inputValue = decimal.Parse(inputText);
@@ -81,8 +94,7 @@ namespace DesktopAPP
                     time = TimeNow,
 
                 };
-                context.zapissql.Add(tabela);
-                
+                context.zapissql.Add(tabela);              
                 context.SaveChanges();
              
             }
@@ -98,12 +110,10 @@ namespace DesktopAPP
                     clocktextblock.Text = "PM";                   
                 }
                 minutesb.Text = ":" + minutybox.Text;
-                double min = Decimal.ToInt32(result)*30 + ((Convert.ToDouble(minutybox.Text) * 0.5));             
+             
+                double min = Decimal.ToInt32(result)*30 + (Double.Parse(minutybox.Text) * 0.5);             
                 clockRotation.Angle = min+90;
-
-
                 ((Storyboard)Resources["Storyboard1"]).Begin();
-
                 using (HomebaseEntities1 context = new HomebaseEntities1())
                 {
                     zapissql tabela = new zapissql()
@@ -114,7 +124,6 @@ namespace DesktopAPP
                         inputvalue = inputValue,
                         outputvalue = result.ToString(),
                         time = TimeNow,
-
                     };
                     context.zapissql.Add(tabela);
                     context.SaveChanges();
@@ -231,37 +240,31 @@ namespace DesktopAPP
 
         }
 
-        private void buttonfordate_Click(object sender, RoutedEventArgs e)
+        private void btnfordate()
         {
             konwertowaniepodacie();
         }
 
-        private void leftbtn_Click(object sender, RoutedEventArgs e)
+        private void leftbtncl()
         {
             nextpage = nextpage - 20;
             pagenumber.Text = nextpage.ToString();
             metodakonwertera();
         }
 
-        private void rightbtn_Click(object sender, RoutedEventArgs e)
+        private void rightbtncl()
         {
             nextpage = nextpage + 20;
             pagenumber.Text = nextpage.ToString();
             metodakonwertera();
         }
 
-        private void mostusedbtn_Click(object sender, RoutedEventArgs e)
+        private void mousebtn()
         
         {
             using (HomebaseEntities1 context = new HomebaseEntities1())
             {
-
-
-
-              
-            
-                
-                
+ 
                     string date1 = Datefrom.Text;
                     DateTime date11 = DateTime.Parse(date1);
 
@@ -275,13 +278,33 @@ namespace DesktopAPP
                                    .Select(b => new { Str = b.Key, Count = b.Count() })
                                    .OrderByDescending(b => b.Count)
                                    .Take(3);
-
                     foreach (var item in asdasdasd)
                     {
                         BazaStatystyk.ItemsSource = asdasdasd;
-                    }
-                
+                    }              
+            }
+        }
 
+        private void rateControl_RateValueChanged(object sender, Common.Controls.RateEventArgs e)
+            
+        {
+            int idoceny;
+            using (HomebaseEntities1 context = new HomebaseEntities1())
+            {
+                    idoceny = context.ocenatable
+                    .OrderByDescending(o => o.idocena)
+                    .Select(o => o.idocena).FirstOrDefault();         
+            }
+
+            using (HomebaseEntities1 context = new HomebaseEntities1())
+            {
+                ocenatable tabela = new ocenatable()
+                {
+                    idocena=idoceny+1,
+                    ocena=e.Value
+                };
+                context.ocenatable.Add(tabela);
+                context.SaveChanges();
             }
         }
     }

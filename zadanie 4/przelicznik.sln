@@ -9,6 +9,13 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitConverter.Logic", "Unit
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DesktopAPP", "DesktopAPP\DesktopAPP.csproj", "{E0EC03CC-161F-4808-9367-1E0399319E47}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common.Controls", "Common.Controls\Common.Controls.csproj", "{9240F9C7-CFAD-4FAC-983C-F38CFAB9BCA8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{CEA856D6-CC91-4D81-8745-89573E69C581}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +34,10 @@ Global
 		{E0EC03CC-161F-4808-9367-1E0399319E47}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E0EC03CC-161F-4808-9367-1E0399319E47}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E0EC03CC-161F-4808-9367-1E0399319E47}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9240F9C7-CFAD-4FAC-983C-F38CFAB9BCA8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9240F9C7-CFAD-4FAC-983C-F38CFAB9BCA8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9240F9C7-CFAD-4FAC-983C-F38CFAB9BCA8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9240F9C7-CFAD-4FAC-983C-F38CFAB9BCA8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

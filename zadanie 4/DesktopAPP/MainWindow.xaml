@@ -3,9 +3,11 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:CommonControls="clr-namespace:Common.Controls;assembly=Common.Controls"
         xmlns:local="clr-namespace:DesktopAPP"
         mc:Ignorable="d"
         Title="MainWindow" Height="997" Width="800">
+
     <Window.Resources>
         <Storyboard x:Key="Storyboard1">
             <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="ellipse">
@@ -69,7 +71,7 @@
             <TextBlock x:Name="clocktextblock" Grid.Column="1" HorizontalAlignment="Left" Margin="70,330,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="65" Height="31"/>
             <TextBox x:Name="minutybox" Grid.Column="1" HorizontalAlignment="Left" Height="30" Margin="190,45,0,0" TextWrapping="Wrap" Text="minuty" VerticalAlignment="Top" Width="45" Visibility="Hidden"/>
             <TextBlock x:Name="dwukropektext" Grid.Column="1" HorizontalAlignment="Left" Margin="180,49,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="36" Width="10"/>
-            <Button x:Name="clockbutton" Content="Button for clock conv" HorizontalAlignment="Left" Margin="30,180,0,0" VerticalAlignment="Top" Width="130" Click="clockbutton_Click"/>
+            <Button x:Name="clockbutton" Content="Button for clock conv" HorizontalAlignment="Left" Margin="30,180,0,0" VerticalAlignment="Top" Width="130"/>
             <TextBlock x:Name="minutesb" Grid.Column="1" HorizontalAlignment="Left" Margin="10,330,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="28" Width="91"/>
             <Ellipse x:Name="ellipse" Grid.Column="1" HorizontalAlignment="Left" Height="150.031" Margin="84.969,210,0,0" Stroke="Black" VerticalAlignment="Top" Width="150.031" RenderTransformOrigin="0.5,0.5" Visibility="Hidden" d:IsLocked="True">
                 <Ellipse.RenderTransform>
@@ -99,7 +101,7 @@
             </Path>
         </Grid>
         <TextBox x:Name="inputTextBox" Margin="200,45,65,334" TextChanged="inputTextBox_TextChanged"/>
-        <Button x:Name="Button" Margin="175,210,190,169" Click="Button_Click" Content="Konwertuj"/>
+        <Button x:Name="Button" Margin="175,210,190,169"  Content="Konwertuj"/>
         <TextBlock x:Name="outputText" Margin="200,330,110,49"/>
         <DataGrid x:Name="BazaStatystyk" HorizontalAlignment="Left" Height="340" Margin="45,480,0,-401" VerticalAlignment="Top" Width="510" Grid.ColumnSpan="2"/>
 
@@ -112,12 +114,15 @@
         </ComboBox>
         <TextBox x:Name="Datefrom" Grid.ColumnSpan="2" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="165,585,0,-189" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
         <TextBox x:Name="Dateto" Grid.ColumnSpan="2" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="165,635,0,-239" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <Button x:Name="buttonfordate" Grid.ColumnSpan="2" Content="FiltracjaPoDacie" Grid.Column="1" HorizontalAlignment="Left" Height="40" Margin="165,680,0,-301" VerticalAlignment="Top" Width="130" Click="buttonfordate_Click"/>
-        <Button x:Name="leftbtn" Content="&lt;" HorizontalAlignment="Left" Height="25" Margin="365,840,0,-446" VerticalAlignment="Top" Width="70" Click="leftbtn_Click"/>
-        <Button x:Name="rightbtn" Content="&gt;" Grid.Column="1" HorizontalAlignment="Left" Height="25" Margin="30,840,0,-446" VerticalAlignment="Top" Width="75" Click="rightbtn_Click"/>
+        <Button x:Name="buttonfordate" Grid.ColumnSpan="2" Content="FiltracjaPoDacie" Grid.Column="1" HorizontalAlignment="Left" Height="40" Margin="165,680,0,-301" VerticalAlignment="Top" Width="130"/>
+        <Button x:Name="leftbtn" Content="&lt;" HorizontalAlignment="Left" Height="25" Margin="365,840,0,-446" VerticalAlignment="Top" Width="70" />
+        <Button x:Name="rightbtn" Content="&gt;" Grid.Column="1" HorizontalAlignment="Left" Height="25" Margin="30,840,0,-446" VerticalAlignment="Top" Width="75" />
         <TextBlock x:Name="pagenumber" HorizontalAlignment="Left" Margin="445,840,0,-446" TextWrapping="Wrap" VerticalAlignment="Top" Height="25" Width="20" Grid.ColumnSpan="2"/>
-        <Button x:Name="mostusedbtn" Grid.ColumnSpan="3" Content="Najczesciej uzywane konwertery" Grid.Column="1" HorizontalAlignment="Left" Height="45" Margin="135,740,0,-366" VerticalAlignment="Top" Width="185" Click="mostusedbtn_Click"/>
+        <Button x:Name="mostusedbtn" Grid.ColumnSpan="3" Content="Najczesciej uzywane konwertery" Grid.Column="1" HorizontalAlignment="Left" Height="45" Margin="135,740,0,-366" VerticalAlignment="Top" Width="185" />
         <TextBlock Grid.Column="1" HorizontalAlignment="Left" Margin="175,565,0,-161" TextWrapping="Wrap" Text="Data_od_" VerticalAlignment="Top" Grid.ColumnSpan="2" Height="15" Width="100"/>
         <TextBlock Grid.Column="1" HorizontalAlignment="Left" Margin="175,615,0,-211" TextWrapping="Wrap" Text="Data_do_" VerticalAlignment="Top" Grid.ColumnSpan="2" Height="15" Width="100"/>
+
+        <Label Grid.ColumnSpan="2" Margin="45,906,194,-526">Ocena aplikacji:</Label>
+        <CommonControls:UserControl1 x:Name="rateControl" Margin="140,906,170,-511" RateValueChanged="rateControl_RateValueChanged"  />
     </Grid>
 </Window>

@@ -6,6 +6,7 @@
     <edmx:Diagrams>
       <Diagram DiagramId="bf9c3e755cec4dfdb6e6c041673de929" Name="Diagram1">
         <EntityTypeShape EntityType="HomebaseModel.zapissql" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HomebaseModel.ocenatable" Width="1.5" PointX="3.375" PointY="0.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

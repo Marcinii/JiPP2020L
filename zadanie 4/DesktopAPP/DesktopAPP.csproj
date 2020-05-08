@@ -69,6 +69,10 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="ocenatable.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RelayCommand.cs" />
     <Compile Include="zapissql.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -130,6 +134,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Common.Controls\Common.Controls.csproj">
+      <Project>{9240f9c7-cfad-4fac-983c-f38cfab9bca8}</Project>
+      <Name>Common.Controls</Name>
+    </ProjectReference>
     <ProjectReference Include="..\UnitConverter.Logic\UnitConverter.Logic.csproj">
       <Project>{7ffc5e5f-86e1-4d98-926d-21d56960a8f3}</Project>
       <Name>UnitConverter.Logic</Name>
