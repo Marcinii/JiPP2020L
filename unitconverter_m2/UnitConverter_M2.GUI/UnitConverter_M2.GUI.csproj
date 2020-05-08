@@ -97,6 +97,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="oceny.cs">
+      <DependentUpon>konwersjeModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -126,11 +129,16 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <Compile Include="RelayCommand.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Common.Controls\Common.Controls.csproj">
+      <Project>{595d2f89-98dd-48a0-88ac-cccb8e364bd7}</Project>
+      <Name>Common.Controls</Name>
+    </ProjectReference>
     <ProjectReference Include="..\UnitConverter_M2.Logic\UnitConverter_M2.Logic.csproj">
       <Project>{3c2698f2-1839-46fe-93ce-9e96eb849b56}</Project>
       <Name>UnitConverter_M2.Logic</Name>

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Common.Controls;
+using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
@@ -26,15 +27,72 @@ namespace UnitConverter_M2.GUI
 
         ModulStatystyk ms;
 
+        private RelayCommand przeliczCommand, wLewoCommand, wPrawoCommand, filtrujCommand, wyczyscFiltryCommand;
+
         public MainWindow()
         {
             InitializeComponent();
             typKonwersji.ItemsSource = new ConvertersAvailable().getConverters();
             filtrowanieTypu.ItemsSource = new ConvertersAvailable().getConverters();
             ms = new ModulStatystyk(tabelaDanych);
+
+
+            // odczytac z bazy
+            wczytajOceneZBazy();
+
+
+            /* komendy dla przyciskow */
+            przeliczCommand = new RelayCommand(obj => przelicz_komenda(), obj =>
+                typKonwersji.SelectedItem != null && jednostka1.SelectedItem != null &&
+                string.IsNullOrEmpty(wartosc.Text) != true);
+            przelicz.Command = przeliczCommand;
+
+            wLewoCommand = new RelayCommand(obj => wLewoKomenda());
+            wLewoButton.Command = wLewoCommand;
+
+            wPrawoCommand = new RelayCommand(obj => wPrawoKomenda());
+            wPrawoButton.Command = wPrawoCommand;
+
+            filtrujCommand = new RelayCommand(obj => filtrujKomenda());
+            FiltrujButton.Command = filtrujCommand;
+
+            wyczyscFiltryCommand = new RelayCommand(obj => wyczyscFiltryKomenda());
+            WyczyscFiltryButton.Command = wyczyscFiltryCommand;
         }
 
-        private void typKonwersji_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void wczytajOceneZBazy()
+        {
+            using (konwersjeEntities context = new konwersjeEntities())
+            {
+                /* jesli tabela jest pusta */
+                if (!context.oceny.Any())
+                    return;
+
+                int result = context.oceny.OrderByDescending(p => p.id).FirstOrDefault().ocena;
+
+                rateControl.RateValue = result;
+            }
+        }
+
+        private void rateControl_RateValueChanged(object sender, Common.Controls.RateEventArgs e)
+        {
+
+            /* umieszeczenie nowej oceny do bazy */
+            using (konwersjeEntities context = new konwersjeEntities())
+            {
+                oceny nowaOcena = new oceny()
+                {
+                    ocena = rateControl.RateValue
+                };
+            
+                context.oceny.Add(nowaOcena);
+                context.SaveChanges();
+            }
+
+        }
+
+
+    private void typKonwersji_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if (((IConv)typKonwersji.SelectedItem).ToString() == "Czas")
             {
@@ -47,7 +105,7 @@ namespace UnitConverter_M2.GUI
             jednostka2.ItemsSource = ((IConv)typKonwersji.SelectedItem).units;
         }
 
-        private void przelicz_Click(object sender, RoutedEventArgs e)
+        private void przelicz_komenda()
         {
 
             decimal wartoscLiczbowa = 0;
@@ -69,11 +127,6 @@ namespace UnitConverter_M2.GUI
                 return;
             }
 
-            if (jednostka1.SelectedIndex == -1 || jednostka2.SelectedIndex == -1 || typKonwersji.SelectedIndex == -1)
-            {
-                wynik.Text = "Brak wyboru jednostek!";
-                    return;
-            }
 
             wynik.Text = ((IConv)typKonwersji.SelectedItem).convert(jednostka1.SelectedItem.ToString(),
                                                                     jednostka2.SelectedItem.ToString(),
@@ -115,17 +168,17 @@ namespace UnitConverter_M2.GUI
 
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void wLewoKomenda()
         {
             ms.wLewo();
         }
 
-        private void Button_Click_1(object sender, RoutedEventArgs e)
+        private void wPrawoKomenda()
         {
             ms.wPrawo();
         }
 
-        private void Button_Click_2(object sender, RoutedEventArgs e)
+        private void filtrujKomenda()
         {
             /* ustaw parametry filtrow */
             if (dataOd.SelectedDate != null)
@@ -155,7 +208,7 @@ namespace UnitConverter_M2.GUI
             ms.wyswietl();
         }
 
-        private void Button_Click_3(object sender, RoutedEventArgs e)
+        private void wyczyscFiltryKomenda()
         {
             top3radio.IsChecked = false;
             dataOd.SelectedDate = null;

@@ -26,5 +26,6 @@ namespace UnitConverter_M2.GUI
         }
     
         public virtual DbSet<logi> logi { get; set; }
+        public virtual DbSet<oceny> oceny { get; set; }
     }
 }

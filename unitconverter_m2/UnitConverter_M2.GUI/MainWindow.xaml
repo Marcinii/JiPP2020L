@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:UnitConverter_M2.GUI"
         mc:Ignorable="d"
+        xmlns:commonControls="clr-namespace:Common.Controls;assembly=Common.Controls"
         Title="MainWindow" Height="379.766" Width="941.5">
     <Window.Resources>
         <Storyboard x:Key="PojawienieZegara">
@@ -41,7 +42,7 @@
             <ComboBox x:Name="jednostka2" Margin="1"/>
             <Label Content="wartosc:" Margin="1"/>
             <TextBox x:Name="wartosc" Height="23" TextWrapping="Wrap" Text="0.0" Margin="1"/>
-            <Button x:Name="przelicz" Content="Przelicz!" Margin="1" Click="przelicz_Click"/>
+            <Button x:Name="przelicz" Content="Przelicz!" Margin="1"/>
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="1*"></ColumnDefinition>
@@ -75,16 +76,18 @@
             </Rectangle.RenderTransform>
         </Rectangle>
         <DataGrid x:Name="tabelaDanych" Grid.Column="1" HorizontalAlignment="Left" Height="242" Margin="0,107,0,0" VerticalAlignment="Top" Width="684"/>
-        <Button Content="&lt;&lt;" Grid.Column="1" HorizontalAlignment="Left" Margin="5,84,0,0" VerticalAlignment="Top" Width="40" Click="Button_Click"/>
-        <Button Content="&gt;&gt;" Grid.Column="1" HorizontalAlignment="Left" Margin="639,84,0,0" VerticalAlignment="Top" Width="40" Click="Button_Click_1"/>
+        <Button x:Name="wLewoButton" Content="&lt;&lt;" Grid.Column="1" HorizontalAlignment="Left" Margin="5,84,0,0" VerticalAlignment="Top" Width="40"/>
+        <Button x:Name="wPrawoButton" Content="&gt;&gt;" Grid.Column="1" HorizontalAlignment="Left" Margin="639,84,0,0" VerticalAlignment="Top" Width="40"/>
         <ComboBox x:Name="filtrowanieTypu" Grid.Column="1" HorizontalAlignment="Left" Margin="101,84,0,0" VerticalAlignment="Top" Width="120"/>
         <Label Content="Typ:" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="1" Margin="69,81,0,0"/>
         <DatePicker x:Name="dataOd" Grid.Column="1" HorizontalAlignment="Left" Margin="263,83,0,0" VerticalAlignment="Top"/>
         <DatePicker x:Name="dataDo" Grid.Column="1" HorizontalAlignment="Left" Margin="370,83,0,0" VerticalAlignment="Top"/>
         <Label Content="Daty:" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="1" Margin="226,80,0,0"/>
-        <Button Content="Filtruj" HorizontalAlignment="Left" VerticalAlignment="Top" Width="60" Grid.Column="1" Margin="477,84,0,0" Click="Button_Click_2"/>
-        <Button Content="Wyczysc Filtry" HorizontalAlignment="Left" VerticalAlignment="Top" Width="80" Grid.Column="1" Margin="542,84,0,0" Click="Button_Click_3"/>
+        <Button x:Name="FiltrujButton" Content="Filtruj" HorizontalAlignment="Left" VerticalAlignment="Top" Width="60" Grid.Column="1" Margin="477,84,0,0" />
+        <Button x:Name ="WyczyscFiltryButton" Content="Wyczysc Filtry" HorizontalAlignment="Left" VerticalAlignment="Top" Width="80" Grid.Column="1" Margin="542,84,0,0"/>
         <CheckBox x:Name="top3radio" Content="Top 3" Grid.Column="1" HorizontalAlignment="Left" Margin="477,64,0,0" VerticalAlignment="Top"/>
+        <Label Content="Ocena aplikacji" Grid.Column="1" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
+        <commonControls:RateApp x:Name="rateControl" Grid.Column="1" Margin="104,10,420,307" RateValueChanged="rateControl_RateValueChanged"/>
 
 
     </Grid>

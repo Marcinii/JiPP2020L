@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="konwersjeModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="konwersjeModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="logi">
           <Key>
             <PropertyRef Name="id" />
@@ -17,11 +17,18 @@
           <Property Name="wartosc_do" Type="varchar" MaxLength="100" Nullable="false" />
           <Property Name="data" Type="datetime" Nullable="false" />
         </EntityType>
+        <EntityType Name="oceny">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ocena" Type="int" Nullable="false" />
+        </EntityType>
         <EntityContainer Name="konwersjeModelStoreContainer">
           <EntitySet Name="logi" EntityType="Self.logi" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="oceny" EntityType="Self.oceny" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="konwersjeModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -39,7 +46,15 @@
         </EntityType>
         <EntityContainer Name="konwersjeEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="logi" EntityType="Self.logi" />
+          <EntitySet Name="oceny" EntityType="konwersjeModel.oceny" />
         </EntityContainer>
+        <EntityType Name="oceny">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ocena" Type="Int32" Nullable="false" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -56,6 +71,14 @@
                 <ScalarProperty Name="wartosc_z" ColumnName="wartosc_z" />
                 <ScalarProperty Name="wartosc_do" ColumnName="wartosc_do" />
                 <ScalarProperty Name="data" ColumnName="data" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="oceny">
+            <EntityTypeMapping TypeName="konwersjeModel.oceny">
+              <MappingFragment StoreEntitySet="oceny">
+                <ScalarProperty Name="ocena" ColumnName="ocena" />
+                <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
