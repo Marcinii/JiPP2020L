@@ -31,8 +31,21 @@ namespace UnitConverter.Desktop
         {
             InitializeComponent();
             converterCombobox.ItemsSource = new ConverterService().GetConverters();
-            
+
+
+            //rateButtons.RateValueChanged += RateButtons_RateValueChanged;
         }
+
+        //private void RateButtons_RateValueChanged(int value)
+        //{
+        //    converterCombobox.SelectedIndex = 1;
+        //    fromCombobox.SelectedItem = "rate";
+        //    toCombobox.SelectedItem = "rate";
+        //    inputTextbox.Text = "rate";
+        //    resultTextblock.Text = "rate";
+        //    rateButtons.RateValue = value;
+        //    InsertDataToDatabase();
+        //}
 
         private void ConverterCombobox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {            
@@ -229,6 +242,26 @@ namespace UnitConverter.Desktop
             }
         }
 
+        private void rateControl_RateValueChanged(object sender, Common.Controls.RateEventArgs e)
+        {            
+            using (ConverterDatabaseEntities context = new ConverterDatabaseEntities())
+            {
+                ConverterData newRecord = new ConverterData
+                {
+                    UsedConverter = "",
+                    UnitFrom = "",
+                    UnitTo = "",
+                    InputValue = "",
+                    OutputValue = "",
+                    ConvertDate = DateTime.Now,
+                    Rate = e.value
+                };
+                context.ConverterDatas.Add(newRecord);
+                context.SaveChanges();
+            }
+        }
+
+
         private void RateMe_Loaded(object sender, RoutedEventArgs e)
         {
             using (ConverterDatabaseEntities context = new ConverterDatabaseEntities())
@@ -238,8 +271,6 @@ namespace UnitConverter.Desktop
 
                 if (lastRateFromDatabase != null)
                     rateButtons.RateValue = lastRateFromDatabase ?? default(int);
-
-
             }
         }
     }
