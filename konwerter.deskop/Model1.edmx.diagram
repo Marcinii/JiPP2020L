@@ -6,6 +6,7 @@
     <edmx:Diagrams>
       <Diagram DiagramId="f5f8a067209e46bfbce9b6724e77a499" Name="Diagram1">
         <EntityTypeShape EntityType="ProgramowanieModel.Baza001" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProgramowanieModel.BazaOcena" Width="1.5" PointX="3.375" PointY="0.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

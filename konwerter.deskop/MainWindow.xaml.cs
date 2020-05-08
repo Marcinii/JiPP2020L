@@ -28,7 +28,58 @@ namespace konwerter.deskop
             InitializeComponent();
             combobox.ItemsSource = Converters;
             rodzaj_statystyki.ItemsSource = Converters;
+
+            using (ProgramowanieEntities context = new ProgramowanieEntities())
+            {
+                int result = context.BazaOcena
+                               .OrderByDescending(o => o.idocena)
+                               .Select(o => o.ocena).FirstOrDefault();
+
+                StarControl.RateValue = result;
+            }
+
+            StarControl.RateValueChange += StarControl_RateValueChange;
+
+            ConvertCommand = new RelayCommand(obj => Convert(), obj =>
+                combobox.SelectedItem != null 
+                && string.IsNullOrEmpty(InputText.Text) != true
+                && string.IsNullOrEmpty(InputText2.Text) != true
+                && string.IsNullOrEmpty(InputText3.Text) != true);
+            buttonPrzelicz.Command = ConvertCommand;
+
+            ConvertCommand = new RelayCommand(obj => ConvertTime(), obj =>
+            string.IsNullOrEmpty(InputTime.Text) != true);
+            buttonTime.Command = ConvertCommand;
+
+            ConvertCommand = new RelayCommand(obj => StatDataGrid(), obj =>
+               rodzaj_statystyki.SelectedItem != null);
+            buttonDataGrid.Command = ConvertCommand;
+
+            string str2 = "Brak daty";
+
+            ConvertCommand = new RelayCommand(obj => StatDataGrid1(), obj =>
+               (databox1.Text != str2)
+               && (databox2.Text != str2));
+            buttonDataGrid1.Command = ConvertCommand;
+            
         }
+
+        private void StarControl_RateValueChange(int value)
+        {
+            using (ProgramowanieEntities context = new ProgramowanieEntities())
+            {
+                BazaOcena newbazaocen = new BazaOcena()
+                {
+                    ocena = value,
+                };
+                context.BazaOcena.Add(newbazaocen);
+                context.SaveChanges();
+            }
+        }
+
+
+        private RelayCommand ConvertCommand;
+
         public List<string> Converters => new List<string>()
         {
             "Temperatura",
@@ -37,7 +88,7 @@ namespace konwerter.deskop
             "Dane",
         };
 
-        private void buttonPrzelicz_Click(object sender, RoutedEventArgs e)
+        private void Convert()
         {
             string unitFrom = InputText.Text;
             string unitTo = InputText2.Text;
@@ -84,7 +135,7 @@ namespace konwerter.deskop
             }
 
         }
-        private void buttonTime_Click(object sender, RoutedEventArgs e)
+        private void ConvertTime()
         {
             int godz1 = (int)InputTime.Text[0] - '0';
             int godz2 = (int)InputTime.Text[1] - '0';
@@ -271,12 +322,12 @@ namespace konwerter.deskop
             }
         }
 
-        public void buttonDataGrid_Click(object sender, RoutedEventArgs e)
+        public void StatDataGrid()
         {
             filtr_rodzaj_konwertera();
         }
 
-        private void buttonDataGrid1_Click(object sender, RoutedEventArgs e)
+        private void StatDataGrid1()
         {
             data_konwersji();
         }

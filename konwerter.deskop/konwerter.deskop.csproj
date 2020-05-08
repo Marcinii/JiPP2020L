@@ -65,6 +65,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="RelayCommand.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -74,6 +75,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Baza001.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BazaOcena.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="MainWindow.xaml.cs">
@@ -126,6 +130,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\common.controls\common.controls.csproj">
+      <Project>{7e29e66f-9b4b-4e00-85c3-60db1a79961a}</Project>
+      <Name>common.controls</Name>
+    </ProjectReference>
     <ProjectReference Include="..\konwerter.logic\konwerter.logic.csproj">
       <Project>{f068bc11-8753-474e-b87c-3b5d8dfed49b}</Project>
       <Name>konwerter.logic</Name>

@@ -26,5 +26,6 @@ namespace konwerter.deskop
         }
     
         public virtual DbSet<Baza001> Baza001 { get; set; }
+        public virtual DbSet<BazaOcena> BazaOcena { get; set; }
     }
 }

@@ -4,8 +4,9 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:konwerter.deskop"
+        xmlns:cc="clr-namespace:common.controls;assembly=common.controls"
         mc:Ignorable="d"
-        Title="MainWindow" Height="880" Width="829">
+        Title="MainWindow" Height="916" Width="987">
     <Window.Resources>
         <Storyboard x:Key="visibilityStoryboard2">
             <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="border">
@@ -24,7 +25,7 @@
             <ColumnDefinition Width="413*"/>
             <ColumnDefinition Width="379*"/>
         </Grid.ColumnDefinitions>
-        <Button x:Name="buttonPrzelicz" Content="Przelicz" HorizontalAlignment="Left" Height="26" Margin="164,10,0,0" VerticalAlignment="Top" Width="166" Background="#FF89C5E8" Click="buttonPrzelicz_Click"/>
+        <Button x:Name="buttonPrzelicz" Content="Przelicz" HorizontalAlignment="Left" Height="26" Margin="164,10,0,0" VerticalAlignment="Top" Width="166" Background="#FF89C5E8" />
         <Label Content="Wpraowadz dane:" HorizontalAlignment="Left" VerticalAlignment="Top" Width="122" Margin="10,10,0,0" Height="26"/>
         <TextBox x:Name="InputText" HorizontalAlignment="Left" Height="22" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Margin="193,80,0,0"/>
         <TextBlock x:Name="OutputText" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Margin="141,217,0,0" Width="172" Height="26"/>
@@ -45,7 +46,7 @@
         <TextBox x:Name="InputTime" HorizontalAlignment="Left" Height="22" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Margin="214,14,0,0" Grid.Column="1"/>
         <Label Content="Czas w formacie 12-godzinowym:" HorizontalAlignment="Left" Height="32" Margin="10,51,0,0" VerticalAlignment="Top" Width="190" Grid.Column="1"/>
         <TextBlock x:Name="OutputTime" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Margin="214,57,0,0" Width="120" Height="22" Grid.Column="1"/>
-        <Button x:Name="buttonTime" Content="Przelicz" HorizontalAlignment="Left" Height="26" Margin="10,88,0,0" VerticalAlignment="Top" Width="359" Background="#FF89C5E8" Click="buttonTime_Click" Grid.Column="1"/>
+        <Button x:Name="buttonTime" Content="Przelicz" HorizontalAlignment="Left" Height="26" Margin="10,88,0,0" VerticalAlignment="Top" Width="359" Background="#FF89C5E8"  Grid.Column="1"/>
         <Border x:Name="border" BorderBrush="Black"  CornerRadius="300" Grid.Column="1" HorizontalAlignment="Left" Height="250" Margin="58,142,0,0" VerticalAlignment="Top" Width="250">
             <Grid x:Name="grid" Height="240" Width="240" HorizontalAlignment="Center" VerticalAlignment="Center" RenderTransformOrigin="2.72,0.605">
                 <Border CornerRadius="350">
@@ -83,16 +84,27 @@
             </Grid>
         </Border>
         <DataGrid x:Name="BazaStatystyk" HorizontalAlignment="Left" Height="429" Margin="20,397,0,0" VerticalAlignment="Top" Width="489" Grid.ColumnSpan="2"/>
-        <Button x:Name="buttonDataGrid" Content="Wczytaj" HorizontalAlignment="Left" Height="24" Margin="306,432,0,0" VerticalAlignment="Top" Width="63" Click="buttonDataGrid_Click" RenderTransformOrigin="0,5.708" Grid.Column="1"/>
+        <Button x:Name="buttonDataGrid" Content="Wczytaj" HorizontalAlignment="Left" Height="24" Margin="306,432,0,0" VerticalAlignment="Top" Width="63"  RenderTransformOrigin="0,5.708" Grid.Column="1"/>
         <ComboBox x:Name="rodzaj_statystyki" Grid.Column="1" HorizontalAlignment="Left" Height="25" Margin="101,431,0,0" VerticalAlignment="Top" Width="195"/>
         <Label Content="Filtrowania po rodzaju konwertera:" Grid.Column="1" HorizontalAlignment="Left" Height="24" Margin="101,402,0,0" VerticalAlignment="Top" Width="195"/>
         <Label Content="Zakresu dat konwersji (od, do): np 2016, 04, 14" Grid.Column="1" HorizontalAlignment="Left" Height="31" Margin="102,461,0,0" VerticalAlignment="Top" Width="267"/>
         <TextBox x:Name="databox1" Grid.Column="1" HorizontalAlignment="Left" Height="24" Margin="102,492,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="90" Text="Brak daty"/>
         <TextBox x:Name="databox2" Grid.Column="1" HorizontalAlignment="Left" Height="24" Margin="206,492,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="90" Text="Brak daty"/>
-        <Button x:Name="Back" Content="Back" HorizontalAlignment="Left" Height="24" Margin="101,598,0,0" VerticalAlignment="Top" Width="85" Click="Back_Click" Grid.Column="1"/>
-        <Button x:Name="Next" Content="Next" HorizontalAlignment="Left" Height="24" Margin="271,598,0,0" VerticalAlignment="Top" Width="98" Click="Next_Click" Grid.Column="1"/>
+        <Button x:Name="Back" Content="Back" HorizontalAlignment="Left" Height="24" Margin="101,581,0,0" VerticalAlignment="Top" Width="85" Click="Back_Click" Grid.Column="1"/>
+        <Button x:Name="Next" Content="Next" HorizontalAlignment="Left" Height="24" Margin="271,581,0,0" VerticalAlignment="Top" Width="98" Click="Next_Click" Grid.Column="1"/>
         <TextBlock x:Name="coutpage" HorizontalAlignment="Left" Height="24" Margin="102,544,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="69" Grid.Column="1" RenderTransformOrigin="-1.58,-2.292"/>
-        <Button x:Name="buttonDataGrid1" Content="Wczytaj" HorizontalAlignment="Left" Height="24" Margin="306,492,0,0" VerticalAlignment="Top" Width="63" RenderTransformOrigin="1.54,0.583" Grid.Column="1" Click="buttonDataGrid1_Click"/>
-        <Button x:Name="stat" Content="Statystyka" Grid.Column="1" HorizontalAlignment="Left" Height="43" Margin="131,708,0,0" VerticalAlignment="Top" Width="165" Click="stat_Click"/>
+        <Button x:Name="buttonDataGrid1" Content="Wczytaj" HorizontalAlignment="Left" Height="24" Margin="306,492,0,0" VerticalAlignment="Top" Width="63" RenderTransformOrigin="1.54,0.583" Grid.Column="1"/>
+        <Button x:Name="stat" Content="Statystyka" Grid.Column="1" HorizontalAlignment="Left" Height="43" Margin="143,623,0,0" VerticalAlignment="Top" Width="165" Click="stat_Click"/>
+        <Grid Grid.Column="1" HorizontalAlignment="Left" Height="132" Margin="20,694,0,0" VerticalAlignment="Top" Width="419">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+
+
+            <Label Margin="0,0,0,84"> Ocena</Label>
+            <cc:ocena x:Name="StarControl" Grid.Column="1" Margin="0,0,0,84"/>
+        </Grid>
     </Grid>
+
 </Window>

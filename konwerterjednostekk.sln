@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "konwerter.logic", "konwerte
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "konwerter.deskop", "konwerter.deskop\konwerter.deskop.csproj", "{4651173C-7E0B-438E-9DC3-15093209B799}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "common.controls", "common.controls\common.controls.csproj", "{7E29E66F-9B4B-4E00-85C3-60DB1A79961A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{4651173C-7E0B-438E-9DC3-15093209B799}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4651173C-7E0B-438E-9DC3-15093209B799}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4651173C-7E0B-438E-9DC3-15093209B799}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7E29E66F-9B4B-4E00-85C3-60DB1A79961A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7E29E66F-9B4B-4E00-85C3-60DB1A79961A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7E29E66F-9B4B-4E00-85C3-60DB1A79961A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7E29E66F-9B4B-4E00-85C3-60DB1A79961A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
