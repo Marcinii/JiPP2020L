@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelStore">
+    <e p="C:\Users\Dell\.Rider2019.3\system\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\Dell\.Rider2019.3\system\resharper-host\local\Transient\ReSharperHost\v193\SolutionCaches\_UnitConverter.98074141.00" t="ExcludeRecursive" />
+    <e p="C:\Users\Dell\Downloads\JiPP2020L-Z401\Zad4" t="IncludeFlat">
+      <e p="packages" t="ExcludeRecursive" />
+      <e p="Stats" t="IncludeRecursive">
+        <e p="App.config" t="Include" />
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="db_stats.mdf" t="Include" />
+        <e p="db_stats_log.ldf" t="Include" />
+        <e p="obj" t="ExcludeRecursive" />
+        <e p="packages.config" t="Include" />
+        <e p="Properties" t="Include">
+          <e p="AssemblyInfo.cs" t="Include" />
+        </e>
+        <e p="Stats.cs" t="Include" />
+        <e p="StatsClass.cs" t="Include" />
+        <e p="StatsModel.Context.cs" t="Include" />
+        <e p="StatsModel.Context.tt" t="Include" />
+        <e p="StatsModel.cs" t="Include" />
+        <e p="StatsModel.Designer.cs" t="Include" />
+        <e p="StatsModel.edmx" t="Include" />
+        <e p="StatsModel.edmx.diagram" t="Include" />
+        <e p="StatsModel.tt" t="Include" />
+        <e p="UnitConverter.Stats.csproj" t="IncludeRecursive" />
+      </e>
+      <e p="UnitConverter" t="IncludeRecursive">
+        <e p="App.config" t="Include" />
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="obj" t="ExcludeRecursive" />
+        <e p="Program.cs" t="Include" />
+        <e p="Properties" t="Include">
+          <e p="AssemblyInfo.cs" t="Include" />
+        </e>
+        <e p="UnitConverter.Console.csproj" t="IncludeRecursive" />
+      </e>
+      <e p="UnitConverter.Desktop" t="IncludeRecursive">
+        <e p="App.config" t="Include" />
+        <e p="App.xaml" t="Include" />
+        <e p="App.xaml.cs" t="Include" />
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="MainWindow.xaml" t="Include" />
+        <e p="MainWindow.xaml.cs" t="Include" />
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="App.g.cs" t="Include" />
+            <e p="MainWindow.g.cs" t="Include" />
+            <e p="Window_stat.g.cs" t="Include" />
+          </e>
+        </e>
+        <e p="packages.config" t="Include" />
+        <e p="Properties" t="Include">
+          <e p="AssemblyInfo.cs" t="Include" />
+          <e p="Resources.Designer.cs" t="Include" />
+          <e p="Resources.resx" t="Include" />
+          <e p="Settings.Designer.cs" t="Include" />
+          <e p="Settings.settings" t="Include" />
+        </e>
+        <e p="UnitConverter.Desktop.csproj" t="IncludeRecursive" />
+        <e p="Window_stat.xaml" t="Include" />
+        <e p="Window_stat.xaml.cs" t="Include" />
+      </e>
+      <e p="UnitConverter.Logic" t="IncludeRecursive">
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="ConverterService.cs" t="Include" />
+        <e p="IConverter.cs" t="Include" />
+        <e p="LengthConverter.cs" t="Include" />
+        <e p="obj" t="ExcludeRecursive" />
+        <e p="Pressure.cs" t="Include" />
+        <e p="Properties" t="Include">
+          <e p="AssemblyInfo.cs" t="Include" />
+        </e>
+        <e p="TemperatureConverter.cs" t="Include" />
+        <e p="UnitConverter.Logic.csproj" t="IncludeRecursive" />
+        <e p="Weight.cs" t="Include" />
+        <e p="Zegar.cs" t="Include" />
+      </e>
+      <e p="UnitConverter.sln" t="IncludeFlat" />
+    </e>
+  </component>
+</project>

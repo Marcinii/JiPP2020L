@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="db_statsModelStoreContainer" CdmEntityContainer="db_statsEntities">
+    <EntitySetMapping Name="Stats">
+      <EntityTypeMapping TypeName="db_statsModel.Stats">
+        <MappingFragment StoreEntitySet="Stats">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="converter" ColumnName="converter" />
+          <ScalarProperty Name="unitIn" ColumnName="unitIn" />
+          <ScalarProperty Name="unitOut" ColumnName="unitOut" />
+          <ScalarProperty Name="ConversionDate" ColumnName="ConversionDate" />
+          <ScalarProperty Name="valueIn" ColumnName="valueIn" />
+          <ScalarProperty Name="valueOut" ColumnName="valueOut" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

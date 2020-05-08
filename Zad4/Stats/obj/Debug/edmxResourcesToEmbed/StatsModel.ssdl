@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="db_statsModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Stats">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="converter" Type="varchar" MaxLength="50" />
+    <Property Name="unitIn" Type="varchar" MaxLength="20" />
+    <Property Name="unitOut" Type="varchar" MaxLength="20" />
+    <Property Name="ConversionDate" Type="datetime" />
+    <Property Name="valueIn" Type="varchar" MaxLength="20" />
+    <Property Name="valueOut" Type="varchar" MaxLength="20" />
+  </EntityType>
+  <EntityContainer Name="db_statsModelStoreContainer">
+    <EntitySet Name="Stats" EntityType="Self.Stats" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>
