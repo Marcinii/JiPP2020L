@@ -64,6 +64,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="RelayCommand.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -133,6 +134,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\CustomControl\CustomControl.csproj">
+      <Project>{ee43e8b3-31a1-45a4-b819-badeccf46e4c}</Project>
+      <Name>CustomControl</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Konwerter.Logic\Konwerter.Logic.csproj">
       <Project>{1b8f70c5-1ff4-4f3b-ab87-9455e934c688}</Project>
       <Name>Konwerter.Logic</Name>

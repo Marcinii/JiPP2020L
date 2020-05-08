@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Konwerter.Desktop"
+        xmlns:cc="clr-namespace:CustomControl;assembly=CustomControl"
         mc:Ignorable="d"
         Title="KONWERTER JEDNOSTEK" Height="619.886" Width="683.62">
     <Window.Resources>
@@ -83,7 +84,7 @@
                 </TransformGroup>
             </Rectangle.RenderTransform>
         </Rectangle>
-        <Button x:Name="TimeConvertButton" Content="Konwert" HorizontalAlignment="Left" Margin="426,10,0,0" VerticalAlignment="Top" Width="59" Height="25" Click="TimeConvertButton_Click"/>
+        <Button x:Name="TimeConvertButton" Content="Konwert" HorizontalAlignment="Left" Margin="426,10,0,0" VerticalAlignment="Top" Width="59" Height="25"/>
         <DataGrid x:Name="HistoriaDataGrid" HorizontalAlignment="Left" Height="242" Margin="10,300,0,0" VerticalAlignment="Top" Width="656"/>
         <Button x:Name="CalaHistoria" Content="Pokaż całą historie" HorizontalAlignment="Left" Margin="13,274,0,0" VerticalAlignment="Top" Width="113" Click="CalaHistoria_Click" Height="24"/>
         <DatePicker x:Name="DATA_OD" HorizontalAlignment="Left" Margin="173,274,0,0" VerticalAlignment="Top"/>
@@ -94,6 +95,8 @@
         <Label x:Name="page" Content="1" HorizontalAlignment="Left" Margin="309,556,0,0" VerticalAlignment="Top" Height="32" Width="22" RenderTransformOrigin="1.727,0.531"/>
         <Button x:Name="NextButton" Content="Następna" HorizontalAlignment="Left" Margin="336,559,0,0" VerticalAlignment="Top" Width="75" Click="NextButton_Click"/>
         <Button x:Name="PrevButton" Content="Poprzednia" HorizontalAlignment="Left" Margin="229,559,0,0" VerticalAlignment="Top" Width="75" Click="PrevButton_Click"/>
+        <Label Content="Oceń mnie" HorizontalAlignment="Left" Margin="546,84,0,0" VerticalAlignment="Top" Height="26" Width="72"/>
+        <cc:OcenMnie x:Name="OcenMnie" HorizontalAlignment="Left" Height="27" Margin="508,115,0,0" VerticalAlignment="Top" Width="149" Loaded="OcenMnie_Loaded" RateValueChanged="OcenMnie_RateValueChanged" />
 
     </Grid>
 </Window>

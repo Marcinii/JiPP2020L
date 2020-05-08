@@ -12,7 +12,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using CustomControl;
 using Konwerter.Logic;
+using UnitConverter.Desktop;
 
 namespace Konwerter.Desktop
 {
@@ -33,6 +35,18 @@ namespace Konwerter.Desktop
         public MainWindow()
         {
             InitializeComponent();
+            using (var rate_history = new HISTORIAEntities())
+            {
+                var rate = rate_history.OCENY.AsQueryable();
+                List<OCENY> tmp = rate.OrderByDescending(x => x.IDOcena).Take(1).ToList();
+                foreach (var a in tmp)
+                {
+                    OcenMnie.Rate_value = a.Ocena;
+                }
+            }
+
+            CzasConvertCommand = new RelayCommand(obj => TimeConvert(), obj => string.IsNullOrEmpty(GodzinaTextBox.Text) != true && string.IsNullOrEmpty(MinutyTextBox.Text) != true);
+            TimeConvertButton.Command = CzasConvertCommand;
         }
 
     public void DodajRecordTemp(string konw, string a, string b, string c)
@@ -267,7 +281,10 @@ namespace Konwerter.Desktop
         //KONIEC SEKCJI ODLEGŁOSĆI//   
 
         //POCZĄTEK SEKCJI CZAS//
-        private void TimeConvertButton_Click(object sender, RoutedEventArgs e)
+
+        private RelayCommand CzasConvertCommand;
+
+        private void TimeConvert()
         {
             string godziny, minuty;
             int godz = 0, min = 0;
@@ -340,7 +357,27 @@ namespace Konwerter.Desktop
             var actual = int.Parse(page.Content.ToString());
             page.Content = actual + 1;
             Cala_historia_uzycia();
-        }        
+        }
+
+        private void OcenMnie_Loaded(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void OcenMnie_RateValueChanged(object sender, RateEventArgs e)
+        {
+            using (HISTORIAEntities cont = new HISTORIAEntities())
+            {
+                OCENY rec = new OCENY()
+                {
+                    Ocena = e.Value
+                };
+                cont.OCENY.Add(rec);
+                cont.SaveChanges();
+            }
+        }
     }
+
+
 }
 
