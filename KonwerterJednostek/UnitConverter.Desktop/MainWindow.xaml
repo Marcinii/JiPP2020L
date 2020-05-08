@@ -97,7 +97,7 @@
                 </Grid.ColumnDefinitions>
 
                 <Label Margin="10,5,10,5">Ocena aplikacji: </Label>
-                <commonControls:RateMe x:Name="rateButtons" Margin="10,5,10,5" Grid.Column="1" Loaded="RateMe_Loaded"/>
+                <commonControls:RateMe x:Name="rateButtons" Margin="10,5,10,5" Grid.Column="1" RateValueChanged="rateControl_RateValueChanged" Loaded="RateMe_Loaded"/>
             </Grid>
         </StackPanel>
         <Path x:Name="path" Grid.Column="1" Data="M70.5,37.25 C52.136532,37.25 37.25,52.136532 37.25,70.5 37.25,88.863464 52.136532,103.75 70.5,103.75 88.863464,103.75 103.75,88.863464 103.75,70.5 103.75,52.136532 88.863464,37.25 70.5,37.25 z M70.5,0.5 C109.15993,0.5 140.5,31.840067 140.5,70.5 140.5,109.15993 109.15993,140.5 70.5,140.5 31.840067,140.5 0.5,109.15993 0.5,70.5 0.5,31.840067 31.840067,0.5 70.5,0.5 z" HorizontalAlignment="Left" Height="141" Margin="62,209.25,0,0" Stretch="Fill" Stroke="#FF008CB6" VerticalAlignment="Top" Width="141" RenderTransformOrigin="0.5,0.5" Opacity="0">
