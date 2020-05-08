@@ -37,6 +37,11 @@ namespace UnitConverter.Desktop
                 && toCombobox.SelectedItem != null 
                 && string.IsNullOrEmpty(inputTextbox.Text)!=true);
             convertButton.Command = ConvertCommand;
+
+            SearchDateCommand = new RelayCommand(obj => SearchDate(),
+                obj => dateFrom.SelectedDate != null
+                && dateTo.SelectedDate != null);
+            dateFilter.Command = SearchDateCommand;
         }     
 
         private void ConverterCombobox_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -64,6 +69,7 @@ namespace UnitConverter.Desktop
         }
 
         private RelayCommand ConvertCommand;
+        private RelayCommand SearchDateCommand;
 
         private void Convert()
         {
@@ -147,7 +153,8 @@ namespace UnitConverter.Desktop
             }
         }
 
-        private void DateFilter_Click(object sender, RoutedEventArgs e)
+        //private void DateFilter_Click(object sender, RoutedEventArgs e)
+        private void SearchDate()
         {
             using (ConverterDatabaseEntities context = new ConverterDatabaseEntities())
             {
