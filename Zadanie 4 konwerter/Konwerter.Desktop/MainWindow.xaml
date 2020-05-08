@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Konwerter.Desktop"
         mc:Ignorable="d"
-        Title="KONWERTER JEDNOSTEK" Height="313.17" Width="544.462">
+        Title="KONWERTER JEDNOSTEK" Height="619.886" Width="683.62">
     <Window.Resources>
         <Storyboard x:Key="ObracajacyKwadrat" RepeatBehavior="Forever">
             <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[2].(RotateTransform.Angle)" Storyboard.TargetName="rectangle">
@@ -19,37 +19,37 @@
         </EventTrigger>
     </Window.Triggers>
     <Grid>
-        <TextBox x:Name="TempTextBox_C" HorizontalAlignment="Left" Height="22" Margin="13,40,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="137" TextChanged="TextBox_TextChanged" TextAlignment="Right"/>
-        <TextBox x:Name="TempTextBox_F" HorizontalAlignment="Left" Height="23" Margin="13,67,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="137" TextChanged="TextBox_TextChanged" TextAlignment="Right"/>
-        <TextBox x:Name="TempTextBox_K" HorizontalAlignment="Left" Height="23" Margin="13,95,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="137" TextChanged="TextBox_TextChanged" TextAlignment="Right"/>
+        <TextBox x:Name="TempTextBox_C" HorizontalAlignment="Left" Height="22" Margin="13,40,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="137" TextAlignment="Right" KeyDown="TempC_Enter"/>
+        <TextBox x:Name="TempTextBox_F" HorizontalAlignment="Left" Height="23" Margin="13,67,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="137" TextAlignment="Right" KeyDown="TempF_Enter"/>
+        <TextBox x:Name="TempTextBox_K" HorizontalAlignment="Left" Height="23" Margin="13,95,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="137" TextAlignment="Right" KeyDown="TempK_Enter"/>
         <Label Content="C" HorizontalAlignment="Left" Height="22" Margin="155,40,0,0" VerticalAlignment="Top" Width="48" FontSize="11"/>
         <Label Content="K" HorizontalAlignment="Left" Height="22" Margin="155,96,0,0" VerticalAlignment="Top" Width="48" FontSize="11"/>
         <Label Content="F" HorizontalAlignment="Left" Height="22" Margin="155,67,0,0" VerticalAlignment="Top" Width="48" FontSize="11"/>
         <Label Content="Temperatury" HorizontalAlignment="Left" Margin="13,9,0,0" VerticalAlignment="Top" Width="190" FontWeight="Bold"/>
-        <TextBox x:Name="MasyTextBox_Kg" HorizontalAlignment="Left" Height="22" Margin="208,40,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="137" TextChanged="TextBox_TextChanged" TextAlignment="Right"/>
-        <TextBox x:Name="MasyTextBox_F" HorizontalAlignment="Left" Height="23" Margin="208,67,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="137" TextChanged="TextBox_TextChanged" TextAlignment="Right"/>
-        <TextBox x:Name="MasyTextBox_dkg" HorizontalAlignment="Left" Height="23" Margin="208,95,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="137" TextChanged="TextBox_TextChanged" TextAlignment="Right"/>
+        <TextBox x:Name="MasyTextBox_Kg" HorizontalAlignment="Left" Height="22" Margin="208,40,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="137" TextAlignment="Right" KeyDown="MassKg_Enter"/>
+        <TextBox x:Name="MasyTextBox_F" HorizontalAlignment="Left" Height="23" Margin="208,67,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="137" TextAlignment="Right" KeyDown="MassF_Enter"/>
+        <TextBox x:Name="MasyTextBox_dkg" HorizontalAlignment="Left" Height="23" Margin="208,95,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="137" TextAlignment="Right" KeyDown="Massdkg_Enter"/>
         <Label Content="Kg" HorizontalAlignment="Left" Height="27" Margin="350,40,0,0" VerticalAlignment="Top" Width="30" FontSize="11"/>
         <Label Content="dkg" HorizontalAlignment="Left" Height="31" Margin="350,96,0,0" VerticalAlignment="Top" Width="30" FontSize="11"/>
         <Label Content="F" HorizontalAlignment="Left" Height="22" Margin="350,67,0,0" VerticalAlignment="Top" Width="30" FontSize="11"/>
         <Label Content="Masy" HorizontalAlignment="Left" Margin="208,9,-11,0" VerticalAlignment="Top" Width="190" FontWeight="Bold"/>
-        <TextBox x:Name="MocTextBox_W" HorizontalAlignment="Left" Height="22" Margin="13,191,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="137" TextChanged="TextBox_TextChanged" TextAlignment="Right"/>
-        <TextBox x:Name="MocTextBox_kW" HorizontalAlignment="Left" Height="23" Margin="13,218,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="137" TextChanged="TextBox_TextChanged" TextAlignment="Right"/>
-        <TextBox x:Name="MocTextBox_KM" HorizontalAlignment="Left" Height="23" Margin="13,246,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="137" TextChanged="TextBox_TextChanged" TextAlignment="Right"/>
+        <TextBox x:Name="MocTextBox_W" HorizontalAlignment="Left" Height="22" Margin="13,191,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="137" TextAlignment="Right" KeyDown="MocW_Enter"/>
+        <TextBox x:Name="MocTextBox_kW" HorizontalAlignment="Left" Height="23" Margin="13,218,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="137" TextAlignment="Right" KeyDown="MockW_Enter"/>
+        <TextBox x:Name="MocTextBox_KM" HorizontalAlignment="Left" Height="23" Margin="13,246,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="137" TextAlignment="Right" KeyDown="MocKM_Enter"/>
         <Label Content="W" HorizontalAlignment="Left" Height="22" Margin="155,191,0,0" VerticalAlignment="Top" Width="48" FontSize="11"/>
         <Label Content="KM" HorizontalAlignment="Left" Height="22" Margin="155,247,0,0" VerticalAlignment="Top" Width="48" FontSize="11"/>
         <Label Content="kW" HorizontalAlignment="Left" Height="22" Margin="155,218,0,0" VerticalAlignment="Top" Width="48" FontSize="11"/>
         <Label Content="Moc" HorizontalAlignment="Left" Margin="13,160,0,0" VerticalAlignment="Top" Width="190" FontWeight="Bold"/>
-        <TextBox x:Name="OdlegloscTextBox_Km" HorizontalAlignment="Left" Height="22" Margin="208,191,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="137" TextChanged="TextBox_TextChanged" TextAlignment="Right"/>
-        <TextBox x:Name="OdlegloscTextBox_Mi" HorizontalAlignment="Left" Height="23" Margin="208,218,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="137" TextChanged="TextBox_TextChanged" TextAlignment="Right"/>
-        <TextBox x:Name="OdlegloscTextBox_ft" HorizontalAlignment="Left" Height="23" Margin="208,246,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="137" TextChanged="TextBox_TextChanged" TextAlignment="Right"/>
+        <TextBox x:Name="OdlegloscTextBox_Km" HorizontalAlignment="Left" Height="22" Margin="208,191,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="137" TextAlignment="Right" KeyDown="LenghtKm_Enter"/>
+        <TextBox x:Name="OdlegloscTextBox_Mi" HorizontalAlignment="Left" Height="23" Margin="208,218,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="137" TextAlignment="Right" KeyDown="KenghtMi_Enter"/>
+        <TextBox x:Name="OdlegloscTextBox_ft" HorizontalAlignment="Left" Height="23" Margin="208,246,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="137" TextAlignment="Right" KeyDown="Lenghtft_Enter"/>
         <Label Content="Km" HorizontalAlignment="Left" Height="22" Margin="350,191,0,0" VerticalAlignment="Top" Width="30" FontSize="11"/>
-        <Label Content="K" HorizontalAlignment="Left" Height="22" Margin="350,247,0,0" VerticalAlignment="Top" Width="30" FontSize="11"/>
+        <Label Content="ft" HorizontalAlignment="Left" Height="22" Margin="350,247,0,0" VerticalAlignment="Top" Width="30" FontSize="11"/>
         <Label Content="Mi" HorizontalAlignment="Left" Height="22" Margin="350,218,0,0" VerticalAlignment="Top" Width="30" FontSize="11"/>
         <Label Content="Długości" HorizontalAlignment="Left" Margin="208,160,-11,0" VerticalAlignment="Top" Width="190" FontWeight="Bold"/>
-        <Label Content="Czas" HorizontalAlignment="Left" Margin="403,10,0,0" VerticalAlignment="Top" Width="123" FontWeight="Bold"/>
-        <TextBox x:Name="GodzinaTextBox" HorizontalAlignment="Left" Height="22" Margin="385,40,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="36" TextChanged="TextBox_TextChanged" TextAlignment="Right"/>
-        <TextBox x:Name="MinutyTextBox" HorizontalAlignment="Left" Height="22" Margin="434,40,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="36" TextChanged="TextBox_TextChanged" TextAlignment="Right"/>
+        <Label Content="Czas" HorizontalAlignment="Left" Margin="385,9,0,0" VerticalAlignment="Top" Width="36" FontWeight="Bold"/>
+        <TextBox x:Name="GodzinaTextBox" HorizontalAlignment="Left" Height="22" Margin="385,40,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="36" TextAlignment="Right"/>
+        <TextBox x:Name="MinutyTextBox" HorizontalAlignment="Left" Height="22" Margin="434,40,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="36" TextAlignment="Right"/>
         <Label Content=":" HorizontalAlignment="Left" Margin="421,36,0,0" VerticalAlignment="Top"/>
         <TextBlock x:Name="ResultH12TextBlok" HorizontalAlignment="Left" Margin="385,67,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="23" Width="85"/>
         <Ellipse x:Name="Tarcza" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="100" Margin="385,95,0,0" Stroke="Black" VerticalAlignment="Top" Width="100"/>
@@ -83,6 +83,17 @@
                 </TransformGroup>
             </Rectangle.RenderTransform>
         </Rectangle>
+        <Button x:Name="TimeConvertButton" Content="Konwert" HorizontalAlignment="Left" Margin="426,10,0,0" VerticalAlignment="Top" Width="59" Height="25" Click="TimeConvertButton_Click"/>
+        <DataGrid x:Name="HistoriaDataGrid" HorizontalAlignment="Left" Height="242" Margin="10,300,0,0" VerticalAlignment="Top" Width="656"/>
+        <Button x:Name="CalaHistoria" Content="Pokaż całą historie" HorizontalAlignment="Left" Margin="13,274,0,0" VerticalAlignment="Top" Width="113" Click="CalaHistoria_Click" Height="24"/>
+        <DatePicker x:Name="DATA_OD" HorizontalAlignment="Left" Margin="173,274,0,0" VerticalAlignment="Top"/>
+        <DatePicker x:Name="DATA_DO" HorizontalAlignment="Left" Margin="309,274,0,0" VerticalAlignment="Top"/>
+        <Label Content="od" HorizontalAlignment="Left" Margin="144,273,0,0" VerticalAlignment="Top"/>
+        <Label Content="do" HorizontalAlignment="Left" Margin="280,273,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="Top5Button" Content="TOP 5" HorizontalAlignment="Left" Margin="496,274,0,0" VerticalAlignment="Top" Width="79" Height="24" Click="Top5Button_Click"/>
+        <Label x:Name="page" Content="1" HorizontalAlignment="Left" Margin="309,556,0,0" VerticalAlignment="Top" Height="32" Width="22" RenderTransformOrigin="1.727,0.531"/>
+        <Button x:Name="NextButton" Content="Następna" HorizontalAlignment="Left" Margin="336,559,0,0" VerticalAlignment="Top" Width="75" Click="NextButton_Click"/>
+        <Button x:Name="PrevButton" Content="Poprzednia" HorizontalAlignment="Left" Margin="229,559,0,0" VerticalAlignment="Top" Width="75" Click="PrevButton_Click"/>
 
     </Grid>
 </Window>
