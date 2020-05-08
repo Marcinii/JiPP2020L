@@ -15,5 +15,6 @@ namespace UnitConverter.Desktop
         public string InputValue { get; set; }
         public string OutputValue { get; set; }
         public DateTime? ConvertDate { get; set; }
+        public int? Rate { get; set; }
     }
 }
