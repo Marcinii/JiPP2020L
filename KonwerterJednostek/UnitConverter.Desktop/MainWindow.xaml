@@ -157,7 +157,7 @@
         <Button x:Name="paginationButtonNext" Content="Next 10" Grid.Column="1" HorizontalAlignment="Left" Margin="95,184,0,0" VerticalAlignment="Top" Width="80" Height="20" Click="PaginationButtonNext_Click"/>
         <Button x:Name="popularConversions" Content="Popular Conv" Grid.Column="1" HorizontalAlignment="Left" Margin="316,184,0,0" VerticalAlignment="Top" Width="80" Height="20" Click="PopularConversions_Click"/>
         <ComboBox x:Name="typesOfConversions" Grid.Column="1" HorizontalAlignment="Left" Margin="180,184,0,0" VerticalAlignment="Top" Width="82" Height="20" Loaded="TypesOfConversions_Loaded"/>
-        <Button x:Name="converterTypeFilter_valueFromCombobox" Content="Conv" Grid.Column="1" HorizontalAlignment="Left" Margin="262,184,0,0" VerticalAlignment="Top" Width="49" Height="20" Click="ConverterTypeFilter_valueFromCombobox_Click"/>
+        <Button x:Name="converterTypeFilter_valueFromCombobox" Content="Conv" Grid.Column="1" HorizontalAlignment="Left" Margin="262,184,0,0" VerticalAlignment="Top" Width="49" Height="20"/>
 
     </Grid>
 
