@@ -149,8 +149,8 @@ namespace UnitConverter.Desktop
                     UnitTo = toCombobox.SelectedItem.ToString(),
                     InputValue = inputTextbox.Text,
                     OutputValue = resultTextblock.Text,
-                    ConvertDate = DateTime.Now,
-                    Rate = rateButtons.RateValue
+                    ConvertDate = DateTime.Now
+                    //Rate = rateButtons.RateValue
                 };
                 context.ConverterDatas.Add(newRecord);
                 context.SaveChanges();
