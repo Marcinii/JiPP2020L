@@ -46,6 +46,26 @@ namespace UnitConverter.Desktop
             ConverterTypeFilterCommand = new RelayCommand(obj => ConverterTypeFilter(),
                 obj => typesOfConversions.SelectedItem != null);
             converterTypeFilter_valueFromCombobox.Command = ConverterTypeFilterCommand;
+
+            BeginClockRotationCommand = new RelayCommand(obj => BeginClockRotation());
+            button.Command = BeginClockRotationCommand;
+
+            StopClockRotationCommand = new RelayCommand(obj => StopClockRotation());
+            button1.Command = StopClockRotationCommand;
+
+            ConverterTypeAscDescCommand = new RelayCommand(obj => ConverterTypeAscDesc());
+            converterTypeFilterAsc.Command = ConverterTypeAscDescCommand;
+
+            PaginationButtonPrevCommand = new RelayCommand(obj => PaginationButtonPrev());
+            paginationButtonPrev.Command = PaginationButtonPrevCommand;
+
+            PaginationButtonNextCommand = new RelayCommand(obj => PaginationButtonNext());
+            paginationButtonNext.Command = PaginationButtonNextCommand;
+
+            PopularConversionsCommand = new RelayCommand(obj => PopularConversions(),
+                obj => dateFrom.SelectedDate != null
+                && dateTo.SelectedDate != null);
+            popularConversions.Command = PopularConversionsCommand;
         }     
 
         private void ConverterCombobox_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -75,6 +95,12 @@ namespace UnitConverter.Desktop
         private RelayCommand ConvertCommand;
         private RelayCommand SearchDateCommand;
         private RelayCommand ConverterTypeFilterCommand;
+        private RelayCommand BeginClockRotationCommand;
+        private RelayCommand StopClockRotationCommand;
+        private RelayCommand ConverterTypeAscDescCommand;
+        private RelayCommand PaginationButtonPrevCommand;
+        private RelayCommand PaginationButtonNextCommand;
+        private RelayCommand PopularConversionsCommand;
 
         private void Convert()
         {
@@ -100,12 +126,14 @@ namespace UnitConverter.Desktop
             minuteRotation.Angle = ((minuteArrowValue / 60) * 360) + 90;
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        //private void Button_Click(object sender, RoutedEventArgs e)
+        private void BeginClockRotation()
         {
             ((Storyboard)Resources["circleStoryboard"]).Begin();
         }
 
-        private void Button_Click_1(object sender, RoutedEventArgs e)
+        //private void Button_Click_1(object sender, RoutedEventArgs e)
+        private void StopClockRotation()
         {
             ((Storyboard)Resources["circleStoryboard"]).Stop();
         }
@@ -137,7 +165,8 @@ namespace UnitConverter.Desktop
             }
         }
 
-        private void ConverterTypeFilterAsc_Click(object sender, RoutedEventArgs e)
+        //private void ConverterTypeFilterAsc_Click(object sender, RoutedEventArgs e)
+        private void ConverterTypeAscDesc()
         {            
             using (ConverterDatabaseEntities context = new ConverterDatabaseEntities())
             {
@@ -179,7 +208,8 @@ namespace UnitConverter.Desktop
             }
         }
 
-        private void PaginationButtonPrev_Click(object sender, RoutedEventArgs e)
+        //private void PaginationButtonPrev_Click(object sender, RoutedEventArgs e)
+        private void PaginationButtonPrev()
         {
             using (ConverterDatabaseEntities context = new ConverterDatabaseEntities())
             {                
@@ -192,7 +222,8 @@ namespace UnitConverter.Desktop
             }
         }
 
-        private void PaginationButtonNext_Click(object sender, RoutedEventArgs e)
+        //private void PaginationButtonNext_Click(object sender, RoutedEventArgs e)
+        private void PaginationButtonNext()
         {
             using (ConverterDatabaseEntities context = new ConverterDatabaseEntities())
             {
@@ -216,7 +247,8 @@ namespace UnitConverter.Desktop
             }
         }
 
-        private void PopularConversions_Click(object sender, RoutedEventArgs e)
+        //private void PopularConversions_Click(object sender, RoutedEventArgs e)
+            private void PopularConversions()
         {
             using (ConverterDatabaseEntities context = new ConverterDatabaseEntities())
             {

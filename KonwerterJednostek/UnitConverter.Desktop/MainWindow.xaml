@@ -118,8 +118,8 @@
                 </LinearGradientBrush>
             </Path.Fill>
         </Path>
-        <Button x:Name="button" Content="Begin" Grid.Column="1" HorizontalAlignment="Left" Margin="272,259,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click" Opacity="0"/>
-        <Button x:Name="button1" Content="Stop" Grid.Column="1" HorizontalAlignment="Left" Margin="272,330,0,0" VerticalAlignment="Top" Width="76" Click="Button_Click_1" Opacity="0"/>
+        <Button x:Name="button" Content="Begin" Grid.Column="1" HorizontalAlignment="Left" Margin="272,259,0,0" VerticalAlignment="Top" Width="75" Opacity="0"/>
+        <Button x:Name="button1" Content="Stop" Grid.Column="1" HorizontalAlignment="Left" Margin="272,330,0,0" VerticalAlignment="Top" Width="76" Opacity="0"/>
         <Line x:Name="minuteArrow" X1="0" X2="100" Grid.Column="1" Stroke="Black" StrokeThickness="8" Margin="37.509,278.213,263.512,129.707" RenderTransformOrigin="1,0.5" Opacity="0">
             <Line.RenderTransform>
                 <TransformGroup>
@@ -149,13 +149,13 @@
             </Path.Fill>
         </Path>
         <DataGrid x:Name="dataFromDatabase" Grid.Column="1" HorizontalAlignment="Left" Height="138" Margin="5,10,0,0" VerticalAlignment="Top" Width="381" Loaded="DataFromDatabase_Loaded"/>
-        <Button x:Name="converterTypeFilterAsc" Content="Conv Type" Grid.Column="1" HorizontalAlignment="Left" Margin="10,153,0,0" VerticalAlignment="Top" Width="80" Click="ConverterTypeFilterAsc_Click" Height="20"/>
+        <Button x:Name="converterTypeFilterAsc" Content="Conv Type" Grid.Column="1" HorizontalAlignment="Left" Margin="10,153,0,0" VerticalAlignment="Top" Width="80" Height="20"/>
         <DatePicker x:Name="dateFrom" Grid.Column="1" HorizontalAlignment="Left" Margin="95,153,0,0" VerticalAlignment="Top" Height="20" Width="108"/>
         <DatePicker x:Name="dateTo" Grid.Column="1" HorizontalAlignment="Left" Margin="208,153,0,0" VerticalAlignment="Top" Height="20" Width="108"/>
         <Button x:Name="dateFilter" Content="Date Filter" Grid.Column="1" HorizontalAlignment="Left" Margin="321,153,0,0" VerticalAlignment="Top" Width="75" Height="20" />
-        <Button x:Name="paginationButtonPrev" Content="Prev 10" Grid.Column="1" HorizontalAlignment="Left" Margin="10,184,0,0" VerticalAlignment="Top" Width="80" Click="PaginationButtonPrev_Click" Height="20"/>
-        <Button x:Name="paginationButtonNext" Content="Next 10" Grid.Column="1" HorizontalAlignment="Left" Margin="95,184,0,0" VerticalAlignment="Top" Width="80" Height="20" Click="PaginationButtonNext_Click"/>
-        <Button x:Name="popularConversions" Content="Popular Conv" Grid.Column="1" HorizontalAlignment="Left" Margin="316,184,0,0" VerticalAlignment="Top" Width="80" Height="20" Click="PopularConversions_Click"/>
+        <Button x:Name="paginationButtonPrev" Content="Prev 10" Grid.Column="1" HorizontalAlignment="Left" Margin="10,184,0,0" VerticalAlignment="Top" Width="80" Height="20"/>
+        <Button x:Name="paginationButtonNext" Content="Next 10" Grid.Column="1" HorizontalAlignment="Left" Margin="95,184,0,0" VerticalAlignment="Top" Width="80" Height="20" />
+        <Button x:Name="popularConversions" Content="Popular Conv" Grid.Column="1" HorizontalAlignment="Left" Margin="316,184,0,0" VerticalAlignment="Top" Width="80" Height="20" />
         <ComboBox x:Name="typesOfConversions" Grid.Column="1" HorizontalAlignment="Left" Margin="180,184,0,0" VerticalAlignment="Top" Width="82" Height="20" Loaded="TypesOfConversions_Loaded"/>
         <Button x:Name="converterTypeFilter_valueFromCombobox" Content="Conv" Grid.Column="1" HorizontalAlignment="Left" Margin="262,184,0,0" VerticalAlignment="Top" Width="49" Height="20"/>
 
