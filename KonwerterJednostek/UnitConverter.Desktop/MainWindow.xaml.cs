@@ -312,7 +312,7 @@ namespace UnitConverter.Desktop
         {
             using (ConverterDatabaseEntities context = new ConverterDatabaseEntities())
             {
-                int? lastRateFromDatabase = context.ConverterDatas
+                int? lastRateFromDatabase = context.ConverterRates
                     .OrderByDescending(r => r.Id).FirstOrDefault().Rate;
 
                 if (lastRateFromDatabase != null)
