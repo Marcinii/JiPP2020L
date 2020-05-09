@@ -285,17 +285,24 @@ namespace UnitConverter.Desktop
         {            
             using (ConverterDatabaseEntities context = new ConverterDatabaseEntities())
             {
-                ConverterData newRecord = new ConverterData
+                //ConverterData newRecord = new ConverterData
+                //{
+                //    UsedConverter = "",
+                //    UnitFrom = "",
+                //    UnitTo = "",
+                //    InputValue = "",
+                //    OutputValue = "",
+                //    ConvertDate = DateTime.Now,
+                //    Rate = e.value
+                //};
+                //context.ConverterDatas.Add(newRecord);
+                //context.SaveChanges();
+                RateData newRecord = new RateData
                 {
-                    UsedConverter = "",
-                    UnitFrom = "",
-                    UnitTo = "",
-                    InputValue = "",
-                    OutputValue = "",
-                    ConvertDate = DateTime.Now,
-                    Rate = e.value
+                    Rate = e.value,
+                    RateDate = DateTime.Now
                 };
-                context.ConverterDatas.Add(newRecord);
+                context.ConverterRates.Add(newRecord);
                 context.SaveChanges();
             }
         }
