@@ -17,4 +17,6 @@ namespace KonwerterJednostek.Logic
         public string ValueTo { get; set; }
         
     }
+
+    
 }

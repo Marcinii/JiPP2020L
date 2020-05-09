@@ -54,7 +54,17 @@
     <Compile Include="KonwerterBaza.cs" />
     <Compile Include="KonwerterService.cs" />
     <Compile Include="LenghtConverter.cs" />
+    <Compile Include="Migrations\202004171844266_InitialCreate.cs" />
+    <Compile Include="Migrations\202004171844266_InitialCreate.Designer.cs">
+      <DependentUpon>202004171844266_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202005091023544_Star.cs" />
+    <Compile Include="Migrations\202005091023544_Star.Designer.cs">
+      <DependentUpon>202005091023544_Star.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Star.cs" />
     <Compile Include="TemperatureConverter.cs" />
     <Compile Include="TimeConverter.cs" />
     <Compile Include="VolumeConverter.cs" />
@@ -64,6 +74,14 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202004171844266_InitialCreate.resx">
+      <DependentUpon>202004171844266_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202005091023544_Star.resx">
+      <DependentUpon>202005091023544_Star.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

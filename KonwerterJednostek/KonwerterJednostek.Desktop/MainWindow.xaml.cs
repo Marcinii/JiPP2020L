@@ -31,7 +31,16 @@ namespace KonwerterJednostek.Desktop
             dziedzinaCombo.ItemsSource = new KonwerterService().GetConverters();
             FiltrPoRodzKonw.ItemsSource = new KonwerterService().GetConverters();
             view(statisticView(statisticNumber));
+
+            showRate();
+
+            DateStatisticCommand = new RelayCommand(obj => dateStatisticBaton_Click(), obj =>
+            string.IsNullOrEmpty(wartoscOd.Text) != true && string.IsNullOrEmpty(wartoscDo.Text) != true);
+          
+            dateStatisticBaton.Command = DateStatisticCommand;
         }
+
+        
 
         private void dziedzinaCombo_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -117,12 +126,22 @@ namespace KonwerterJednostek.Desktop
             }
         }
 
-        private void dateStatisticBaton_Click(object sender, RoutedEventArgs e)
+        /*  private void dateStatisticBaton_Click(object sender, RoutedEventArgs e)
+          {
+              previousStatisticNumber = statisticNumber;
+              statisticNumber = 7;
+              view(statisticView(previousStatisticNumber));
+          }*/
+
+        private RelayCommand DateStatisticCommand;
+
+        private void dateStatisticBaton_Click()
         {
             previousStatisticNumber = statisticNumber;
             statisticNumber = 7;
             view(statisticView(previousStatisticNumber));
         }
+
 
         static int numberOfPage = 1;
         
@@ -235,6 +254,27 @@ namespace KonwerterJednostek.Desktop
                 };
                 context.registrations.Add(newRegistration);
                 context.SaveChanges();
+            }
+        }
+
+        private void showRate()
+        {
+            using (KonwerterBaza context = new KonwerterBaza())
+            {
+                rateControl.RateValue = context.newStar.OrderByDescending(o => o.Id).Select(o => o.valueOfStar).FirstOrDefault();
+            }
+        }
+
+        private void rateControl_RateValueChanged(object sender, Common.Controls.RateEventArgs e)
+        {
+            using (KonwerterBaza context2 = new KonwerterBaza())
+            {
+                Star newRegistrationStar = new Star()
+                {
+                    valueOfStar = e.Value  
+                };
+                context2.newStar.Add(newRegistrationStar);
+                context2.SaveChanges();
             }
         }
     }

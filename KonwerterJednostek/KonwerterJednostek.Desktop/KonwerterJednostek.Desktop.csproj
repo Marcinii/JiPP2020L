@@ -65,6 +65,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="RelayCommand.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -109,6 +110,10 @@
     <Resource Include="KonwerterJednostek.png" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Common.Controls\Common.Controls.csproj">
+      <Project>{c2a0e143-6f79-4c2e-8014-8ba13bf118fd}</Project>
+      <Name>Common.Controls</Name>
+    </ProjectReference>
     <ProjectReference Include="..\KonwerterJednostek.Logic\KonwerterJednostek.Logic.csproj">
       <Project>{5e371b6e-b27e-4b2d-b684-0c3be9ad9b4b}</Project>
       <Name>KonwerterJednostek.Logic</Name>

@@ -11,5 +11,6 @@ namespace KonwerterJednostek.Logic
         {
         }
         public DbSet<Wpis> registrations { get; set; }
+        public DbSet<Star> newStar { get; set; }
     }
 }

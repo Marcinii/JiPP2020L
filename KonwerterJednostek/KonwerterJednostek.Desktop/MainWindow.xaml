@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:KonwerterJednostek.Desktop"
+        xmlns:commonControls="clr-namespace:Common.Controls;assembly=Common.Controls"
         mc:Ignorable="d"
         Title="MainWindow" Height="517.5" Width="1072.045">
     <Window.Resources>
@@ -130,6 +131,16 @@
         <TextBlock x:Name="MinuteBlock" HorizontalAlignment="Left" Height="30" Margin="171,260,0,0" TextWrapping="Wrap" Text="Minuty:" VerticalAlignment="Top" Width="52" Opacity="0"/>
         <DataGrid x:Name="DataGridHistory" HorizontalAlignment="Left" Height="146" Margin="250,295,0,0" VerticalAlignment="Top" Width="578" RenderTransformOrigin="0.495,0.538"/>
 
+        <Grid Height="30" Margin="131,35,689,430">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="3*"/>
+            </Grid.ColumnDefinitions>
+            <Label>Ocena aplikacji:</Label>
+            <commonControls:RateMe x:Name="rateControl" Grid.Column="1" RenderTransformOrigin="0.5,1.833" RateValueChanged="rateControl_RateValueChanged" />
+
+        </Grid>
+
         <Button x:Name="Next" Content="Dalej" HorizontalAlignment="Left" Height="20" Margin="647,457,0,0" VerticalAlignment="Top" Width="86" Click="Next_Click"/>
         <Button x:Name="Back" Content="Wstecz" HorizontalAlignment="Left" Height="20" Margin="289,457,0,0" VerticalAlignment="Top" Width="86" Click="Back_Click"/>
         <TextBlock x:Name="numberPage" HorizontalAlignment="Left" Height="20" Margin="484,457,0,0" TextWrapping="Wrap" Text="Strona 1" VerticalAlignment="Top" Width="55" RenderTransformOrigin="0.497,0.45"/>
@@ -153,11 +164,12 @@
             <TextBlock HorizontalAlignment="Left" Height="30" Margin="730,180,0,0" TextWrapping="Wrap" Text="Wynik:" VerticalAlignment="Top" Width="52"/>
             <TextBlock HorizontalAlignment="Left" Height="30" Margin="840,180,0,0" TextWrapping="Wrap" Text="Jednostka na którą konwertujesz:" VerticalAlignment="Top" Width="179"/>
             <TextBlock HorizontalAlignment="Left" Height="27" Margin="917,277,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="34"><Run Text="Filtuj"/><Run Text=":"/></TextBlock>
-            <TextBox x:Name="wartoscOd" HorizontalAlignment="Left" Height="25" Margin="917,414,0,0" TextWrapping="Wrap" Text="rrrr, mm, dd" VerticalAlignment="Top" Width="94"/>
-            <TextBox x:Name="wartoscDo" HorizontalAlignment="Left" Height="25" Margin="917,454,0,0" TextWrapping="Wrap" Text="rrrr, mm, dd" VerticalAlignment="Top" Width="94"/>
+            <TextBox x:Name="wartoscOd" HorizontalAlignment="Left" Height="25" Margin="917,414,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="94"/>
+            <TextBox x:Name="wartoscDo" HorizontalAlignment="Left" Height="25" Margin="917,454,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="94"/>
             <TextBlock HorizontalAlignment="Left" Height="25" Margin="854,414,0,0" TextWrapping="Wrap" Text="Od:" VerticalAlignment="Top" Width="46"/>
             <TextBlock HorizontalAlignment="Left" Height="25" Margin="854,454,0,0" TextWrapping="Wrap" Text="Do:" VerticalAlignment="Top" Width="46"/>
-            <Button x:Name="dateStatisticBaton" Content="Po zakresie dat (rrrr, mm, dd)" HorizontalAlignment="Left" Height="25" Margin="854,374,0,0" VerticalAlignment="Top" Width="157" Click="dateStatisticBaton_Click"/>
+            <Button x:Name="dateStatisticBaton" Content="Po zakresie dat (rrrr, mm, dd)" HorizontalAlignment="Left" Height="25" Margin="854,374,0,0" 
+                    VerticalAlignment="Top" Width="157" />
             <Button x:Name="showTheMostPopularBaton" Content="Wyświetl 3 najpopularniejsze" HorizontalAlignment="Left" Height="25" Margin="420,268,0,0" VerticalAlignment="Top" Width="179" Click="showTheMostPopularBaton_Click"/>
 
         </Grid>
