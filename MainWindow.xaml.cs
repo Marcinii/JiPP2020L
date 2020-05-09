@@ -13,6 +13,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using ZAD3;
+using System.Data.SqlClient;
+using System.Data;
 
 namespace ZAD3.WPF
 {
@@ -21,6 +23,9 @@ namespace ZAD3.WPF
     /// </summary>
     public partial class MainWindow : Window
     {
+        public static object Ocena_Aplikacji { get; private set; }
+        public static object RateValue { get; private set; }
+
         public MainWindow()
         {
             InitializeComponent();
@@ -161,5 +166,43 @@ namespace ZAD3.WPF
             GodzinowaObrot.Angle = ((hh + 3) * 30);
             MinutowaObrot.Angle = (mm + 15) * 6;
         }
+
+        static void Baza()
+        {
+            DisplayDataUsingADONET();
+        }
+        public static void DisplayDataUsingADONET()
+        {
+            
+            using (SqlConnection connection =
+                new SqlConnection("Data Source=DESKTOP-D4D50PF SQLEXPRESSV2;Initial Catalog=ocena;Integrated Security=True"))
+            {
+                connection.Open();
+                SqlCommand command = new SqlCommand("SELECT AVG(Liczba_Gwiazdek) FROM Ocena_Aplikacji ", connection);
+                IDataReader reader = command.ExecuteReader();
+                OdczytanieWynikuBaza.Text = reader.ToString();
+            }
+              using (SqlConnection connection =
+                  new SqlConnection("Data Source=DESKTOP-D4D50PF SQLEXPRESSV2;Initial Catalog=ocena;Integrated Security=True"))
+              {
+                  connection.Open();
+                SqlCommand command = new SqlCommand("SELECT AVG(Liczba_Gwiazdek) FROM Ocena_Aplikacji ", connection);
+                IDataReader reader = command.ExecuteReader();
+                DataRow workRow = Ocena_Aplikacji.NewRow();
+                workRow["Liczba_Gwiazdek"] = RateValue;
+                connection.Close();
+            }
+          /*  using (SqlConnection sqlConnection =
+                new SqlConnection("Data Source=DESKTOP-D4D50PF SQLEXPRESSV2;Initial Catalog=ocena;Integrated Security=True"))
+            {
+                SqlCommand command = new SqlCommand("SELECT * FROM Ocena_Aplikacji WHERE Liczba_Gwiazdek = @Liczba_Gwiazdek ", sqlConnection);
+                SqlParameter parametr = new SqlParameter("@Liczba_Gwiazdek", 1);
+                command.Parameters.Add(parametr);
+                sqlConnection.Open();
+                SqlDataReader dataReader = command.ExecuteReader();
+                sqlConnection.Close();
+            }*/
+        }
+
     }
 }
