@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="BazaDanychModelStoreContainer" CdmEntityContainer="BazaDanychEntities">
+    <EntitySetMapping Name="BazaDanyches">
+      <EntityTypeMapping TypeName="BazaDanychModel.BazaDanych">
+        <MappingFragment StoreEntitySet="BazaDanych">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Konwertor" ColumnName="Konwertor" />
+          <ScalarProperty Name="Z" ColumnName="Z" />
+          <ScalarProperty Name="Do" ColumnName="Do" />
+          <ScalarProperty Name="WartoscWejsciowa" ColumnName="WartoscWejsciowa" />
+          <ScalarProperty Name="WartoscWyjsciowa" ColumnName="WartoscWyjsciowa" />
+          <ScalarProperty Name="Data" ColumnName="Data" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

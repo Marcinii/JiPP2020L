@@ -50,9 +50,9 @@
                 </TransformGroup>
             </Button.RenderTransform>
         </Button>
-        <ComboBox x:Name="ZComboBox" Grid.Column="3" HorizontalAlignment="Left" Margin="7.2,18,0,0" VerticalAlignment="Top" Width="120"/>
+        <ComboBox x:Name="ZComboBox" Grid.Column="3" HorizontalAlignment="Left" Margin="7.2,18,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="ZComboBox_SelectionChanged"/>
         <ComboBox x:Name="DoComboBox" Grid.Column="4" HorizontalAlignment="Left" Margin="30.4,18,0,0" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="WartoscTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="10,4,0,0" Grid.Row="2" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" RenderTransformOrigin="0.5,0.5">
+        <TextBox x:Name="WartoscTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="9.6,0,0,295" Grid.Row="2" TextWrapping="Wrap" VerticalAlignment="Bottom" Width="120" RenderTransformOrigin="0.5,0.5" TextChanged="WartoscTextBox_TextChanged">
             <TextBox.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -62,7 +62,7 @@
                 </TransformGroup>
             </TextBox.RenderTransform>
         </TextBox>
-        <Path x:Name="path" Data="M65,36 C48.983742,36 36,48.983742 36,65 36,81.016258 48.983742,94 65,94 81.016258,94 94,81.016258 94,65 94,48.983742 81.016258,36 65,36 z M65,0.5 C100.62237,0.5 129.5,29.377634 129.5,65 129.5,100.62237 100.62237,129.5 65,129.5 29.377634,129.5 0.5,100.62237 0.5,65 0.5,29.377634 29.377634,0.5 65,0.5 z" HorizontalAlignment="Left" Height="130" Margin="10.4,92.213,0,0" Grid.Row="2" Stretch="Fill" Stroke="Black" VerticalAlignment="Top" Width="130" RenderTransformOrigin="0.5,0.5" Grid.Column="2">
+        <Path x:Name="path" Data="M65,36 C48.983742,36 36,48.983742 36,65 36,81.016258 48.983742,94 65,94 81.016258,94 94,81.016258 94,65 94,48.983742 81.016258,36 65,36 z M65,0.5 C100.62237,0.5 129.5,29.377634 129.5,65 129.5,100.62237 100.62237,129.5 65,129.5 29.377634,129.5 0.5,100.62237 0.5,65 0.5,29.377634 29.377634,0.5 65,0.5 z" HorizontalAlignment="Left" Height="130" Margin="17.023,22.435,0,0" Grid.Row="2" Stretch="Fill" Stroke="Black" VerticalAlignment="Top" Width="130" RenderTransformOrigin="0.5,0.5" Grid.Column="4">
             <Path.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -79,7 +79,7 @@
                 </LinearGradientBrush>
             </Path.Fill>
         </Path>
-        <Path x:Name="clockRotation" Data="M484,276 L603.6,277" Fill="#FFEC360D" Height="10" Margin="5.573,154.906,74.827,0" Grid.Row="2" Stretch="Fill" Stroke="#FFF70000" StrokeThickness="10" VerticalAlignment="Top" RenderTransformOrigin="1,0.5" Grid.Column="2">
+        <Path x:Name="clockRotation" Data="M484,276 L603.6,277" Fill="#FFEC360D" Height="10" Margin="12.196,85.128,233.004,0" Grid.Row="2" Stretch="Fill" Stroke="#FFF70000" StrokeThickness="10" VerticalAlignment="Top" RenderTransformOrigin="1,0.5" Grid.Column="4">
             <Path.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -89,7 +89,7 @@
                 </TransformGroup>
             </Path.RenderTransform>
         </Path>
-        <Path Data="M99.095975,319.97967 L140.89164,319.97967" Fill="#FFDEE813" HorizontalAlignment="Left" Height="10" Margin="23.777,154.906,0,0" Grid.Row="2" Stretch="Fill" Stroke="#FFF7F700" StrokeThickness="10" VerticalAlignment="Top" Width="51.796" Grid.Column="2" RenderTransformOrigin="1,0">
+        <Path Data="M99.095975,319.97967 L140.89164,319.97967" Fill="#FFDEE813" HorizontalAlignment="Left" Height="10" Margin="30.4,85.128,0,0" Grid.Row="2" Stretch="Fill" Stroke="#FFF7F700" StrokeThickness="10" VerticalAlignment="Top" Width="51.796" Grid.Column="4" RenderTransformOrigin="1,0">
             <Path.RenderTransform>
                 <TransformGroup x:Name="clockRotation3">
                     <ScaleTransform/>
@@ -99,7 +99,7 @@
                 </TransformGroup>
             </Path.RenderTransform>
         </Path>
-        <Button x:Name="button" Content="Animacja" Grid.Column="3" HorizontalAlignment="Left" Margin="52.2,149.955,0,0" Grid.Row="2" VerticalAlignment="Top" Width="75" RenderTransformOrigin="0.5,0.5" Click="button_Click">
+        <Button x:Name="button" Content="Animacja" Grid.Column="4" HorizontalAlignment="Left" Margin="75.4,209.6,0,0" Grid.Row="2" VerticalAlignment="Top" Width="75" RenderTransformOrigin="0.5,0.5" Click="button_Click">
             <Button.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -109,6 +109,23 @@
                 </TransformGroup>
             </Button.RenderTransform>
         </Button>
+        <DataGrid x:Name="BazaStatystyk" Height="240" Margin="9,56.6,16.8,0" Grid.Row="2" VerticalAlignment="Top" Grid.ColumnSpan="3"/>
+        <ComboBox x:Name="StatystykaCombobox" Grid.ColumnSpan="2" Grid.Column="2" HorizontalAlignment="Left" Margin="138.6,73.6,0,0" Grid.Row="2" VerticalAlignment="Top" Width="139" Height="22" SelectionChanged="StatystykaCombobox_SelectionChanged">
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding Name}"/>
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
+        <Button x:Name="Filtruj" Content="Filtruj" Grid.Column="3" HorizontalAlignment="Left" Margin="7.2,209.6,0,0" Grid.Row="2" VerticalAlignment="Top" Width="75" Click="Filtruj_Click"/>
+        <Button x:Name="Najczestrsze" Content="Zaladuj baze" Grid.Column="3" HorizontalAlignment="Left" Margin="26.2,233.6,0,0" Grid.Row="2" VerticalAlignment="Top" Width="193" Grid.ColumnSpan="2" Click="Najczestrsze_Click"/>
+        <Button x:Name="rightbtn" Content="&gt;" Grid.Column="4" HorizontalAlignment="Left" Margin="7.4,277.6,0,0" Grid.Row="2" VerticalAlignment="Top" Width="75" Click="rightbtn_Click"/>
+        <Button x:Name="leftbtn" Content="&lt;" Grid.Column="3" HorizontalAlignment="Left" Margin="52.2,281.6,0,0" Grid.Row="2" VerticalAlignment="Top" Width="75" Click="leftbtn_Click"/>
+        <TextBlock Grid.Column="3" HorizontalAlignment="Left" Margin="10.2,108.6,0,0" Grid.Row="2" TextWrapping="Wrap" Text="Data od" VerticalAlignment="Top"/>
+        <TextBlock Grid.Column="3" HorizontalAlignment="Left" Margin="10.2,157.6,0,0" Grid.Row="2" TextWrapping="Wrap" Text="Data do" VerticalAlignment="Top"/>
+        <TextBox x:Name="DataOd" Grid.Column="3" HorizontalAlignment="Left" Height="23" Margin="0.2,129.6,0,0" Grid.Row="2" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TextChanged="DataOd_TextChanged"/>
+        <TextBox x:Name="DataDo" Grid.Column="3" HorizontalAlignment="Left" Height="23" Margin="10.2,178.6,0,0" Grid.Row="2" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TextChanged="DataDo_TextChanged"/>
+        <Button x:Name="Top3" Content="TOP 3" Grid.Column="3" HorizontalAlignment="Left" Margin="10.2,257.6,0,0" Grid.Row="2" VerticalAlignment="Top" Width="75" Click="Top3_Click"/>
 
     </Grid>
 </Window>
