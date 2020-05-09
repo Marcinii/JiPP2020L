@@ -87,10 +87,6 @@
             <RowDefinition Height="1*"/>
             <RowDefinition Height="1*"/>
             <RowDefinition Height="6*"/>
-
-
-
-
         </Grid.RowDefinitions>
 
         <Grid.ColumnDefinitions>
