@@ -42,7 +42,7 @@
             </Setter>
         </Style>
     </UserControl.Resources>
-    <Grid>
+    <Grid x:Name="RateGrid">
         <Grid.ColumnDefinitions>
             <ColumnDefinition></ColumnDefinition>
             <ColumnDefinition></ColumnDefinition>
@@ -51,10 +51,10 @@
             <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
 
-        <Button Grid.Column="0" Background ="White" Margin="1" Style="{DynamicResource StarButtonStyle}" />
-        <Button Grid.Column="1" Background ="White" Margin="1" Style="{DynamicResource StarButtonStyle}" />
-        <Button Grid.Column="2" Background ="White" Margin="1" Style="{DynamicResource StarButtonStyle}" />
-        <Button Grid.Column="3" Background ="White" Margin="1" Style="{DynamicResource StarButtonStyle}" />
-        <Button Grid.Column="4" Background ="White" Margin="1" Style="{DynamicResource StarButtonStyle}" />
+        <Button Grid.Column="0" Background ="White" Style="{DynamicResource StarButtonStyle}" Click="Button_Click" />
+        <Button Grid.Column="1" Background ="White" Style="{DynamicResource StarButtonStyle}" Click="Button_Click" />
+        <Button Grid.Column="2" Background ="White" Style="{DynamicResource StarButtonStyle}" Click="Button_Click" />
+        <Button Grid.Column="3" Background ="White" Style="{DynamicResource StarButtonStyle}" Click="Button_Click" />
+        <Button Grid.Column="4" Background ="White" Style="{DynamicResource StarButtonStyle}" Click="Button_Click" />
     </Grid>
 </UserControl>
