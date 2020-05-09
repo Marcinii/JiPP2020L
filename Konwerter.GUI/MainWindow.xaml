@@ -604,9 +604,7 @@
             </StackPanel.Background>
         </StackPanel>
         <Common.Controls:StarsRater x:Name="RateControl" Grid.Column="4" Margin="0,50,144,37" Grid.Row="10" Grid.ColumnSpan="2" Loaded="StarsRater_Loaded" Grid.RowSpan="2" HorizontalAlignment="Right" Width="150" />
-        <Label Content="Wystaw ocenę aplikacji" Grid.Column="3" HorizontalAlignment="Left" Margin="10,46,0,0" Grid.Row="10" VerticalAlignment="Top"/>
-        <Label Content="Poprzednia ocena" Grid.Column="6" HorizontalAlignment="Left" Margin="14,42,0,0" Grid.Row="10" VerticalAlignment="Top"/>
-        <TextBlock x:Name="WynikOceny" Grid.Column="7" HorizontalAlignment="Left" Margin="30,51,0,0" Grid.Row="10" TextWrapping="Wrap" Text="WynikOceny" VerticalAlignment="Top"/>
+        <Label Content="Wystaw ocenę aplikacji" Grid.Column="3" HorizontalAlignment="Left" Margin="4,51,0,0" Grid.Row="10" VerticalAlignment="Top"/>
 
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="150"/>

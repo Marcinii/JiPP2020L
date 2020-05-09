@@ -60,7 +60,7 @@ namespace Konwerter.GUI
             (from o in DBContext.Ocena
              where o.id == 1
              select o).First().Rating = e.Value;
-           // DBContext.SaveChanges();
+            DBContext.SaveChanges();
 
         }
 
@@ -92,38 +92,10 @@ namespace Konwerter.GUI
         private void combo1_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             box0.Text = "";
-            Watch t = new Watch();
-            if (combo0.SelectedItem.ToString() == t.ToString())
-            {
-                combo1.ItemsSource = new List<string>()
-                {
-                    ((IKonwerter)combo0.SelectedItem).Units[0]
-                };
-                combo2.ItemsSource = new List<string>()
-                {
-                    ((IKonwerter)combo0.SelectedItem).Units[1]
-                };
-                combo1.SelectedIndex = 0;
-                combo2.SelectedIndex = 0;
-            }
-            else
-            {
-                combo1.ItemsSource = ((IKonwerter)combo0.SelectedItem).Units;
-                combo2.ItemsSource = ((IKonwerter)combo0.SelectedItem).Units;
-                combo1.SelectedIndex = 0;
-                combo2.SelectedIndex = 1;
-            }
-            //if (((IKonwerter)combo0.SelectedItem).Name == "Zegar" && !zegarBefore)
-          // {
-           //     zegarBefore = true;
-          //      Clock_online_stop();
-          //  }
-          //  else if (((IKonwerter)combo0.SelectedItem).Name != "Zegar" && zegarBefore)
-          //  {
-         //       zegarBefore = false;
-         //       Clock_online_restart();
-         //   }
-
+            combo1.ItemsSource = ((IKonwerter)combo0.SelectedItem).Units;
+            combo2.ItemsSource = ((IKonwerter)combo0.SelectedItem).Units;
+            combo1.SelectedIndex = 0;
+            combo2.SelectedIndex = 1;
         }
 
         private void button0_Click(object sender, RoutedEventArgs e)
