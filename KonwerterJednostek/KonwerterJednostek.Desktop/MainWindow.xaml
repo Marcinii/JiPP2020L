@@ -141,8 +141,8 @@
 
         </Grid>
 
-        <Button x:Name="Next" Content="Dalej" HorizontalAlignment="Left" Height="20" Margin="647,457,0,0" VerticalAlignment="Top" Width="86" Click="Next_Click"/>
-        <Button x:Name="Back" Content="Wstecz" HorizontalAlignment="Left" Height="20" Margin="289,457,0,0" VerticalAlignment="Top" Width="86" Click="Back_Click"/>
+        <Button x:Name="Next" Content="Dalej" HorizontalAlignment="Left" Height="20" Margin="647,457,0,0" VerticalAlignment="Top" Width="86"/>
+        <Button x:Name="Back" Content="Wstecz" HorizontalAlignment="Left" Height="20" Margin="289,457,0,0" VerticalAlignment="Top" Width="86"/>
         <TextBlock x:Name="numberPage" HorizontalAlignment="Left" Height="20" Margin="484,457,0,0" TextWrapping="Wrap" Text="Strona 1" VerticalAlignment="Top" Width="55" RenderTransformOrigin="0.497,0.45"/>
         <ComboBox x:Name="FiltrPoRodzKonw" HorizontalAlignment="Left" Height="25" Margin="854,335,0,0" VerticalAlignment="Top" Width="158" SelectionChanged="FiltrPoRodzKonw_SelectionChanged">
             <ComboBox.ItemTemplate>
@@ -170,7 +170,8 @@
             <TextBlock HorizontalAlignment="Left" Height="25" Margin="854,454,0,0" TextWrapping="Wrap" Text="Do:" VerticalAlignment="Top" Width="46"/>
             <Button x:Name="dateStatisticBaton" Content="Po zakresie dat (rrrr, mm, dd)" HorizontalAlignment="Left" Height="25" Margin="854,374,0,0" 
                     VerticalAlignment="Top" Width="157" />
-            <Button x:Name="showTheMostPopularBaton" Content="Wyświetl 3 najpopularniejsze" HorizontalAlignment="Left" Height="25" Margin="420,268,0,0" VerticalAlignment="Top" Width="179" Click="showTheMostPopularBaton_Click"/>
+            <Button x:Name="showTheMostPopularBaton" Content="Wyświetl 3 najpopularniejsze" HorizontalAlignment="Left" Height="25" 
+                    Margin="420,268,0,0" VerticalAlignment="Top" Width="179"/>
 
         </Grid>
 

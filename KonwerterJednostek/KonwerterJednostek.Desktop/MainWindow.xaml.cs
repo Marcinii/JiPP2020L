@@ -38,9 +38,22 @@ namespace KonwerterJednostek.Desktop
             string.IsNullOrEmpty(wartoscOd.Text) != true && string.IsNullOrEmpty(wartoscDo.Text) != true);
           
             dateStatisticBaton.Command = DateStatisticCommand;
+
+            BackCommand = new RelayCommand(obj => BackC());
+            Back.Command = BackCommand;
+
+            NextCommand = new RelayCommand(obj => NextC());
+            Next.Command = NextCommand;
+
+            showTheMostPopularCommand = new RelayCommand(obj => showTheMostPopularBatonC());
+            showTheMostPopularBaton.Command = showTheMostPopularCommand;
+
+            //private RelayCommand BackCommand;
+            //private RelayCommand NextCommand;
+            //private RelayCommand showTheMostPopularCommand;
         }
 
-        
+
 
         private void dziedzinaCombo_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -126,13 +139,6 @@ namespace KonwerterJednostek.Desktop
             }
         }
 
-        /*  private void dateStatisticBaton_Click(object sender, RoutedEventArgs e)
-          {
-              previousStatisticNumber = statisticNumber;
-              statisticNumber = 7;
-              view(statisticView(previousStatisticNumber));
-          }*/
-
         private RelayCommand DateStatisticCommand;
 
         private void dateStatisticBaton_Click()
@@ -144,8 +150,10 @@ namespace KonwerterJednostek.Desktop
 
 
         static int numberOfPage = 1;
-        
-        private void Back_Click(object sender, RoutedEventArgs e)
+
+        private RelayCommand BackCommand;
+
+        private void BackC()
         {
             if (numberOfPage > 1)
             {
@@ -162,7 +170,10 @@ namespace KonwerterJednostek.Desktop
                 }
             }
         }
-        private void Next_Click(object sender, RoutedEventArgs e)
+
+        private RelayCommand NextCommand;
+
+        private void NextC()
         {
             if (statisticNumber == 7)
             {
@@ -177,7 +188,9 @@ namespace KonwerterJednostek.Desktop
             } 
         }
 
-        private void showTheMostPopularBaton_Click(object sender, RoutedEventArgs e)
+        private RelayCommand showTheMostPopularCommand;
+
+        private void showTheMostPopularBatonC()
         {
             previousStatisticNumber = 1;
             statisticNumber = 8;
