@@ -35,6 +35,7 @@ namespace Converter.Desktop
             { ConverterType.CELSIUS, new TemperatureConverter() },
             { ConverterType.KILOMETER, new Logic.LengthConverter() },
             { ConverterType.MILE, new Logic.LengthConverter() },
+            { ConverterType.TIME, new Logic.TimeConverter() },
 
 
         };
@@ -53,11 +54,17 @@ namespace Converter.Desktop
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
-        {
+        { 
             ConverterType type = EnumUtil.GetValueFromDescription<ConverterType>(ComboBox1.SelectedItem.ToString());
             IConvertable<float> convertable = new ConvertValue<float>(float.Parse(ToConvertValue.Text));
             IConvert convert = converterMethods[type];
-            ConvertedValue.Text = convert.convertValue(convertable.getValue(), type).ToString();
+            float Converted = convert.convertValue(convertable.getValue(), type);
+            ConvertedValue.Text = Converted.ToString();
+            if(type == ConverterType.TIME)
+            {
+                int convertedValue = Convert.ToInt32(Converted);
+                clockRotation.Angle = (30 * convertedValue) + 90;
+            }
         }
 
         private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)

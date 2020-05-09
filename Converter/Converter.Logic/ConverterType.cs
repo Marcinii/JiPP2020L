@@ -22,6 +22,8 @@ namespace Converter
         [Description("joules")]
         JOULE,
         [Description("calories")]
-        CALORIES
+        CALORIES,
+        [Description("time")]
+        TIME
     }
 }

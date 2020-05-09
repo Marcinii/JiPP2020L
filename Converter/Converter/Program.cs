@@ -19,6 +19,7 @@ namespace Converter
             { ConverterType.CELSIUS, new TemperatureConverter() },
             { ConverterType.KILOMETER, new Logic.LengthConverter() },
             { ConverterType.MILE, new Logic.LengthConverter() },
+            {ConverterType.TIME, new Logic.TimeConverter() },
         };
 
         public class Options
