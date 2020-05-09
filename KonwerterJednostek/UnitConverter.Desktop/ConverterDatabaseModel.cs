@@ -25,6 +25,7 @@ namespace UnitConverter.Desktop
 
 
         public DbSet<ConverterData> ConverterDatas { get; set; }
+        public DbSet<RateData> ConverterRates { get; set; }
     }
 
     //public class MyEntity
