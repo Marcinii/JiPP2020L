@@ -62,9 +62,6 @@ namespace UnitConverterDesktopApp
         }
         private void RunQuery()
         {
-            // Symuluje wydluzony czas operacji
-            Task.Delay(5000).Wait();
-
             this._records = Database.SelectResults(
                 this.GetFilterByConverterItems(), this.DateFromPicker.SelectedDate, this.DateToPicker.SelectedDate, this.TopCheckBox.IsChecked);
             _lastPage = Math.Ceiling((Enumerable.Count(this._records) / Convert.ToDouble(_maxRecordsPerPage)));
@@ -73,15 +70,7 @@ namespace UnitConverterDesktopApp
         public RelayCommand FilterDataCommand;
         private void FilterData()
         {
-            StatsWindowLoadingScreen.Visibility = Visibility.Visible;
-
-            Task task = new Task(() => RunQuery());
-            task.Start();
-
-            Task.WhenAll(task).ContinueWith(t =>
-            {
-                Dispatcher.Invoke(() => StatsWindowLoadingScreen.Visibility = Visibility.Hidden);
-            });
+            RunQuery();
 
             _currentPage = 1;
             TableForStats.ItemsSource = this._records
