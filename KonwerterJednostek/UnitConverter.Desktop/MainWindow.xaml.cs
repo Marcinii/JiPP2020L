@@ -66,6 +66,9 @@ namespace UnitConverter.Desktop
                 obj => dateFrom.SelectedDate != null
                 && dateTo.SelectedDate != null);
             popularConversions.Command = PopularConversionsCommand;
+
+            RefreshCommand = new RelayCommand(obj => Refresh());
+            refreshButton.Command = RefreshCommand;
         }     
 
         private void ConverterCombobox_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -101,6 +104,7 @@ namespace UnitConverter.Desktop
         private RelayCommand PaginationButtonPrevCommand;
         private RelayCommand PaginationButtonNextCommand;
         private RelayCommand PopularConversionsCommand;
+        private RelayCommand RefreshCommand;
 
         private void Convert()
         {
@@ -317,6 +321,14 @@ namespace UnitConverter.Desktop
 
                 if (lastRateFromDatabase != null)
                     rateButtons.RateValue = lastRateFromDatabase ?? default(int);
+            }
+        }
+
+        private void Refresh()
+        {
+            using (ConverterDatabaseEntities context = new ConverterDatabaseEntities())
+            {
+                dataFromDatabase.ItemsSource = context.ConverterDatas.ToList();
             }
         }
     }
