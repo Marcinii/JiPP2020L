@@ -1,0 +1,65 @@
+﻿<UserControl x:Class="Common.Controls.LoadingScreen"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Common.Controls"
+             mc:Ignorable="d" 
+             d:DesignHeight="600" d:DesignWidth="800">
+    <UserControl.Resources>
+        <Storyboard x:Key="LoadingCircleRotation">
+            <DoubleAnimationUsingKeyFrames 
+                RepeatBehavior="Forever" 
+                Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[2].(RotateTransform.Angle)" 
+                Storyboard.TargetName="LoadingCircle">
+                <EasingDoubleKeyFrame 
+                    KeyTime="0:0:2" 
+                    Value="360"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+    </UserControl.Resources>
+    <UserControl.Triggers>
+        <EventTrigger RoutedEvent="FrameworkElement.Loaded">
+            <BeginStoryboard Storyboard="{StaticResource LoadingCircleRotation}"/>
+        </EventTrigger>
+    </UserControl.Triggers>
+    <Grid x:Name="LoadingScreenBackground" Background="#7F000000">
+        <Path 
+            x:Name="LoadingCircle" 
+            Data="M55,10.500001 C30.423328,10.5 10.5,30.423328 10.500001,55 10.5,79.576668 30.423328,99.5 55,99.5 79.576668,99.5 99.5,79.576668 99.5,55 99.5,30.423328 79.576668,10.5 55,10.500001 z M55,0.5 C85.099518,0.5 109.5,24.900481 109.5,55 109.5,85.099518 85.099518,109.5 55,109.5 24.900481,109.5 0.5,85.099518 0.5,55 0.5,24.900481 24.900481,0.5 55,0.5 z" 
+            Height="70" 
+            Margin="0" 
+            Stretch="Fill" 
+            Stroke="Black" 
+            Width="70" 
+            RenderTransformOrigin="0.5,0.5">
+            <Path.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Path.RenderTransform>
+            <Path.Fill>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="Black" Offset="1"/>
+                    <GradientStop Color="White"/>
+                </LinearGradientBrush>
+            </Path.Fill>
+        </Path>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="4*"></RowDefinition>
+            </Grid.RowDefinitions>
+            <TextBlock x:Name="PleaseWaitTextBlock" 
+                   Text="Please wait..." 
+                   Foreground="White" 
+                   FontSize="14" 
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center"
+                   Grid.Row="1"/>
+        </Grid>
+    </Grid>
+</UserControl>

@@ -19,6 +19,7 @@ namespace UnitConverterDesktopApp
             InitializeComponent();
             FilterByConverterListBox.ItemsSource = new ConverterService().GetConverters().Keys;
             _currentPage = 1;
+            StatsWindowLoadingScreen.Visibility = Visibility.Hidden;
 
             FilterDataCommand = new RelayCommand(obj => FilterData());
             FilterDataButton.Command = FilterDataCommand;
@@ -67,6 +68,8 @@ namespace UnitConverterDesktopApp
         public RelayCommand FilterDataCommand;
         private void FilterData()
         {
+            
+
             RunQuery();
             _currentPage = 1;
             TableForStats.ItemsSource = this._records

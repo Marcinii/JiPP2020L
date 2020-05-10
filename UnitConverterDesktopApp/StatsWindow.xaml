@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:UnitConverterDesktopApp"
+        xmlns:commonControls="clr-namespace:Common.Controls;assembly=Common.Controls"
         mc:Ignorable="d"
         Title="Stats Window" Height="600" Width="800" Background="#FFF0F0F0">
     <Window.Resources>
@@ -29,79 +30,84 @@
             <Setter Property="Margin" Value="5"></Setter>
         </Style>
     </Window.Resources>
-    <StackPanel Margin="15">
-        <TextBlock x:Name="FilterByConverterTextBox"
-                   Text="Filter by Converter:">
-        </TextBlock>
-        <ListBox x:Name="FilterByConverterListBox"
-                 SelectionMode="Multiple">
-        </ListBox>
-        <Grid>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"></ColumnDefinition>
-                <ColumnDefinition Width="*"></ColumnDefinition>
-            </Grid.ColumnDefinitions>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="*"></RowDefinition>
-                <RowDefinition Height="*"></RowDefinition>
-            </Grid.RowDefinitions>
-            <TextBlock x:Name="DateFromTextBox"
-                       Text="From:"
-                       Grid.Column="0"
-                       Grid.Row="0">
+    <Grid x:Name="StatsWindowParentGrid">
+        <StackPanel Margin="15">
+            <TextBlock x:Name="FilterByConverterTextBox"
+                       Text="Filter by Converter:">
             </TextBlock>
-            <DatePicker x:Name="DateFromPicker"
-                        Grid.Column="0"
-                        Grid.Row="1">
-            </DatePicker>
-            <TextBlock x:Name="DateToTextBox"
-                       Text="To:"
-                       Grid.Column="1"
-                       Grid.Row="0">
-            </TextBlock>
-            <DatePicker x:Name="DateToPicker"
-                        Grid.Column="1"
-                        Grid.Row="1">
-            </DatePicker>
-        </Grid>
-        <Grid>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"></ColumnDefinition>
-                <ColumnDefinition Width="*"></ColumnDefinition>
-            </Grid.ColumnDefinitions>
-            <CheckBox x:Name="TopCheckBox"                
-                      Content="TOP 3"
-                      Grid.Column="0"
-                      HorizontalAlignment="Center">
-            </CheckBox>
-            <Button x:Name="FilterDataButton"
-                    Content="Filter"
-                    Grid.Column="1" />
-        </Grid>
-        <DataGrid x:Name="TableForStats"
-                  IsReadOnly="True"
-                  ColumnWidth="*" Loaded="TableForStats_Loaded">
-        </DataGrid>
-        <Grid>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"></ColumnDefinition>
-                <ColumnDefinition Width="*"></ColumnDefinition>
-                <ColumnDefinition Width="*"></ColumnDefinition>
-                <ColumnDefinition Width="*"></ColumnDefinition>
-                <ColumnDefinition Width="*"></ColumnDefinition>
-            </Grid.ColumnDefinitions>
-            <Button x:Name="PreviousButton" 
-                    Content="Previous"
-                    Grid.Column="1">
-            </Button>
-            <TextBlock x:Name="PageCountTextBox"
-                       Grid.Column="2"
-                       TextAlignment="Center">
-            </TextBlock>
-            <Button x:Name="NextButton" 
-                    Content="Next"
-                    Grid.Column="3">
-            </Button>
-        </Grid>
-    </StackPanel>
+            <ListBox x:Name="FilterByConverterListBox"
+                     SelectionMode="Multiple">
+            </ListBox>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                </Grid.RowDefinitions>
+                <TextBlock x:Name="DateFromTextBox"
+                           Text="From:"
+                           Grid.Column="0"
+                           Grid.Row="0">
+                </TextBlock>
+                <DatePicker x:Name="DateFromPicker"
+                            Grid.Column="0"
+                            Grid.Row="1">
+                </DatePicker>
+                <TextBlock x:Name="DateToTextBox"
+                           Text="To:"
+                           Grid.Column="1"
+                           Grid.Row="0">
+                </TextBlock>
+                <DatePicker x:Name="DateToPicker"
+                            Grid.Column="1"
+                            Grid.Row="1">
+                </DatePicker>
+            </Grid>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <CheckBox x:Name="TopCheckBox"                
+                          Content="TOP 3"
+                          Grid.Column="0"
+                          HorizontalAlignment="Center">
+                </CheckBox>
+                <Button x:Name="FilterDataButton"
+                        Content="Filter"
+                        Grid.Column="1" />
+            </Grid>
+            <DataGrid x:Name="TableForStats"
+                      IsReadOnly="True"
+                      ColumnWidth="*" Loaded="TableForStats_Loaded">
+            </DataGrid>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Button x:Name="PreviousButton" 
+                        Content="Previous"
+                        Grid.Column="1">
+                </Button>
+                <TextBlock x:Name="PageCountTextBox"
+                           Grid.Column="2"
+                           TextAlignment="Center">
+                </TextBlock>
+                <Button x:Name="NextButton" 
+                        Content="Next"
+                        Grid.Column="3">
+                </Button>
+            </Grid>
+        </StackPanel>
+        <commonControls:LoadingScreen
+            x:Name="StatsWindowLoadingScreen"        
+        ></commonControls:LoadingScreen>
+    </Grid>
 </Window>
