@@ -160,6 +160,8 @@
         <Button x:Name="converterTypeFilter_valueFromCombobox" Content="Conv" Grid.Column="1" HorizontalAlignment="Left" Margin="262,184,0,0" VerticalAlignment="Top" Width="49" Height="20"/>
         <Button x:Name="refreshButton" Content="Refresh DB" Grid.Column="1" HorizontalAlignment="Left" Margin="316,226,0,0" VerticalAlignment="Top" Width="80" Height="20" />
 
+
+        <Rectangle x:Name="loaderPanel" Grid.ColumnSpan="2" Fill="#4C000000" Visibility="Hidden"/>
     </Grid>
 
 </Window>
