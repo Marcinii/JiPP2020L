@@ -71,7 +71,10 @@
     <Compile Include="Ocena.xaml.cs">
       <DependentUpon>Ocena.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Parameter.cs" />
     <Compile Include="Repository\DatabaseModule.cs" />
+    <Compile Include="ViewModel\Commands\ConvertCommand.cs" />
+    <Compile Include="ViewModel\ViewModelBase.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -162,5 +165,6 @@
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

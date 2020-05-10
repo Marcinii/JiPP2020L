@@ -4,9 +4,11 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Konwerter.Desktop"
+        xmlns:vm="clr-namespace:Konwerter.Desktop.ViewModel"
         mc:Ignorable="d"
         Title="Konwerter jednostek" Height="520.001" Width="1032.867">
     <Window.Resources>
+        <vm:ViewModelBase x:Key="viewModel"/>
         <Storyboard x:Key="zegarAnimation">
             <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="path1">
                 <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
@@ -41,11 +43,11 @@
         <StackPanel Grid.Column="1" Grid.Row="0" Grid.RowSpan="2">
             <Label x:Name="converterLabel" Content="Wybierz kategorię po lewej" VerticalAlignment="Top"/>
             <Label  x:Name="label" Content="Z:" Margin="10,10,10,0" VerticalAlignment="Top" IsEnabled="False"/>
-            <ComboBox  x:Name="convertFrom" Margin="10,10,10,0" VerticalAlignment="Top"/>
+            <ComboBox  x:Name="convertFrom" Margin="10,10,10,0" VerticalAlignment="Top" SelectionChanged="convertFrom_SelectionChanged"/>
             <TextBox  x:Name="quantityBox" Height="39" Margin="30,10,30,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
             <Label  x:Name="label_Copy" Content="Na:" Margin="10,10,0,0" VerticalAlignment="Top"/>
             <ComboBox  x:Name="convertTo" Margin="10,10,10,0" VerticalAlignment="Top"/>
-            <Button  x:Name="onConvert" Height="50" Content="Konwertuj" Margin="20,30,20,10" VerticalAlignment="Top" Click="onConvert_Click" IsEnabled="False"/>
+            <Button  x:Name="onConvert" Height="50" Content="Konwertuj" Margin="20,30,20,10" VerticalAlignment="Top" IsEnabled="False" Click="onConvert_Click" />
             <Label  x:Name="resultLabel" Content="" Height="60" Margin="20,20,148,0" VerticalAlignment="Top" FontSize="16"/>
 
         </StackPanel>

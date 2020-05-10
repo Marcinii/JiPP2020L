@@ -14,22 +14,26 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Konwerter.Desktop.Repository;
+using Konwerter.Desktop.ViewModel;
 using Logic;
 
 namespace Konwerter.Desktop
 {
     public partial class MainWindow : Window
     {
-        bool isOcenaOpened;
-        int initPagination = 0;
-        int borderPagination = 20;
-        int databaseSize;
-        string selectedFilterType = null;
 
-        string dateFromParam = null;
-        string dateToParam = null;
+        public ViewModelBase view = new ViewModelBase();
 
-        CONVERSIONS conversion = new CONVERSIONS();
+        public bool isOcenaOpened;
+        public int initPagination = 0;
+        public int borderPagination = 20;
+        public int databaseSize;
+        public string selectedFilterType = null;
+
+        public string dateFromParam = null;
+        public string dateToParam = null;
+
+        public CONVERSIONS conversion = new CONVERSIONS();
 
         public List<IConverter> converterList = new List<IConverter> {
             new LenghtConversion(),
@@ -39,7 +43,7 @@ namespace Konwerter.Desktop
             new TimeConversion()
         };
 
-        IConverter chosenConverter;
+        public IConverter chosenConverter;
 
         public MainWindow()
         {
@@ -299,5 +303,14 @@ namespace Konwerter.Desktop
             dateToParam = day.ToString("yyyy/MM/dd");
         }
 
+        private void onConvert_Click_1(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void convertFrom_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            
+        }
     }
 }

@@ -88,5 +88,16 @@ namespace Konwerter.Desktop.Repository
                 context.SaveChanges();
             }
         }
+
+        public static List<GRADES> getGrade()
+        {
+            using (GradeModel context = new GradeModel())
+            {
+                List<GRADES> grades = context.GRADES
+                    .SqlQuery("SELECT TOP 1 * FROM GRADES ORDER BY id DESC").ToList();
+
+                return grades;
+            }
+        }
     }
 }

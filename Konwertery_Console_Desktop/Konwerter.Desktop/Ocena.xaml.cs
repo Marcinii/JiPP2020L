@@ -23,11 +23,12 @@ namespace Konwerter.Desktop
         public Ocena()
         {
             InitializeComponent();
+            getLastGrade();
         }
 
         private void slider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
-            ocena.grade = Convert.ToInt64(gradeSlider.Value);
+            ocena.grade = Convert.ToInt32(gradeSlider.Value);
             gradeLabel.Content = ocena.grade;
         }
 
@@ -36,6 +37,12 @@ namespace Konwerter.Desktop
             DatabaseModule.insertGrade(ocena);
             gradeLabel.Content = "Wysłano";
             ocena = new GRADES();
+            getLastGrade();
+        }
+
+        private void getLastGrade()
+        {
+            lastGradeLbl.Content = DatabaseModule.getGrade()[0].grade.ToString();
         }
     }
 }

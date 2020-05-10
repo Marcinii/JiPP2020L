@@ -1,16 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
+using System.ComponentModel;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Konwerter.Desktop
 {
-    public class GRADES
+    public class Parameter
     {
-        [Key]
-        public int id { get; set; }
-        public int grade { get; set; }
+        public string name { get; set; }
     }
 }

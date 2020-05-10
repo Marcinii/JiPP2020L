@@ -4,13 +4,14 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Konwerter.Desktop"
-             mc:Ignorable="d" 
-             d:DesignHeight="100" d:DesignWidth="300">
+             mc:Ignorable="d" d:DesignWidth="300" Height="142.5">
     <Grid>
         <Label x:Name="titleLabel" Content="Ocena aplikacji:" HorizontalAlignment="Left" Margin="44,10,0,0" VerticalAlignment="Top" Width="92"/>
         <Slider x:Name="gradeSlider" HorizontalAlignment="Left" Margin="44,41,0,0" VerticalAlignment="Top" Width="213" Maximum="5" ValueChanged="slider_ValueChanged"/>
         <Label x:Name="gradeLabel" Content="" HorizontalAlignment="Left" Margin="141,10,0,0" VerticalAlignment="Top" Width="149"/>
         <Button x:Name="sendGradeBtn" Content="Wyślij ocenę" HorizontalAlignment="Left" Margin="74,70,0,0" VerticalAlignment="Top" Width="152" Click="sendGradeBtn_Click"/>
+        <Label x:Name="label" Content="Ostatnia ocena:" HorizontalAlignment="Left" Margin="32,106,0,0" VerticalAlignment="Top" Width="104"/>
+        <Label x:Name="lastGradeLbl" Content="" HorizontalAlignment="Left" Margin="141,106,0,0" VerticalAlignment="Top" Width="67"/>
 
     </Grid>
 </UserControl>
