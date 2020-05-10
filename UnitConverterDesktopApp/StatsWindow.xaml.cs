@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Windows;
 using unit_converter;
 
@@ -17,9 +18,9 @@ namespace UnitConverterDesktopApp
         public StatsWindow()
         {
             InitializeComponent();
+
             FilterByConverterListBox.ItemsSource = new ConverterService().GetConverters().Keys;
             _currentPage = 1;
-            StatsWindowLoadingScreen.Visibility = Visibility.Hidden;
 
             FilterDataCommand = new RelayCommand(obj => FilterData());
             FilterDataButton.Command = FilterDataCommand;
@@ -61,16 +62,27 @@ namespace UnitConverterDesktopApp
         }
         private void RunQuery()
         {
+            // Symuluje wydluzony czas operacji
+            Task.Delay(5000).Wait();
+
             this._records = Database.SelectResults(
                 this.GetFilterByConverterItems(), this.DateFromPicker.SelectedDate, this.DateToPicker.SelectedDate, this.TopCheckBox.IsChecked);
             _lastPage = Math.Ceiling((Enumerable.Count(this._records) / Convert.ToDouble(_maxRecordsPerPage)));
         }
+
         public RelayCommand FilterDataCommand;
         private void FilterData()
         {
-            
+            StatsWindowLoadingScreen.Visibility = Visibility.Visible;
 
-            RunQuery();
+            Task task = new Task(() => RunQuery());
+            task.Start();
+
+            Task.WhenAll(task).ContinueWith(t =>
+            {
+                Dispatcher.Invoke(() => StatsWindowLoadingScreen.Visibility = Visibility.Hidden);
+            });
+
             _currentPage = 1;
             TableForStats.ItemsSource = this._records
                 .Skip((_currentPage - 1) * _maxRecordsPerPage)

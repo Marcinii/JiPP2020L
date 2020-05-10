@@ -23,7 +23,8 @@
             <BeginStoryboard Storyboard="{StaticResource LoadingCircleRotation}"/>
         </EventTrigger>
     </UserControl.Triggers>
-    <Grid x:Name="LoadingScreenBackground" Background="#7F000000">
+    <Grid x:Name="LoadingScreenBackground" 
+          Background="#7F000000">
         <Path 
             x:Name="LoadingCircle" 
             Data="M55,10.500001 C30.423328,10.5 10.5,30.423328 10.500001,55 10.5,79.576668 30.423328,99.5 55,99.5 79.576668,99.5 99.5,79.576668 99.5,55 99.5,30.423328 79.576668,10.5 55,10.500001 z M55,0.5 C85.099518,0.5 109.5,24.900481 109.5,55 109.5,85.099518 85.099518,109.5 55,109.5 24.900481,109.5 0.5,85.099518 0.5,55 0.5,24.900481 24.900481,0.5 55,0.5 z" 

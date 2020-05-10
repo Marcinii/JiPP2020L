@@ -107,7 +107,8 @@
             </Grid>
         </StackPanel>
         <commonControls:LoadingScreen
-            x:Name="StatsWindowLoadingScreen"        
+            x:Name="StatsWindowLoadingScreen"
+            Visibility="Hidden"
         ></commonControls:LoadingScreen>
     </Grid>
 </Window>
