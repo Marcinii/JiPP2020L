@@ -96,11 +96,11 @@
                     <ColumnDefinition Width="1*"/>
                 </Grid.ColumnDefinitions>
 
-                <Label Margin="10,5,10,5">Ocena aplikacji: </Label>
+                <Label Margin="10,5,10,5">Ocena aplikacji:</Label>
                 <commonControls:RateMe x:Name="rateButtons" Margin="10,5,10,5" Grid.Column="1" RateValueChanged="rateControl_RateValueChanged" Loaded="RateMe_Loaded"/>
             </Grid>
         </StackPanel>
-        <Path x:Name="path" Grid.Column="1" Data="M70.5,37.25 C52.136532,37.25 37.25,52.136532 37.25,70.5 37.25,88.863464 52.136532,103.75 70.5,103.75 88.863464,103.75 103.75,88.863464 103.75,70.5 103.75,52.136532 88.863464,37.25 70.5,37.25 z M70.5,0.5 C109.15993,0.5 140.5,31.840067 140.5,70.5 140.5,109.15993 109.15993,140.5 70.5,140.5 31.840067,140.5 0.5,109.15993 0.5,70.5 0.5,31.840067 31.840067,0.5 70.5,0.5 z" HorizontalAlignment="Left" Height="141" Margin="62,209.25,0,0" Stretch="Fill" Stroke="#FF008CB6" VerticalAlignment="Top" Width="141" RenderTransformOrigin="0.5,0.5" Opacity="0">
+        <Path x:Name="path" Grid.Column="1" Data="M70.5,37.25 C52.136532,37.25 37.25,52.136532 37.25,70.5 37.25,88.863464 52.136532,103.75 70.5,103.75 88.863464,103.75 103.75,88.863464 103.75,70.5 103.75,52.136532 88.863464,37.25 70.5,37.25 z M70.5,0.5 C109.15993,0.5 140.5,31.840067 140.5,70.5 140.5,109.15993 109.15993,140.5 70.5,140.5 31.840067,140.5 0.5,109.15993 0.5,70.5 0.5,31.840067 31.840067,0.5 70.5,0.5 z" HorizontalAlignment="Left" Height="141" Margin="10,241,0,0" Stretch="Fill" Stroke="#FF008CB6" VerticalAlignment="Top" Width="141" RenderTransformOrigin="0.5,0.5" Opacity="0">
             <Path.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -120,7 +120,7 @@
         </Path>
         <Button x:Name="button" Content="Begin" Grid.Column="1" HorizontalAlignment="Left" Margin="272,259,0,0" VerticalAlignment="Top" Width="75" Opacity="0"/>
         <Button x:Name="button1" Content="Stop" Grid.Column="1" HorizontalAlignment="Left" Margin="272,330,0,0" VerticalAlignment="Top" Width="76" Opacity="0"/>
-        <Line x:Name="minuteArrow" X1="0" X2="100" Grid.Column="1" Stroke="Black" StrokeThickness="8" Margin="37.509,278.213,263.512,129.707" RenderTransformOrigin="1,0.5" Opacity="0">
+        <Line x:Name="minuteArrow" X1="0" X2="100" Stroke="Black" StrokeThickness="8" Margin="372,314,325,93" RenderTransformOrigin="1,0.5" Opacity="0" Grid.ColumnSpan="2">
             <Line.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform ScaleY="-1"/>
@@ -130,7 +130,7 @@
                 </TransformGroup>
             </Line.RenderTransform>
         </Line>
-        <Path x:Name="hourArrow" Grid.Column="1" Data="M0,0 L204.5,1.5" HorizontalAlignment="Left" Height="14" Margin="48.5,276.388,0,0" Stroke="#FFF50000" VerticalAlignment="Top" Width="88.5" OpacityMask="Black" StrokeThickness="14" Stretch="Fill" RenderTransformOrigin="1,0.5" Opacity="0">
+        <Path x:Name="hourArrow" Data="M0,0 L204.5,1.5" HorizontalAlignment="Left" Height="14" Margin="389,316.888,0,0" Stroke="#FFF50000" VerticalAlignment="Top" Width="88.5" OpacityMask="Black" StrokeThickness="14" Stretch="Fill" RenderTransformOrigin="1,0.5" Opacity="0" Grid.ColumnSpan="2">
             <Path.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform ScaleY="-1"/>
