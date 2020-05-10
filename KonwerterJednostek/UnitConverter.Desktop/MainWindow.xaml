@@ -45,6 +45,12 @@
                 <EasingDoubleKeyFrame KeyTime="0:0:3" Value="1"/>
             </DoubleAnimationUsingKeyFrames>
         </Storyboard>
+        <Storyboard x:Key="loaderEllipseStoryboard">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[2].(RotateTransform.Angle)" Storyboard.TargetName="loaderEllipse" RepeatBehavior="Forever">
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="180"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:2" Value="360"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
         <!--<Storyboard x:Key="clockArrowsStoryboard">
             <DoubleAnimationUsingKeyFrames x:Name="minuteArrowAnimation" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[2].(RotateTransform.Angle)" Storyboard.TargetName="minuteArrow">
                 <EasingDoubleKeyFrame KeyTime="0:0:1" Value="180"/>
@@ -58,6 +64,7 @@
         <EventTrigger RoutedEvent="FrameworkElement.Loaded">
             <BeginStoryboard Storyboard="{StaticResource circleStoryboard}"/>
             <BeginStoryboard Storyboard="{StaticResource buttonStoryboard}"/>
+            <BeginStoryboard Storyboard="{StaticResource loaderEllipseStoryboard}"/>
             <!--<BeginStoryboard Storyboard="{StaticResource clockArrowsStoryboard}"/>-->
             <!--<BeginStoryboard Storyboard="{StaticResource clockVisibility}"/>-->
         </EventTrigger>
@@ -161,7 +168,42 @@
         <Button x:Name="refreshButton" Content="Refresh DB" Grid.Column="1" HorizontalAlignment="Left" Margin="316,226,0,0" VerticalAlignment="Top" Width="80" Height="20" />
 
 
+        <!--<Rectangle x:Name="loaderPanel" Grid.ColumnSpan="2" Fill="#4C000000" Visibility="Hidden"/>-->
+
+
+
+
+
+
+
+
         <Rectangle x:Name="loaderPanel" Grid.ColumnSpan="2" Fill="#4C000000" Visibility="Hidden"/>
+        <Ellipse x:Name="loaderEllipse" Grid.ColumnSpan="2" Width="200" Height="200" RenderTransformOrigin="0.5,0.5" Visibility="Hidden">
+            <Ellipse.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Ellipse.RenderTransform>
+            <Ellipse.Fill>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="Black" Offset="0"/>
+                    <GradientStop Color="#FFE6E675" Offset="1"/>
+                </LinearGradientBrush>
+            </Ellipse.Fill>
+        </Ellipse>
+        <TextBlock x:Name="loaderText" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,0,0,50" FontSize="36" FontFamily="Showcard Gothic" Text="Loading..." Visibility="Hidden">
+            <TextBlock.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="Black"/>
+                    <GradientStop Color="#FFF04D4D" Offset="0.578"/>
+                </LinearGradientBrush>
+            </TextBlock.Background>
+        </TextBlock>
+
+
     </Grid>
 
 </Window>
