@@ -96,8 +96,7 @@ namespace UnitConverterDesktopApp
         public RelayCommand FilterDataCommand;
         private void FilterData()
         {
-            RunQuery();
-            
+            RunQuery();         
             StatsWindowLoadingScreen.Visibility = Visibility.Visible;
 
             Task task1 = new Task(() => LoadStatistics());
@@ -127,6 +126,11 @@ namespace UnitConverterDesktopApp
                 .Skip((_currentPage - 1) * _maxRecordsPerPage)
                 .Take(_maxRecordsPerPage);
             PageCountRefresh();
+        }
+
+        private void TableForStats_Loaded(object sender, RoutedEventArgs e)
+        {
+            FilterData();
         }
     }
 }
