@@ -202,12 +202,12 @@
                     </LinearGradientBrush>
                 </TextBlock.Background>
             </TextBlock>
-            
+            <Button x:Name="loaderCancelButton" Content="Cancel" HorizontalAlignment="Left" Margin="27,340,0,0" VerticalAlignment="Top" Width="124" Height="48"/>
 
         </Grid>
 
 
-        <!--<Button x:Name="loaderCancelButton" Content="Cancel" HorizontalAlignment="Left" Margin="27,340,0,0" VerticalAlignment="Top" Width="124" Height="48"/>-->
+       
 
 
         <!--<Rectangle x:Name="loaderPanel" Grid.ColumnSpan="2" Fill="#4C000000" Visibility="Hidden"/>
