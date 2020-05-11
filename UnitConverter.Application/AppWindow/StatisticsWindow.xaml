@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:switcher="clr-namespace:UnitConverter.Application.AppUserControl.PaginationSwitcherControl"
+        xmlns:spinner="clr-namespace:UnitConverter.Application.AppUserControl.LoadingSpinnerControl"
         mc:Ignorable="d"
         Title="Konwerter jednostek - statystyki" 
         Height="620" Width="1200" MinHeight="620" MinWidth="1200"
@@ -111,5 +112,7 @@
                 <Label x:Name="rowCountStatusbar" FontSize="12px" />
             </StatusBarItem>
         </StatusBar>
+
+        <spinner:LoadingSpinner x:Name="statisticsWindowLoadingSpinner" Grid.Row="0" Grid.Column="0" Grid.RowSpan="3" />
     </Grid>
 </Window>

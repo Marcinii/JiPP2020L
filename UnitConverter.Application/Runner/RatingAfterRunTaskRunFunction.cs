@@ -14,17 +14,21 @@ namespace UnitConverter.Application.Runner
     {
         public void apply(IRunnable runnable)
         {
-            RatingInfoWindow ratingInfoWindow = (RatingInfoWindow)runnable.getParameter("ratingInfoWindow").value;
+            System.Windows.Application.Current.Dispatcher.Invoke(() =>
+            {
+                RatingInfoWindow ratingInfoWindow = (RatingInfoWindow)runnable.getParameter("ratingInfoWindow").value;
+                ratingInfoWindow.ratingInfoLoadingSpinner.Visibility = Visibility.Hidden;
 
-            MessageBox.Show(
-                ratingInfoWindow,
-                "Dziękuję za ocenienie aplikacji",
-                "Konwerter jednostek",
-                MessageBoxButton.OK,
-                MessageBoxImage.Information
-            );
+                MessageBox.Show(
+                    ratingInfoWindow,
+                    "Dziękuję za ocenienie aplikacji",
+                    "Konwerter jednostek",
+                    MessageBoxButton.OK,
+                    MessageBoxImage.Information
+                );
 
-            ratingInfoWindow.Close();
+                ratingInfoWindow.Close();
+            });
         }
     }
 }

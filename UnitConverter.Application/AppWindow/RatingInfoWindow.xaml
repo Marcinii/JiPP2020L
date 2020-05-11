@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:rating="clr-namespace:UnitConverter.Application.AppUserControl.RatingControl"
+        xmlns:spiner="clr-namespace:UnitConverter.Application.AppUserControl.LoadingSpinnerControl"
         mc:Ignorable="d"
         Title="Konwerter jednostek - oceń aplikację" Height="359.5" Width="646.5">
 
@@ -92,5 +93,7 @@
                 <Button x:Name="denyRatingButton" Grid.Row="0" Grid.Column="1" Content="Anuluj" Style="{StaticResource denyButtonStyle}" />
             </Grid>
         </StackPanel>
+        <spiner:LoadingSpinner x:Name="ratingInfoLoadingSpinner" Grid.Row="0" Grid.Column="0" 
+                               Grid.RowSpan="3" Grid.ColumnSpan="3" Visibility="Hidden" />
     </Grid>
 </Window>

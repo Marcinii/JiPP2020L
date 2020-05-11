@@ -70,6 +70,9 @@
       <DependentUpon>Clock.xaml</DependentUpon>
     </Compile>
     <Compile Include="AppUserControl\ClockControl\RectangleMarginConverter.cs" />
+    <Compile Include="AppUserControl\LoadingSpinnerControl\LoadingSpinner.xaml.cs">
+      <DependentUpon>LoadingSpinner.xaml</DependentUpon>
+    </Compile>
     <Compile Include="AppUserControl\PaginationSwitcherControl\PaginationSwitcher.xaml.cs">
       <DependentUpon>PaginationSwitcher.xaml</DependentUpon>
     </Compile>
@@ -88,6 +91,7 @@
     </Compile>
     <Compile Include="Command\ButtonCommand.cs" />
     <Compile Include="Converter\TimeFormatComboBoxValueConverter.cs" />
+    <Compile Include="Runner\SpinnerShowBeforeRunTaskRunFunction.cs" />
     <Compile Include="Runner\FindLastRatingAfterRunTaskRunFunction.cs" />
     <Compile Include="Runner\MainWindowConversionAfterRunTaskRunFunction.cs" />
     <Compile Include="Runner\MainWindowConversionBeforeRunTaskRunFunction.cs" />
@@ -106,6 +110,10 @@
     <Page Include="AppUserControl\ClockControl\Clock.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="AppUserControl\LoadingSpinnerControl\LoadingSpinner.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="AppUserControl\PaginationSwitcherControl\PaginationSwitcher.xaml">
       <SubType>Designer</SubType>

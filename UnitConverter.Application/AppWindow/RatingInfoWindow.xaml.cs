@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using System.Threading;
+using System.Windows;
 using UnitConverter.Application.Command;
 using UnitConverter.Library.OperationUtil;
 using UnitConverter.Library.OperationUtil.Repository;
@@ -22,10 +23,14 @@ namespace UnitConverter.Application.AppWindow
             this.operationRepository.selectOperation(3);
             this.selectedOperation = this.operationRepository.getSelectedOperation();
 
+            this.selectedOperation.task.setParameter("spinner", this.ratingInfoLoadingSpinner);
+
             TaskGroup group = (TaskGroup)this.selectedOperation.task;
 
             group.getAllTasks()[0].setParameter("label", this.ratingInfoLabel);
-            group.getAllTasks()[0].run(this.selectedOperation);
+            group.getAllTasks()[0].setParameter("ratingInfoWindow", this);
+
+            new Thread(() => group.getAllTasks()[0].run(this.selectedOperation)).Start();
 
             group.getAllTasks()[1].setParameter("ratingInfoWindow", this);
 

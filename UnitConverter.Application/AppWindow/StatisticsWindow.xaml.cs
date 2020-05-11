@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using System.Threading;
+using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using UnitConverter.Application.AppUserControl.PaginationSwitcherControl;
@@ -55,38 +56,13 @@ namespace UnitConverter.Application.AppWindow
             this.selectedOperation = this.repository.getSelectedOperation();
 
 
-            if (!this.selectedOperation.task.getParameters().exists("currentPage"))
-            {
-                this.selectedOperation.task.addParameter(
-                    new InputTaskParameter("currentPage", typeof(CustomInteger), TaskParameterLevel.HIDDEN)
-                    {
-                        value = paginationSwitcher.currentPage
-                    }
-                );
-            }
-            else
-            {
-                this.selectedOperation.task.setParameter("currentPage", paginationSwitcher.currentPage);
-            }
-
-
-            if(!this.selectedOperation.task.getParameters().exists("pageSize"))
-            {
-                this.selectedOperation.task.addParameter(
-                    new InputTaskParameter("pageSize", typeof(CustomInteger), TaskParameterLevel.HIDDEN)
-                    {
-                        value = (CustomInteger)20
-                    }
-                );
-            }
-            else
-            {
-                this.selectedOperation.task.setParameter("pageSize", (CustomInteger)20);
-            }
+            this.selectedOperation.task.setParameter("currentPage", paginationSwitcher.currentPage);
+            this.selectedOperation.task.setParameter("pageSize", (CustomInteger)20);
+            this.selectedOperation.task.setParameter("spinner", this.statisticsWindowLoadingSpinner);
 
             this.selectedOperation
                 .afterRun(new StatisticsWindowFindAllConversionHistoryAfterRunTaskRunFunction(this));
-            this.selectedOperation.run();
+            new Thread(() => this.selectedOperation.run()).Start();
         }
 
 
@@ -96,7 +72,8 @@ namespace UnitConverter.Application.AppWindow
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void refreshWindowMenuItem_Click(object sender, RoutedEventArgs e) => this.selectedOperation.run();
+        private void refreshWindowMenuItem_Click(object sender, RoutedEventArgs e) => 
+            new Thread(() => this.selectedOperation.run()).Start();
 
 
 

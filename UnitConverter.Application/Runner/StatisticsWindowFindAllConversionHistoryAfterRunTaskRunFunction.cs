@@ -7,6 +7,7 @@ using UnitConverter.Library.TaskUtil;
 using UnitConverter.Library.TypeUtil.Number;
 using System;
 using System.Diagnostics;
+using System.Windows;
 
 namespace UnitConverter.Application.Runner
 {
@@ -34,45 +35,50 @@ namespace UnitConverter.Application.Runner
 
         public void apply(IRunnable runnable)
         {
-            List<object> results = (List<object>)runnable.getResult();
-
-            List<ConversionHistory> wholeHistory = (List<ConversionHistory>)results[0];
-            List<KeyValuePair<ConversionHistory, int>> topThreeConversions = (List<KeyValuePair<ConversionHistory, int>>)results[1];
-
-            CustomInteger currentPage = (CustomInteger)runnable.getParameter("currentPage").value;
-            CustomInteger pageSize = (CustomInteger)runnable.getParameter("pageSize").value;
-
-            if(pageSize < wholeHistory.Count)
+            System.Windows.Application.Current.Dispatcher.Invoke(() =>
             {
-                statisticsWindow.paginationDockPanelRowDefinition.Height = new System.Windows.GridLength(50);
-                statisticsWindow.paginationSwitcher.pages = (wholeHistory.Count / pageSize.toPrimitiveValue()) + 1;
+                List<object> results = (List<object>)runnable.getResult();
 
-                wholeHistory = wholeHistory
-                                .Skip(((currentPage - 1) * pageSize).toPrimitiveValue())
-                                .Take(Math.Min((pageSize + (pageSize * (currentPage - 1))).toPrimitiveValue(), wholeHistory.Count))
-                                .ToList();
-            }
-            else
-            {
-                statisticsWindow.paginationDockPanelRowDefinition.Height = new System.Windows.GridLength(0);
-            }
+                List<ConversionHistory> wholeHistory = (List<ConversionHistory>)results[0];
+                List<KeyValuePair<ConversionHistory, int>> topThreeConversions = (List<KeyValuePair<ConversionHistory, int>>)results[1];
 
-            Trace.WriteLine("StatisticsWindowFindAllConversionHistoryAfterRunTaskRunFunction :: Pages ammmount: " + statisticsWindow.paginationSwitcher.pages);
+                CustomInteger currentPage = (CustomInteger)runnable.getParameter("currentPage").value;
+                CustomInteger pageSize = (CustomInteger)runnable.getParameter("pageSize").value;
 
-            statisticsWindow.statisticsDataDrid.ItemsSource = wholeHistory;
+                if (pageSize < wholeHistory.Count)
+                {
+                    statisticsWindow.paginationDockPanelRowDefinition.Height = new System.Windows.GridLength(50);
+                    statisticsWindow.paginationSwitcher.pages = (wholeHistory.Count / pageSize.toPrimitiveValue()) + 1;
 
-            statisticsWindow.rowCountStatusbar.Content = string.Format("Łączna liczba rekordów: {0}", wholeHistory.Count);
+                    wholeHistory = wholeHistory
+                                    .Skip(((currentPage - 1) * pageSize).toPrimitiveValue())
+                                    .Take(Math.Min((pageSize + (pageSize * (currentPage - 1))).toPrimitiveValue(), wholeHistory.Count))
+                                    .ToList();
+                }
+                else
+                {
+                    statisticsWindow.paginationDockPanelRowDefinition.Height = new System.Windows.GridLength(0);
+                }
 
-            statisticsWindow.conversionNamesStackPanel.Children.Clear();
+                Trace.WriteLine("StatisticsWindowFindAllConversionHistoryAfterRunTaskRunFunction :: Pages ammmount: " + statisticsWindow.paginationSwitcher.pages);
 
-            topThreeConversions.ForEach(conversion =>
-            {
-                statisticsWindow.conversionNamesStackPanel.Children.Add(
-                    new Label()
-                    {
-                        Content = string.Format(" - {0} ({1})", conversion.Key.converterName, conversion.Value)
-                    }
-                );
+                statisticsWindow.statisticsDataDrid.ItemsSource = wholeHistory;
+
+                statisticsWindow.rowCountStatusbar.Content = string.Format("Łączna liczba rekordów: {0}", wholeHistory.Count);
+
+                statisticsWindow.conversionNamesStackPanel.Children.Clear();
+
+                topThreeConversions.ForEach(conversion =>
+                {
+                    statisticsWindow.conversionNamesStackPanel.Children.Add(
+                        new Label()
+                        {
+                            Content = string.Format(" - {0} ({1})", conversion.Key.converterName, conversion.Value)
+                        }
+                    );
+                });
+
+                statisticsWindow.statisticsWindowLoadingSpinner.Visibility = Visibility.Hidden;
             });
         }
     }

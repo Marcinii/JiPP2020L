@@ -1,11 +1,14 @@
 ﻿using System.Reflection.Emit;
 using System.Windows;
+using UnitConverter.Application.AppUserControl.LoadingSpinnerControl;
 using UnitConverter.Application.AppWindow;
 using UnitConverter.Application.Runner;
 using UnitConverter.Library.History;
+using UnitConverter.Library.OperationUtil;
 using UnitConverter.Library.OperationUtil.Repository;
 using UnitConverter.Library.TaskUtil.Group;
 using UnitConverter.Library.TaskUtil.Parameter;
+using UnitConverter.Library.TypeUtil.Number;
 
 namespace UnitConverter.Application
 {
@@ -29,16 +32,24 @@ namespace UnitConverter.Application
 
             TaskGroup group = (TaskGroup)this.repository.findOperationById(3).task;
 
-            group.getAllTasks()[0].addParameter(
-                new InputTaskParameter("label", typeof(Label))
-            );
+            this.repository.findOperationById(3).task.addParameter(new InputTaskParameter("spinner", typeof(LoadingSpinner)));
+
+            group.getAllTasks()[0].addParameter(new InputTaskParameter("label", typeof(Label)));
+            group.getAllTasks()[0].addParameter(new InputTaskParameter("ratingInfoWindow", typeof(RatingInfoWindow)));
+            group.getAllTasks()[0].beforeRun(new SpinnerShowBeforeRunTaskRunFunction());
             group.getAllTasks()[0].afterRun(new FindLastRatingAfterRunTaskRunFunction());
 
 
-            group.getAllTasks()[1].addParameter(
-                new InputTaskParameter("ratingInfoWindow", typeof(RatingInfoWindow))
-            );
+            group.getAllTasks()[1].addParameter(new InputTaskParameter("ratingInfoWindow", typeof(RatingInfoWindow)));
+            group.getAllTasks()[1].beforeRun(new SpinnerShowBeforeRunTaskRunFunction());
             group.getAllTasks()[1].afterRun(new RatingAfterRunTaskRunFunction());
+
+
+            Operation operation = this.repository.findOperationById(2);
+            operation.task.addParameter(new InputTaskParameter("currentPage", typeof(CustomInteger), TaskParameterLevel.HIDDEN));
+            operation.task.addParameter(new InputTaskParameter("pageSize", typeof(CustomInteger), TaskParameterLevel.HIDDEN));
+            operation.task.addParameter(new InputTaskParameter("spinner", typeof(LoadingSpinner)));
+            operation.task.beforeRun(new SpinnerShowBeforeRunTaskRunFunction());
         }
     }
 }
