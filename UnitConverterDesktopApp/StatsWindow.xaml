@@ -82,7 +82,7 @@
             </Grid>
             <DataGrid x:Name="TableForStats"
                       IsReadOnly="True"
-                      ColumnWidth="*" Loaded="TableForStats_Loaded">
+                      ColumnWidth="*">
             </DataGrid>
             <Grid>
                 <Grid.ColumnDefinitions>
