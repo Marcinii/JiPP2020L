@@ -279,27 +279,41 @@ namespace Konwerter.Desktop
         {
                      
         }
+
         public void Daj_historie()
         {
-            var biezaca = int.Parse(strona.Content.ToString());
-            using (var historia = new DataEntities())
-            {
-                var dane = historia.Konwert_History.AsQueryable();
-                if (date_od.SelectedDate != null)
-                {
-                    dane = dane.Where(DATE => DATE.Data >= date_od.SelectedDate);
-                }
-                if (date_do.SelectedDate != null)
-                {
-                    dane = dane.Where(DATE => DATE.Data <= date_do.SelectedDate);
-                }
-                History_Data_Grid.ItemsSource = dane.OrderBy(LP => LP.ID).Skip(10 * (biezaca - 1)).Take(10).ToList();
-            }
 
+            this.Dispatcher.Invoke(() =>
+            {
+                LoadingRectangle.Visibility = Visibility.Visible;
+                LoaderCircle.Visibility = Visibility.Visible;
+                int biezaca = 0;
+                biezaca = int.Parse(strona.Content.ToString());
+                using (var historia = new DataEntities())
+                {
+                    var dane = historia.Konwert_History.AsQueryable();
+                    if (date_od.SelectedDate != null)
+                    {
+                        dane = dane.Where(DATE => DATE.Data >= date_od.SelectedDate);
+                    }
+                    if (date_do.SelectedDate != null)
+                    {
+                        dane = dane.Where(DATE => DATE.Data <= date_do.SelectedDate);
+                    }
+                    History_Data_Grid.ItemsSource = dane.OrderBy(LP => LP.ID).Skip(10 * (biezaca - 1)).Take(10).ToList();
+                }
+            });
+            Task.Delay(5000).Wait();
         }
         private void Get_Button_Click(object sender, RoutedEventArgs e)
-        {
-            Daj_historie();
+        {            
+            Task t1 = new Task(() => Daj_historie());
+            t1.Start();
+            Task.WhenAll(t1).ContinueWith(t =>
+            {
+                LoaderCircle.Visibility = Visibility.Hidden;
+                LoadingRectangle.Visibility = Visibility.Hidden;
+            }, TaskScheduler.FromCurrentSynchronizationContext());
         }
 
         private void Prev_Button_Click(object sender, RoutedEventArgs e)
