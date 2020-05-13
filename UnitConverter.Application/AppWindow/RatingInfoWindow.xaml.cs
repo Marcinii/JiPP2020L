@@ -54,7 +54,7 @@ namespace UnitConverter.Application.AppWindow
         {
             TaskGroup group = (TaskGroup)this.selectedOperation.task;
             group.getAllTasks()[1].setParameter("Ocena", this.rating.value);
-            group.getAllTasks()[1].run(this.selectedOperation);
+            new Thread(() => group.getAllTasks()[1].run(this.selectedOperation)).Start();
         }
 
 

@@ -30,6 +30,8 @@ namespace UnitConverter.Application
         private ListBoxUtils<SelectableTaskParameterOption> fromUnitListBoxUtils;
         private ListBoxUtils<SelectableTaskParameterOption> toUnitListBoxUtils;
 
+        private CheckBoxUtils formatNumberCheckBoxUtils;
+
         private OperationRepository operationRepository;
 
         public Operation selectedOperation { get; private set; }
@@ -55,14 +57,16 @@ namespace UnitConverter.Application
             this.groupBoxUtils.addGroupBox(typeof(CustomDouble), this.customDoubleAdditionalOptionsComboBox);
             this.groupBoxUtils.addGroupBox(typeof(Custom12HTime), this.customTimeAdditionalOptionsGroupBox);
 
-            this.measurementUnitComboBoxUtils = new ComboBoxUtils<Operation>(this.measurementUnitComboBox);
-            this.commaDigitCountComboBoxUtils = new ComboBoxUtils<int>(this.commaDigitCountComboBox);
-            this.timeFormatComboBoxUtils = new ComboBoxUtils<Custom12HTimeType>(this.timeFormatComboBox);
+            this.measurementUnitComboBoxUtils = new ComboBoxUtils<Operation>((ComboBox)this.measurementUnitComboBox.content);
+            this.commaDigitCountComboBoxUtils = new ComboBoxUtils<int>((ComboBox)this.commaDigitCountComboBox.content);
+            this.timeFormatComboBoxUtils = new ComboBoxUtils<Custom12HTimeType>((ComboBox)this.timeFormatComboBox.content);
 
             this.fromUnitListBoxUtils = new ListBoxUtils<SelectableTaskParameterOption>(this.fromUnitListBox);
             this.toUnitListBoxUtils = new ListBoxUtils<SelectableTaskParameterOption>(this.toUnitListBox);
 
-            this.providedValueTextBoxUtils = new TextBoxUtils(this.providedValueTextBox);
+            this.providedValueTextBoxUtils = new TextBoxUtils((TextBox)this.providedValueTextBox.content);
+
+            this.formatNumberCheckBoxUtils = new CheckBoxUtils((CheckBox)this.formatNumberCheckBox.content);
 
             this.statusBarUtils.addStatusBarText(this.measurementUnitComboBox, "Wprowadż wartość do skonwertowania");
             this.statusBarUtils.addStatusBarText(this.providedValueTextBox, "Wprowadź wartość do przekonwertowania");
@@ -81,8 +85,6 @@ namespace UnitConverter.Application
 
             commaDigitCountComboBoxUtils.initialize(Enumerable.Range(0,8).ToList());
             timeFormatComboBoxUtils.initialize(Enum.GetValues(typeof(Custom12HTimeType)).Cast<Custom12HTimeType>().ToList());
-
-            this.commaDigitCountComboBox.SelectedIndex = 3;
 
             this.operationRepository.selectOperation(1);
             this.selectedOperation = this.operationRepository.getSelectedOperation();
@@ -152,11 +154,9 @@ namespace UnitConverter.Application
                 }
                 catch (CustomTypeException)
                 {
-                    this.providedValueTextBox.Clear();
+                    this.providedValueTextBoxUtils.clear();
                 }
             }
-
-            this.groupBoxUtils.activateGroupBoxByType(((Unit)fromConversion.value).type);
         }
 
 
@@ -187,7 +187,8 @@ namespace UnitConverter.Application
                 Unit fromUnit = (Unit)fromConversion.getSelectedOption().value;
 
                 this.groupBoxUtils.activateGroupBoxByType(fromUnit.type);
-                if(fromUnit.type == typeof(Custom12HTime))
+
+                if (fromUnit.type == typeof(Custom12HTime))
                 {
                     this.clock.show();
                 }
@@ -210,23 +211,26 @@ namespace UnitConverter.Application
         /// <param name="e"></param>
         private void providedValueTextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
+            SelectableTask currentTask = (SelectableTask)this.selectedOperation.task;
+            SelectableTaskParameter fromConversion = (SelectableTaskParameter)currentTask.getSelectedOperation().task.getParameter("fromConversion");
+            Unit fromUnit = (Unit)fromConversion.getSelectedOption().value;
+
             try
             {
-                if(this.providedValueTextBoxUtils.isNullOrEmpty())
+                if (this.providedValueTextBoxUtils.isNullOrEmpty())
                 {
                     this.convertedValueLabel.Content = "0";
-                    this.formatNumberLabel.Cursor = Cursors.Arrow;
                     this.convertedValueGrid.Visibility = Visibility.Hidden;
                     this.clock.setTime("00:00");
                 }
                 else
                 {
                     this.convertedValueGrid.Visibility = Visibility.Visible;
-                    this.formatNumberLabel.Cursor = Cursors.Hand;
                     this.mainWindowUtils.updateConvertedLabel();
                 }
 
                 this.providedValueTextBoxUtils.setToValid();
+                this.formatNumberCheckBox.disabled = this.providedValueTextBoxUtils.isNullOrEmpty();
                 this.formatNumberCheckBox.IsEnabled = !this.providedValueTextBoxUtils.isNullOrEmpty();
                 this.commaDigitCountComboBox.IsEnabled = !this.providedValueTextBoxUtils.isNullOrEmpty();
             }
@@ -234,16 +238,14 @@ namespace UnitConverter.Application
             {
                 this.providedValueTextBoxUtils.setToInvalid();
                 this.formatNumberCheckBox.IsEnabled = false;
-                this.formatNumberLabel.Cursor = Cursors.Arrow;
             }
 
-            this.customTimeFormatSelectionGrid.Visibility = !Regex.IsMatch(this.providedValueTextBox.Text, @"\s([Aa]|[Pp])[Mm]$")
-                                                        && providedValueTextBoxUtils.valid
-                                                        && providedValueTextBox.Text != ""
-                                                     ? Visibility.Visible : Visibility.Collapsed;
+            this.timeFormatComboBox.disabled = Regex.IsMatch(this.providedValueTextBoxUtils.getText(), @"\s([Aa]|[Pp])[Mm]$")
+                                                        || !providedValueTextBoxUtils.valid
+                                                        || providedValueTextBoxUtils.isNullOrEmpty();
 
-            if(this.customTimeFormatSelectionGrid.IsVisible)
-                this.clock.setTime(this.providedValueTextBox.Text + " " + this.timeFormatComboBoxUtils.getSelectedContent().ToString());
+            if (!this.timeFormatComboBox.disabled)
+                this.clock.setTime(this.providedValueTextBoxUtils.getText() + " " + this.timeFormatComboBoxUtils.getSelectedContent().ToString());
         }
 
 
@@ -306,10 +308,10 @@ namespace UnitConverter.Application
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void formatNumberLabel_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        private void formatNumberLabel_MouseLeftButtonUp(object sender, EventArgs e)
         {
-            if(this.formatNumberCheckBox.IsEnabled)
-                this.formatNumberCheckBox.IsChecked = !this.formatNumberCheckBox.IsChecked;
+            if (this.formatNumberCheckBoxUtils.isEnabled())
+                this.formatNumberCheckBoxUtils.toggle();
         }
 
 
@@ -324,7 +326,7 @@ namespace UnitConverter.Application
         /// <param name="e"></param>
         private void formatNumberCheckBox_Change(object sender, RoutedEventArgs e)
         {
-            this.convertedValueLabel.Content = ((bool) formatNumberCheckBox.IsChecked)
+            this.convertedValueLabel.Content = formatNumberCheckBoxUtils.isChecked()
                                             ? ((CustomDouble)this.mainWindowUtils.value).toFormattedString()
                                             : this.mainWindowUtils.value.ToString();
         }

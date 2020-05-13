@@ -1,5 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using UnitConverter.Library.History;
 using UnitConverter.Library.OperationUtil;
 using UnitConverter.Library.TypeUtil.DateTimeType;
@@ -29,8 +31,11 @@ namespace UnitConverter.Library.TaskUtil.Impl
         {
             CustomDate fromDate = (CustomDate)parameters["Data początkowa"].value;
             CustomDate toDate = (CustomDate)parameters["Data końcowa"].value;
+            Random random = new Random();
 
             List<ConversionHistory> res = new List<ConversionHistory>(customDatabaseContext.conversionHistoryList);
+
+            Thread.Sleep(random.Next(300, 800));
 
             if (!fromDate.isEmpty())
                 res = res.Where(x => x.createdAt >= fromDate).ToList();

@@ -1,4 +1,6 @@
-﻿using UnitConverter.Library.History;
+﻿using System;
+using System.Threading;
+using UnitConverter.Library.History;
 using UnitConverter.Library.OperationUtil;
 using UnitConverter.Library.RatingUtil;
 using UnitConverter.Library.TypeUtil.Number;
@@ -31,9 +33,12 @@ namespace UnitConverter.Library.TaskUtil.Impl
             Rating rating = new Rating(
                 ((CustomInteger)parameters["Ocena"].value).toPrimitiveValue()
             );
+            Random random = new Random();
 
             customDatabaseContext.ratings.Add(rating);
             customDatabaseContext.SaveChanges();
+
+            Thread.Sleep(random.Next(500, 900));
         });
     }
 }

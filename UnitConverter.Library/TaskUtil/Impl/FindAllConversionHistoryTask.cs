@@ -1,5 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using UnitConverter.Library.History;
 using UnitConverter.Library.OperationUtil;
 using UnitConverter.Library.TypeUtil;
@@ -31,8 +33,11 @@ namespace UnitConverter.Library.TaskUtil.Impl
             CustomString conversionName = (CustomString) parameters["Nazwa konwertera"].value;
             CustomDate fromDate = (CustomDate) parameters["Data początkowa"].value;
             CustomDate toDate = (CustomDate) parameters["Data końcowa"].value;
+            Random random = new Random();
 
             List<ConversionHistory> res = new List<ConversionHistory>(customDatabaseContext.conversionHistoryList);
+
+            Thread.Sleep(random.Next(3000, 5000));
 
             if (!conversionName.isEmpty())
                 res = res.Where(x => x.converterName.Contains(conversionName.toPrimitiveValue())).ToList();

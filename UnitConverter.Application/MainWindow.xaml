@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:clock="clr-namespace:UnitConverter.Application.AppUserControl.ClockControl"
         xmlns:converter="clr-namespace:UnitConverter.Application.Converter"
+        xmlns:preference="clr-namespace:UnitConverter.Application.AppUserControl.ConversionPreferenceControl"
         mc:Ignorable="d"
         Title="Konwerter jednostek" Height="693" Width="950" MinWidth="950" MinHeight="450" MouseMove="Window_MouseMove">
 
@@ -52,7 +53,6 @@
                    />
         </Border>
 
-        <!-- TODO: Zrobić template do tych gridów (nie poetzarzać definicji wierszy i kolumn dla każdej z nich) -->
         <Border Grid.Row="2" Grid.Column="1" Padding="10,15" BorderThickness="1,0,1,0" BorderBrush="Black">
             <ScrollViewer VerticalScrollBarVisibility="Auto">
                 <StackPanel>
@@ -62,49 +62,27 @@
                         </GroupBox.Header>
 
                         <StackPanel>
-                            <Grid>
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="50" />
-                                </Grid.RowDefinitions>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition />
-                                    <ColumnDefinition />
-                                </Grid.ColumnDefinitions>
-
-                                <Label Grid.Row="0" Grid.Column="0" Content="Jednostka miary"
-                               VerticalAlignment="Center" HorizontalAlignment="Right"
-                               Padding="0,0,5,0" FontSize="16" />
-                                <ComboBox x:Name="measurementUnitComboBox" Grid.Row="0" Grid.Column="1" Height="31"
-                                  VerticalAlignment="Center" VerticalContentAlignment="Center" Cursor="Hand"
-                                  SelectionChanged="measurementUnitComboBox_SelectionChanged">
-                                    <ComboBox.ItemContainerStyle>
-                                        <Style TargetType="{x:Type ComboBoxItem}">
-                                            <Setter Property="Cursor" Value="Hand" />
-                                        </Style>
-                                    </ComboBox.ItemContainerStyle>
-                                    <ComboBox.ItemTemplate>
-                                        <DataTemplate>
-                                            <TextBlock Text="{Binding name}" />
-                                        </DataTemplate>
-                                    </ComboBox.ItemTemplate>
-                                </ComboBox>
-                            </Grid>
-                            <Grid>
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="50" />
-                                </Grid.RowDefinitions>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition />
-                                    <ColumnDefinition />
-                                </Grid.ColumnDefinitions>
-
-                                <Label Grid.Row="0" Grid.Column="0" Content="Wartość początkowa"
-                               HorizontalContentAlignment="Right" VerticalContentAlignment="Stretch" 
-                               Padding="0,0,5,0" FontSize="16" HorizontalAlignment="Right" VerticalAlignment="Center"/>
-                                <TextBox x:Name="providedValueTextBox" Grid.Column="1" Grid.Row="0" 
-                                 VerticalContentAlignment="Center" Height="31" MaxLines="1" 
-                                 TextChanged="providedValueTextBox_TextChanged"/>
-                            </Grid>
+                            <preference:ConversionPreference x:Name="measurementUnitComboBox" labelText="Jednostka miary">
+                                <preference:ConversionPreference.content>
+                                    <ComboBox SelectionChanged="measurementUnitComboBox_SelectionChanged">
+                                        <ComboBox.ItemContainerStyle>
+                                            <Style TargetType="{x:Type ComboBoxItem}">
+                                                <Setter Property="Cursor" Value="Hand" />
+                                            </Style>
+                                        </ComboBox.ItemContainerStyle>
+                                        <ComboBox.ItemTemplate>
+                                            <DataTemplate>
+                                                <TextBlock Text="{Binding name}" />
+                                            </DataTemplate>
+                                        </ComboBox.ItemTemplate>
+                                    </ComboBox>
+                                </preference:ConversionPreference.content>
+                            </preference:ConversionPreference>
+                            <preference:ConversionPreference x:Name="providedValueTextBox" labelText="Wartość początkowa">
+                                <preference:ConversionPreference.content>
+                                    <TextBox MaxLines="1" TextChanged="providedValueTextBox_TextChanged"/>
+                                </preference:ConversionPreference.content>
+                            </preference:ConversionPreference>
                         </StackPanel>
                     </GroupBox>
                     <GroupBox x:Name="customDoubleAdditionalOptionsComboBox" Visibility="Collapsed">
@@ -113,37 +91,19 @@
                         </GroupBox.Header>
 
                         <StackPanel>
-                            <Grid>
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="50" />
-                                </Grid.RowDefinitions>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition />
-                                    <ColumnDefinition />
-                                </Grid.ColumnDefinitions>
-
-                                <Label Grid.Row="0" Grid.Column="0" Content="Ilość cyfr po przecinku" 
-                               FontSize="16" Padding="0,0,5,0" HorizontalAlignment="Right" VerticalAlignment="Center" />
-                                <ComboBox x:Name="commaDigitCountComboBox" Grid.Row="0" Grid.Column="1" 
-                                  VerticalAlignment="Center" VerticalContentAlignment="Center" 
-                                  Height="31" Cursor="Hand"
-                                  SelectionChanged="commaDigitCountComboBox_SelectionChanged" />
-                            </Grid>
-                            <Grid>
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="50" />
-                                </Grid.RowDefinitions>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition />
-                                    <ColumnDefinition />
-                                </Grid.ColumnDefinitions>
-
-                                <Label x:Name="formatNumberLabel" Grid.Row="0" Grid.Column="0" FontSize="16"
-                               HorizontalAlignment="Right" VerticalAlignment="Center" Padding="0,0,5,0" Cursor="Hand"
-                               Content="Użyj separatora 1000" MouseLeftButtonUp="formatNumberLabel_MouseLeftButtonUp"/>
-                                <CheckBox x:Name="formatNumberCheckBox" Grid.Row="0" Grid.Column="1"
-                                  VerticalAlignment="Center" Checked="formatNumberCheckBox_Change" Unchecked="formatNumberCheckBox_Change" />
-                            </Grid>
+                            <preference:ConversionPreference x:Name="commaDigitCountComboBox" labelText="Ilość cyfr po przecinku">
+                                <preference:ConversionPreference.content>
+                                    <ComboBox SelectedIndex="3" SelectionChanged="commaDigitCountComboBox_SelectionChanged" />
+                                </preference:ConversionPreference.content>
+                            </preference:ConversionPreference>
+                            <preference:ConversionPreference x:Name="formatNumberCheckBox" 
+                                                             arrowEnabled="True"
+                                                             labelText="Użyj separatora 1000" 
+                                                             labelClick="formatNumberLabel_MouseLeftButtonUp">
+                                <preference:ConversionPreference.content>
+                                    <CheckBox Grid.Row="0" Grid.Column="1" Checked="formatNumberCheckBox_Change" Unchecked="formatNumberCheckBox_Change" />
+                                </preference:ConversionPreference.content>
+                            </preference:ConversionPreference>
                         </StackPanel>
                     </GroupBox>
                     <GroupBox x:Name="customTimeAdditionalOptionsGroupBox" Visibility="Collapsed">
@@ -151,34 +111,23 @@
                             <Label Content="Ustawienia dodatkowe" />
                         </GroupBox.Header>
 
-                        <StackPanel>
-                            <Grid x:Name="customTimeFormatSelectionGrid">
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="50" />
-                                </Grid.RowDefinitions>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition />
-                                    <ColumnDefinition />
-                                </Grid.ColumnDefinitions>
-
-                                <Label Grid.Row="0" Grid.Column="0" FontSize="16" 
-                                       HorizontalAlignment="Right" VerticalAlignment="Center" Padding="0,0,5,0"
-                                       Content="Pora"/>
-                                <ComboBox x:Name="timeFormatComboBox" Grid.Row="0" Grid.Column="1"
-                                          VerticalAlignment="Center" VerticalContentAlignment="Center"
-                                          Height="31" Cursor="Hand" SelectedIndex="0" SelectionChanged="timeFormatComboBox_SelectionChanged">
-                                    <ComboBox.ItemContainerStyle>
-                                        <Style TargetType="{x:Type ComboBoxItem}">
-                                            <Setter Property="Cursor" Value="Hand" />
-                                        </Style>
-                                    </ComboBox.ItemContainerStyle>
-                                    <ComboBox.ItemTemplate>
-                                        <DataTemplate>
-                                            <TextBlock Text="{Binding Converter={StaticResource timeFormatComboBoxValueConverter}}" />
-                                        </DataTemplate>
-                                    </ComboBox.ItemTemplate>
-                                </ComboBox>
-                            </Grid>
+                        <StackPanel x:Name="customTimeFormatSelectionStackPanel">
+                            <preference:ConversionPreference x:Name="timeFormatComboBox" labelText="Pora">
+                                <preference:ConversionPreference.content>
+                                    <ComboBox SelectedIndex="0" SelectionChanged="timeFormatComboBox_SelectionChanged">
+                                        <ComboBox.ItemContainerStyle>
+                                            <Style TargetType="{x:Type ComboBoxItem}">
+                                                <Setter Property="Cursor" Value="Hand" />
+                                            </Style>
+                                        </ComboBox.ItemContainerStyle>
+                                        <ComboBox.ItemTemplate>
+                                            <DataTemplate>
+                                                <TextBlock Text="{Binding Converter={StaticResource timeFormatComboBoxValueConverter}}" />
+                                            </DataTemplate>
+                                        </ComboBox.ItemTemplate>
+                                    </ComboBox>
+                                </preference:ConversionPreference.content>
+                            </preference:ConversionPreference>
                             <clock:Clock x:Name="clock" />
                         </StackPanel>
                     </GroupBox>

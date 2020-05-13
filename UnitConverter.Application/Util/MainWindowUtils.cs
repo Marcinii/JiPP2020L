@@ -27,7 +27,7 @@ namespace UnitConverter.Application.Util
         public void resetForm()
         {
             mainWindow.providedValueTextBox.IsEnabled = false;
-            mainWindow.providedValueTextBox.Text = "";
+            mainWindow.providedValueTextBoxUtils.clear();
 
             mainWindow.fromUnitListBox.IsEnabled = false;
             mainWindow.toUnitListBox.IsEnabled = false;
@@ -36,10 +36,8 @@ namespace UnitConverter.Application.Util
 
             mainWindow.convertedValueGrid.Visibility = Visibility.Hidden;
 
-            mainWindow.formatNumberCheckBox.IsEnabled = false;
-            mainWindow.formatNumberLabel.Cursor = Cursors.Arrow;
-
-            mainWindow.customTimeFormatSelectionGrid.Visibility = Visibility.Collapsed;
+            mainWindow.formatNumberCheckBox.disabled = true;
+            mainWindow.timeFormatComboBox.disabled = true;
         }
 
 
@@ -50,7 +48,7 @@ namespace UnitConverter.Application.Util
         /// <see cref="MainWindow"/>
         public void updateConvertedLabel()
         {
-            if (mainWindow.providedValueTextBox.Text != "")
+            if (mainWindow.providedValueTextBoxUtils.getText() != "")
             {
                 SelectableTask currentTask = (SelectableTask)mainWindow.selectedOperation.task;
 

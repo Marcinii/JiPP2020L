@@ -49,7 +49,9 @@ namespace UnitConverter.Application
             operation.task.addParameter(new InputTaskParameter("currentPage", typeof(CustomInteger), TaskParameterLevel.HIDDEN));
             operation.task.addParameter(new InputTaskParameter("pageSize", typeof(CustomInteger), TaskParameterLevel.HIDDEN));
             operation.task.addParameter(new InputTaskParameter("spinner", typeof(LoadingSpinner)));
+            operation.task.addParameter(new InputTaskParameter("statisticsWindow", typeof(StatisticsWindow)));
             operation.task.beforeRun(new SpinnerShowBeforeRunTaskRunFunction());
+            operation.afterRun(new StatisticsWindowFindAllConversionHistoryAfterRunTaskRunFunction());
         }
     }
 }

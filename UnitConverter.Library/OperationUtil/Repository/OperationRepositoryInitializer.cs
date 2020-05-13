@@ -235,7 +235,7 @@ namespace UnitConverter.Library.OperationUtil.Repository
                         new RatingTask(customDatabaseContext)
                     )
                     .parameters(
-                        new InputTaskParameter("Ocena", typeof(int))
+                        new InputTaskParameter("Ocena", typeof(CustomInteger))
                     )
                     .build()
             );

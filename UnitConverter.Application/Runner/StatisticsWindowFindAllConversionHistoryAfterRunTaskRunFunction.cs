@@ -24,19 +24,11 @@ namespace UnitConverter.Application.Runner
     /// <see cref="TaskRunFunction"/>
     public class StatisticsWindowFindAllConversionHistoryAfterRunTaskRunFunction : TaskRunFunction
     {
-        private StatisticsWindow statisticsWindow;
-
-        public StatisticsWindowFindAllConversionHistoryAfterRunTaskRunFunction(StatisticsWindow statisticsWindow)
-        {
-            this.statisticsWindow = statisticsWindow;
-        }
-
-
-
         public void apply(IRunnable runnable)
         {
             System.Windows.Application.Current.Dispatcher.Invoke(() =>
             {
+                StatisticsWindow statisticsWindow = (StatisticsWindow)runnable.getParameter("statisticsWindow").value;
                 List<object> results = (List<object>)runnable.getResult();
 
                 List<ConversionHistory> wholeHistory = (List<ConversionHistory>)results[0];

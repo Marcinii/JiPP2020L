@@ -23,8 +23,15 @@
         <Style TargetType="{x:Type StackPanel}" x:Key="wrapperStackPanelStyle">
             <Setter Property="Margin" Value="10" />
         </Style>
+        <Style TargetType="{x:Type StackPanel}" x:Key="filterTextBoxesStyle">
+            <Setter Property="Margin" Value="0,10" />
+        </Style>
         <Style TargetType="{x:Type Label}" x:Key="filterLabelStyle">
             <Setter Property="Height" Value="24" />
+        </Style>
+        <Style TargetType="{x:Type Button}">
+            <Setter Property="Padding" Value="0,5" />
+            <Setter Property="Cursor" Value="Hand" />
         </Style>
     </Window.Resources>
 
@@ -57,18 +64,20 @@
                         </Border>
                         <Border BorderBrush="Gray" BorderThickness="0,0,0,3">
                             <StackPanel Style="{StaticResource wrapperStackPanelStyle}">
-                                <StackPanel Margin="0,10">
+                                <StackPanel Style="{StaticResource filterTextBoxesStyle}">
                                     <Label Style="{StaticResource filterLabelStyle}" Content="Nazwa konwertera" />
                                     <TextBox x:Name="converterNameTextBox" TextChanged="converterNameTextBox_TextChanged" />
                                 </StackPanel>
-                                <StackPanel Margin="0,10">
+                                <StackPanel Style="{StaticResource filterTextBoxesStyle}">
                                     <Label Style="{StaticResource filterLabelStyle}" Content="Data początkowa" />
                                     <TextBox x:Name="fromDateTextBox" TextChanged="fromDateTextBox_TextChanged" />
                                 </StackPanel>
-                                <StackPanel Margin="0,10">
+                                <StackPanel Style="{StaticResource filterTextBoxesStyle}">
                                     <Label Style="{StaticResource filterLabelStyle}" Content="Data Końcowa" />
                                     <TextBox x:Name="toDateTextBox" TextChanged="toDateTextBox_TextChanged" />
                                 </StackPanel>
+                                <Button x:Name="filterDataButton" Margin="0,30,0,0" Content="Filtruj dane" />
+                                <Button x:Name="clearFilterButton" Margin="0,5,0,0" Content="Wyczyść filtr" />
                             </StackPanel>
                         </Border>
                         <StackPanel Style="{StaticResource wrapperStackPanelStyle}">
@@ -113,6 +122,6 @@
             </StatusBarItem>
         </StatusBar>
 
-        <spinner:LoadingSpinner x:Name="statisticsWindowLoadingSpinner" Grid.Row="0" Grid.Column="0" Grid.RowSpan="3" />
+        <spinner:LoadingSpinner x:Name="statisticsWindowLoadingSpinner" Grid.Row="0" Grid.Column="0" Grid.RowSpan="3" Visibility="Hidden" />
     </Grid>
 </Window>

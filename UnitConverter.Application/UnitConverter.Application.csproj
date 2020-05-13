@@ -70,6 +70,9 @@
       <DependentUpon>Clock.xaml</DependentUpon>
     </Compile>
     <Compile Include="AppUserControl\ClockControl\RectangleMarginConverter.cs" />
+    <Compile Include="AppUserControl\ConversionPreferenceControl\ConversionPreference.xaml.cs">
+      <DependentUpon>ConversionPreference.xaml</DependentUpon>
+    </Compile>
     <Compile Include="AppUserControl\LoadingSpinnerControl\LoadingSpinner.xaml.cs">
       <DependentUpon>LoadingSpinner.xaml</DependentUpon>
     </Compile>
@@ -97,6 +100,7 @@
     <Compile Include="Runner\MainWindowConversionBeforeRunTaskRunFunction.cs" />
     <Compile Include="Runner\RatingAfterRunTaskRunFunction.cs" />
     <Compile Include="Runner\StatisticsWindowFindAllConversionHistoryAfterRunTaskRunFunction.cs" />
+    <Compile Include="Util\CheckBoxUtils.cs" />
     <Compile Include="Util\ComboBoxUtils.cs" />
     <Compile Include="Util\GroupBoxUtils.cs" />
     <Compile Include="Util\ListBoxUtils.cs" />
@@ -110,6 +114,10 @@
     <Page Include="AppUserControl\ClockControl\Clock.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="AppUserControl\ConversionPreferenceControl\ConversionPreference.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="AppUserControl\LoadingSpinnerControl\LoadingSpinner.xaml">
       <SubType>Designer</SubType>

@@ -19,7 +19,7 @@ namespace UnitConverter.Terminal
         private OperationRepositoryInitializer initializer;
         private CustomDatabaseContext customDatabaseContext;
 
-        public Program()
+        private Program()
         {
             this.repository = new OperationRepository();
             this.customDatabaseContext = new CustomDatabaseContext();
@@ -39,17 +39,20 @@ namespace UnitConverter.Terminal
             Operation conversionOperation = repository.findOperationByName("Wyświetl statystyki konwersji");
 
             conversionOperation.beforeRun(new FindAllConversionHistoryBeforeRunTaskTunFunction());
+            conversionOperation.beforeRun(new LoadingInfoBeforeRunTaskRunFunction());
             conversionOperation.afterRun(new FindAllConversionHistoryAfterRunTaskRunFunction());
 
             Operation ratingOperation = repository.findOperationByName("Oceń aplikację");
 
+            ((TaskGroup)ratingOperation.task).getAllTasks()[0].beforeRun(new LoadingInfoBeforeRunTaskRunFunction());
             ((TaskGroup)ratingOperation.task).getAllTasks()[1].beforeRun(new RatingBeforeRunTaskRunFunction());
+            ((TaskGroup)ratingOperation.task).getAllTasks()[1].beforeRun(new LoadingInfoBeforeRunTaskRunFunction());
             ((TaskGroup)ratingOperation.task).getAllTasks()[1].afterRun(new RatingAfterRunTaskRunFunction());
 
             ProgramUtils.prepareGoBackOperations(repository.operations);
         }
 
-        internal void run()
+        private void run()
         {
             CommandLineOperationRunner runner = new CommandLineOperationRunner();
             runner.run(

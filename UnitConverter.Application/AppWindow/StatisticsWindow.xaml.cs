@@ -3,11 +3,10 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using UnitConverter.Application.AppUserControl.PaginationSwitcherControl;
-using UnitConverter.Application.Runner;
+using UnitConverter.Application.Command;
 using UnitConverter.Application.Util;
 using UnitConverter.Library.OperationUtil;
 using UnitConverter.Library.OperationUtil.Repository;
-using UnitConverter.Library.TaskUtil.Parameter;
 using UnitConverter.Library.TypeUtil;
 using UnitConverter.Library.TypeUtil.DateTimeType;
 using UnitConverter.Library.TypeUtil.Number;
@@ -21,6 +20,7 @@ namespace UnitConverter.Application.AppWindow
     public partial class StatisticsWindow : Window
     {
         private StatusBarUtils statusBarUtils;
+        private TextBoxUtils converterNameTextBoxUtils;
         private TextBoxUtils fromDateTextBoxUtils;
         private TextBoxUtils toDateTextBoxUtils;
 
@@ -28,6 +28,7 @@ namespace UnitConverter.Application.AppWindow
 
         private OperationRepository repository;
 
+        private bool dataFiltered;
 
 
 
@@ -46,6 +47,7 @@ namespace UnitConverter.Application.AppWindow
             this.statusBarUtils.addStatusBarText(this.toDateTextBox, "Wprowadź datę końcową");
 
 
+            this.converterNameTextBoxUtils = new TextBoxUtils(this.converterNameTextBox);
             this.fromDateTextBoxUtils = new TextBoxUtils(this.fromDateTextBox);
             this.toDateTextBoxUtils = new TextBoxUtils(this.toDateTextBox);
 
@@ -59,10 +61,25 @@ namespace UnitConverter.Application.AppWindow
             this.selectedOperation.task.setParameter("currentPage", paginationSwitcher.currentPage);
             this.selectedOperation.task.setParameter("pageSize", (CustomInteger)20);
             this.selectedOperation.task.setParameter("spinner", this.statisticsWindowLoadingSpinner);
+            this.selectedOperation.task.setParameter("statisticsWindow", this);
 
-            this.selectedOperation
-                .afterRun(new StatisticsWindowFindAllConversionHistoryAfterRunTaskRunFunction(this));
+
             new Thread(() => this.selectedOperation.run()).Start();
+
+            this.dataFiltered = false;
+
+            this.filterDataButton.Command = new ButtonCommand(
+                    x => applyFilter(),
+                    x => (!this.fromDateTextBoxUtils.isNullOrEmpty() && this.fromDateTextBoxUtils.valid) ||
+                         (!this.toDateTextBoxUtils.isNullOrEmpty() && this.toDateTextBoxUtils.valid) ||
+                         !this.converterNameTextBoxUtils.isNullOrEmpty()
+            );
+
+
+            this.clearFilterButton.Command = new ButtonCommand(
+                x => clearFilter(),
+                x => this.dataFiltered
+            );
         }
 
 
@@ -113,8 +130,6 @@ namespace UnitConverter.Application.AppWindow
         private void converterNameTextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
             this.selectedOperation.task.setParameter("Nazwa konwertera", (CustomString)this.converterNameTextBox.Text);
-            this.selectedOperation.run();
-            this.paginationSwitcher.reset();
         }
 
 
@@ -131,18 +146,10 @@ namespace UnitConverter.Application.AppWindow
             {
                 this.fromDateTextBoxUtils.setToValid();
 
-                if (!this.fromDateTextBoxUtils.isNullOrEmpty())
-                {
-                    this.selectedOperation.task.setParameter("Data początkowa", (CustomDate)fromDateTextBox.Text);
-                    this.selectedOperation.run();
-                }
-                else
-                {
-                    this.selectedOperation.task.setParameter("Data początkowa", new CustomDate());
-                    this.selectedOperation.run();
-                }
-
-                this.paginationSwitcher.reset();
+                this.selectedOperation.task.setParameter(
+                    "Data początkowa",
+                    this.fromDateTextBoxUtils.isNullOrEmpty() ? new CustomDate() : fromDateTextBox.Text
+                );
             }
             catch (CustomTypeException)
             {
@@ -164,18 +171,10 @@ namespace UnitConverter.Application.AppWindow
             {
                 this.toDateTextBoxUtils.setToValid();
 
-                if (!this.toDateTextBoxUtils.isNullOrEmpty())
-                {
-                    this.selectedOperation.task.setParameter("Data końcowa", (CustomDate) this.toDateTextBox.Text);
-                    this.selectedOperation.run();
-                }
-                else
-                {
-                    this.selectedOperation.task.setParameter("Data końcowa", new CustomDate());
-                    this.selectedOperation.run();
-                }
-
-                this.paginationSwitcher.reset();
+                this.selectedOperation.task.setParameter(
+                    "Data końcowa",
+                    this.toDateTextBoxUtils.isNullOrEmpty() ? new CustomDate() : toDateTextBox.Text
+                );
             }
             catch(CustomTypeException)
             {
@@ -195,6 +194,46 @@ namespace UnitConverter.Application.AppWindow
         {
             this.selectedOperation.task.setParameter("currentPage", args.currentPage);
             this.selectedOperation.run();
+        }
+
+
+
+        /// <summary>
+        /// Metoda, która jest wywoływana w momencie kliknięcia na przycisk <see cref="filterDataButton"/>.
+        /// Metoda ta ma za zadanie zatwierdzić filtrowanie danych według wprowadzonych pół.
+        /// </summary>
+        private void applyFilter()
+        {
+            new Thread(() =>
+            {
+                this.selectedOperation.run();
+                Dispatcher.Invoke(() =>
+                {
+                    this.paginationSwitcher.reset();
+                    this.dataFiltered = true;
+                });
+            }).Start();
+        }
+
+
+
+        /// <summary>
+        /// Metoda, któa jest wywoływanaa w momencie kliknięcia przycisku <see cref="clearFilterButton"/>.
+        /// Metoda ta restartuje wprowadzone wartości do filtra danych i z powrotem wyświetla wszystkie statystyki
+        /// </summary>
+        private void clearFilter()
+        {
+            this.converterNameTextBoxUtils.clear();
+            this.fromDateTextBoxUtils.clear();
+            this.toDateTextBoxUtils.clear();
+
+            this.selectedOperation.task.setParameter("Nazwa konwertera", new CustomString());
+            this.selectedOperation.task.setParameter("Data początkowa", new CustomDate());
+            this.selectedOperation.task.setParameter("Data końcowa", new CustomDate());
+
+            this.dataFiltered = false;
+
+            this.applyFilter();
         }
     }
 }

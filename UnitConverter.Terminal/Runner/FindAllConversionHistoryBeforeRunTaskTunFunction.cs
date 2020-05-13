@@ -11,6 +11,7 @@ namespace UnitConverter.Terminal.Runner
     /// Klasa ta jest wywoływana przed uruchomieniem zadania przeszukującego historię konwersji.
     /// Wyświetla w konsoli parametry i oczekuje od użytkownika, że te parametry zostana wprowadzone
     /// </summary>
+    /// <see cref="TaskRunFunction"/>
     public class FindAllConversionHistoryBeforeRunTaskTunFunction : TaskRunFunction
     {
         public void apply(IRunnable runnable)

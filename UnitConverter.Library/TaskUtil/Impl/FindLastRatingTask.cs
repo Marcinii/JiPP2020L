@@ -1,5 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using UnitConverter.Library.History;
 using UnitConverter.Library.OperationUtil;
 using UnitConverter.Library.RatingUtil;
@@ -27,6 +29,9 @@ namespace UnitConverter.Library.TaskUtil.Impl
         protected override Rating apply(Operation operation)
         {
             List<Rating> res = customDatabaseContext.ratings.ToList();
+            Random random = new Random();
+
+            Thread.Sleep(random.Next(200, 500));
 
             if(res.OrderByDescending(x => x.createdAt).ToList().Count > 0)
             {

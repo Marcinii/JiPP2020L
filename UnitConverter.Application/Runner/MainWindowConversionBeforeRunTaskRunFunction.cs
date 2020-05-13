@@ -2,7 +2,6 @@
 using UnitConverter.Library.TaskUtil;
 using UnitConverter.Library.TaskUtil.Parameter;
 using UnitConverter.Library.TypeUtil.DateTimeType;
-using UnitConverter.Library.TypeUtil.Number;
 
 namespace UnitConverter.Application.Runner
 {
@@ -27,7 +26,7 @@ namespace UnitConverter.Application.Runner
 
         public void apply(IRunnable runnable)
         {
-            string input = mainWindow.providedValueTextBox.Text;
+            string input = mainWindow.providedValueTextBoxUtils.getText();
             SelectableTask currentTask = (SelectableTask)mainWindow.selectedOperation.task;
 
             SelectableTaskParameterOption selectedFromConversionOption = TaskParameterUtils.toSelectableTaskParameter(
@@ -36,7 +35,7 @@ namespace UnitConverter.Application.Runner
 
             if (selectedFromConversionOption.type == typeof(Custom12HTime))
             {
-                if (mainWindow.providedValueTextBoxUtils.valid && !Regex.IsMatch(mainWindow.providedValueTextBox.Text, @"\s([Aa]|[Pp])[Mm]$"))
+                if (mainWindow.providedValueTextBoxUtils.valid && !Regex.IsMatch(mainWindow.providedValueTextBoxUtils.getText(), @"\s([Aa]|[Pp])[Mm]$"))
                 {
                     input += " " + mainWindow.timeFormatComboBoxUtils.getSelectedContent().ToString();
                 }

@@ -64,6 +64,7 @@
     <Compile Include="Runner\ConversionOperationBeforeRunTaskRunFunction.cs" />
     <Compile Include="Runner\FindAllConversionHistoryAfterRunTaskRunFunction.cs" />
     <Compile Include="Runner\FindAllConversionHistoryBeforeRunTaskTunFunction.cs" />
+    <Compile Include="Runner\LoadingInfoBeforeRunTaskRunFunction.cs" />
     <Compile Include="Runner\RatingAfterRunTaskRunFunction.cs" />
     <Compile Include="Runner\RatingBeforeRunTaskRunFunction.cs" />
     <Compile Include="TableUtil\Cell\ITableCell.cs" />

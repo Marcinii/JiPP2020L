@@ -58,5 +58,20 @@ namespace UnitConverter.Application.Util
         ///     w przeciwnym przypadku false
         /// </returns>
         public bool isNullOrEmpty() => textBox.Text == null || textBox.Text == "";
+
+
+
+        /// <summary>
+        /// Metoda ma za zadanie wyczyścić wpisaną wartość w tekstu.
+        /// </summary>
+        public void clear() => this.textBox.Clear();
+
+
+
+        /// <summary>
+        /// Metoda zwraca wartość tekstową wprowadzoną w kontrolkę
+        /// </summary>
+        /// <returns></returns>
+        public string getText() => this.textBox.Text;
     }
 }
