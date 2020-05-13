@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -69,6 +70,9 @@ namespace UnitConverter.Desktop
 
             RefreshCommand = new RelayCommand(obj => Refresh());
             refreshButton.Command = RefreshCommand;
+
+            LoaderCancelCommand = new RelayCommand(obj => LoaderCancel());
+            loaderCancelButton.Command = LoaderCancelCommand;
         }     
 
         private void ConverterCombobox_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -105,6 +109,7 @@ namespace UnitConverter.Desktop
         private RelayCommand PaginationButtonNextCommand;
         private RelayCommand PopularConversionsCommand;
         private RelayCommand RefreshCommand;
+        private RelayCommand LoaderCancelCommand;
 
         private void Convert()
         {
@@ -324,11 +329,73 @@ namespace UnitConverter.Desktop
             }
         }
 
-        private void Refresh()
+        private void LoadDataFromDatabase()
         {
             using (ConverterDatabaseEntities context = new ConverterDatabaseEntities())
             {
-                dataFromDatabase.ItemsSource = context.ConverterDatas.ToList();
+                Task.Delay(5000).Wait(); //Thread.Sleep(2000);
+                Dispatcher.Invoke(() =>
+                {
+                    dataFromDatabase.ItemsSource = context.ConverterDatas.ToList();
+                });
+
+            }
+        }
+
+        CancellationTokenSource tokenSource;
+
+        private void LoaderCancel()
+        {
+            tokenSource.Cancel();
+        }
+
+        private void Refresh()
+        {
+
+            tokenSource = new CancellationTokenSource();
+            loaderPanel.Visibility = Visibility.Visible;
+
+            Task t1 = new Task(() => LoadDataFromDatabase());
+            t1.Start();
+
+            Task t2 = new Task(() => Refresh1(tokenSource.Token),tokenSource.Token);
+            t2.Start();
+
+            Task t3 = new Task(() => Refresh2(tokenSource.Token), tokenSource.Token);
+            t3.Start();
+
+            Task.WhenAll(t1, t2, t3).ContinueWith(t =>
+            {
+                if (t.IsFaulted)
+                {
+                    MessageBox.Show("Wystąpił błąd");
+                }
+                loaderPanel.Visibility = Visibility.Hidden;
+            }, TaskScheduler.FromCurrentSynchronizationContext()            
+            );
+        }
+
+        private void Refresh1(CancellationToken cancellationToken)
+        {
+            for (int i = 0; i < 20; i++)
+            {
+                if (cancellationToken.IsCancellationRequested)
+                {
+                    cancellationToken.ThrowIfCancellationRequested();                    
+                }
+                Task.Delay(1000).Wait();
+            }
+        }
+
+        private void Refresh2(CancellationToken cancellationToken)
+        {
+            for (int i = 0; i < 20; i++)
+            {
+                if (cancellationToken.IsCancellationRequested)
+                {                    
+                    cancellationToken.ThrowIfCancellationRequested();                    
+                }
+                Task.Delay(1000).Wait();
             }
         }
     }
