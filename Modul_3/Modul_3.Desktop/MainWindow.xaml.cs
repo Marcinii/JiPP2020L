@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -146,8 +147,12 @@ namespace Modul_3.Desktop
 
         }
 
+
+
         private void Statystki_Click(object sender, RoutedEventArgs e)
         {
+
+   
             Window1 nwd = new Window1();
             nwd.Show();
         }

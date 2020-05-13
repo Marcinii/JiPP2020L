@@ -1,8 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
+using System.Threading;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
+using System.Windows.Shapes;
 
 namespace Modul_3.Desktop
 {
@@ -15,39 +25,58 @@ namespace Modul_3.Desktop
         string format = "dddd, dd MMMM yyyy";
         int i = 0;
         DateTime OdDate;
-       
+        CancellationTokenSource tokenSource;
         public Window1()
         {
             InitializeComponent();
             converterCombobox.ItemsSource = new ConverterService().GetConverter();
-            using (JIPPEntities context = new JIPPEntities())
+            tokenSource = new CancellationTokenSource();
+            Load.Visibility = Visibility.Visible;
+            Task task1 = new Task(() => statystyki());
+            task1.Start();
+            Task.WhenAll(task1).ContinueWith(t =>
             {
+                if (t.IsFaulted)
+                {
+                    MessageBox.Show("ERROR");
+                }
+                Dispatcher.Invoke(() => Load.Visibility = Visibility.Hidden);
+            });
+              ConvertCommand = new RelayCommand(obj => Convert(), obj =>
+                        converterCombobox.SelectedItem != null && string.IsNullOrEmpty(DoButton.Text) != true &&
+                        string.IsNullOrEmpty(OdButton.Text) != true);
+                Pokaz.Command = ConvertCommand;
+
+                PoprzedniCommand = new RelayCommand(obj => Poprzedni(), obj =>
+                 i > 0);
+                poprzedni.Command = PoprzedniCommand;
+
+                NastepnyCommand = new RelayCommand(obj => Nastepny());
+                nastepny.Command = NastepnyCommand;
+            
+        }
+        private void statystyki()
+        {
+            using(JIPPEntities context = new JIPPEntities())
+            {
+                Thread.Sleep(10000);
                 List<Stata> statas = context.Statas
              .OrderBy(a => a.ID)
              .Skip(i * 10)
              .Take(10)
              .ToList();
-                Baza.ItemsSource = statas;
-                Topka.ItemsSource = context.Statas
-             .GroupBy(a => new { a.Rodzaj_Konwertera,a.Wybrana_jednostka})
-             .Select(a=>new { a.Key.Rodzaj_Konwertera,a.Key.Wybrana_jednostka, Suma=a.Count()})
-             .OrderByDescending(a=>a.Suma)
+                Dispatcher.Invoke(() => Baza.ItemsSource = statas);
+                Dispatcher.Invoke(() => Topka.ItemsSource = context.Statas
+             .GroupBy(a => new { a.Rodzaj_Konwertera, a.Wybrana_jednostka })
+             .Select(a => new { a.Key.Rodzaj_Konwertera, a.Key.Wybrana_jednostka, Suma = a.Count() })
+             .OrderByDescending(a => a.Suma)
              .Take(3)
-             .ToList();
+             .ToList());
             }
-            ConvertCommand = new RelayCommand(obj => Convert(), obj =>
-               converterCombobox.SelectedItem != null && string.IsNullOrEmpty(DoButton.Text) != true &&
-               string.IsNullOrEmpty(OdButton.Text) != true);
-            Pokaz.Command = ConvertCommand;
-
-            PoprzedniCommand = new RelayCommand(obj => Poprzedni(), obj =>
-             i > 0);
-            poprzedni.Command = PoprzedniCommand;
-
-            NastepnyCommand = new RelayCommand(obj => Nastepny());
-            nastepny.Command = NastepnyCommand;
+     
         }
 
+   
 
         private RelayCommand PoprzedniCommand;
 

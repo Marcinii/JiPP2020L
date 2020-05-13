@@ -61,3 +61,13 @@ C:\Users\slowi\source\repos\JiPP2020L\Modul_3\Modul_3.Desktop\bin\Debug\EntityFr
 C:\Users\slowi\source\repos\JiPP2020L\Modul_3\Modul_3.Desktop\obj\Debug\Window1.baml
 C:\Users\slowi\Source\Repos\JiPP2020L\Modul_3\Modul_3.Desktop\bin\Debug\Kontrolki.dll
 C:\Users\slowi\Source\Repos\JiPP2020L\Modul_3\Modul_3.Desktop\bin\Debug\Kontrolki.pdb
+C:\Users\slowi\Source\Repos\JiPP2020L\Modul_3\Modul_3.Desktop\bin\Debug\Microsoft.Expression.Drawing.dll
+C:\Users\slowi\Source\Repos\JiPP2020L\Modul_3\Modul_3.Desktop\bin\Debug\de\Microsoft.Expression.Drawing.resources.dll
+C:\Users\slowi\Source\Repos\JiPP2020L\Modul_3\Modul_3.Desktop\bin\Debug\es\Microsoft.Expression.Drawing.resources.dll
+C:\Users\slowi\Source\Repos\JiPP2020L\Modul_3\Modul_3.Desktop\bin\Debug\fr\Microsoft.Expression.Drawing.resources.dll
+C:\Users\slowi\Source\Repos\JiPP2020L\Modul_3\Modul_3.Desktop\bin\Debug\it\Microsoft.Expression.Drawing.resources.dll
+C:\Users\slowi\Source\Repos\JiPP2020L\Modul_3\Modul_3.Desktop\bin\Debug\ja\Microsoft.Expression.Drawing.resources.dll
+C:\Users\slowi\Source\Repos\JiPP2020L\Modul_3\Modul_3.Desktop\bin\Debug\ko\Microsoft.Expression.Drawing.resources.dll
+C:\Users\slowi\Source\Repos\JiPP2020L\Modul_3\Modul_3.Desktop\bin\Debug\ru\Microsoft.Expression.Drawing.resources.dll
+C:\Users\slowi\Source\Repos\JiPP2020L\Modul_3\Modul_3.Desktop\bin\Debug\zh-Hans\Microsoft.Expression.Drawing.resources.dll
+C:\Users\slowi\Source\Repos\JiPP2020L\Modul_3\Modul_3.Desktop\bin\Debug\zh-Hant\Microsoft.Expression.Drawing.resources.dll
