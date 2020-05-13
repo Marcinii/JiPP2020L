@@ -19,7 +19,26 @@
                 <EasingDoubleKeyFrame KeyTime="0:0:1" Value="1"/>
             </DoubleAnimationUsingKeyFrames>
         </Storyboard>
+        <Storyboard x:Key="LoadStoryboard" RepeatBehavior="1">
+            <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)" Storyboard.TargetName="ellipse">
+                <EasingColorKeyFrame KeyTime="0" Value="#FFB999C0"/>
+                <EasingColorKeyFrame KeyTime="0:0:0.2" Value="#FFAC33CA"/>
+            </ColorAnimationUsingKeyFrames>
+            <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)" Storyboard.TargetName="ellipse1">
+                <EasingColorKeyFrame KeyTime="0:0:0.2" Value="#FFB999C0"/>
+                <EasingColorKeyFrame KeyTime="0:0:0.4" Value="#FFAC33CA"/>
+            </ColorAnimationUsingKeyFrames>
+            <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)" Storyboard.TargetName="ellipse2">
+                <EasingColorKeyFrame KeyTime="0:0:0.6" Value="#FFB999C0"/>
+                <EasingColorKeyFrame KeyTime="0:0:0.8" Value="#FFAC33CA"/>
+            </ColorAnimationUsingKeyFrames>
+        </Storyboard>
     </Window.Resources>
+    <Window.Triggers>
+        <EventTrigger RoutedEvent="FrameworkElement.Loaded">
+            <BeginStoryboard Storyboard="{StaticResource LoadStoryboard}"/>
+        </EventTrigger>
+    </Window.Triggers>
 
     <Border Padding="10">
         <Grid Margin="0,0,-10,-93.172" RenderTransformOrigin="0.441,0.504">
@@ -129,7 +148,7 @@
                     <ComboBox x:Name="Minuty" ItemsSource="{Binding minutes}" Grid.Column="4" Grid.Row="1" Margin="65.4,22.96,0,20.96" Width="40" MaxHeight="20" HorizontalAlignment="Left" Grid.RowSpan="3"/>
                     <Button Content="Przelicz" Name="PrzeliczCzas" Grid.Column="4" Grid.Row="3"/>
                     <TextBlock Text="Czas format 12 h:" Grid.Column="4" Grid.Row="4" Margin="10 5"/>
-                    
+
                     <TextBlock x:Name="CzasWynik" Text="" Grid.Column="4" Grid.Row="5" Margin="9.6,4.8,57.6,5.2" FontSize="20" FontWeight="Bold" Background="#FFDCD2DB"/>
                     <Button Grid.Row="10" Grid.ColumnSpan="10" Click="Button_Click" Content="Zakoncz Program" Background="Red" Width="200" Height="50" Margin="0 100"/>
                 </Grid>
@@ -143,18 +162,20 @@
                 </Grid.RowDefinitions>
                 <Grid Margin="0,0,10,88.67" Grid.Row="1">
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="109*"/>
-                        <ColumnDefinition Width="441*"/>
+                        <ColumnDefinition Width="67*"/>
+                        <ColumnDefinition Width="227*"/>
+                        <ColumnDefinition Width="45*"/>
                     </Grid.ColumnDefinitions>
-                    <DataGrid x:Name="dataGrid" HorizontalAlignment="Left" Height="233.116" VerticalAlignment="Top" Width="550.2" Grid.ColumnSpan="2"/>
-                    <ComboBox SelectionChanged="selectConverter_SelectionChanged" x:Name="selectConverter" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Margin="0,-21.96,0,0" Grid.ColumnSpan="2"/>
-                    <DatePicker Name="dateFrom" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="1" Margin="32.559,-29,0,0"/>
-                    <DatePicker Name="dateTo" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="1" Margin="172.558,-29,0,0"/>
-                    <Button Click="Button_Click_1" Content="Filtruj" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Grid.Column="1" Margin="294.96,-27,0,0"/>
+                    <DataGrid x:Name="dataGrid" HorizontalAlignment="Left" Height="233" VerticalAlignment="Top" Width="550" Grid.ColumnSpan="2"/>
+                    <ComboBox SelectionChanged="selectConverter_SelectionChanged" x:Name="selectConverter" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Margin="0,-22,0,0"/>
+                    <DatePicker Name="dateFrom" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="1" Margin="32.6,-29,0,0"/>
+                    <DatePicker Name="dateTo" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="1" Margin="172.6,-29,0,0"/>
+                    <Button Click="Button_Click_1" Content="Filtruj" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Grid.Column="1" Margin="294.6,-27,0,0"/>
                     <Button Content="Prev" Click="ButtonClickPrev" Margin="0,271,28.4,-5.67"/>
-                    <Button Content="Next" Click="ButtonClickNext" Margin="111,271,463.4,-5.67" Grid.ColumnSpan="2"/>
-                    <Button Content="Top Konwersje" Click="Button_Click_2" Margin="99.6,275,341.4,0.33" Grid.Column="1"/>
-                    <ListBox x:Name="topKonwersje" Margin="207.6,251,142.4,-5.67" Grid.Column="1"/>
+                    <Button Content="Next" Click="ButtonClickNext" Margin="111,271,373,-5.67" Grid.ColumnSpan="2"/>
+                    <Button Content="Top Konwersje" Click="Button_Click_2" Margin="99.6,275,251,0.33" Grid.Column="1"/>
+                    <ListBox x:Name="topKonwersje" Margin="207.6,251,52,-5.67" Grid.Column="1"/>
+                    <Button Content="Ładuj wszystko" HorizontalAlignment="Left" VerticalAlignment="Top" Width="242" Grid.Column="1" Margin="32.6,-65,0,0" Click="Button_Click_3"/>
                 </Grid>
                 <Grid Margin="21,21.25,0,0" Grid.Row="0" >
                     <Grid x:Name="ClockGrid" Margin="79.6,8.75,0,0">
@@ -183,6 +204,13 @@
                     <Button x:Name="ButtonA" Content="Switch On" Click="ButtonA_Click" HorizontalAlignment="Left" Margin="4.6,0,0,0" VerticalAlignment="Top" Width="75"/>
                     <Button x:Name="ButtonB" Content="Switch Off" Click="ButtonB_Click" HorizontalAlignment="Left" Margin="0,40.75,0,0" VerticalAlignment="Top" Width="75"/>
                 </Grid>
+            </Grid>
+            <Grid Name="shadderGrid" Grid.ColumnSpan="2" Visibility="Hidden">
+                <Rectangle Fill="#CC000000"/>
+                <Ellipse x:Name="ellipse" Width="100" Height="100" Fill="#FFAC33CA" Margin="-300,0,0,0"/>
+                <Ellipse x:Name="ellipse1" Width="100" Height="100" Fill="#FFAC33CA"/>
+                <Ellipse x:Name="ellipse2" Width="100" Height="100" Fill="#FFAC33CA" Margin="0,0,-300,0"/>
+                <Button Content="Anuluj" Click="Button_Click_4" Width="100" Height="50" Margin="0,300,0,0"  />
             </Grid>
         </Grid>
     </Border>

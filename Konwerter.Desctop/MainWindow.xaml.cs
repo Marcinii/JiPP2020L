@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -25,7 +26,7 @@ namespace Konwerter.Desctop
         private List<string> hours_1 = new List<string>();
         private List<string> minutes = new List<string>();
 
-        private DBManager db = new DBManager();
+        private DBManager db;
 
         public MainWindow()
         {
@@ -50,6 +51,8 @@ namespace Konwerter.Desctop
             konwertery.Add("KonwerterCzas");
             selectConverter.ItemsSource = konwertery;
             selectConverter.SelectedIndex = 0;
+
+            db = new DBManager();
 
             using (RateMeBaseEntities context = new RateMeBaseEntities())
             {
@@ -222,13 +225,13 @@ namespace Konwerter.Desctop
         private void selectConverter_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             string konwerter = selectConverter.SelectedItem as string;
-            dataGrid.ItemsSource = db.Filter(konwerter, dateFrom.SelectedDate, dateTo.SelectedDate);
+            dataGrid.ItemsSource = db?.Filter(konwerter, dateFrom.SelectedDate, dateTo.SelectedDate);
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
             string konwerter = selectConverter.SelectedItem as string;
-            dataGrid.ItemsSource = db.Filter(konwerter, dateFrom.SelectedDate, dateTo.SelectedDate);
+            dataGrid.ItemsSource = db?.Filter(konwerter, dateFrom.SelectedDate, dateTo.SelectedDate);
         }
 
         private void ButtonClickPrev(object sender, RoutedEventArgs e)
@@ -244,6 +247,45 @@ namespace Konwerter.Desctop
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
             topKonwersje.ItemsSource = db.Top3c();
+        }
+
+        private void Button_Click_3(object sender, RoutedEventArgs e)
+        {
+            cancellation = new CancellationTokenSource();
+            dataGrid.ItemsSource = null;
+            shadderGrid.Visibility = Visibility.Visible;
+            Task t = new Task(() => LoadDB(cancellation.Token), cancellation.Token);
+            t.Start();
+
+            Task.WhenAll(t).ContinueWith(task =>
+            Dispatcher.Invoke(() =>
+            {
+                dataGrid.ItemsSource = tmp;
+                shadderGrid.Visibility = Visibility.Hidden;
+            }));
+        }
+
+        List<Statistic> tmp = null;
+
+        CancellationTokenSource cancellation;
+
+        private void LoadDB(CancellationToken token)
+        {
+            for(int i = 0; i < 10; i++)
+            {
+                if(token.IsCancellationRequested)
+                {
+                    return;
+                }
+                Task.Delay(500).Wait();
+            }
+
+            tmp = db.LoadDB();
+        }
+
+        private void Button_Click_4(object sender, RoutedEventArgs e)
+        {
+            cancellation.Cancel();
         }
     }
 }
