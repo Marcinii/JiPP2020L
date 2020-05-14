@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -194,7 +195,18 @@ namespace KonwerterJednostek.Desktop
         {
             previousStatisticNumber = 1;
             statisticNumber = 8;
-            view(statisticView(previousStatisticNumber));
+
+            //loaderRectangle.Visibility = Visibility.Visible;
+
+            ((System.Windows.Media.Animation.Storyboard)Resources["LoadStoryboard"]).Begin();
+
+            Task t1 = new Task(() => view(statisticView(previousStatisticNumber)));
+            t1.Start();
+
+            Task.WhenAll(t1).ContinueWith(t =>
+            {
+                //loaderRectangle.Visibility = Visibility.Hidden;
+            }, TaskScheduler.FromCurrentSynchronizationContext());
         }
 
         private List<Wpis> statisticView(int number)
@@ -235,14 +247,17 @@ namespace KonwerterJednostek.Desktop
 
         private void view(List<Wpis> list)
         {
-            if(statisticNumber == 7)
+            Task.Delay(6000).Wait();
+
+            if (statisticNumber == 7)
             {
                 DateTime date1 = DateTime.Parse(wartoscOd.Text);
                 DateTime date2 = DateTime.Parse(wartoscDo.Text);
                 DataGridHistory.ItemsSource = list.Where(w => w.Data > date1).Where(w => w.Data < date2).Skip(5 * (numberOfPage - 1)).Take(5);
             } else if (statisticNumber == 8)
             {
-                DataGridHistory.ItemsSource = list.GroupBy(w => w.ConverterName).Select(w => new { Str = w.Key, Count = w.Count() }).OrderByDescending(w => w.Count).Take(3);
+                Dispatcher.Invoke(() => DataGridHistory.ItemsSource = list.GroupBy(w
+                    => w.ConverterName).Select(w => new { Str = w.Key, Count = w.Count() }).OrderByDescending(w => w.Count).Take(3));
             } else
             {
                 DataGridHistory.ItemsSource = list.Skip(5 * (numberOfPage - 1)).Take(5);
