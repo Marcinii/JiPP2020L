@@ -5,6 +5,7 @@ using System.Data.SqlClient;
 using System.Configuration;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -55,7 +56,7 @@ namespace Konwerter_jednostek
                 CBZ.SelectedItem != null && CBNa.SelectedItem !=null && string.IsNullOrEmpty(TBoxWartosc.Text) != true);
             Button1.Command = ConvertCommand;
 
-            StatystykiCommand = new RelayCommand(obj => Statystyki(), obj => SKonwerter.SelectedItem != null);
+            StatystykiCommand = new RelayCommand(obj => Statystyki1(), obj => SKonwerter.SelectedItem != null);
             Button2.Command = StatystykiCommand;
 
             PoprzedniaCommand = new RelayCommand(obj => Poprzednia(), obj => str > 0);
@@ -132,17 +133,37 @@ namespace Konwerter_jednostek
 
         }
 
+
+
         private RelayCommand StatystykiCommand;
-        private void Statystyki()
+
+        private void Statystyki1()
         {
+            tokenSource = new CancellationTokenSource();
+            LadowaniePanel.Visibility = Visibility.Visible;
+            ((Storyboard)Resources["circleStoryboard"]).Begin();
+            if (DateTime.TryParse(TBoxData1.Text, out DateTime d1)) { } else d1 = new DateTime(2020, 01, 01);
+            if (DateTime.TryParse(TBoxData2.Text, out DateTime d2)) { d2 = new DateTime(d2.Year, d2.Month, d2.Day, 23, 59, 59); } else d2 = DateTime.Now;
+            string ik1 = (((IKonwerter)SKonwerter.SelectedItem).Nazwa);
+
+            Task t1 = new Task(() => Statystyki(tokenSource.Token, d1, d2, ik1), tokenSource.Token);
+            t1.Start();
+            Task.WhenAll(t1).ContinueWith(t =>
+          {
+              if (t.IsFaulted) { MessageBox.Show("Wystąpił błąd"); }
+              Dispatcher.Invoke(() => LadowaniePanel.Visibility = Visibility.Hidden);
+              ((Storyboard)Resources["circleStoryboard"]).Stop();
+          });
+        }
+
+        private void Statystyki(CancellationToken ct, DateTime d1, DateTime d2, string ik1)
+        { 
             using (BazaDanych context = new BazaDanych())
             {
                 str = 0;
-                if (DateTime.TryParse(TBoxData1.Text, out DateTime d1)) { } else d1 = new DateTime(2020, 01, 01);
-                if (DateTime.TryParse(TBoxData2.Text, out DateTime d2)) { d2 = new DateTime(d2.Year, d2.Month, d2.Day, 23, 59, 59); } else d2 = DateTime.Now;
-
+ 
                 List<Konwersja> kon = context.Konwersje
-                    .Where(k => k.RodzajKonwertera == (((IKonwerter)SKonwerter.SelectedItem).Nazwa))
+                    .Where(k => k.RodzajKonwertera == ik1)
                     .Where(k => k.DataKonwersji >= d1)
                     .Where(k => k.DataKonwersji <= d2)
                     .OrderBy(k => k.DataKonwersji)
@@ -150,25 +171,45 @@ namespace Konwerter_jednostek
                     .Take(10)
                     .ToList();
 
-                Tabela1.ItemsSource = kon;
+                Dispatcher.Invoke(() => Tabela1.ItemsSource = kon);
 
-                Tabela2.ItemsSource = context.Konwersje
-                .Where(v => v.RodzajKonwertera == (((IKonwerter)SKonwerter.SelectedItem).Nazwa))
+                if (ct.IsCancellationRequested)
+                {
+                    ct.ThrowIfCancellationRequested();
+                }
+
+                Dispatcher.Invoke(() => Tabela2.ItemsSource = context.Konwersje
+                .Where(v => v.RodzajKonwertera == ik1)
                 .Where(v => v.DataKonwersji >= d1)
                 .Where(v => v.DataKonwersji <= d2)
                 .GroupBy(v => new { v.RodzajKonwertera, v.JednostkaZ, v.JednostkaNa })
                 .Select(v => new { v.Key.RodzajKonwertera, v.Key.JednostkaZ, v.Key.JednostkaNa, Krotnosc = v.Count() })
                 .OrderByDescending(v => v.Krotnosc)
                 .Take(3)
-                .ToList();
+                .ToList());
+
+                if (ct.IsCancellationRequested)
+                {
+                    ct.ThrowIfCancellationRequested();
+                }
 
                 strMax = context.Konwersje
-                .Where(m => m.RodzajKonwertera == (((IKonwerter)SKonwerter.SelectedItem).Nazwa))
+                .Where(m => m.RodzajKonwertera == ik1)
                 .Where(m => m.DataKonwersji >= d1)
                 .Where(m => m.DataKonwersji <= d2)
                 .Count();
-                if (strMax % 10 == 0) strMax = strMax / 10-1;
-                else strMax = strMax / 10 ;
+                if (strMax % 10 == 0) strMax = strMax / 10 - 1;
+                else strMax = strMax / 10;
+
+
+            }
+            for (int i = 1; i < 6; i++)
+            {
+                if (ct.IsCancellationRequested)
+                {
+                    ct.ThrowIfCancellationRequested();
+                }
+                Task.Delay(1000).Wait();
             }
         }
 
@@ -220,6 +261,13 @@ namespace Konwerter_jednostek
         private void ocenaControl_OcenaWartoscZmiana(object sender, Common.Controls.ocena.RateEventArgs e)
         {
             WstawRekordDoOceny(e.Value);
+        }
+
+        CancellationTokenSource tokenSource;
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            tokenSource.Cancel();
         }
     }
 }

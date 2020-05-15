@@ -18,7 +18,17 @@
                 <EasingDoubleKeyFrame KeyTime="0:0:12" Value="360"/>
             </DoubleAnimationUsingKeyFrames>
         </Storyboard>
+        <Storyboard x:Key="circleStoryboard" RepeatBehavior="Forever">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[2].(RotateTransform.Angle)" Storyboard.TargetName="path">
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="360"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
     </Window.Resources>
+    <!--<Window.Triggers>
+        <EventTrigger RoutedEvent="FrameworkElement.Loaded">
+            <BeginStoryboard Storyboard="{StaticResource circleStoryboard}"/>
+        </EventTrigger>
+    </Window.Triggers>-->
     <!--<Window.Triggers>
         <EventTrigger RoutedEvent="FrameworkElement.Loaded">
             <BeginStoryboard Storyboard="{StaticResource StoryboardMin}"/>
@@ -104,5 +114,25 @@
         <Button x:Name="Button4" Grid.Column="2" Margin="10,380,0,0" Content="Poprzednia strona" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Height="20" />
         <Label x:Name="Napis11" Grid.Column="2" Margin="10,414,0,0" Content="Statystyki Top 3" Height="25" HorizontalAlignment="Left" VerticalAlignment="Top"/>
         <DataGrid x:Name="Tabela2" Grid.Column="2" HorizontalAlignment="Left" Height="110" Margin="10,440,0,0" VerticalAlignment="Top" Width="318"/>
+
+        <Grid x:Name="LadowaniePanel" Grid.ColumnSpan="3" Background="#66000000" Visibility="Hidden">
+            <Button Margin="10,580,832,10" Click="Button_Click">Anuluj</Button>
+            <Path x:Name="path" Data="M32.5,16 C23.387301,16 16,23.387301 16,32.5 16,41.612698 23.387301,49 32.5,49 41.612698,49 49,41.612698 49,32.5 49,23.387301 41.612698,16 32.5,16 z M32.5,0.5 C50.173111,0.5 64.5,14.826888 64.5,32.5 64.5,50.173111 50.173111,64.5 32.5,64.5 14.826888,64.5 0.5,50.173111 0.5,32.5 0.5,14.826888 14.826888,0.5 32.5,0.5 z" HorizontalAlignment="Left" Height="65" Margin="402,225.5,0,0"  VerticalAlignment="Top" Width="65" RenderTransformOrigin="0.5,0.5">
+                <Path.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Path.RenderTransform>
+                <Path.Fill>
+                    <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+                        <GradientStop Color="#FFFBFBFB"/>
+                        <GradientStop Color="#FF5252FF" Offset="1"/>
+                    </LinearGradientBrush>
+                </Path.Fill>
+            </Path>
+        </Grid>
     </Grid>
 </Window>
