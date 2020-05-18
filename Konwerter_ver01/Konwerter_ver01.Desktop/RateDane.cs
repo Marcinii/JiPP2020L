@@ -1,4 +1,4 @@
-namespace Konwerter_ver01.Desktop
+﻿namespace Konwerter_ver01.Desktop
 {
     using System;
     using System.Data.Entity;
@@ -6,14 +6,11 @@ namespace Konwerter_ver01.Desktop
 
     public class RateDane : DbContext
     {
-      
         public RateDane()
-            : base("name=RateDa")
+            : base("name=RateDane")
         {
         }
 
         public DbSet<RateDa> RateDaWy { get; set; }
     }
-
-
 }
