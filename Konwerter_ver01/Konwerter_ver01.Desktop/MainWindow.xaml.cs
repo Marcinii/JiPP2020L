@@ -199,21 +199,38 @@ namespace Konwerter_ver01.Desktop
         private void WysWynikiB_Click(object sender, RoutedEventArgs e)
         {
             //LadStaty();
+            tokenSource = new CancellationTokenSource();
             Nakladka1.Visibility = Visibility.Visible;
+            WaitPoint.Visibility = Visibility.Visible;
+            KomunikatLabel.Visibility = Visibility.Visible;
+            AnulujButton.Visibility = Visibility.Visible;
+            ellipse1.Visibility = Visibility.Visible;
+            ellipse2.Visibility = Visibility.Visible;
+            ellipse3.Visibility = Visibility.Visible;
+            ellipse4.Visibility = Visibility.Visible;
+            ((Storyboard)Resources["UpsStoryboard"]).Begin();
             nrstrony = 0;
             if (DateTime.TryParse(DataOd.Text, out DateTime dataod)) { } else dataod = new DateTime(2020, 04, 01);
             if (DateTime.TryParse(DataDo.Text, out DateTime datado)) { datado = new DateTime(datado.Year, datado.Month, datado.Day, 23, 59, 59); } else datado = DateTime.Now;
 
             Task t1 = new Task(() => LadStaty(dataod, datado));
             t1.Start();
-            Task t2 = new Task(() => WaitPoint());
+            Task t2 = new Task(() => Anulacja(tokenSource.Token), tokenSource.Token);
             t2.Start();
 
-            Task.WhenAll(t1,t2).ContinueWith(t =>
-            {
-                if (t.IsFaulted) { MessageBox.Show("Wystąpił błąd programu. Skontaktuj się ze swoim HelpDesk."); }
-                Dispatcher.Invoke(() => Nakladka1.Visibility = Visibility.Hidden);
-            });
+            Task.WhenAll(t1, t2).ContinueWith(t =>
+             {
+             if (t.IsFaulted) { MessageBox.Show("Wystąpił błąd programu. Skontaktuj się ze swoim HelpDesk."); }
+             Dispatcher.Invoke(() => Nakladka1.Visibility = Visibility.Hidden);
+                 Dispatcher.Invoke(() => WaitPoint.Visibility = Visibility.Hidden);
+                 Dispatcher.Invoke(() => KomunikatLabel.Visibility = Visibility.Hidden);
+                 Dispatcher.Invoke(() => AnulujButton.Visibility = Visibility.Hidden);
+                 Dispatcher.Invoke(() => ellipse1.Visibility = Visibility.Hidden);
+                 Dispatcher.Invoke(() => ellipse2.Visibility = Visibility.Hidden);
+                 Dispatcher.Invoke(() => ellipse3.Visibility = Visibility.Hidden);
+                 Dispatcher.Invoke(() => ellipse4.Visibility = Visibility.Hidden);
+                 ((Storyboard)Resources["UpsStoryboard"]).Stop();
+             });
         }
         private void LadStaty(DateTime dataod, DateTime datado)
         {
@@ -224,7 +241,7 @@ namespace Konwerter_ver01.Desktop
                 //List<KonwerterDa> konstat2 = context.KonwerterDaWy.Where(k => k.WybKon == (((IConverter)WybKon.SelectedItem).Name)).Where(k => k.KonwerterCzas >= dataod).Where(k => k.KonwerterCzas <= datado).OrderBy(k => k.KonwerterCzas).Skip(nrstrony * 8).Take(8).ToList();
 
                 //Thread.Sleep(5000);
-                Task.Delay(4000).Wait();
+                Task.Delay(9000).Wait();
                 Dispatcher.Invoke(() => {
                     //Nakladka1.Visibility = Visibility.Hidden;
                     Statystyki.ItemsSource = konstat;
@@ -235,9 +252,17 @@ namespace Konwerter_ver01.Desktop
                 else stronaostatnia = stronaostatnia / 8;
             }
         }
-        private void WaitPoint()
+        private void Anulacja(CancellationToken ct)
         {
-            Task.Delay(5000).Wait();
+            for (int i=0; i < 20; i++)
+            {
+                if (ct.IsCancellationRequested)
+                {
+                    ct.ThrowIfCancellationRequested();
+                }
+                Task.Delay(1000).Wait();
+            }
+           
         }
         private RelayCommand NastepnaStrona_ClickCommand;
         private void NastepnaStrona_Click()
@@ -327,6 +352,12 @@ namespace Konwerter_ver01.Desktop
         {
             RateDoBD(e.Value);
         }
+        CancellationTokenSource tokenSource;
+        private void AnulujButton_Click(object sender, RoutedEventArgs e)
+        {
+            tokenSource.Cancel();
+        }
+        
     }
 }
 
