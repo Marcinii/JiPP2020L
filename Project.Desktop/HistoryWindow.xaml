@@ -6,6 +6,18 @@
         xmlns:local="clr-namespace:Project.Desktop"
         mc:Ignorable="d"
         Title="Historia konwersji" Height="520" Width="530" Closing="Window_Closing">
+    <Window.Resources>
+        <Storyboard x:Key="Storyboard1" RepeatBehavior="Forever">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[2].(RotateTransform.Angle)" Storyboard.TargetName="rectangle">
+                <EasingDoubleKeyFrame KeyTime="0:0:2" Value="360"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+    </Window.Resources>
+    <Window.Triggers>
+        <EventTrigger RoutedEvent="FrameworkElement.Loaded">
+            <BeginStoryboard Storyboard="{StaticResource Storyboard1}"/>
+        </EventTrigger>
+    </Window.Triggers>
     <Grid>
         <StackPanel Margin="2,2,2,2">
             <TextBlock FontSize="22">Filtry:</TextBlock>
@@ -63,5 +75,18 @@
                 <TextBlock x:Name="MostPopularTextBlock" FontWeight="Bold" FontStyle="Italic"></TextBlock>
             </StackPanel>
         </StackPanel>
+        <StackPanel x:Name="LoadingScreen" Width="522" Height="489" Background="#CC000000">
+          <Rectangle Margin="0,200,0,0" x:Name="rectangle" Fill="#FF4F4149" Height="50" Stroke="Black" Width="50" RenderTransformOrigin="0.5,0.5">
+                <Rectangle.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Rectangle.RenderTransform>
+            </Rectangle>
+        </StackPanel>
+
     </Grid>
 </Window>

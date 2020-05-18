@@ -35,12 +35,17 @@ namespace Project.Desktop
 
         private IQueryable<ConversionHistory> Filter(IQueryable<ConversionHistory> items)
         {
-            if (StartDateDatePicker.SelectedDate.HasValue)
-                items = items.Where(i => DbFunctions.TruncateTime(i.Date) >= StartDateDatePicker.SelectedDate);
-            if (EndDateDatePicker.SelectedDate.HasValue)
-                items = items.Where(i => DbFunctions.TruncateTime(i.Date) <= EndDateDatePicker.SelectedDate);
-            if (ConvertersComboBox.SelectedIndex != -1)
-                items = items.Where(i => i.Converter == ((IConverter)ConvertersComboBox.SelectedItem).Name);
+            DateTime? StartDate = Dispatcher.Invoke(() => StartDateDatePicker.SelectedDate);
+            DateTime? EndDate = Dispatcher.Invoke(() => EndDateDatePicker.SelectedDate);
+            string ConverterName = "";
+            ConverterName = Dispatcher.Invoke(() => ((IConverter)ConvertersComboBox?.SelectedItem)?.Name);
+
+            if (StartDate.HasValue)
+                items = items.Where(i => DbFunctions.TruncateTime(i.Date) >= StartDate);
+            if (EndDate.HasValue)
+                items = items.Where(i => DbFunctions.TruncateTime(i.Date) <= EndDate);
+            if (!String.IsNullOrEmpty(ConverterName))
+                items = items.Where(i => i.Converter == ConverterName);
 
 
             return items;
@@ -50,53 +55,94 @@ namespace Project.Desktop
 
         public void LoadHistory()
         {
+
+            LoadingScreen.Visibility = Visibility.Visible;
+
+            Task t1 = new Task(() => LoadData());
+            t1.Start();
+            
+
+        }
+
+
+        private void LoadData()
+        {
+ 
             using (var db = new jippEntities())
             {
-
                 var items = db.ConversionHistory.AsQueryable<ConversionHistory>();
 
 
                 items = Filter(items);
 
-
                 int count = items.Count();
 
-                PageSelectorComboBox.Items.Clear();
-
-                for (int i = 0, j = 1; i < count; i += 20, j++)
+                Dispatcher.Invoke(() =>
                 {
-                    PageSelectorComboBox.Items.Add(j);
-                }
+                    PageSelectorComboBox.Items.Clear();
 
-                PageSelectorComboBox.SelectedIndex = 0;
+                    for (int i = 0, j = 1; i < count; i += 20, j++)
+                    {
+                        PageSelectorComboBox.Items.Add(j);
+                    }
 
-                HistoryDataGrid.ItemsSource = items.OrderBy(i => i.Id).Take(20).ToList();
+                    PageSelectorComboBox.SelectedIndex = 0;
+                });
 
+
+                Task.Delay(2000).Wait();
+
+                // Tu następuje pobranie danych z sql
+                var itemslist = items.OrderBy(i => i.Id).Take(20).ToList();
+
+                Dispatcher.Invoke(() => HistoryDataGrid.ItemsSource = itemslist);
+
+                // Pobranie najpopularniejszych konwersji
                 var mostPopular = items.GroupBy(i => new { i.Converter, i.UnitFrom, i.UnitTo }).Select(i => new { Type = i.Key, Count = i.Count() }).OrderByDescending(i => i.Count).Take(3).ToList();
 
 
-                MostPopularTextBlock.Text = "";
+                Dispatcher.Invoke(() =>
+                {
 
-                foreach (var a in mostPopular)
-                    MostPopularTextBlock.Text += a.Type.Converter + " [" + a.Type.UnitFrom + " -> " + a.Type.UnitTo + "] (" + a.Count + ")\n";
+                    MostPopularTextBlock.Text = "";
 
+                    foreach (var a in mostPopular)
+                        MostPopularTextBlock.Text += a.Type.Converter + " [" + a.Type.UnitFrom + " -> " + a.Type.UnitTo + "] (" + a.Count + ")\n";
+
+                    LoadingScreen.Visibility = Visibility.Hidden;
+                });
+        
             }
+
         }
+
+
         private void PageSelectorComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            using (var db = new jippEntities())
+            LoadingScreen.Visibility = Visibility.Visible;
+            Task t1 = new Task(() =>
             {
 
-                if (PageSelectorComboBox.SelectedIndex != -1)
+
+                using (var db = new jippEntities())
                 {
-                    var items = db.ConversionHistory.AsQueryable<ConversionHistory>();
-                    items = Filter(items);
-                    HistoryDataGrid.ItemsSource = items.OrderBy(i => i.Id).Skip(20 * (((int)PageSelectorComboBox.SelectedItem) - 1)).Take(20).ToList();
+                    Task.Delay(2000).Wait();
+                    if (Dispatcher.Invoke(() => PageSelectorComboBox.SelectedIndex) != -1)
+                    {
+                        var items = db.ConversionHistory.AsQueryable<ConversionHistory>();
+                        items = Filter(items);
+
+                        Dispatcher.Invoke(() => HistoryDataGrid.ItemsSource = items.OrderBy(i => i.Id).Skip(20 * (((int)PageSelectorComboBox.SelectedItem) - 1)).Take(20).ToList());
+                    }
+
+
                 }
 
+                Dispatcher.Invoke(() => LoadingScreen.Visibility = Visibility.Hidden);
 
-            }
+            });
 
+            t1.Start();
 
         }
 
