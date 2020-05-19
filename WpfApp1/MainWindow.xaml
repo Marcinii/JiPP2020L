@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:WpfApp1"
         xmlns:commonControls="clr-namespace:Common.Controls;assembly=Common.Controls"
         mc:Ignorable="d"
-        Title="MainWindow" Height="300" Width="650">
+        Title="MainWindow" Height="500" Width="650">
     <Window.Resources>
         <Storyboard x:Key="Zegar_Pokaz">
             <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="Tarcza_Zegara">
@@ -49,8 +49,8 @@
         <ComboBox x:Name="combobox_jednostki_do" Grid.Column="2" Margin="10.4,35,10.4,0" VerticalAlignment="Top" Height="22" Background="#FF158237" BorderBrush="#FF158237" Foreground="#FF158237" OpacityMask="#FF158237" />
         <Button x:Name="button_konwertuj" Grid.Column="3" Content="Konwertuj" Margin="10,35,10,10" VerticalAlignment="Top" Height="19" BorderBrush="#FF158237" Background="#FF270F31" Foreground="#FF179335" />
         <TextBox x:Name="textbox_wynik" Grid.Column="3" Height="23" Margin="9.6,70,10.2,0" Text="wynik" VerticalAlignment="Top" Background="#FF270F31" BorderBrush="#FF0C0110" Foreground="#FF18862B" />
-        <Path x:Name="Tarcza_Zegara" Grid.Column="3" HorizontalAlignment="Left" Grid.Row="1" VerticalAlignment="Top" Data="M55.901502,6.5149998 C28.626641,6.5149999 6.5159998,28.625641 6.5159996,55.900502 6.5159998,83.175362 28.626641,105.286 55.901502,105.286 83.176362,105.286 105.287,83.175362 105.287,55.900502 105.287,28.625641 83.176362,6.5149999 55.901502,6.5149998 z M55.901502,0 C86.775048,0 111.803,25.02773 111.803,55.901001 111.803,86.77427 86.775048,111.802 55.901502,111.802 25.027953,111.802 0,86.77427 0,55.901001 0,25.02773 25.027953,0 55.901502,0 z" Height="111.802" Margin="35.411,16.516,0,0" Stretch="Fill" Width="111.803" Fill="#FF42B90C"/>
-        <Ellipse x:Name="Wskazowka_Godzinowa" Grid.Column="3" Fill="#FFB90C0C" HorizontalAlignment="Left" Height="6.557" Margin="60.206,68.113,0,0" Grid.Row="1" VerticalAlignment="Top" Width="33.607" RenderTransformOrigin="1,0.5">
+        <Path x:Name="Tarcza_Zegara" Grid.Column="3" HorizontalAlignment="Left" VerticalAlignment="Top" Data="M55.901502,6.5149998 C28.626641,6.5149999 6.5159998,28.625641 6.5159996,55.900502 6.5159998,83.175362 28.626641,105.286 55.901502,105.286 83.176362,105.286 105.287,83.175362 105.287,55.900502 105.287,28.625641 83.176362,6.5149999 55.901502,6.5149998 z M55.901502,0 C86.775048,0 111.803,25.02773 111.803,55.901001 111.803,86.77427 86.775048,111.802 55.901502,111.802 25.027953,111.802 0,86.77427 0,55.901001 0,25.02773 25.027953,0 55.901502,0 z" Height="111.802" Margin="25.811,113.398,0,0" Stretch="Fill" Width="111.803" Fill="#FF42B90C"/>
+        <Ellipse x:Name="Wskazowka_Godzinowa" Grid.Column="3" Fill="#FFB90C0C" HorizontalAlignment="Left" Height="6" Margin="46.6,166,0,0" VerticalAlignment="Top" Width="34" RenderTransformOrigin="1,0.5">
             <Ellipse.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -60,7 +60,7 @@
                 </TransformGroup>
             </Ellipse.RenderTransform>
         </Ellipse>
-        <Ellipse x:Name="Wskazowka_Minutowa" Grid.Column="3" Fill="#FFB90C0C" HorizontalAlignment="Left" Height="7.377" Margin="42.173,68.976,0,0" Grid.Row="1" VerticalAlignment="Top" Width="50" RenderTransformOrigin="1,0.5">
+        <Ellipse x:Name="Wskazowka_Minutowa" Grid.Column="3" Fill="#FFB90C0C" HorizontalAlignment="Left" Height="7" Margin="31.6,165,0,0" VerticalAlignment="Top" Width="50" RenderTransformOrigin="1,0.5">
             <Ellipse.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -70,8 +70,18 @@
                 </TransformGroup>
             </Ellipse.RenderTransform>
         </Ellipse>
-        <TextBlock x:Name="textblock_ocen" HorizontalAlignment="Left" Height="30" Margin="62,94.8,0,0" TextWrapping="Wrap" Text="Oceń aplikację:" VerticalAlignment="Top" Width="88" Foreground="#FF169333" Grid.Row="1"/>
-        <commonControls:RateMe x:Name="button_ocen" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="20.2,93.8,0,0" Grid.Row="1" VerticalAlignment="Top" Width="121" RateValueChanged="Button_ocen_RateValueChanged"/>
+        <TextBlock x:Name="textblock_ocen" HorizontalAlignment="Left" Height="30" Margin="25.6,171.8,0,0" TextWrapping="Wrap" Text="Oceń aplikację:" VerticalAlignment="Top" Width="88" Foreground="#FF169333" Grid.Row="1" Grid.Column="3"/>
+        <commonControls:RateMe x:Name="button_ocen" HorizontalAlignment="Left" Height="23" Margin="25.6,201.8,0,0" Grid.Row="1" VerticalAlignment="Top" Width="121" RateValueChanged="Button_ocen_RateValueChanged" Grid.Column="3"/>
+        <DataGrid x:Name="dataGrid" Grid.ColumnSpan="3" HorizontalAlignment="Left" Height="209" Margin="10,218,0,0" VerticalAlignment="Top" Width="462" Grid.RowSpan="2"/>
+        <Button x:Name="Prev" Content="Prev" HorizontalAlignment="Left" Height="21" Margin="10,201.8,0,0" Grid.Row="1" VerticalAlignment="Top" Width="72" />
+        <Button x:Name="Next" Content="Next" HorizontalAlignment="Left" Height="21" Margin="87,201.8,0,0" Grid.Row="1" VerticalAlignment="Top" Width="74"  Grid.ColumnSpan="2"/>
+        <ComboBox x:Name="selectConverter" HorizontalAlignment="Left" Height="19" Margin="10,189,0,0" VerticalAlignment="Top" Width="101" SelectionChanged="SelectConverter_SelectionChanged"/>
+        <DatePicker x:Name="dateFrom" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="29" Margin="116,184,0,0" VerticalAlignment="Top" Width="108"/>
+        <DatePicker x:Name="dateTo" Grid.ColumnSpan="2" Grid.Column="1" HorizontalAlignment="Left" Height="29" Margin="68.2,184,0,0" VerticalAlignment="Top" Width="107"/>
+        <Button x:Name="Filtruj_button" Content="Filtruj" Grid.Column="2" HorizontalAlignment="Left" Height="19" Margin="19.4,189,0,0" VerticalAlignment="Top" Width="100" />
+        <ListBox x:Name="topKonwersje" Grid.Column="3" HorizontalAlignment="Left" Height="108" Margin="9.6,55.8,0,0" Grid.Row="1" VerticalAlignment="Top" Width="141"/>
+        <Button x:Name="Top_Konwersje" Content="Top Konwersje" Grid.Column="3" HorizontalAlignment="Left" Height="18" Margin="25.6,32.8,0,0" Grid.Row="1" VerticalAlignment="Top" Width="104" />
+        <TextBlock x:Name="Statystyki" HorizontalAlignment="Left" Height="22" Margin="10,167,0,0" TextWrapping="Wrap" Text="Statystyki" VerticalAlignment="Top" Width="61" Foreground="#FF42B90C"/>
 
 
 

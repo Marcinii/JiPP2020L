@@ -79,6 +79,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="DBManager.cs" />
     <Compile Include="DatabaseModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -98,6 +99,24 @@
       <DependentUpon>DatabaseModel.tt</DependentUpon>
     </Compile>
     <Compile Include="RelayCommand.cs" />
+    <Compile Include="Statistics.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Statistics.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Statistics.cs">
+      <DependentUpon>Statistics.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Statistics.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Statistics.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Statistics1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Statistics.tt</DependentUpon>
+    </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -141,6 +160,13 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <EntityDeploy Include="Statistics.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Statistics.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Statistics.edmx.diagram">
+      <DependentUpon>Statistics.edmx</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -177,6 +203,16 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>DatabaseModel.edmx</DependentUpon>
       <LastGenOutput>DatabaseModel.cs</LastGenOutput>
+    </Content>
+    <Content Include="Statistics.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Statistics.edmx</DependentUpon>
+      <LastGenOutput>Statistics.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Statistics.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Statistics.edmx</DependentUpon>
+      <LastGenOutput>Statistics1.cs</LastGenOutput>
     </Content>
   </ItemGroup>
   <ItemGroup>

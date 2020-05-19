@@ -23,7 +23,9 @@ namespace WpfApp1
     /// </summary>
     public partial class MainWindow : Window
     {
-     
+        //statystyki
+        private DBManager db;
+
         public MainWindow()
         {
             InitializeComponent();
@@ -36,12 +38,19 @@ namespace WpfApp1
                 new zegar(),
             };
 
+            selectConverter.ItemsSource = new List<string>()
+            {
+                "Wszystkie",
+                new cisnienia().ToString(),
+                new masy().ToString(),
+                new odleglosci().ToString(),
+                new temperatury().ToString(),
+                new zegar().ToString(),
+            };
+
             Tarcza_Zegara.Visibility = Visibility.Hidden;
             Wskazowka_Godzinowa.Visibility = Visibility.Hidden;
             Wskazowka_Minutowa.Visibility = Visibility.Hidden;
-
-            // Odczytaj ocene aplikacji z bazy danych
-            //RateControl.RateValue = Database.GetRating().RatingValue;
 
             using (KASETY_412_15Entities context = new KASETY_412_15Entities())
             {
@@ -51,12 +60,32 @@ namespace WpfApp1
                 button_ocen.RateValue = ocena.rate1;
             }
 
-            //komendy
+            //statystyki
+            db = new DBManager();
+            dataGrid.ItemsSource = db?.Filter("Wszystkie", dateFrom.SelectedDate, dateTo.SelectedDate);
+
+            //komendy Relay Command
             KonwertujCommand = new RelayCommand(obj => Konwertuj());
             button_konwertuj.Command = KonwertujCommand;
+
+            FiltrujCommand = new RelayCommand(obj => Filtruj());
+            Filtruj_button.Command = FiltrujCommand;
+
+            PrevCommand = new RelayCommand(obj => Prev_Click());
+            Prev.Command = PrevCommand;
+
+            NextCommand = new RelayCommand(obj => Next_Click());
+            Next.Command = NextCommand;
+
+            Top_KonwersjeCommand = new RelayCommand(obj => Top_Konwersje_Click());
+            Top_Konwersje.Command = Top_KonwersjeCommand;
         }
         //komendy
         public RelayCommand KonwertujCommand;
+        public RelayCommand FiltrujCommand;
+        public RelayCommand PrevCommand;
+        public RelayCommand NextCommand;
+        public RelayCommand Top_KonwersjeCommand;
 
         private void Combobox_konwertery_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -106,6 +135,17 @@ namespace WpfApp1
                     }
                 }
             }
+            db.SaveToDB(new Statistics() //zapisywanie do bazy danych
+            {
+                conversion_date = DateTime.Now,
+                converter_type = combobox_konwertery.SelectedItem.ToString(),
+                unit_from = combobox_jednostki_z.SelectedItem.ToString(),
+                unit_to = combobox_jednostki_do.SelectedItem.ToString(),
+                insert_data = textbox_wpisz_wartosc.Text,
+                output_data = textbox_wynik.Text,
+             }, dataGrid);
+            
+
         }
 
         private void Button_ocen_RateValueChanged(object sender, Common.Controls.RateMe.RateEventArgs e)
@@ -120,5 +160,59 @@ namespace WpfApp1
                 context.SaveChanges();
             }
         }
+
+        private void SelectConverter_SelectionChanged(object sender, SelectionChangedEventArgs e) //wybrany konwerter
+        {
+         //   string konwerter = ((IKonwerter_jedn)combobox_konwertery.SelectedItem).Nazwa;
+           // dataGrid.ItemsSource = db?.Filter(konwerter, dateFrom.SelectedDate, dateTo.SelectedDate);
+        }
+
+        private void Filtruj() //filtruj button
+        {   /*
+            string konwerter = selectConverter.SelectedItem.ToString();
+            dataGrid.ItemsSource = db?.Filter(konwerter, this.dateFrom.SelectedDate, this.dateTo.SelectedDate);
+            */
+
+            // Pokazujesz ekran ladowania
+            //StatsWindowLoadingScreen.Visibility = Visibility.Visible;
+
+            Task task1 = new Task(() => ZaladujStatystyki());
+            task1.Start();
+
+            Task.WhenAll(task1).ContinueWith(t =>
+            {
+                // Ukrywasz ekran ladowania
+                //Dispatcher.Invoke(() => StatsWindowLoadingScreen.Visibility = Visibility.Hidden);
+                MessageBox.Show("Ukrywam ekran ladowania!");
+            });
+        }
+        private void ZaladujStatystyki()
+        {
+            Task.Delay(3000).Wait();
+
+            string konwerter = selectConverter.SelectedItem.ToString();
+
+            Dispatcher.Invoke(() =>
+            {
+                dataGrid.ItemsSource = db?.Filter(konwerter, this.dateFrom.SelectedDate, this.dateTo.SelectedDate);
+            });
+        }
+
+        private void Prev_Click() //poprzednia strona
+        {
+            dataGrid.ItemsSource = db.TakePrev();
+        }
+
+        private void Next_Click() //nastepna strona
+        {
+            dataGrid.ItemsSource = db.TakeNext();
+        }
+
+        private void Top_Konwersje_Click() //top 3 konwersje
+        {
+            topKonwersje.ItemsSource = db.Top3c();
+        }
+
+
     }
 }
