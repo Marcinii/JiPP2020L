@@ -168,35 +168,11 @@ namespace WpfApp1
         }
 
         private void Filtruj() //filtruj button
-        {   /*
+        {
             string konwerter = selectConverter.SelectedItem.ToString();
             dataGrid.ItemsSource = db?.Filter(konwerter, this.dateFrom.SelectedDate, this.dateTo.SelectedDate);
-            */
-
-            // Pokazujesz ekran ladowania
-            //StatsWindowLoadingScreen.Visibility = Visibility.Visible;
-
-            Task task1 = new Task(() => ZaladujStatystyki());
-            task1.Start();
-
-            Task.WhenAll(task1).ContinueWith(t =>
-            {
-                // Ukrywasz ekran ladowania
-                //Dispatcher.Invoke(() => StatsWindowLoadingScreen.Visibility = Visibility.Hidden);
-                MessageBox.Show("Ukrywam ekran ladowania!");
-            });
         }
-        private void ZaladujStatystyki()
-        {
-            Task.Delay(3000).Wait();
 
-            string konwerter = selectConverter.SelectedItem.ToString();
-
-            Dispatcher.Invoke(() =>
-            {
-                dataGrid.ItemsSource = db?.Filter(konwerter, this.dateFrom.SelectedDate, this.dateTo.SelectedDate);
-            });
-        }
 
         private void Prev_Click() //poprzednia strona
         {
