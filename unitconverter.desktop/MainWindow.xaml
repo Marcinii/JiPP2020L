@@ -87,5 +87,16 @@
             </Rectangle.RenderTransform>
         </Rectangle>
         <DataGrid x:Name="stats_datatable" HorizontalAlignment="Left" Height="200" Margin="30,350,0,0" VerticalAlignment="Top" Width="840" Loaded="Stats_datatable_Loaded"/>
+        <Rectangle x:Name="load_screen" Height="600" Width="1200" Fill="#7F000000" Visibility="Hidden"/>
+        <Ellipse x:Name="load_pic1" HorizontalAlignment="Left" Height="300" Margin="450,150,0,0" VerticalAlignment="Top" Width="300" Visibility="Hidden">
+            <Ellipse.Fill>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="White" Offset="1"/>
+                    <GradientStop Color="#FF04FF26"/>
+                </LinearGradientBrush>
+            </Ellipse.Fill>
+        </Ellipse>
+        <Ellipse x:Name="load_pic2" Fill="White" HorizontalAlignment="Left" Height="250" Margin="475,175,0,0" VerticalAlignment="Top" Width="250" Visibility="Hidden"/>
+        <TextBlock x:Name="load_pic3" HorizontalAlignment="Left" Height="30" Margin="525,285,0,0" TextWrapping="Wrap" Text="  Ładowanie..." VerticalAlignment="Top" Width="150" FontSize="22" Visibility="Hidden"/>
     </Grid>
 </Window>

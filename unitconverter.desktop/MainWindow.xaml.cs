@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
+
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -16,6 +16,7 @@ using System.Windows.Shapes;
 using System.Data;
 using unitconverter.logic;
 using UnitConverter.Desktop;
+using System.Threading.Tasks;
 
 namespace unitconverter.desktop
 {
@@ -39,6 +40,7 @@ namespace unitconverter.desktop
         DateTime? date_to;
         int from_lp = 0;
         int how_much_take_lp = 20;
+
 
         public MainWindow()
         {
@@ -82,7 +84,7 @@ namespace unitconverter.desktop
                 }
                 index_from_list++;
             }
-            create_datatable(choosen_f_converter, date_from, date_to, from_lp, how_much_take_lp);
+            task_create_datatable(choosen_f_converter, date_from, date_to, from_lp, how_much_take_lp);
         }
 
         private void create_filters()
@@ -102,11 +104,40 @@ namespace unitconverter.desktop
         {
             date_from = f_date_from.SelectedDate;
             date_to = f_date_to.SelectedDate;
-            create_datatable(choosen_f_converter, date_from, date_to, from_lp, how_much_take_lp);
+            task_create_datatable(choosen_f_converter, date_from, date_to, from_lp, how_much_take_lp);
         }
+
+        private void start_load_screen()
+        {
+            load_screen.Visibility = load_pic1.Visibility = load_pic2.Visibility = load_pic3.Visibility = Visibility.Visible;
+
+            var load_animation = new DoubleAnimation(0, 360, new Duration(TimeSpan.FromSeconds(2)));
+            load_animation.RepeatBehavior = RepeatBehavior.Forever;
+            var circle_rotate = new RotateTransform();
+            load_pic1.RenderTransform = circle_rotate;
+            load_pic1.RenderTransformOrigin = new Point(0.5, 0.5);
+            circle_rotate.BeginAnimation(RotateTransform.AngleProperty, load_animation);
+        }
+
+        private void end_load_screen()
+        {
+            load_screen.Visibility = load_pic1.Visibility = load_pic2.Visibility = load_pic3.Visibility = Visibility.Hidden;
+            var circle_rotate = new RotateTransform();
+            load_pic1.RenderTransform = circle_rotate;
+            circle_rotate.BeginAnimation(RotateTransform.AngleProperty, null);
+        }
+
+        private void task_create_datatable(int f_converter, DateTime? f_date_from, DateTime? f_date_to, int from_lp, int how_much_take_lp)
+        {
+            start_load_screen();
+            Task download = new Task(() => create_datatable(f_converter, f_date_from, f_date_to, from_lp, how_much_take_lp));
+            download.Start();
+        }
+
 
         private void create_datatable(int f_converter, DateTime? f_date_from, DateTime? f_date_to, int from_lp, int how_much_take_lp)
         {
+            Task.Delay(15000).Wait();
             List<conversions> data = db_operations.download_data(f_converter, f_date_from, f_date_to, from_lp, how_much_take_lp);
             DataTable stats = new DataTable();
             List<DataColumn> columns = new List<DataColumn>()
@@ -137,16 +168,20 @@ namespace unitconverter.desktop
                 stats.Rows.Add(row);
                 cout++;
             }
-            stats_datatable.ItemsSource = stats.DefaultView;
+            Dispatcher.Invoke(() => stats_datatable.ItemsSource = stats.DefaultView);
             string rank_show = db_operations.make_rank(data);
-            rank.Text = "Najczęściej: " + rank_show;
+            Dispatcher.Invoke(() => 
+            {
+                rank.Text = "Najczęściej: " + rank_show;
+                end_load_screen();
+            });
         }
 
 
 
         private void Stats_datatable_Loaded(object sender, RoutedEventArgs e)
         {
-           create_datatable(choosen_f_converter, date_from, date_to, from_lp, how_much_take_lp);
+           task_create_datatable(choosen_f_converter, date_from, date_to, from_lp, how_much_take_lp);
         }
         private RelayCommand previouscommand;
         private void previous()
@@ -154,14 +189,14 @@ namespace unitconverter.desktop
             if (from_lp > 0)
             {
                 from_lp -= 20;
-                create_datatable(choosen_f_converter, date_from, date_to, from_lp, how_much_take_lp);
+                task_create_datatable(choosen_f_converter, date_from, date_to, from_lp, how_much_take_lp);
             }
         }
         private RelayCommand nextcommand;
         private void next()
         {
             from_lp += 20;
-            create_datatable(choosen_f_converter, date_from, date_to, from_lp, how_much_take_lp);
+            task_create_datatable(choosen_f_converter, date_from, date_to, from_lp, how_much_take_lp);
         }
 
         private List<string> choose_units()
