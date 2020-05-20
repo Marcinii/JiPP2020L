@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -133,8 +134,9 @@ namespace DesktopAPP
         private int nextpage = 0;
         public void metodakonwertera()
         {
-            string rodzajbox = ((IConverter)statscombobox.SelectedItem).Name;
 
+            Dispatcher.Invoke(() => rodzajbox = ((IConverter)statscombobox.SelectedItem).Name);
+           
             if (rodzajbox == "Temperatury")
                 using (HomebaseEntities1 context = new HomebaseEntities1())
                 {
@@ -145,7 +147,7 @@ namespace DesktopAPP
                         .Take(20)
                         .ToList();
 
-                    BazaStatystyk.ItemsSource = tabela;
+                    Dispatcher.Invoke(() => BazaStatystyk.ItemsSource = tabela);
                 }
             else if (rodzajbox == "Długości")
                 using (HomebaseEntities1 context = new HomebaseEntities1())
@@ -157,7 +159,7 @@ namespace DesktopAPP
                         .Take(20)
                         .ToList();
 
-                    BazaStatystyk.ItemsSource = tabela;
+                    Dispatcher.Invoke(() => BazaStatystyk.ItemsSource = tabela);
                 }
             else if (rodzajbox == "wagi")
                 using (HomebaseEntities1 context = new HomebaseEntities1())
@@ -169,7 +171,7 @@ namespace DesktopAPP
                         .Take(20)
                         .ToList();
 
-                    BazaStatystyk.ItemsSource = tabela;
+                    Dispatcher.Invoke(() => BazaStatystyk.ItemsSource = tabela);
                 }
             else if (rodzajbox == "Czas24")
                 using (HomebaseEntities1 context = new HomebaseEntities1())
@@ -181,7 +183,7 @@ namespace DesktopAPP
                         .Take(20)
                         .ToList();
 
-                    BazaStatystyk.ItemsSource = tabela;
+                    Dispatcher.Invoke(() => BazaStatystyk.ItemsSource = tabela);
                 }
             else if (rodzajbox == "Czas")
                 using (HomebaseEntities1 context = new HomebaseEntities1())
@@ -193,7 +195,7 @@ namespace DesktopAPP
                         .Take(20)
                         .ToList();
 
-                    BazaStatystyk.ItemsSource = tabela;
+                    Dispatcher.Invoke(() => BazaStatystyk.ItemsSource = tabela);
                 }
         }
 
@@ -219,8 +221,8 @@ namespace DesktopAPP
 
                     foreach (zapissql b in tabela)
                     {
-                        BazaStatystyk.ItemsSource = tabela;
-                    }
+                    Dispatcher.Invoke(() => BazaStatystyk.ItemsSource = tabela);
+                }
                 }
             }
         
@@ -233,12 +235,52 @@ namespace DesktopAPP
         {
 
         }
+       
+
+        private void LoadData(CancellationToken ct)
+        {
+            
+                
+            for (int i = 0; i < 10; i++)
+            {
+                ct.ThrowIfCancellationRequested();
+
+                Thread.Sleep(100);
+            }
+           
+        }
+        private void anulujbtn(object sender, RoutedEventArgs e)
+        {
+            tokenSource.Cancel();
+        }
+        CancellationTokenSource tokenSource;
+        private string rodzajbox;
 
         private void statscombobox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            metodakonwertera();
 
+            tokenSource = new CancellationTokenSource();
+            gridzacm.Visibility = Visibility.Visible;
+            path.Visibility = Visibility.Visible;
+           ((Storyboard)Resources["Storyboard3"]).Begin();
+            Task task1 = new Task(() => metodakonwertera());
+            task1.Start();
+            Task task2 = new Task(() => LoadData(tokenSource.Token), tokenSource.Token);
+            task2.Start();
+            Task.WhenAll(task1, task2).ContinueWith(t =>
+            {
+                if (t.IsFaulted)
+                {
+                    MessageBox.Show("Wystąpił błąd");
+                }
+
+                Dispatcher.Invoke(() => gridzacm.Visibility = Visibility.Hidden);
+                Dispatcher.Invoke(() => path.Visibility = Visibility.Hidden);
+            });
+            
         }
+
+       
 
         private void btnfordate()
         {
@@ -307,6 +349,8 @@ namespace DesktopAPP
                 context.SaveChanges();
             }
         }
+
+      
     }
 }
 

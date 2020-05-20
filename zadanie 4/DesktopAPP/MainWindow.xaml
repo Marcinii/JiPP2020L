@@ -30,11 +30,18 @@
             </DoubleAnimationUsingKeyFrames>
         </Storyboard>
         <Storyboard x:Key="Storyboard2"/>
+        <Storyboard x:Key="Storyboard3">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[2].(RotateTransform.Angle)" Storyboard.TargetName="path">
+                <EasingDoubleKeyFrame KeyTime="0" Value="6129.3"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:5" Value="7746.617"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
     </Window.Resources>
     <Window.Triggers>
         <EventTrigger RoutedEvent="FrameworkElement.Loaded">
             <BeginStoryboard Storyboard="{StaticResource Storyboard1}"/>
             <BeginStoryboard Storyboard="{StaticResource Storyboard2}"/>
+            <BeginStoryboard Storyboard="{StaticResource Storyboard3}"/>
         </EventTrigger>
     </Window.Triggers>
 
@@ -73,7 +80,7 @@
             <TextBlock x:Name="dwukropektext" Grid.Column="1" HorizontalAlignment="Left" Margin="180,49,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="36" Width="10"/>
             <Button x:Name="clockbutton" Content="Button for clock conv" HorizontalAlignment="Left" Margin="30,180,0,0" VerticalAlignment="Top" Width="130"/>
             <TextBlock x:Name="minutesb" Grid.Column="1" HorizontalAlignment="Left" Margin="10,330,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="28" Width="91"/>
-            <Ellipse x:Name="ellipse" Grid.Column="1" HorizontalAlignment="Left" Height="150.031" Margin="84.969,210,0,0" Stroke="Black" VerticalAlignment="Top" Width="150.031" RenderTransformOrigin="0.5,0.5" Visibility="Hidden" d:IsLocked="True">
+            <Ellipse x:Name="ellipse" Grid.Column="1" HorizontalAlignment="Left" Height="150.031" Margin="84.969,210,0,0" Stroke="Black" VerticalAlignment="Top" Width="150.031" RenderTransformOrigin="0.5,0.5" Visibility="Hidden">
                 <Ellipse.RenderTransform>
                     <TransformGroup>
                         <ScaleTransform/>
@@ -124,5 +131,26 @@
 
         <Label Grid.ColumnSpan="2" Margin="45,906,194,-526">Ocena aplikacji:</Label>
         <CommonControls:UserControl1 x:Name="rateControl" Margin="140,906,170,-511" RateValueChanged="rateControl_RateValueChanged"  />
+        <Grid x:Name="gridzacm" Visibility="Hidden" Grid.ColumnSpan="4"  Background="#7F000000" Margin="0,0,0,-546">
+            <Button x:Name="cancelbtn" Margin="646,905,10,10" Click="anulujbtn">Anuluj</Button>
+        </Grid>
+        <Path x:Name="path" Visibility="Hidden" Grid.ColumnSpan="2" Data="M70,15.999999 C40.728909,16 17,39.728909 16.999999,69 17,98.271095 40.728909,122 70,122 99.271095,122 123,98.271095 123,69 123,39.728909 99.271095,16 70,15.999999 z M70,0 C108.65993,0 140,31.340068 140,70 140,108.65993 108.65993,140 70,140 31.340068,140 0,108.65993 0,70 0,31.340068 31.340068,0 70,0 z" HorizontalAlignment="Left" Height="140" Margin="365,419,0,-140" Stretch="Fill" VerticalAlignment="Top" Width="140" RenderTransformOrigin="0.5,0.5">
+            <Path.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Path.RenderTransform>
+            <Path.Fill>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="Black" Offset="0"/>
+                    <GradientStop Color="White" Offset="1"/>
+                </LinearGradientBrush>
+            </Path.Fill>
+        </Path>
+
+
     </Grid>
 </Window>
