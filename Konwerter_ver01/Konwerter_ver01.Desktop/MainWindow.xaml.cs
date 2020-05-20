@@ -202,12 +202,6 @@ namespace Konwerter_ver01.Desktop
             tokenSource = new CancellationTokenSource();
             Nakladka1.Visibility = Visibility.Visible;
             WaitPoint.Visibility = Visibility.Visible;
-            KomunikatLabel.Visibility = Visibility.Visible;
-            AnulujButton.Visibility = Visibility.Visible;
-            ellipse1.Visibility = Visibility.Visible;
-            ellipse2.Visibility = Visibility.Visible;
-            ellipse3.Visibility = Visibility.Visible;
-            ellipse4.Visibility = Visibility.Visible;
             ((Storyboard)Resources["UpsStoryboard"]).Begin();
             nrstrony = 0;
             if (DateTime.TryParse(DataOd.Text, out DateTime dataod)) { } else dataod = new DateTime(2020, 04, 01);
@@ -220,17 +214,14 @@ namespace Konwerter_ver01.Desktop
 
             Task.WhenAll(t1, t2).ContinueWith(t =>
              {
-             if (t.IsFaulted) { MessageBox.Show("Wystąpił błąd programu. Skontaktuj się ze swoim HelpDesk."); }
-             Dispatcher.Invoke(() => Nakladka1.Visibility = Visibility.Hidden);
-                 Dispatcher.Invoke(() => WaitPoint.Visibility = Visibility.Hidden);
-                 Dispatcher.Invoke(() => KomunikatLabel.Visibility = Visibility.Hidden);
-                 Dispatcher.Invoke(() => AnulujButton.Visibility = Visibility.Hidden);
-                 Dispatcher.Invoke(() => ellipse1.Visibility = Visibility.Hidden);
-                 Dispatcher.Invoke(() => ellipse2.Visibility = Visibility.Hidden);
-                 Dispatcher.Invoke(() => ellipse3.Visibility = Visibility.Hidden);
-                 Dispatcher.Invoke(() => ellipse4.Visibility = Visibility.Hidden);
+                 Nakladka1.Visibility = Visibility.Hidden;
+                 WaitPoint.Visibility = Visibility.Hidden;
                  ((Storyboard)Resources["UpsStoryboard"]).Stop();
-             });
+                 //if (t.IsFaulted) { MessageBox.Show("Wystąpił błąd programu. Skontaktuj się ze swoim HelpDesk."); }
+                 //Dispatcher.Invoke(() => Nakladka1.Visibility = Visibility.Hidden);
+                 //    Dispatcher.Invoke(() => WaitPoint.Visibility = Visibility.Hidden);
+                 //    ((Storyboard)Resources["UpsStoryboard"]).Stop();
+             }, TaskScheduler.FromCurrentSynchronizationContext());
         }
         private void LadStaty(DateTime dataod, DateTime datado)
         {
@@ -241,7 +232,7 @@ namespace Konwerter_ver01.Desktop
                 //List<KonwerterDa> konstat2 = context.KonwerterDaWy.Where(k => k.WybKon == (((IConverter)WybKon.SelectedItem).Name)).Where(k => k.KonwerterCzas >= dataod).Where(k => k.KonwerterCzas <= datado).OrderBy(k => k.KonwerterCzas).Skip(nrstrony * 8).Take(8).ToList();
 
                 //Thread.Sleep(5000);
-                Task.Delay(9000).Wait();
+                Task.Delay(5000).Wait();
                 Dispatcher.Invoke(() => {
                     //Nakladka1.Visibility = Visibility.Hidden;
                     Statystyki.ItemsSource = konstat;
@@ -260,10 +251,16 @@ namespace Konwerter_ver01.Desktop
                 {
                     ct.ThrowIfCancellationRequested();
                 }
-                Task.Delay(1000).Wait();
+                Thread.Sleep(1000);
             }
            
         }
+        CancellationTokenSource tokenSource;
+        private void AnulujButton_Click(object sender, RoutedEventArgs e)
+        {
+            tokenSource.Cancel();
+        }
+
         private RelayCommand NastepnaStrona_ClickCommand;
         private void NastepnaStrona_Click()
         {
@@ -352,11 +349,7 @@ namespace Konwerter_ver01.Desktop
         {
             RateDoBD(e.Value);
         }
-        CancellationTokenSource tokenSource;
-        private void AnulujButton_Click(object sender, RoutedEventArgs e)
-        {
-            tokenSource.Cancel();
-        }
+        
         
     }
 }

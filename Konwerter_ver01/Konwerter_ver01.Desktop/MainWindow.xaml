@@ -21,7 +21,7 @@
                 <EasingDoubleKeyFrame KeyTime="0:0:6" Value="0"/>
             </DoubleAnimationUsingKeyFrames>
         </Storyboard>
-        <Storyboard x:Key="UpsStoryboard">
+        <Storyboard x:Key="UpsStoryboard" AutoReverse="True" RepeatBehavior="Forever">
             <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)" Storyboard.TargetName="ellipse1">
                 <EasingColorKeyFrame KeyTime="0:0:1" Value="#FFD11738"/>
             </ColorAnimationUsingKeyFrames>
@@ -192,12 +192,13 @@
         <commonControls:RateMe x:Name="rateControl" Grid.Column="5" Grid.ColumnSpan="3" Margin="10,410,51,10" Grid.Row="2" RateValueChanged="rateControl_RateValueChanged_1"/>
         <Rectangle x:Name="Nakladka1" Grid.ColumnSpan="9" Fill="#FF496C47" HorizontalAlignment="Left" Height="815" Stroke="Black" VerticalAlignment="Top" Width="842" Grid.RowSpan="3" Opacity="0.5" Margin="0,0,0,-0.48" Visibility="Hidden"/>
 
-        <Rectangle x:Name="WaitPoint" Grid.ColumnSpan="8" Fill="#FFE8E26A" HorizontalAlignment="Center" Height="246" Margin="0,0,0,0" Grid.RowSpan="3" Stroke="Black" VerticalAlignment="Center" Width="489" Visibility="Hidden"/>
-        <Label x:Name="KomunikatLabel" Content="Ups!!! Coś poszło nie tak &#xD;&#xA;lub wystąpił problem z dostępem do bazy danych." Margin="0,-50,0,0" VerticalAlignment="Center" HorizontalAlignment="Center" Width="394" Grid.ColumnSpan="8" Grid.RowSpan="3" FontSize="16" FontWeight="Bold" FontStyle="Italic" Height="61.863" Visibility="Hidden"/>
-        <Ellipse x:Name="ellipse1" Grid.ColumnSpan="8" Fill="#FFE8E26A" HorizontalAlignment="Center" Height="34.193" Margin="-240,80,0,0" Grid.Row="2" Stroke="Black" VerticalAlignment="Top" Width="35.5" Visibility="Hidden"/>
-        <Ellipse x:Name="ellipse2" Grid.ColumnSpan="8" Fill="#FFE8E26A" HorizontalAlignment="Center" Height="34.193" Margin="-80,80,0,0" Grid.Row="2" Stroke="Black" VerticalAlignment="Top" Width="35.5" Visibility="Hidden"/>
-        <Ellipse x:Name="ellipse3" Grid.ColumnSpan="8" Fill="#FFE8E26A" HorizontalAlignment="Center" Height="34.193" Margin="80,80,0,0" Grid.Row="2" Stroke="Black" VerticalAlignment="Top" Width="35.5" Visibility="Hidden"/>
-        <Ellipse x:Name="ellipse4" Grid.ColumnSpan="8" Fill="#FFE8E26A" HorizontalAlignment="Center" Height="34.193" Margin="240,80,0,0" Grid.Row="2" Stroke="Black" VerticalAlignment="Top" Width="35.5" Visibility="Hidden"/>
-        <Button x:Name="AnulujButton" Grid.ColumnSpan="8" Grid.RowSpan="3" Content="Anuluj" HorizontalAlignment="Center" Margin="0,200,0,0" VerticalAlignment="Center" Width="75" Click="AnulujButton_Click" Visibility="Hidden"/>
+        <Grid x:Name="WaitPoint" Grid.ColumnSpan="8" Background="#FFE8E26A" HorizontalAlignment="Center" Height="246" Margin="0,0,0,0" Grid.RowSpan="3" VerticalAlignment="Center" Width="489" Visibility="Hidden">
+        <Label x:Name="KomunikatLabel" Content="Ups!!! Coś poszło nie tak &#xD;&#xA;lub wystąpił problem z dostępem do bazy danych." Margin="0,-50,0,0" VerticalAlignment="Center" HorizontalAlignment="Center" Width="394" Grid.ColumnSpan="8" Grid.RowSpan="3" FontSize="16" FontWeight="Bold" FontStyle="Italic" Height="61.863" />
+        <Ellipse x:Name="ellipse1" Grid.ColumnSpan="8" Fill="#FFE8E26A" HorizontalAlignment="Center" Height="34.193" Margin="-240,150,0,0" Grid.Row="2" Stroke="Black" VerticalAlignment="Top" Width="35.5" />
+        <Ellipse x:Name="ellipse2" Grid.ColumnSpan="8" Fill="#FFE8E26A" HorizontalAlignment="Center" Height="34.193" Margin="-80,150,0,0" Grid.Row="2" Stroke="Black" VerticalAlignment="Top" Width="35.5" />
+        <Ellipse x:Name="ellipse3" Grid.ColumnSpan="8" Fill="#FFE8E26A" HorizontalAlignment="Center" Height="34.193" Margin="80,150,0,0" Grid.Row="2" Stroke="Black" VerticalAlignment="Top" Width="35.5" />
+        <Ellipse x:Name="ellipse4" Grid.ColumnSpan="8" Fill="#FFE8E26A" HorizontalAlignment="Center" Height="34.193" Margin="240,150,0,0" Grid.Row="2" Stroke="Black" VerticalAlignment="Top" Width="35.5" />
+        <Button x:Name="AnulujButton" Grid.ColumnSpan="8" Grid.RowSpan="3" Content="Anuluj" HorizontalAlignment="Center" Margin="0,200,0,0" VerticalAlignment="Center" Width="75" Click="AnulujButton_Click" />
+    </Grid>
     </Grid>
 </Window>
