@@ -208,25 +208,16 @@ namespace KonwerterJednostek.Desktop
             Dispatcher.Invoke(() => loader.Visibility = Visibility.Visible);
             Dispatcher.Invoke(() => loader1.Visibility = Visibility.Visible);
             Dispatcher.Invoke(() => loader2.Visibility = Visibility.Visible);
-
             Task.Delay(2000).Wait();
-            string from = "";
-            string to = "";
-            Dispatcher.Invoke(() => from = (fromDate.SelectedDate).ToString());
-            Dispatcher.Invoke(() => to = (toDate.SelectedDate).ToString());
+            string from = ""; string to = "";
+            Dispatcher.Invoke(() => from = (fromDate.SelectedDate).ToString()); Dispatcher.Invoke(() => to = (toDate.SelectedDate).ToString());
             if (from == "") { Dispatcher.Invoke(() => fromDate.SelectedDate = new DateTime(1990, 1, 1)); }
             if (to == "") { Dispatcher.Invoke(() => toDate.SelectedDate = new DateTime(2050, 1, 1)); }
-
-            string p = "";
-            Dispatcher.Invoke(() => p = page.Text);
+            string p = ""; Dispatcher.Invoke(() => p = page.Text);
             int.TryParse(p, out int pageINT);
-
-            DateTime from2 = new DateTime(2000, 1, 1);
-            DateTime to2 = new DateTime(2000, 1, 1);
-            Dispatcher.Invoke(() => from2 = (DateTime)fromDate.SelectedDate);
-            Dispatcher.Invoke(() => to2 = (DateTime)toDate.SelectedDate);
-            string t2 = "";
-            Dispatcher.Invoke(() => t2 = type.Text);
+            DateTime from2 = new DateTime(2000, 1, 1); DateTime to2 = new DateTime(2000, 1, 1);
+            Dispatcher.Invoke(() => from2 = (DateTime)fromDate.SelectedDate); Dispatcher.Invoke(() => to2 = (DateTime)toDate.SelectedDate);
+            string t2 = ""; Dispatcher.Invoke(() => t2 = type.Text);
             using (StatsEntities context = new StatsEntities())
             {
                 List<Stats> stats = context.Stats
@@ -240,9 +231,7 @@ namespace KonwerterJednostek.Desktop
                 List<Stats> term = context.Stats
                     .Where(s => s.Date >= from2 && s.Date < to2 && s.Type.StartsWith(t2))
                     .ToList();
-
                 List<string> pop = term.Select(s => s.Type).ToList();
-
                 Dispatcher.Invoke(()=>
                 popular.ItemsSource = term.GroupBy(l => new { l.Type, l.UnitFrom, l.UnitTo })
                     .Select(g => new { g.Key.Type, g.Key.UnitFrom, g.Key.UnitTo, count = g.Count() })

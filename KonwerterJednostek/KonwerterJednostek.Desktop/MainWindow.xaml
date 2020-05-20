@@ -322,8 +322,5 @@
             </Path.Fill>
         </Path>
         <Label x:Name="loader2" Visibility="Hidden" Grid.ColumnSpan="2" Grid.RowSpan="5" Panel.ZIndex="5" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="42" Content="Loading data . . ." Foreground="#FF1A22D3"/>
-
-
-
     </Grid>
 </Window>
