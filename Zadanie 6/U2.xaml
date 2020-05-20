@@ -1,0 +1,68 @@
+﻿<UserControl x:Class="application.U2"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:application"
+             mc:Ignorable="d" 
+             d:DesignHeight="378" d:DesignWidth="732.666666666667">
+    <Grid x:Name="panel2" Background="White">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0*"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Rectangle x:Name="top1" Fill="#FFE4E4E4" HorizontalAlignment="Left" Height="266" Margin="38,51,0,0" RadiusY="5" RadiusX="5" StrokeThickness="0.5" VerticalAlignment="Top" Width="199" Grid.RowSpan="2">
+            <Rectangle.Effect>
+                <DropShadowEffect Color="#FF923B4D"/>
+            </Rectangle.Effect>
+        </Rectangle>
+        <Rectangle x:Name="top2" Fill="#FFE4E4E4" HorizontalAlignment="Left" Height="266" Margin="267,51,0,0" RadiusY="5" RadiusX="5" StrokeThickness="0.5" VerticalAlignment="Top" Width="199" Grid.RowSpan="2">
+            <Rectangle.Effect>
+                <DropShadowEffect Color="#FF923B4D"/>
+            </Rectangle.Effect>
+        </Rectangle>
+        <Rectangle x:Name="top3" Fill="#FFE4E4E4" HorizontalAlignment="Left" Height="266" Margin="495,51,0,0" RadiusY="5" RadiusX="5" StrokeThickness="0.5" VerticalAlignment="Top" Width="199" Grid.RowSpan="2">
+            <Rectangle.Effect>
+                <DropShadowEffect Color="#FF923B4D"/>
+            </Rectangle.Effect>
+        </Rectangle>
+        <Label x:Name="label1top" Content="converter" HorizontalAlignment="Left" Margin="38,51,0,0" VerticalAlignment="Top" Width="199" Height="42" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Background="#FF3C3C3C" FontWeight="Bold" BorderBrush="#FFFFDCDC" Foreground="White" Grid.RowSpan="2"/>
+        <Label x:Name="label2top" Content="unit" HorizontalAlignment="Left" Margin="267,51,0,0" VerticalAlignment="Top" Width="199" Height="42" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Background="#FF3C3C3C" FontWeight="Bold" Foreground="White" Grid.RowSpan="2"/>
+        <Label x:Name="label3top" Content="value" HorizontalAlignment="Left" Margin="495,51,0,0" VerticalAlignment="Top" Width="199" Height="42" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Background="#FF3C3C3C" FontWeight="Bold" Foreground="White" Grid.RowSpan="2"/>
+        <Label x:Name="topU1" Content="" HorizontalAlignment="Left" Margin="284,143,0,0" VerticalAlignment="Top" Background="White" Width="163" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Grid.RowSpan="2"/>
+        <Label x:Name="topU2" Content="" HorizontalAlignment="Left" Margin="284,198,0,0" VerticalAlignment="Top" Background="White" Width="163" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Grid.RowSpan="2"/>
+        <Label x:Name="topU3" Content="" HorizontalAlignment="Left" Margin="284,253,0,0" VerticalAlignment="Top" Background="White" Width="163" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Grid.RowSpan="2"/>
+        <Label x:Name="topV1" Content="" HorizontalAlignment="Left" Margin="514,143,0,0" VerticalAlignment="Top" Background="White" Width="163" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Grid.RowSpan="2"/>
+        <Label x:Name="topV2" Content="" HorizontalAlignment="Left" Margin="514,198,0,0" VerticalAlignment="Top" Background="White" Width="163" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Grid.RowSpan="2"/>
+        <Label x:Name="topV3" Content="" HorizontalAlignment="Left" Margin="514,253,0,0" VerticalAlignment="Top" Background="White" Width="163" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Grid.RowSpan="2"/>
+        <Label Content="1st" HorizontalAlignment="Left" Margin="51,121,0,0" VerticalAlignment="Top" FontWeight="Bold" RenderTransformOrigin="0.487,-0.038" Foreground="Black" Grid.RowSpan="2"/>
+        <Label Content="1st" HorizontalAlignment="Left" Margin="279,121,0,0" VerticalAlignment="Top" FontWeight="Bold" RenderTransformOrigin="0.487,-0.038" Foreground="Black" Grid.RowSpan="2"/>
+        <Label Content="1st" HorizontalAlignment="Left" Margin="508,121,0,0" VerticalAlignment="Top" FontWeight="Bold" RenderTransformOrigin="0.487,-0.038" Foreground="Black" Grid.RowSpan="2"/>
+        <Label Content="2nd" HorizontalAlignment="Left" Margin="51,177,0,0" VerticalAlignment="Top" FontWeight="Bold" RenderTransformOrigin="0.487,-0.038" Foreground="Black" Grid.RowSpan="2"/>
+        <Label Content="2nd" HorizontalAlignment="Left" Margin="508,177,0,0" VerticalAlignment="Top" FontWeight="Bold" RenderTransformOrigin="0.487,-0.038" Foreground="Black" Grid.RowSpan="2"/>
+        <Label Content="2nd" HorizontalAlignment="Left" Margin="279,177,0,0" VerticalAlignment="Top" FontWeight="Bold" RenderTransformOrigin="0.487,-0.038" Foreground="Black" Grid.RowSpan="2"/>
+        <Label Content="3rd" HorizontalAlignment="Left" Margin="51,231,0,0" VerticalAlignment="Top" FontWeight="Bold" RenderTransformOrigin="0.487,-0.038" Foreground="Black" Grid.RowSpan="2"/>
+        <Label Content="3rd" HorizontalAlignment="Left" Margin="279,229,0,0" VerticalAlignment="Top" FontWeight="Bold" RenderTransformOrigin="0.487,-0.038" Foreground="Black" Grid.RowSpan="2"/>
+        <Label Content="3rd" HorizontalAlignment="Left" Margin="508,229,0,0" VerticalAlignment="Top" FontWeight="Bold" RenderTransformOrigin="0.487,-0.038" Foreground="Black" Grid.RowSpan="2"/>
+        <Label x:Name="topConv1" Content="" HorizontalAlignment="Left" Margin="56,143,0,0" VerticalAlignment="Top" Background="White" Width="163" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Grid.RowSpan="2"/>
+        <Label x:Name="topConv2" Content="" HorizontalAlignment="Left" Margin="56,198,0,0" VerticalAlignment="Top" Background="White" Width="163" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Grid.RowSpan="2"/>
+        <Label x:Name="topConv3" Content="" HorizontalAlignment="Left" Margin="56,253,0,0" VerticalAlignment="Top" Background="White" Width="163" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Grid.RowSpan="2"/>
+
+
+        <Grid x:Name="r1"  HorizontalAlignment="Left" Height="219" Margin="-244,172,0,-13" VerticalAlignment="Top" Width="199" Background="White" Grid.RowSpan="2">
+            <ProgressBar x:Name="progressBar_r1"   HorizontalAlignment="Left" Height="17" Margin="0,202,0,0" VerticalAlignment="Top" Width="199" BorderBrush="#FF3C3C3C" Background="#FF3C3C3C" Foreground="#FFFF486F"/>
+            <Label x:Name="lblr1" Content="loading..." HorizontalAlignment="Left" Margin="57,83,0,0" VerticalAlignment="Top" Width="95" Background="White" FontSize="22" FontFamily="Segoe UI Light"/>
+            <Button x:Name="btnr1" Content="X" HorizontalAlignment="Left" Margin="165,10,0,0" VerticalAlignment="Top" Width="24" Height="23" BorderBrush="#FF838080" Background="White" Foreground="#FF838080" Click="btnr1_Click" RenderTransformOrigin="1.472,0.58"/>
+        </Grid>
+        <Grid x:Name="r2"  HorizontalAlignment="Left" Height="219" Margin="267,98,0,0" VerticalAlignment="Top" Width="199" Background="White" Grid.RowSpan="2">
+            <ProgressBar x:Name="progressBar_r2"   HorizontalAlignment="Left" Height="17" Margin="0,202,0,0" VerticalAlignment="Top" Width="199" BorderBrush="#FF3C3C3C" Background="#FF3C3C3C" Foreground="#FFFF486F"/>
+            <Label x:Name="lblr2" Content="loading..." HorizontalAlignment="Left" Margin="58,83,0,0" VerticalAlignment="Top" FontFamily="Segoe UI Light" FontSize="22"/>
+            <Button x:Name="btnr2" Content="X" HorizontalAlignment="Left" Margin="165,10,0,0" VerticalAlignment="Top" Width="24" Height="23" BorderBrush="#FF838080" Background="White" Foreground="#FF838080" Click="btnr2_Click" RenderTransformOrigin="1.472,0.58"/>
+        </Grid>
+        <Grid x:Name="r3"  HorizontalAlignment="Left" Height="219" Margin="495,98,0,0" VerticalAlignment="Top" Width="199" Background="White" Grid.RowSpan="2">
+            <ProgressBar x:Name="progressBar_r3"   HorizontalAlignment="Left" Height="17" Margin="0,202,0,0" VerticalAlignment="Top" Width="199" BorderBrush="#FF3C3C3C" Background="#FF3C3C3C" Foreground="#FFFF486F"/>
+            <Label Content="loading..." HorizontalAlignment="Left" Margin="62,83,0,0" VerticalAlignment="Top" FontSize="22" FontFamily="Segoe UI Light"/>
+            <Button x:Name="btnr3" Content="X" HorizontalAlignment="Left" Margin="165,10,0,0" VerticalAlignment="Top" Width="24" Height="23" BorderBrush="#FF838080" Background="White" Foreground="#FF838080" Click="btnr3_Click" RenderTransformOrigin="1.472,0.58"/>
+        </Grid>
+    </Grid>
+</UserControl>
