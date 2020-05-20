@@ -16,6 +16,7 @@ using System.Data.SqlClient;
 using System.Data;
 using System.Security.AccessControl;
 using Wspolne.Kontrolki;
+using System.Threading;
 
 namespace KonwerterJednostek.Desktop
 {
@@ -177,7 +178,7 @@ namespace KonwerterJednostek.Desktop
         private void KonwertujLitry()
         {
             KonwerterLitry konw = new KonwerterLitry();
-
+            
             string wejscie = textBoxWartoscLitry.Text;
             double wejscieL = Convert.ToDouble(wejscie);
             //MessageBox.Show("Brawo!" + liczba);
@@ -243,24 +244,98 @@ namespace KonwerterJednostek.Desktop
         private void comboboxLitryJednDo_SelectionChanged(object sender, SelectionChangedEventArgs e) {}
         private void konwerterWybor_SelectionChanged(object sender, SelectionChangedEventArgs e) { }
 
+        public void WyswietlTabele(CancellationToken ct)
+        {
+            for (int i = 0; i < 10; i++)
+            {
+
+                if (ct.IsCancellationRequested)
+                {
+                    ct.ThrowIfCancellationRequested();
+                }
+                Dispatcher.Invoke(() =>
+                {
+                    rectangleTloLadowania.Visibility = Visibility.Visible;
+                    labelTrwaLadowanie.Visibility = Visibility.Visible;
+                    buttonAnulujWczytywanie.Visibility = Visibility.Visible;
+                    ellipseLadowanie1.Visibility = Visibility.Visible;
+                    ellipseLadowanie2.Visibility = Visibility.Visible;
+                    ellipseLadowanie3.Visibility = Visibility.Visible;
+                    ellipseLadowanie4.Visibility = Visibility.Visible;
+                    ellipseLadowanie5.Visibility = Visibility.Visible;
+                    ellipseLadowanie6.Visibility = Visibility.Visible;
+                    ellipseLadowanie7.Visibility = Visibility.Visible;
+                });
+
+                using (SqlConnection connection = new SqlConnection("Data Source=(local)\\SQLEXPRESS;Initial Catalog=jipp4;Integrated Security=True"))
+                {
+                    connection.Open();
+
+                    string Query = "select FORMAT (DataOperacji, 'dd-MM-yyyy') as DataOperacji,NazwaOperacji,Wartosc,JednostkaZ,JednostkaDo,Wynik from ZADANIE5  ";
+                    SqlCommand command = new SqlCommand(Query, connection);
+                    command.ExecuteNonQuery();
+
+
+                    SqlDataAdapter dataAdp = new SqlDataAdapter(command);
+                    DataTable dt = new DataTable("ZADANIE5");
+                    //if(ct.IsCancellationRequested)
+                    // {
+                    //     ct.ThrowIfCancellationRequested();
+                    // }
+                    Task.Delay(5000).Wait();
+                    this.Dispatcher.Invoke(() =>
+                        {
+                            dataAdp.Fill(dt);
+                            datagridDane.ItemsSource = dt.DefaultView;
+                            dataAdp.Update(dt);
+                        });
+
+                }
+            }
+            
+        }
+
+        public void DummyFunkcjaTask(CancellationToken ct)
+        {
+            for (int i = 0; i < 25; i++)
+            {
+
+                if (ct.IsCancellationRequested)
+                {
+                    ct.ThrowIfCancellationRequested();
+                }
+                Task.Delay(1000).Wait();
+            }
+        }
+
         private void przyciskWyswietlTabele_Click(object sender, RoutedEventArgs e)
         {
-            //WlozDoBD rekordy = new WlozDoBD();
-            //rekordy.OdczytajRekordy();
-            using (SqlConnection connection = new SqlConnection("Data Source=(local)\\SQLEXPRESS;Initial Catalog=jipp4;Integrated Security=True"))
-            {
-                connection.Open();
-
-                string Query = "select FORMAT (DataOperacji, 'dd-MM-yyyy') as DataOperacji,NazwaOperacji,Wartosc,JednostkaZ,JednostkaDo,Wynik from ZADANIE5  ";
-                SqlCommand command = new SqlCommand(Query, connection);
-                command.ExecuteNonQuery();
-
-                SqlDataAdapter dataAdp = new SqlDataAdapter(command);
-                DataTable dt = new DataTable("ZADANIE5");
-                dataAdp.Fill(dt);
-                datagridDane.ItemsSource = dt.DefaultView;
-                dataAdp.Update(dt);
-            }
+            tokenZrodlo = new CancellationTokenSource();
+            Task task1 = new Task(() => WyswietlTabele(tokenZrodlo.Token), tokenZrodlo.Token);
+            task1.Start();
+            Task task2 = new Task(() => DummyFunkcjaTask(tokenZrodlo.Token), tokenZrodlo.Token);
+            task2.Start();
+            Task.WhenAll(task1, task2).ContinueWith(t =>
+             {
+                // Dispatcher.Invoke(() => rectangleTloLadowania.Visibility = Visibility.Hidden);
+                 Dispatcher.Invoke(() =>
+                 {
+                     if(t.IsFaulted)
+                     {
+                         MessageBox.Show("Wystąpił błąd");
+                     }
+                     rectangleTloLadowania.Visibility = Visibility.Hidden;
+                     buttonAnulujWczytywanie.Visibility = Visibility.Hidden;
+                     labelTrwaLadowanie.Visibility = Visibility.Hidden;
+                     ellipseLadowanie1.Visibility = Visibility.Hidden;
+                     ellipseLadowanie2.Visibility = Visibility.Hidden;
+                     ellipseLadowanie3.Visibility = Visibility.Hidden;
+                     ellipseLadowanie4.Visibility = Visibility.Hidden;
+                     ellipseLadowanie5.Visibility = Visibility.Hidden;
+                     ellipseLadowanie6.Visibility = Visibility.Hidden;
+                     ellipseLadowanie7.Visibility = Visibility.Hidden;
+                 });
+             });
         }
 
         private void comboboxFiltrKonwerterWybor_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -402,6 +477,12 @@ namespace KonwerterJednostek.Desktop
         private void Ocen_Loaded(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        CancellationTokenSource tokenZrodlo;
+        private void buttonAnulujWczytywanie_Click(object sender, RoutedEventArgs e)
+        {
+            tokenZrodlo.Cancel();
         }
     }
 }

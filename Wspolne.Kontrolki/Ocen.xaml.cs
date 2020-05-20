@@ -43,14 +43,8 @@ namespace Wspolne.Kontrolki
             }
         }
 
-
-
-        public int ocenWartosc;
-        public int test=0;
-        public int doBD;
-
+        public int ocenWartosc, doBD, test = 0;
         public event DOcena WartoscOcenyZmieniona;
-
         public int OcenWartosc
         {
             get { return ocenWartosc; }
@@ -66,15 +60,6 @@ namespace Wspolne.Kontrolki
             }
             
         }
-
-
-
-
-
-
-
-
-
 
         private void ZaktualizujPrzyciski()
         {
