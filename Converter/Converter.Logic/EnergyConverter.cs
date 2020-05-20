@@ -8,6 +8,19 @@ namespace Converter.Logic
 {
     public class EnergyConverter : IConvert
     {
+
+        readonly string ConvertedUnit;
+
+        public EnergyConverter(string convertedUnit)
+        {
+            ConvertedUnit = convertedUnit;
+        }
+
+        public string convertedTo()
+        {
+           return this.ConvertedUnit;
+        }
+
         public float convertValue(float Value, ConverterType type)
         {
             switch (type)

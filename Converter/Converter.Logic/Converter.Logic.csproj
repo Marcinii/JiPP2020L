@@ -41,6 +41,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Converter.cs" />
+    <Compile Include="ConverterManager.cs" />
     <Compile Include="ConverterType.cs" />
     <Compile Include="ConvertValue.cs" />
     <Compile Include="EnergyConverter.cs" />

@@ -9,7 +9,9 @@ namespace Converter.Logic
     public interface IConvert
     {
 
-        float convertValue(float Value, ConverterType type); 
+        float convertValue(float Value, ConverterType type);
+
+        string convertedTo();
 
     }
 }

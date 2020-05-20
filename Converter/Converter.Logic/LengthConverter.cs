@@ -8,6 +8,19 @@ namespace Converter.Logic
 {
     public class LengthConverter : IConvert
     {
+
+        readonly string ConvertedUnit;
+
+        public LengthConverter(string convertedUnit)
+        {
+            ConvertedUnit = convertedUnit;
+        }
+
+        public string convertedTo()
+        {
+            return this.ConvertedUnit;
+        }
+
         public float convertValue(float Value, ConverterType type)
         {
             switch (type)

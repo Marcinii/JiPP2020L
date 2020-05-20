@@ -8,6 +8,21 @@ namespace Converter.Logic
 {
     public class TimeConverter : IConvert
     {
+
+
+        readonly string ConvertedUnit;
+
+        public TimeConverter(string convertedUnit)
+        {
+            ConvertedUnit = convertedUnit;
+        }
+
+        public string convertedTo()
+        {
+            return this.ConvertedUnit;
+        }
+
+
         public float convertValue(float Value, ConverterType type)
         {
            if(Value >= 12)
