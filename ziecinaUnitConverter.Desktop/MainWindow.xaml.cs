@@ -219,31 +219,24 @@ namespace ziecinaUnitConverter.Desktop
         private void ConfirmQuery()
         {
             appCover.Visibility = Visibility.Visible;
-            handThird.Visibility = Visibility.Visible;
-            //RotateTransform rotateTransform2 = new RotateTransform(360);
-            //handThird.RenderTransform = rotateTransform2;
-            ((Storyboard)Resources["StoryboardLoading"]).Begin();
-
+            handThird.Visibility = Visibility.Visible; //wskaźnik ładowania
             Thread thread = new Thread(() => SendQuery());
             thread.Start();
         }
-
         private void SendQuery()
         {
             Thread.Sleep(3000);
             
             using (KASETY_412_23Entities1 context = new KASETY_412_23Entities1())
             {
-                //if (queryConverterPicker.SelectedItem != null && dateFromBox.SelectedDate != null && dateToBox.SelectedDate != null) //skorzystać z tego
                 if(true)
                 {
-                    Dispatcher.Invoke(() => ((Storyboard)Resources["StoryboardLoading"]).Begin());
+                   
                     string dateFrom = "'" + Dispatcher.Invoke(() => dateFromBox.SelectedDate.Value.ToString("yyy.MM.dd")) + "'";
                     string dateTo = "'" + Dispatcher.Invoke(() => dateToBox.SelectedDate.Value.ToString("yyy.MM.dd")) + "'";
                     string convPick = "'" + Dispatcher.Invoke(() => queryConverterPicker.SelectedItem.ToString()) + "'";
                     string queryText1 = "SELECT * FROM JIPP4 WHERE Converter LIKE " + convPick + " AND dateSent >= " + dateFrom + " AND dateSent <= " + dateTo + ";";
                     conversions = (context.JIPP4.SqlQuery(queryText1)).ToList();
-                    //textBlockResaults.Text = "";
                     int tmpCnt = 0;
                     string toDisplay1 ="";
                     foreach (JIPP4 f in conversions)
