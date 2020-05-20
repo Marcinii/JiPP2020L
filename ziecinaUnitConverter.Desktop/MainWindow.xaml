@@ -22,12 +22,18 @@
                 <EasingDoubleKeyFrame KeyTime="0:1:0" Value="360"/>
             </DoubleAnimationUsingKeyFrames>
         </Storyboard>
+        <Storyboard x:Key="StoryboardLoading">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[2].(RotateTransform.Angle)" Storyboard.TargetName="handThird">
+                <EasingDoubleKeyFrame KeyTime="24:0:00" Value="100000000"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
     </Window.Resources>
     <Window.Triggers>
         <EventTrigger RoutedEvent="FrameworkElement.Loaded">
             <BeginStoryboard Storyboard="{StaticResource clockMoving}"/>
             <BeginStoryboard Storyboard="{StaticResource clockMovingMinute}"/>
             <BeginStoryboard Storyboard="{StaticResource clockMovingSecond}"/>
+            <BeginStoryboard Storyboard="{StaticResource StoryboardLoading}"/>
         </EventTrigger>
     </Window.Triggers>
     <Grid Height="162" VerticalAlignment="Top" RenderTransformOrigin="0.504,0.875" Margin="0,0,362,0">
@@ -209,5 +215,20 @@
         <Button x:Name="buttonNextPage" Content="Następna strona" HorizontalAlignment="Left" Height="24" Margin="556,292,-269,-295" Grid.Row="1" VerticalAlignment="Top" Width="123" />
         <Label x:Name="labelRateApp" Content="Oceń aplikację:" HorizontalAlignment="Left" Height="30" Margin="932,16,-292,0" VerticalAlignment="Top" Width="174"/>
         <commonControls:RateApp x:Name="RateButtons" Margin="846,57,-317,33"  RateValueChanged="RateButtons_RateValueChanged"/>
+        <Rectangle Margin="0,0,-368,-665" Grid.RowSpan="2" Fill="#BF000000" Visibility="Hidden" Name="appCover"/>
+        <Rectangle x:Name="handThird" HorizontalAlignment="Left" Height="60" Stroke="Black" VerticalAlignment="Top" Width="4" RenderTransformOrigin="0.5,1" Margin="496,391,0,-430" Grid.Row="1" Fill="Black" Visibility="Hidden">
+            <Rectangle.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Rectangle.RenderTransform>
+
+
+
+        </Rectangle>
     </Grid>
+
 </Window>

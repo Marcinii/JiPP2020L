@@ -15,6 +15,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Text.RegularExpressions;
 using ziecina_zad1;
+using System.Threading;
 
 namespace ziecinaUnitConverter.Desktop
 {
@@ -217,26 +218,44 @@ namespace ziecinaUnitConverter.Desktop
 
         private void ConfirmQuery()
         {
+            appCover.Visibility = Visibility.Visible;
+            handThird.Visibility = Visibility.Visible;
+            //RotateTransform rotateTransform2 = new RotateTransform(360);
+            //handThird.RenderTransform = rotateTransform2;
+            ((Storyboard)Resources["StoryboardLoading"]).Begin();
+
+            Thread thread = new Thread(() => SendQuery());
+            thread.Start();
+        }
+
+        private void SendQuery()
+        {
+            Thread.Sleep(3000);
+            
             using (KASETY_412_23Entities1 context = new KASETY_412_23Entities1())
             {
-                if (queryConverterPicker.SelectedItem != null && dateFromBox.SelectedDate != null && dateToBox.SelectedDate != null) //skorzystać z tego
+                //if (queryConverterPicker.SelectedItem != null && dateFromBox.SelectedDate != null && dateToBox.SelectedDate != null) //skorzystać z tego
+                if(true)
                 {
-                    string dateFrom = "'" + dateFromBox.SelectedDate.Value.ToString("yyy.MM.dd") + "'";
-                    string dateTo = "'" + dateToBox.SelectedDate.Value.ToString("yyy.MM.dd") + "'";
-                    string convPick = "'" + queryConverterPicker.SelectedItem.ToString() + "'";
+                    Dispatcher.Invoke(() => ((Storyboard)Resources["StoryboardLoading"]).Begin());
+                    string dateFrom = "'" + Dispatcher.Invoke(() => dateFromBox.SelectedDate.Value.ToString("yyy.MM.dd")) + "'";
+                    string dateTo = "'" + Dispatcher.Invoke(() => dateToBox.SelectedDate.Value.ToString("yyy.MM.dd")) + "'";
+                    string convPick = "'" + Dispatcher.Invoke(() => queryConverterPicker.SelectedItem.ToString()) + "'";
                     string queryText1 = "SELECT * FROM JIPP4 WHERE Converter LIKE " + convPick + " AND dateSent >= " + dateFrom + " AND dateSent <= " + dateTo + ";";
                     conversions = (context.JIPP4.SqlQuery(queryText1)).ToList();
-                    textBlockResaults.Text = "";
+                    //textBlockResaults.Text = "";
                     int tmpCnt = 0;
+                    string toDisplay1 ="";
                     foreach (JIPP4 f in conversions)
                     {
                         if (f.errorEncountered == false && tmpCnt < 20)
                         {
-                            textBlockResaults.Text += (f.dateSent).Value.ToString("dd/MM/yyy") + ": " + f.Converter + " - " + f.valueBefore + " " + f.unitFrom + " to " + f.valueAfter + " " + f.unitTo + "\n";
+                            toDisplay1 += (f.dateSent).Value.ToString("dd/MM/yyy") + ": " + f.Converter + " - " + f.valueBefore + " " + f.unitFrom + " to " + f.valueAfter + " " + f.unitTo + "\n";
                             var resaults = context.JIPP4.Add(f);
                             tmpCnt += 1;
                         }
                     }
+                    Dispatcher.Invoke(() => textBlockResaults.Text = toDisplay1);
                     queriedOnce = true;
                     currentPage = 1;
                     var results = context.JIPP4.AsQueryable()
@@ -246,19 +265,29 @@ namespace ziecinaUnitConverter.Desktop
                     .Take(3);
                     //////////TODO todo
                     var abc = results.ToList();
-                    top3Resaults.Text = "";
+                    string toDisplay2 = "";
+                    
                     for (int i = 0; i < 3; i++)
                     {
-                        top3Resaults.Text += abc.ElementAt(i).Count + ": ";
-                        top3Resaults.Text += abc.ElementAt(i).unitFrom + " na ";
-                        top3Resaults.Text += abc.ElementAt(i).unitTo + "\n";
+                        toDisplay2 += abc.ElementAt(i).Count + ": ";
+                        toDisplay2 += abc.ElementAt(i).unitFrom + " na ";
+                        toDisplay2 += abc.ElementAt(i).unitTo + "\n";
 
                     }
+                    Dispatcher.Invoke(() =>
+                    {
+                        top3Resaults.Text = toDisplay2;
+                        appCover.Visibility = Visibility.Hidden;
+                        handThird.Visibility = Visibility.Hidden;
+                    }
+                    );
+                    
+                    //top3Resaults.Text
                 }
-                else
-                {
-                    textBlockResaults.Text = "Niepoprawne dane";
-                }
+                //else
+                //{
+                //    Dispatcher.Invoke(() => top3Resaults.Text = "Niepoprawne dane");
+                //}
             }
         }
 

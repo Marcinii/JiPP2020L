@@ -54,9 +54,6 @@ namespace Common.Controls
             int i = 0;
             foreach(var b in ratesGrid.Children)
             {
-                ////////////////////////////////
-                // TUTAJ WYSŁAĆ OCENĘ DO BAZY // chyba jednak nie
-                ////////////////////////////////
                 if (i < _rateValue)
                 {
                     ((Button)b).Background = new SolidColorBrush(Colors.Yellow);
@@ -68,7 +65,7 @@ namespace Common.Controls
             }
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e) //kliknięcie kółka
+        private void Button_Click(object sender, RoutedEventArgs e) 
         {
             RateValue = ratesGrid.Children.IndexOf((Button)sender) + 1;
             
