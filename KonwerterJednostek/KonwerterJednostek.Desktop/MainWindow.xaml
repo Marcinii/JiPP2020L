@@ -66,6 +66,11 @@
                 <EasingDoubleKeyFrame KeyTime="0:0:9.7" Value="0"/>
             </DoubleAnimationUsingKeyFrames>
         </Storyboard>
+        <Storyboard x:Key="loaderStoryboard" RepeatBehavior="Forever">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[2].(RotateTransform.Angle)" Storyboard.TargetName="loader1">
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="360"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
     </Window.Resources>
     <Window.Triggers>
         <EventTrigger RoutedEvent="FrameworkElement.Loaded">
@@ -75,6 +80,7 @@
             <BeginStoryboard Storyboard="{StaticResource hsb0}"/>
             <BeginStoryboard Storyboard="{StaticResource hsb1}"/>
             <BeginStoryboard Storyboard="{StaticResource fly}"/>
+            <BeginStoryboard Storyboard="{StaticResource loaderStoryboard}"/>
         </EventTrigger>
     </Window.Triggers>
 
@@ -274,8 +280,8 @@
             <TextBox x:Name="type" Width="300" Margin="20,0,20,0" HorizontalAlignment="Center" VerticalAlignment="Center" Text="0" KeyDown="submitFilters_KeyDown"></TextBox>
             <Button x:Name="typeBut" HorizontalAlignment="Center" VerticalAlignment="Center">Submit</Button>
         </StackPanel>
-        
-        
+
+
         <StackPanel Orientation="Horizontal" Grid.Row="3" Grid.Column="1" Margin="10,10,10,10">
             <CheckBox Visibility="Hidden" Margin="20,0,0,0" HorizontalAlignment="Center" VerticalAlignment="Center"></CheckBox>
             <Label HorizontalAlignment="Center" VerticalAlignment="Center">Date Filter</Label>
@@ -284,7 +290,7 @@
             <Button x:Name="dateBut" Margin="20,0,0,0" HorizontalAlignment="Center" VerticalAlignment="Center" >Submit</Button>
         </StackPanel>
 
-        
+
         <DataGrid x:Name="dg" ItemsSource="{Binding}" AutoGenerateColumns="False" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" Margin="30,0,30,30" Width="880" Height="250">
             <DataGrid.Columns>
                 <DataGridTextColumn Width="25" Header="ID" Binding="{Binding Id}"/>
@@ -296,5 +302,28 @@
                 <DataGridTextColumn Width="200" Header="Result" Binding="{Binding Result}"/>
             </DataGrid.Columns>
         </DataGrid>
+
+        <Rectangle x:Name="loader" Grid.ColumnSpan="2" Grid.RowSpan="5" Fill="#A5000000" Panel.ZIndex="5" Visibility="Visible"/>
+        <Path x:Name="loader1" Grid.ColumnSpan="2" Data="M250,50.499999 C139.81919,50.5 50.5,139.81919 50.499999,250 50.5,360.18082 139.81919,449.5 250,449.5 360.18082,449.5 449.5,360.18082 449.5,250 449.5,139.81919 360.18082,50.5 250,50.499999 z M250,0.5 C387.79504,0.5 499.5,112.20496 499.5,250 499.5,387.79504 387.79504,499.5 250,499.5 112.20496,499.5 0.5,387.79504 0.5,250 0.5,112.20496 112.20496,0.5 250,0.5 z" Margin="276.8,110.2" Grid.RowSpan="5" Stretch="Fill" Panel.ZIndex="7" RenderTransformOrigin="0.5,0.5" >
+            <Path.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Path.RenderTransform>
+            <Path.Fill>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF1A22D3" Offset="0.428"/>
+                    <GradientStop Color="Black" Offset="0.863"/>
+                    <GradientStop Color="White" Offset="0.12"/>
+                </LinearGradientBrush>
+            </Path.Fill>
+        </Path>
+        <Label x:Name="loader2" Grid.ColumnSpan="2" Grid.RowSpan="5" Panel.ZIndex="5" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="42" Content="Loading data . . ." Foreground="#FF1A22D3"/>
+
+
+
     </Grid>
 </Window>
