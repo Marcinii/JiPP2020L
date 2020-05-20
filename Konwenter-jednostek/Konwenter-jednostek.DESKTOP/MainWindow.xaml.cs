@@ -118,14 +118,19 @@ namespace Konwenter_jednostek.DESKTOP
 
         public  void DisplayDataEF()
             {
-            using (konwenterBazaEntities context = new konwenterBazaEntities())
-            {
-                List<dane> dane_wszystkie = context.dane.ToList();
-                daneDataGrid.ItemsSource = dane_wszystkie;
-                daneDataGrid.ItemsSource = dane_wszystkie.OrderByDescending(el => el.id);
-            }
-                
+                Task.Delay(2000).Wait(); // symulacja czekania 
 
+                using (konwenterBazaEntities context = new konwenterBazaEntities())
+                {
+                List<dane> dane_wszystkie = context.dane.ToList();
+                    Dispatcher.Invoke(() =>
+                    {
+                    daneDataGrid.ItemsSource = dane_wszystkie;
+                    daneDataGrid.ItemsSource = dane_wszystkie.OrderByDescending(el => el.id);
+                    daneDataGrid.ItemsSource = dane_wszystkie.Take(20);
+                    });
+                }
+         
             }
 
         public void DisplayDataEF11()
@@ -222,7 +227,17 @@ namespace Konwenter_jednostek.DESKTOP
 
         public void ShowDataBase()
         {
-            DisplayDataEF();
+            loaderGrid.Visibility = Visibility.Visible; // START LADOWANIA
+            ((Storyboard)Resources["loaderStoryBoard"]).Begin(); // START LADOWANIA
+            Task t1 = new Task(() => DisplayDataEF());
+            t1.Start();
+
+            Task.WhenAll(t1).ContinueWith(t =>
+           {
+               loaderGrid.Visibility = Visibility.Hidden; // STOP LADOWANIA
+               ((Storyboard)Resources["loaderStoryBoard"]).Stop(); // STOP LADOWANIA
+           }, TaskScheduler.FromCurrentSynchronizationContext());
+            
         }
 
         private void filtrComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)

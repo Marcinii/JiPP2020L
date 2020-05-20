@@ -53,7 +53,28 @@
                 <DiscreteObjectKeyFrame KeyTime="0:0:0.5" Value="{x:Static Visibility.Visible}"/>
             </ObjectAnimationUsingKeyFrames>
         </Storyboard>
+        <Storyboard x:Key="loaderStoryBoard" RepeatBehavior="Forever">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="path">
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[2].(RotateTransform.Angle)" Storyboard.TargetName="path">
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="360"/>
+            </DoubleAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="path">
+                <DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Visible}"/>
+                <DiscreteObjectKeyFrame KeyTime="0:0:1" Value="{x:Static Visibility.Visible}"/>
+                
+            </ObjectAnimationUsingKeyFrames>
+        </Storyboard>
     </Window.Resources>
+    <Window.Triggers>
+        <EventTrigger RoutedEvent="FrameworkElement.Loaded">
+            <!-- <BeginStoryboard Storyboard="{StaticResource loaderStoryBoard}"/> --> 
+            
+        </EventTrigger>
+    </Window.Triggers>
+
+
 
 
 
@@ -77,8 +98,8 @@
                 <kontrolki:Ocena x:Name="ocenaControl" Grid.Column="1" OcenaValueChanged="ocenaControl_OcenaValueChanged"  />
 
             </Grid>
-           
-            
+
+
 
         </Grid>
 
@@ -116,6 +137,7 @@
             </Line>
 
         </Canvas>
+
         <Calendar x:Name="Data1" Margin="604,217,10,41" Grid.ColumnSpan="2" Visibility="Hidden" ></Calendar>
         <Calendar x:Name="Data2" Margin="604,217,10,41" Grid.ColumnSpan="2" Visibility="Hidden"></Calendar>
 
@@ -160,7 +182,27 @@
         <Button x:Name ="Data1Button" Content="Zakres od" HorizontalAlignment="Left" Margin="605,389,0,0" VerticalAlignment="Top" Width="75" Grid.ColumnSpan="2"/>
         <Label Content="Filtruj po:" HorizontalAlignment="Left" Margin="386,192,0,0" VerticalAlignment="Top" Width="61" RenderTransformOrigin="1.721,0.615" />
 
+        <Grid x:Name="loaderGrid" Grid.ColumnSpan="2" Background="#7F000000" Visibility="Hidden">
 
+        </Grid>
+        <Path x:Name="path" Data="M176.601,53.479998 C117.23039,53.48 69.100998,94.445946 69.100997,144.98 69.100998,195.51406 117.23039,236.48 176.601,236.48 235.9716,236.48 284.101,195.51406 284.101,144.98 284.101,94.445946 235.9716,53.48 176.601,53.479998 z M176.601,0.5 C273.8589,0.5 352.70201,65.185899 352.70201,144.98 352.70201,224.7741 273.8589,289.46 176.601,289.46 79.343102,289.46 0.5,224.7741 0.5,144.98 0.5,65.185899 79.343102,0.5 176.601,0.5 z" HorizontalAlignment="Left" Height="250" Margin="322,120,0,0" Stretch="Fill" Stroke="Black" VerticalAlignment="Top" Width="250" RenderTransformOrigin="0.5,0.5" Visibility="Hidden" >
+            <Path.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Path.RenderTransform>
+            <Path.Fill>
+                <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+                    <GradientStop Color="Black" Offset="1"/>
+                    <GradientStop Color="#FF459DBD" Offset="0.07"/>
+                    <GradientStop Color="#FF0A0B0C" Offset="0.439"/>
+                    <GradientStop Color="#FFC0CFDC" Offset="0.748"/>
+                </LinearGradientBrush>
+            </Path.Fill>
+        </Path>
 
     </Grid>
 </Window>
