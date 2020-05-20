@@ -303,8 +303,8 @@
             </DataGrid.Columns>
         </DataGrid>
 
-        <Rectangle x:Name="loader" Grid.ColumnSpan="2" Grid.RowSpan="5" Fill="#A5000000" Panel.ZIndex="5" Visibility="Visible"/>
-        <Path x:Name="loader1" Grid.ColumnSpan="2" Data="M250,50.499999 C139.81919,50.5 50.5,139.81919 50.499999,250 50.5,360.18082 139.81919,449.5 250,449.5 360.18082,449.5 449.5,360.18082 449.5,250 449.5,139.81919 360.18082,50.5 250,50.499999 z M250,0.5 C387.79504,0.5 499.5,112.20496 499.5,250 499.5,387.79504 387.79504,499.5 250,499.5 112.20496,499.5 0.5,387.79504 0.5,250 0.5,112.20496 112.20496,0.5 250,0.5 z" Margin="276.8,110.2" Grid.RowSpan="5" Stretch="Fill" Panel.ZIndex="7" RenderTransformOrigin="0.5,0.5" >
+        <Rectangle x:Name="loader" Visibility="Hidden" Grid.ColumnSpan="2" Grid.RowSpan="5" Fill="#A5000000" Panel.ZIndex="5"/>
+        <Path x:Name="loader1" Visibility="Hidden" Grid.ColumnSpan="2" Data="M250,50.499999 C139.81919,50.5 50.5,139.81919 50.499999,250 50.5,360.18082 139.81919,449.5 250,449.5 360.18082,449.5 449.5,360.18082 449.5,250 449.5,139.81919 360.18082,50.5 250,50.499999 z M250,0.5 C387.79504,0.5 499.5,112.20496 499.5,250 499.5,387.79504 387.79504,499.5 250,499.5 112.20496,499.5 0.5,387.79504 0.5,250 0.5,112.20496 112.20496,0.5 250,0.5 z" Margin="276.8,110.2" Grid.RowSpan="5" Stretch="Fill" Panel.ZIndex="7" RenderTransformOrigin="0.5,0.5" >
             <Path.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -321,7 +321,7 @@
                 </LinearGradientBrush>
             </Path.Fill>
         </Path>
-        <Label x:Name="loader2" Grid.ColumnSpan="2" Grid.RowSpan="5" Panel.ZIndex="5" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="42" Content="Loading data . . ." Foreground="#FF1A22D3"/>
+        <Label x:Name="loader2" Visibility="Hidden" Grid.ColumnSpan="2" Grid.RowSpan="5" Panel.ZIndex="5" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="42" Content="Loading data . . ." Foreground="#FF1A22D3"/>
 
 
 

@@ -14,6 +14,7 @@ using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 using KonwerterJednostek.Logic;
 
 namespace KonwerterJednostek.Desktop
@@ -27,6 +28,9 @@ namespace KonwerterJednostek.Desktop
         {
             InitializeComponent();
 
+            loader.Visibility = Visibility.Hidden;
+            loader1.Visibility = Visibility.Hidden;
+            loader2.Visibility = Visibility.Hidden;
 
 
             //mozemy odczytac z bazy danych wartosc oceny
@@ -90,7 +94,6 @@ namespace KonwerterJednostek.Desktop
 
                 bool success1 = double.TryParse(result.Substring(0, 2), out double deg1);
                 if (!success1) { deg1 = 0; }
-                //InsertTEST();
 
                 DateTime from = new DateTime(1980, 1, 1);
                 DateTime to = new DateTime(2050, 1, 1);
@@ -190,8 +193,89 @@ namespace KonwerterJednostek.Desktop
         }
         private void SubmitFilters1()
         {
-            int.TryParse(page.Text, out int pageINT);
-            DisplayDataUsingEF(popular, dg, pageINT, (DateTime)fromDate.SelectedDate, (DateTime)toDate.SelectedDate, type.Text);
+            Task t1 = new Task(() => LoadStatistics());
+            t1.Start();
+
+            Task.WhenAll(t1).ContinueWith(t =>
+            {
+                loader.Visibility = Visibility.Hidden;
+                loader1.Visibility = Visibility.Hidden;
+                loader2.Visibility = Visibility.Hidden;
+            },TaskScheduler.FromCurrentSynchronizationContext());
+        }
+        private void LoadStatistics()
+        {
+            Dispatcher.Invoke(() => loader.Visibility = Visibility.Visible);
+            Dispatcher.Invoke(() => loader1.Visibility = Visibility.Visible);
+            Dispatcher.Invoke(() => loader2.Visibility = Visibility.Visible);
+
+            Task.Delay(2000).Wait();
+            string from = "";
+            string to = "";
+            Dispatcher.Invoke(() => from = (fromDate.SelectedDate).ToString());
+            Dispatcher.Invoke(() => to = (toDate.SelectedDate).ToString());
+            if (from == "") { Dispatcher.Invoke(() => fromDate.SelectedDate = new DateTime(1990, 1, 1)); }
+            if (to == "") { Dispatcher.Invoke(() => toDate.SelectedDate = new DateTime(2050, 1, 1)); }
+
+            string p = "";
+            Dispatcher.Invoke(() => p = page.Text);
+            int.TryParse(p, out int pageINT);
+
+            DateTime from2 = new DateTime(2000, 1, 1);
+            DateTime to2 = new DateTime(2000, 1, 1);
+            Dispatcher.Invoke(() => from2 = (DateTime)fromDate.SelectedDate);
+            Dispatcher.Invoke(() => to2 = (DateTime)toDate.SelectedDate);
+            string t2 = "";
+            Dispatcher.Invoke(() => t2 = type.Text);
+            using (StatsEntities context = new StatsEntities())
+            {
+                List<Stats> stats = context.Stats
+                    .Where(s => s.Date >= from2 && s.Date < to2 && s.Type.StartsWith(t2))
+                    .OrderBy(s => s.Id)
+                    .Skip((pageINT - 1) * 10)
+                    .Take(10)
+                    .ToList();
+                Dispatcher.Invoke(() => dg.DataContext = stats);
+
+                List<Stats> term = context.Stats
+                    .Where(s => s.Date >= from2 && s.Date < to2 && s.Type.StartsWith(t2))
+                    .ToList();
+
+                List<string> pop = term.Select(s => s.Type).ToList();
+
+                Dispatcher.Invoke(()=>
+                popular.ItemsSource = term.GroupBy(l => new { l.Type, l.UnitFrom, l.UnitTo })
+                    .Select(g => new { g.Key.Type, g.Key.UnitFrom, g.Key.UnitTo, count = g.Count() })
+                    .OrderByDescending(g => g.count)
+                    .ToList()
+                    .Take(3));
+            }
+        }
+
+        public static void DisplayDataUsingEF(DataGrid popular, DataGrid dg, int page, DateTime fromDate, DateTime toDate, string Type)
+        {
+            using (StatsEntities context = new StatsEntities())
+            {
+                List<Stats> stats = context.Stats
+                    .Where(s => s.Date >= fromDate && s.Date < toDate && s.Type.StartsWith(Type))
+                    .OrderBy(s => s.Id)
+                    .Skip((page - 1) * 10)
+                    .Take(10)
+                    .ToList();
+                dg.DataContext = stats;
+
+                List<Stats> term = context.Stats
+                    .Where(s => s.Date >= fromDate && s.Date < toDate && s.Type.StartsWith(Type))
+                    .ToList();
+
+                List<string> pop = term.Select(s => s.Type).ToList();
+
+                popular.ItemsSource = term.GroupBy(l => new { l.Type, l.UnitFrom, l.UnitTo })
+                    .Select(g => new { g.Key.Type, g.Key.UnitFrom, g.Key.UnitTo, count = g.Count() })
+                    .OrderByDescending(g => g.count)
+                    .ToList()
+                    .Take(3);
+            }
         }
 
         private void button1_Click(object sender, RoutedEventArgs e)
@@ -339,31 +423,6 @@ namespace KonwerterJednostek.Desktop
             pt1.RenderTransform = rot1;
         }
 
-        public static void DisplayDataUsingEF(DataGrid popular, DataGrid dg, int page, DateTime fromDate, DateTime toDate, string Type)
-        {
-            using (StatsEntities context = new StatsEntities())
-            {
-                List<Stats> stats = context.Stats
-                    .Where(s => s.Date >= fromDate && s.Date < toDate && s.Type.StartsWith(Type))
-                    .OrderBy(s => s.Id)
-                    .Skip((page - 1) * 10)
-                    .Take(10)
-                    .ToList();
-                dg.DataContext = stats;
-
-                List<Stats> term = context.Stats
-                    .Where(s => s.Date >= fromDate && s.Date < toDate && s.Type.StartsWith(Type))
-                    .ToList();
-
-                List<string> pop = term.Select(s => s.Type).ToList();
-
-                popular.ItemsSource = term.GroupBy(l => new { l.Type, l.UnitFrom, l.UnitTo })
-                    .Select(g => new { g.Key.Type, g.Key.UnitFrom, g.Key.UnitTo, count = g.Count() })
-                    .OrderByDescending(g => g.count)
-                    .ToList()
-                    .Take(3);
-            }
-        }
         public static void InsertDataUsingEF(string Type,string UnitFrom, string UnitTo, string Value, string Result)
         {
             using (StatsEntities context = new StatsEntities())

@@ -14,16 +14,16 @@
       </applicationRequestMinimum>
       <requestedPrivileges xmlns="urn:schemas-microsoft-com:asm.v3">
         <!--
-          Opcje manifestu kontroli konta użytkownika
-          Jeśli chcesz zmienić poziom kontroli konta użytkownika systemu Windows, zastąp węzeł 
-          requestedExecutionLevel jednym z następujących.
+          UAC Manifest Options
+          If you want to change the Windows User Account Control level replace the
+          requestedExecutionLevel node with one of the following.
 
         <requestedExecutionLevel  level="asInvoker" uiAccess="false" />
         <requestedExecutionLevel  level="requireAdministrator" uiAccess="false" />
         <requestedExecutionLevel  level="highestAvailable" uiAccess="false" />
 
-         Jeśli chcesz użyć wirtualizacji plików i rejestru do celów zgodności wstecznej, 
-         usuń węzeł requestedExecutionLevel.
+         If you want to utilize File and Registry Virtualization for backward
+         compatibility then delete the requestedExecutionLevel node.
     -->
         <requestedExecutionLevel level="asInvoker" uiAccess="false" />
       </requestedPrivileges>
@@ -49,7 +49,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>3WxQs4T3KArEM9vNiKUHJ3dmMVsN3FfDVQYJfopyr74=</dsig:DigestValue>
+        <dsig:DigestValue>5WR40AwkYPhNK3bdVVhAcPbR8iHz+2v6tCErvXoDkAk=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -78,14 +78,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="KonwerterJednostek.Desktop.exe" size="45008">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="KonwerterJednostek.Desktop.exe" size="49104">
       <assemblyIdentity name="KonwerterJednostek.Desktop" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>xwxTQDR0fJuea/mYedIk9iYm4Z2Yxs8yhpk90zkn6ww=</dsig:DigestValue>
+        <dsig:DigestValue>yxQdYTiqtJOw5E8f6CiZht4Faqv2uiPWE+cozdSCWzo=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
