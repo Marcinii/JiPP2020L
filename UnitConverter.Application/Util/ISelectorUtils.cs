@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Windows;
 using System.Windows.Controls.Primitives;
 
 namespace UnitConverter.Application.Util

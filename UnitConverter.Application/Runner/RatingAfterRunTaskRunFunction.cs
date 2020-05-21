@@ -10,6 +10,7 @@ namespace UnitConverter.Application.Runner
     /// wykonaniu zadania, które zapisuje zaznaczoną przez użytkownika ocenę. 
     /// Będzie wyświetlał okienko z podziękowaniem za ocenę aplikacji.
     /// </summary>
+    /// <see cref="TaskRunFunction"/>
     public class RatingAfterRunTaskRunFunction : TaskRunFunction
     {
         public void apply(IRunnable runnable)

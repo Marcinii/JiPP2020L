@@ -12,14 +12,11 @@ using System.Windows;
 namespace UnitConverter.Application.Runner
 {
     /// <summary>
-    /// Klasa implementująca interfejs <see cref="TaskRunFunction"/>, reprezentująca unkcję, 
+    /// Klasa implementująca interfejs <see cref="TaskRunFunction"/>, reprezentująca funkcję, 
     /// która będzie uruchamiana po wykonaniu operacji wyszukiwania historii konwersacji.
     /// Klasa ta jest odpowiedzialna za wyświetlenie wszytkich wpisów z historii konwersji
     /// w tabeli danych.
     /// </summary>
-    /// <param name="statisticsWindow">
-    ///     Pole przechowujące refencję do klasy odpowiadającej za logikę okienka wyświetlającego statystyki konwersji
-    /// </param>
     /// <see cref="StatisticsWindow"/>
     /// <see cref="TaskRunFunction"/>
     public class StatisticsWindowFindAllConversionHistoryAfterRunTaskRunFunction : TaskRunFunction
