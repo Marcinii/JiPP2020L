@@ -14,6 +14,13 @@
                 <DiscreteObjectKeyFrame KeyTime="0:0:10" Value="{x:Static Visibility.Visible}"/>
             </ObjectAnimationUsingKeyFrames>
         </Storyboard>
+        <Storyboard x:Key="spinwait">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[2].(RotateTransform.Angle)"
+                                           Storyboard.TargetName="wait">
+                <EasingDoubleKeyFrame KeyTime="0:0:10" Value="360"/>
+            </DoubleAnimationUsingKeyFrames>
+
+        </Storyboard>
     </Window.Resources>
     <Window.Triggers>
         <EventTrigger RoutedEvent="FrameworkElement.Loaded">
@@ -95,16 +102,38 @@
         <TextBlock x:Name="coutpage" HorizontalAlignment="Left" Height="24" Margin="102,544,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="69" Grid.Column="1" RenderTransformOrigin="-1.58,-2.292"/>
         <Button x:Name="buttonDataGrid1" Content="Wczytaj" HorizontalAlignment="Left" Height="24" Margin="306,492,0,0" VerticalAlignment="Top" Width="63" RenderTransformOrigin="1.54,0.583" Grid.Column="1"/>
         <Button x:Name="stat" Content="Statystyka" Grid.Column="1" HorizontalAlignment="Left" Height="43" Margin="143,623,0,0" VerticalAlignment="Top" Width="165" Click="stat_Click"/>
+        <Button x:Name="zad6" Content="Zadanie6" Grid.Column="1" HorizontalAlignment="Left" Height="43" Margin="20,623,0,0" VerticalAlignment="Top" Width="89" Click="zad6_Click"/>
         <Grid Grid.Column="1" HorizontalAlignment="Left" Height="132" Margin="20,694,0,0" VerticalAlignment="Top" Width="419">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="1*"/>
                 <ColumnDefinition Width="1*"/>
             </Grid.ColumnDefinitions>
-
-
-            <Label Margin="0,0,0,84"> Ocena</Label>
+            <Label Margin="0,0,0,84">Ocena</Label>
             <cc:ocena x:Name="StarControl" Grid.Column="1" Margin="0,0,0,84"/>
         </Grid>
+
+        <Grid x:Name="loadscreen" Visibility="Hidden" Grid.RowSpan="2" Grid.ColumnSpan="2"  Background="#7F000000">
+
+            <Viewbox Width="48" Height="48">
+                <Canvas Width="24" Height="24">
+                    <Path x:Name="wait" Fill="Black" 
+                          Data="M12 2C17.5 2 22 6.5 22 12C22 17.5 17.5 22 12 22C6.5 22 2 17.5 2 12C2 6.5 6.5 2 12 2M12
+                          4C7.58 4 4 7.58 4 12C4 16.42 7.58 20 12 20C16.42 20 20 16.42 20 12C20 7.58 16.42 4 12 4M12 5C13.93
+                          5 15.68 5.78 16.95 7.05L12 12V5Z" RenderTransformOrigin="0.5,0.5" >
+                        <Path.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform/>
+                                <SkewTransform/>
+                                <RotateTransform Angle="12"/>
+                                <TranslateTransform/>
+                            </TransformGroup>
+                        </Path.RenderTransform>
+                    </Path>
+
+                </Canvas>
+            </Viewbox>
+        </Grid>
+
     </Grid>
 
 </Window>

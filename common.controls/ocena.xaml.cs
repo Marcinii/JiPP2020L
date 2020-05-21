@@ -44,36 +44,27 @@ namespace common.controls
                     }
                 }
                 else { }
-
-
             }
         }
 
         private void UpdateButtons()
         {
-         
-            
                 foreach (var b in rategwiazdki.Children)
                 {
                     ((Button)b).Background = new SolidColorBrush(Colors.Black);
                 }
-
 
                 for (int i = 0; i <= _rateValue - 1; i++)
                 {
                     ((Button)rategwiazdki.Children[i]).Background = new SolidColorBrush(Colors.Yellow);
 
                 }
-            
         }
-
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             RateValue = rategwiazdki.Children.IndexOf((Button)sender) + 1;
-
         }
-
 
         public delegate void RateDelegate(int value);
 

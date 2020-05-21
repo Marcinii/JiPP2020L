@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Threading;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -391,5 +392,38 @@ namespace konwerter.deskop
             }
 
         }
+
+
+        public void zadanie6()
+        {
+            Thread.Sleep(5000);
+            Dispatcher.Invoke(() =>
+            {
+                using (ProgramowanieEntities context = new ProgramowanieEntities())
+                {
+                    List<Baza001> Baza001 = context.Baza001
+                        .OrderBy(b => b.id)
+                        .ToList();
+
+                    BazaStatystyk.ItemsSource = Baza001;
+
+                    loadscreen.Visibility = Visibility.Hidden;
+                }
+            });
+
+            }
+
+        private void zad6_Click(object sender, RoutedEventArgs e)
+        {
+            loadscreen.Visibility = Visibility.Visible;
+
+            Thread thread = new Thread(() => zadanie6());
+            thread.Start();
+            ((Storyboard)Resources["spinwait"]).Begin();
+        }
+
+      
     }
+
+
 }

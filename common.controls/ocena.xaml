@@ -74,10 +74,5 @@
         <Button Grid.Column="3" Background="Black" Style="{DynamicResource StarButton}" Click="Button_Click"/>
         <Button Grid.Column="4" Background="Black" Style="{DynamicResource StarButton}" Click="Button_Click"/>
 
-    
-       
-
-
-
     </Grid>
 </UserControl>
