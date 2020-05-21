@@ -29,6 +29,9 @@ namespace Converter.Desktop
         {
             InitializeComponent();
 
+            LoadingPanel.Visibility = Visibility.Hidden;
+            arrows.Visibility = Visibility.Hidden;
+
             Category.ItemsSource= new List<IConverter>()
             {
                 new Temperatura(),
@@ -61,7 +64,7 @@ namespace Converter.Desktop
                 String.IsNullOrEmpty(Toconvert.Text) != true);
             Makeit.Command = convertCommand;
 
-            refreshCommand = new RelayCommand(obj => Refresh());
+            refreshCommand = new RelayCommand(obj => RefreshClicked());
             RefreshButton.Command = refreshCommand;
 
             pagebackCommand = new RelayCommand(obj => pageback());
@@ -149,17 +152,39 @@ namespace Converter.Desktop
         }
 
         private RelayCommand refreshCommand;
+
+        private void RefreshClicked()
+        {
+            LoadingPanel.Visibility = Visibility.Visible;
+
+            arrows.Visibility = Visibility.Visible;
+
+            Storyboard sb = this.FindResource("LoadingStory") as Storyboard;
+            Storyboard.SetTarget(sb, arrows);
+            sb.Begin();
+
+            Task t1 = new Task(() => Refresh());
+
+            t1.Start();
+        }
+
         private void Refresh()
         {
+
+            Task.Delay(5000).Wait();
+
             using (converterEntities context = new converterEntities())
             {
-                List<Log> logi = zwrocOdfiltrowaneLogi(context).ToList();
-                LogList.ItemsSource = logi.Take(logperpage);
-                maxpage = logi.Count()/10;
+                
+                Dispatcher.Invoke(() => {
+                    List<Log> logi = zwrocOdfiltrowaneLogi(context).ToList();
+                    LogList.ItemsSource = logi.Take(logperpage);
+                    maxpage = logi.Count() / 10;
+                    LoadingPanel.Visibility = Visibility.Hidden;
+                    arrows.Visibility = Visibility.Hidden;
+                });              
             }
-
             strona = 0;
-
         }
 
         private void LogList_SelectionChanged(object sender, SelectionChangedEventArgs e)

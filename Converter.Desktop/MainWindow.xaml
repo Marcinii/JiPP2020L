@@ -14,7 +14,22 @@
                 <EasingColorKeyFrame KeyTime="0:0:2" Value="#FFDDE3DC"/>
             </ColorAnimationUsingKeyFrames>
         </Storyboard>
+        <Storyboard x:Key="LoadingStory">
+            <PointAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransformOrigin)" Storyboard.TargetName="arrows">
+                <EasingPointKeyFrame KeyTime="0" Value="0.5,0.5"/>
+                <EasingPointKeyFrame KeyTime="0:0:5" Value="0.5,0.5"/>
+            </PointAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[2].(RotateTransform.Angle)" Storyboard.TargetName="arrows">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:5" Value="1080"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
     </Window.Resources>
+    <Window.Triggers>
+        <EventTrigger RoutedEvent="FrameworkElement.Loaded">
+            <BeginStoryboard Storyboard="{StaticResource LoadingStory}"/>
+        </EventTrigger>
+    </Window.Triggers>
 
     <Grid Background="#FFBCBCBC">
         <Grid.ColumnDefinitions>
@@ -61,6 +76,28 @@
         <Button x:Name="Top3" Content="Top 3" HorizontalAlignment="Left" Height="22" Margin="775,0,0,0" VerticalAlignment="Top" Width="85"/>
         <commonControls:RateButton x:Name="rateControl" Margin="108,280,579,-0.2" RateChanged="RateControl_RateChanged"/>
         <Label Content="Oceń" HorizontalAlignment="Left" Height="26.4" Margin="54.8,287.6,0,0" VerticalAlignment="Top" Width="39.047"/>
-
+        <Rectangle x:Name="LoadingPanel" Fill="#7F0C0C0C" Grid.ColumnSpan="2" Margin="0"/>
+        <Path Data="M-176.9,117.3" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="1" Margin="-176.9,117.3,0,0" Stretch="Fill" Stroke="Black" VerticalAlignment="Top" Width="1"/>
+        <Canvas x:Name="arrows" Margin="640,101.2,139.09,152.324">
+            <Canvas.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Canvas.RenderTransform>
+            <Path Data="M-160.3999,87.899047 L-146.26689,71.36561 -124.30216,65.622926 -101.60018,74.29901 -91.333939,83.098943 -82.800259,80.698886 -86.400243,95.899221 -104.80016,91.499126 -97.692465,86.32506 -107.20015,77.899046 -123.60007,71.898691 -141.99998,75.898782 -155.19992,90.2991" Fill="#FF2BA536" HorizontalAlignment="Left" Height="31.276" Stretch="Fill" Stroke="Black" VerticalAlignment="Top" Width="78.6" Canvas.Left="2.8"/>
+            <Path Data="M-160.3999,87.899047 L-146.26689,71.36561 -124.30216,65.622926 -101.60018,74.29901 -91.333939,83.098943 -82.800259,80.698886 -86.400243,95.899221 -104.80016,91.499126 -97.692465,86.32506 -107.20015,77.899046 -123.60007,71.898691 -141.99998,75.898782 -155.19992,90.2991" Fill="#FF2BA536" HorizontalAlignment="Left" Height="31.276" Stretch="Fill" Stroke="Black" VerticalAlignment="Top" Width="78.6" RenderTransformOrigin="0.5,0.5" Canvas.Top="35.6">
+                <Path.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="180"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Path.RenderTransform>
+            </Path>
+        </Canvas>
     </Grid>
 </Window>
