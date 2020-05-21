@@ -207,8 +207,21 @@ namespace KonwerterJednostek.Desktop
         }
         int WyswietlDaneEF_Ocena()
         {
-            int ocena = 4;
-            return ocena;
+           
+
+            using (BazaDanychKonwerterEntities12 context = new BazaDanychKonwerterEntities12())
+            {
+                List<TabelaKonwerter> TabelaKonwerters = context.TabelaKonwerter.ToList();
+                TabelaKonwerter T = TabelaKonwerters.Last();
+                string tmp = (T.Ocena).ToString();
+                bool test = int.TryParse(tmp, out int result);
+                if (!test) { result = 0; }
+                return result;
+
+            }
+
+         
+
         }
 
         private void button_next_Click(object sender, RoutedEventArgs e)
