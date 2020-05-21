@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -34,7 +35,6 @@ namespace KonwerterWPF
             InitializeComponent();
             aktualnyKonwerter = new CelsjuszNaFarenheit();
             zegar = new Zegar(GodzinyTransform, MinutyTransform);
-            OdswiezDataGrid();
 
             List<string> rodzajeKonwerterow = new List<string>();
             rodzajeKonwerterow.Add("Wszystkie");
@@ -166,7 +166,19 @@ namespace KonwerterWPF
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            dataGrid.ItemsSource = db.LadujPofiltrowane(konwerteryList.SelectedItem.ToString(), dateFrom.SelectedDate, dateTo.SelectedDate);
+            Loading.Visibility = Visibility.Visible;
+            Thread t = new Thread(() => LoadResults());
+            t.Start();
+        }
+
+        private void LoadResults()
+        {
+            Thread.Sleep(5000);
+            Dispatcher.Invoke(() =>
+            {
+                dataGrid.ItemsSource = db.LadujPofiltrowane(konwerteryList.SelectedItem.ToString(), dateFrom.SelectedDate, dateTo.SelectedDate);
+                Loading.Visibility = Visibility.Hidden;
+            });
         }
 
         private void Button_Click_2(object sender, RoutedEventArgs e)

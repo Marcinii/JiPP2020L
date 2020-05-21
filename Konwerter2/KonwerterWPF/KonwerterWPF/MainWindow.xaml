@@ -7,75 +7,117 @@
         mc:Ignorable="d"
         xmlns:rateme="clr-namespace:Controls;assembly=Controls"
         Title="MainWindow" Height="622.681" Width="978.357">
+    <Window.Resources>
+        <Storyboard x:Key="LoadAnimation" RepeatBehavior="1">
+            <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)" Storyboard.TargetName="ellipse">
+                <EasingColorKeyFrame KeyTime="0" Value="Blue"/>
+                <EasingColorKeyFrame KeyTime="0:0:0.2" Value="White"/>
+            </ColorAnimationUsingKeyFrames>
+            <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)" Storyboard.TargetName="ellipse1">
+                <EasingColorKeyFrame KeyTime="0:0:0.2" Value="Blue"/>
+                <EasingColorKeyFrame KeyTime="0:0:0.3" Value="White"/>
+            </ColorAnimationUsingKeyFrames>
+            <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)" Storyboard.TargetName="ellipse2">
+                <EasingColorKeyFrame KeyTime="0:0:0.3" Value="Blue"/>
+                <EasingColorKeyFrame KeyTime="0:0:0.4" Value="White"/>
+            </ColorAnimationUsingKeyFrames>
+            <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)" Storyboard.TargetName="ellipse3">
+                <EasingColorKeyFrame KeyTime="0:0:0.4" Value="Blue"/>
+                <EasingColorKeyFrame KeyTime="0:0:0.5" Value="White"/>
+            </ColorAnimationUsingKeyFrames>
+            <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)" Storyboard.TargetName="ellipse4">
+                <EasingColorKeyFrame KeyTime="0:0:0.5" Value="Blue"/>
+                <EasingColorKeyFrame KeyTime="0:0:0.6" Value="White"/>
+            </ColorAnimationUsingKeyFrames>
+            <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)" Storyboard.TargetName="ellipse5">
+                <EasingColorKeyFrame KeyTime="0:0:0.6" Value="Blue"/>
+            </ColorAnimationUsingKeyFrames>
+        </Storyboard>
+    </Window.Resources>
+    <Window.Triggers>
+        <EventTrigger RoutedEvent="FrameworkElement.Loaded">
+            <BeginStoryboard Storyboard="{StaticResource LoadAnimation}"/>
+        </EventTrigger>
+    </Window.Triggers>
     <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-        </Grid.ColumnDefinitions>
-        <StackPanel Margin = "40" Grid.Column="0">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <StackPanel Margin = "40" Grid.Column="0">
 
-            <RadioButton x:Name = "CelsjuszFarenheit" Margin = "5" Click = "ZmienKonwerter" GroupName = "Konwerter" Content="Stopnie celsjusza na farenheita" IsChecked="True"/>
-            <RadioButton x:Name = "FarenheitCelsjusz" Margin = "5" Click = "ZmienKonwerter" GroupName = "Konwerter" Content="Stopnie farenheita na celsjusza"/>
-            <RadioButton x:Name = "MetryKilometry" Margin = "5" Click = "ZmienKonwerter" GroupName = "Konwerter" Content="Metry na kilometry"/>
-            <RadioButton x:Name = "KilometryMile" Margin = "5" Click = "ZmienKonwerter" GroupName = "Konwerter" Content="Kilometry na mile"/>
-            <RadioButton x:Name = "MileKilometry" Margin = "5" Click = "ZmienKonwerter" GroupName = "Konwerter" Content="Mile na kilometry"/>
-            <RadioButton x:Name = "GodzinySekund" Margin = "5" Click = "ZmienKonwerter" GroupName = "Konwerter" Content="Godziny na sekundy"/>
-            <RadioButton x:Name = "KilogramyFunty" Margin = "5" Click = "ZmienKonwerter" GroupName = "Konwerter" Content="Kilogramy na funty"/>
-            <RadioButton x:Name = "FuntyKilogramy" Margin = "5" Click = "ZmienKonwerter" GroupName = "Konwerter" Content="Funty na kilogramy"/>
-            <RadioButton x:Name= "Godziny12na24" Margin = "5" Click = "ZmienKonwerter" GroupName = "Konwerter" Content="Czas 12-godzinny na 24-godzinny"/>
-            <RadioButton x:Name= "Godziny24na12" Margin = "5" Click = "ZmienKonwerter" GroupName = "Konwerter" Content="Czas 24-godzinny na 12-godzinny"/>
+                <RadioButton x:Name = "CelsjuszFarenheit" Margin = "5" Click = "ZmienKonwerter" GroupName = "Konwerter" Content="Stopnie celsjusza na farenheita" IsChecked="True"/>
+                <RadioButton x:Name = "FarenheitCelsjusz" Margin = "5" Click = "ZmienKonwerter" GroupName = "Konwerter" Content="Stopnie farenheita na celsjusza"/>
+                <RadioButton x:Name = "MetryKilometry" Margin = "5" Click = "ZmienKonwerter" GroupName = "Konwerter" Content="Metry na kilometry"/>
+                <RadioButton x:Name = "KilometryMile" Margin = "5" Click = "ZmienKonwerter" GroupName = "Konwerter" Content="Kilometry na mile"/>
+                <RadioButton x:Name = "MileKilometry" Margin = "5" Click = "ZmienKonwerter" GroupName = "Konwerter" Content="Mile na kilometry"/>
+                <RadioButton x:Name = "GodzinySekund" Margin = "5" Click = "ZmienKonwerter" GroupName = "Konwerter" Content="Godziny na sekundy"/>
+                <RadioButton x:Name = "KilogramyFunty" Margin = "5" Click = "ZmienKonwerter" GroupName = "Konwerter" Content="Kilogramy na funty"/>
+                <RadioButton x:Name = "FuntyKilogramy" Margin = "5" Click = "ZmienKonwerter" GroupName = "Konwerter" Content="Funty na kilogramy"/>
+                <RadioButton x:Name= "Godziny12na24" Margin = "5" Click = "ZmienKonwerter" GroupName = "Konwerter" Content="Czas 12-godzinny na 24-godzinny"/>
+                <RadioButton x:Name= "Godziny24na12" Margin = "5" Click = "ZmienKonwerter" GroupName = "Konwerter" Content="Czas 24-godzinny na 12-godzinny"/>
 
-            <Label Content="Wprowadź wartość:"></Label>
-            <TextBox x:Name="Wartosc"/>
+                <Label Content="Wprowadź wartość:"></Label>
+                <TextBox x:Name="Wartosc"/>
 
-            <Button Content="Przelicz" Name="convertButton"/>
-            <Label Content="Ocena aplikacji:" Margin="5"/>
-            <rateme:RateMe Name="rateMe" Width="300" Height="50" Margin="2"/>
-        </StackPanel>
-        <Grid Grid.Column="1">
-            <Grid.RowDefinitions>
-                <RowDefinition/>
-                <RowDefinition/>
-            </Grid.RowDefinitions>
+                <Button Content="Przelicz" Name="convertButton"/>
+                <Label Content="Ocena aplikacji:" Margin="5"/>
+                <rateme:RateMe Name="rateMe" Width="300" Height="50" Margin="2"/>
+            </StackPanel>
+            <Grid Grid.Column="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
 
-            <Grid x:Name="ZegarGrid" Grid.Row="0">
-                <Ellipse  Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="211" Margin="71,8,0,0" Stroke="Black" VerticalAlignment="Top" Width="211"/>
-                <Rectangle x:Name ="MinutyRect" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="12" Margin="83,106,0,0" Stroke="Black" VerticalAlignment="Top" Width="97" RenderTransformOrigin="1,0.5">
-                    <Rectangle.RenderTransform>
-                        <TransformGroup>
-                            <ScaleTransform/>
-                            <SkewTransform/>
-                            <RotateTransform Angle="0" x:Name="MinutyTransform"/>
-                            <TranslateTransform/>
-                        </TransformGroup>
-                    </Rectangle.RenderTransform>
-                </Rectangle>
-                <Rectangle x:Name ="GodzinyRect" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="12" Margin="134,106,0,0" Stroke="Black" VerticalAlignment="Top" Width="46" RenderTransformOrigin="1,0.5">
-                    <Rectangle.RenderTransform>
-                        <TransformGroup>
-                            <ScaleTransform/>
-                            <SkewTransform/>
-                            <RotateTransform Angle="-55" x:Name="GodzinyTransform"/>
-                            <TranslateTransform/>
-                        </TransformGroup>
-                    </Rectangle.RenderTransform>
-                </Rectangle>
-            </Grid>
-            <Grid Grid.Row="1">
-                <DataGrid Name="dataGrid" Margin="0,0,26,68">
-                </DataGrid>
-                <Button Content="Filtruj" HorizontalAlignment="Left" Margin="10,237,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_1"/>
-                <ComboBox HorizontalAlignment="Left" Margin="108,237,0,0" VerticalAlignment="Top" Width="120" Name="konwerteryList"/>
-                <DatePicker HorizontalAlignment="Left" Margin="251,240,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.225,0.208" Name="dateFrom"/>
-                <DatePicker HorizontalAlignment="Left" Margin="358,240,0,0" VerticalAlignment="Top" Name="dateTo"/>
-                <Button  HorizontalAlignment="Left" Margin="10,271,0,0" VerticalAlignment="Top" Width="75" Content="Wstecz"/>
-                <Button  HorizontalAlignment="Left" Margin="108,271,0,0" VerticalAlignment="Top" Width="75" Content="Dalej"/>
-                <Button  HorizontalAlignment="Left" Margin="251,271,0,0" VerticalAlignment="Top" Width="208" Click="Button_Click_2" Content="Top Konwersje"/>
+                <Grid x:Name="ZegarGrid" Grid.Row="0">
+                    <Ellipse  Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="211" Margin="71,8,0,0" Stroke="Black" VerticalAlignment="Top" Width="211"/>
+                    <Rectangle x:Name ="MinutyRect" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="12" Margin="83,106,0,0" Stroke="Black" VerticalAlignment="Top" Width="97" RenderTransformOrigin="1,0.5">
+                        <Rectangle.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform/>
+                                <SkewTransform/>
+                                <RotateTransform Angle="0" x:Name="MinutyTransform"/>
+                                <TranslateTransform/>
+                            </TransformGroup>
+                        </Rectangle.RenderTransform>
+                    </Rectangle>
+                    <Rectangle x:Name ="GodzinyRect" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="12" Margin="134,106,0,0" Stroke="Black" VerticalAlignment="Top" Width="46" RenderTransformOrigin="1,0.5">
+                        <Rectangle.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform/>
+                                <SkewTransform/>
+                                <RotateTransform Angle="-55" x:Name="GodzinyTransform"/>
+                                <TranslateTransform/>
+                            </TransformGroup>
+                        </Rectangle.RenderTransform>
+                    </Rectangle>
+                </Grid>
+                <Grid Grid.Row="1">
+                    <DataGrid Name="dataGrid" Margin="0,0,26,68">
+                    </DataGrid>
+                    <Button Content="Filtruj" HorizontalAlignment="Left" Margin="10,237,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_1"/>
+                    <ComboBox HorizontalAlignment="Left" Margin="108,237,0,0" VerticalAlignment="Top" Width="120" Name="konwerteryList"/>
+                    <DatePicker HorizontalAlignment="Left" Margin="251,240,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.225,0.208" Name="dateFrom"/>
+                    <DatePicker HorizontalAlignment="Left" Margin="358,240,0,0" VerticalAlignment="Top" Name="dateTo"/>
+                    <Button  HorizontalAlignment="Left" Margin="10,271,0,0" VerticalAlignment="Top" Width="75" Content="Wstecz"/>
+                    <Button  HorizontalAlignment="Left" Margin="108,271,0,0" VerticalAlignment="Top" Width="75" Content="Dalej"/>
+                    <Button  HorizontalAlignment="Left" Margin="251,271,0,0" VerticalAlignment="Top" Width="208" Click="Button_Click_2" Content="Top Konwersje"/>
+                </Grid>
+
+
             </Grid>
 
 
         </Grid>
-
-
+        <Grid x:Name="Loading" Background="#CA000000" Visibility="Hidden">
+            <Ellipse x:Name="ellipse" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="65.847" Margin="406.849,167,0,0" Stroke="Black" VerticalAlignment="Top" Width="65.847"/>
+            <Ellipse x:Name="ellipse1" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="65.847" Margin="496.73,167,0,0" Stroke="Black" VerticalAlignment="Top" Width="65.847"/>
+            <Ellipse x:Name="ellipse5" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="65.846" Margin="368,244.37,0,0" Stroke="Black" VerticalAlignment="Top" Width="65.847"/>
+            <Ellipse x:Name="ellipse4" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="65.847" Margin="406.849,328.653,0,0" Stroke="Black" VerticalAlignment="Top" Width="65.847"/>
+            <Ellipse x:Name="ellipse3" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="65.847" Margin="496.73,328.653,0,0" Stroke="Black" VerticalAlignment="Top" Width="65.847"/>
+            <Ellipse x:Name="ellipse2" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="65.846" Margin="531.3,244.37,0,0" Stroke="Black" VerticalAlignment="Top" Width="65.846"/>
+        </Grid>
     </Grid>
 </Window>
