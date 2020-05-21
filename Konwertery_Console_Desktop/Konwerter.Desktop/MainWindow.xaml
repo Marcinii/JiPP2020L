@@ -85,7 +85,7 @@
                 </TransformGroup>
             </Rectangle.RenderTransform>
         </Rectangle>
-        <DataGrid x:Name="statsGrid" ItemsSource="{Binding}" AutoGenerateColumns="False" Grid.Column="2" HorizontalAlignment="Left" Height="303" Margin="241,14,0,0" VerticalAlignment="Top" Width="344">
+        <DataGrid x:Name="statsGrid" ItemsSource="{Binding}" AutoGenerateColumns="False" Grid.Column="2" HorizontalAlignment="Left" Height="272" Margin="241,45,0,0" VerticalAlignment="Top" Width="344">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Data konwersji" Binding="{Binding Path=dateOfConversion}"></DataGridTextColumn>
                 <DataGridTextColumn Header="Rodzaj konwersji" Binding="{Binding Path=name}"></DataGridTextColumn>
@@ -116,6 +116,7 @@
                 </Border>
             </Popup>
         </StackPanel>
-
+        <Button x:Name="loadStats_btn" Content="Pokaż statystyki" Grid.Column="2" HorizontalAlignment="Left" Margin="269,17,0,0" VerticalAlignment="Top" Width="166" Click="loadStats_btn_Click"/>
+        <local:LoadingControl x:Name="ld_con" Visibility="Hidden" Grid.ColumnSpan="3" Grid.RowSpan="3"></local:LoadingControl>
     </Grid>
 </Window>

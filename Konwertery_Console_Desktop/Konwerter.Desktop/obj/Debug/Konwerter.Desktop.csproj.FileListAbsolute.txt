@@ -58,3 +58,5 @@ D:\Repozytorium\Konwertery_Console_Desktop\Konwerter.Desktop\obj\Debug\Konwerter
 D:\Repozytorium\Konwertery_Console_Desktop\Konwerter.Desktop\obj\Debug\Ocena.g.cs
 D:\Repozytorium\Konwertery_Console_Desktop\Konwerter.Desktop\obj\Debug\Ocena.baml
 D:\Repozytorium\Konwertery_Console_Desktop\Konwerter.Desktop\obj\Debug\GeneratedInternalTypeHelper.g.cs
+D:\Repozytorium\Konwertery_Console_Desktop\Konwerter.Desktop\obj\Debug\LoadingControl.g.cs
+D:\Repozytorium\Konwertery_Console_Desktop\Konwerter.Desktop\obj\Debug\LoadingControl.baml

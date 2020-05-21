@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -48,7 +49,7 @@ namespace Konwerter.Desktop
         public MainWindow()
         {
             InitializeComponent();
-            getPagedConversions(initPagination, borderPagination, selectedFilterType, dateFromParam, dateToParam);
+            // getPagedConversions(initPagination, borderPagination, selectedFilterType, dateFromParam, dateToParam);
             getMostPopular();
             initConverterBox();
             hourRotation.Angle = (360/12)*(6)+90;
@@ -174,7 +175,7 @@ namespace Konwerter.Desktop
 
                 insertData(conversion);
                 conversion = new CONVERSIONS();
-                getPagedConversions(initPagination, borderPagination, null, dateFromParam, dateToParam);
+                // getPagedConversions(initPagination, borderPagination, null, dateFromParam, dateToParam);
             }
         }
 
@@ -226,8 +227,12 @@ namespace Konwerter.Desktop
                 }
             }
 
-            
-            statsGrid.ItemsSource = pagedList;
+            Task.Delay(5000).Wait();
+
+            Dispatcher.Invoke(() => {
+                statsGrid.ItemsSource = pagedList;
+                ld_con.Visibility = Visibility.Hidden;
+            });
         }
 
         public void getMostPopular()
@@ -311,6 +316,15 @@ namespace Konwerter.Desktop
         private void convertFrom_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             
+        }
+
+        private void loadStats_btn_Click(object sender, RoutedEventArgs e)
+        {
+            ld_con.Visibility = Visibility.Visible;
+
+            Task task = new Task (() => getPagedConversions(initPagination, borderPagination, selectedFilterType, dateFromParam, dateToParam));
+            task.Start();
+
         }
     }
 }

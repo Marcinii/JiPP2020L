@@ -66,6 +66,9 @@
     </ApplicationDefinition>
     <Compile Include="Grade.cs" />
     <Compile Include="GradeModel.cs" />
+    <Compile Include="LoadingControl.xaml.cs">
+      <DependentUpon>LoadingControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="MostPopularConversion.cs" />
     <Compile Include="MostPopularEntity.cs" />
     <Compile Include="Ocena.xaml.cs">
@@ -75,6 +78,10 @@
     <Compile Include="Repository\DatabaseModule.cs" />
     <Compile Include="ViewModel\Commands\ConvertCommand.cs" />
     <Compile Include="ViewModel\ViewModelBase.cs" />
+    <Page Include="LoadingControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
