@@ -1,0 +1,98 @@
+﻿<Window x:Class="Konwerter.Okienko.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Konwerter.Okienko"
+        xmlns:commonControls="clr-namespace:Common.Controls;assembly=Common.Controls"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="650" Width="1200">
+    <Window.Resources>
+        <Storyboard x:Key="sb">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="Oblicz">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="1"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:1.5" Value="1"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:2" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:2.5" Value="1"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:3" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:3.5" Value="1"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:4" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:4.5" Value="1"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:5" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:5.5" Value="1"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:6" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:6.5" Value="1"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:7" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:7.5" Value="1"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:8" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:8.5" Value="1"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:9" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:9.5" Value="1"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:10" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:10.5" Value="1"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:11" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:11.5" Value="1"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:12" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:12.5" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+    </Window.Resources>
+    <Window.Triggers>
+        <EventTrigger RoutedEvent="FrameworkElement.Loaded">
+            <BeginStoryboard Storyboard="{StaticResource sb}"/>
+        </EventTrigger>
+    </Window.Triggers>
+    <Grid Margin="0,10,2,0">
+
+        <Label Margin="300,130,740,0">Ocena aplikacji:</Label>
+        <commonControls:RateMe x:Name="rateControl" Margin="240,164,740,0" Height="35" VerticalAlignment="Top" Width="197" RateValueChanged="rateControl_RateValueChanged"/>
+
+        <Label Content="Wprowadz wartosc" HorizontalAlignment="Left" Height="39" Margin="10,38,0,0" VerticalAlignment="Top" Width="149"/>
+        <Button x:Name="Oblicz" Content="Oblicz" HorizontalAlignment="Left" Height="35" Margin="10,164,0,0" VerticalAlignment="Top" Width="197"/>
+        <TextBox x:Name="Wartosc" HorizontalAlignment="Left" Height="39" Margin="128,38,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="142"/>
+        <TextBlock x:Name="Wynik" HorizontalAlignment="Left" Height="39" Margin="40,102,0,0" TextWrapping="Wrap" Text="Wynik" VerticalAlignment="Top" Width="230"/>
+        <ComboBox x:Name="Lista" HorizontalAlignment="Left" Height="25" Margin="301,52,0,0" VerticalAlignment="Top" Width="125" SelectionChanged="Lista_SelectionChanged">
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding Nazwa}"/>
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
+        <Ellipse Fill="#FF39E47F" HorizontalAlignment="Left" Height="200" Margin="130,220,0,0" Stroke="#FFBEF308" VerticalAlignment="Top" Width="200"/>
+        <Rectangle x:Name="godzina" Fill="#FFF01313" HorizontalAlignment="Left" Height="70" Margin="222,250,0,0" Stroke="#FFF30808" VerticalAlignment="Top" Width="16" Panel.ZIndex="1" RenderTransformOrigin="0.5,1"/>
+        <Rectangle x:Name="minuta" Fill="#FF1313F0" HorizontalAlignment="Left" Height="100" Margin="226,220,0,0" Stroke="#FF1313F0" VerticalAlignment="Top" Width="8" RenderTransformOrigin="0.5,1"/>
+
+        <DataGrid x:Name="Bananas" Width="700" Height="400" VerticalAlignment="Top" HorizontalAlignment="Right" ItemsSource="{Binding}" AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="rodzaj" Binding="{Binding rodzaj}" Width="140"/>
+                <DataGridTextColumn Header="jednostki" Binding="{Binding jednostki}" Width="140"/>
+                <DataGridTextColumn Header="data" Binding="{Binding data}" Width="140"/>
+                <DataGridTextColumn Header="wartosc" Binding="{Binding wartosc}" Width="140"/>
+                <DataGridTextColumn Header="wynik" Binding="{Binding wynik}" Width="140"/>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <DataGrid x:Name="BananasPopular" Width="140" Height="100" Margin="0,400,560,0" VerticalAlignment="Top" HorizontalAlignment="Right" ItemsSource="{Binding}" AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="3 najbardziej popularne" Binding="{Binding rodzaj}" Width="140"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        
+        <Label x:Name="rodzaj1" Width="140" Height="50" Margin="0,400,420,0" VerticalAlignment="Top" HorizontalAlignment="Right" Content="rodzaj" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+        <TextBox x:Name="rodzaj2" Width="140" Height="50" Margin="0,450,420,0" VerticalAlignment="Top" HorizontalAlignment="Right" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Text="moc"/>
+
+        <Label x:Name="strona1" Width="140" Height="50" Margin="0,400,280,0" VerticalAlignment="Top" HorizontalAlignment="Right" Content="strona" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+        <TextBox x:Name="strona2" Width="140" Height="50" Margin="0,450,280,0" VerticalAlignment="Top" HorizontalAlignment="Right" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Text="1"/>
+
+        <Label x:Name="dataOD1" Width="140" Height="50" Margin="0,400,140,0" VerticalAlignment="Top" HorizontalAlignment="Right" Content="data od" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+        <DatePicker x:Name="dataOD2" Width="140" Height="50" Margin="0,450,140,0" VerticalAlignment="Top" HorizontalAlignment="Right" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" SelectedDate="1990-01-01"/>
+
+        <Label x:Name="dataDO1" Width="140" Height="50" Margin="0,400,0,0" VerticalAlignment="Top" HorizontalAlignment="Right" Content="data do" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+        <DatePicker x:Name="dataDO2" Width="140" Height="50" Margin="0,450,0,0" VerticalAlignment="Top" HorizontalAlignment="Right" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" SelectedDate="2050-1-1"/>
+
+        <Button x:Name="filtruj" Width="140" Height="50" Margin="0,500,0,0" VerticalAlignment="Top" HorizontalAlignment="Right" Content="Filtruj" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+
+    </Grid>
+</Window>

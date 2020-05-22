@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="BananasModelStoreContainer" CdmEntityContainer="BananasEntities">
+    <EntitySetMapping Name="Bananas">
+      <EntityTypeMapping TypeName="BananasModel.Bananas">
+        <MappingFragment StoreEntitySet="Bananas">
+          <ScalarProperty Name="numer" ColumnName="numer" />
+          <ScalarProperty Name="rodzaj" ColumnName="rodzaj" />
+          <ScalarProperty Name="jednostki" ColumnName="jednostki" />
+          <ScalarProperty Name="data" ColumnName="data" />
+          <ScalarProperty Name="wartosc" ColumnName="wartosc" />
+          <ScalarProperty Name="wynik" ColumnName="wynik" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
