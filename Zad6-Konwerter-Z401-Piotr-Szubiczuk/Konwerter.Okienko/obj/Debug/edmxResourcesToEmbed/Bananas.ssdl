@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="BananasModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Bananas">
+    <Key>
+      <PropertyRef Name="numer" />
+    </Key>
+    <Property Name="numer" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="rodzaj" Type="varchar" MaxLength="64" Nullable="false" />
+    <Property Name="jednostki" Type="varchar" MaxLength="64" Nullable="false" />
+    <Property Name="data" Type="datetime" Nullable="false" />
+    <Property Name="wartosc" Type="varchar" MaxLength="64" Nullable="false" />
+    <Property Name="wynik" Type="varchar" MaxLength="64" Nullable="false" />
+  </EntityType>
+  <EntityContainer Name="BananasModelStoreContainer">
+    <EntitySet Name="Bananas" EntityType="Self.Bananas" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>
