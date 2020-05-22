@@ -13,10 +13,18 @@
                 <EasingDoubleKeyFrame KeyTime="0:0:10" Value="360"/>
             </DoubleAnimationUsingKeyFrames>
         </Storyboard>
+        <Storyboard x:Key="KoloLadowaniaStoryboard" RepeatBehavior="Forever">
+            <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)" Storyboard.TargetName="KoloLadowania">
+                <EasingColorKeyFrame KeyTime="0:0:1" Value="#FF479C7D"/>
+                <EasingColorKeyFrame KeyTime="0:0:2" Value="#FF475A9C"/>
+                <EasingColorKeyFrame KeyTime="0:0:3" Value="#FF9C4753"/>
+            </ColorAnimationUsingKeyFrames>
+        </Storyboard>
     </Window.Resources>
     <Window.Triggers>
         <EventTrigger RoutedEvent="FrameworkElement.Loaded">
             <BeginStoryboard Storyboard="{StaticResource ObracajacyKwadrat}"/>
+            <BeginStoryboard Storyboard="{StaticResource KoloLadowaniaStoryboard}"/>
         </EventTrigger>
     </Window.Triggers>
     <Grid>
@@ -97,6 +105,8 @@
         <Button x:Name="PrevButton" Content="Poprzednia" HorizontalAlignment="Left" Margin="229,559,0,0" VerticalAlignment="Top" Width="75" Click="PrevButton_Click"/>
         <Label Content="Oceń mnie" HorizontalAlignment="Left" Margin="546,84,0,0" VerticalAlignment="Top" Height="26" Width="72"/>
         <cc:OcenMnie x:Name="OcenMnie" HorizontalAlignment="Left" Height="27" Margin="508,115,0,0" VerticalAlignment="Top" Width="149" Loaded="OcenMnie_Loaded" RateValueChanged="OcenMnie_RateValueChanged" />
+        <Rectangle x:Name="KwadratLadowania" Fill="Black" HorizontalAlignment="Left" Height="570" Margin="10,9,0,0" VerticalAlignment="Top" Width="656" Opacity="0.3" Visibility="Hidden"/>
+        <Ellipse x:Name="KoloLadowania" Fill="#FF9C5247" HorizontalAlignment="Left" Height="100" Margin="280,247,0,0" VerticalAlignment="Top" Width="100" Grid.Column="1" Stroke="Black" Visibility="Hidden"/>
 
     </Grid>
 </Window>

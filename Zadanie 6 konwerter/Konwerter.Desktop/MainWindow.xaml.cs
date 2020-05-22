@@ -309,25 +309,38 @@ namespace Konwerter.Desktop
 
         public void Cala_historia_uzycia()
         {
-            var actual = int.Parse(page.Content.ToString());
-            using (var history = new HISTORIAEntities())
+            this.Dispatcher.Invoke(() =>
             {
-                var info = history.HISTORY.AsQueryable();
-                if (DATA_OD.SelectedDate != null)
+                KwadratLadowania.Visibility = Visibility.Visible;
+                KoloLadowania.Visibility = Visibility.Visible;
+                var actual = int.Parse(page.Content.ToString());
+                using (var history = new HISTORIAEntities())
                 {
-                    info = info.Where(x => x.Data >= DATA_OD.SelectedDate);
+                    var info = history.HISTORY.AsQueryable();
+                    if (DATA_OD.SelectedDate != null)
+                    {
+                        info = info.Where(x => x.Data >= DATA_OD.SelectedDate);
+                    }
+                    if (DATA_DO.SelectedDate != null)
+                    {
+                        info = info.Where(x => x.Data <= DATA_DO.SelectedDate);
+                    }
+                    HistoriaDataGrid.ItemsSource = info.OrderBy(x => x.IDHistory).Skip(10 * (actual - 1)).Take(10).ToList();
+                    
                 }
-                if (DATA_DO.SelectedDate != null)
-                {
-                    info = info.Where(x => x.Data <= DATA_DO.SelectedDate);
-                }
-                HistoriaDataGrid.ItemsSource = info.OrderBy(x => x.IDHistory).Skip(10 * (actual - 1)).Take(10).ToList();
-            }
+            });
+            Task.Delay(10000).Wait();
         }
 
         private void CalaHistoria_Click(object sender, RoutedEventArgs e)
         {
-            Cala_historia_uzycia();
+            Task task = new Task(() => Cala_historia_uzycia());
+            task.Start();
+            Task.WhenAll(task).ContinueWith(t =>
+            {
+                KwadratLadowania.Visibility = Visibility.Hidden;
+                KoloLadowania.Visibility = Visibility.Hidden;
+            }, TaskScheduler.FromCurrentSynchronizationContext());
         }
 
         private void Top5Button_Click(object sender, RoutedEventArgs e)
