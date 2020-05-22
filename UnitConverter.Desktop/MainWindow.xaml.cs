@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Windows.Media.Animation;
+using System.Threading;
 
 namespace UnitConverter.Desktop
 {
@@ -99,10 +100,12 @@ namespace UnitConverter.Desktop
             FilterCommand = new RelayCommand(obj => Filter());
             PreviousPageCommand = new RelayCommand(obj => GoPreviousPage());
             NextPageCommand = new RelayCommand(obj => GoNextPage());
+            CancelCommand = new RelayCommand(obj => Cancel());
 
             FilterButton.Command = FilterCommand;
             PreviousPage.Command = PreviousPageCommand;
             NextPage.Command = NextPageCommand;
+            CancelButton.Command = CancelCommand;
         }
 
         private void TypeComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -211,10 +214,39 @@ namespace UnitConverter.Desktop
         }
 
         private RelayCommand FilterCommand;
+        CancellationTokenSource tokenSource;
 
         private void Filter()
         {
-            FilterFromDB();
+            tokenSource = new CancellationTokenSource();
+            Loader.Visibility = Visibility.Visible;
+            Task getData = new Task(() => RefreshDB(tokenSource.Token), tokenSource.Token);
+            getData.Start();
+        }
+
+        private RelayCommand CancelCommand;
+        
+
+        private void Cancel()
+        {
+            Loader.Visibility = Visibility.Hidden;
+            tokenSource.Cancel();
+        }
+
+        protected void RefreshDB(CancellationToken token)
+        {
+            for (int i = 0; i < 10; i++)
+            {
+                if (token.IsCancellationRequested)
+                {
+                    return;
+                }
+                Task.Delay(1000).Wait();
+            }
+            Dispatcher.Invoke(() => {
+                FilterFromDB();
+                Loader.Visibility = Visibility.Hidden;
+            });
         }
 
         protected void FilterFromDB()
@@ -237,14 +269,14 @@ namespace UnitConverter.Desktop
                 .Where(s => DateFromFilter.SelectedDate != null ? s.DATE > DateFromFilter.SelectedDate.Value : true)
                 .Where(s => DateToFilter.SelectedDate != null ? s.DATE < DateToFilter.SelectedDate.Value : true)
                 .GroupBy(x => new { x.TYPE, x.UNITFROM, x.UNITTO })
-                .Select(x =>  new { x.Key.TYPE, x.Key.UNITFROM, x.Key.UNITTO, Count = x.Count() })
+                .Select(x => new { x.Key.TYPE, x.Key.UNITFROM, x.Key.UNITTO, Count = x.Count() })
                 .OrderByDescending(x => x.Count)
                 .Take(3)
                 .ToList();
 
                 StatisticsData.ItemsSource = StatisticsList;
                 PopularData.ItemsSource = PopularList;
-            }
+            } 
         }
 
         private RelayCommand PreviousPageCommand;

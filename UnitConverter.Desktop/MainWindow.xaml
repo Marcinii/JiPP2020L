@@ -57,5 +57,31 @@
         <Button x:Name="PreviousPage" Content="Previous" HorizontalAlignment="Left" Height="31" Margin="517,464,0,0" VerticalAlignment="Top" Width="49"/>
         <DataGrid x:Name="PopularData" HorizontalAlignment="Left" Height="80" ColumnWidth="*" Margin="20,120,0,0" VerticalAlignment="Top" Width="650"/>
         <commonControls:Rate HorizontalAlignment="Left" Width="145" Margin="44,466,0,23" Name="RatingControl" RatingValueChanged="RatingControl_RatingValueChanged"/>
+        <Grid x:Name="Loader" HorizontalAlignment="Left" Height="514" VerticalAlignment="Top" Width="694" Visibility="Hidden" Background="Black" Opacity="0.5">
+            <Ellipse x:Name="LoaderCircle" Margin="321,233,321,232">
+                <Ellipse.Fill>
+                    <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+                        <GradientStop Color="Black" Offset="0"/>
+                        <GradientStop Color="#FF3BF0FA" Offset="1"/>
+                    </LinearGradientBrush>
+                </Ellipse.Fill>
+                <Ellipse.Triggers>
+                    <EventTrigger RoutedEvent="Ellipse.Loaded">
+                        <BeginStoryboard>
+                            <Storyboard>
+                                <DoubleAnimation
+                                Storyboard.TargetName="LoaderCircle" 
+                                Storyboard.TargetProperty="Opacity"
+                                From="1.0" To="0.0" Duration="0:0:1" 
+                                AutoReverse="True" RepeatBehavior="Forever" />
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </EventTrigger>
+                </Ellipse.Triggers>
+
+            </Ellipse>
+            <Ellipse  Margin="331,243,331,242" Fill="Black" Opacity="0.5"/>
+            <Button x:Name="CancelButton" Content="X" HorizontalAlignment="Left" Height="37" Margin="647,10,0,0" VerticalAlignment="Top" Width="29"/>
+        </Grid>
     </Grid>
 </Window>
