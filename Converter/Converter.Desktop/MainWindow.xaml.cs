@@ -8,6 +8,7 @@ using System.Data.SqlClient;
 using System.Globalization;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -15,6 +16,7 @@ using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
+using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
@@ -49,7 +51,7 @@ namespace Converter.Desktop
         public MainWindow()
         {
             InitializeComponent();
-            getDataFromMySQL();
+           // getDataFromMySQL(); do zadania dajemy na przycisk
             for (int i = 0; i < converterMethods.Count; i++)
             {
                 var element = converterMethods.ElementAt(i);
@@ -197,6 +199,33 @@ namespace Converter.Desktop
                new {  Str = c.Key, Count = c.Count() })
                 .OrderByDescending(c => c.Count)
                 .Take(3);
+        }
+
+
+        private void DataLoad()
+        {
+            Thread.Sleep(5000);
+            Dispatcher.Invoke(() =>
+            {
+                getDataFromMySQL();
+                DataGrid.ItemsSource = ConverterManager.converters
+                .OrderBy(c=> c.id)
+                .ToList();
+                ellipse1.Visibility = Visibility.Hidden;
+                WyciemnienieAplikacji.Visibility = Visibility.Hidden;
+                LadowanieNapis.Visibility = Visibility.Hidden;
+            });
+        }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            ellipse1.Visibility = Visibility.Visible;
+            WyciemnienieAplikacji.Visibility = Visibility.Visible;
+            LadowanieNapis.Visibility = Visibility.Visible;
+            Thread t = new Thread(() => DataLoad());
+            t.Start();
+            ((Storyboard)Resources["LoaderStoryboard"]).Begin();
+
         }
     }
 }
