@@ -115,14 +115,12 @@ namespace UnitConverter.Desktop
                         SqlDataAdapter da = new SqlDataAdapter(cmdSel);
                         da.Fill(dt);
 
-
-
                         dataGrid.ItemsSource = dt.DefaultView;
 
-
-
                     }
+                    
                     connection.Close();
+                    Task.Delay(5000).Wait();
                 }
             }
 
@@ -145,7 +143,21 @@ namespace UnitConverter.Desktop
         {
            
         }
+
+        private void Button_Click_3(object sender, RoutedEventArgs e)
+        {
+
+            Task t1 = new Task(() => DataGrid_SelectionChanged());
+            t1.Start();
+            Task.WhenAll(t1).ContinueWith(t =>
+            {
+                LoaderCircle.Visibility = Visibility.Hidden;
+                LoadingRectangle.Visibility = Visibility.Hidden;
+            }, TaskScheduler.FromCurrentSynchronizationContext());
+        }
     }
+
+
 }
 /*
  Fill="#FFFF4C4C"
