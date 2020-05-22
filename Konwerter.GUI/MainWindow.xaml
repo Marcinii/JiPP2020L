@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Konwerter.GUI"
         xmlns:Common.Controls="clr-namespace:Common.Controls;assembly=Common.Controls"
         mc:Ignorable="d"
-        Title="JIPP Adrian Socha" Height="1203" Width="1225" Background="#FF9AD6D1">
+        Title="JIPP Adrian Socha" Height="1059" Width="1225" Background="#FF9AD6D1">
     <Window.Resources>
         <Storyboard x:Key="Animacja_Zegarow" AutoReverse="True">
             <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[2].(RotateTransform.Angle)" Storyboard.TargetName="path">
@@ -48,72 +48,72 @@
 
 
 
-    <Grid HorizontalAlignment="Left" Width="1202" Margin="-5,18,0,2">
-        <Button x:Name="Button1" Content="Oblicz" Grid.Column="0" HorizontalAlignment="Left" Margin="15,15,0,0" VerticalAlignment="Top" Width="140" Click="Button1_Click" Height="20" Grid.Row="4" Grid.ColumnSpan="2"/>
-        <Button x:Name="Button2" Content="Oblicz" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Top" Width="150" Click="Button2_Click" Height="20" Grid.Row="4" Margin="5,15,0,0" Grid.ColumnSpan="2"/>
-        <Button x:Name="Button3" Content="Oblicz" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Top" Width="150" Click="Button3_Click" Height="20" Grid.Row="4" Margin="5,15,0,0" Grid.ColumnSpan="2"/>
-        <Button x:Name="Button4" Content="Oblicz" Grid.Column="3" HorizontalAlignment="Left" VerticalAlignment="Top" Width="150" Click="Button4_Click" Height="20" Grid.Row="4" Margin="5,15,0,0" Grid.ColumnSpan="2"/>
-        <Button x:Name="Button5" Content="Oblicz" Grid.Column="4" HorizontalAlignment="Left" VerticalAlignment="Top" Width="150" Click="Button5_Click" Height="20" Grid.Row="4" Margin="5,15,0,0" Grid.ColumnSpan="2"/>
-        <Button x:Name="Button6" Content="Oblicz" Grid.Column="5" HorizontalAlignment="Left" VerticalAlignment="Top" Width="150" Click="Button6_Click" Height="20" Grid.Row="4" Margin="5,15,0,0" Grid.ColumnSpan="2"/>
-        <Button x:Name="Button7" Content="Oblicz" Grid.Column="6" HorizontalAlignment="Left" VerticalAlignment="Top" Width="150" Click="Button7_Click" Height="20" Grid.Row="4" Margin="5,15,0,0" Grid.ColumnSpan="2"/>
-        <Button x:Name="Button8" Content="Oblicz" Grid.Column="7" HorizontalAlignment="Left" VerticalAlignment="Top" Width="150" Click="Button8_Click" Height="20" Grid.Row="4" Margin="5,15,-4,0" Grid.ColumnSpan="2"/>
-        <Button x:Name="TButton24" Content="Konwertuj Czas"  Grid.Row="9" Grid.Column="0" Click="TButton24_Click" Margin="13,11,7,3" Grid.ColumnSpan="3" FontWeight="Bold" FontStyle="Italic"/>
-        <Button x:Name="TButton12" Content="Konwertuj Czas"  Grid.Row="9" Grid.Column="5" Click="TButton12_Click" Margin="15,10,4,5" Grid.ColumnSpan="3" FontStyle="Italic" FontWeight="Bold"/>
+    <Grid HorizontalAlignment="Left" Width="1199" Margin="-4,18,0,0">
+        <Button x:Name="Button1" Content="Oblicz" Grid.Column="0" HorizontalAlignment="Left" Margin="15,19,0,0" VerticalAlignment="Top" Width="140" Click="Button1_Click" Height="20" Grid.Row="4" Grid.ColumnSpan="2"/>
+        <Button x:Name="Button2" Content="Oblicz" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Top" Width="150" Click="Button2_Click" Height="20" Grid.Row="4" Margin="5,19,0,0" Grid.ColumnSpan="2"/>
+        <Button x:Name="Button3" Content="Oblicz" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Top" Width="150" Click="Button3_Click" Height="20" Grid.Row="4" Margin="5,19,0,0" Grid.ColumnSpan="2"/>
+        <Button x:Name="Button4" Content="Oblicz" Grid.Column="3" HorizontalAlignment="Left" VerticalAlignment="Top" Width="150" Click="Button4_Click" Height="20" Grid.Row="4" Margin="5,19,0,0" Grid.ColumnSpan="2"/>
+        <Button x:Name="Button5" Content="Oblicz" Grid.Column="4" HorizontalAlignment="Left" VerticalAlignment="Top" Width="150" Click="Button5_Click" Height="20" Grid.Row="4" Margin="5,19,0,0" Grid.ColumnSpan="2"/>
+        <Button x:Name="Button6" Content="Oblicz" Grid.Column="5" HorizontalAlignment="Left" VerticalAlignment="Top" Width="150" Click="Button6_Click" Height="20" Grid.Row="4" Margin="5,19,0,0" Grid.ColumnSpan="2"/>
+        <Button x:Name="Button7" Content="Oblicz" Grid.Column="6" HorizontalAlignment="Left" VerticalAlignment="Top" Width="150" Click="Button7_Click" Height="20" Grid.Row="4" Margin="5,19,0,0" Grid.ColumnSpan="2"/>
+        <Button x:Name="Button8" Content="Oblicz" Grid.Column="7" HorizontalAlignment="Left" VerticalAlignment="Top" Width="150" Click="Button8_Click" Height="20" Grid.Row="4" Margin="5,19,-4,0" Grid.ColumnSpan="2"/>
+        <Button x:Name="TButton24" Content="Konwertuj Czas"  Grid.Row="9" Grid.Column="0" Click="TButton24_Click" Margin="13,20,7,21" Grid.ColumnSpan="3" FontWeight="Bold" FontStyle="Italic" Grid.RowSpan="2"/>
+        <Button x:Name="TButton12" Content="Konwertuj Czas"  Grid.Row="9" Grid.Column="5" Click="TButton12_Click" Margin="15,19,4,23" Grid.ColumnSpan="3" FontStyle="Italic" FontWeight="Bold" Grid.RowSpan="2"/>
 
 
-        <Label Content="Celcjusze&#xD;&#xA;       na&#xD;&#xA;Farenheity"   Grid.Column="0" HorizontalAlignment="Left" Margin="45,147,0,0" VerticalAlignment="Top" Width="65" Height="60" Grid.Row="1" TextOptions.TextFormattingMode="Display" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Grid.RowSpan="3"/>
-        <Label Content="Farenheity &#xD;&#xA;       na &#xD;&#xA;Celcjusze" Grid.Column="1" HorizontalAlignment="Left" Margin="45,147,0,0" VerticalAlignment="Top" Width="65" Height="60" Grid.Row="1" TextOptions.TextFormattingMode="Display" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Grid.RowSpan="3"/>
-        <Label Content="Kilogramy&#xD;&#xA;       na&#xD;&#xA;    Funty"    Grid.Column="2" HorizontalAlignment="Left" Margin="45,147,0,0" VerticalAlignment="Top" Width="66" Height="60" TextOptions.TextFormattingMode="Display" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Grid.Row="1" Grid.RowSpan="3"/>
-        <Label Content="    Funty&#xD;&#xA;       na &#xD;&#xA;Kilogramy"   Grid.Column="3" HorizontalAlignment="Left" Margin="45,147,0,0" VerticalAlignment="Top" Width="65" Height="60" Grid.Row="1" TextOptions.TextFormattingMode="Display" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Grid.RowSpan="3"/>
-        <Label Content="Kilometry&#xD;&#xA;       na&#xD;&#xA;     Mile"    Grid.Column="4" HorizontalAlignment="Left" Margin="45,147,0,0" VerticalAlignment="Top" Width="65" Height="60" TextOptions.TextFormattingMode="Display" Grid.Row="1" HorizontalContentAlignment="Center" Grid.RowSpan="3"/>
-        <Label Content="      Mile &#xA;       na&#xA;Kilometry"    Grid.Column="5" HorizontalAlignment="Left" Margin="45,147,0,0" VerticalAlignment="Top" Width="65" Height="60" Grid.Row="1" HorizontalContentAlignment="Center" TextOptions.TextFormattingMode="Display" Grid.RowSpan="3"/>
-        <Label Content="    Paskale &#xA;        na &#xA;Hektopaskale" Grid.Column="6" HorizontalAlignment="Left" Margin="45,147,0,0" VerticalAlignment="Top" Width="85" Height="60" Grid.Row="1" TextOptions.TextFormattingMode="Display" Grid.RowSpan="3"/>
+        <Label Content="Celcjusze&#xD;&#xA;       na&#xD;&#xA;Farenheity"   Grid.Column="0" HorizontalAlignment="Left" Margin="45,148,0,0" VerticalAlignment="Top" Width="65" Height="60" Grid.Row="1" TextOptions.TextFormattingMode="Display" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Grid.RowSpan="3"/>
+        <Label Content="Farenheity &#xD;&#xA;       na &#xD;&#xA;Celcjusze" Grid.Column="1" HorizontalAlignment="Left" Margin="45,148,0,0" VerticalAlignment="Top" Width="65" Height="60" Grid.Row="1" TextOptions.TextFormattingMode="Display" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Grid.RowSpan="3"/>
+        <Label Content="Kilogramy&#xD;&#xA;       na&#xD;&#xA;    Funty"    Grid.Column="2" HorizontalAlignment="Left" Margin="45,148,0,0" VerticalAlignment="Top" Width="66" Height="60" TextOptions.TextFormattingMode="Display" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Grid.Row="1" Grid.RowSpan="3"/>
+        <Label Content="    Funty&#xD;&#xA;       na &#xD;&#xA;Kilogramy"   Grid.Column="3" HorizontalAlignment="Left" Margin="45,148,0,0" VerticalAlignment="Top" Width="65" Height="60" Grid.Row="1" TextOptions.TextFormattingMode="Display" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Grid.RowSpan="3"/>
+        <Label Content="Kilometry&#xD;&#xA;       na&#xD;&#xA;     Mile"    Grid.Column="4" HorizontalAlignment="Left" Margin="45,148,0,0" VerticalAlignment="Top" Width="65" Height="60" TextOptions.TextFormattingMode="Display" Grid.Row="1" HorizontalContentAlignment="Center" Grid.RowSpan="3"/>
+        <Label Content="      Mile &#xA;       na&#xA;Kilometry"    Grid.Column="5" HorizontalAlignment="Left" Margin="45,148,0,0" VerticalAlignment="Top" Width="65" Height="60" Grid.Row="1" HorizontalContentAlignment="Center" TextOptions.TextFormattingMode="Display" Grid.RowSpan="3"/>
+        <Label Content="    Paskale &#xA;        na &#xA;Hektopaskale" Grid.Column="6" HorizontalAlignment="Left" Margin="45,148,0,0" VerticalAlignment="Top" Width="85" Height="60" Grid.Row="1" TextOptions.TextFormattingMode="Display" Grid.RowSpan="3"/>
 
-        <TextBox x:Name="TextBox1" Grid.Column="0" HorizontalAlignment="Left" Height="24" Margin="20,14,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="125" Grid.Row="3" BorderBrush="#FF0B232F" BorderThickness="1"/>
-        <TextBox x:Name="TextBox2" Grid.Column="1" HorizontalAlignment="Left" Height="24" Margin="15,14,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="130" Grid.Row="3" BorderBrush="#FF0B232F" BorderThickness="1"/>
-        <TextBox x:Name="TextBox3" Grid.Column="2" HorizontalAlignment="Left" Height="24" Margin="15,14,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="130" Grid.Row="3" BorderBrush="#FF0B232F" BorderThickness="1"/>
-        <TextBox x:Name="TextBox4" Grid.Column="3" HorizontalAlignment="Left" Height="24" Margin="15,14,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="130" Grid.Row="3" BorderBrush="#FF0B232F" BorderThickness="1"/>
-        <TextBox x:Name="TextBox5" Grid.Column="4" HorizontalAlignment="Left" Height="24" Margin="15,14,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="130" Grid.Row="3" BorderBrush="#FF0B232F" BorderThickness="1"/>
-        <TextBox x:Name="TextBox6" Grid.Column="5" HorizontalAlignment="Left" Height="24" Margin="15,14,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="130" Grid.Row="3" BorderBrush="#FF0B232F" BorderThickness="1"/>
-        <TextBox x:Name="TextBox7" Grid.Column="6" HorizontalAlignment="Left" Height="24" Margin="15,14,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="130" Grid.Row="3" BorderBrush="#FF0B232F" BorderThickness="1"/>
-        <TextBox x:Name="TextBox8" Grid.Column="7" HorizontalAlignment="Left" Height="24" Margin="15,14,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="125" Grid.Row="3" BorderBrush="#FF0B232F" BorderThickness="1"/>
-        <TextBox x:Name="TBox24" Grid.Column="0" HorizontalAlignment="Left" Height="22" Margin="19,4,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="127" Grid.Row="8" BorderBrush="#FF0B232F" BorderThickness="1"/>
-        <TextBox x:Name="TBox12" Grid.Column="7" HorizontalAlignment="Left" Height="24" Margin="12,5,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="125" Grid.Row="8" BorderBrush="#FF0B232F" BorderThickness="1"/>
+        <TextBox x:Name="TextBox1" Grid.Column="0" HorizontalAlignment="Left" Height="24" Margin="20,17,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="125" Grid.Row="3" BorderBrush="#FF0B232F" BorderThickness="1"/>
+        <TextBox x:Name="TextBox2" Grid.Column="1" HorizontalAlignment="Left" Height="24" Margin="15,17,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="130" Grid.Row="3" BorderBrush="#FF0B232F" BorderThickness="1"/>
+        <TextBox x:Name="TextBox3" Grid.Column="2" HorizontalAlignment="Left" Height="24" Margin="15,17,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="130" Grid.Row="3" BorderBrush="#FF0B232F" BorderThickness="1"/>
+        <TextBox x:Name="TextBox4" Grid.Column="3" HorizontalAlignment="Left" Height="24" Margin="15,17,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="130" Grid.Row="3" BorderBrush="#FF0B232F" BorderThickness="1"/>
+        <TextBox x:Name="TextBox5" Grid.Column="4" HorizontalAlignment="Left" Height="24" Margin="15,17,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="130" Grid.Row="3" BorderBrush="#FF0B232F" BorderThickness="1"/>
+        <TextBox x:Name="TextBox6" Grid.Column="5" HorizontalAlignment="Left" Height="24" Margin="15,17,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="130" Grid.Row="3" BorderBrush="#FF0B232F" BorderThickness="1"/>
+        <TextBox x:Name="TextBox7" Grid.Column="6" HorizontalAlignment="Left" Height="24" Margin="15,17,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="130" Grid.Row="3" BorderBrush="#FF0B232F" BorderThickness="1"/>
+        <TextBox x:Name="TextBox8" Grid.Column="7" HorizontalAlignment="Left" Height="24" Margin="15,17,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="125" Grid.Row="3" BorderBrush="#FF0B232F" BorderThickness="1"/>
+        <TextBox x:Name="TBox24" Grid.Column="0" HorizontalAlignment="Left" Height="22" Margin="19,12,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="127" Grid.Row="8" BorderBrush="#FF0B232F" BorderThickness="1" Grid.RowSpan="2"/>
+        <TextBox x:Name="TBox12" Grid.Column="7" HorizontalAlignment="Left" Height="24" Margin="12,13,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="125" Grid.Row="8" BorderBrush="#FF0B232F" BorderThickness="1" Grid.RowSpan="2"/>
 
-        <TextBlock x:Name="TextBlock1" Grid.Column="0" HorizontalAlignment="Left" Margin="20,6,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="125" Height="16" Grid.Row="5" Background="#FF13FFD4" Text="0,00"/>
-        <TextBlock x:Name="TextBlock2" Grid.Column="1" HorizontalAlignment="Left" Margin="15,6,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="130" Height="16" Grid.Row="5" Background="#FF13FFD4" Text="0,00"/>
-        <TextBlock x:Name="TextBlock3" Grid.Column="2" HorizontalAlignment="Left" Margin="15,6,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="130" Height="16" Grid.Row="5" Background="#FF13FFD4" Text="0,00"/>
-        <TextBlock x:Name="TextBlock4" Grid.Column="3" HorizontalAlignment="Left" Margin="15,6,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="130" Height="16" Grid.Row="5" Background="#FF13FFD4" Text="0,00"/>
-        <TextBlock x:Name="TextBlock5" Grid.Column="4" HorizontalAlignment="Left" Margin="19,6,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="130" Height="16" Grid.Row="5" Background="#FF13FFD4" Text="0,00"/>
-        <TextBlock x:Name="TextBlock6" Grid.Column="5" HorizontalAlignment="Left" Margin="15,6,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="130" Height="16" Grid.Row="5" Background="#FF13FFD4" Text="0,00"/>
-        <TextBlock x:Name="TextBlock7" Grid.Column="6" HorizontalAlignment="Left" Margin="15,6,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="130" Height="16" Grid.Row="5" Background="#FF13FFD4" Text="0,00"/>
-        <TextBlock x:Name="TextBlock8" Grid.Column="7" HorizontalAlignment="Left" Margin="15,4,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="125" Height="16" Grid.Row="5" Background="#FF13FFD4" Text="0,00"/>
-        <TextBlock x:Name="TBlock24"  Grid.Column="2" HorizontalAlignment="Left" Margin="10,6,0,0" Grid.Row="8" TextWrapping="Wrap" VerticalAlignment="Top" Height="18" Width="125" Background="#FF13FFD4" Text="GG:MM"/>
-        <TextBlock x:Name="TBlock12"  Grid.Column="5" HorizontalAlignment="Left" Margin="31,5,0,0" Grid.Row="8" TextWrapping="Wrap" VerticalAlignment="Top" Height="18" Width="126" Background="#FF13FFD4" Grid.ColumnSpan="2" ><Run Text="GG:MM +"/><Run Text=" "/><Run Text="PM"/><Run Text=" "/><Run Text="/"/><Run Text=" "/><Run Text="AM"/></TextBlock>
+        <TextBlock x:Name="TextBlock1" Grid.Column="0" HorizontalAlignment="Left" Margin="20,11,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="125" Height="16" Grid.Row="5" Background="#FF13FFD4" Text="0,00"/>
+        <TextBlock x:Name="TextBlock2" Grid.Column="1" HorizontalAlignment="Left" Margin="15,11,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="130" Height="16" Grid.Row="5" Background="#FF13FFD4" Text="0,00"/>
+        <TextBlock x:Name="TextBlock3" Grid.Column="2" HorizontalAlignment="Left" Margin="15,11,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="130" Height="16" Grid.Row="5" Background="#FF13FFD4" Text="0,00"/>
+        <TextBlock x:Name="TextBlock4" Grid.Column="3" HorizontalAlignment="Left" Margin="15,11,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="130" Height="16" Grid.Row="5" Background="#FF13FFD4" Text="0,00"/>
+        <TextBlock x:Name="TextBlock5" Grid.Column="4" HorizontalAlignment="Left" Margin="19,11,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="130" Height="16" Grid.Row="5" Background="#FF13FFD4" Text="0,00"/>
+        <TextBlock x:Name="TextBlock6" Grid.Column="5" HorizontalAlignment="Left" Margin="15,11,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="130" Height="16" Grid.Row="5" Background="#FF13FFD4" Text="0,00"/>
+        <TextBlock x:Name="TextBlock7" Grid.Column="6" HorizontalAlignment="Left" Margin="15,11,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="130" Height="16" Grid.Row="5" Background="#FF13FFD4" Text="0,00"/>
+        <TextBlock x:Name="TextBlock8" Grid.Column="7" HorizontalAlignment="Left" Margin="15,9,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="125" Height="16" Grid.Row="5" Background="#FF13FFD4" Text="0,00"/>
+        <TextBlock x:Name="TBlock24"  Grid.Column="2" HorizontalAlignment="Left" Margin="10,14,0,0" Grid.Row="8" TextWrapping="Wrap" VerticalAlignment="Top" Height="18" Width="125" Background="#FF13FFD4" Text="GG:MM" Grid.RowSpan="2"/>
+        <TextBlock x:Name="TBlock12"  Grid.Column="5" HorizontalAlignment="Left" Margin="31,13,0,0" Grid.Row="8" TextWrapping="Wrap" VerticalAlignment="Top" Height="18" Width="126" Background="#FF13FFD4" Grid.ColumnSpan="2" Grid.RowSpan="2" ><Run Text="GG:MM +"/><Run Text=" "/><Run Text="PM"/><Run Text=" "/><Run Text="/"/><Run Text=" "/><Run Text="AM"/></TextBlock>
 
-        <Label Content="Hektopaskale&#xD;&#xA;         na&#xD;&#xA;     Paskale" Grid.Column="7" HorizontalAlignment="Left" Margin="45,147,0,0" VerticalAlignment="Top" Width="85" Height="60" Grid.Row="1" HorizontalContentAlignment="Center" TextOptions.TextFormattingMode="Display" Grid.RowSpan="3"/>
-        <Label Content="Wynik:" HorizontalAlignment="Left" Margin="15,29,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.733,-1.115" Height="26" Width="45" Grid.Row="4" FontWeight="Bold"/>
-        <Label Content="Wynik:" HorizontalAlignment="Left" Margin="16,29,0,0" VerticalAlignment="Top" Grid.Column="1" Height="26" Width="50" Grid.Row="4" FontWeight="Bold"/>
-        <Label Content="Wynik:" HorizontalAlignment="Left" Margin="17,29,0,0" VerticalAlignment="Top" Grid.Column="2" Height="26" Width="50" Grid.Row="4" FontWeight="Bold"/>
-        <Label Content="Wynik:" HorizontalAlignment="Left" Margin="18,29,0,0" VerticalAlignment="Top" Grid.Column="3" Height="26" Width="50" Grid.Row="4" FontWeight="Bold"/>
-        <Label Content="Wynik:" HorizontalAlignment="Left" Margin="19,29,0,0" VerticalAlignment="Top" Grid.Column="4" Height="26" Width="50" Grid.Row="4" FontWeight="Bold"/>
-        <Label Content="Wynik:" HorizontalAlignment="Left" Margin="20,29,0,0" VerticalAlignment="Top" Grid.Column="5" Height="26" Width="50" Grid.Row="4" FontWeight="Bold"/>
-        <Label Content="Wynik:" HorizontalAlignment="Left" Margin="21,29,0,0" VerticalAlignment="Top" Grid.Column="6" Height="26" Width="50" Grid.Row="4" FontWeight="Bold"/>
-        <Label Content="Wynik:" HorizontalAlignment="Left" Margin="22,29,0,0" VerticalAlignment="Top" Grid.Column="7" Height="26" Width="50" Grid.Row="4" FontWeight="Bold"/>
+        <Label Content="Hektopaskale&#xD;&#xA;         na&#xD;&#xA;     Paskale" Grid.Column="7" HorizontalAlignment="Left" Margin="45,148,0,0" VerticalAlignment="Top" Width="85" Height="60" Grid.Row="1" HorizontalContentAlignment="Center" TextOptions.TextFormattingMode="Display" Grid.RowSpan="3"/>
+        <Label Content="Wynik:" HorizontalAlignment="Left" Margin="15,33,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.733,-1.115" Height="26" Width="45" Grid.Row="4" FontWeight="Bold"/>
+        <Label Content="Wynik:" HorizontalAlignment="Left" Margin="16,33,0,0" VerticalAlignment="Top" Grid.Column="1" Height="26" Width="50" Grid.Row="4" FontWeight="Bold"/>
+        <Label Content="Wynik:" HorizontalAlignment="Left" Margin="17,33,0,0" VerticalAlignment="Top" Grid.Column="2" Height="26" Width="50" Grid.Row="4" FontWeight="Bold"/>
+        <Label Content="Wynik:" HorizontalAlignment="Left" Margin="18,33,0,0" VerticalAlignment="Top" Grid.Column="3" Height="26" Width="50" Grid.Row="4" FontWeight="Bold"/>
+        <Label Content="Wynik:" HorizontalAlignment="Left" Margin="19,33,0,0" VerticalAlignment="Top" Grid.Column="4" Height="26" Width="50" Grid.Row="4" FontWeight="Bold"/>
+        <Label Content="Wynik:" HorizontalAlignment="Left" Margin="20,33,0,0" VerticalAlignment="Top" Grid.Column="5" Height="26" Width="50" Grid.Row="4" FontWeight="Bold"/>
+        <Label Content="Wynik:" HorizontalAlignment="Left" Margin="21,33,0,0" VerticalAlignment="Top" Grid.Column="6" Height="26" Width="50" Grid.Row="4" FontWeight="Bold"/>
+        <Label Content="Wynik:" HorizontalAlignment="Left" Margin="22,33,0,0" VerticalAlignment="Top" Grid.Column="7" Height="26" Width="50" Grid.Row="4" FontWeight="Bold"/>
 
-        <Label Content="24 Na 12" HorizontalAlignment="Left" Margin="11,43,0,0" Grid.Row="6" VerticalAlignment="Top" Height="40" Width="103" FontSize="20" FontWeight="Bold" Grid.Column="1" Grid.RowSpan="2"/>
-        <Label Content="12 Na 24" Grid.Column="6" HorizontalAlignment="Left" Margin="28,49,0,0" Grid.Row="6" VerticalAlignment="Top" Height="40" Width="112" FontSize="20" FontWeight="Bold" Grid.RowSpan="2"/>
-        <Label Content="==============&gt;" Grid.Column="1" HorizontalAlignment="Left" Height="26" Margin="4,3,0,0" Grid.Row="8" VerticalAlignment="Top" Width="140" Background="#00000000" FontWeight="Bold"/>
-        <Label Content="&lt;==============" Grid.Column="6" HorizontalAlignment="Left" Height="22" Margin="12,3,0,0" Grid.Row="8" VerticalAlignment="Top" Width="130" FontWeight="Bold"/>
-        <Label Content="Godzina:" Grid.Column="2" HorizontalAlignment="Left" Height="26" Margin="22,5,0,0" Grid.Row="7" VerticalAlignment="Top" Width="60" FontWeight="Bold"/>
-        <Label Content="Godzina:" Grid.Column="5" HorizontalAlignment="Left" Height="26" Margin="44,15,0,0" Grid.Row="7" VerticalAlignment="Top" Width="60" FontWeight="Bold"/>
-        <Label Content="24h" Grid.Column="3" HorizontalAlignment="Left" Margin="47,42,0,34" Grid.Row="6" Width="46" FontSize="20" FontWeight="Bold" RenderTransformOrigin="0.478,0.447"/>
-        <Label Content="12h" Grid.Column="4" HorizontalAlignment="Left" Height="38" Margin="52,41,0,0" Grid.Row="6" VerticalAlignment="Top" Width="46" FontSize="20" FontWeight="Bold" Grid.RowSpan="2"/>
-
-
+        <Label Content="24 Na 12" HorizontalAlignment="Left" Margin="11,49,0,0" Grid.Row="6" VerticalAlignment="Top" Height="40" Width="103" FontSize="20" FontWeight="Bold" Grid.Column="1" Grid.RowSpan="2"/>
+        <Label Content="12 Na 24" Grid.Column="6" HorizontalAlignment="Left" Margin="28,55,0,0" Grid.Row="6" VerticalAlignment="Top" Height="40" Width="112" FontSize="20" FontWeight="Bold" Grid.RowSpan="2"/>
+        <Label Content="==============&gt;" Grid.Column="1" HorizontalAlignment="Left" Height="26" Margin="4,11,0,0" Grid.Row="8" VerticalAlignment="Top" Width="140" Background="#00000000" FontWeight="Bold" Grid.RowSpan="2"/>
+        <Label Content="&lt;==============" Grid.Column="6" HorizontalAlignment="Left" Height="22" Margin="12,11,0,0" Grid.Row="8" VerticalAlignment="Top" Width="130" FontWeight="Bold" Grid.RowSpan="2"/>
+        <Label Content="Godzina:" Grid.Column="2" HorizontalAlignment="Left" Height="26" Margin="22,12,0,0" Grid.Row="7" VerticalAlignment="Top" Width="60" FontWeight="Bold"/>
+        <Label Content="Godzina:" Grid.Column="5" HorizontalAlignment="Left" Height="26" Margin="44,22,0,0" Grid.Row="7" VerticalAlignment="Top" Width="60" FontWeight="Bold"/>
+        <Label Content="24h" Grid.Column="3" HorizontalAlignment="Left" Margin="47,48,0,27" Grid.Row="6" Width="46" FontSize="20" FontWeight="Bold" RenderTransformOrigin="0.478,0.447"/>
+        <Label Content="12h" Grid.Column="4" HorizontalAlignment="Left" Height="38" Margin="52,47,0,0" Grid.Row="6" VerticalAlignment="Top" Width="46" FontSize="20" FontWeight="Bold" Grid.RowSpan="2"/>
 
 
-        <Canvas x:Name="Clock24h" Grid.Column="3" HorizontalAlignment="Right" Grid.Row="7" Width="150" Margin="0,2,146,42" Grid.RowSpan="3" Grid.ColumnSpan="2">
+
+
+        <Canvas x:Name="Clock24h" Grid.Column="3" HorizontalAlignment="Right" Grid.Row="7" Width="150" Margin="0,9,146,32" Grid.RowSpan="3" Grid.ColumnSpan="2">
             <Canvas.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="#FF83DED6" Offset="0.607"/>
@@ -204,7 +204,7 @@
         </Canvas>
 
 
-        <StackPanel HorizontalAlignment="Left" Height="36" Grid.Row="1" VerticalAlignment="Top" Width="1204" Grid.ColumnSpan="9" Margin="4,109,-6,0">
+        <StackPanel HorizontalAlignment="Left" Height="36" Grid.Row="1" VerticalAlignment="Top" Width="1204" Grid.ColumnSpan="9" Margin="4,110,-7,0">
             <StackPanel.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="#FFC8F00A" Offset="0.5"/>
@@ -225,7 +225,7 @@
                 </Label.RenderTransform>
             </Label>
         </StackPanel>
-        <StackPanel HorizontalAlignment="Left" Height="28" Grid.Row="13" VerticalAlignment="Top" Width="1209" Grid.ColumnSpan="9" Margin="6,367,-13,-349">
+        <StackPanel HorizontalAlignment="Left" Height="28" Grid.Row="14" VerticalAlignment="Top" Width="1211" Grid.ColumnSpan="9" Margin="4,132,-14,0" Grid.RowSpan="2">
             <StackPanel.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="#FF00E8FF" Offset="0.25"/>
@@ -235,7 +235,7 @@
                     <GradientStop Color="Black" Offset="0.993"/>
                 </LinearGradientBrush>
             </StackPanel.Background>
-            <Label FontSize="18" TextOptions.TextHintingMode="Fixed" Content="Wykonał: Adrian Socha" Margin="1005,0,3,0" RenderTransformOrigin="0.5,0.5" Height="30">
+            <Label FontSize="18" TextOptions.TextHintingMode="Fixed" Content="Wykonał: Adrian Socha" Margin="988,0,17,0" RenderTransformOrigin="0.5,0.5" Height="30">
                 <Label.RenderTransform>
                     <TransformGroup>
                         <ScaleTransform/>
@@ -246,8 +246,8 @@
                 </Label.RenderTransform>
             </Label>
         </StackPanel>
-        <Label Content="          Wpisz:&#xD;&#xA;GG:MM +&quot;PM&quot;/&quot;AM&quot;" HorizontalAlignment="Left" Margin="15,15,0,0" Grid.Row="7" VerticalAlignment="Top" Width="125" Grid.Column="7" Height="40" FontWeight="Bold"/>
-        <StackPanel Grid.Column="2" HorizontalAlignment="Left" Height="202" VerticalAlignment="Top" Width="10" Margin="146,36,0,0" Grid.Row="6" Grid.RowSpan="4" Grid.ColumnSpan="2">
+        <Label Content="          Wpisz:&#xD;&#xA;GG:MM +&quot;PM&quot;/&quot;AM&quot;" HorizontalAlignment="Left" Margin="15,22,0,0" Grid.Row="7" VerticalAlignment="Top" Width="125" Grid.Column="7" Height="40" FontWeight="Bold"/>
+        <StackPanel Grid.Column="2" HorizontalAlignment="Left" Height="202" VerticalAlignment="Top" Width="10" Margin="146,42,0,0" Grid.Row="6" Grid.RowSpan="5" Grid.ColumnSpan="2">
             <StackPanel.Background>
                 <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
                     <GradientStop Color="#FF00F7F7" Offset="0.5"/>
@@ -256,7 +256,7 @@
                 </LinearGradientBrush>
             </StackPanel.Background>
         </StackPanel>
-        <StackPanel HorizontalAlignment="Left" Height="40" Margin="15,36,0,0" Grid.Row="6" VerticalAlignment="Top" Width="432" Grid.ColumnSpan="3" Opacity="0.35" UseLayoutRounding="True">
+        <StackPanel HorizontalAlignment="Left" Height="40" Margin="15,42,0,0" Grid.Row="6" VerticalAlignment="Top" Width="432" Grid.ColumnSpan="3" Opacity="0.35" UseLayoutRounding="True" Grid.RowSpan="2">
             <StackPanel.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="Black" Offset="0.255"/>
@@ -264,7 +264,7 @@
                 </LinearGradientBrush>
             </StackPanel.Background>
         </StackPanel>
-        <StackPanel HorizontalAlignment="Left" Height="40" Margin="16,36,0,0" Grid.Row="6" VerticalAlignment="Top" Width="431" Grid.ColumnSpan="3" Opacity="0.35" UseLayoutRounding="True" Grid.Column="5">
+        <StackPanel HorizontalAlignment="Left" Height="40" Margin="16,42,0,0" Grid.Row="6" VerticalAlignment="Top" Width="431" Grid.ColumnSpan="3" Opacity="0.35" UseLayoutRounding="True" Grid.Column="5" Grid.RowSpan="2">
             <StackPanel.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="Black" Offset="0.255"/>
@@ -272,7 +272,7 @@
                 </LinearGradientBrush>
             </StackPanel.Background>
         </StackPanel>
-        <StackPanel HorizontalAlignment="Left" Height="40" Grid.Row="6" VerticalAlignment="Top" Width="301" Grid.ColumnSpan="3" Opacity="0.35" UseLayoutRounding="True" Grid.Column="3" Margin="6,36,0,0">
+        <StackPanel HorizontalAlignment="Left" Height="40" Grid.Row="6" VerticalAlignment="Top" Width="301" Grid.ColumnSpan="3" Opacity="0.35" UseLayoutRounding="True" Grid.Column="3" Margin="6,42,0,0" Grid.RowSpan="2">
             <StackPanel.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="Black" Offset="0.255"/>
@@ -280,8 +280,8 @@
                 </LinearGradientBrush>
             </StackPanel.Background>
         </StackPanel>
-        <Label Content="          Wpisz:&#xA;          GG:MM" HorizontalAlignment="Left" Margin="17,15,0,0" Grid.Row="7" VerticalAlignment="Top" Width="125" Height="40" FontWeight="Bold"/>
-        <StackPanel Grid.Column="5" HorizontalAlignment="Left" Height="202" VerticalAlignment="Top" Width="10" Grid.Row="6" Grid.RowSpan="4" Margin="6,36,0,0">
+        <Label Content="          Wpisz:&#xA;          GG:MM" HorizontalAlignment="Left" Margin="17,22,0,0" Grid.Row="7" VerticalAlignment="Top" Width="125" Height="40" FontWeight="Bold"/>
+        <StackPanel Grid.Column="5" HorizontalAlignment="Left" Height="202" VerticalAlignment="Top" Width="10" Grid.Row="6" Grid.RowSpan="5" Margin="6,42,0,0">
             <StackPanel.Background>
                 <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
                     <GradientStop Color="#FF00F7F7" Offset="0.5"/>
@@ -290,7 +290,7 @@
                 </LinearGradientBrush>
             </StackPanel.Background>
         </StackPanel>
-        <StackPanel HorizontalAlignment="Left" Height="227" VerticalAlignment="Top" Width="10" Grid.Row="6" Grid.RowSpan="5" Margin="5,38,0,0">
+        <StackPanel HorizontalAlignment="Left" Height="229" VerticalAlignment="Top" Width="10" Grid.Row="6" Grid.RowSpan="6" Margin="4,42,0,0">
             <StackPanel.Background>
                 <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
                     <GradientStop Color="#FF00F7F7" Offset="0.5"/>
@@ -308,7 +308,7 @@
                 </LinearGradientBrush>
             </StackPanel.Background>
         </StackPanel>
-        <StackPanel HorizontalAlignment="Left" Height="227" VerticalAlignment="Top" Width="10" Grid.Row="1" Grid.Column="1" Margin="149,145,0,0" Grid.ColumnSpan="2" Grid.RowSpan="6">
+        <StackPanel HorizontalAlignment="Left" Height="227" VerticalAlignment="Top" Width="10" Grid.Row="1" Grid.Column="1" Margin="149,146,0,0" Grid.ColumnSpan="2" Grid.RowSpan="6">
             <StackPanel.Background>
                 <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
                     <GradientStop Color="#FF00F7F7" Offset="0.5"/>
@@ -317,7 +317,7 @@
                 </LinearGradientBrush>
             </StackPanel.Background>
         </StackPanel>
-        <StackPanel HorizontalAlignment="Left" Height="227" VerticalAlignment="Top" Width="10" Grid.Row="1" Grid.Column="4" Margin="0,145,0,0" Grid.RowSpan="6">
+        <StackPanel HorizontalAlignment="Left" Height="227" VerticalAlignment="Top" Width="10" Grid.Row="1" Grid.Column="4" Margin="0,146,0,0" Grid.RowSpan="6">
             <StackPanel.Background>
                 <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
                     <GradientStop Color="#FF00F7F7" Offset="0.5"/>
@@ -326,7 +326,7 @@
                 </LinearGradientBrush>
             </StackPanel.Background>
         </StackPanel>
-        <StackPanel HorizontalAlignment="Left" Height="226" VerticalAlignment="Top" Width="10" Grid.Row="1" Grid.Column="6" Margin="0,146,0,0" Grid.RowSpan="6">
+        <StackPanel HorizontalAlignment="Left" Height="226" VerticalAlignment="Top" Width="10" Grid.Row="1" Grid.Column="6" Margin="0,147,0,0" Grid.RowSpan="6">
             <StackPanel.Background>
                 <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
                     <GradientStop Color="#FF00F7F7" Offset="0.5"/>
@@ -346,7 +346,7 @@
         </StackPanel>
 
 
-        <Canvas x:Name="Clock12h" Grid.Column="4" HorizontalAlignment="Right" Grid.Row="7" Width="150" Margin="0,2,146,42" Grid.RowSpan="3" Grid.ColumnSpan="2">
+        <Canvas x:Name="Clock12h" Grid.Column="4" HorizontalAlignment="Right" Grid.Row="7" Width="150" Margin="0,9,146,32" Grid.RowSpan="3" Grid.ColumnSpan="2">
             <Canvas.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="#7F000000" Offset="1"/>
@@ -447,13 +447,13 @@
 
         </Canvas>
         <ComboBox x:Name="combo0" Grid.ColumnSpan="3" HorizontalAlignment="Left" Margin="5,20,0,0" VerticalAlignment="Top" Width="300" Grid.Column="3" Height="22" SelectionChanged="combo1_SelectionChanged" Grid.RowSpan="2"/>
-        <ComboBox x:Name="combo1" HorizontalAlignment="Left" Margin="7,28,0,0" Grid.Row="1" VerticalAlignment="Top" Width="300" Height="22" Grid.ColumnSpan="3" Grid.Column="1"/>
-        <ComboBox x:Name="combo2" Grid.Column="5" HorizontalAlignment="Left" Margin="5,30,0,0" Grid.Row="1" VerticalAlignment="Top" Width="296" Grid.ColumnSpan="3" Height="22"/>
+        <ComboBox x:Name="combo1" HorizontalAlignment="Left" Margin="7,29,0,0" Grid.Row="1" VerticalAlignment="Top" Width="300" Height="22" Grid.ColumnSpan="3" Grid.Column="1"/>
+        <ComboBox x:Name="combo2" Grid.Column="5" HorizontalAlignment="Left" Margin="5,31,0,0" Grid.Row="1" VerticalAlignment="Top" Width="296" Grid.ColumnSpan="3" Height="22"/>
         <Label Content="Wybierz rodzaj Konwersji" Grid.Column="3" HorizontalAlignment="Left" VerticalAlignment="Top" Height="26" Width="143" Margin="2,-10,0,0"/>
-        <Label Content="Podaj Wartosc Do Konwersji" HorizontalAlignment="Left" Margin="21,38,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" Grid.Column="1" Height="26" Width="158" Grid.RowSpan="2"/>
+        <Label Content="Podaj Wartosc Do Konwersji" HorizontalAlignment="Left" Margin="21,0,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" Grid.Column="1" Height="26" Width="158" Grid.Row="1"/>
         <Label Content="Podaj Wartość wyniku Konwersji&#xD;&#xA;" Grid.Column="5" HorizontalAlignment="Left" Margin="15,16,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" Height="27" Width="179" Grid.RowSpan="2"/>
-        <TextBox x:Name="box0" Grid.ColumnSpan="2" Grid.Column="3" HorizontalAlignment="Left" Height="23" Margin="51,27,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="219" KeyUp="box0_KeyDown" Text="Podaj wartosc do Konwersji"/>
-        <Path x:Name="minutes1" Grid.Column="1" Data="M6.1000078,31.332997 L15.100009,31.332997 15.100009,130.333 6.1000078,130.333 z M9.8307915,0.5 L20.900009,30.332993 0.5,30.332993 z" HorizontalAlignment="Center" Height="80" Margin="70,13,70,0" Stretch="Fill" Stroke="Black" VerticalAlignment="Top" Width="10" RenderTransformOrigin="0.5,1" Panel.ZIndex="2" Visibility="Hidden" Grid.Row="1">
+        <TextBox x:Name="box0" Grid.ColumnSpan="2" Grid.Column="3" HorizontalAlignment="Left" Height="23" Margin="51,28,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="219" KeyUp="box0_KeyDown" Text="Podaj wartosc do Konwersji"/>
+        <Path x:Name="minutes1" Grid.Column="1" Data="M6.1000078,31.332997 L15.100009,31.332997 15.100009,130.333 6.1000078,130.333 z M9.8307915,0.5 L20.900009,30.332993 0.5,30.332993 z" HorizontalAlignment="Center" Height="80" Margin="70,14,70,0" Stretch="Fill" Stroke="Black" VerticalAlignment="Top" Width="10" RenderTransformOrigin="0.5,1" Panel.ZIndex="2" Visibility="Hidden" Grid.Row="1">
             <Path.Fill>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="#FF2728A8" Offset="0.99"/>
@@ -471,7 +471,7 @@
                 </TransformGroup>
             </Path.RenderTransform>
         </Path>
-        <Path x:Name="hours1" Grid.Column="1" Data="M10.265001,19.311001 L19.530001,19.311001 19.530001,64.299995 10.265001,64.299995 z M13.642232,0.5 L29.233,18.857 0.5,18.857 z" HorizontalAlignment="Center" Height="50" Margin="67,43,67,0" Stretch="Fill" Stroke="Black" VerticalAlignment="Top" Width="16" RenderTransformOrigin="0.5,1" Panel.ZIndex="3" Visibility="Hidden" Grid.Row="1">
+        <Path x:Name="hours1" Grid.Column="1" Data="M10.265001,19.311001 L19.530001,19.311001 19.530001,64.299995 10.265001,64.299995 z M13.642232,0.5 L29.233,18.857 0.5,18.857 z" HorizontalAlignment="Center" Height="50" Margin="67,44,67,0" Stretch="Fill" Stroke="Black" VerticalAlignment="Top" Width="16" RenderTransformOrigin="0.5,1" Panel.ZIndex="3" Visibility="Hidden" Grid.Row="1">
             <Path.Fill>
                 <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
                     <GradientStop Color="#FF0068FF" Offset="0.144"/>
@@ -491,8 +491,8 @@
                 </TransformGroup>
             </Path.RenderTransform>
         </Path>
-        <TextBlock x:Name="block0" Grid.Column="4" HorizontalAlignment="Left" Margin="16,66,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Wynik" VerticalAlignment="Top" Height="16" Width="33"/>
-        <Button x:Name="button0" Content="Button" Grid.Column="3" HorizontalAlignment="Left" Margin="15,64,0,0" Grid.Row="1" VerticalAlignment="Top" Width="75" Height="20"/>
+        <TextBlock x:Name="block0" Grid.Column="4" HorizontalAlignment="Left" Margin="16,67,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Wynik" VerticalAlignment="Top" Height="16" Width="33"/>
+        <Button x:Name="button0" Content="Button" Grid.Column="3" HorizontalAlignment="Left" Margin="15,65,0,0" Grid.Row="1" VerticalAlignment="Top" Width="75" Height="20"/>
         <StackPanel HorizontalAlignment="Left" Height="30" Margin="16,-17,0,0" VerticalAlignment="Top" Width="1185" Grid.ColumnSpan="8" Opacity="0.35" UseLayoutRounding="True">
             <StackPanel.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
@@ -501,9 +501,9 @@
                 </LinearGradientBrush>
             </StackPanel.Background>
         </StackPanel>
-        <Label Content="Wystaw ocenę aplikacji" Grid.Column="2" HorizontalAlignment="Left" Margin="20,9,0,0" Grid.Row="11" VerticalAlignment="Top" Height="47" Width="294" BorderBrush="Black" FontWeight="Bold" Grid.ColumnSpan="3" FontSize="22" Grid.RowSpan="2"/>
-        <Common.Controls:StarsRater x:Name="RateControl" Grid.Column="4" Margin="0,4,70,6" Grid.Row="11" Loaded="StarsRater_Loaded" HorizontalAlignment="Right" Width="226" Grid.ColumnSpan="2" />
-        <StackPanel HorizontalAlignment="Left" Height="36" Grid.Row="6" VerticalAlignment="Top" Width="1206" Grid.ColumnSpan="9" Margin="2,0,-6,0">
+        <Label Content="Wystaw ocenę aplikacji" Grid.Column="2" HorizontalAlignment="Left" Margin="20,20,0,0" Grid.Row="11" VerticalAlignment="Top" Height="47" Width="294" BorderBrush="Black" FontWeight="Bold" Grid.ColumnSpan="3" FontSize="22" Grid.RowSpan="2"/>
+        <Common.Controls:StarsRater x:Name="RateControl" Grid.Column="4" Margin="0,15,70,21" Grid.Row="11" Loaded="StarsRater_Loaded" HorizontalAlignment="Right" Width="226" Grid.ColumnSpan="2" Grid.RowSpan="2" />
+        <StackPanel HorizontalAlignment="Left" Height="36" Grid.Row="6" VerticalAlignment="Top" Width="1203" Grid.ColumnSpan="9" Margin="5,6,-7,0">
             <StackPanel.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="#FFC8F00A" Offset="0.5"/>
@@ -545,7 +545,7 @@
                 </Label.RenderTransform>
             </Label>
         </StackPanel>
-        <StackPanel HorizontalAlignment="Left" Height="28" Grid.Row="10" VerticalAlignment="Top" Width="1198" Grid.ColumnSpan="9" Margin="10,1,-6,0">
+        <StackPanel HorizontalAlignment="Left" Height="28" Grid.Row="10" VerticalAlignment="Top" Width="1204" Grid.ColumnSpan="9" Margin="4,11,-7,0" Grid.RowSpan="2">
             <StackPanel.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="#FF00E8FF" Offset="0.25"/>
@@ -566,7 +566,7 @@
                 </Label.RenderTransform>
             </Label>
         </StackPanel>
-        <StackPanel HorizontalAlignment="Left" Height="28" Grid.Row="12" VerticalAlignment="Top" Width="1209" Grid.ColumnSpan="9" Margin="5,0,-12,0">
+        <StackPanel HorizontalAlignment="Left" Height="28" Grid.Row="12" VerticalAlignment="Top" Width="1204" Grid.ColumnSpan="9" Margin="4,12,-7,0" Grid.RowSpan="2">
             <StackPanel.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="#FF00E8FF" Offset="0.25"/>
@@ -587,7 +587,7 @@
                 </Label.RenderTransform>
             </Label>
         </StackPanel>
-        <StackPanel HorizontalAlignment="Left" Height="204" VerticalAlignment="Top" Width="10" Grid.Row="6" Grid.RowSpan="5" Margin="147,35,-6,0" Grid.Column="7" Grid.ColumnSpan="2">
+        <StackPanel HorizontalAlignment="Left" Height="204" VerticalAlignment="Top" Width="10" Grid.Row="6" Grid.RowSpan="5" Margin="147,41,-6,0" Grid.Column="7" Grid.ColumnSpan="2">
             <StackPanel.Background>
                 <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
                     <GradientStop Color="#FF00F7F7" Offset="0.5"/>
@@ -596,7 +596,7 @@
                 </LinearGradientBrush>
             </StackPanel.Background>
         </StackPanel>
-        <StackPanel HorizontalAlignment="Left" Height="224" VerticalAlignment="Top" Width="10" Grid.Column="7" Margin="146,146,-5,0" Grid.RowSpan="5" Grid.ColumnSpan="2" Grid.Row="1">
+        <StackPanel HorizontalAlignment="Left" Height="228" VerticalAlignment="Top" Width="10" Grid.Column="7" Margin="146,146,-5,0" Grid.RowSpan="6" Grid.ColumnSpan="2" Grid.Row="1">
             <StackPanel.Background>
                 <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
                     <GradientStop Color="#FF00F7F7" Offset="0.5"/>
@@ -605,7 +605,7 @@
                 </LinearGradientBrush>
             </StackPanel.Background>
         </StackPanel>
-        <StackPanel HorizontalAlignment="Left" Height="226" VerticalAlignment="Top" Width="10" Grid.RowSpan="5" Margin="4,145,0,0" Grid.Row="1">
+        <StackPanel HorizontalAlignment="Left" Height="228" VerticalAlignment="Top" Width="10" Grid.RowSpan="6" Margin="4,146,0,0" Grid.Row="1">
             <StackPanel.Background>
                 <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
                     <GradientStop Color="#FF00F7F7" Offset="0.5"/>
@@ -619,13 +619,10 @@
 
 
 
-        <Button x:Name="button_zaladuj_dane"  Grid.Row="13" Margin="0,120,0,-100" Content="Pobierz dane" HorizontalAlignment="Left" Width="150" Grid.Column="1" Click="button_zaladuj_dane_Click" />
-        <Grid x:Name="loadDataRectangle" Visibility="Hidden" Grid.RowSpan="3" Grid.ColumnSpan="2"  Background="#7F000000">
+        <Button x:Name="button_zaladuj_dane"  Grid.Row="14" Margin="14,103,0,27" Content="Pobierz dane" HorizontalAlignment="Left" Width="1176" Click="button_zaladuj_dane_Click" Grid.ColumnSpan="8" Background="#FFD43737" />
 
-            
-        </Grid>
 
-        <DataGrid x:Name="ConvertTable" ItemsSource="{Binding}" AutoGenerateColumns="False" Grid.Row="13" Margin="0,2,89,-59" Grid.ColumnSpan="5" Grid.Column="1">
+        <DataGrid x:Name="ConvertTable" ItemsSource="{Binding}" AutoGenerateColumns="False" Grid.Row="14" Margin="13,0,6,56" Grid.ColumnSpan="4">
             <DataGrid.Columns>
                 <DataGridTextColumn Width="25" Header="ID" Binding="{Binding ID}"/>
                 <DataGridTextColumn Width="150" Header="Typ Konwertera" Binding="{Binding TYP}"/>
@@ -636,9 +633,8 @@
                 <DataGridTextColumn Width="80" Header="Wartość Po" Binding="{Binding Liczba_OUT}"/>
             </DataGrid.Columns>
         </DataGrid>
-        <DataGrid x:Name="ConvertTableTop3" ItemsSource="{Binding}" AutoGenerateColumns="False" Grid.Row="13" Grid.Column="1" Grid.ColumnSpan="5" Margin="3,229,80,-287">
+        <DataGrid x:Name="ConvertTableTop3" ItemsSource="{Binding}" AutoGenerateColumns="False" Grid.Row="14" Grid.Column="4" Grid.ColumnSpan="4" Margin="8,0,11,55">
             <DataGrid.Columns>
-
                 <DataGridTextColumn Width="150" Header="Typ Konwertera" Binding="{Binding TYP}"/>
                 <DataGridTextColumn Width="100" Header="Jednostka przed konwersja" Binding="{Binding Jednostka_przed}"/>
                 <DataGridTextColumn Width="100" Header="Jednostka po konwersji" Binding="{Binding Jednostka_po}"/>
@@ -650,9 +646,57 @@
 
 
 
+        <Button Content="Lista Wynikow" HorizontalAlignment="Left" Margin="14,13,0,0" Grid.Row="13" VerticalAlignment="Top" Width="583" Grid.ColumnSpan="4" Height="30" FontSize="20" Background="#FFF5D71A"/>
+        <Button Content="Lista Wynikow Top3" HorizontalAlignment="Left" Grid.Row="13" VerticalAlignment="Top" Width="583" Grid.ColumnSpan="4" Height="30" Grid.Column="4" FontSize="20" Margin="7,13,0,0" Background="#FF09F71F"/>
+        <StackPanel HorizontalAlignment="Left" Height="133" VerticalAlignment="Top" Width="15" Grid.Row="13" Margin="143,13,0,0" Grid.Column="3" Grid.ColumnSpan="2" Grid.RowSpan="2">
+            <StackPanel.Background>
+                <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+                    <GradientStop Color="#FF00F7F7" Offset="0.5"/>
+                    <GradientStop Color="Black" Offset="1"/>
+                    <GradientStop Color="Black"/>
+                </LinearGradientBrush>
+            </StackPanel.Background>
+        </StackPanel>
+        <StackPanel HorizontalAlignment="Left" Height="52" VerticalAlignment="Bottom" Width="10" Grid.Row="11" Margin="4,0,0,15" Grid.RowSpan="2">
+            <StackPanel.Background>
+                <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+                    <GradientStop Color="#FF00F7F7" Offset="0.5"/>
+                    <GradientStop Color="Black" Offset="1"/>
+                    <GradientStop Color="Black"/>
+                </LinearGradientBrush>
+            </StackPanel.Background>
+        </StackPanel>
+        <StackPanel HorizontalAlignment="Left" Height="52" VerticalAlignment="Bottom" Width="10" Grid.Row="11" Margin="147,0,-6,15" Grid.Column="7" Grid.ColumnSpan="2" Grid.RowSpan="2">
+            <StackPanel.Background>
+                <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+                    <GradientStop Color="#FF00F7F7" Offset="0.5"/>
+                    <GradientStop Color="Black" Offset="1"/>
+                    <GradientStop Color="Black"/>
+                </LinearGradientBrush>
+            </StackPanel.Background>
+        </StackPanel>
+        <StackPanel HorizontalAlignment="Left" Height="162" VerticalAlignment="Bottom" Width="10" Grid.Row="13" Margin="4,0,0,27" Grid.RowSpan="2">
+            <StackPanel.Background>
+                <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+                    <GradientStop Color="#FF00F7F7" Offset="0.5"/>
+                    <GradientStop Color="Black" Offset="1"/>
+                    <GradientStop Color="Black"/>
+                </LinearGradientBrush>
+            </StackPanel.Background>
+        </StackPanel>
+        <StackPanel HorizontalAlignment="Left" Height="162" VerticalAlignment="Bottom" Width="10" Grid.Row="13" Margin="140,0,0,27" Grid.RowSpan="2" Grid.Column="7">
+            <StackPanel.Background>
+                <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+                    <GradientStop Color="#FF00F7F7" Offset="0.5"/>
+                    <GradientStop Color="Black" Offset="1"/>
+                    <GradientStop Color="Black"/>
+                </LinearGradientBrush>
+            </StackPanel.Background>
+        </StackPanel>
 
 
-
+        <Grid x:Name="loadDataRectangle"  Visibility="hidden"  Background="#7F000000" Grid.ColumnSpan="8" Margin="0,0,0,0" Grid.RowSpan="16" Width="1225" Height="1059">
+        </Grid>
 
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="150"/>
@@ -662,8 +706,8 @@
             <ColumnDefinition Width="150"/>
             <ColumnDefinition Width="150"/>
             <ColumnDefinition Width="150"/>
-            <ColumnDefinition Width="150"/>
-            <ColumnDefinition Width="1"/>
+            <ColumnDefinition Width="151"/>
+            <ColumnDefinition Width="0"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="38"/>
@@ -679,7 +723,9 @@
             <RowDefinition Height="28"/>
             <RowDefinition Height="51"/>
             <RowDefinition Height="27"/>
-            <RowDefinition Height="45"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="159*"/>
+            <RowDefinition Height="62*"/>
         </Grid.RowDefinitions>
 
 
