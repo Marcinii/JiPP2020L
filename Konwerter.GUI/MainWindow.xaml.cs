@@ -60,7 +60,7 @@ namespace Konwerter.GUI
             (from o in DBContext.Ocena
              where o.id == 1
              select o).First().Rating = e.Value;
-            DBContext.SaveChanges();
+            //DBContext.SaveChanges();
 
         }
 
