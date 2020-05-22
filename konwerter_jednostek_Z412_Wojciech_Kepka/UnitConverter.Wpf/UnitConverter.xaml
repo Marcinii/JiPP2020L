@@ -33,10 +33,46 @@
                 <EasingDoubleKeyFrame KeyTime="0:0:2" Value="360"/>
             </DoubleAnimationUsingKeyFrames>
         </Storyboard>
+        <Storyboard x:Key="Loading">
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="ellipse1">
+                <DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Visible}"/>
+                <DiscreteObjectKeyFrame KeyTime="0:0:0.8" Value="{x:Static Visibility.Hidden}"/>
+            </ObjectAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="ellipse2">
+                <DiscreteObjectKeyFrame KeyTime="0:0:0.1" Value="{x:Static Visibility.Visible}"/>
+                <DiscreteObjectKeyFrame KeyTime="0:0:0.9" Value="{x:Static Visibility.Hidden}"/>
+            </ObjectAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="ellipse3">
+                <DiscreteObjectKeyFrame KeyTime="0:0:0.2" Value="{x:Static Visibility.Visible}"/>
+                <DiscreteObjectKeyFrame KeyTime="0:0:1" Value="{x:Static Visibility.Hidden}"/>
+            </ObjectAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="ellipse4">
+                <DiscreteObjectKeyFrame KeyTime="0:0:0.3" Value="{x:Static Visibility.Visible}"/>
+                <DiscreteObjectKeyFrame KeyTime="0:0:1.1" Value="{x:Static Visibility.Hidden}"/>
+            </ObjectAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="ellipse5">
+                <DiscreteObjectKeyFrame KeyTime="0:0:0.4" Value="{x:Static Visibility.Visible}"/>
+                <DiscreteObjectKeyFrame KeyTime="0:0:1.2" Value="{x:Static Visibility.Hidden}"/>
+            </ObjectAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="ellipse6">
+                <DiscreteObjectKeyFrame KeyTime="0:0:0.5" Value="{x:Static Visibility.Visible}"/>
+                <DiscreteObjectKeyFrame KeyTime="0:0:1.3" Value="{x:Static Visibility.Hidden}"/>
+            </ObjectAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="ellipse7">
+                <DiscreteObjectKeyFrame KeyTime="0:0:0.6" Value="{x:Static Visibility.Visible}"/>
+                <DiscreteObjectKeyFrame KeyTime="0:0:1.4" Value="{x:Static Visibility.Hidden}"/>
+            </ObjectAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="ellipse8">
+                <DiscreteObjectKeyFrame KeyTime="0:0:0.7" Value="{x:Static Visibility.Visible}"/>
+                <DiscreteObjectKeyFrame KeyTime="0:0:1.5" Value="{x:Static Visibility.Hidden}"/>
+            </ObjectAnimationUsingKeyFrames>
+
+        </Storyboard>
     </Window.Resources>
-    <Window.Triggers>
-    </Window.Triggers>
     <Grid>
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup x:Name="VisualStateGroup"/>
+        </VisualStateManager.VisualStateGroups>
         <StackPanel Height="445">
             <TabControl SelectionChanged="TabControl_SelectionChanged">
                 <TabItem Header="Converter">
@@ -63,7 +99,7 @@
                                 <ComboBox Name="unitToComboBox" Margin="10,5,10,5" Grid.Column="2"></ComboBox>
                             </Grid>
                             <TextBox Margin="10,5,10,5" Name="inputTextBox" Height="30" FontSize="16"></TextBox>
-                            <Button Height="30" Margin="30,20,30,20" Name="convertButton" FontSize="16" Background="#FFFFB0B0">Convert</Button>
+                            <Button Height="30" Margin="30,20,30,20" Name="convertButton" FontSize="16" Background="#FFFFB0B0" Click="convertButton_Click">Convert</Button>
                             <Grid x:Name="outputGrid">
                                 <Grid x:Name="clockGrid" Opacity="0">
                                     <Grid x:Name="clock" Margin="10">
@@ -203,6 +239,87 @@
             </TabControl>
 
         </StackPanel>
+        <Rectangle Height="445" x:Name="LoadingPageForeground" Fill="#A0000000"></Rectangle>
+        <Ellipse x:Name="ellipse7" Fill="#A0000000" HorizontalAlignment="Left" Height="100" VerticalAlignment="Top" Width="100" RenderTransformOrigin="0.5,0.5" Margin="162,228,0,0" Visibility="Hidden">
+            <Ellipse.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="0.12" ScaleY="0.12"/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Ellipse.RenderTransform>
+        </Ellipse>
+        <Ellipse x:Name="ellipse6"  Fill="#A0000000" HorizontalAlignment="Left" Height="100" VerticalAlignment="Top" Width="100" RenderTransformOrigin="0.5,0.5" Margin="195,211,0,0" Visibility="Hidden">
+            <Ellipse.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="0.12" ScaleY="0.12"/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Ellipse.RenderTransform>
+        </Ellipse>
+        <Ellipse x:Name="ellipse8" Fill="#A0000000" HorizontalAlignment="Left" Height="100" VerticalAlignment="Top" Width="100" RenderTransformOrigin="0.5,0.5" Margin="130,210,0,0" Visibility="Hidden">
+            <Ellipse.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="0.12" ScaleY="0.12"/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Ellipse.RenderTransform>
+        </Ellipse>
+        <Ellipse x:Name="ellipse5" Fill="#A0000000" HorizontalAlignment="Left" Height="100" VerticalAlignment="Top" Width="100" RenderTransformOrigin="0.5,0.5" Margin="217,173,0,0" Visibility="Hidden">
+            <Ellipse.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="0.12" ScaleY="0.12"/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Ellipse.RenderTransform>
+        </Ellipse>
+        <Ellipse x:Name="ellipse4" Fill="#A0000000" HorizontalAlignment="Left" Height="100" VerticalAlignment="Top" Width="100" RenderTransformOrigin="0.5,0.5" Margin="196,141,0,0" Visibility="Hidden">
+            <Ellipse.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="0.12" ScaleY="0.12"/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Ellipse.RenderTransform>
+        </Ellipse>
+        <Ellipse x:Name="ellipse3" Fill="#A0000000" HorizontalAlignment="Left" Height="100" VerticalAlignment="Top" Width="100" RenderTransformOrigin="0.5,0.5" Margin="162,120,0,0" Visibility="Hidden">
+            <Ellipse.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="0.12" ScaleY="0.12"/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Ellipse.RenderTransform>
+        </Ellipse>
+        <Ellipse x:Name="ellipse2" Fill="#A0000000" HorizontalAlignment="Left" Height="100" VerticalAlignment="Top" Width="100" RenderTransformOrigin="0.5,0.5" Margin="131,141,0,0" Visibility="Hidden">
+            <Ellipse.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="0.12" ScaleY="0.12"/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Ellipse.RenderTransform>
+        </Ellipse>
+        <Ellipse x:Name="ellipse1" Fill="#A0000000" HorizontalAlignment="Left" Height="100" VerticalAlignment="Top" Width="100" RenderTransformOrigin="0.06,0.06" Margin="111,171,0,0" Visibility="Hidden">
+            <Ellipse.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="0.12" ScaleY="0.12"/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform X="38.72" Y="38.72"/>
+                </TransformGroup>
+            </Ellipse.RenderTransform>
+        </Ellipse>
 
 
     </Grid>

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
+using System.Threading;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
@@ -41,22 +42,12 @@ namespace UnitConverter.Wpf
             InitializeComponent();
             converterComboBox.ItemsSource = converterNames;
             InitRelayCmds();
+            LoadingPageForeground.Visibility = Visibility.Hidden;
+
         }
 
         private void InitRelayCmds()
         {
-            if (timeConversion)
-            {
-                ConvertCmd = new RelayCommand(obj => ConvertTime());
-            }
-            else
-            {
-                ConvertCmd = new RelayCommand(obj => Convert(),
-                    obj => unitFromComboBox.SelectedItem != null
-                        && unitToComboBox.SelectedItem != null
-                        && inputTextBox.Text != "");
-            }
-            convertButton.Command = ConvertCmd;
 
             // Pages
             NextPageCmd = new RelayCommand(obj => NextPage());
@@ -133,6 +124,7 @@ namespace UnitConverter.Wpf
         }
         private void Convert()
         {
+
             var inpUnit = (Unit)unitFromComboBox.SelectedItem;
             var outUnit = (Unit)unitToComboBox.SelectedItem;
             var inpVal = Double.Parse(inputTextBox.Text);
@@ -154,7 +146,14 @@ namespace UnitConverter.Wpf
                         });
                         context.SaveChanges();
                     }
-                    outTextBox.Text = $"{outVal.Item1} {outVal.Item2}";
+                    Thread.Sleep(3000);
+                    Dispatcher.Invoke(() =>
+                    {
+                        LoadingPageForeground.Visibility = Visibility.Hidden;
+
+                        outTextBox.Text = $"{outVal.Item1} {outVal.Item2}";
+                    });
+
                     break;
                 }
             }
@@ -187,15 +186,22 @@ namespace UnitConverter.Wpf
 
         private void TabControl_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            string tabItem = ((sender as TabControl).SelectedItem as TabItem).Header as string;
 
-            if (tabItem == "Statistics")
+            if (e.Source is TabControl)
             {
-                List<Record> data = SelectRecords(1);
-                converterFilterComboBox.ItemsSource = new List<string> { "" }.Concat(converterNames);
-                dbListView.ItemsSource = data;
-                LoadTopConversionStats();
+                string tabItem = ((sender as TabControl).SelectedItem as TabItem).Header as string;
+
+                if (tabItem == "Statistics")
+                {
+                    List<Record> data = SelectRecords(1);
+                    converterFilterComboBox.ItemsSource = new List<string> { "" }.Concat(converterNames);
+                    dbListView.ItemsSource = data;
+
+                    LoadTopConversionStats();
+
+                }
             }
+
         }
 
         private void LoadTopConversionStats()
@@ -207,7 +213,8 @@ namespace UnitConverter.Wpf
                     .Select(g => new { g.Key.converter, g.Key.inputUnit, g.Key.outputUnit, count = g.Count() })
                     .OrderByDescending(g => g.count)
                     .Take(3);
-                topConversionUnitsListView.ItemsSource = topRecords.ToList();
+
+                    topConversionUnitsListView.ItemsSource = topRecords.ToList();
             }
         }
 
@@ -257,13 +264,75 @@ namespace UnitConverter.Wpf
             }
             return records;
         }
+        private void SelectR(int page, String convFilter, DateTime? startDateFilter, DateTime? endDateFilter)
+        {
+            List<Record> records = new List<Record>();
+            if (page >= 1)
+            {
+                var i = 0;
 
+
+                using (var context = new StatsDB())
+                {
+                    var selectedRecords = context.Records.AsQueryable();
+                    if (convFilter != null && convFilter.ToString() != "")
+                    {
+                        selectedRecords = selectedRecords.Where(r => r.converter == convFilter.ToString());
+                    }
+                    if (startDateFilter != null)
+                    {
+                        selectedRecords = selectedRecords.Where(r => DbFunctions.TruncateTime(r.date) >= startDateFilter);
+                    }
+                    if (endDateFilter != null)
+                    {
+                        selectedRecords = selectedRecords.Where(r => DbFunctions.TruncateTime(r.date) <= endDateFilter);
+                    }
+                    foreach (Record r in selectedRecords.ToList())
+                    {
+                        if (i >= MaxRecordsPerPage * (page - 1))
+                        {
+                            bool add = true;
+
+                            if (add)
+                            {
+                                records.Add(r);
+                            }
+                        }
+                        if (records.Count == MaxRecordsPerPage)
+                        {
+                            break;
+                        }
+                        i++;
+                    }
+                }
+                Thread.Sleep(3000);
+                Dispatcher.Invoke(() =>
+                {
+                    ((Storyboard)FindResource("Loading")).Seek(new TimeSpan(0,0,200));
+                    this.LoadingPageForeground.Visibility = Visibility.Hidden;
+                    dbListView.ItemsSource = records;
+
+                });
+            }
+        }
         // Restartujemy strony jeżeli wybrano jeden z filtrów
         private void RestartRecordsPage()
         {
+            dbListView.ItemsSource = new List<String> { };
             pageNumberTextBlock.Text = "1";
-            List<Record> data = SelectRecords(1);
-            dbListView.ItemsSource = data;
+            this.LoadingPageForeground.Visibility = Visibility.Visible;
+            ((Storyboard)FindResource("Loading")).RepeatBehavior = new RepeatBehavior(100);
+            ((Storyboard)FindResource("Loading")).Begin();
+            var cf = converterFilterComboBox.SelectedItem.ToString();
+            var sdp = startDatePicker.SelectedDate;
+            var edp = endDatePicker.SelectedDate;
+            Thread t = new Thread(() =>
+            {
+                SelectR(1, cf, sdp, edp);
+
+            });
+            t.Start();
+
         }
         private void converterFilter_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -298,6 +367,13 @@ namespace UnitConverter.Wpf
                 });
                 context.SaveChanges();
             }
+        }
+
+        private void convertButton_Click(object sender, RoutedEventArgs e)
+        {
+
+            Convert();
+
         }
     }
 }
