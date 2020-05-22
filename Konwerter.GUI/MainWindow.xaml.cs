@@ -15,6 +15,7 @@ using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using static KonwerterJednostek.Logic.Dispatcher;
 
 
 //using KonwerterJednostek.Logic;
@@ -68,7 +69,24 @@ namespace Konwerter.GUI
 
         private void DoConvert()
         {
-            block0.Text = KonwerterJednostek.Logic.Dispatcher.ConvertWithDispatch(combo1.Text, combo2.Text, double.Parse(box0.Text)).ToString() + combo2.Text;
+            var unitFrom = combo1.Text;
+            var unitTo = combo2.Text;
+            var TYP = DispatchConvert(unitFrom, unitTo);
+            var valueFrom = box0.Text;
+            var valueTo = KonwerterJednostek.Logic.Dispatcher.ConvertWithDispatch(unitFrom, unitTo, double.Parse(valueFrom)).ToString() + unitTo;
+            var date = DateTime.Now;
+            block0.Text = valueTo;
+            var record = new TabelaWynikow
+            {
+                TYP = TYP.Name,
+                Jednostka_przed = unitFrom,
+                Jednostka_po = unitTo,
+                Date = date,
+                Wartosc_przed = valueFrom,
+                Wartosc_po = valueTo
+            };
+            DBContext.TabelaWynikow.Add(record);
+           // DBContext.SaveChanges();
         }
 
         private void converterCombobox_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -217,6 +235,42 @@ namespace Konwerter.GUI
         private void StarsRater_Loaded(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void LoadToTable()
+        {
+            Dispatcher.Invoke(() => { ConvertTable.DataContext = DBContext.TabelaWynikow.ToList(); });
+        }
+
+        private void LoadToTableTop3()
+        {
+            Dispatcher.Invoke(() => { ConvertTableTop3.DataContext = DBContext.TabelaWynikow.Take(3).ToList(); });
+        }
+
+        private void Sleep()
+        {
+            Task.Delay(4000).Wait();
+        }
+
+        private void button_zaladuj_dane_Click(object sender, RoutedEventArgs e)
+        {
+            loadDataRectangle.Visibility = Visibility.Visible;
+            var task1 = new Task(LoadToTable);
+            task1.Start();
+            var task2 = new Task(LoadToTableTop3);
+            task2.Start();
+            var task3 = new Task(Sleep);
+            task3.Start();
+
+            Task.WhenAll(task1, task2, task3).ContinueWith(t =>
+            {
+                Dispatcher.Invoke(() => { loadDataRectangle.Visibility = Visibility.Hidden; });
+            });
         }
     }
 }

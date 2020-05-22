@@ -15,7 +15,7 @@ namespace KonwerterJednostek.Logic
             return converter.Convert(valueToConvert);
         }
 
-        static IKonwerter DispatchConvert(string unitFrom, string unitTo)
+        public static IKonwerter DispatchConvert(string unitFrom, string unitTo)
         {
             switch (unitFrom)
             {
