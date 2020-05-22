@@ -1,0 +1,132 @@
+﻿<Window x:Class="Converter.Desktop.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Converter.Desktop"
+        xmlns:commonControls="clr-namespace:Common.Controls;assembly=Common.Controls"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="500" Width="800">
+    <Window.Resources>
+        <Storyboard x:Key="Storyboard1">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[2].(RotateTransform.Angle)" Storyboard.TargetName="button">
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="360"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:2" Value="720"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:3" Value="1080"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:4" Value="1440"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:5" Value="1800"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:7" Value="2160"/>
+            </DoubleAnimationUsingKeyFrames>
+            <PointAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransformOrigin)" Storyboard.TargetName="button">
+                <EasingPointKeyFrame KeyTime="0" Value="3,3"/>
+                <EasingPointKeyFrame KeyTime="0:0:1" Value="2,2"/>
+                <EasingPointKeyFrame KeyTime="0:0:2" Value="1,1"/>
+                <EasingPointKeyFrame KeyTime="0:0:3" Value="0.5,0.5"/>
+            </PointAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Key="animuj_ladowanie">
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="rectangle">
+                <DiscreteObjectKeyFrame KeyTime="0:0:0.1" Value="{x:Static Visibility.Visible}"/>
+                <DiscreteObjectKeyFrame KeyTime="0:0:2" Value="{x:Static Visibility.Visible}"/>
+                <DiscreteObjectKeyFrame KeyTime="0:0:2.1" Value="{x:Static Visibility.Hidden}"/>
+            </ObjectAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)" Storyboard.TargetName="rectangle">
+                <EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="3.447"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="24.219"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:2" Value="0.104"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="rectangle">
+                <EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="20.5"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="194.5"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:2" Value="396.5"/>
+            </DoubleAnimationUsingKeyFrames>
+
+        </Storyboard>
+    </Window.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <TextBox x:Name="box" Grid.Column="1" Grid.Row="1" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"></TextBox>
+        <Button x:Name="button" Grid.Column="2" Grid.Row="1" RenderTransformOrigin="0.5,0.5" Click="button_Click_1">
+            <Button.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Button.RenderTransform> Konwertuj
+        </Button>
+
+        <Label x:Name="label0" Grid.Column="1" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center">Co konwertować?</Label>
+        <ComboBox x:Name="combo" Grid.Column="2" Grid.Row="3" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding Name}"/>
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
+
+        <Label x:Name="label1" Grid.Column="1" Grid.Row="5" HorizontalAlignment="Right" VerticalAlignment="Center">Wynik:</Label>
+        <TextBlock x:Name="wynik" Grid.Column="2" Grid.Row="5" TextAlignment="Center" TextWrapping="Wrap" Text="Some Text" VerticalAlignment="Center"/>
+
+        <Ellipse x:Name="zegar" Grid.ColumnSpan="2" Grid.Column="3" Fill="Black" HorizontalAlignment="Left" Height="160" Margin="100
+                 ,0,0,0" Grid.Row="6" Grid.RowSpan="5" Stroke="#00000000" VerticalAlignment="Top" Width="160"/>
+        <Rectangle x:Name="small" Grid.ColumnSpan="2" Grid.Column="3" Fill="White" HorizontalAlignment="Left" Height="80" Margin="178,0,0,0" Grid.Row="6" Grid.RowSpan="3" Stroke="White" VerticalAlignment="Top" Width="4" RenderTransformOrigin="0.5,1">
+            <Rectangle.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform X="0.5" Y="1"/>
+                </TransformGroup>
+            </Rectangle.RenderTransform>
+        </Rectangle>
+        <Rectangle x:Name="big" Grid.ColumnSpan="2" Grid.Column="3" Fill="#FFDDDDDD" HorizontalAlignment="Left" Height="50" Margin="174,30,0,0" Grid.Row="6" Grid.RowSpan="3" Stroke="#FFDDDDDD" VerticalAlignment="Top" Width="12" RenderTransformOrigin="0.5,1">
+            <Rectangle.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform X="0.5" Y="1"/>
+                </TransformGroup>
+            </Rectangle.RenderTransform>
+        </Rectangle>
+
+        <Label x:Name="ocena" Grid.Column="1" Grid.Row="9" HorizontalContentAlignment="Right" VerticalContentAlignment="Center">Ocena aplikacji: 43,17</Label>
+        <commonControls:RateMe x:Name="rateControl" Grid.Column="2" Grid.Row="9" RateValueChanged="rateControl_RateValueChanged"/>
+        <Rectangle x:Name="ladowanie" Visibility="Hidden" Fill="#B0000000" Grid.ColumnSpan="5" Grid.RowSpan="13"></Rectangle>
+        <Rectangle x:Name="rectangle" Grid.Column="1"  Fill="White" HorizontalAlignment="Left" Height="3" Margin="10,10,0,0" Grid.Row="7" Stroke="Red" VerticalAlignment="Top" Width="16.753" RenderTransformOrigin="0.5,0.5">
+            <Rectangle.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Rectangle.RenderTransform>
+        </Rectangle>
+        <Label Padding="45,2,0,0" x:Name="ladowanie_napis" Grid.Column="1" Visibility="Hidden" HorizontalAlignment="Center" Margin="133,13,10,0" Grid.Row="6" VerticalAlignment="Center" Content="Trwa ładowanie..." Grid.ColumnSpan="2" Height="23" Width="174" Foreground="White" Background="Black"/>
+
+    </Grid>
+</Window>
