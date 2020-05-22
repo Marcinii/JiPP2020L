@@ -4,3 +4,9 @@ C:\Users\Admin\source\repos\ConsoleApp17\unitConverter.Logic\obj\Debug\unitConve
 C:\Users\Admin\source\repos\ConsoleApp17\unitConverter.Logic\obj\Debug\unitConverter.Logic.csproj.CoreCompileInputs.cache
 C:\Users\Admin\source\repos\ConsoleApp17\unitConverter.Logic\obj\Debug\unitConverter.Logic.dll
 C:\Users\Admin\source\repos\ConsoleApp17\unitConverter.Logic\obj\Debug\unitConverter.Logic.pdb
+C:\Users\Admin\source\repos\JiPP2020L\Zadanie 2 - KonwerterJednostek\unitConverter.Logic\bin\Debug\unitConverter.Logic.dll
+C:\Users\Admin\source\repos\JiPP2020L\Zadanie 2 - KonwerterJednostek\unitConverter.Logic\bin\Debug\unitConverter.Logic.pdb
+C:\Users\Admin\source\repos\JiPP2020L\Zadanie 2 - KonwerterJednostek\unitConverter.Logic\obj\Debug\unitConverter.Logic.csprojAssemblyReference.cache
+C:\Users\Admin\source\repos\JiPP2020L\Zadanie 2 - KonwerterJednostek\unitConverter.Logic\obj\Debug\unitConverter.Logic.csproj.CoreCompileInputs.cache
+C:\Users\Admin\source\repos\JiPP2020L\Zadanie 2 - KonwerterJednostek\unitConverter.Logic\obj\Debug\unitConverter.Logic.dll
+C:\Users\Admin\source\repos\JiPP2020L\Zadanie 2 - KonwerterJednostek\unitConverter.Logic\obj\Debug\unitConverter.Logic.pdb
