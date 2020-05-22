@@ -203,6 +203,9 @@ namespace WpfApp1
             topKonwersje.ItemsSource = db.Top3c();
         }
 
+        private void SelectConverter_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
 
+        }
     }
 }
