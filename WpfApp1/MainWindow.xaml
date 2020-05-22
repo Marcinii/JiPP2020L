@@ -83,6 +83,13 @@
         <Button x:Name="Top_Konwersje" Content="Top Konwersje" Grid.Column="3" HorizontalAlignment="Left" Height="18" Margin="25.6,32.8,0,0" Grid.Row="1" VerticalAlignment="Top" Width="104" />
         <TextBlock x:Name="Statystyki" HorizontalAlignment="Left" Height="22" Margin="10,167,0,0" TextWrapping="Wrap" Text="Statystyki" VerticalAlignment="Top" Width="61" Foreground="#FF42B90C"/>
 
+        <commonControls:Loading 
+            x:Name="LoadingCircleStoryboard"
+            Visibility="Hidden" 
+            HorizontalAlignment="Left" Height="470" VerticalAlignment="Top" Width="643" Grid.ColumnSpan="4" Grid.RowSpan="2">
+            
+        </commonControls:Loading>
+
 
 
 

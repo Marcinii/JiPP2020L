@@ -1,0 +1,50 @@
+﻿<UserControl x:Class="Common.Controls.Loading"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Common.Controls"
+             mc:Ignorable="d" 
+             d:DesignHeight="500" d:DesignWidth="650">
+    <UserControl.Resources>
+        <Storyboard x:Key="LoadingCircleStoryboard" RepeatBehavior="Forever">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[2].(RotateTransform.Angle)" Storyboard.TargetName="path">
+                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="-180.462"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="-360.471"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:1.5" Value="-539.234"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:2" Value="-720.271"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:2.5" Value="-899.785"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:3" Value="-1079.939"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+    </UserControl.Resources>
+    <UserControl.Triggers>
+        <EventTrigger RoutedEvent="FrameworkElement.Loaded">
+            <BeginStoryboard Storyboard="{StaticResource LoadingCircleStoryboard}"/>
+        </EventTrigger>
+    </UserControl.Triggers>
+    <Grid x:Name="LoadingCircleStoryboard">
+        <Rectangle Fill="Black" Height="500" Stroke="Black" VerticalAlignment="Top" Width="650" Opacity="0.8"/>
+
+        <Path x:Name="path" Data="M66.393,21.402 C41.544603,21.402 21.400999,41.545382 21.400999,66.393501 21.400999,91.241623 41.544603,111.385 66.393,111.385 91.241392,111.385 111.385,91.241623 111.385,66.393501 111.385,41.545382 91.241392,21.402 66.393,21.402 z M66.393,0.5 C102.7847,0.5 132.286,30.001525 132.286,66.393501 132.286,102.78548 102.7847,132.287 66.393,132.287 30.0013,132.287 0.5,102.78548 0.5,66.393501 0.5,30.001525 30.0013,0.5 66.393,0.5 z" HorizontalAlignment="Left" Height="54.918" Margin="302.827,215.268,0,0" Stretch="Fill" Stroke="Black" VerticalAlignment="Top" Width="54.917" RenderTransformOrigin="0.5,0.5">
+            <Path.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Path.RenderTransform>
+            <Path.Fill>
+                <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+                    <GradientStop Color="#FEA19D14"/>
+                    <GradientStop Color="Black"/>
+                    <GradientStop Color="#FF1B600D"/>
+                    <GradientStop Color="#FF057F10" Offset="1"/>
+                    <GradientStop Color="#FE3A0559" Offset="0.007"/>
+                </LinearGradientBrush>
+            </Path.Fill>
+        </Path>
+
+    </Grid>
+</UserControl>

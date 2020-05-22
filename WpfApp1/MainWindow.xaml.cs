@@ -161,18 +161,32 @@ namespace WpfApp1
             }
         }
 
-        private void SelectConverter_SelectionChanged(object sender, SelectionChangedEventArgs e) //wybrany konwerter
-        {
-         //   string konwerter = ((IKonwerter_jedn)combobox_konwertery.SelectedItem).Nazwa;
-           // dataGrid.ItemsSource = db?.Filter(konwerter, dateFrom.SelectedDate, dateTo.SelectedDate);
-        }
-
         private void Filtruj() //filtruj button
         {
             string konwerter = selectConverter.SelectedItem.ToString();
-            dataGrid.ItemsSource = db?.Filter(konwerter, this.dateFrom.SelectedDate, this.dateTo.SelectedDate);
-        }
+            // Pokazujesz ekran ladowania
+            LoadingCircleStoryboard.Visibility = Visibility.Visible;
+            
 
+            Task task1 = new Task(() => ZaladujStatystyki(konwerter));
+            task1.Start();
+
+            Task.WhenAll(task1).ContinueWith(t =>
+            {
+                // Ukrywasz ekran ladowania
+                Dispatcher.Invoke(() => LoadingCircleStoryboard.Visibility = Visibility.Hidden);
+                //MessageBox.Show("Ukrywam ekran ladowania!");
+            });
+        }
+        private void ZaladujStatystyki(string konwerter)
+        {
+            Task.Delay(3000).Wait();      
+
+            Dispatcher.Invoke(() =>
+            {
+                dataGrid.ItemsSource = db?.Filter(konwerter, this.dateFrom.SelectedDate, this.dateTo.SelectedDate);
+            });
+        }
 
         private void Prev_Click() //poprzednia strona
         {
