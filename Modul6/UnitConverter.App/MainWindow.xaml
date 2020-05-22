@@ -1,0 +1,64 @@
+﻿<Window x:Class="UnitConverter.App.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:UnitConverter.App"
+        mc:Ignorable="d" Height="691" Width="1294" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" Title="Converter" AllowsTransparency="True" WindowStyle="None">
+    <Grid x:Name="Convert">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="319*"/>
+            <RowDefinition Height="335*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="453*"/>
+            <ColumnDefinition Width="347*"/>
+        </Grid.ColumnDefinitions>
+        <Label Content="Choose converter:" HorizontalAlignment="Left" VerticalAlignment="Top" Width="130" Margin="0,43,0,0"/>
+        <ComboBox x:Name="chooseConverter" HorizontalAlignment="Left" VerticalAlignment="Top" Width="130" Margin="0,69,0,0" SelectionChanged="chooseConverter_SelectionChanged"/>
+        <ComboBox x:Name="chooseUnitFrom" HorizontalAlignment="Left" VerticalAlignment="Top" Width="130" Margin="150,69,0,0" SelectionChanged="chooseUnitFrom_SelectionChanged"/>
+        <Label Content="Choose unit from:" HorizontalAlignment="Left" VerticalAlignment="Top" Width="130" Margin="150,43,0,0"/>
+        <Label Content="Choose unit to:" HorizontalAlignment="Left" VerticalAlignment="Top" Width="130" Margin="300,43,0,0"/>
+        <ComboBox x:Name="chooseUnitTo" HorizontalAlignment="Left" VerticalAlignment="Top" Width="130" Margin="300,69,0,0"/>
+        <Label Content="Write an amount" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Margin="449,43,0,0"/>
+        <TextBox x:Name="UnitValue" HorizontalAlignment="Left" Height="22" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Margin="449,69,0,0"/>
+        <Button Content="Convert" HorizontalAlignment="Left" VerticalAlignment="Top" Width="155" Margin="604,69,0,0" Height="22" Click="Button_Click" Grid.ColumnSpan="2"/>
+        <Label Content="Hour:" HorizontalAlignment="Left" Margin="30,115,0,0" VerticalAlignment="Top" Width="50"/>
+        <Label Content="Minute:" HorizontalAlignment="Left" Margin="93,115,0,0" VerticalAlignment="Top"/>
+        <ComboBox x:Name="hourBox" HorizontalAlignment="Left" Margin="30,146,0,0" VerticalAlignment="Top" Width="50"/>
+        <ComboBox x:Name="minuteBox" HorizontalAlignment="Left" Margin="93,146,0,0" VerticalAlignment="Top" Width="50"/>
+        <Button Content="24H -> 12H" HorizontalAlignment="Left" Margin="30,186,0,0" VerticalAlignment="Top" Width="113" Click="Button_Click_1"/>
+
+        <Border BorderThickness="2" BorderBrush="Black" CornerRadius="300" Width="194" Height="194" Grid.ColumnSpan="2" Margin="376,230" Grid.RowSpan="2">
+            <Grid Height="194" Width="194" HorizontalAlignment="Center" VerticalAlignment="Center" >
+                <Border CornerRadius="120">
+                    <Border.Background>
+                        <ImageBrush ImageSource="panel3.png"/>
+                    </Border.Background>
+                </Border>
+                <Border x:Name="hour" CornerRadius="15 15 0 0" Height="60" Width="10" BorderThickness="3" BorderBrush="#FF66B01C"  HorizontalAlignment="Center" />
+                <Border x:Name="minute" CornerRadius="15 15 0 0" Height="90" Width="6" BorderThickness="3" BorderBrush="#FFA20412"  HorizontalAlignment="Center" />
+                <Ellipse Fill="Black" Width="10" Height="10" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            </Grid>
+        </Border>
+        <Image x:Name="imageSun" HorizontalAlignment="Left" Height="100" Margin="687,115,0,0" VerticalAlignment="Top" Width="100" Source="sun.png" Grid.ColumnSpan="2"/>
+        <Image x:Name="imageMoon" HorizontalAlignment="Left" Height="100" Margin="500,115,0,0" VerticalAlignment="Top" Width="100" Source="Naklejka-scienna-KSIEZYC-moon-w-pelni-45-cm.jpg"/>
+        <DataGrid x:Name="grid1" HorizontalAlignment="Left" Height="440" VerticalAlignment="Top" Width="462" Margin="10,230,0,0" Grid.RowSpan="2"/>
+        <ComboBox x:Name="chooseSortBy" HorizontalAlignment="Left" VerticalAlignment="Top" Width="130" Margin="500,124,0,0" SelectionChanged="chooseUnitFrom_SelectionChanged" Grid.Row="1" SelectedIndex="4"/>
+        <TextBox x:Name="dateFrom" HorizontalAlignment="Left" Height="22" TextWrapping="Wrap" VerticalAlignment="Top" Width="130" Margin="500,175,0,0" Grid.Row="1"/>
+        <TextBox x:Name="dateTo" HorizontalAlignment="Left" Height="22" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Margin="648,175,0,0" Grid.ColumnSpan="2" Grid.Row="1"/>
+        <Button Content="Select Converter type and put date in format DD:MM:YYYY HH:MM" HorizontalAlignment="Left" Margin="54,175,0,0" Grid.Row="1" VerticalAlignment="Top" Width="364" Grid.Column="1" Height="22" Click="Button_Click_3"/>
+        <DataGrid x:Name="grid2" HorizontalAlignment="Left" Height="114" Margin="500,219,0,0" Grid.Row="1" VerticalAlignment="Top" Width="130"/>
+        <Button Grid.Column="1" Margin="346,243,10,10" Grid.Row="1" Click="Button_Click_4">
+            <StackPanel Orientation="Horizontal">
+                <Image Source="unnamed.png" Stretch="Fill" Height="99" Width="198"/>
+            </StackPanel>
+        </Button>
+        <Image x:Name="imageWait" Grid.Column="1" HorizontalAlignment="Left" Height="58" Margin="435,156,0,0" Grid.Row="1" VerticalAlignment="Top" Width="58" Source="wait.bmp"/>
+        <Image x:Name="imageWait2" HorizontalAlignment="Left" Height="1498" VerticalAlignment="Top" Width="1807" Source="3.png" Margin="-257,-395,-256,-412" Grid.RowSpan="2" Grid.ColumnSpan="2" Opacity="0.6" Visibility="Hidden"/>
+
+
+
+
+    </Grid>
+</Window>
