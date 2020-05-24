@@ -132,15 +132,15 @@
                     </Grid.ColumnDefinitions>
                     <TextBlock x:Name="ResultTimePMTextBlock1" HorizontalAlignment="Left" Margin="39.133,66,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="22" Width="26" TextAlignment="Right" Grid.Column="1"/>
                     <DataGrid x:Name="History_Data_Grid" HorizontalAlignment="Left" Height="234" Margin="10,54,0,0" VerticalAlignment="Top" Width="448" SelectionChanged="History_Data_Grid_SelectionChanged" Grid.ColumnSpan="2"/>
-                    <DatePicker x:Name="date_od" HorizontalAlignment="Left" Margin="41,2,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
-                    <DatePicker x:Name="date_do" HorizontalAlignment="Left" Margin="41,30,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
+                    <DatePicker x:Name="date_od" HorizontalAlignment="Left" Margin="41,2,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" SelectedDate="1/1/2020"/>
+                    <DatePicker x:Name="date_do" HorizontalAlignment="Left" Margin="41,30,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" SelectedDate="5/24/2020"/>
                     <Label Content="Od" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.573,-0.484"/>
                     <Label Content="do" HorizontalAlignment="Left" Margin="12,31,0,0" VerticalAlignment="Top"/>
-                    <Button x:Name="Get_Button" Content="Pokaż" HorizontalAlignment="Left" Margin="10.133,14,0,0" VerticalAlignment="Top" Width="75" Height="22" Click="Get_Button_Click" Grid.Column="1"/>
+                    <Button x:Name="Get_Button" Content="Pokaż" HorizontalAlignment="Left" Margin="89,15,0,0" VerticalAlignment="Top" Width="75" Height="22" Click="Get_Button_Click" Grid.Column="1"/>
                     <Label x:Name="strona" Content="1" HorizontalAlignment="Left" Margin="88.6,293,0,0" VerticalAlignment="Top" Grid.Column="1"/>
                     <Button x:Name="Next_Button" Content="Następna" HorizontalAlignment="Left" Margin="109.6,296,0,0" VerticalAlignment="Top" Width="75" Click="Next_Button_Click" Grid.Column="1"/>
                     <Button x:Name="Prev_Button" Content="Poprzednia" HorizontalAlignment="Left" Margin="8.6,296,0,0" VerticalAlignment="Top" Width="75" Click="Prev_Button_Click" Grid.Column="1"/>
-                    <Button x:Name="Top_5" Content="TOP 5" Grid.Column="1" HorizontalAlignment="Left" Margin="90.6,14,0,0" VerticalAlignment="Top" Width="76" Height="22" Click="Top_5_Click"/>
+                    <Button x:Name="Top_5" Content="TOP 5" Grid.Column="1" HorizontalAlignment="Left" Margin="170,15,0,0" VerticalAlignment="Top" Width="76" Height="22" Click="Top_5_Click"/>
                 </Grid>
             </TabItem>
         </TabControl>

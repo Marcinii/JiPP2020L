@@ -44,17 +44,17 @@ namespace Konwerter.Desktop
             From_ChoiseMassUnitComboBox.ItemsSource = converters[0].Units;
             To_ChoiseMassUnitComboBox.ItemsSource = converters[0].Units;
             From_ChoiseTempUnitComboBox.ItemsSource = converters[1].Units;
-            To_ChoiseTempUnitComboBox.ItemsSource = converters[1].Units;            
+            To_ChoiseTempUnitComboBox.ItemsSource = converters[1].Units;
             From_ChoiseLenghUnitComboBox.ItemsSource = converters[2].Units;
             To_ChoiseLenghUnitComboBox.ItemsSource = converters[2].Units;
             From_ChoiseDataUnitComboBox.ItemsSource = converters[3].Units;
-            To_ChoiseDataUnitComboBox.ItemsSource = converters[3].Units;
+            To_ChoiseDataUnitComboBox.ItemsSource = converters[3].Units;            
 
             using (var historia = new DataEntities())
             {
                 var dane = historia.Rate_History.AsQueryable();
                 List<Rate_History> tmp = dane.OrderByDescending(LP => LP.IDRate).Take(1).ToList();
-                foreach(var a in tmp)
+                foreach (var a in tmp)
                 {
                     RateControl.Wartosc_Oceny = a.RateValue;
                 }
@@ -62,11 +62,11 @@ namespace Konwerter.Desktop
             TempConvertCommand = new RelayCommand(obj => Temp_Convert(), obj => string.IsNullOrEmpty(InputTempTextBox.Text)
             != true && From_ChoiseTempUnitComboBox.SelectedItem != To_ChoiseTempUnitComboBox.SelectedValue);
             Temp_Button.Command = TempConvertCommand;
-            
+
             MassConvertCommand = new RelayCommand(obj => Mass_Convert(), obj => string.IsNullOrEmpty(InputMassTextBox.Text)
             != true && From_ChoiseMassUnitComboBox.SelectedItem != To_ChoiseMassUnitComboBox.SelectedValue);
             Mass_Button.Command = MassConvertCommand;
-            
+
             LenghtConvertCommand = new RelayCommand(obj => Lenght_Convert(), obj => string.IsNullOrEmpty(InputLenghTextBox.Text)
             != true && From_ChoiseLenghUnitComboBox.SelectedItem != To_ChoiseLenghUnitComboBox.SelectedValue);
             Lenght_Button.Command = LenghtConvertCommand;
@@ -75,7 +75,7 @@ namespace Konwerter.Desktop
             != true && From_ChoiseDataUnitComboBox.SelectedItem != To_ChoiseDataUnitComboBox.SelectedValue);
             Data_Button.Command = DataConvertCommand;
 
-            TimeConvertCommand = new RelayCommand(obj => Time_Convert(), obj => string.IsNullOrEmpty(InputTimeHourTextBox.Text)!= true 
+            TimeConvertCommand = new RelayCommand(obj => Time_Convert(), obj => string.IsNullOrEmpty(InputTimeHourTextBox.Text) != true
             && string.IsNullOrEmpty(InputTimeMinTextBox.Text) != true);
             Time_Button.Command = TimeConvertCommand;
         }
@@ -87,14 +87,14 @@ namespace Konwerter.Desktop
                 List<Konwert_History> history_conversion = context.Konwert_History.ToList();
 
             }
-        }       
+        }
         private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            
-        }        
+
+        }
         public void InputTextBox_TextChanged(object sender, TextChangedEventArgs e)
-        {           
-           
+        {
+
         }
 
         private RelayCommand TempConvertCommand;
@@ -120,8 +120,8 @@ namespace Konwerter.Desktop
                     Data = System.DateTime.Now,
                     Wartosc_z = decimal.Parse(InputTempTextBox.Text),
                     Jednostka_z = From_ChoiseTempUnitComboBox.Text,
-                    Wartosc_do = decimal.Parse(ResultTempTextBlock.Text),                    
-                    Jednostka_do = To_ChoiseTempUnitComboBox.Text                    
+                    Wartosc_do = decimal.Parse(ResultTempTextBlock.Text),
+                    Jednostka_do = To_ChoiseTempUnitComboBox.Text
                 };
                 context.Konwert_History.Add(rec);
                 context.SaveChanges();
@@ -129,7 +129,7 @@ namespace Konwerter.Desktop
         }
 
         private RelayCommand MassConvertCommand;
-        
+
         private void Mass_Convert()
         {
             string inputValueMass = InputMassTextBox.Text;
@@ -160,7 +160,7 @@ namespace Konwerter.Desktop
         }
 
         private RelayCommand LenghtConvertCommand;
-        
+
         private void Lenght_Convert()
         {
             string inputValueLengh = InputLenghTextBox.Text;
@@ -277,37 +277,43 @@ namespace Konwerter.Desktop
         }
         private void History_Data_Grid_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-                     
+
         }
 
-        public void Daj_historie()
-        {
-
-            this.Dispatcher.Invoke(() =>
+        public void Daj_historie(DateTime date_od, DateTime date_do, int biezaca)
+        {           
+            
+            using (var historia = new DataEntities())
             {
-                LoadingRectangle.Visibility = Visibility.Visible;
-                LoaderCircle.Visibility = Visibility.Visible;
-                int biezaca = 0;
-                biezaca = int.Parse(strona.Content.ToString());
-                using (var historia = new DataEntities())
+                var dane = historia.Konwert_History.AsQueryable();
+                if (date_od != null)
                 {
-                    var dane = historia.Konwert_History.AsQueryable();
-                    if (date_od.SelectedDate != null)
-                    {
-                        dane = dane.Where(DATE => DATE.Data >= date_od.SelectedDate);
-                    }
-                    if (date_do.SelectedDate != null)
-                    {
-                        dane = dane.Where(DATE => DATE.Data <= date_do.SelectedDate);
-                    }
-                    History_Data_Grid.ItemsSource = dane.OrderBy(LP => LP.ID).Skip(10 * (biezaca - 1)).Take(10).ToList();
+                    dane = dane.Where(DATE => DATE.Data >= date_od);
                 }
-            });
+                if (date_do != null)
+                {
+                    dane = dane.Where(DATE => DATE.Data <= date_do);
+                }
+                var x = dane.OrderBy(LP => LP.ID).Skip(10 * (biezaca - 1)).Take(10).ToList();
+                Dispatcher.Invoke(() =>
+                {
+                    History_Data_Grid.ItemsSource = x;
+                });
+            }              
             Task.Delay(5000).Wait();
         }
+    
         private void Get_Button_Click(object sender, RoutedEventArgs e)
-        {            
-            Task t1 = new Task(() => Daj_historie());
+        {
+            LoadingRectangle.Visibility = Visibility.Visible;
+            LoaderCircle.Visibility = Visibility.Visible;
+            string x = date_od.SelectedDate.ToString();
+            DateTime data_od = DateTime.Parse(x);
+            string y = date_do.SelectedDate.ToString();
+            DateTime data_do = DateTime.Parse(y);            
+            int biezaca;
+            biezaca = int.Parse(strona.Content.ToString());            
+            Task t1 = new Task(() => Daj_historie(data_od, data_do, biezaca));
             t1.Start();
             Task.WhenAll(t1).ContinueWith(t =>
             {
@@ -318,19 +324,29 @@ namespace Konwerter.Desktop
 
         private void Prev_Button_Click(object sender, RoutedEventArgs e)
         {
-            var biezaca = int.Parse(strona.Content.ToString());
+            int biezaca;
+            biezaca = int.Parse(strona.Content.ToString());
+            string x = date_od.SelectedDate.ToString();
+            DateTime data_od = DateTime.Parse(x);
+            string y = date_do.SelectedDate.ToString();
+            DateTime data_do = DateTime.Parse(y);
             if (biezaca > 1)
             {
                 strona.Content = biezaca - 1;
             }
-            Daj_historie();
+            Daj_historie(data_od, data_do, biezaca);
         }
 
         private void Next_Button_Click(object sender, RoutedEventArgs e)
         {
-            var biezaca = int.Parse(strona.Content.ToString());
+            int biezaca;
+            biezaca = int.Parse(strona.Content.ToString());
+            string x = date_od.SelectedDate.ToString();
+            DateTime data_od = DateTime.Parse(x);
+            string y = date_do.SelectedDate.ToString();
+            DateTime data_do = DateTime.Parse(y);
             strona.Content = biezaca + 1;
-            Daj_historie();
+            Daj_historie(data_od, data_do, biezaca);
         }
 
         private void Top_5_Click(object sender, RoutedEventArgs e)
