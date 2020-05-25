@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30104.148
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "project1", "project1\project1.csproj", "{107AF5B3-9F70-45BC-B8C5-B7FF8C8BD13B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "logic", "logic\logic.csproj", "{051F6336-95FE-4EFE-84AB-ECFF478ECC05}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "random_number", "random_number\random_number.csproj", "{BBACB09F-940A-4E2D-B51E-ECF346980AA1}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{107AF5B3-9F70-45BC-B8C5-B7FF8C8BD13B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{107AF5B3-9F70-45BC-B8C5-B7FF8C8BD13B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{107AF5B3-9F70-45BC-B8C5-B7FF8C8BD13B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{107AF5B3-9F70-45BC-B8C5-B7FF8C8BD13B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{051F6336-95FE-4EFE-84AB-ECFF478ECC05}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{051F6336-95FE-4EFE-84AB-ECFF478ECC05}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{051F6336-95FE-4EFE-84AB-ECFF478ECC05}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{051F6336-95FE-4EFE-84AB-ECFF478ECC05}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BBACB09F-940A-4E2D-B51E-ECF346980AA1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BBACB09F-940A-4E2D-B51E-ECF346980AA1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BBACB09F-940A-4E2D-B51E-ECF346980AA1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BBACB09F-940A-4E2D-B51E-ECF346980AA1}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E976BBCA-A1F6-4667-BE09-C53B459B36F4}
+	EndGlobalSection
+EndGlobal
