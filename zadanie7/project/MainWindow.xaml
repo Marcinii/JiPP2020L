@@ -1,0 +1,52 @@
+﻿<Window x:Class="project1.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:project1"
+        xmlns:contest="clr-namespace:random_number" xmlns:contest1="clr-namespace:random_number;assembly=random_number"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="660" Width="750">
+    <Window.Resources>
+        <Storyboard x:Key="change_color">
+            <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)" Storyboard.TargetName="border">
+                <EasingColorKeyFrame KeyTime="0" Value="#FF98FF8E"/>
+                <EasingColorKeyFrame KeyTime="0:0:1" Value="#A598FF8E"/>
+                <EasingColorKeyFrame KeyTime="0:0:2" Value="#5998FF8E"/>
+                <EasingColorKeyFrame KeyTime="0:0:3" Value="#0098FF8E"/>
+            </ColorAnimationUsingKeyFrames>
+        </Storyboard>
+    </Window.Resources>
+
+    <Grid x:Name="mygrid" Background="White">
+        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="60" Margin="0,0,0,0" VerticalAlignment="Top" Width="750" Background="#FF98FF8E"/>
+        <TextBlock x:Name="title" HorizontalAlignment="Left" Margin="250,15,0,0" TextWrapping="Wrap" Text="Kalkulator wynagrodzeń" VerticalAlignment="Top" Height="30" Width="250" FontSize="20"/>
+        <TextBlock x:Name="umowa_label" HorizontalAlignment="Left" Margin="20,70,0,0" TextWrapping="Wrap" Text="Rodzaj umowy:" VerticalAlignment="Top" Height="30" Width="250" FontSize="20"/>
+        <ComboBox x:Name="umowa" FontSize="20" HorizontalAlignment="Left" Height="30" Margin="20,100,0,0" VerticalAlignment="Top" Width="250"/>
+        <Button Content="&lt;- -&gt;" HorizontalAlignment="Left" Height="30" Margin="120,140,0,0" VerticalAlignment="Top" Width="50" Click="change_brutto_netto"/>
+        <TextBlock x:Name="from_label" HorizontalAlignment="Left" Margin="20,140,0,0" TextAlignment="Center" TextWrapping="Wrap" Text="Brutto" VerticalAlignment="Top" Height="30" Width="100" FontSize="20"/>
+        <TextBlock x:Name="to_label" HorizontalAlignment="Left" Margin="170,140,0,0" TextAlignment="Center" TextWrapping="Wrap" Text="Netto" VerticalAlignment="Top" Height="30" Width="100" FontSize="20"/>
+        <CheckBox x:Name="over26" Content="Ukończone 26 lat" HorizontalAlignment="Left" Height="30" Margin="20,180,0,0" VerticalAlignment="Top" Width="250" FontSize="20" Checked="over26_Checked" Unchecked="over26_Unchecked"/>
+        <TextBlock x:Name="value_label" HorizontalAlignment="Left" Margin="20,220,0,0" TextWrapping="Wrap" Text="Kwota:" VerticalAlignment="Top" Height="30" Width="70" FontSize="20"/>
+        <TextBox x:Name="value" HorizontalAlignment="Left" Margin="90,220,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="30" Width="180" FontSize="20"/>
+        <TextBlock x:Name="result_label" HorizontalAlignment="Left" Margin="20,260,0,0" TextWrapping="Wrap" Text="Wynik:" VerticalAlignment="Top" Height="30" Width="70" FontSize="20"/>
+        <TextBlock x:Name="result" HorizontalAlignment="Left" Margin="90,260,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="30" Width="180" FontSize="20"/>
+        <Button Content="Oblicz" HorizontalAlignment="Left" Height="30" Margin="20,300,0,0" VerticalAlignment="Top" Width="250" FontSize="20" Click="count"/>
+        <DataGrid x:Name="datagrid_history" HorizontalAlignment="Left" Height="150" Margin="20,350,0,0" VerticalAlignment="Top" Width="500"/>
+        <Button x:Name="refresh" HorizontalAlignment="Left" Margin="220,520,0,0" Content="Odśwież" VerticalAlignment="Top" Height="30" Width="100" FontSize="20" Click="refresh_history"/>
+        <Button Content="&lt;----" HorizontalAlignment="Left" Height="30" Margin="20,520,0,0" VerticalAlignment="Top" Width="200" FontSize="20" Click="previous"/>
+        <Button Content="----&gt;" HorizontalAlignment="Left" Height="30" Margin="320,520,0,0" VerticalAlignment="Top" Width="200" FontSize="20" Click="next"/>
+        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="60" Margin="0,570,0,0" VerticalAlignment="Top" Width="750" Background="#FF98FF8E"/>
+        <TextBlock x:Name="result_title" HorizontalAlignment="Left" TextAlignment="Center" Margin="410,100,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="70" Width="180" FontSize="20"/>
+        <TextBlock x:Name="footer" HorizontalAlignment="Left" Margin="250,585,0,0" TextWrapping="Wrap" Text="By Mateusz Bajszczak 8887" VerticalAlignment="Top" Height="30" Width="250" FontSize="20" FontStyle="Italic"/>
+        <TextBlock x:Name="result_netto" HorizontalAlignment="Left" Margin="400,260,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="30" Width="180" FontSize="20"/>
+        <TextBlock x:Name="result_brutto" HorizontalAlignment="Left" Margin="470,170,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="30" Width="180" FontSize="20"/>
+        <Border x:Name="border" BorderBrush="#FF98FF8E" BorderThickness="10" HorizontalAlignment="Left" Height="250" Margin="300,80,0,0" VerticalAlignment="Top" Width="400" Background="#FF98FF8E"/>
+        <Rectangle x:Name="load" HorizontalAlignment="Left" Height="200" Margin="20,350,0,0" VerticalAlignment="Top" Width="500" Fill="#4C000000" Visibility="Hidden"/>
+        <Rectangle x:Name="load_animation" HorizontalAlignment="Left" Height="50" Margin="170,425,0,0" VerticalAlignment="Top" Width="200" Fill="#B2FF0000" Visibility="Hidden"/>
+        <TextBlock x:Name="load_text" HorizontalAlignment="Left" Margin="170,425,0,0" TextAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Top" Height="50" Width="200" FontSize="30" Text="Ładowanie..." Visibility="Hidden"/>
+        <contest1:random Margin="270,150,-250,-150"/>
+        <TextBlock x:Name="contest_title" HorizontalAlignment="Left" Margin="550,335,0,0" TextWrapping="Wrap" Text="Traf 100 i wygraj!" VerticalAlignment="Top" Height="30" Width="200" FontSize="20"/>
+
+    </Grid>
+</Window>
