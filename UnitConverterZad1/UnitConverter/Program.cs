@@ -7,7 +7,6 @@ namespace UnitConverter
         static void Main(string[] args)
         {
             bool pom = true;
-            Converter Konwerter = new Converter();
             while (pom)
             {
                 Console.WriteLine("Naciśnij \n 1 - konwerter temperatur \n 2 - konwerter długości \n 3 - konwerter mas \n 0 - wyjście");
@@ -16,15 +15,15 @@ namespace UnitConverter
                 switch (a)
                 {
                     case 1:
-                        Konwerter.Temp();
+                        Converter.Temp();
                         break;
 
                     case 2:
-                        Konwerter.Lengths();
+                        Converter.Lengths();
                         break;
 
                     case 3:
-                        Konwerter.Mass();
+                        Converter.Mass();
                         break;
                     case 0:
                         pom = false;
@@ -36,7 +35,7 @@ namespace UnitConverter
 
     class Converter
     {
-        public void Temp()
+        static public void Temp()
         {
             Console.Clear();
             Console.WriteLine("Wpisz: \n 1 - Konwertuj Celsjusze na Farenheity \n 2 - Konwertuj Farenheity na Celsjusze");
@@ -73,7 +72,7 @@ namespace UnitConverter
             }
         }
 
-        public void Lengths()
+        static public void Lengths()
         {
             Console.Clear();
             Console.WriteLine("Wpisz: \n 1 - Konwertuj kilometry na mile \n 2 - Konwertuj mile na kilometry");
@@ -110,7 +109,7 @@ namespace UnitConverter
             }
         }
 
-        public void Mass()
+        static public void Mass()
         {
             Console.Clear();
             Console.WriteLine("Wpisz: \n 1 - Konwertuj kilogramy na funty \n 2 - Konwertuj funty na kilogramy");
