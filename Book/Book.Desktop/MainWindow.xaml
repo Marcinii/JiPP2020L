@@ -26,9 +26,9 @@
             <Label Content="Imię" HorizontalAlignment="Left" Margin="10,5,0,0" VerticalAlignment="Top" Width="116" FontFamily="Calibri" Height="23"/>
             <TextBox x:Name="ImieTextBox" HorizontalAlignment="Left" Height="23" Margin="131,-23,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="233"/>
             <Label Content="Nr telefonu" HorizontalAlignment="Left" Margin="10,5,0,0" VerticalAlignment="Top" Width="116" FontFamily="Calibri" Height="23"/>
-            <TextBox x:Name="Telefon" HorizontalAlignment="Left" Height="23" Margin="131,-23,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="233"/>
+            <TextBox x:Name="TelefonTextBox" HorizontalAlignment="Left" Height="23" Margin="131,-23,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="233"/>
             <Label Content="E-mail" HorizontalAlignment="Left" Margin="10,5,0,0" VerticalAlignment="Top" Width="116" FontFamily="Calibri" Height="23"/>
-            <TextBox x:Name="emial" HorizontalAlignment="Left" Height="23" Margin="131,-23,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="233"/>
+            <TextBox x:Name="EmailTextBox" HorizontalAlignment="Left" Height="23" Margin="131,-23,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="233"/>
             <ComboBox x:Name="Choose1ComboBox" HorizontalAlignment="Left" Margin="6,5,0,0" VerticalAlignment="Top" Width="120" Height="23"/>
             <TextBox x:Name="Choose1TextBox" HorizontalAlignment="Left" Height="23" Margin="131,-23,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="233"/>
             <ComboBox x:Name="Choose2ComboBox" HorizontalAlignment="Left" Margin="6,5,0,0" VerticalAlignment="Top" Width="120" Height="23"/>
@@ -37,19 +37,20 @@
             <TextBox x:Name="Choose3TextBox" HorizontalAlignment="Left" Height="23" Margin="131,-23,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="233"/>
             <Button x:Name="SaveButton" Content="Zapisz do książki" HorizontalAlignment="Left" Margin="6,20,0,0" VerticalAlignment="Top" Width="358" Click="SaveButton_Click"/>
         </StackPanel>
-       
-        
-       
-       
-        
-       
-        
-        
+
+
+
+
+
+
+
+
         <Label Content="Pobierz rekord z bazy" Grid.Column="1" HorizontalAlignment="Left" Margin="24,10,0,0" VerticalAlignment="Top" Width="344" FontSize="18" FontWeight="Bold"/>
         <Label x:Name="DNazwiskoLabel" Content="Wprowadź nazwisko" Grid.Column="1" HorizontalAlignment="Left" Margin="24,70,0,0" VerticalAlignment="Top" Width="149"/>
         <TextBox x:Name="GiveNazwiskoTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="178,70,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="207"/>
-        <TextBlock x:Name="DaneTextBlock" Grid.Column="1" HorizontalAlignment="Left" Height="96" Margin="10,143,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="375"/>
         <Button x:Name="DownloadButton" Content="Pobierz dane z bazy" Grid.Column="1" HorizontalAlignment="Left" Margin="24,102,0,0" VerticalAlignment="Top" Width="361" Click="DownloadButton_Click"/>
+        <DataGrid x:Name="Wynik" Grid.Column="1" HorizontalAlignment="Left" Height="66" Margin="10,153,0,0" VerticalAlignment="Top" Width="375"/>
+
 
     </Grid>
 </Window>
