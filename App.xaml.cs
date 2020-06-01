@@ -6,7 +6,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
 
-namespace UnitConverter.Desktop
+namespace Sklep.Desktop
 {
     /// <summary>
     /// Interaction logic for App.xaml

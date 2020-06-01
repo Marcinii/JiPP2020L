@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace UnitConverter.Desktop.Properties
+namespace Sklep.Desktop.Properties
 {
 
 

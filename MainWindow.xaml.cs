@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace UnitConverter.Desktop
+namespace Sklep.Desktop
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
@@ -23,15 +23,6 @@ namespace UnitConverter.Desktop
         public MainWindow()
         {
             InitializeComponent();
-
-            chooseConverter.ItemsSource = new List<string>()
-            {
-                "(1) Temps",
-                "(2) Distance",
-                "(3) Weight",
-                "(4) Bytes"
-            };
         }
     }
-    
 }
