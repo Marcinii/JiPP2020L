@@ -1,0 +1,12 @@
+C:\Users\zielu_000\source\repos\AplikacjaBryly\Kontrolki\bin\Debug\Kontrolki.dll
+C:\Users\zielu_000\source\repos\AplikacjaBryly\Kontrolki\bin\Debug\Kontrolki.pdb
+C:\Users\zielu_000\source\repos\AplikacjaBryly\Kontrolki\obj\Debug\Kontrolki.csprojAssemblyReference.cache
+C:\Users\zielu_000\source\repos\AplikacjaBryly\Kontrolki\obj\Debug\Koniec.g.cs
+C:\Users\zielu_000\source\repos\AplikacjaBryly\Kontrolki\obj\Debug\Kontrolki_MarkupCompile.cache
+C:\Users\zielu_000\source\repos\AplikacjaBryly\Kontrolki\obj\Debug\Kontrolki_MarkupCompile.lref
+C:\Users\zielu_000\source\repos\AplikacjaBryly\Kontrolki\obj\Debug\Koniec.baml
+C:\Users\zielu_000\source\repos\AplikacjaBryly\Kontrolki\obj\Debug\Kontrolki.g.resources
+C:\Users\zielu_000\source\repos\AplikacjaBryly\Kontrolki\obj\Debug\Kontrolki.Properties.Resources.resources
+C:\Users\zielu_000\source\repos\AplikacjaBryly\Kontrolki\obj\Debug\Kontrolki.csproj.GenerateResource.cache
+C:\Users\zielu_000\source\repos\AplikacjaBryly\Kontrolki\obj\Debug\Kontrolki.dll
+C:\Users\zielu_000\source\repos\AplikacjaBryly\Kontrolki\obj\Debug\Kontrolki.pdb

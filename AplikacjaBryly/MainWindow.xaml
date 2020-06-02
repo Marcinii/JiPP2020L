@@ -1,0 +1,93 @@
+﻿<Window x:Class="AplikacjaBryly.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AplikacjaBryly"
+        xmlns:kontrolka="clr-namespace:Kontrolki;assembly=Kontrolki"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="400" Width="700"> 
+    <Window.Resources>
+        <Storyboard x:Key="circleStoryboard" RepeatBehavior="Forever">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[2].(RotateTransform.Angle)" Storyboard.TargetName="path">
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="360"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+    </Window.Resources>
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="2*"/>
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Grid.Column="0">
+            <Label x:Name="Napis1" Margin="10,5,10,5" Content="Wybierz bryłę" Height="25" HorizontalAlignment="Right"/>
+            <Label x:Name="Napis2" Margin="10,5,10,5" Content="Wybierz podstawę bryły" Height="25" HorizontalAlignment="Right"/>
+            <Label x:Name="Napis3" Margin="10,5,10,5" Content="Podaj długość boku a" Height="25" HorizontalAlignment="Right" Visibility="Hidden"/>
+            <Label x:Name="Napis4" Margin="10,5,10,5" Content="Podaj długość boku b" Height="25" HorizontalAlignment="Right" Visibility="Hidden"/>
+            <Label x:Name="Napis5" Margin="10,5,10,5" Content="Podaj wysokość podstawy h" Height="25" HorizontalAlignment="Right" Visibility="Hidden"/>
+            <Label x:Name="Napis6" Margin="10,5,10,5" Content="Podaj wysokość bryły H"  Height="25" HorizontalAlignment="Right"/>
+            <Button x:Name="Button1" Margin="10,5,10,5" Content="Oblicz" HorizontalAlignment="Right" VerticalAlignment="Top" Width="120"   Height="25"/>
+            <Label x:Name="Napis7" Margin="10,5,10,5" Content="Objętość"  Height="25" HorizontalAlignment="Right"/>
+            <Label x:Name="Napis8" Margin="10,5,10,5" Height="25" HorizontalAlignment="Right"/>
+            <kontrolka:Koniec Margin="10,5,10,5"/>
+        </StackPanel>
+
+        <StackPanel Grid.Column="1">
+            <ComboBox x:Name="OpcjaB"  Margin="10,5,0,0" HorizontalAlignment="Left"  Width="120" Height="30">
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding NazwaB}"/>
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
+
+
+            <ComboBox x:Name="OpcjaF"  Margin="10,5,0,0" HorizontalAlignment="Left"  Width="120" Height="30" SelectionChanged="OpcjaF_SelectionChanged">
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding NazwaF}"/>
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
+
+            <TextBox x:Name="TBoxBok1" Margin="10,5,0,0" HorizontalAlignment="Left" VerticalAlignment="Center" Height="30" TextWrapping="Wrap" Width="120" Visibility="Hidden"/>
+            <TextBox x:Name="TBoxBok2" Margin="10,5,0,0" HorizontalAlignment="Left" VerticalAlignment="Center" Height="30" TextWrapping="Wrap" Width="120" Visibility="Hidden"/>
+            <TextBox x:Name="TBoxh" Margin="10,5,0,0" HorizontalAlignment="Left" VerticalAlignment="Center" Height="30" TextWrapping="Wrap" Width="120" Visibility="Hidden"/>
+            <TextBox x:Name="TBoxH" Margin="10,5,0,0" HorizontalAlignment="Left" VerticalAlignment="Center" Height="30" TextWrapping="Wrap" Width="120"/>
+            <Label x:Name="Napisx" Margin="10,5,5,0" Content=""  />
+            <TextBlock x:Name="TBlockWynik" Margin="10,10,0,0" HorizontalAlignment="Left"  VerticalAlignment="Center" TextWrapping="Wrap"  Width="120" Height="25"/>
+
+        </StackPanel>
+
+
+            <Button x:Name="ButtonS" Grid.Column="2" Margin="10,10,0,0" Content="Pokaż statystyki" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Height="20" Click="ButtonS_Click" />
+            <Label x:Name="Napis10" Grid.Column="2" Margin="10,35,10,5" Content="Statystyki lista" Height="25" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+            <DataGrid x:Name="Tabela1" Grid.Column="2" HorizontalAlignment="Left" Height="200" Margin="10,60,0,0" VerticalAlignment="Top" Width="225"/>
+            <Button x:Name="Button4" Grid.Column="2" Margin="10,300,0,0" Content="Poprzednia strona" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Height="20" />
+            <Button x:Name="Button3" Grid.Column="2" Margin="0,300,10,0" Content="Następna strona" HorizontalAlignment="Right" VerticalAlignment="Top" Width="120" Height="20" />
+
+        <Grid x:Name="LadowaniePanel" Grid.ColumnSpan="3" Background="#66000000" Visibility="Hidden">
+            <Button Margin="10,316,532,10" Click="Button_Click">Anuluj</Button>
+            <Path x:Name="path" Data="M32.5,16 C23.387301,16 16,23.387301 16,32.5 16,41.612698 23.387301,49 32.5,49 41.612698,49 49,41.612698 49,32.5 49,23.387301 41.612698,16 32.5,16 z M32.5,0.5 C50.173111,0.5 64.5,14.826888 64.5,32.5 64.5,50.173111 50.173111,64.5 32.5,64.5 14.826888,64.5 0.5,50.173111 0.5,32.5 0.5,14.826888 14.826888,0.5 32.5,0.5 z" HorizontalAlignment="Left" Height="65" Margin="324,147.5,0,0"  VerticalAlignment="Top" Width="65" RenderTransformOrigin="0.5,0.5">
+                <Path.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Path.RenderTransform>
+                <Path.Fill>
+                    <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+                        <GradientStop Color="#FFFBFBFB"/>
+                        <GradientStop Color="#FF5252FF" Offset="1"/>
+                    </LinearGradientBrush>
+                </Path.Fill>
+            </Path>
+        </Grid>
+
+    </Grid>
+</Window>
