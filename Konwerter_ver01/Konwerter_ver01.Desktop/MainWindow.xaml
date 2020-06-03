@@ -21,11 +21,48 @@
                 <EasingDoubleKeyFrame KeyTime="0:0:6" Value="0"/>
             </DoubleAnimationUsingKeyFrames>
         </Storyboard>
+        <Storyboard x:Key="UpsStoryboard" AutoReverse="True" RepeatBehavior="Forever">
+            <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)" Storyboard.TargetName="ellipse1">
+                <EasingColorKeyFrame KeyTime="0:0:1" Value="#FFD11738"/>
+            </ColorAnimationUsingKeyFrames>
+            <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)" Storyboard.TargetName="ellipse2">
+                <EasingColorKeyFrame KeyTime="0:0:2" Value="#FFD11738"/>
+            </ColorAnimationUsingKeyFrames>
+            <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)" Storyboard.TargetName="ellipse3">
+                <EasingColorKeyFrame KeyTime="0:0:3" Value="#FFD11738"/>
+            </ColorAnimationUsingKeyFrames>
+            <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)" Storyboard.TargetName="ellipse4">
+                <EasingColorKeyFrame KeyTime="0:0:4" Value="#FFD11738"/>
+            </ColorAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="ellipse1">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="ellipse2">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="0.095"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:2" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="ellipse3">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:2" Value="0.1"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:3" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="ellipse4">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:2" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:3" Value="0.1"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:4" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
     </Window.Resources>
     <Window.Triggers>
         <EventTrigger RoutedEvent="FrameworkElement.Loaded">
             <BeginStoryboard Storyboard="{StaticResource StoryboardKom12}"/>
             <BeginStoryboard Storyboard="{StaticResource StoryboardJajo}"/>
+            <BeginStoryboard Storyboard="{StaticResource UpsStoryboard}"/>
 
         </EventTrigger>
     </Window.Triggers>
@@ -140,7 +177,7 @@
         <TextBox x:Name="DataOd" Margin="0,0,11,434" HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="25" TextWrapping="Wrap" Width="114" Text="rrrr-mm-dd" Grid.ColumnSpan="2" Grid.Column="2" Grid.Row="2"/>
         <TextBox x:Name="DataDo" Margin="27,10,10,0" VerticalAlignment="Top" Height="25" TextWrapping="Wrap" Text="rrrr-mm-dd" Grid.ColumnSpan="2" Grid.Column="4" Grid.Row="2"/>
         <Button x:Name="StatystykiNajczesciej" Grid.ColumnSpan="2" Content="Wyświetl TOP3" HorizontalAlignment="Left" Margin="149,315,0,0" Grid.Row="2" VerticalAlignment="Top" Width="89" RenderTransformOrigin="-0.907,-0.25" Background="#FF2DAE56" Click="StatystykiNajczesciej_Click"/>
-        <Label Content="Zakres dat od " Grid.Column="1" Margin="43,7,0,0" Grid.Row="2" VerticalAlignment="Top" RenderTransformOrigin="-11.727,-11.269" HorizontalAlignment="Left" Width="87" Grid.ColumnSpan="2"/>
+
         <Button x:Name="WysWynKon" Content="Wyświetl zapisane wyniki dla wybranego konwertera" HorizontalAlignment="Left" Margin="16,270,0,0" Grid.Row="2" VerticalAlignment="Top" Width="316" Grid.ColumnSpan="3" FontWeight="Bold">
             <Button.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
@@ -152,6 +189,16 @@
         <Button x:Name="NastWyb" Content="Następne" Grid.Column="5" HorizontalAlignment="Left" Margin="5,270,0,0" Grid.Row="2" VerticalAlignment="Top" Width="75" RenderTransformOrigin="3,0.7" />
         <Button x:Name="PopWyb" Content="Poprzednie" Grid.Column="3" HorizontalAlignment="Left" Margin="20,270,0,0" Grid.Row="2" VerticalAlignment="Top" Width="75" RenderTransformOrigin="-0.413,0.6" />
         <Label Content="Oceń apkę" Grid.Column="6" HorizontalAlignment="Left" Margin="0,376,0,0" Grid.Row="2" VerticalAlignment="Top" Width="99" FontWeight="Bold" FontSize="14"/>
-        <commonControls:RateMe Grid.Column="5" Grid.ColumnSpan="3" Margin="10,410,51,10" Grid.Row="2"/>
+        <commonControls:RateMe x:Name="rateControl" Grid.Column="5" Grid.ColumnSpan="3" Margin="10,410,51,10" Grid.Row="2" RateValueChanged="rateControl_RateValueChanged_1"/>
+        <Rectangle x:Name="Nakladka1" Grid.ColumnSpan="9" Fill="#FF496C47" HorizontalAlignment="Left" Height="815" Stroke="Black" VerticalAlignment="Top" Width="842" Grid.RowSpan="3" Opacity="0.5" Margin="0,0,0,-0.48" Visibility="Hidden"/>
+
+        <Grid x:Name="WaitPoint" Grid.ColumnSpan="8" Background="#FFE8E26A" HorizontalAlignment="Center" Height="246" Margin="0,0,0,0" Grid.RowSpan="3" VerticalAlignment="Center" Width="489" Visibility="Hidden">
+        <Label x:Name="KomunikatLabel" Content="Ups!!! Coś poszło nie tak &#xD;&#xA;lub wystąpił problem z dostępem do bazy danych." Margin="0,-50,0,0" VerticalAlignment="Center" HorizontalAlignment="Center" Width="394" Grid.ColumnSpan="8" Grid.RowSpan="3" FontSize="16" FontWeight="Bold" FontStyle="Italic" Height="61.863" />
+        <Ellipse x:Name="ellipse1" Grid.ColumnSpan="8" Fill="#FFE8E26A" HorizontalAlignment="Center" Height="34.193" Margin="-240,150,0,0" Grid.Row="2" Stroke="Black" VerticalAlignment="Top" Width="35.5" />
+        <Ellipse x:Name="ellipse2" Grid.ColumnSpan="8" Fill="#FFE8E26A" HorizontalAlignment="Center" Height="34.193" Margin="-80,150,0,0" Grid.Row="2" Stroke="Black" VerticalAlignment="Top" Width="35.5" />
+        <Ellipse x:Name="ellipse3" Grid.ColumnSpan="8" Fill="#FFE8E26A" HorizontalAlignment="Center" Height="34.193" Margin="80,150,0,0" Grid.Row="2" Stroke="Black" VerticalAlignment="Top" Width="35.5" />
+        <Ellipse x:Name="ellipse4" Grid.ColumnSpan="8" Fill="#FFE8E26A" HorizontalAlignment="Center" Height="34.193" Margin="240,150,0,0" Grid.Row="2" Stroke="Black" VerticalAlignment="Top" Width="35.5" />
+        <Button x:Name="AnulujButton" Grid.ColumnSpan="8" Grid.RowSpan="3" Content="Anuluj" HorizontalAlignment="Center" Margin="0,200,0,0" VerticalAlignment="Center" Width="75" Click="AnulujButton_Click" />
+    </Grid>
     </Grid>
 </Window>

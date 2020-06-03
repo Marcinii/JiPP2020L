@@ -35,8 +35,6 @@ namespace Common.Controls
             get { return _rateValue; }
             set
             {
-                //powinnismy sprawdzac czy wartosc jest poprawna (0-5)
-                //jesli nie, to powinien byc rzucany wyjatek
                 if (value <1 && value > 6)
                 {
                     MessageBox.Show("Nieprawidłowa wartość");

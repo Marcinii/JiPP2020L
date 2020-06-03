@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -35,6 +36,16 @@ namespace Konwerter_ver01.Desktop
             //WybKonWyn.ItemsSource = new ZestawKonw().GetConverter();
             // WybKonBaza.ItemsSource = new ZestawKonw().GetConverter();
 
+            rateControl.RateValue = 5;
+
+            //rateControl.RateValueChanged += RateControl_RateValueChanged;
+
+            using (RateDane context = new RateDane())
+            {
+                List<RateDa> rate = context.RateDaWy.Where(d => d.IdRate == context.RateDaWy.Count()).ToList();
+                rateControl.RateValue = rate[0].RateValue;
+            }
+
             Wykonajtemp_ClickCommand = new RelayCommand(obj => Wykonajtemp_Click(), obj => JednZ.SelectedItem != null && JednDo.SelectedItem != null && string.IsNullOrEmpty(Dane.Text) != true);
             Wykonajtemp.Command = Wykonajtemp_ClickCommand;
             WynikButton_ClickCommand = new RelayCommand(obj => WynikButton_Click(), obj => JednZ.SelectedItem != null && JednDo.SelectedItem != null && string.IsNullOrEmpty(Dane.Text) != true);
@@ -65,6 +76,11 @@ namespace Konwerter_ver01.Desktop
              JednDospe.ItemsSource = new Konwerter_ver01.ConSpe().Jedn;
              */
         }
+
+        //private void RateControl_RateValueChanged(object sender, Common.Controls.RateMe.RateEventArgs e)
+        //{
+        //    throw new NotImplementedException();
+        //}
 
         private void WybKon_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -103,6 +119,18 @@ namespace Konwerter_ver01.Desktop
                 context.SaveChanges();
             }
 
+        }
+        public static void RateDoBD(int Value)
+        {
+            using (RateDane context = new RateDane())
+            {
+                RateDa NowyRekord = new RateDa()
+                {
+                    RateValue = Value
+                };
+                context.RateDaWy.Add(NowyRekord);
+                context.SaveChanges();
+            }
         }
         private RelayCommand WynikButton_ClickCommand;
         private void WynikButton_Click()
@@ -170,23 +198,69 @@ namespace Konwerter_ver01.Desktop
 
         private void WysWynikiB_Click(object sender, RoutedEventArgs e)
         {
+            //LadStaty();
+            tokenSource = new CancellationTokenSource();
+            Nakladka1.Visibility = Visibility.Visible;
+            WaitPoint.Visibility = Visibility.Visible;
+            ((Storyboard)Resources["UpsStoryboard"]).Begin();
+            nrstrony = 0;
+            if (DateTime.TryParse(DataOd.Text, out DateTime dataod)) { } else dataod = new DateTime(2020, 04, 01);
+            if (DateTime.TryParse(DataDo.Text, out DateTime datado)) { datado = new DateTime(datado.Year, datado.Month, datado.Day, 23, 59, 59); } else datado = DateTime.Now;
 
+            Task t1 = new Task(() => LadStaty(dataod, datado));
+            t1.Start();
+            Task t2 = new Task(() => Anulacja(tokenSource.Token), tokenSource.Token);
+            t2.Start();
+
+            Task.WhenAll(t1, t2).ContinueWith(t =>
+             {
+                 Nakladka1.Visibility = Visibility.Hidden;
+                 WaitPoint.Visibility = Visibility.Hidden;
+                 ((Storyboard)Resources["UpsStoryboard"]).Stop();
+                 //if (t.IsFaulted) { MessageBox.Show("Wystąpił błąd programu. Skontaktuj się ze swoim HelpDesk."); }
+                 //Dispatcher.Invoke(() => Nakladka1.Visibility = Visibility.Hidden);
+                 //    Dispatcher.Invoke(() => WaitPoint.Visibility = Visibility.Hidden);
+                 //    ((Storyboard)Resources["UpsStoryboard"]).Stop();
+             }, TaskScheduler.FromCurrentSynchronizationContext());
+        }
+        private void LadStaty(DateTime dataod, DateTime datado)
+        {
             using (KonwerterDane context = new KonwerterDane())
-                {
-                    nrstrony = 0;
-                    if (DateTime.TryParse(DataOd.Text, out DateTime dataod)) { } else dataod = new DateTime(2020, 04, 01);
-                    if (DateTime.TryParse(DataDo.Text, out DateTime datado)) { datado = new DateTime(datado.Year, datado.Month, datado.Day, 23, 59, 59); } else datado = DateTime.Now;
-                    
-                    List<KonwerterDa> konstat = context.KonwerterDaWy.Where(k => k.KonwerterCzas >= dataod).Where(k => k.KonwerterCzas <= datado).OrderBy(k => k.KonwerterCzas).Skip(nrstrony * 8).Take(8).ToList();
-                    //List<KonwerterDa> konstat2 = context.KonwerterDaWy.Where(k => k.WybKon == (((IConverter)WybKon.SelectedItem).Name)).Where(k => k.KonwerterCzas >= dataod).Where(k => k.KonwerterCzas <= datado).OrderBy(k => k.KonwerterCzas).Skip(nrstrony * 8).Take(8).ToList();
+            {
+               
+                List<KonwerterDa> konstat = context.KonwerterDaWy.Where(k => k.KonwerterCzas >= dataod).Where(k => k.KonwerterCzas <= datado).OrderBy(k => k.KonwerterCzas).Skip(nrstrony * 8).Take(8).ToList();
+                //List<KonwerterDa> konstat2 = context.KonwerterDaWy.Where(k => k.WybKon == (((IConverter)WybKon.SelectedItem).Name)).Where(k => k.KonwerterCzas >= dataod).Where(k => k.KonwerterCzas <= datado).OrderBy(k => k.KonwerterCzas).Skip(nrstrony * 8).Take(8).ToList();
 
-                Statystyki.ItemsSource = konstat;
+                //Thread.Sleep(5000);
+                Task.Delay(5000).Wait();
+                Dispatcher.Invoke(() => {
+                    //Nakladka1.Visibility = Visibility.Hidden;
+                    Statystyki.ItemsSource = konstat;
+                    });
 
-                stronaostatnia = context.KonwerterDaWy.Where(c => c.KonwerterCzas >= dataod).Where(c => c.KonwerterCzas <= datado).Count();
+                stronaostatnia = context.KonwerterDaWy.Where(m => m.KonwerterCzas >= dataod).Where(m => m.KonwerterCzas <= datado).Count();
                 if (stronaostatnia % 8 == 0) { stronaostatnia = stronaostatnia / 8 - 1; }
                 else stronaostatnia = stronaostatnia / 8;
             }
         }
+        private void Anulacja(CancellationToken ct)
+        {
+            for (int i=0; i < 20; i++)
+            {
+                if (ct.IsCancellationRequested)
+                {
+                    ct.ThrowIfCancellationRequested();
+                }
+                Thread.Sleep(1000);
+            }
+           
+        }
+        CancellationTokenSource tokenSource;
+        private void AnulujButton_Click(object sender, RoutedEventArgs e)
+        {
+            tokenSource.Cancel();
+        }
+
         private RelayCommand NastepnaStrona_ClickCommand;
         private void NastepnaStrona_Click()
         {
@@ -239,7 +313,7 @@ namespace Konwerter_ver01.Desktop
                 List<KonwerterDa> konstat = context.KonwerterDaWy.Where(k => k.WybKon == (((IConverter)WybKon.SelectedItem).Name)).Where(k => k.KonwerterCzas >= dataod).Where(k => k.KonwerterCzas <= datado).OrderBy(k => k.KonwerterCzas).Skip(nrstrony * 8).Take(8).ToList();
 
                 Statystyki.ItemsSource = konstat;
-                stronaostatnia = context.KonwerterDaWy.Where(c => c.WybKon == (((IConverter)WybKon.SelectedItem).Name)).Where(c => c.KonwerterCzas >= dataod).Where(c => c.KonwerterCzas <= datado).Count();
+                stronaostatnia = context.KonwerterDaWy.Where(m => m.WybKon == (((IConverter)WybKon.SelectedItem).Name)).Where(m => m.KonwerterCzas >= dataod).Where(m => m.KonwerterCzas <= datado).Count();
                 if (stronaostatnia % 8 == 0) stronaostatnia = stronaostatnia / 8 - 1;
                 else stronaostatnia = stronaostatnia / 8;
             }
@@ -270,6 +344,13 @@ namespace Konwerter_ver01.Desktop
                 Statystyki.ItemsSource = konstat;
             }
         }
+
+        private void rateControl_RateValueChanged_1(object sender, Common.Controls.RateMe.RateEventArgs e)
+        {
+            RateDoBD(e.Value);
+        }
+        
+        
     }
 }
 
