@@ -58,7 +58,7 @@ namespace Common.Controls7
         {
             foreach (var b in ratesGrid.Children)
             {
-                ((Button)b).Background = new SolidColorBrush(Colors.White);
+                ((Button)b).Background = new SolidColorBrush(Colors.Orange);
             }
             if (_rateValue > 0)
             {
@@ -72,7 +72,7 @@ namespace Common.Controls7
             {
                 foreach (var b in ratesGrid.Children)
                 {
-                    ((Button)b).Background = new SolidColorBrush(Colors.White);
+                    ((Button)b).Background = new SolidColorBrush(Colors.Orange);
                 }
             }
 

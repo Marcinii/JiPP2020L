@@ -24,7 +24,7 @@
         <SolidColorBrush x:Key="Button.Pressed.Border" Color="#FF2C628B"/>
         <SolidColorBrush x:Key="Button.Disabled.Background" Color="#FFF4F4F4"/>
         <SolidColorBrush x:Key="Button.Disabled.Border" Color="#FF4399CD"/>
-        <SolidColorBrush x:Key="Button.Disabled.Foreground" Color="White"/>
+        <SolidColorBrush x:Key="Button.Disabled.Foreground" Color="Orange"/>
         <Style x:Key="StarButtonStyle" TargetType="{x:Type Button}">
             <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}"/>
             <Setter Property="Background" Value="{StaticResource Button.Static.Background}"/>
@@ -37,7 +37,7 @@
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="{x:Type Button}">
-                        <Path x:Name="ellipse" Data="M 98,10 L 75,78 L 5,78 L 62,123 L 40,191 L 98,149 L 158,191 L 135,123 L 194,78 L 122,78 L 98,10" Fill="{TemplateBinding Background}" Stroke="Red" Stretch="Fill"/>
+                        <Path x:Name="ellipse" Data="M 0,0 L 10,10 L 10,30 L 0,40 L 40,40 L 30,30 L 30,10 L 40,0 L 0,0" Fill="{TemplateBinding Background}" Stroke="Red" Stretch="Fill"/>
                         <ControlTemplate.Triggers>
                             <Trigger Property="IsMouseOver" Value="true">
                                 <Setter Property="Fill" TargetName="ellipse" Value="Green"/>
@@ -57,8 +57,8 @@
             <ColumnDefinition/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <Button Grid.Column="0" Margin="5,0,0,0" Background="White" Style="{DynamicResource StarButtonStyle}" Click="Button_Click"/>
-        <Button Grid.Column="1" Margin="5,0,0,0" Background="White" Style="{DynamicResource StarButtonStyle}" Click="Button_Click"/>
-        <Button Grid.Column="2" Margin="5,0,0,0" Background="White" Style="{DynamicResource StarButtonStyle}" Click="Button_Click"/>
+        <Button Grid.Column="0" Margin="5,0,0,0" Background="#FFE4BB70" Style="{DynamicResource StarButtonStyle}" Click="Button_Click"/>
+        <Button Grid.Column="1" Margin="5,0,0,0" Background="#FFE2AE4F" Style="{DynamicResource StarButtonStyle}" Click="Button_Click"/>
+        <Button Grid.Column="2" Margin="5,0,0,0" Background="#FFCB8911" Style="{DynamicResource StarButtonStyle}" Click="Button_Click"/>
     </Grid>
 </UserControl>
