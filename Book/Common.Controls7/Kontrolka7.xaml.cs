@@ -35,7 +35,7 @@ namespace Common.Controls7
             get { return _rateValue; }
             set
             {
-                if (value < 1 && value > 6)
+                if (value < 1 && value > 3)
                 {
                     MessageBox.Show("Nieprawidłowa wartość");
                 }
