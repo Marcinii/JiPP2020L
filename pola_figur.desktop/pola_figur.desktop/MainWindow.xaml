@@ -1,0 +1,90 @@
+﻿<Window x:Class="pola_figur.desktop.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:pola_figur.desktop"
+        xmlns:cc="clr-namespace:SugestieCustomControl;assembly=SugestieCustomControl"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="400" Width="1100">
+    <Window.Resources>
+        <Storyboard x:Key="KoloKolory" RepeatBehavior="Forever">
+            <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)" Storyboard.TargetName="KoloKolorowe">
+                <EasingColorKeyFrame KeyTime="0:10:0" Value="#FFFF0051"/>
+            </ColorAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Key="KwadratKrecacy" RepeatBehavior="Forever">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[2].(RotateTransform.Angle)" Storyboard.TargetName="KwadratNiebieski">
+                <EasingDoubleKeyFrame KeyTime="0:01:0" Value="360"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+    </Window.Resources>
+    <Window.Triggers>
+        <EventTrigger RoutedEvent="FrameworkElement.Loaded">
+            <BeginStoryboard Storyboard="{StaticResource KwadratKrecacy}"/>
+        </EventTrigger>
+    </Window.Triggers>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"></ColumnDefinition>
+            <ColumnDefinition Width="1*"></ColumnDefinition>
+            <ColumnDefinition Width="1.5*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <StackPanel Grid.Column="0">
+            <Label Content="Wybierz figurę" HorizontalContentAlignment="Center" Margin="10,5,10,5" Height="25"/>
+            <ComboBox x:Name="wybor_figura_ComboBox" Margin="10,5,10,5" Height="25" SelectionChanged="wybor_figura_ComboBox_SelectionChanged">
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding Name}"/>
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
+            <Label Content="Wybierz co chcesz obliczyć" HorizontalContentAlignment="Center" Margin="10,5,10,5" Height="25"/>
+            <ComboBox x:Name="wybor_obliczen_ComboBox" Margin="10,5,10,5" Height="25"/>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*" />
+                    <ColumnDefinition Width="1*" />
+                </Grid.ColumnDefinitions>
+                <Label x:Name="opis_Wartosci" Content="" HorizontalContentAlignment="Right" Margin="10,5,10,5" Height="25"/>
+                <TextBox x:Name="wartosc_TextBox" Grid.Column="1" Margin="10,5,10,5" Height="25"/>
+            </Grid>
+            <Button x:Name="Oblicz_Button" Content="Oblicz" Margin="10,5,10,5" Height="25"/>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*" />                                        
+                    <ColumnDefinition Width="2*"/>
+                </Grid.ColumnDefinitions>
+                <Label Grid.Column="0" Content="Wynik >" HorizontalContentAlignment="Right" Margin="10,5,10,5" Height="25"/>
+                <TextBlock Grid.Column="1" TextAlignment="Left" x:Name="wynik_TextBlock" Margin="10,5,10,5" Height="25"/>
+            </Grid>
+            <cc:UserControl1 x:Name="Weryfikacja" Margin="10,5,10,5" Height="110" Wartosc_Weryfikacji_Changed="Weryfikacja_Changed"/>
+        </StackPanel>
+        <Rectangle x:Name="KwadratNiebieski" Grid.Column="1" Width="180" Height="180"  Fill="Blue" Visibility="Hidden" RenderTransformOrigin="0.5,0.5">
+            <Rectangle.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Rectangle.RenderTransform>
+        </Rectangle>
+        <Ellipse x:Name="KoloKolorowe" Grid.Column="1" Width="180" Height="180" Fill="Blue" Visibility="Hidden"/>
+        <StackPanel Grid.Column="2">
+            <Button Content="Pokaż historie" x:Name="PokazHistorie_Button" Margin="10,5,10,5" Height="25" Click="PokazHistorie_Button_Click"/>
+            <DataGrid x:Name="History_DataGrid" Margin="10,5,10,5" Height="275"/>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                </Grid.ColumnDefinitions>
+                <Button Content="Poprzednia" x:Name="Poprzednia_Button" Margin="10,5,10,5" Height="25"/>
+                <Label Grid.Column="1" Content="1" HorizontalAlignment="Center" x:Name="Strona" Margin="10,5,10,5" Height="25"/>
+                <Button Grid.Column="2" Content="Następna" x:Name="Nastepna_Button" Margin="10,5,10,5" Height="25"/>
+            </Grid>
+        </StackPanel>
+
+    </Grid>
+</Window>
