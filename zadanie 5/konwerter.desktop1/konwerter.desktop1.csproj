@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{6DB9F07E-B3A3-4843-897D-15ACA615D63A}</ProjectGuid>
+    <ProjectGuid>{369956C1-2F8D-4D1F-9373-AE2C344A9637}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>desktop</RootNamespace>
-    <AssemblyName>b</AssemblyName>
+    <RootNamespace>konwerter.desktop1</RootNamespace>
+    <AssemblyName>konwerter.desktop1</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -95,10 +95,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Common.Controlss\Common.Controlss.csproj">
-      <Project>{e549ae42-39e5-4f19-a405-cf5be3019403}</Project>
-      <Name>Common.Controlss</Name>
-    </ProjectReference>
     <ProjectReference Include="..\UnitConvert.Logic\Konwerter.Logika.csproj">
       <Project>{2edeb3ef-004a-4dd2-a785-1a40466ac2a9}</Project>
       <Name>Konwerter.Logika</Name>

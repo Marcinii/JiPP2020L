@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{6DB9F07E-B3A3-4843-897D-15ACA615D63A}</ProjectGuid>
+    <ProjectGuid>{1F5BE463-59D6-4C4E-A7F5-37B3589E3A3E}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>desktop</RootNamespace>
-    <AssemblyName>b</AssemblyName>
+    <RootNamespace>UnitConvert.Desktop</RootNamespace>
+    <AssemblyName>UnitConvert.Desktop</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -95,13 +95,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Common.Controlss\Common.Controlss.csproj">
-      <Project>{e549ae42-39e5-4f19-a405-cf5be3019403}</Project>
-      <Name>Common.Controlss</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\UnitConvert.Logic\Konwerter.Logika.csproj">
+    <ProjectReference Include="..\UnitConvert.Logic\UnitConvert.Logic.csproj">
       <Project>{2edeb3ef-004a-4dd2-a785-1a40466ac2a9}</Project>
-      <Name>Konwerter.Logika</Name>
+      <Name>UnitConvert.Logic</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
