@@ -14,11 +14,11 @@ namespace Book.Desktop
         public string Imie { get; set; }
         public string Nr_telefonu { get; set; }
         public string Email { get; set; }
-        public string Inne_1 { get; set; }
-        public string Inne_1_Dane { get; set; }
-        public string Inne_2 { get; set; }
-        public string Inne_2_Dane { get; set; }
-        public string Inne_3 { get; set; }
-        public string Inne_3_Dane { get; set; }
+        public string _1 { get; set; }
+        public string _1_ { get; set; }
+        public string _2 { get; set; }
+        public string _2_ { get; set; }
+        public string _3 { get; set; }
+        public string _3_ { get; set; }
     }
 }

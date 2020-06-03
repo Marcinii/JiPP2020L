@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Book.Logic", "Book.Logic\Bo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Book.Desktop", "Book.Desktop\Book.Desktop.csproj", "{847F449C-D2BF-4924-9329-E13457B3A168}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common.Controls7", "Common.Controls7\Common.Controls7.csproj", "{AA3398DE-C5F6-4790-91E3-1352D62CCF54}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{847F449C-D2BF-4924-9329-E13457B3A168}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{847F449C-D2BF-4924-9329-E13457B3A168}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{847F449C-D2BF-4924-9329-E13457B3A168}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AA3398DE-C5F6-4790-91E3-1352D62CCF54}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AA3398DE-C5F6-4790-91E3-1352D62CCF54}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AA3398DE-C5F6-4790-91E3-1352D62CCF54}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AA3398DE-C5F6-4790-91E3-1352D62CCF54}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

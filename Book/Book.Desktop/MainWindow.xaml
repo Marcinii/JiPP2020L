@@ -4,12 +4,43 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Book.Desktop"
+        xmlns:customControls="clr-namespace:Common.Controls7;assembly=Common.Controls7"
         mc:Ignorable="d"
-        Title="Phone Book by Luka Laso" Height="450" Width="800" FontFamily="Verdana" WindowStyle="ThreeDBorderWindow" BorderThickness="1" SnapsToDevicePixels="True">
+        Title="Phone Book by Luka Laso" Height="450" Width="1000" FontFamily="Verdana" WindowStyle="ThreeDBorderWindow" BorderThickness="1" SnapsToDevicePixels="True">
+    <Window.Resources>
+        <Storyboard x:Key="StoryboardProgres">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(Panel.Background).(GradientBrush.GradientStops)[1].(GradientStop.Offset)" Storyboard.TargetName="progressBar">
+                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="0.15"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="0.25"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:1.5" Value="0.461"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:2" Value="0.589"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:2.5" Value="0.718"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:3" Value="0.861"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:3.5" Value="0.943"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:4" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(Panel.Background).(GradientBrush.GradientStops)[0].(GradientStop.Offset)" Storyboard.TargetName="progressBar">
+                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="0.014"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="0.104"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:1.5" Value="0.211"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:2" Value="0.386"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:2.5" Value="0.5"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:3" Value="0.65"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:3.5" Value="0.761"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:4" Value="0.925"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+    </Window.Resources>
+    <Window.Triggers>
+        <EventTrigger RoutedEvent="FrameworkElement.Loaded">
+            <BeginStoryboard Storyboard="{StaticResource StoryboardProgres}"/>
+        </EventTrigger>
+    </Window.Triggers>
+
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="1*"/>
-            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="377*"/>
+            <ColumnDefinition Width="613*"/>
         </Grid.ColumnDefinitions>
         <StackPanel>
             <Label Content="Wprowadź rekord do bazy" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="309" Height="33" FontSize="18" FontWeight="Bold"/>
@@ -23,6 +54,7 @@
             </ComboBox>
             <Label x:Name="NazwiskoLabel" Content="Nazwisko" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="116" FontFamily="Calibri" Height="23"/>
             <TextBox x:Name="NazwiskoTextBox" HorizontalAlignment="Left" Height="23" Margin="131,-23,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="233"/>
+
             <Label Content="Imię" HorizontalAlignment="Left" Margin="10,5,0,0" VerticalAlignment="Top" Width="116" FontFamily="Calibri" Height="23"/>
             <TextBox x:Name="ImieTextBox" HorizontalAlignment="Left" Height="23" Margin="131,-23,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="233"/>
             <Label Content="Nr telefonu" HorizontalAlignment="Left" Margin="10,5,0,0" VerticalAlignment="Top" Width="116" FontFamily="Calibri" Height="23"/>
@@ -35,22 +67,54 @@
             <TextBox x:Name="Choose2TextBox" HorizontalAlignment="Left" Height="23" Margin="131,-23,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="233"/>
             <ComboBox x:Name="Choose3ComboBox" HorizontalAlignment="Left" Margin="6,5,0,0" VerticalAlignment="Top" Width="120" Height="23"/>
             <TextBox x:Name="Choose3TextBox" HorizontalAlignment="Left" Height="23" Margin="131,-23,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="233"/>
-            <Button x:Name="SaveButton" Content="Zapisz do książki" HorizontalAlignment="Left" Margin="6,20,0,0" VerticalAlignment="Top" Width="358" Click="SaveButton_Click"/>
+            <Button x:Name="SaveButton" Content="Zapisz do książki" HorizontalAlignment="Left" Margin="6,20,0,0" VerticalAlignment="Top" Width="358" />
         </StackPanel>
 
-
-
-
-
-
-
-
-        <Label Content="Pobierz rekord z bazy" Grid.Column="1" HorizontalAlignment="Left" Margin="24,10,0,0" VerticalAlignment="Top" Width="344" FontSize="18" FontWeight="Bold"/>
-        <Label x:Name="DNazwiskoLabel" Content="Wprowadź nazwisko" Grid.Column="1" HorizontalAlignment="Left" Margin="24,70,0,0" VerticalAlignment="Top" Width="149"/>
+        <Label Content="Pobierz rekord z bazy" Grid.Column="1" HorizontalAlignment="Left" Margin="24,10,0,0" VerticalAlignment="Top" Width="344" FontSize="18" FontWeight="Bold" Height="32"/>
+        <Label x:Name="DNazwiskoLabel" Content="Wprowadź nazwisko" Grid.Column="1" HorizontalAlignment="Left" Margin="24,70,0,0" VerticalAlignment="Top" Width="149" Height="25"/>
         <TextBox x:Name="GiveNazwiskoTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="178,70,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="207"/>
-        <Button x:Name="DownloadButton" Content="Pobierz dane z bazy" Grid.Column="1" HorizontalAlignment="Left" Margin="24,102,0,0" VerticalAlignment="Top" Width="361" Click="DownloadButton_Click"/>
-        <DataGrid x:Name="Wynik" Grid.Column="1" HorizontalAlignment="Left" Height="66" Margin="10,153,0,0" VerticalAlignment="Top" Width="375"/>
+        <Button x:Name="DownloadButton" Content="Pobierz dane z bazy" Grid.Column="1" HorizontalAlignment="Left" Margin="178,102,0,0" VerticalAlignment="Top" Width="207" Height="19"/>
+        <DataGrid x:Name="Wynik" Grid.Column="1" HorizontalAlignment="Left" Height="131" Margin="10,153,0,0" VerticalAlignment="Top" Width="593" CanUserReorderColumns="False" CanUserResizeColumns="False" CanUserSortColumns="False" MouseDoubleClick="Wynik_MouseDoubleClick" />
 
+        <TextBlock Grid.Column="1" HorizontalAlignment="Left" Margin="10,266,0,0" TextWrapping="Wrap" Text="Imię" VerticalAlignment="Top" Width="120" Height="18" Visibility="Hidden"/>
+        <TextBox x:Name="ImieTextBoxWynik" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="10,289,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Visibility="Hidden"/>
+        <TextBox x:Name="NazwiskoTextBoxWynik" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="135,289,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="152" Visibility="Hidden"/>
+        <TextBox x:Name="TelefonTextBoxWynik" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="292,289,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Visibility="Hidden"/>
+        <TextBox x:Name="EmailTextBoxWynik" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="417,289,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="186" Visibility="Hidden"/>
+        <TextBlock Grid.Column="1" HorizontalAlignment="Left" Margin="135,266,0,0" TextWrapping="Wrap" Text="Nazwisko" VerticalAlignment="Top" Width="120" Height="18" Visibility="Hidden"/>
+        <TextBlock Grid.Column="1" HorizontalAlignment="Left" Margin="292,266,0,0" TextWrapping="Wrap" Text="Telefon" VerticalAlignment="Top" Width="120" Height="18" Visibility="Hidden"/>
+        <TextBlock Grid.Column="1" HorizontalAlignment="Left" Margin="417,266,0,0" TextWrapping="Wrap" Text="E-mail" VerticalAlignment="Top" Width="120" Height="18" RenderTransformOrigin="0.55,1" Visibility="Hidden"/>
+        <TextBox x:Name="Choose1TextBoxNameWynik" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="10,317,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120" Visibility="Hidden"/>
+        <TextBox x:Name="Choose2TextBoxNameWynik" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="10,345,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Visibility="Hidden"/>
+        <TextBox x:Name="Choose3TextBoxNameWynik" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="10,373,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Visibility="Hidden"/>
+        <TextBox x:Name="Choose1TextBoxWynik" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="135,317,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="245" Visibility="Hidden"/>
+        <TextBox x:Name="Choose2TextBoxWynik" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="135,345,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="245" Visibility="Hidden"/>
+        <TextBox x:Name="Choose3TextBoxWynik" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="135,373,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="245" Visibility="Hidden"/>
+        <TextBlock Grid.Column="1" HorizontalAlignment="Left" Margin="10,242,0,0" TextWrapping="Wrap" Text="Ten kontakt pochodzi z książki : " VerticalAlignment="Top" Width="204" Height="19" Visibility="Hidden"/>
+        <TextBox x:Name="TypTextBoxWynik" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="214,238,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="171" Visibility="Hidden"/>
+        <Button x:Name="ClearDataButton" Content="Wyczyść dane" HorizontalAlignment="Left" Margin="10,293,0,0" VerticalAlignment="Top" Width="143" Height="19" RenderTransformOrigin="-9.373,6.053" Grid.Column="1" Click="ClearDataButton_Click"/>
+        <Rectangle x:Name="Overlay" Grid.ColumnSpan="2" Fill="#7F808080" Visibility="Hidden" />
 
+        <Grid x:Name="WaitPoint" Grid.ColumnSpan="2" Background="#FFE8E26A" HorizontalAlignment="Center" Height="206" Margin="295,106,295,105" VerticalAlignment="Center" Width="400" Visibility="Hidden">
+            <Label x:Name="KomunikatLabel" Content="Szukam danych.&#xA; Proszę czekać." Margin="0,-80,0,0" VerticalAlignment="Center" HorizontalAlignment="Center" Width="163" FontSize="16" FontWeight="Bold" FontStyle="Italic" Height="62" />
+            <Button x:Name="AnulujButton" Grid.ColumnSpan="8" Grid.RowSpan="3" Content="Przerwij" HorizontalAlignment="Center" Margin="0,150,0,0" VerticalAlignment="Center" Width="75" Click="AnulujButton_Click" />
+            <ProgressBar x:Name="progressBar" HorizontalAlignment="Center" Height="14" Margin="0,100,0,0" VerticalAlignment="Top" Width="250">
+                <ProgressBar.Background>
+                    <LinearGradientBrush EndPoint="1.068,0.536" StartPoint="-0.052,0.536">
+                        <GradientStop Color="Black" Offset="0"/>
+                        <GradientStop Color="White" Offset="0.082"/>
+                    </LinearGradientBrush>
+                </ProgressBar.Background>
+            </ProgressBar>
+        </Grid>
+        <Button x:Name="ClearButton" Content="Wyczyść formularze " HorizontalAlignment="Left" Margin="115,326,0,0" VerticalAlignment="Top" Width="143" Click="ClearButton_Click" Height="19" RenderTransformOrigin="-9.373,6.053"/>
+        <Grid HorizontalAlignment="Left" Height="35" Margin="10,361,0,0" VerticalAlignment="Top" Width="357">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="3*"/>
+            </Grid.ColumnDefinitions>
+            <Label Content="Oceń aplikację" HorizontalAlignment="Left" Margin="5,5,0,0" VerticalAlignment="Top" Width="128" FontWeight="Bold"/>
+            <customControls:Kontrolka7 Grid.Column="1" Margin="5"/>
+        </Grid>
     </Grid>
 </Window>
