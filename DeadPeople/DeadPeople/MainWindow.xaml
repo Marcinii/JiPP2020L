@@ -1,0 +1,47 @@
+﻿<Window x:Class="DeadPeople.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DeadPeople"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Window.Resources>
+        <Storyboard x:Key="Storyboard1">
+            <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)" Storyboard.TargetName="rectangle">
+                <EasingColorKeyFrame KeyTime="0:0:1" Value="#FF6868B4"/>
+                <EasingColorKeyFrame KeyTime="0:0:2" Value="#FF8F8FE6"/>
+            </ColorAnimationUsingKeyFrames>
+        </Storyboard>
+    </Window.Resources>
+    <Window.Triggers>
+        <EventTrigger RoutedEvent="FrameworkElement.Loaded">
+            <BeginStoryboard Storyboard="{StaticResource Storyboard1}"/>
+        </EventTrigger>
+    </Window.Triggers>
+    <Grid>
+        <Grid HorizontalAlignment="Left" Height="399" Margin="10,10,0,0" VerticalAlignment="Top" Width="383">
+            <Label Content="Imie:" HorizontalAlignment="Left" Height="25" VerticalAlignment="Top" Width="39"/>
+            <TextBox x:Name="txtName" HorizontalAlignment="Left" Height="25" Margin="44,0,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="145" FontSize="13"/>
+            <Label Content="Wiek" HorizontalAlignment="Left" Height="25" VerticalAlignment="Top" Width="39" Margin="0,30,0,0"/>
+            <TextBox x:Name="txtAge" HorizontalAlignment="Left" Height="25" Margin="44,30,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="145" FontSize="13"/>
+            <Button x:Name="btnAdd" Content="Dodaj" HorizontalAlignment="Left" Height="37" Margin="44,163,0,0" VerticalAlignment="Top" Width="145" Click="btnAdd_Click"/>
+            <TextBox x:Name="txtLeft" HorizontalAlignment="Left" Height="25" Margin="44,90,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="145" FontSize="13"/>
+            <TextBox x:Name="txtTraning" HorizontalAlignment="Left" Height="25" Margin="44,120,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="145" FontSize="13"/>
+            <Label Content="Jak czesto trenujesz od 1 do 5" HorizontalAlignment="Left" Height="25" VerticalAlignment="Top" Width="179" Margin="194,120,0,0"/>
+            <Label Content="Jesteś leworeczny? 1-tak, 0-nie" HorizontalAlignment="Left" Height="25" VerticalAlignment="Top" Width="179" Margin="194,90,0,0"/>
+            <Rectangle x:Name="rectangle" HorizontalAlignment="Left" Height="49.815" Margin="324.845,163,0,0" Stroke="#FF939090" VerticalAlignment="Top" Width="48.155" Fill="#FF8787E6"/>
+        </Grid>
+        <Grid HorizontalAlignment="Left" Height="399" Margin="398,10,0,0" VerticalAlignment="Top" Width="384">
+            <StackPanel>
+                <local:SkullControl >
+
+                </local:SkullControl >
+
+            </StackPanel>
+            <DataGrid x:Name="gridDead" HorizontalAlignment="Left" Height="150" Margin="10,239,0,0" VerticalAlignment="Top" Width="364"/>
+            <Button x:Name="btnLoadGrid" Content="Wczytaj Liste" HorizontalAlignment="Left" Height="32" Margin="235,202,0,0" VerticalAlignment="Top" Width="139" Click="btnLoadGrid_Click"/>
+        </Grid>
+
+    </Grid>
+</Window>
