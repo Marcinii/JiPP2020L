@@ -13,5 +13,6 @@ namespace Sklep.Desktop
     /// </summary>
     public partial class App : Application
     {
-    }
+        
+}
 }

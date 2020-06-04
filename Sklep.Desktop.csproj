@@ -55,6 +55,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="RelayCommand.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -86,13 +87,21 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="App.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <ProjectReference Include="..\Sklep.Kontrolki\Sklep.Kontrolki.csproj">
+      <Project>{af46ea73-32e5-4d1c-9c03-554f021b2a43}</Project>
+      <Name>Sklep.Kontrolki</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Sklep.Logika\Sklep.Logika.csproj">
+      <Project>{537b115e-0408-4981-9663-3fbb8d5a7fee}</Project>
+      <Name>Sklep.Logika</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

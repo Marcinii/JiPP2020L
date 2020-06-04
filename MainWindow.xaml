@@ -4,10 +4,323 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Sklep.Desktop"
+        xmlns:wlasneKontrolki="clr-namespace:Sklep.Kontrolki;assembly=Sklep.Kontrolki"
         mc:Ignorable="d"
-        Title="MainWindow" Height="600" Width="800">
-    <Grid>
-        <Label x:Name="labelWstep" Content="Hello świat" HorizontalAlignment="Left" Margin="158,134,0,0" VerticalAlignment="Top"/>
+        Title="MainWindow" Height="600" Width="1062.5"
+>
+    <Window.Resources>
+        <Storyboard x:Key="storyboardStrzalka" RepeatBehavior="Forever">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="pathStrzalka">
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="-148.502"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:2" Value="-234.002"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="pathStrzalka">
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="10.317"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:2" Value="37.817"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Key="storyboardAnimacja" RepeatBehavior="Forever">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="ellipseAnimacja">
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="116"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:1.5" Value="156"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:2" Value="198"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:2.6" Value="223"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:3" Value="242"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:3.6" Value="297"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:4" Value="333"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:4.6" Value="378"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:5" Value="421"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="ellipseAnimacja">
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="113"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:1.5" Value="64"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:2" Value="111"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:2.6" Value="87"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:3" Value="112"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:3.6" Value="104"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:4" Value="114"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:4.6" Value="70"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:5" Value="192"/>
+            </DoubleAnimationUsingKeyFrames>
+            <PointAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransformOrigin)" Storyboard.TargetName="ellipseAnimacja">
+                <EasingPointKeyFrame KeyTime="0:0:1" Value="-0.351,-1.241"/>
+            </PointAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Key="storyboardLadowanieKulki" RepeatBehavior="Forever">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[2].(RotateTransform.Angle)" Storyboard.TargetName="ellipseLadowanie1">
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="360"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[2].(RotateTransform.Angle)" Storyboard.TargetName="ellipseLadowanie2">
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="360"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[2].(RotateTransform.Angle)" Storyboard.TargetName="ellipseLadowanie3">
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="360"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[2].(RotateTransform.Angle)" Storyboard.TargetName="ellipseLadowanie4">
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="360"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[2].(RotateTransform.Angle)" Storyboard.TargetName="ellipseLadowanie5">
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="360"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[2].(RotateTransform.Angle)" Storyboard.TargetName="ellipseLadowanie6">
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="360"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[2].(RotateTransform.Angle)" Storyboard.TargetName="ellipseLadowanie7">
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="360"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[2].(RotateTransform.Angle)" Storyboard.TargetName="ellipseLadowanie8">
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="360"/>
+            </DoubleAnimationUsingKeyFrames>
 
+        </Storyboard>
+    </Window.Resources>
+    <Window.Triggers>
+        <EventTrigger RoutedEvent="FrameworkElement.Loaded">
+            <BeginStoryboard Storyboard="{StaticResource storyboardStrzalka}"/>
+            <BeginStoryboard Storyboard="{StaticResource storyboardAnimacja}"/>
+            <BeginStoryboard Storyboard="{StaticResource storyboardLadowanieKulki}"/>
+        </EventTrigger>
+    </Window.Triggers>
+
+    <Grid x:Name="gridTloGlowne">
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="#FF293250" Offset="0"/>
+                <GradientStop Color="#FF6DD47E" Offset="1"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+        <StackPanel Grid.Row="0">
+
+
+        </StackPanel>
+        <StackPanel Grid.Column="0" Grid.Row="0" >
+            <Label x:Name="labelTytul1" Height="50">
+                <Label.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <LinearGradientBrush.RelativeTransform>
+                            <TransformGroup>
+                                <ScaleTransform CenterY="0.5" CenterX="0.5"/>
+                                <SkewTransform CenterY="0.5" CenterX="0.5"/>
+                                <RotateTransform Angle="90" CenterY="0.5" CenterX="0.5"/>
+                                <TranslateTransform/>
+                            </TransformGroup>
+                        </LinearGradientBrush.RelativeTransform>
+                        <GradientStop Color="#FF6DD47E" Offset="0"/>
+                        <GradientStop Color="#FF293250" Offset="1"/>
+                    </LinearGradientBrush>
+                </Label.Background>
+            </Label>
+            <Label x:Name="labelSztuczneTlo1" Height="35" FontWeight="Bold" FontSize="14" />
+            <Label x:Name="labelTytulOblicz1" Height="35" Background="{x:Null}" Content="Oblicz zarobioną kwotę netto" Foreground="White" FontSize="13" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Center" FontWeight="Bold" VerticalAlignment="Center" Margin="4,0">
+                <Label.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="342.897"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Label.RenderTransform>
+            </Label>
+        </StackPanel>
+        <StackPanel Grid.Column="1" Grid.Row="0" >
+            <Label x:Name="labelTytul2" Content="Sklep zoologiczny" Height="50" Background="#FF6DD47E" FontWeight="Bold" FontSize="22" Foreground="#FF293250"/>
+            <TextBox x:Name="textboxNetto" HorizontalAlignment="Left" Height="35" TextWrapping="Wrap" VerticalAlignment="Top" Width="211" TextAlignment="Center" FontWeight="Bold" FontSize="20"/>
+            <Button x:Name="buttonKonwerujVAT" Content="Oblicz Netto"  Height="35" Background="#FF6DD47E" Foreground="#FF293250" FontWeight="Bold"/>
+            <TextBlock x:Name="textblockWynikBrutto" TextWrapping="Wrap" Height="35" Background="White" FontWeight="Bold" TextAlignment="Center" FontSize="20"/>
+
+        </StackPanel>
+        <StackPanel Grid.Column="2" Grid.Row="0">
+            <Label x:Name="labelTytul3" Height="50">
+                <Label.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+                        <LinearGradientBrush.RelativeTransform>
+                            <TransformGroup>
+                                <ScaleTransform CenterY="0.5" CenterX="0.5"/>
+                                <SkewTransform CenterY="0.5" CenterX="0.5"/>
+                                <RotateTransform Angle="270" CenterY="0.5" CenterX="0.5"/>
+                                <TranslateTransform/>
+                            </TransformGroup>
+                        </LinearGradientBrush.RelativeTransform>
+                        <GradientStop Color="#FF6DD47E"/>
+                        <GradientStop Color="#FF293250" Offset="1"/>
+                    </LinearGradientBrush>
+                </Label.Background>
+            </Label>
+            <Label x:Name="labelInstrukcjaWpisz" Content="&lt;-Najpierw wpisz wartość!" Height="35" Background="{x:Null}" FontWeight="Bold" FontSize="14" Foreground="White" />
+            <Label x:Name="labelInstrukcjaKliknij" Content="&lt;-Następnie kliknij przycisk!" Height="35" Background="{x:Null}" FontWeight="Bold" FontSize="14" Foreground="White"/>
+            <Label x:Name="labelInstrukcjaOdczytaj" Height="35" Background="{x:Null}" FontWeight="Bold" FontSize="14" Foreground="White" Content="&lt;-Odczytaj kwotę netto!"/>
+        </StackPanel>
+        <StackPanel Grid.Column="3" Grid.Row="0" Grid.ColumnSpan="2" Margin="0,0,0,-0.333" Grid.RowSpan="3">
+            <Label x:Name="labelTytul4" Content="Statystyka" Height="50" FontWeight="Bold" FontSize="22" Foreground="#FF6DD47E">
+                <Label.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <LinearGradientBrush.RelativeTransform>
+                            <TransformGroup>
+                                <ScaleTransform CenterY="0.5" CenterX="0.5"/>
+                                <SkewTransform CenterY="0.5" CenterX="0.5"/>
+                                <RotateTransform Angle="90" CenterY="0.5" CenterX="0.5"/>
+                                <TranslateTransform/>
+                            </TransformGroup>
+                        </LinearGradientBrush.RelativeTransform>
+                        <GradientStop Color="#FF6DD47E" Offset="0"/>
+                        <GradientStop Color="#FF293250" Offset="1"/>
+                    </LinearGradientBrush>
+                </Label.Background>
+            </Label>
+            <DataGrid x:Name="datagridStatystyka" Height="519"/>
+        </StackPanel>
+        <StackPanel Grid.Column="1" Grid.Row="1">
+            <Label x:Name="labelSztuczneTlo2"  HorizontalContentAlignment="Right" Height="45" FontSize="22" FontWeight="Bold"/>
+            <Label x:Name="labelOpcjeStat1" Content="1) Po dacie"  HorizontalContentAlignment="Right" Height="45" FontSize="18" FontWeight="Bold" BorderThickness="0,5,0,0" Foreground="White"/>
+            <Label x:Name="labelOpcjeStat2" Content="2) Najwiekszy zarobek "  HorizontalContentAlignment="Right" Height="45" FontSize="18" FontWeight="Bold" VerticalAlignment="Center" Margin="0" BorderThickness="0,5,0,0" Foreground="White"/>
+            <Label x:Name="labelOpcjeStat3" Content="3) Wyswietl wszystko"  HorizontalContentAlignment="Right" Height="45" FontSize="18" FontWeight="Bold" VerticalAlignment="Center" Margin="0" BorderThickness="0,5,0,0" Foreground="White"/>
+
+        </StackPanel>
+
+        <StackPanel Grid.Column="2" Grid.Row="1">
+            <Label x:Name="labelOpcjeStatystyk" Content="Opcje statystyk"  HorizontalContentAlignment="Right" Height="45" FontSize="22" FontWeight="Bold" Foreground="White"/>
+            <StackPanel Orientation="Horizontal">
+                <DatePicker x:Name="datepickerStatystykaOd"  HorizontalAlignment="Left"  VerticalAlignment="Top" Width="80"  Height="45" BorderThickness="1,12,1,1"/>
+                <Label x:Name="labelStatystykaWyborDaty" Content=":" FontSize="18" Padding="0" FontWeight="Bold" Height="45" BorderThickness="0,12,0,0"/>
+                <DatePicker x:Name="datepickerStatystykaDo"  HorizontalAlignment="Right"  VerticalAlignment="Top" Width="80"  Height="45" BorderThickness="1,12,1,1"/>
+                <Button x:Name="buttonStatystykaData" Content="Pokaz!" Height="45" FontWeight="Bold" FontSize="11" Background="#FF6DD47E" Width="45"/>
+
+            </StackPanel>
+            <Button x:Name="buttonStatystykaTopNajwiekszyZarobek" Content="Pokaż Top 10 największych zarobków" Height="45" FontWeight="Bold" FontSize="11" Background="#FF6DD47E" Click="buttonStatystykaTopNajwiekszyZarobek_Click"/>
+            <Button x:Name="buttonStatystykaPokazWszystkoWplaty" Content="Pokaż wszystkie wplaty" Height="22.5" FontWeight="Bold" FontSize="11" Background="#FF6DD47E" Click="buttonStatystykaPokazWszystkoWplaty_Click"/>
+            <Button x:Name="buttonStatystykaPokazWszystkoZapotrzebowanie" Content="Pokaż potrzeby klientow" Height="22.5" FontWeight="Bold" FontSize="11" Background="#FF6DD47E" Click="buttonStatystykaPokazWszystkoZapotrzebowanie_Click"/>
+        </StackPanel>
+        <StackPanel Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="2">
+            <wlasneKontrolki:PrzydatnoscSklepu/>
+
+        </StackPanel>
+        <Path x:Name="pathStrzalka" Stretch="Fill" Fill="LimeGreen" 
+          Data="M 0,110 70,110 45,90 75,90 120,120 75,150 45,150 70,130 0,130 Z"
+          HorizontalAlignment="Right"  Width="29.379" Height="24" Margin="0,84.374,103.588,81.625"
+          RenderTransformOrigin="1.067,0.487" Grid.Column="1">
+            <Path.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="341.747"/>
+                    <TranslateTransform X="-222.002" Y="37.317"/>
+                </TransformGroup>
+            </Path.RenderTransform>
+        </Path>
+        <Ellipse x:Name="ellipseAnimacja" Height="37" Margin="-149.233,41.667,323.133,0" VerticalAlignment="Top" Fill="#FF1F1F1F" Panel.ZIndex="1" RenderTransformOrigin="-0.645,-0.641" Visibility="Hidden" Grid.Row="2">
+            <Ellipse.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Ellipse.RenderTransform>
+        </Ellipse>
+        <Rectangle x:Name="rectangleLadowanie" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="570" Grid.RowSpan="3" VerticalAlignment="Top" Width="422.3" Fill="#99575353" Visibility="Hidden" Margin="0,0,-0.5,-1" Grid.Column="3"/>
+        <Label x:Name="labelTrwaLadowanie" Content="Trwa ładowanie..." Grid.Column="3" HorizontalAlignment="Left" Height="30.492" Margin="171.64,85.725,0,0" Grid.Row="1" VerticalAlignment="Top" Width="142.26" Background="{x:Null}" 
+               Foreground="Black" FontSize="16" FontWeight="Bold" FontStyle="Italic" Grid.ColumnSpan="2" Visibility="Hidden"/>
+        <Button x:Name="buttonAnulujWczytywanie" Content="X" Grid.Column="4" HorizontalAlignment="Left" Height="37" Margin="161.233,60.968,0,0" VerticalAlignment="Top" Width="39.667" 
+                Background="#FF00A400" FontSize="24" FontWeight="Bold" Visibility="Hidden" Click="buttonAnulujWczytywanie_Click_1"/>
+        <Ellipse x:Name="ellipseLadowanie1" HorizontalAlignment="Left" Height="14.37" Margin="131.67,114.596,0,0" Stroke="Black" VerticalAlignment="Top" Width="14.37" Grid.Row="1" Fill="#FF000200" RenderTransformOrigin="0.497,-1.143"
+                 Visibility="Hidden" Grid.Column="3">
+            <Ellipse.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Ellipse.RenderTransform>
+        </Ellipse>
+        <Ellipse x:Name="ellipseLadowanie2" Grid.Column="3" HorizontalAlignment="Left" Height="14.371" Margin="148.1,107.766,0,0" VerticalAlignment="Top" Width="14.371" Grid.Row="1" Fill="#FF062E00" 
+                 Panel.ZIndex="1" RenderTransformOrigin="-0.645,-0.641" Visibility="Hidden">
+            <Ellipse.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Ellipse.RenderTransform>
+        </Ellipse>
+        <Ellipse x:Name="ellipseLadowanie3" Grid.Column="3" HorizontalAlignment="Left" Height="14.37" Margin="155.217,91.343,0,0" VerticalAlignment="Top" Width="14.37" Fill="#FF0A4B00" Panel.ZIndex="1" 
+                 RenderTransformOrigin="-1.14,0.493" Visibility="Hidden" Grid.Row="1">
+            <Ellipse.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Ellipse.RenderTransform>
+        </Ellipse>
+        <Ellipse x:Name="ellipseLadowanie4" Grid.Column="3" HorizontalAlignment="Left" Height="14.37" Margin="148.1,74.92,0,0" VerticalAlignment="Top" Width="14.371" Fill="#FF0F6C00" Panel.ZIndex="1" 
+                 RenderTransformOrigin="-0.648,1.636" Visibility="Hidden" Grid.Row="1">
+            <Ellipse.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Ellipse.RenderTransform>
+        </Ellipse>
+        <Ellipse x:Name="ellipseLadowanie5" Grid.Column="3" HorizontalAlignment="Left" Height="14.37" Margin="131.67,68.166,0,0" VerticalAlignment="Top" Width="14.37" Fill="#FF008500" Panel.ZIndex="1" 
+                 RenderTransformOrigin="0.505,2.124" Visibility="Hidden" Grid.Row="1">
+            <Ellipse.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Ellipse.RenderTransform>
+        </Ellipse>
+        <Ellipse x:Name="ellipseLadowanie6" Grid.Column="3" HorizontalAlignment="Left" Height="14.37" Margin="115.247,76.973,0,0" VerticalAlignment="Top" Width="14.37" Fill="#FF00A800" Panel.ZIndex="1" 
+                 RenderTransformOrigin="1.638,1.638" Visibility="Hidden" Grid.Row="1">
+            <Ellipse.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Ellipse.RenderTransform>
+        </Ellipse>
+        <Ellipse x:Name="ellipseLadowanie7" Grid.Column="3" HorizontalAlignment="Left" Height="14.37" Margin="108,91.343,0,0" VerticalAlignment="Top" Width="14.37" Fill="#FF00BD00" Panel.ZIndex="1" RenderTransformOrigin="2.162,0.488" 
+                 Visibility="Hidden" Grid.Row="1">
+            <Ellipse.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Ellipse.RenderTransform>
+        </Ellipse>
+        <Ellipse x:Name="ellipseLadowanie8" Grid.Column="3" HorizontalAlignment="Left" Height="14.37" Margin="115.247,107.767,0,0" VerticalAlignment="Top" Width="14.37" Fill="#FF00DA00" Panel.ZIndex="1" RenderTransformOrigin="1.674,-0.662" 
+            Visibility="Hidden" Grid.Row="1">
+            <Ellipse.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Ellipse.RenderTransform>
+        </Ellipse>
     </Grid>
 </Window>
