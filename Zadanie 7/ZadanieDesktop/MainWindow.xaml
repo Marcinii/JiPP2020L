@@ -1,0 +1,53 @@
+﻿<Window x:Class="ZadanieDesktop.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ZadanieDesktop"
+        xmlns:cc="clr-namespace:MottoControl;assembly=MottoControl"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="500" Width="800" Background="white">
+    <Grid Margin="10,0,0,5">
+        <StackPanel>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                </Grid.ColumnDefinitions>
+                <ComboBox Grid.Column="0" Name="combobox" Margin="10,5,10,5" SelectionChanged="converterCombobox_SelectionChanged" Height="30"/>
+                <ComboBox Grid.Column="1" Name="combobox2" Margin="10,5,10,5" SelectionChanged="converterCombobox_SelectionChanged" Height="30"/>
+                <Button Grid.Column="2" Name="sprawdz" Content="Sprawdz" Margin="10,5,10,5"/>
+                <TextBox Grid.Column="3" Name="wartosc" Margin="10,5,10,5"/>
+            </Grid>
+            <TextBlock Name="wynik" Margin="10,5,10,5" Height="30"/>
+            <Grid Height="250">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="3*"/>
+                    <ColumnDefinition Width="1*"/>
+                </Grid.ColumnDefinitions>
+                <DataGrid Grid.Column="1" Name="historia" Margin="10,5,10,5" Height="150" Width="300">
+                    <DataGrid.DataContext>
+                        <local:Zad7/>
+                    </DataGrid.DataContext>
+                </DataGrid>
+                <Button Grid.Column="1" Name="pokaz" Content="pokaz historie" Margin="84,210,85,10" Height="30"/>
+
+                <Rectangle Grid.Column="2" Name="animacja" Fill="Red" Margin="10,5,10,5" Visibility="Hidden" Height="70" Width="70">
+                    <Rectangle.Triggers>
+                        <EventTrigger RoutedEvent="Rectangle.Loaded">
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <DoubleAnimation Storyboard.TargetName="animacja" Storyboard.TargetProperty="Width" From="0" To="70" Duration="0:0:5" AutoReverse="true" RepeatBehavior="10"/>
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger>
+                    </Rectangle.Triggers>
+                </Rectangle>
+                <cc:MottoControl HorizontalAlignment="Left" Height="115" Margin="14,262,0,-127" VerticalAlignment="Top" Width="738" Grid.ColumnSpan="3"/>
+            </Grid>
+        </StackPanel>
+    </Grid>
+</Window>
