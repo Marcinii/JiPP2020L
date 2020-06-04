@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Converter.Logic", "Converte
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Converter.Desktop", "Converter.Desktop\Converter.Desktop.csproj", "{92577F0C-1122-4687-91D0-911656D2EA02}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common.Control", "Common.Control\Common.Control.csproj", "{05A15003-1AF1-4F9F-ACEB-7EBECB2E2C6D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{92577F0C-1122-4687-91D0-911656D2EA02}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{92577F0C-1122-4687-91D0-911656D2EA02}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{92577F0C-1122-4687-91D0-911656D2EA02}.Release|Any CPU.Build.0 = Release|Any CPU
+		{05A15003-1AF1-4F9F-ACEB-7EBECB2E2C6D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{05A15003-1AF1-4F9F-ACEB-7EBECB2E2C6D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{05A15003-1AF1-4F9F-ACEB-7EBECB2E2C6D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{05A15003-1AF1-4F9F-ACEB-7EBECB2E2C6D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

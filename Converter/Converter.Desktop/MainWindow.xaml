@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Converter.Desktop"
+        xmlns:commonControls="clr-namespace:Common.Control;assembly=Common.Control"
         mc:Ignorable="d"
         Title="Unit Converter" Height="653.652" Width="767.469">
     <Window.Resources>
@@ -91,7 +92,7 @@
             <ColumnDefinition Width="38*"/>
             <ColumnDefinition Width="721*"/>
         </Grid.ColumnDefinitions>
-        <Button Content="Convert value" HorizontalAlignment="Left" Margin="114,224,0,0" VerticalAlignment="Top" Width="82" Click="Button_Click" Grid.Column="1"/>
+        <Button Name="Konwertuj" Content="Convert value" HorizontalAlignment="Left" Margin="114,224,0,0" VerticalAlignment="Top" Width="82" Grid.Column="1"/>
         <ComboBox HorizontalAlignment="Left" Margin="198,46.96,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="ComboBox_SelectionChanged" Name="ComboBox1" ItemsSource="{Binding Names}" Grid.Column="1"/>
         <TextBox HorizontalAlignment="Left" Height="23" Margin="198,178,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="120" Name="ConvertedValue" Grid.Column="1"/>
         <TextBox HorizontalAlignment="Left" Height="23" Margin="4,178,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="120" TextChanged="TextBox_TextChanged" Name="ToConvertValue" Grid.Column="1"/>
@@ -140,12 +141,12 @@
         <ComboBox Name="FilterType" HorizontalAlignment="Left" Margin="420,344,0,0" VerticalAlignment="Top" Width="120" Grid.Column="1"/>
         <TextBox Name="DataOd" HorizontalAlignment="Left" Height="23" Margin="420,404,0,0" TextWrapping="Wrap" Text="Data od" VerticalAlignment="Top" Width="120" Grid.Column="1"/>
         <TextBox Name="DataDo" HorizontalAlignment="Left" Height="23" Margin="420,450,0,0" TextWrapping="Wrap" Text="Data do" VerticalAlignment="Top" Width="120" Grid.Column="1"/>
-        <Button Content="Filtruj" HorizontalAlignment="Left" Margin="588,403,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="0.097,0.138" Click="Button_Click_1" Grid.Column="1"/>
-        <Button Name="Dalej" Content="Dalej" HorizontalAlignment="Left" Margin="312,571,0,0" VerticalAlignment="Top" Width="75" Click="Dalej_Click" Grid.Column="1"/>
-        <Button Name="Wstecz" Content="Wstecz" HorizontalAlignment="Left" Margin="23,571,0,0" VerticalAlignment="Top" Width="75" Click="Wstecz_Click" Grid.ColumnSpan="2"/>
+        <Button Name="Filtruj" Content="Filtruj" HorizontalAlignment="Left" Margin="588,403,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="0.097,0.138" Grid.Column="1"/>
+        <Button Name="Dalej" Content="Dalej" HorizontalAlignment="Left" Margin="312,571,0,0" VerticalAlignment="Top" Width="75" Grid.Column="1"/>
+        <Button Name="Wstecz" Content="Wstecz" HorizontalAlignment="Left" Margin="23,571,0,0" VerticalAlignment="Top" Width="75" Grid.ColumnSpan="2"/>
         <Button Name="Najpopularniejsze" Content="Wyswietl najpopularniejsze konwersje" HorizontalAlignment="Left" Margin="83,566,0,0" VerticalAlignment="Top" Width="212" Height="25" Click="Najpopularniejsze_Click" Grid.Column="1"/>
         <Rectangle x:Name="PanelLoader" Visibility="Hidden" HorizontalAlignment="Left" Height="601" Margin="-2,0,0,-0.348" VerticalAlignment="Top" Width="761" Fill="#7FC52020" Grid.ColumnSpan="2"/>
-        <Button Content="Zaladuj dane" HorizontalAlignment="Left" Margin="548,49,0,0" VerticalAlignment="Top" Width="138" Click="Button_Click_2" Grid.Column="1"/>
+        <Button Name="ZaladujDane" Content="Zaladuj dane" HorizontalAlignment="Left" Margin="548,49,0,0" VerticalAlignment="Top" Width="138" Grid.Column="1"/>
         <Ellipse Visibility="Hidden" x:Name="ellipse1" HorizontalAlignment="Left" Height="148.54" Margin="269.977,172.96,0,0" Stroke="Black" VerticalAlignment="Top" Width="150" RenderTransformOrigin="0.5,0.5" Grid.Column="1" Fill="#FFC98686">
             <Ellipse.RenderTransform>
                 <TransformGroup>
@@ -159,5 +160,8 @@
         <Rectangle Name="LoadingRectangle" Visibility="Hidden" Grid.ColumnSpan="2" Fill="#FF040202" HorizontalAlignment="Left" Height="601" Margin="-2,0,0,-0.348" Stroke="Black" VerticalAlignment="Top" Width="751.469"/>
         <TextBlock x:Name="LadowanieNapis" Visibility="Hidden" HorizontalAlignment="Left" Height="61.04" Margin="142.477,337.96,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="331.973" Grid.Column="1" FontSize="36" Text="Ladowanie danych"/>
         <Rectangle x:Name="WyciemnienieAplikacji" Visibility="Hidden" Grid.ColumnSpan="2" Fill="#B2131113" HorizontalAlignment="Left" Height="634.5" Stroke="Black" VerticalAlignment="Top" Width="759.469" Margin="0,-15,0,-18.848"/>
+        <Grid Grid.Column="1" HorizontalAlignment="Left" Height="100" Margin="475,201,0,0" VerticalAlignment="Top" Width="236">
+            <commonControls:UserControl1 x:Name="rateControl" Margin="0,67,0,0" RateValueChanged="rateControl_RateValueChanged"/>
+        </Grid>
     </Grid>
 </Window>

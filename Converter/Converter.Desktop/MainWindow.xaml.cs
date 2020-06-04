@@ -20,6 +20,7 @@ using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using UnitConverter.Desktop;
 
 namespace Converter.Desktop
 {
@@ -51,7 +52,17 @@ namespace Converter.Desktop
         public MainWindow()
         {
             InitializeComponent();
-           // getDataFromMySQL(); do zadania dajemy na przycisk
+            rateControl.RateValue = GetLastRate();
+
+           Filtruj.Command = new RelayCommand(obj => FilterData(), obj =>
+                FilterType.SelectedItem != null);
+            ZaladujDane.Command = new RelayCommand(obj => LoadDataAsync());
+            Konwertuj.Command = new RelayCommand(obj => ConvertData());
+            Dalej.Command = new RelayCommand(obj => NextPage());
+            Wstecz.Command = new RelayCommand(obj => BackPage());
+
+
+            // getDataFromMySQL(); do zadania dajemy na przycisk
             for (int i = 0; i < converterMethods.Count; i++)
             {
                 var element = converterMethods.ElementAt(i);
@@ -61,7 +72,7 @@ namespace Converter.Desktop
             FilterType.ItemsSource = Names;
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void ConvertData()
         { 
             ConverterType type = EnumUtil.GetValueFromDescription<ConverterType>(ComboBox1.SelectedItem.ToString());
             IConvertable<float> convertable = new ConvertValue<float>(float.Parse(ToConvertValue.Text));
@@ -139,19 +150,56 @@ namespace Converter.Desktop
             }
         }
 
-        private void Button_Click_1(object sender, RoutedEventArgs e)
+
+        private int GetLastRate()
         {
-            if (FilterType.SelectedItem == null) return;
+            using (SqlConnection connection =
+                new SqlConnection("Data Source=localhost;Initial Catalog=ConverterData;Integrated Security=True"))
+            {
+                connection.Open();
+
+                SqlCommand command = new SqlCommand("SELECT TOP 1 * FROM RateData ORDER BY id DESC", connection);
+
+                IDataReader reader = command.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    return Convert.ToInt32(reader["RateValue"]);
+                }
+
+            }
+            return 0;
+        }
+
+        private void InsertRate(int RateValue)
+        {
+            using (SqlConnection connection =
+     new SqlConnection("Data Source=localhost;Initial Catalog=ConverterData;Integrated Security=True"))
+            {
+                string query = "INSERT INTO RateData (RateValue) VALUES " +
+    "(@RateValue)";
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    connection.Open();
+                    command.Parameters.AddWithValue("@RateValue", RateValue);
+                    command.ExecuteNonQuery();
+                    connection.Close();
+                }
+            }
+        }
+
+        private void FilterData()
+        {
             DataView(CurrentPage);
         }
 
-        private void Dalej_Click(object sender, RoutedEventArgs e)
+        private void NextPage()
         {
             CurrentPage++;
             DataView(CurrentPage);
         }
 
-        private void Wstecz_Click(object sender, RoutedEventArgs e)
+        private void BackPage()
         {
             if (CurrentPage <= 1) return;
             CurrentPage--;
@@ -217,7 +265,7 @@ namespace Converter.Desktop
             });
         }
 
-        private void Button_Click_2(object sender, RoutedEventArgs e)
+        private void LoadDataAsync()
         {
             ellipse1.Visibility = Visibility.Visible;
             WyciemnienieAplikacji.Visibility = Visibility.Visible;
@@ -227,5 +275,11 @@ namespace Converter.Desktop
             ((Storyboard)Resources["LoaderStoryboard"]).Begin();
 
         }
+
+        private void rateControl_RateValueChanged(object sender, Common.Control.RateEventArgs e)
+        {
+            InsertRate(e.Value);
+        }
+
     }
 }
