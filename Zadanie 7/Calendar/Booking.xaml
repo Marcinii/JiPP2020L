@@ -1,0 +1,25 @@
+﻿<UserControl x:Class="Calendar.Booking"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Calendar"
+             mc:Ignorable="d" 
+             d:DesignHeight="600" d:DesignWidth="948.333">
+    <Grid Background="White">
+        <Grid HorizontalAlignment="Left" Height="600" VerticalAlignment="Top" Width="948">
+            <Viewbox HorizontalAlignment="Left" Height="437" Margin="470,100,-32,0" VerticalAlignment="Top" Width="510">
+                <Calendar x:Name="Calendar" Height="193" Width="212" Background="White" Foreground="#FFFF8888" BorderBrush="#FF636262" BorderThickness="0.5"/>
+            </Viewbox>
+            <Button x:Name="book" Content="Book" HorizontalAlignment="Left" Margin="505,495,0,0" VerticalAlignment="Top" Width="190" RenderTransformOrigin="3.133,13.774" Background="White" Height="51" Click="book_Click" BorderBrush="#FF636262"/>
+            <Button x:Name="cancel" Content="Cancel" HorizontalAlignment="Left" Margin="720,495,0,0" VerticalAlignment="Top" Width="190" RenderTransformOrigin="3.133,13.774" Background="White" Height="51" BorderBrush="#FF636262" Click="cancel_Click"/>
+            <ComboBox x:Name="cities_cmb" HorizontalAlignment="Left" Margin="35,108,0,0" VerticalAlignment="Top" Width="420" Height="27" Background="White" BorderBrush="Black" IsManipulationEnabled="True" IsEditable="True"/>
+            <Label Content="choose city" HorizontalAlignment="Left" Margin="35,49,0,0" VerticalAlignment="Top" FontFamily="Acta Display Book" FontSize="30" RenderTransformOrigin="0.095,0"/>
+            <Label Content="choose date" HorizontalAlignment="Left" Margin="505,49,0,0" VerticalAlignment="Top" FontFamily="Acta Display Book" FontSize="30" RenderTransformOrigin="0.095,0"/>
+            <Button x:Name="leavePage" Content="X" HorizontalAlignment="Left" Margin="880,20,0,0" VerticalAlignment="Top" Width="45" Height="37" Background="#FFFF6E6E" BorderBrush="{x:Null}" Foreground="White" FontSize="16" FontWeight="Bold" Click="leavePage_Click"/>
+            <CheckBox x:Name="leave_message" Content="leave message" HorizontalAlignment="Left" Margin="45,455,0,0" VerticalAlignment="Top" Height="20" Width="110" FontFamily="Acta Display Book" BorderBrush="#FF636262"/>
+            <TextBox x:Name="client_message" HorizontalAlignment="Left" Height="51" Margin="45,495,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="410" BorderBrush="#FF636262" SelectionBrush="{x:Null}"/>
+        </Grid>
+
+    </Grid>
+</UserControl>

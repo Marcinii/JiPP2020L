@@ -1,0 +1,324 @@
+﻿<UserControl x:Name="userControl" x:Class="Calendar.LandingPage"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Calendar"
+             mc:Ignorable="d" 
+             d:DesignHeight="600" d:DesignWidth="948.333" Foreground="White">
+    <UserControl.Resources>
+        <Storyboard x:Key="SignUp">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="GridSlider">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:3" Value="-427"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Key="SlideIn">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="GridSlider">
+                <EasingDoubleKeyFrame KeyTime="0" Value="-429"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:3" Value="-1"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="GridSlider">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:3" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+    </UserControl.Resources>
+    <UserControl.Triggers>
+        <EventTrigger RoutedEvent="ButtonBase.Click" SourceName="signup_btn">
+            <BeginStoryboard Storyboard="{StaticResource SignUp}"/>
+        </EventTrigger>
+        <EventTrigger RoutedEvent="ButtonBase.Click" SourceName="signin_btn">
+            <BeginStoryboard Storyboard="{StaticResource SlideIn}"/>
+        </EventTrigger>
+    </UserControl.Triggers>
+    <Grid x:Name="MainGrid" Background="White">
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Rectangle Fill="Black" HorizontalAlignment="Left" Height="25" Margin="0,515,0,0" VerticalAlignment="Top" Width="948" d:IsLocked="True"/>
+        <Label Content="GDPR" HorizontalAlignment="Left" Margin="18,560,0,0" VerticalAlignment="Top" FontFamily="Calibri Light" RenderTransformOrigin="-0.402,0.622"/>
+        <Label Content="Terms &amp; Conditions" HorizontalAlignment="Left" Margin="81.016,560,0,0" VerticalAlignment="Top" FontFamily="Calibri Light"/>
+        <Label Content="Regulations" HorizontalAlignment="Left" Margin="215.016,560,0,0" VerticalAlignment="Top" FontFamily="Calibri Light" RenderTransformOrigin="1.045,0.622"/>
+        <Label Content="Press Contact" HorizontalAlignment="Left" Margin="310.016,560,0,0" VerticalAlignment="Top" FontFamily="Calibri Light"/>
+        <Label Content="Customer Help" HorizontalAlignment="Left" Margin="415.108,560,0,0" VerticalAlignment="Top" FontFamily="Calibri Light"/>
+        <Label Content="HF Team" HorizontalAlignment="Left" Margin="524.108,560,0,0" VerticalAlignment="Top" FontFamily="Calibri Light"/>
+        <Grid x:Name="pictureHolder" HorizontalAlignment="Left" Height="460" Margin="0.333,80,0,0" VerticalAlignment="Top" Width="948">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.Background>
+                <ImageBrush ImageSource="wallpaper.jpg"/>
+            </Grid.Background>
+            <Label x:Name="ready" Content="Find the best&#xA;room in your&#xA;area!" HorizontalAlignment="Left" Margin="27,182,0,0" VerticalAlignment="Top" Background="{x:Null}" BorderBrush="White" FontSize="60" Foreground="White" FontFamily="Acta Display Book"/>
+            <Grid x:Name="DestinationGrid" HorizontalAlignment="Left" Width="948" Background="White" Margin="0,0,0,-5" Visibility="Collapsed">
+                <Button x:Name="closeDestination" Content="X" HorizontalAlignment="Left" Margin="10,20,0,0" VerticalAlignment="Top" Width="38.018" BorderBrush="Black" Background="White" FontFamily="Acta Display Book" Height="35" Foreground="Black" RenderTransformOrigin="4.102,0.429" Click="closeDestination_Click"/>
+
+                <Grid x:Name="Tiles" HorizontalAlignment="Left" Height="345" Margin="0,110,0,0" VerticalAlignment="Top" Width="938">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="15*"/>
+                        <ColumnDefinition Width="449*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid HorizontalAlignment="Left" Height="100" Margin="75.333,55,0,0" VerticalAlignment="Top" Width="100" Grid.Column="1"/>
+                    <Grid x:Name="mainCity" HorizontalAlignment="Left" Height="325" Margin="10,10,0,0" VerticalAlignment="Top" Width="505" Grid.ColumnSpan="2">
+                        <Grid HorizontalAlignment="Left" Height="100" Margin="200,140,0,0" VerticalAlignment="Top" Width="100"/>
+                        <Button x:Name="Prague" Content="CZECH PRAGUE" HorizontalAlignment="Left" Margin="55,-65,0,0" VerticalAlignment="Top" Width="155" Click="Prague_Click" Background="{x:Null}" BorderBrush="{x:Null}" FontFamily="Acta Display Book" FontSize="20"/>
+                        <Label x:Name="cityName" Content="" HorizontalAlignment="Left" Margin="290,205,0,0" VerticalAlignment="Top" Foreground="Black" Height="65" Width="215" Background="White" FontSize="20" FontFamily="Acta Display Book" FontStyle="Italic" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+                    </Grid>
+                    <Grid x:Name="_2city" HorizontalAlignment="Left" Height="175" Margin="490.333,10,0,0" VerticalAlignment="Top" Width="175" Background="White" Grid.Column="1"/>
+                    <Grid x:Name="_4city" HorizontalAlignment="Left" Height="145" Margin="720.333,190,0,0" VerticalAlignment="Top" Width="168" Background="White" Grid.Column="1"/>
+                    <Grid x:Name="infoDestGrid" HorizontalAlignment="Left" Height="100" Margin="750.333,40,0,0" VerticalAlignment="Top" Width="100" Grid.Column="1" Visibility="Hidden"/>
+                    <Grid x:Name="_3city" HorizontalAlignment="Left" Height="145" Margin="490.333,190,0,0" VerticalAlignment="Top" Width="225" Background="White" Grid.Column="1">
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition Height="72.667"/>
+                        </Grid.RowDefinitions>
+                    </Grid>
+                    <Grid x:Name="_5city" HorizontalAlignment="Left" Height="90" Margin="670.333,95,0,0" VerticalAlignment="Top" Width="218" Background="White" Grid.Column="1">
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                    </Grid>
+                    <Grid x:Name="_6city" HorizontalAlignment="Left" Height="80" Margin="670.333,10,0,0" VerticalAlignment="Top" Width="218" Background="White" Grid.Column="1">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="3*"/>
+                            <RowDefinition Height="13*"/>
+                        </Grid.RowDefinitions>
+                    </Grid>
+                </Grid>
+                <Button x:Name="Florence" Content="FLORENCE" HorizontalAlignment="Left" Margin="260,55,0,0" VerticalAlignment="Top" Width="105" Click="Florence_Click" BorderBrush="{x:Null}" Background="{x:Null}" FontSize="20" FontFamily="Acta Display Book"/>
+                <Button x:Name="London" Content="LONDON" HorizontalAlignment="Left" Margin="400,55,0,0" VerticalAlignment="Top" Width="100" Click="London_Click" Background="{x:Null}" BorderBrush="{x:Null}" FontSize="20" FontFamily="Acta Display Book"/>
+                <Button x:Name="Moscow" Content="MOSCOW" HorizontalAlignment="Left" Margin="535,55,0,0" VerticalAlignment="Top" Width="95" Background="{x:Null}" BorderBrush="{x:Null}" FontSize="20" FontFamily="Acta Display Book" Click="Moscow_Click"/>
+                <Button x:Name="Paris1" Content="PARIS" HorizontalAlignment="Left" Margin="675,55,0,0" VerticalAlignment="Top" Width="75" Click="Paris_Click" Background="{x:Null}" BorderBrush="{x:Null}" FontSize="20" FontFamily="Acta Display Book" RenderTransformOrigin="1.133,2.267" Visibility="Hidden"/>
+                <Button x:Name="Tokyo" Content="TOKYO" HorizontalAlignment="Left" Margin="795,55,0,0" VerticalAlignment="Top" Width="75" Click="Tokyo_Click" Background="{x:Null}" BorderBrush="{x:Null}" FontSize="20" FontFamily="Acta Display Book" RenderTransformOrigin="1.133,2.267"/>
+                <Button x:Name="Paris" Content="PARIS" HorizontalAlignment="Left" Margin="675,55,0,0" VerticalAlignment="Top" Width="95" Background="{x:Null}" BorderBrush="{x:Null}" FontSize="20" FontFamily="Acta Display Book" Click="Paris_Click"/>
+            </Grid>
+            <Image Margin="27,-60,840.667,480" Source="logo.png" Stretch="Fill"/>
+            <Grid x:Name="petPageGrid" HorizontalAlignment="Left" Height="465" VerticalAlignment="Top" Width="948" Background="White" Margin="0,-5,0,0" Visibility="Collapsed">
+                <Image Margin="444.667,55,88.333,50" Source="Coco (3).png" Stretch="Fill"/>
+                <Label x:Name="petLabel" Content="Take your pet with!" HorizontalAlignment="Left" Margin="33.018,55,0,0" VerticalAlignment="Top" FontSize="40" FontFamily="Acta Display Book"/>
+                <Label x:Name="petLabel_Copy" Content="Take a loook what we have:&#xD;&#xA;&#xD;&#xA;- barf menu&#xD;&#xA;- pet-pools&#xD;&#xA;- catnip&#xD;&#xA;- trained staff to leave your &#xD;&#xA;  pet with&#xD;&#xA;- cat-design area&#xD;&#xA;- god-designed area&#xD;&#xA;&#xD;&#xA;No wonder they're happy here!&#xD;&#xA;" HorizontalAlignment="Left" Margin="33.018,112.68,0,0" VerticalAlignment="Top" FontSize="20" FontFamily="Leelawadee UI Semilight" Height="305" Width="297"/>
+                <Button x:Name="closePetPage" Content="X" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="29.667" Height="30" BorderBrush="#FF979797" Background="{x:Null}" Foreground="#FF979797" Click="closePetPage_Click"/>
+            </Grid>
+        </Grid>
+        <Rectangle x:Name="subscribe" Fill="White" HorizontalAlignment="Left" Height="40" Margin="600.311,550,0,0" Stroke="#FF8AA7B7" VerticalAlignment="Top" Width="311" RadiusX="4" RadiusY="4"/>
+        <Rectangle Fill="#FF8AA7B7" HorizontalAlignment="Left" Height="24" Margin="835.55,558,0,0" RadiusY="4" RadiusX="4" Stroke="#FF8AA7B7" VerticalAlignment="Top" Width="65"/>
+        <Button x:Name="submit" Content="Submit" HorizontalAlignment="Left" Margin="837.55,560,0,0" VerticalAlignment="Top" Width="60" BorderBrush="#FF8AA7B7" Background="#FF8AA7B7" Foreground="White" FontSize="9" FontFamily="Lato" Height="20" RenderTransformOrigin="0.552,0.5" Click="submit_Click"/>
+        <TextBox HorizontalAlignment="Left" Height="40" Margin="602.311,550,0,0" TextWrapping="Wrap" Text="Enter e-mail to subscribe to newsletter" VerticalAlignment="Top" Width="223" FontFamily="Calibri Light" FontSize="10" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" BorderBrush="{x:Null}" Background="{x:Null}" Foreground="#FF7D9FB2" FontStyle="Italic" TextChanged="TextBox_TextChanged" SelectionBrush="{x:Null}"/>
+        <Button x:Name="signIn" Content="SIGN IN" HorizontalAlignment="Left" Margin="140.018,21.008,0,0" VerticalAlignment="Top" Width="95" BorderBrush="#FF2B424F" Background="#FF2B424F" FontFamily="Acta Display Book" Height="35" Foreground="White" RenderTransformOrigin="4.102,0.429" Click="signIn_Click">
+            <Button.Effect>
+                <DropShadowEffect BlurRadius="3" Color="#FF172A34"/>
+            </Button.Effect>
+        </Button>
+        <Rectangle HorizontalAlignment="Left" Height="37" Margin="815.55,16,0,0" RadiusY="4" RadiusX="4" Stroke="#FFEEBB56" VerticalAlignment="Top" Width="96" Fill="#FFEEBB56">
+            <Rectangle.Effect>
+                <DropShadowEffect BlurRadius="3" Color="#FF92702C"/>
+            </Rectangle.Effect>
+        </Rectangle>
+        <Button x:Name="bookRoom" Content="book room" HorizontalAlignment="Left" Margin="820,18,0,0" VerticalAlignment="Top" Width="85" BorderBrush="#FFEEBB56" Background="{x:Null}" FontFamily="Acta Display Book" Height="34" Foreground="#FF1A1A1A" Click="bookRoom_Click"/>
+        <Grid x:Name="SignInGrid" HorizontalAlignment="Left" Margin="56.018,105,0,115" Width="844" Background="#FF212121" Visibility="Hidden">
+            <Grid.Effect>
+                <DropShadowEffect/>
+            </Grid.Effect>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="106*"/>
+                <ColumnDefinition Width="105*"/>
+            </Grid.ColumnDefinitions>
+            <Grid x:Name="slider_2" HorizontalAlignment="Left" Height="420" VerticalAlignment="Top" Width="379" RenderTransformOrigin="0.5,0.5" Visibility="Hidden">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Grid.Background>
+                    <ImageBrush ImageSource="bg.png"/>
+                </Grid.Background>
+                <Grid.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Grid.RenderTransform>
+            </Grid>
+        </Grid>
+        <Grid x:Name="Grid1_UP" HorizontalAlignment="Left" Height="420" Margin="56.018,105,0,0" VerticalAlignment="Top" Width="448.843" Background="#FF212121" Visibility="Hidden">
+            <Grid.Effect>
+                <DropShadowEffect/>
+            </Grid.Effect>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Button x:Name="closePopUp1" Content="X" HorizontalAlignment="Left" Margin="329,25,0,0" VerticalAlignment="Top" Width="30" Height="30" BorderBrush="#FFC2B5B5" Background="#FF212121" Foreground="#FFC2B5B5" Click="closePopUp_Click"/>
+            <Label Content="sign in" HorizontalAlignment="Left" Margin="25,25,0,0" VerticalAlignment="Top" Foreground="White" FontSize="30" FontFamily="Acta Display Book"/>
+            <TextBox x:Name="email_in" HorizontalAlignment="Left" Margin="38,164,0,233" TextWrapping="Wrap" Width="250" Background="#FF212121" BorderBrush="White" Foreground="White" SelectionBrush="{x:Null}" FontSize="15" FontFamily="Calibri Light" SelectionOpacity="0"/>
+            <PasswordBox x:Name="password_in" HorizontalAlignment="Left" Margin="38,240,0,0" VerticalAlignment="Top" Width="250" Height="25" Foreground="White" Background="#FF212121" BorderBrush="#FFCFCFCF" SelectionBrush="{x:Null}"/>
+            <Label x:Name="password_lbl2" Content="password:" HorizontalAlignment="Left" Margin="34,212,0,0" VerticalAlignment="Top" Foreground="White" FontFamily="Calibri Light" FontSize="15" Width="135"/>
+            <Label x:Name="email_lbl1" Content="e-mail:" HorizontalAlignment="Left" Margin="34,136,0,0" VerticalAlignment="Top" Foreground="White" FontFamily="Calibri Light" FontSize="15" Width="135"/>
+            <Label x:Name="newhere_lbl1" Content="new here?" HorizontalAlignment="Left" Margin="227.999,382,0,0" VerticalAlignment="Top" Foreground="White" FontSize="15" FontFamily="Corbel Light" RenderTransformOrigin="-0.056,0.812"/>
+            <Button x:Name="signup_btn" Content="SIGN UP" HorizontalAlignment="Left" Margin="304.053,386.333,0,0" VerticalAlignment="Top" Width="75" Background="#FF212121" BorderBrush="{x:Null}" Foreground="#FFC39544" Click="signup_btn_Click"/>
+            <Grid x:Name="slider_1" HorizontalAlignment="Left" Height="420" VerticalAlignment="Top" Width="379" RenderTransformOrigin="0.5,0.5" Visibility="Hidden">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Grid.Background>
+                    <ImageBrush ImageSource="bg.png"/>
+                </Grid.Background>
+                <Grid.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Grid.RenderTransform>
+            </Grid>
+            <Button x:Name="sign_in" Content="sign in" HorizontalAlignment="Left" Margin="38,300,0,0" VerticalAlignment="Top" Width="96.001" Height="30" BorderBrush="{x:Null}" Background="White" Foreground="Black" Click="sign_in__Click"/>
+            <Grid x:Name="popUpGrid" HorizontalAlignment="Left" Height="144" Margin="25,136,0,0" VerticalAlignment="Top" Width="274" Background="White">
+                <Label x:Name="popup_lbl" Content="" HorizontalAlignment="Left" Margin="10,34,0,0" VerticalAlignment="Top" Height="75" Width="254" FontFamily="Acta Display Book" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+                <Button x:Name="closeLoginPopUp" Content="X" HorizontalAlignment="Left" Margin="231,10,0,0" VerticalAlignment="Top" Width="25" Background="{x:Null}" BorderBrush="{x:Null}" Height="24" RenderTransformOrigin="5.167,0.144" Click="closeLoginPopUp_Click" Foreground="#FF8B8B8B"/>
+            </Grid>
+            <Button x:Name="reset_btn" Content="reset password" HorizontalAlignment="Left" Margin="174,305,0,0" VerticalAlignment="Top" Width="95" Click="reset_btn_Click" BorderBrush="{x:Null}" Background="{x:Null}" Foreground="Red" Visibility="Collapsed"/>
+            <Button x:Name="reset_btn_Copy" Content="reset password" HorizontalAlignment="Left" Margin="174,305,0,0" VerticalAlignment="Top" Width="95" Click="reset_btn_Click" BorderBrush="{x:Null}" Background="{x:Null}" Foreground="Red"/>
+        </Grid>
+        <Grid x:Name="Grid2_IN" HorizontalAlignment="Left" Height="420" Margin="504.861,105,0,0" VerticalAlignment="Top" Width="392.25" Background="#FF212121" Visibility="Hidden">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="13*"/>
+                <RowDefinition Height="40*"/>
+                <RowDefinition Height="16*"/>
+                <RowDefinition Height="15*"/>
+            </Grid.RowDefinitions>
+            <Grid.Effect>
+                <DropShadowEffect/>
+            </Grid.Effect>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <TextBox x:Name="email_up" HorizontalAlignment="Left" Margin="40.25,134,0,43" TextWrapping="Wrap" Width="250" Background="#FF212121" BorderBrush="White" Foreground="White" SelectionBrush="{x:Null}" FontSize="15" FontFamily="Calibri Light" SelectionOpacity="0" Grid.Row="1"/>
+            <PasswordBox x:Name="password_up" HorizontalAlignment="Left" Margin="40.25,10,0,0" VerticalAlignment="Top" Width="250" Height="25" Foreground="White" Background="#FF212121" BorderBrush="#FFCFCFCF" SelectionBrush="{x:Null}" Grid.Row="2"/>
+            <Button x:Name="closePopUp3" Content="X" HorizontalAlignment="Left" Margin="329,25,0,0" VerticalAlignment="Top" Width="30" Height="30" BorderBrush="#FFC2B5B5" Background="#FF212121" Foreground="#FFC2B5B5" Click="closePopUp_Click"/>
+            <Label Content="sign up" HorizontalAlignment="Left" Margin="25,25,0,0" VerticalAlignment="Top" Foreground="White" FontSize="30" FontFamily="Acta Display Book" Grid.RowSpan="2"/>
+            <Label x:Name="password_lbl4" Content="password:" HorizontalAlignment="Left" Margin="36.25,182,0,0" VerticalAlignment="Top" Foreground="White" FontFamily="Calibri Light" FontSize="15" Width="135" Grid.Row="1" Grid.RowSpan="2"/>
+            <TextBox x:Name="name_up" Margin="40.25,54.31,102,122.69" TextWrapping="Wrap" Background="#FF212121" BorderBrush="White" Foreground="White" SelectionBrush="{x:Null}" FontSize="15" FontFamily="Calibri Light" SelectionOpacity="0" Grid.Row="1"/>
+            <Label x:Name="email_lbl3" Content="e-mail:" HorizontalAlignment="Left" Margin="36.25,106,0,0" VerticalAlignment="Top" Foreground="White" FontFamily="Calibri Light" FontSize="15" Width="135" Grid.Row="1"/>
+            <Label x:Name="newhere_lbl3" Content="having account?" HorizontalAlignment="Left" Margin="192.779,36.999,0,0" VerticalAlignment="Top" Foreground="White" FontSize="15" FontFamily="Corbel Light" Grid.Row="3"/>
+            <Button x:Name="signin_btn" Content="SIGN IN" HorizontalAlignment="Left" Margin="304.053,41.333,0,0" VerticalAlignment="Top" Width="75" Background="#FF212121" BorderBrush="{x:Null}" Foreground="#FFC39544" Click="signin_btn_Click" Grid.Row="3" IsManipulationEnabled="True" RenderTransformOrigin="0.5,0.5">
+                <Button.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Button.RenderTransform>
+            </Button>
+            <Button x:Name="createAccount" Content="create account" HorizontalAlignment="Left" Margin="40.25,60.03,0,64.97" Grid.Row="2" Width="95" Click="createAccount_Click" BorderBrush="#FF212121" Background="White" Grid.RowSpan="2"/>
+            <Grid x:Name="slider_4" HorizontalAlignment="Left" Height="420" VerticalAlignment="Top" Width="379" RenderTransformOrigin="0.5,0.5" Visibility="Hidden" Grid.RowSpan="4">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Grid.Background>
+                    <ImageBrush ImageSource="bg.png"/>
+                </Grid.Background>
+                <Grid.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Grid.RenderTransform>
+            </Grid>
+            <Label x:Name="email_lbl3_Copy" Content="name:" HorizontalAlignment="Left" Margin="36.25,26,0,0" VerticalAlignment="Top" Foreground="White" FontFamily="Calibri Light" FontSize="15" Width="135" Grid.Row="1"/>
+            <Grid x:Name="GridSlider" HorizontalAlignment="Right" Height="420" Margin="-21.75,0,0,0" VerticalAlignment="Top" Width="414" RenderTransformOrigin="0.5,0.5" Grid.RowSpan="4" Visibility="Hidden">
+                <Grid.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Grid.RenderTransform>
+                <Grid.Background>
+                    <ImageBrush ImageSource="bg.png"/>
+                </Grid.Background>
+            </Grid>
+        </Grid>
+        <Grid x:Name="MemoGrid" HorizontalAlignment="Left" Height="335" Margin="40,190,0,0" VerticalAlignment="Top" Width="871" Background="White" Visibility="Hidden">
+            <Label x:Name="memo3" Content="get inspired!" HorizontalAlignment="Left" Margin="11,135,0,0" VerticalAlignment="Top" Height="85" Width="449" FontSize="60" FontFamily="Arial Black" Foreground="Black"/>
+            <Image Margin="465,0,0,-6" Source="1.jpg" Stretch="Fill"/>
+        </Grid>
+        <Button x:Name="userHello" Content="" HorizontalAlignment="Left" Margin="255,21.008,0,0" VerticalAlignment="Top" Width="210" Height="35" Click="userHello_Click" BorderBrush="White" Background="{x:Null}" Foreground="Red" FontFamily="Bahnschrift Light" FontSize="15" HorizontalContentAlignment="Left" Visibility="Hidden"/>
+        <Button x:Name="signout" Content="SIGN OUT" HorizontalAlignment="Left" Margin="140.018,21.008,0,0" VerticalAlignment="Top" Width="95" BorderBrush="#FF2B424F" Background="#FF2B424F" FontFamily="Acta Display Book" Height="35" Foreground="White" RenderTransformOrigin="4.102,0.429" Click="signout_Click" Visibility="Hidden"/>
+        <Rectangle HorizontalAlignment="Left" Height="37" Margin="680.239,16,0,0" RadiusY="4" RadiusX="4" VerticalAlignment="Top" Width="96" Fill="#FF3C5862">
+            <Rectangle.Effect>
+                <DropShadowEffect BlurRadius="3" Color="#FFA18246"/>
+            </Rectangle.Effect>
+        </Rectangle>
+        <Button x:Name="petFriendly" Content="pet friendly" HorizontalAlignment="Left" Margin="681,18,0,0" VerticalAlignment="Top" Width="95" BorderBrush="{x:Null}" Background="{x:Null}" FontFamily="Acta Display Book" Height="34" Foreground="White" Click="petFriendly_Click" RenderTransformOrigin="0.573,1.286"/>
+        <Rectangle HorizontalAlignment="Left" Height="37" Margin="544,17.5,0,0" RadiusY="4" RadiusX="4" VerticalAlignment="Top" Width="96" Fill="#FF3C5862">
+            <Rectangle.Effect>
+                <DropShadowEffect BlurRadius="3" Color="#FFA18246"/>
+            </Rectangle.Effect>
+        </Rectangle>
+        <Button x:Name="destinations" Content="destinations" HorizontalAlignment="Left" Margin="544,18,0,0" VerticalAlignment="Top" Width="95" BorderBrush="{x:Null}" Background="{x:Null}" FontFamily="Acta Display Book" Height="35" Foreground="White" Click="destinations_Click" RenderTransformOrigin="1.526,0.343"/>
+        <Grid x:Name="bookGrid" HorizontalAlignment="Left" Height="545" VerticalAlignment="Top" Width="948" Background="White" Visibility="Collapsed">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="65*"/>
+                <ColumnDefinition Width="409*"/>
+            </Grid.ColumnDefinitions>
+            <Rectangle x:Name="BookingGrid" HorizontalAlignment="Left" Height="525" Margin="10,10,0,0" RadiusY="15" RadiusX="15" VerticalAlignment="Top" Width="928" Grid.ColumnSpan="2">
+                <Rectangle.Fill>
+                    <ImageBrush ImageSource="c.jpg"/>
+                </Rectangle.Fill>
+            </Rectangle>
+            <Rectangle HorizontalAlignment="Left" Height="505" Margin="340,20,0,0" RadiusY="15" RadiusX="15" VerticalAlignment="Top" Width="460" Fill="White" Grid.Column="1"/>
+            <Label Content="Time for &#xD;&#xA;holidays?" HorizontalAlignment="Left" Margin="50,289,0,0" VerticalAlignment="Top" Width="310" Foreground="White" FontSize="70" FontFamily="Britannic Bold" Height="170" Grid.ColumnSpan="2"/>
+            <Button x:Name="exitBooking" Content="X" HorizontalAlignment="Left" Margin="50,37,0,0" VerticalAlignment="Top" Width="60" Background="{x:Null}" BorderBrush="White" Foreground="White" Height="49" Click="exitBooking_Click"/>
+            <Viewbox x:Name="calendarViewBov" HorizontalAlignment="Left" Height="220" Margin="370,40,0,0" VerticalAlignment="Top" Width="410" Grid.Column="1">
+                <Calendar x:Name="calendar" Height="175" Width="197.4" Background="White" BorderBrush="#FFCFCFCF" Foreground="White" OpacityMask="White" FontFamily="Microsoft YaHei Light"/>
+            </Viewbox>
+            <Button Content="book now" HorizontalAlignment="Left" Margin="630,444,0,0" VerticalAlignment="Top" Width="140" Height="41" Foreground="White" Background="#FF65A141" BorderBrush="#FF65A141" FontFamily="Lucida Sans" Click="bookNow_Click" d:IsLocked="True" Grid.Column="1"/>
+            <ComboBox x:Name="peopleCMB" HorizontalAlignment="Left" Margin="370,300,0,0" VerticalAlignment="Top" Width="190" IsEditable="True" Grid.Column="1"/>
+            <ComboBox x:Name="daysCMB" HorizontalAlignment="Left" Margin="580,300,0,0" VerticalAlignment="Top" Width="190" IsEditable="True" Grid.Column="1"/>
+            <ComboBox x:Name="citiesCMB" HorizontalAlignment="Left" Margin="580,370,0,0" VerticalAlignment="Top" Width="190" IsEditable="True" Grid.Column="1"/>
+            <Label Content="Number of people:" HorizontalAlignment="Left" Margin="365,269,0,0" VerticalAlignment="Top" FontFamily="Leelawadee UI" Foreground="Black" Width="115" Grid.Column="1"/>
+            <Label Content="Days:" HorizontalAlignment="Left" Margin="575,265,0,0" VerticalAlignment="Top" FontFamily="Leelawadee UI" Foreground="Black" Width="90" Grid.Column="1"/>
+            <Label Content="City:" HorizontalAlignment="Left" Margin="575,339,0,0" VerticalAlignment="Top" FontFamily="Leelawadee UI" Foreground="Black" Width="115" Grid.Column="1"/>
+            <ComboBox x:Name="qualityCMB" HorizontalAlignment="Left" Margin="370,370,0,0" VerticalAlignment="Top" Width="190" IsEditable="True" Grid.Column="1"/>
+            <Label Content="Quality:" HorizontalAlignment="Left" Margin="365,339,0,0" VerticalAlignment="Top" FontFamily="Leelawadee UI" Foreground="Black" Width="115" Grid.Column="1"/>
+            <Label x:Name="finalprice_lbl" Content="" HorizontalAlignment="Left" Margin="375,450,0,0" VerticalAlignment="Top" Width="140" Height="35" Grid.Column="1"/>
+            <Label x:Name="price_lbl" Content="Price:" HorizontalAlignment="Left" Margin="370,415,0,0" VerticalAlignment="Top" Width="175" Height="35" FontWeight="Bold" Grid.Column="1"/>
+            <Button x:Name="checkprice" Content="check price" HorizontalAlignment="Left" Margin="530,444,0,0" VerticalAlignment="Top" Width="85" Height="41" Foreground="White" Background="#FFE67539" BorderBrush="#FFE67539" FontFamily="Lucida Sans" Click="checkPrice_Click" Grid.Column="1"/>
+            <DatePicker x:Name="pickDate" HorizontalAlignment="Left" Margin="641.343,40,0,0" VerticalAlignment="Top" Background="{x:Null}" Grid.Column="1">
+                <DatePicker.BorderBrush>
+                    <LinearGradientBrush EndPoint="0.5,0" StartPoint="0.5,1">
+                        <GradientStop Color="#FFA3AEB9" Offset="0"/>
+                        <GradientStop Color="#FF8399A9" Offset="0.375"/>
+                        <GradientStop Color="#FF718597" Offset="0.375"/>
+                        <GradientStop Color="#FF464646" Offset="1"/>
+                    </LinearGradientBrush>
+                </DatePicker.BorderBrush>
+            </DatePicker>
+            <Grid x:Name="loadingGrid" HorizontalAlignment="Left" Margin="35,37,0,60" Width="875" Background="#FFD7D7D7" Visibility="Collapsed" Grid.ColumnSpan="2">
+                <Button x:Name="btnX" Content="X" HorizontalAlignment="Left" Margin="25,25,0,0" VerticalAlignment="Top" Width="55" Height="45" BorderBrush="#FF050505" Background="#FFD9D9D9" Click="btnX_Click"/>
+                <ProgressBar x:Name="progressBar1" Height="25" Margin="-0.005,395.006,0,0" VerticalAlignment="Top" Foreground="#FF01B0B2" BorderBrush="{x:Null}" Background="#FF063B3C" RenderTransformOrigin="0.5,0.5">
+                    <ProgressBar.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform Angle="0.134"/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </ProgressBar.RenderTransform>
+                </ProgressBar>
+                <Label x:Name="loadCounting_lbl" Content="counting the price..." HorizontalAlignment="Left" Margin="295,200,0,0" VerticalAlignment="Top" Height="60" Width="295" FontSize="30"/>
+            </Grid>
+        </Grid>
+
+
+    </Grid>
+</UserControl>

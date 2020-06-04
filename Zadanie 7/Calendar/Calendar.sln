@@ -1,0 +1,38 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Blend for Visual Studio Version 16
+VisualStudioVersion = 16.0.30011.22
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Calendar", "Calendar.csproj", "{5A26CA44-3396-41D8-BA8D-B1AED9CEAA7E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Pictures", "Pictures", "{5993DB83-9E9A-4620-9828-3C571BAA15FA}"
+	ProjectSection(SolutionItems) = preProject
+		c.jpg = c.jpg
+		Coco (3).png = Coco (3).png
+		Pictures\czech.png = Pictures\czech.png
+		Pictures\florence.png = Pictures\florence.png
+		Pictures\london.png = Pictures\london.png
+		Pictures\moscov.png = Pictures\moscov.png
+		Pictures\paris.png = Pictures\paris.png
+		Pictures\tokyo.png = Pictures\tokyo.png
+		wallpaper.jpg = wallpaper.jpg
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5A26CA44-3396-41D8-BA8D-B1AED9CEAA7E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5A26CA44-3396-41D8-BA8D-B1AED9CEAA7E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5A26CA44-3396-41D8-BA8D-B1AED9CEAA7E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5A26CA44-3396-41D8-BA8D-B1AED9CEAA7E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A1D46B62-51C1-4698-9968-1D23964E6EAF}
+	EndGlobalSection
+EndGlobal
