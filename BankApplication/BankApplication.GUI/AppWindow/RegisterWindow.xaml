@@ -1,0 +1,59 @@
+﻿<Window x:Class="BankApplication.GUI.AppWindow.RegisterWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:spinner="clr-namespace:BankApplication.GUI.AppUserControl.LoadingSpinnerControl"
+        xmlns:input="clr-namespace:BankApplication.GUI.AppUserControl.FormInputControl"
+        xmlns:local="clr-namespace:BankApplication.GUI.AppWindow"
+        mc:Ignorable="d" WindowStartupLocation="CenterScreen" ResizeMode="NoResize"
+        Title="JakisBankXD - Rejestracja użytkownika" Height="559.5" Width="867.5">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="20" />
+            <ColumnDefinition />
+            <ColumnDefinition Width="20" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20" />
+            <RowDefinition />
+            <RowDefinition Height="20" />
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Column="1" Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition Width="1.5*" />
+            </Grid.ColumnDefinitions>
+
+            <DockPanel Grid.Row="0" Grid.Column="0">
+                <Label DockPanel.Dock="Top" Content="Zarejestruj się" HorizontalAlignment="Center" FontSize="48" FontWeight="Bold" />
+
+                <StackPanel Margin="20,10" DockPanel.Dock="Top">
+                    <input:FormInput x:Name="loginTextBox" labelText="Nazwa użytkownika" onChange="loginTextBox_TextChanged" focused="True" />
+                    <input:FormInput x:Name="passwordTextBox" labelText="Hasło" type="PASSWORD" onChange="passwordTextBox_PasswordChanged" />
+                </StackPanel>
+
+                <Label x:Name="loginLabel" DockPanel.Dock="Bottom" Foreground="Blue" 
+                       Cursor="Hand" Height="28" VerticalAlignment="Bottom"
+                       MouseUp="loginLabel_MouseUp">
+                    <TextBlock TextDecorations="Underline">Wróć do strony logowania</TextBlock>
+                </Label>
+            </DockPanel>
+            <DockPanel Grid.Row="0" Grid.Column="1">
+                <StackPanel DockPanel.Dock="Top" Margin="20">
+                    <input:FormInput x:Name="firstNameTextBox" labelText="Imię" />
+                    <input:FormInput x:Name="lastNameTextBox" labelText="Nazwisko" />
+                    <input:FormInput x:Name="emailAddressTextBox" labelText="Adres e-mail" />
+                    <input:FormInput x:Name="birthDateDatePicker" labelText="Data urodzenia" type="DATE" 
+                                     onChange="birthDateDatePicker_SelectedDateChanged" />
+                </StackPanel>
+                <Button x:Name="registerButton" Content="Zarejestruj się" Padding="20,10" 
+                        HorizontalAlignment="Right" VerticalAlignment="Bottom"
+                        Cursor="Hand"/>
+            </DockPanel>
+        </Grid>
+        <spinner:LoadingSpinner x:Name="loadingSpinner" Grid.Row="0" Grid.Column="0" Grid.RowSpan="3" Grid.ColumnSpan="3" Visibility="Collapsed" />
+    </Grid>
+</Window>

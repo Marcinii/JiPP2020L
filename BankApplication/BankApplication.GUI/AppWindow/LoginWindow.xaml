@@ -1,0 +1,42 @@
+﻿<Window x:Class="BankApplication.GUI.AppWindow.LoginWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BankApplication.GUI.AppWindow"
+        xmlns:spinner="clr-namespace:BankApplication.GUI.AppUserControl.LoadingSpinnerControl"
+        xmlns:input="clr-namespace:BankApplication.GUI.AppUserControl.FormInputControl"
+        mc:Ignorable="d" WindowStartupLocation="CenterScreen"
+        Title="JakiśBankXD - Zaloguj się" Height="546" Width="445.314" ResizeMode="NoResize" KeyDown="Window_KeyDown">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="20" />
+            <ColumnDefinition />
+            <ColumnDefinition Width="20" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20" />
+            <RowDefinition />
+            <RowDefinition Height="20" />
+        </Grid.RowDefinitions>
+        
+        <StackPanel Grid.Row="1" Grid.Column="1">
+            <Label Content="Zaloguj się" HorizontalAlignment="Center" FontSize="48" FontWeight="Bold" />
+
+            <StackPanel Margin="40">
+                <input:FormInput x:Name="loginTextBox" labelText="Nazwa użytkownika" type="TEXT" focused="True" />
+                <input:FormInput x:Name="passwordTextBox" labelText="Hasło" type="PASSWORD" />
+
+                <Button x:Name="loginButton" Content="Zaloguj się" Margin="0,30,0,0" FontSize="16" Padding="10" Cursor="Hand" />
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <Label Content="Jeżeli nie posiadasz konta," />
+                <Label x:Name="registerLabel" Foreground="Blue" Margin="-7,0" Cursor="Hand" MouseUp="registerLabel_MouseUp">
+                    <TextBlock TextDecorations="Underline">Zarejestruj się</TextBlock>
+                </Label>
+            </StackPanel>
+        </StackPanel>
+        <spinner:LoadingSpinner x:Name="loadingSpinner" Grid.Row="0" Grid.Column="0" Grid.RowSpan="3" Grid.ColumnSpan="3" Visibility="Collapsed" />
+    </Grid>
+</Window>

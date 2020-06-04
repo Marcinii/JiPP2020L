@@ -1,0 +1,40 @@
+﻿<UserControl x:Class="BankApplication.GUI.AppUserControl.AccountTransactionItemControl.AccountTransactionItem"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:BankApplication.GUI.AppUserControl.AccountTransactionItemControl"
+             mc:Ignorable="d" Height="100" Background="#FF2F3D59" Margin="0,10" d:DesignWidth="497.068">
+    <UserControl.Resources>
+        <local:AccountNumberFormatConverter x:Key="accountNumberFormatConverter" />
+    </UserControl.Resources>
+    
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="100" />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+
+        <Border Grid.Row="0" Grid.Column="0" Padding="20">
+            <Image x:Name="transactionIconImage" />
+        </Border>
+        <DockPanel Grid.Row="0" Grid.Column="1">
+            <StackPanel DockPanel.Dock="Left" VerticalAlignment="Center" Margin="20,0">
+                <TextBlock x:Name="accountNumberTextBlock" FontSize="14" Foreground="White" 
+                           Text="{Binding accountNumber, Converter={StaticResource accountNumberFormatConverter}}" />
+                <TextBlock FontSize="18" Foreground="White">
+                    <TextBlock.Text>
+                        <Binding Path="name" StringFormat="{}Tytuł przelewu: {0}" />
+                    </TextBlock.Text>
+                </TextBlock>
+                <TextBlock FontSize="10" Foreground="#cccccc">
+                    <TextBlock.Text>
+                        <Binding Path="createdAt" StringFormat="{}{0:yyyy-MM-dd HH:mm:ss}" />
+                    </TextBlock.Text>
+                </TextBlock>
+            </StackPanel>
+            <Label x:Name="priceLabel" DockPanel.Dock="Right" HorizontalAlignment="Right" Padding="20,0"
+                   Content="{Binding price}" FontSize="18" Foreground="White" VerticalAlignment="Center" />
+        </DockPanel>
+    </Grid>
+</UserControl>

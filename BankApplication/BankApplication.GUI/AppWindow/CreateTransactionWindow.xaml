@@ -1,0 +1,35 @@
+﻿<Window x:Class="BankApplication.GUI.AppWindow.CreateTransactionWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BankApplication.GUI.AppWindow"
+        xmlns:input="clr-namespace:BankApplication.GUI.AppUserControl.FormInputControl"
+        xmlns:spinner="clr-namespace:BankApplication.GUI.AppUserControl.LoadingSpinnerControl"
+        mc:Ignorable="d" WindowStartupLocation="CenterOwner"
+        Title="JakiśBankXD - Wykonaj przelew" MinHeight="520" Height="520" MinWidth="700" Width="700">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="20" />
+            <ColumnDefinition />
+            <ColumnDefinition Width="20" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20" />
+            <RowDefinition />
+            <RowDefinition Height="20" />
+        </Grid.RowDefinitions>
+
+        <DockPanel Grid.Row="1" Grid.Column="1">
+            <StackPanel DockPanel.Dock="Top">
+                <Label Content="Wykonaj przelew" FontSize="36" FontWeight="Bold" />
+                <input:FormInput x:Name="transactionNameFormInput" labelText="Nazwa przelewu" />
+                <input:FormInput x:Name="destinationAccountNumberFormInput" labelText="Numer docelowego konta bankowego" onChange="destinationAccountNumberFormInput_onChange" />
+                <input:FormInput x:Name="salaryFormInput" labelText="Kwota" type="NUMBER" onChange="salaryFormInput_onChange" />
+            </StackPanel>
+            <Button x:Name="createTransactionButton" DockPanel.Dock="Bottom" VerticalAlignment="Bottom" HorizontalAlignment="Right" 
+                    Padding="10" Content="Wykonaj przelew" Cursor="Hand" />
+        </DockPanel>
+        <spinner:LoadingSpinner x:Name="loadingSpinner" Grid.Row="0" Grid.Column="0" Grid.RowSpan="3" Grid.ColumnSpan="3" Visibility="Collapsed" />
+    </Grid>
+</Window>

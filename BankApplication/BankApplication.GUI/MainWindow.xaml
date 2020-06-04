@@ -4,9 +4,69 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BankApplication.GUI"
-        mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        mc:Ignorable="d" WindowStartupLocation="CenterScreen"
+        Title="JakiśBankXD" Height="626" Width="1264">
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+
+        <Menu Grid.Row="0" Grid.Column="0">
+            <MenuItem Header="Plik">
+                <MenuItem x:Name="displayAccountListMenuItem" Header="Wyświetl konta bankowe" Click="displayAccountListMenuItem_Click" />
+                <Separator />
+                <MenuItem x:Name="logoutMenuItem" Header="Wyloguj się" Click="logoutMenuItem_Click" />
+            </MenuItem>
+        </Menu>
+
+        <Grid Grid.Row="1" Grid.Column="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="270" />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+
+            <DockPanel Grid.Column="0" Grid.Row="0" Background="#cccccc">
+                <StackPanel DockPanel.Dock="Top">
+                    <Image Source="img/avatar.png" Margin="60,30" VerticalAlignment="Top" />
+                    <Label x:Name="firstLastNameLabel" Content="Default" FontWeight="Bold" FontSize="24" Padding="0" HorizontalAlignment="Center" />
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                        <Label Content="Adres e-mail" />
+                        <Label x:Name="emailAddressLabel" FontWeight="Bold" Content="default" />
+                    </StackPanel>
+                </StackPanel>
+                <Button x:Name="createTrasactionButton" DockPanel.Dock="Bottom" VerticalAlignment="Bottom" 
+                        Content="Wykonaj przelew" Padding="0,10" Cursor="Hand" Margin="10" />
+            </DockPanel>
+            <DockPanel Grid.Column="1" Grid.Row="0">
+                <DockPanel Background="#dddddd" DockPanel.Dock="Top">
+                    <DockPanel DockPanel.Dock="Top">
+                        <StackPanel Orientation="Horizontal" DockPanel.Dock="Left">
+                            <Label Content="Konto" FontSize="21" />
+                            <Label x:Name="accountNameLabel" FontWeight="Bold" FontSize="21" />
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" DockPanel.Dock="Right" HorizontalAlignment="Right">
+                            <Label Content="Saldo" FontSize="21" />
+                            <Label x:Name="salaryLabel" FontWeight="Bold" FontSize="21" />
+                        </StackPanel>
+                    </DockPanel>
+                    <DockPanel DockPanel.Dock="Bottom">
+                        <StackPanel DockPanel.Dock="Left" Orientation="Horizontal">
+                            <Label Content="Numer konta" FontSize="14" />
+                            <Label x:Name="accountNumberLabel" FontSize="14" FontWeight="Bold" />
+                        </StackPanel>
+                        <Button x:Name="copyAccountNumberButton" DockPanel.Dock="Right" Content="Kopiuj" 
+                                HorizontalAlignment="Right" Padding="10,0" Cursor="Hand" />
+                    </DockPanel>
+                </DockPanel>
+                <DockPanel VerticalAlignment="Stretch">
+                    <Label DockPanel.Dock="Top" Content="Historia transakcji" FontSize="28" FontWeight="Bold" Background="#eeeeee" />
+                    <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
+                        <DockPanel x:Name="transactionListDockPanel" HorizontalAlignment="Stretch" Margin="10,0">
+                        </DockPanel>
+                    </ScrollViewer>
+                </DockPanel>
+            </DockPanel>
+        </Grid>
     </Grid>
 </Window>
