@@ -3,7 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29920.165
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Konwerter_console", "Konwerter_console.csproj", "{AA50B9C2-2FBB-4DE1-BE4E-1AD41EDC7489}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Konwerter_console", "Konwerter_console.csproj", "{AA50B9C2-2FBB-4DE1-BE4E-1AD41EDC7489}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitConverter.Logic", "..\UnitConverter.Logic\UnitConverter.Logic.csproj", "{906F100D-BB93-4B17-A746-50599EB74F48}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitConverter.Desktop", "..\Zad2\UnitConverter.Desktop\UnitConverter.Desktop.csproj", "{76E60C09-24F8-411F-8A4E-90C468910225}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +19,14 @@ Global
 		{AA50B9C2-2FBB-4DE1-BE4E-1AD41EDC7489}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AA50B9C2-2FBB-4DE1-BE4E-1AD41EDC7489}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AA50B9C2-2FBB-4DE1-BE4E-1AD41EDC7489}.Release|Any CPU.Build.0 = Release|Any CPU
+		{906F100D-BB93-4B17-A746-50599EB74F48}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{906F100D-BB93-4B17-A746-50599EB74F48}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{906F100D-BB93-4B17-A746-50599EB74F48}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{906F100D-BB93-4B17-A746-50599EB74F48}.Release|Any CPU.Build.0 = Release|Any CPU
+		{76E60C09-24F8-411F-8A4E-90C468910225}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{76E60C09-24F8-411F-8A4E-90C468910225}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{76E60C09-24F8-411F-8A4E-90C468910225}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{76E60C09-24F8-411F-8A4E-90C468910225}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,0 +1,30 @@
+﻿<Window x:Class="UnitConverter.Desktop.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:UnitConverter.Desktop"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+
+        <ComboBox x:Name="ComboboxConv" HorizontalAlignment="Left" Margin="10,27,0,0" VerticalAlignment="Top" Width="350" Height="30" SelectionChanged="ComboboxConv_SelectionChanged_1">
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding name}"/>
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
+        <TextBox x:Name="InputTextBox" HorizontalAlignment="Left" Height="23" Margin="10,72,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+        <Label Content="=" HorizontalAlignment="Left" Margin="188,71,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.365,0.461"/>
+        <TextBlock x:Name="outputTextBlock" HorizontalAlignment="Left" Margin="211,77,0,0" TextWrapping="Wrap" Text="Wynik" VerticalAlignment="Top" RenderTransformOrigin="0.169,-0.151" Height="23" Width="66"/>
+        <Button x:Name="ConvertButton" Content="Konwertuj" HorizontalAlignment="Left" Margin="10,111,0,0" VerticalAlignment="Top" Width="75" Click="ConvertButton_Click"/>
+        <Label x:Name="LabelFrom" Content="From" HorizontalAlignment="Left" Margin="135,74,0,0" VerticalAlignment="Top" FontSize="10"/>
+        <Label x:Name="LabelTo" Content="To" HorizontalAlignment="Left" Margin="282,74,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.481,0.685" FontSize="10"/>
+
+    </Grid>
+</Window>
