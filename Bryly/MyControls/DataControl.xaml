@@ -1,0 +1,43 @@
+﻿<UserControl x:Class="MyControls.DataControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:MyControls"
+             mc:Ignorable="d" 
+             d:DesignHeight="30" d:DesignWidth="300">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <ComboBox Grid.Column="0" Name="brylaCombobox"></ComboBox>
+        <StackPanel Grid.Column="1">
+            <Label Content="a: "></Label>
+            <TextBox x:Name="aField"></TextBox>
+        </StackPanel>
+
+        <StackPanel Grid.Column="2">
+            <Label Content="b: "></Label>
+            <TextBox x:Name="bField"></TextBox>
+        </StackPanel>
+
+        <StackPanel Grid.Column="3">
+            <Label Content="h: "></Label>
+            <TextBox x:Name="hField"></TextBox>
+        </StackPanel>
+
+        <StackPanel Grid.Column="4">
+            <Label Content="r: "></Label>
+            <TextBox x:Name="rField"></TextBox>
+        </StackPanel>
+
+        <Button Grid.Column="5" Content="Oblicz" Click="Button_Click"/>
+
+    </Grid>
+</UserControl>
