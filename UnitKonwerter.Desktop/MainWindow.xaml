@@ -4,8 +4,9 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:UnitKonwerter.Desktop"
+        xmlns:Kontrolki="clr-namespace:UnitKonwerter.Kontrolki;assembly=UnitKonwerter.Kontrolki"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="800">
+        Title="MainWindow" Height="350" Width="1153">
     <Window.Resources>
         <Storyboard x:Key="Animacja" RepeatBehavior="Forever">
             <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleY)" Storyboard.TargetName="rectangle">
@@ -41,9 +42,17 @@
                 <EasingDoubleKeyFrame KeyTime="0:0:4.4" Value="13.5"/>
             </DoubleAnimationUsingKeyFrames>
         </Storyboard>
+        <Storyboard x:Key="Storyboard1" RepeatBehavior="Forever">
+            <ThicknessAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Margin)" Storyboard.TargetName="rectangle1">
+                <EasingThicknessKeyFrame KeyTime="0:0:1" Value="0,150,-100,0"/>
+                <EasingThicknessKeyFrame KeyTime="0:0:2" Value="0,150,100,0"/>
+            </ThicknessAnimationUsingKeyFrames>
+        </Storyboard>
     </Window.Resources>
     <Window.Triggers>
-        <EventTrigger RoutedEvent="FrameworkElement.Loaded"/>
+        <EventTrigger RoutedEvent="FrameworkElement.Loaded">
+            <BeginStoryboard Storyboard="{StaticResource Storyboard1}"/>
+        </EventTrigger>
     </Window.Triggers>
     <Grid>
         <Grid.RowDefinitions>
@@ -57,13 +66,14 @@
             <ColumnDefinition Width="Auto" />
             <ColumnDefinition Width="Auto" />
             <ColumnDefinition Width="Auto" MinWidth="505" />
-            <ColumnDefinition />
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         <ComboBox x:Name="comboboxKonwertujZ" Grid.Column="2" HorizontalAlignment="Left" Margin="218,49.96,0,0" VerticalAlignment="Top" Width="158" Height="22"/>
         <ComboBox x:Name="comboboxKonwertujNa" Grid.Column="2" HorizontalAlignment="Left" Margin="396,50,0,0" VerticalAlignment="Top" Width="158" Height="22" Grid.RowSpan="3"/>
         <Label Content="Konwertuj z:" Grid.Column="2" HorizontalAlignment="Left" Margin="247,20,0,0" VerticalAlignment="Top" Width="110" Height="30"/>
         <Label Content="Konwertuj na:" Grid.Column="2" HorizontalAlignment="Left" Margin="426,20,0,0" VerticalAlignment="Top" Width="110" Height="30"/>
-        <Button x:Name="buttonOblicz" Content="Oblicz" Grid.Column="2" Margin="33,0,0,0" Grid.Row="4" VerticalAlignment="Top" Height="47" HorizontalAlignment="Left" Width="200" Click="ButtonOblicz_Click"/>
+        <Button x:Name="buttonOblicz" Content="Oblicz" Grid.Column="2" Margin="33,0,0,0" Grid.Row="4" VerticalAlignment="Top" Height="47" HorizontalAlignment="Left" Width="200"/>
         <ComboBox x:Name="typKonwertera" Grid.Column="2" Margin="33,50,351,0" VerticalAlignment="Top" SelectionChanged="TypKonwertera_SelectionChanged" Height="21.96" Width="180"/>
         <TextBlock x:Name="textblockWynik" Grid.Column="2" HorizontalAlignment="Left" Margin="218,40.96,0,0" Grid.Row="2" TextWrapping="Wrap" VerticalAlignment="Top" Width="158" Height="37" Grid.RowSpan="2"/>
         <Label Content="Typ konwertera:" Grid.Column="2" HorizontalAlignment="Left" Margin="33,20,0,0" VerticalAlignment="Top" RenderTransformOrigin="-1.182,-0.056" Width="200" Height="25.96"/>
@@ -92,7 +102,10 @@
         <Rectangle x:Name="minutowa" Grid.ColumnSpan="3" Fill="#FFFF0017" HorizontalAlignment="Left" Height="62" Margin="372.75,13.69,0,0" Grid.Row="3" Stroke="Red" VerticalAlignment="Top" Width="4" RenderTransformOrigin="0.5,1"/>
         <Rectangle x:Name="godzinowa" Grid.ColumnSpan="3" Fill="Black" HorizontalAlignment="Left" Height="45" Margin="372.75,31.44,0,0" Grid.Row="3" Stroke="Black" VerticalAlignment="Top" Width="4" RenderTransformOrigin="0.5,1"/>
         <Ellipse Grid.ColumnSpan="3" Fill="#FF171717" HorizontalAlignment="Left" Height="3" Margin="373.25,74.94,0,0" Grid.Row="3" Stroke="Black" VerticalAlignment="Top" Width="3"/>
-
-
+        <DataGrid x:Name="Historia" Grid.Column="4" Grid.RowSpan="4"></DataGrid>
+        <StackPanel x:Name="wczytywanie" Grid.Column="4" Grid.RowSpan="4" Background="#C6000000" Margin="0" Visibility="Hidden">
+            <Rectangle x:Name="rectangle1" Width="30" Height="30" Fill="#FFC53E3E" Margin="0,150,100,0"></Rectangle>
+        </StackPanel>
+        <Kontrolki:Rate x:Name="ocen" Grid.Column="5" Grid.Row="5"></Kontrolki:Rate>
     </Grid>
 </Window>

@@ -36,11 +36,50 @@ namespace UnitKonwerter.Desktop
             };
             typKonwertera.DisplayMemberPath = "Name";
 
+            WczytajHistorie();
+
+
+
+
+
+
+            ocen.RateValueChanged += Ocen_RateValueChanged;
+
+
+            using (var db = new unitconverterEntities())
+            {
+
+                ocen.RateValue = db.ocena.First().ocena1;
+            }
+
+
+            ConvertCommand = new RelayCommand(obj => Convert(), obj => textboxInput.Text.Length > 0 && comboboxKonwertujNa.SelectedItem != null && comboboxKonwertujZ.SelectedItem != null);
+
+            buttonOblicz.Command = ConvertCommand;
+
         }
 
-        private void ButtonOblicz_Click(object sender, RoutedEventArgs e)
-        {
+        private RelayCommand ConvertCommand;
 
+
+        private void Ocen_RateValueChanged(object sender, Kontrolki.Rate.RateEventArgs e)
+        {
+            using (var db = new unitconverterEntities())
+            {
+
+                db.ocena.First().ocena1 = ocen.RateValue;
+                db.SaveChanges();
+            }
+
+        }
+
+
+
+
+
+
+        public void Convert()
+        {
             if (comboboxKonwertujZ.SelectedValue.ToString() == comboboxKonwertujNa.SelectedValue.ToString())
             {
                 textblockWynik.Text = textboxInput.Text;
@@ -54,7 +93,7 @@ namespace UnitKonwerter.Desktop
 
                 textblockWynik.Text = result.ToString();
 
-                if(typKonwertera.SelectedItem.GetType() == typeof(KonwerterGodzin))
+                if (typKonwertera.SelectedItem.GetType() == typeof(KonwerterGodzin))
                 {
                     DateTime time;
                     DateTime.TryParse(inputtext, out time);
@@ -66,7 +105,105 @@ namespace UnitKonwerter.Desktop
 
             }
 
+            ZapiszHistorie();
         }
+
+
+
+
+
+
+
+
+
+
+        private void ZapiszHistorie()
+        {
+            ConversionHistory h = new ConversionHistory { Converter = ((IKonwerter)typKonwertera.SelectedItem).Name, Date = DateTime.Now, UnitFrom = ((string)comboboxKonwertujZ.SelectedItem), UnitTo = ((string)comboboxKonwertujNa.SelectedItem), ValueBefore=textboxInput.Text, ValueAfter=textblockWynik.Text };
+
+            Dispatcher.Invoke(() =>
+            {
+                wczytywanie.Visibility = Visibility.Visible;
+
+            });
+
+
+            Task t = new Task(() =>
+            {
+            using (var db = new unitconverterEntities())
+            {
+                    Task.Delay(5000);
+                    db.ConversionHistory.Add(h);
+
+                    db.SaveChanges();
+
+                }
+
+
+                WczytajHistorie();
+
+
+
+
+            });
+            t.Start();
+
+
+        }
+
+
+
+        private void WczytajHistorie()
+        {
+
+
+            Dispatcher.Invoke(() =>
+            {
+                wczytywanie.Visibility = Visibility.Visible;
+
+            });
+
+
+            Task t = new Task(() =>
+            {
+                using (var db = new unitconverterEntities())
+                {
+                    Task.Delay(5000);
+
+
+                    var lista = db.ConversionHistory.ToList();
+
+                    Dispatcher.Invoke(() =>
+                    {
+                        Historia.ItemsSource = lista;
+                        wczytywanie.Visibility = Visibility.Hidden;
+
+
+                    });
+
+                }
+
+            });
+            t.Start();
+
+
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         private void TypKonwertera_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
