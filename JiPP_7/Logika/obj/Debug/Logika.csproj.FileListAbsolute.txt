@@ -1,0 +1,10 @@
+C:\Users\slowi\source\repos\JiPP_7\Logika\bin\Debug\Logika.dll
+C:\Users\slowi\source\repos\JiPP_7\Logika\bin\Debug\Logika.pdb
+C:\Users\slowi\source\repos\JiPP_7\Logika\obj\Debug\Logika.csprojAssemblyReference.cache
+C:\Users\slowi\source\repos\JiPP_7\Logika\obj\Debug\Logika.csproj.CoreCompileInputs.cache
+C:\Users\slowi\source\repos\JiPP_7\Logika\obj\Debug\Logika.dll
+C:\Users\slowi\source\repos\JiPP_7\Logika\obj\Debug\Logika.pdb
+C:\Users\slowi\source\repos\JiPP_7\Logika\bin\Debug\Logika.dll.config
+C:\Users\slowi\source\repos\JiPP_7\Logika\bin\Debug\EntityFramework.dll
+C:\Users\slowi\source\repos\JiPP_7\Logika\bin\Debug\EntityFramework.xml
+C:\Users\slowi\source\repos\JiPP_7\Logika\obj\Debug\Logika.csproj.CopyComplete

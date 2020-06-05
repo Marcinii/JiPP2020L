@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="DziennikModelStoreContainer" CdmEntityContainer="DziennikEntities">
+    <EntitySetMapping Name="Przedmioty">
+      <EntityTypeMapping TypeName="DziennikModel.Przedmioty">
+        <MappingFragment StoreEntitySet="Przedmioty">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="Przedmiot" ColumnName="Przedmiot" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Uczen">
+      <EntityTypeMapping TypeName="DziennikModel.Uczen">
+        <MappingFragment StoreEntitySet="Uczen">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Przedmiot" ColumnName="Przedmiot" />
+          <ScalarProperty Name="Ocena" ColumnName="Ocena" />
+          <ScalarProperty Name="Data" ColumnName="Data" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

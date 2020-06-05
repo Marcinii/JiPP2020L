@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.1145
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JiPP_7", "JiPP_7\JiPP_7.csproj", "{0F593DF0-94D3-4140-B73D-046382D63E9D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kontrolka", "Kontrolka\Kontrolka.csproj", "{15BA30C2-C2DE-4DE8-B5DE-4471B24E6AE4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Logika", "Logika\Logika.csproj", "{D6B19686-E386-4D6D-A662-D327AB456803}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0F593DF0-94D3-4140-B73D-046382D63E9D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0F593DF0-94D3-4140-B73D-046382D63E9D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0F593DF0-94D3-4140-B73D-046382D63E9D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0F593DF0-94D3-4140-B73D-046382D63E9D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{15BA30C2-C2DE-4DE8-B5DE-4471B24E6AE4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{15BA30C2-C2DE-4DE8-B5DE-4471B24E6AE4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{15BA30C2-C2DE-4DE8-B5DE-4471B24E6AE4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{15BA30C2-C2DE-4DE8-B5DE-4471B24E6AE4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D6B19686-E386-4D6D-A662-D327AB456803}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D6B19686-E386-4D6D-A662-D327AB456803}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D6B19686-E386-4D6D-A662-D327AB456803}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D6B19686-E386-4D6D-A662-D327AB456803}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {DA165C80-154C-49EC-B234-722D908CEE30}
+	EndGlobalSection
+EndGlobal

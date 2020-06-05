@@ -126,9 +126,9 @@
 
 
         <Grid x:Name="Load"  Grid.ColumnSpan="3" Grid.RowSpan="2" Background="#CE000000">
-            <Path Data="M100,20.499998 C56.093361,20.5 20.5,56.093361 20.499998,100 20.5,143.90663 56.093361,179.5 100,179.5 143.90663,179.5 179.5,143.90663 179.5,100 179.5,56.093361 143.90663,20.5 100,20.499998 z M100,0.5 C154.95233,0.5 199.5,45.047668 199.5,100 199.5,154.95233 154.95233,199.5 100,199.5 45.047668,199.5 0.5,154.95233 0.5,100 0.5,45.047668 45.047668,0.5 100,0.5 z" Fill="#FF61FF0D" HorizontalAlignment="Left" Height="200" Margin="375.034,30,0,0" Stretch="Fill" Stroke="Black" VerticalAlignment="Top" Width="200"/>
+            <Path Data="M100,20.499998 C56.093361,20.5 20.5,56.093361 20.499998,100 20.5,143.90663 56.093361,179.5 100,179.5 143.90663,179.5 179.5,143.90663 179.5,100 179.5,56.093361 143.90663,20.5 100,20.499998 z M100,0.5 C154.95233,0.5 199.5,45.047668 199.5,100 199.5,154.95233 154.95233,199.5 100,199.5 45.047668,199.5 0.5,154.95233 0.5,100 0.5,45.047668 45.047668,0.5 100,0.5 z" Fill="#FF61FF0D" HorizontalAlignment="Left" Height="200" Margin="375.034,30,0,0" Stretch="Fill" Stroke="Black" VerticalAlignment="Center" Width="200"/>
 
-            <ed:Arc x:Name="end" ArcThickness="20" ArcThicknessUnit="Pixel" HorizontalAlignment="Left" Height="200" Margin="374.967,29.9,0,0" Stretch="None" Stroke="Black" StartAngle="10" VerticalAlignment="Top" Width="200" Fill="#FFEE0404" EndAngle="1"/>
+            <ed:Arc x:Name="end" ArcThickness="20" ArcThicknessUnit="Pixel" HorizontalAlignment="Left" Height="200" Margin="374.967,29.9,0,0" Stretch="None" Stroke="Black" StartAngle="10" VerticalAlignment="Center" Width="200" Fill="#FFEE0404" EndAngle="1"/>
 
 
         </Grid>
