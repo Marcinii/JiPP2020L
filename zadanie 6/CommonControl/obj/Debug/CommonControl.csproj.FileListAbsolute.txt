@@ -1,0 +1,39 @@
+C:\Users\Admin\Desktop\Zadanie 2 - KonwerterJednostek-20200510T133749Z-001\Zadanie 2 - KonwerterJednostek\CommonControl\bin\Debug\CommonControl.dll
+C:\Users\Admin\Desktop\Zadanie 2 - KonwerterJednostek-20200510T133749Z-001\Zadanie 2 - KonwerterJednostek\CommonControl\bin\Debug\CommonControl.pdb
+C:\Users\Admin\Desktop\Zadanie 2 - KonwerterJednostek-20200510T133749Z-001\Zadanie 2 - KonwerterJednostek\CommonControl\obj\Debug\CommonControl.csprojAssemblyReference.cache
+C:\Users\Admin\Desktop\Zadanie 2 - KonwerterJednostek-20200510T133749Z-001\Zadanie 2 - KonwerterJednostek\CommonControl\obj\Debug\RateMe.g.cs
+C:\Users\Admin\Desktop\Zadanie 2 - KonwerterJednostek-20200510T133749Z-001\Zadanie 2 - KonwerterJednostek\CommonControl\obj\Debug\CommonControl_MarkupCompile.cache
+C:\Users\Admin\Desktop\Zadanie 2 - KonwerterJednostek-20200510T133749Z-001\Zadanie 2 - KonwerterJednostek\CommonControl\obj\Debug\CommonControl_MarkupCompile.lref
+C:\Users\Admin\Desktop\Zadanie 2 - KonwerterJednostek-20200510T133749Z-001\Zadanie 2 - KonwerterJednostek\CommonControl\obj\Debug\RateMe.baml
+C:\Users\Admin\Desktop\Zadanie 2 - KonwerterJednostek-20200510T133749Z-001\Zadanie 2 - KonwerterJednostek\CommonControl\obj\Debug\CommonControl.g.resources
+C:\Users\Admin\Desktop\Zadanie 2 - KonwerterJednostek-20200510T133749Z-001\Zadanie 2 - KonwerterJednostek\CommonControl\obj\Debug\CommonControl.Properties.Resources.resources
+C:\Users\Admin\Desktop\Zadanie 2 - KonwerterJednostek-20200510T133749Z-001\Zadanie 2 - KonwerterJednostek\CommonControl\obj\Debug\CommonControl.csproj.GenerateResource.cache
+C:\Users\Admin\Desktop\Zadanie 2 - KonwerterJednostek-20200510T133749Z-001\Zadanie 2 - KonwerterJednostek\CommonControl\obj\Debug\CommonControl.csproj.CoreCompileInputs.cache
+C:\Users\Admin\Desktop\Zadanie 2 - KonwerterJednostek-20200510T133749Z-001\Zadanie 2 - KonwerterJednostek\CommonControl\obj\Debug\CommonControl.dll
+C:\Users\Admin\Desktop\Zadanie 2 - KonwerterJednostek-20200510T133749Z-001\Zadanie 2 - KonwerterJednostek\CommonControl\obj\Debug\CommonControl.pdb
+C:\Users\piotr\Downloads\JiPP2020L-Z410-Piotr-Pietrucha(1)\JiPP2020L-Z410-Piotr-Pietrucha\zadanie 5\zadanie 5\CommonControl\bin\Debug\CommonControl.dll
+C:\Users\piotr\Downloads\JiPP2020L-Z410-Piotr-Pietrucha(1)\JiPP2020L-Z410-Piotr-Pietrucha\zadanie 5\zadanie 5\CommonControl\bin\Debug\CommonControl.pdb
+C:\Users\piotr\Downloads\JiPP2020L-Z410-Piotr-Pietrucha(1)\JiPP2020L-Z410-Piotr-Pietrucha\zadanie 5\zadanie 5\CommonControl\obj\Debug\CommonControl.csprojAssemblyReference.cache
+C:\Users\piotr\Downloads\JiPP2020L-Z410-Piotr-Pietrucha(1)\JiPP2020L-Z410-Piotr-Pietrucha\zadanie 5\zadanie 5\CommonControl\obj\Debug\RateMe.g.cs
+C:\Users\piotr\Downloads\JiPP2020L-Z410-Piotr-Pietrucha(1)\JiPP2020L-Z410-Piotr-Pietrucha\zadanie 5\zadanie 5\CommonControl\obj\Debug\CommonControl_MarkupCompile.cache
+C:\Users\piotr\Downloads\JiPP2020L-Z410-Piotr-Pietrucha(1)\JiPP2020L-Z410-Piotr-Pietrucha\zadanie 5\zadanie 5\CommonControl\obj\Debug\CommonControl_MarkupCompile.lref
+C:\Users\piotr\Downloads\JiPP2020L-Z410-Piotr-Pietrucha(1)\JiPP2020L-Z410-Piotr-Pietrucha\zadanie 5\zadanie 5\CommonControl\obj\Debug\RateMe.baml
+C:\Users\piotr\Downloads\JiPP2020L-Z410-Piotr-Pietrucha(1)\JiPP2020L-Z410-Piotr-Pietrucha\zadanie 5\zadanie 5\CommonControl\obj\Debug\CommonControl.g.resources
+C:\Users\piotr\Downloads\JiPP2020L-Z410-Piotr-Pietrucha(1)\JiPP2020L-Z410-Piotr-Pietrucha\zadanie 5\zadanie 5\CommonControl\obj\Debug\CommonControl.Properties.Resources.resources
+C:\Users\piotr\Downloads\JiPP2020L-Z410-Piotr-Pietrucha(1)\JiPP2020L-Z410-Piotr-Pietrucha\zadanie 5\zadanie 5\CommonControl\obj\Debug\CommonControl.csproj.GenerateResource.cache
+C:\Users\piotr\Downloads\JiPP2020L-Z410-Piotr-Pietrucha(1)\JiPP2020L-Z410-Piotr-Pietrucha\zadanie 5\zadanie 5\CommonControl\obj\Debug\CommonControl.csproj.CoreCompileInputs.cache
+C:\Users\piotr\Downloads\JiPP2020L-Z410-Piotr-Pietrucha(1)\JiPP2020L-Z410-Piotr-Pietrucha\zadanie 5\zadanie 5\CommonControl\obj\Debug\CommonControl.dll
+C:\Users\piotr\Downloads\JiPP2020L-Z410-Piotr-Pietrucha(1)\JiPP2020L-Z410-Piotr-Pietrucha\zadanie 5\zadanie 5\CommonControl\obj\Debug\CommonControl.pdb
+C:\Users\Admin\Desktop\zadanie 5\CommonControl\bin\Debug\CommonControl.dll
+C:\Users\Admin\Desktop\zadanie 5\CommonControl\bin\Debug\CommonControl.pdb
+C:\Users\Admin\Desktop\zadanie 5\CommonControl\obj\Debug\CommonControl.csprojAssemblyReference.cache
+C:\Users\Admin\Desktop\zadanie 5\CommonControl\obj\Debug\RateMe.g.cs
+C:\Users\Admin\Desktop\zadanie 5\CommonControl\obj\Debug\CommonControl_MarkupCompile.cache
+C:\Users\Admin\Desktop\zadanie 5\CommonControl\obj\Debug\CommonControl_MarkupCompile.lref
+C:\Users\Admin\Desktop\zadanie 5\CommonControl\obj\Debug\RateMe.baml
+C:\Users\Admin\Desktop\zadanie 5\CommonControl\obj\Debug\CommonControl.g.resources
+C:\Users\Admin\Desktop\zadanie 5\CommonControl\obj\Debug\CommonControl.Properties.Resources.resources
+C:\Users\Admin\Desktop\zadanie 5\CommonControl\obj\Debug\CommonControl.csproj.GenerateResource.cache
+C:\Users\Admin\Desktop\zadanie 5\CommonControl\obj\Debug\CommonControl.csproj.CoreCompileInputs.cache
+C:\Users\Admin\Desktop\zadanie 5\CommonControl\obj\Debug\CommonControl.dll
+C:\Users\Admin\Desktop\zadanie 5\CommonControl\obj\Debug\CommonControl.pdb

@@ -1,0 +1,116 @@
+C:\Users\Admin\source\repos\ConsoleApp17\uniConverter.Desktop\bin\Debug\uniConverter.Desktop.exe.config
+C:\Users\Admin\source\repos\ConsoleApp17\uniConverter.Desktop\bin\Debug\uniConverter.Desktop.exe
+C:\Users\Admin\source\repos\ConsoleApp17\uniConverter.Desktop\bin\Debug\uniConverter.Desktop.pdb
+C:\Users\Admin\source\repos\ConsoleApp17\uniConverter.Desktop\obj\Debug\uniConverter.Desktop.csprojAssemblyReference.cache
+C:\Users\Admin\source\repos\ConsoleApp17\uniConverter.Desktop\obj\Debug\MainWindow.g.cs
+C:\Users\Admin\source\repos\ConsoleApp17\uniConverter.Desktop\obj\Debug\App.g.cs
+C:\Users\Admin\source\repos\ConsoleApp17\uniConverter.Desktop\obj\Debug\uniConverter.Desktop_MarkupCompile.cache
+C:\Users\Admin\source\repos\ConsoleApp17\uniConverter.Desktop\obj\Debug\uniConverter.Desktop_MarkupCompile.lref
+C:\Users\Admin\source\repos\ConsoleApp17\uniConverter.Desktop\obj\Debug\MainWindow.baml
+C:\Users\Admin\source\repos\ConsoleApp17\uniConverter.Desktop\obj\Debug\uniConverter.Desktop.g.resources
+C:\Users\Admin\source\repos\ConsoleApp17\uniConverter.Desktop\obj\Debug\uniConverter.Desktop.Properties.Resources.resources
+C:\Users\Admin\source\repos\ConsoleApp17\uniConverter.Desktop\obj\Debug\uniConverter.Desktop.csproj.GenerateResource.cache
+C:\Users\Admin\source\repos\ConsoleApp17\uniConverter.Desktop\obj\Debug\uniConverter.Desktop.csproj.CoreCompileInputs.cache
+C:\Users\Admin\source\repos\ConsoleApp17\uniConverter.Desktop\obj\Debug\uniConverter.Desktop.exe
+C:\Users\Admin\source\repos\ConsoleApp17\uniConverter.Desktop\obj\Debug\uniConverter.Desktop.pdb
+C:\Users\Admin\source\repos\ConsoleApp17\uniConverter.Desktop\bin\Debug\unitConverter.Logic.dll
+C:\Users\Admin\source\repos\ConsoleApp17\uniConverter.Desktop\bin\Debug\unitConverter.Logic.pdb
+C:\Users\Admin\source\repos\ConsoleApp17\uniConverter.Desktop\obj\Debug\uniConverter.Desktop.csproj.CopyComplete
+C:\Users\piotr\Downloads\JiPP2020L-Z410-Piotr-Pietrucha\Zadanie 2 - KonwerterJednostek\uniConverter.Desktop\bin\Debug\uniConverter.Desktop.exe.config
+C:\Users\piotr\Downloads\JiPP2020L-Z410-Piotr-Pietrucha\Zadanie 2 - KonwerterJednostek\uniConverter.Desktop\bin\Debug\uniConverter.Desktop.exe
+C:\Users\piotr\Downloads\JiPP2020L-Z410-Piotr-Pietrucha\Zadanie 2 - KonwerterJednostek\uniConverter.Desktop\bin\Debug\uniConverter.Desktop.pdb
+C:\Users\piotr\Downloads\JiPP2020L-Z410-Piotr-Pietrucha\Zadanie 2 - KonwerterJednostek\uniConverter.Desktop\bin\Debug\EntityFramework.dll
+C:\Users\piotr\Downloads\JiPP2020L-Z410-Piotr-Pietrucha\Zadanie 2 - KonwerterJednostek\uniConverter.Desktop\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\piotr\Downloads\JiPP2020L-Z410-Piotr-Pietrucha\Zadanie 2 - KonwerterJednostek\uniConverter.Desktop\bin\Debug\unitConverter.Logic.dll
+C:\Users\piotr\Downloads\JiPP2020L-Z410-Piotr-Pietrucha\Zadanie 2 - KonwerterJednostek\uniConverter.Desktop\bin\Debug\unitConverter.Logic.pdb
+C:\Users\piotr\Downloads\JiPP2020L-Z410-Piotr-Pietrucha\Zadanie 2 - KonwerterJednostek\uniConverter.Desktop\bin\Debug\EntityFramework.xml
+C:\Users\piotr\Downloads\JiPP2020L-Z410-Piotr-Pietrucha\Zadanie 2 - KonwerterJednostek\uniConverter.Desktop\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\piotr\Downloads\JiPP2020L-Z410-Piotr-Pietrucha\Zadanie 2 - KonwerterJednostek\uniConverter.Desktop\obj\Debug\uniConverter.Desktop.csprojAssemblyReference.cache
+C:\Users\piotr\Downloads\JiPP2020L-Z410-Piotr-Pietrucha\Zadanie 2 - KonwerterJednostek\uniConverter.Desktop\obj\Debug\MainWindow.g.cs
+C:\Users\piotr\Downloads\JiPP2020L-Z410-Piotr-Pietrucha\Zadanie 2 - KonwerterJednostek\uniConverter.Desktop\obj\Debug\App.g.cs
+C:\Users\piotr\Downloads\JiPP2020L-Z410-Piotr-Pietrucha\Zadanie 2 - KonwerterJednostek\uniConverter.Desktop\obj\Debug\uniConverter.Desktop_Content.g.cs
+C:\Users\piotr\Downloads\JiPP2020L-Z410-Piotr-Pietrucha\Zadanie 2 - KonwerterJednostek\uniConverter.Desktop\obj\Debug\uniConverter.Desktop_MarkupCompile.cache
+C:\Users\piotr\Downloads\JiPP2020L-Z410-Piotr-Pietrucha\Zadanie 2 - KonwerterJednostek\uniConverter.Desktop\obj\Debug\uniConverter.Desktop_MarkupCompile.lref
+C:\Users\piotr\Downloads\JiPP2020L-Z410-Piotr-Pietrucha\Zadanie 2 - KonwerterJednostek\uniConverter.Desktop\obj\Debug\MainWindow.baml
+C:\Users\piotr\Downloads\JiPP2020L-Z410-Piotr-Pietrucha\Zadanie 2 - KonwerterJednostek\uniConverter.Desktop\obj\Debug\uniConverter.Desktop.g.resources
+C:\Users\piotr\Downloads\JiPP2020L-Z410-Piotr-Pietrucha\Zadanie 2 - KonwerterJednostek\uniConverter.Desktop\obj\Debug\uniConverter.Desktop.Properties.Resources.resources
+C:\Users\piotr\Downloads\JiPP2020L-Z410-Piotr-Pietrucha\Zadanie 2 - KonwerterJednostek\uniConverter.Desktop\obj\Debug\uniConverter.Desktop.csproj.GenerateResource.cache
+C:\Users\piotr\Downloads\JiPP2020L-Z410-Piotr-Pietrucha\Zadanie 2 - KonwerterJednostek\uniConverter.Desktop\obj\Debug\uniConverter.Desktop.csproj.CoreCompileInputs.cache
+C:\Users\piotr\Downloads\JiPP2020L-Z410-Piotr-Pietrucha\Zadanie 2 - KonwerterJednostek\uniConverter.Desktop\obj\Debug\uniConverter.Desktop.csproj.CopyComplete
+C:\Users\piotr\Downloads\JiPP2020L-Z410-Piotr-Pietrucha\Zadanie 2 - KonwerterJednostek\uniConverter.Desktop\obj\Debug\uniConverter.Desktop.exe
+C:\Users\piotr\Downloads\JiPP2020L-Z410-Piotr-Pietrucha\Zadanie 2 - KonwerterJednostek\uniConverter.Desktop\obj\Debug\uniConverter.Desktop.pdb
+C:\Users\Admin\Desktop\Zadanie 2 - KonwerterJednostek-20200510T133749Z-001\Zadanie 2 - KonwerterJednostek\uniConverter.Desktop\bin\Debug\uniConverter.Desktop.exe.config
+C:\Users\Admin\Desktop\Zadanie 2 - KonwerterJednostek-20200510T133749Z-001\Zadanie 2 - KonwerterJednostek\uniConverter.Desktop\bin\Debug\uniConverter.Desktop.exe
+C:\Users\Admin\Desktop\Zadanie 2 - KonwerterJednostek-20200510T133749Z-001\Zadanie 2 - KonwerterJednostek\uniConverter.Desktop\bin\Debug\uniConverter.Desktop.pdb
+C:\Users\Admin\Desktop\Zadanie 2 - KonwerterJednostek-20200510T133749Z-001\Zadanie 2 - KonwerterJednostek\uniConverter.Desktop\bin\Debug\CommonControl.dll
+C:\Users\Admin\Desktop\Zadanie 2 - KonwerterJednostek-20200510T133749Z-001\Zadanie 2 - KonwerterJednostek\uniConverter.Desktop\bin\Debug\EntityFramework.dll
+C:\Users\Admin\Desktop\Zadanie 2 - KonwerterJednostek-20200510T133749Z-001\Zadanie 2 - KonwerterJednostek\uniConverter.Desktop\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Admin\Desktop\Zadanie 2 - KonwerterJednostek-20200510T133749Z-001\Zadanie 2 - KonwerterJednostek\uniConverter.Desktop\bin\Debug\unitConverter.Logic.dll
+C:\Users\Admin\Desktop\Zadanie 2 - KonwerterJednostek-20200510T133749Z-001\Zadanie 2 - KonwerterJednostek\uniConverter.Desktop\bin\Debug\CommonControl.pdb
+C:\Users\Admin\Desktop\Zadanie 2 - KonwerterJednostek-20200510T133749Z-001\Zadanie 2 - KonwerterJednostek\uniConverter.Desktop\bin\Debug\unitConverter.Logic.pdb
+C:\Users\Admin\Desktop\Zadanie 2 - KonwerterJednostek-20200510T133749Z-001\Zadanie 2 - KonwerterJednostek\uniConverter.Desktop\bin\Debug\EntityFramework.xml
+C:\Users\Admin\Desktop\Zadanie 2 - KonwerterJednostek-20200510T133749Z-001\Zadanie 2 - KonwerterJednostek\uniConverter.Desktop\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Admin\Desktop\Zadanie 2 - KonwerterJednostek-20200510T133749Z-001\Zadanie 2 - KonwerterJednostek\uniConverter.Desktop\obj\Debug\uniConverter.Desktop.csprojAssemblyReference.cache
+C:\Users\Admin\Desktop\Zadanie 2 - KonwerterJednostek-20200510T133749Z-001\Zadanie 2 - KonwerterJednostek\uniConverter.Desktop\obj\Debug\MainWindow.g.cs
+C:\Users\Admin\Desktop\Zadanie 2 - KonwerterJednostek-20200510T133749Z-001\Zadanie 2 - KonwerterJednostek\uniConverter.Desktop\obj\Debug\App.g.cs
+C:\Users\Admin\Desktop\Zadanie 2 - KonwerterJednostek-20200510T133749Z-001\Zadanie 2 - KonwerterJednostek\uniConverter.Desktop\obj\Debug\uniConverter.Desktop_Content.g.cs
+C:\Users\Admin\Desktop\Zadanie 2 - KonwerterJednostek-20200510T133749Z-001\Zadanie 2 - KonwerterJednostek\uniConverter.Desktop\obj\Debug\uniConverter.Desktop_MarkupCompile.cache
+C:\Users\Admin\Desktop\Zadanie 2 - KonwerterJednostek-20200510T133749Z-001\Zadanie 2 - KonwerterJednostek\uniConverter.Desktop\obj\Debug\uniConverter.Desktop_MarkupCompile.lref
+C:\Users\Admin\Desktop\Zadanie 2 - KonwerterJednostek-20200510T133749Z-001\Zadanie 2 - KonwerterJednostek\uniConverter.Desktop\obj\Debug\MainWindow.baml
+C:\Users\Admin\Desktop\Zadanie 2 - KonwerterJednostek-20200510T133749Z-001\Zadanie 2 - KonwerterJednostek\uniConverter.Desktop\obj\Debug\uniConverter.Desktop.g.resources
+C:\Users\Admin\Desktop\Zadanie 2 - KonwerterJednostek-20200510T133749Z-001\Zadanie 2 - KonwerterJednostek\uniConverter.Desktop\obj\Debug\uniConverter.Desktop.Properties.Resources.resources
+C:\Users\Admin\Desktop\Zadanie 2 - KonwerterJednostek-20200510T133749Z-001\Zadanie 2 - KonwerterJednostek\uniConverter.Desktop\obj\Debug\uniConverter.Desktop.csproj.GenerateResource.cache
+C:\Users\Admin\Desktop\Zadanie 2 - KonwerterJednostek-20200510T133749Z-001\Zadanie 2 - KonwerterJednostek\uniConverter.Desktop\obj\Debug\uniConverter.Desktop.csproj.CoreCompileInputs.cache
+C:\Users\Admin\Desktop\Zadanie 2 - KonwerterJednostek-20200510T133749Z-001\Zadanie 2 - KonwerterJednostek\uniConverter.Desktop\obj\Debug\uniConverter.Desktop.csproj.CopyComplete
+C:\Users\Admin\Desktop\Zadanie 2 - KonwerterJednostek-20200510T133749Z-001\Zadanie 2 - KonwerterJednostek\uniConverter.Desktop\obj\Debug\uniConverter.Desktop.exe
+C:\Users\Admin\Desktop\Zadanie 2 - KonwerterJednostek-20200510T133749Z-001\Zadanie 2 - KonwerterJednostek\uniConverter.Desktop\obj\Debug\uniConverter.Desktop.pdb
+C:\Users\piotr\Downloads\JiPP2020L-Z410-Piotr-Pietrucha(1)\JiPP2020L-Z410-Piotr-Pietrucha\zadanie 5\zadanie 5\uniConverter.Desktop\bin\Debug\uniConverter.Desktop.exe.config
+C:\Users\piotr\Downloads\JiPP2020L-Z410-Piotr-Pietrucha(1)\JiPP2020L-Z410-Piotr-Pietrucha\zadanie 5\zadanie 5\uniConverter.Desktop\bin\Debug\uniConverter.Desktop.exe
+C:\Users\piotr\Downloads\JiPP2020L-Z410-Piotr-Pietrucha(1)\JiPP2020L-Z410-Piotr-Pietrucha\zadanie 5\zadanie 5\uniConverter.Desktop\bin\Debug\uniConverter.Desktop.pdb
+C:\Users\piotr\Downloads\JiPP2020L-Z410-Piotr-Pietrucha(1)\JiPP2020L-Z410-Piotr-Pietrucha\zadanie 5\zadanie 5\uniConverter.Desktop\bin\Debug\CommonControl.dll
+C:\Users\piotr\Downloads\JiPP2020L-Z410-Piotr-Pietrucha(1)\JiPP2020L-Z410-Piotr-Pietrucha\zadanie 5\zadanie 5\uniConverter.Desktop\bin\Debug\EntityFramework.dll
+C:\Users\piotr\Downloads\JiPP2020L-Z410-Piotr-Pietrucha(1)\JiPP2020L-Z410-Piotr-Pietrucha\zadanie 5\zadanie 5\uniConverter.Desktop\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\piotr\Downloads\JiPP2020L-Z410-Piotr-Pietrucha(1)\JiPP2020L-Z410-Piotr-Pietrucha\zadanie 5\zadanie 5\uniConverter.Desktop\bin\Debug\unitConverter.Logic.dll
+C:\Users\piotr\Downloads\JiPP2020L-Z410-Piotr-Pietrucha(1)\JiPP2020L-Z410-Piotr-Pietrucha\zadanie 5\zadanie 5\uniConverter.Desktop\bin\Debug\CommonControl.pdb
+C:\Users\piotr\Downloads\JiPP2020L-Z410-Piotr-Pietrucha(1)\JiPP2020L-Z410-Piotr-Pietrucha\zadanie 5\zadanie 5\uniConverter.Desktop\bin\Debug\unitConverter.Logic.pdb
+C:\Users\piotr\Downloads\JiPP2020L-Z410-Piotr-Pietrucha(1)\JiPP2020L-Z410-Piotr-Pietrucha\zadanie 5\zadanie 5\uniConverter.Desktop\bin\Debug\EntityFramework.xml
+C:\Users\piotr\Downloads\JiPP2020L-Z410-Piotr-Pietrucha(1)\JiPP2020L-Z410-Piotr-Pietrucha\zadanie 5\zadanie 5\uniConverter.Desktop\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\piotr\Downloads\JiPP2020L-Z410-Piotr-Pietrucha(1)\JiPP2020L-Z410-Piotr-Pietrucha\zadanie 5\zadanie 5\uniConverter.Desktop\obj\Debug\uniConverter.Desktop.csprojAssemblyReference.cache
+C:\Users\piotr\Downloads\JiPP2020L-Z410-Piotr-Pietrucha(1)\JiPP2020L-Z410-Piotr-Pietrucha\zadanie 5\zadanie 5\uniConverter.Desktop\obj\Debug\MainWindow.g.cs
+C:\Users\piotr\Downloads\JiPP2020L-Z410-Piotr-Pietrucha(1)\JiPP2020L-Z410-Piotr-Pietrucha\zadanie 5\zadanie 5\uniConverter.Desktop\obj\Debug\App.g.cs
+C:\Users\piotr\Downloads\JiPP2020L-Z410-Piotr-Pietrucha(1)\JiPP2020L-Z410-Piotr-Pietrucha\zadanie 5\zadanie 5\uniConverter.Desktop\obj\Debug\uniConverter.Desktop_Content.g.cs
+C:\Users\piotr\Downloads\JiPP2020L-Z410-Piotr-Pietrucha(1)\JiPP2020L-Z410-Piotr-Pietrucha\zadanie 5\zadanie 5\uniConverter.Desktop\obj\Debug\uniConverter.Desktop_MarkupCompile.cache
+C:\Users\piotr\Downloads\JiPP2020L-Z410-Piotr-Pietrucha(1)\JiPP2020L-Z410-Piotr-Pietrucha\zadanie 5\zadanie 5\uniConverter.Desktop\obj\Debug\uniConverter.Desktop_MarkupCompile.lref
+C:\Users\piotr\Downloads\JiPP2020L-Z410-Piotr-Pietrucha(1)\JiPP2020L-Z410-Piotr-Pietrucha\zadanie 5\zadanie 5\uniConverter.Desktop\obj\Debug\MainWindow.baml
+C:\Users\piotr\Downloads\JiPP2020L-Z410-Piotr-Pietrucha(1)\JiPP2020L-Z410-Piotr-Pietrucha\zadanie 5\zadanie 5\uniConverter.Desktop\obj\Debug\uniConverter.Desktop.g.resources
+C:\Users\piotr\Downloads\JiPP2020L-Z410-Piotr-Pietrucha(1)\JiPP2020L-Z410-Piotr-Pietrucha\zadanie 5\zadanie 5\uniConverter.Desktop\obj\Debug\uniConverter.Desktop.Properties.Resources.resources
+C:\Users\piotr\Downloads\JiPP2020L-Z410-Piotr-Pietrucha(1)\JiPP2020L-Z410-Piotr-Pietrucha\zadanie 5\zadanie 5\uniConverter.Desktop\obj\Debug\uniConverter.Desktop.csproj.GenerateResource.cache
+C:\Users\piotr\Downloads\JiPP2020L-Z410-Piotr-Pietrucha(1)\JiPP2020L-Z410-Piotr-Pietrucha\zadanie 5\zadanie 5\uniConverter.Desktop\obj\Debug\uniConverter.Desktop.csproj.CoreCompileInputs.cache
+C:\Users\piotr\Downloads\JiPP2020L-Z410-Piotr-Pietrucha(1)\JiPP2020L-Z410-Piotr-Pietrucha\zadanie 5\zadanie 5\uniConverter.Desktop\obj\Debug\uniConverter.Desktop.csproj.CopyComplete
+C:\Users\piotr\Downloads\JiPP2020L-Z410-Piotr-Pietrucha(1)\JiPP2020L-Z410-Piotr-Pietrucha\zadanie 5\zadanie 5\uniConverter.Desktop\obj\Debug\uniConverter.Desktop.exe
+C:\Users\piotr\Downloads\JiPP2020L-Z410-Piotr-Pietrucha(1)\JiPP2020L-Z410-Piotr-Pietrucha\zadanie 5\zadanie 5\uniConverter.Desktop\obj\Debug\uniConverter.Desktop.pdb
+C:\Users\Admin\Desktop\zadanie 5\uniConverter.Desktop\bin\Debug\uniConverter.Desktop.exe.config
+C:\Users\Admin\Desktop\zadanie 5\uniConverter.Desktop\bin\Debug\uniConverter.Desktop.exe
+C:\Users\Admin\Desktop\zadanie 5\uniConverter.Desktop\bin\Debug\uniConverter.Desktop.pdb
+C:\Users\Admin\Desktop\zadanie 5\uniConverter.Desktop\bin\Debug\CommonControl.dll
+C:\Users\Admin\Desktop\zadanie 5\uniConverter.Desktop\bin\Debug\EntityFramework.dll
+C:\Users\Admin\Desktop\zadanie 5\uniConverter.Desktop\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Admin\Desktop\zadanie 5\uniConverter.Desktop\bin\Debug\unitConverter.Logic.dll
+C:\Users\Admin\Desktop\zadanie 5\uniConverter.Desktop\bin\Debug\CommonControl.pdb
+C:\Users\Admin\Desktop\zadanie 5\uniConverter.Desktop\bin\Debug\unitConverter.Logic.pdb
+C:\Users\Admin\Desktop\zadanie 5\uniConverter.Desktop\bin\Debug\EntityFramework.xml
+C:\Users\Admin\Desktop\zadanie 5\uniConverter.Desktop\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Admin\Desktop\zadanie 5\uniConverter.Desktop\obj\Debug\uniConverter.Desktop.csprojAssemblyReference.cache
+C:\Users\Admin\Desktop\zadanie 5\uniConverter.Desktop\obj\Debug\MainWindow.g.cs
+C:\Users\Admin\Desktop\zadanie 5\uniConverter.Desktop\obj\Debug\App.g.cs
+C:\Users\Admin\Desktop\zadanie 5\uniConverter.Desktop\obj\Debug\uniConverter.Desktop_Content.g.cs
+C:\Users\Admin\Desktop\zadanie 5\uniConverter.Desktop\obj\Debug\uniConverter.Desktop_MarkupCompile.cache
+C:\Users\Admin\Desktop\zadanie 5\uniConverter.Desktop\obj\Debug\uniConverter.Desktop_MarkupCompile.lref
+C:\Users\Admin\Desktop\zadanie 5\uniConverter.Desktop\obj\Debug\MainWindow.baml
+C:\Users\Admin\Desktop\zadanie 5\uniConverter.Desktop\obj\Debug\uniConverter.Desktop.g.resources
+C:\Users\Admin\Desktop\zadanie 5\uniConverter.Desktop\obj\Debug\uniConverter.Desktop.Properties.Resources.resources
+C:\Users\Admin\Desktop\zadanie 5\uniConverter.Desktop\obj\Debug\uniConverter.Desktop.csproj.GenerateResource.cache
+C:\Users\Admin\Desktop\zadanie 5\uniConverter.Desktop\obj\Debug\uniConverter.Desktop.csproj.CoreCompileInputs.cache
+C:\Users\Admin\Desktop\zadanie 5\uniConverter.Desktop\obj\Debug\uniConverter.Desktop.csproj.CopyComplete
+C:\Users\Admin\Desktop\zadanie 5\uniConverter.Desktop\obj\Debug\uniConverter.Desktop.exe
+C:\Users\Admin\Desktop\zadanie 5\uniConverter.Desktop\obj\Debug\uniConverter.Desktop.pdb
