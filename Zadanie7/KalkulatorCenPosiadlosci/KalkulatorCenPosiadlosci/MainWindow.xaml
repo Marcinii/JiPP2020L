@@ -1,0 +1,112 @@
+﻿<Window x:Class="KalkulatorCenPosiadlosci.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:KalkulatorCenPosiadlosci"
+        xmlns:uc="clr-namespace:reusables;assembly=reusables"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Window.Resources>
+        <Storyboard x:Key="Animation" RepeatBehavior="Forever">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="image1">
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="-333.969"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:2" Value="-333.969"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:3" Value="-709.305"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="image1">
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="-23.206"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:2" Value="-20.179"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:3" Value="-29.26"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="image2">
+                <EasingDoubleKeyFrame KeyTime="0:0:3" Value="1.513"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:4" Value="-328.924"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:5" Value="-326.906"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:6" Value="-710.314"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="image2">
+                <EasingDoubleKeyFrame KeyTime="0:0:3" Value="-0.505"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:4" Value="-14.126"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:5" Value="-16.144"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:6" Value="-29.261"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="image">
+                <EasingDoubleKeyFrame KeyTime="0:0:6" Value="-3.027"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:7" Value="-18.162"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:8" Value="-22.198"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:9" Value="-30.27"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="image">
+                <EasingDoubleKeyFrame KeyTime="0:0:6" Value="-1.009"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:7" Value="-340.022"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:8" Value="-338.004"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:9" Value="-711.322"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+    </Window.Resources>
+    <Window.Triggers>
+        <EventTrigger RoutedEvent="FrameworkElement.Loaded">
+            <BeginStoryboard Storyboard="{StaticResource Animation}"/>
+        </EventTrigger>
+    </Window.Triggers>
+    <Grid x:Name="Okno" Loaded="Okno_Loaded">
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+                <GradientStop Color="#FF6AA6B0" Offset="0.897"/>
+                <GradientStop Color="#FFF9FF71"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+        <ComboBox x:Name="Posiadlosc" HorizontalAlignment="Left" Margin="181,25,0,0" VerticalAlignment="Top" Width="194" Height="32"/>
+        <Label Content="Typ posiadłości :" HorizontalAlignment="Left" Margin="38,25,0,0" VerticalAlignment="Top" Height="32" Width="138" FontSize="16"/>
+        <Label Content="Wielkość posiadłości :" HorizontalAlignment="Left" Margin="10,126,0,0" VerticalAlignment="Top" Width="166" Height="32" FontSize="16"/>
+        <TextBox x:Name="Wielkosc" HorizontalAlignment="Left" Height="32" Margin="181,126,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="86" FontSize="20" Background="#FFEBEBEB" Foreground="Black"/>
+        <Label Content="m2" HorizontalAlignment="Left" Margin="272,126,0,0" VerticalAlignment="Top" Height="32" Width="33" FontSize="16" RenderTransformOrigin="0.551,1.907"/>
+        <ComboBox x:Name="Miejscowosc" HorizontalAlignment="Left" Margin="181,76,0,0" VerticalAlignment="Top" Width="194" Height="32">
+            <ComboBox.Background>
+                <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                    <GradientStop Color="#FFF0F0F0" Offset="0"/>
+                    <GradientStop Color="#FF6BCEDE" Offset="1"/>
+                </LinearGradientBrush>
+            </ComboBox.Background>
+        </ComboBox>
+        <Label Content="Miejscowość :" HorizontalAlignment="Left" Margin="57,76,0,0" VerticalAlignment="Top" Width="109" Height="32" FontSize="16"/>
+        <Button Content="Oblicz cenę" HorizontalAlignment="Left" Margin="57,196,0,0" VerticalAlignment="Top" Width="119" Height="46" FontSize="20" Click="Button_Click"/>
+        <Button Content="    Dodaj&#xD;&#xA;Miejscowość" HorizontalAlignment="Left" Margin="204,196,0,0" VerticalAlignment="Top" Width="119" Height="46" TextOptions.TextHintingMode="Fixed" FontSize="16" FontStyle="Italic" ScrollViewer.CanContentScroll="True"/>
+        <Label x:Name="Cena" Content="&#xD;&#xA;" HorizontalAlignment="Left" Margin="222,345,0,0" VerticalAlignment="Top" Height="36" Width="126" FontSize="18"/>
+        <Label Content="Cena za posiadłość :" HorizontalAlignment="Left" Margin="38,345,0,0" VerticalAlignment="Top" Height="36" Width="179" FontSize="18"/>
+        <Image x:Name="image" Margin="463.152,480.511,58.547,-238.018" Source="opis_mieszkania_po_angielsku_1-1024x682.jpg" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Image.RenderTransform>
+        </Image>
+        <Image x:Name="image2" Margin="462.38,480.511,59.319,-238.018" Source="opis_mieszkania_po_angielsku_loft-1024x682.jpg" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Image.RenderTransform>
+        </Image>
+        <Image x:Name="image1" Margin="462.38,480.511,60.091,-238.018" Source="salon-w-stylu-angielskim_2900084.jpg" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Image.RenderTransform>
+        </Image>
+        <Grid HorizontalAlignment="Left" Height="100" Margin="50,309,0,0" VerticalAlignment="Top" Width="202"/>
+        <uc:ReusableControl Margin="300,-40,-70,-43" Height="462" VerticalAlignment="Top"/>
+        <Label Content="Udostępnij" HorizontalAlignment="Left" Margin="321,375,0,0" VerticalAlignment="Top" Width="142" Height="37" FontSize="14"/>
+    </Grid>
+</Window>

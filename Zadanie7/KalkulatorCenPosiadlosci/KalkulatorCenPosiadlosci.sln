@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30011.22
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KalkulatorCenPosiadlosci", "KalkulatorCenPosiadlosci\KalkulatorCenPosiadlosci.csproj", "{7B8396D1-D980-417B-8727-11A49400AF22}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KalkulatorCenPosiadlosci.Logika", "KalkulatorCenPosiadlosci.Logika\KalkulatorCenPosiadlosci.Logika.csproj", "{62DFF218-A95F-402B-BE9D-C1E810D06119}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "reusables", "reusables\reusables.csproj", "{72B13381-04B9-41C1-8A09-D31839E6797B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7B8396D1-D980-417B-8727-11A49400AF22}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7B8396D1-D980-417B-8727-11A49400AF22}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7B8396D1-D980-417B-8727-11A49400AF22}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7B8396D1-D980-417B-8727-11A49400AF22}.Release|Any CPU.Build.0 = Release|Any CPU
+		{62DFF218-A95F-402B-BE9D-C1E810D06119}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{62DFF218-A95F-402B-BE9D-C1E810D06119}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{62DFF218-A95F-402B-BE9D-C1E810D06119}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{62DFF218-A95F-402B-BE9D-C1E810D06119}.Release|Any CPU.Build.0 = Release|Any CPU
+		{72B13381-04B9-41C1-8A09-D31839E6797B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{72B13381-04B9-41C1-8A09-D31839E6797B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{72B13381-04B9-41C1-8A09-D31839E6797B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{72B13381-04B9-41C1-8A09-D31839E6797B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0B83B57F-3FF4-445B-A5A9-E4A95FA0D31C}
+	EndGlobalSection
+EndGlobal
