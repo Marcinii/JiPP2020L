@@ -1,0 +1,42 @@
+﻿<Window x:Class="FlowerManager.Desktop.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:FlowerManager.Desktop"
+        xmlns:commonControls="clr-namespace:FlowerManager.Controls;assembly=FlowerManager.Controls"
+        mc:Ignorable="d"
+               Title="Flower Manager" Height="450" Width="800">
+    <Grid Background="AliceBlue">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*"></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Column="0" Margin="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="10*"/>
+            </Grid.RowDefinitions>
+            <DockPanel Grid.Row="0" Margin="5">
+                <Button x:Name="LoadAll" Click="LoadAllData" Width="Auto" MinWidth="100">Load all flowers</Button>
+                <Button x:Name="Load" Click="LoadData" Width="Auto">Load flowers that need watering</Button>
+            </DockPanel>
+            
+            <DataGrid Grid.Row="1" x:Name="FlowersList" FontSize="10" SelectionMode="Single" SelectionChanged="FlowersList_SelectionChanged"></DataGrid>
+        </Grid>
+        <commonControls:FlowerState x:Name="flower" Grid.Column="1" Watered="FlowerWatered"/>
+        <StackPanel Grid.Column="2">
+            <Label>Add Room</Label>
+            <StackPanel>
+                <TextBox x:Name="RoomName" Margin="5">Name</TextBox>
+                <Button x:Name="AddRoomBtn" Click="AddRoomBtnClicked">+</Button>
+            </StackPanel>
+            <Label>Add Flower</Label>
+            <TextBox x:Name="FlowerName" Margin="5">Name</TextBox>
+            <TextBox x:Name="FlowerWateringFQC" Margin="5">Frequency of watering (in days)</TextBox>
+            <Button x:Name="AddFlowerBtn" Click="AddFlowerBtnClicked">+</Button>
+        </StackPanel>
+        <Rectangle x:Name="LoadingPanel" Fill="#7F0C0C0C" Grid.ColumnSpan="3" Margin="0" Visibility="Collapsed"/>
+    </Grid>
+</Window>
