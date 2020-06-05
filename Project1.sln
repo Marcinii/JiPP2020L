@@ -9,6 +9,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitConverter.Logic", "Unit
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitConverter.Desktop", "UnitConverter.Desktop\UnitConverter.Desktop.csproj", "{A6E13705-6ADB-45A0-B3E1-880552771D81}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Account.Logic", "Account.Logic\Account.Logic.csproj", "{51B624FD-EC67-4175-BA2D-9C46FAE2472E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Account.Desktop", "Account.Desktop\Account.Desktop.csproj", "{F73943EC-0284-49D0-9321-1B111EBE5711}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +31,14 @@ Global
 		{A6E13705-6ADB-45A0-B3E1-880552771D81}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A6E13705-6ADB-45A0-B3E1-880552771D81}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A6E13705-6ADB-45A0-B3E1-880552771D81}.Release|Any CPU.Build.0 = Release|Any CPU
+		{51B624FD-EC67-4175-BA2D-9C46FAE2472E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{51B624FD-EC67-4175-BA2D-9C46FAE2472E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{51B624FD-EC67-4175-BA2D-9C46FAE2472E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{51B624FD-EC67-4175-BA2D-9C46FAE2472E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F73943EC-0284-49D0-9321-1B111EBE5711}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F73943EC-0284-49D0-9321-1B111EBE5711}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F73943EC-0284-49D0-9321-1B111EBE5711}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F73943EC-0284-49D0-9321-1B111EBE5711}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
