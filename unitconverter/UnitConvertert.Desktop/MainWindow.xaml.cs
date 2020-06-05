@@ -9,6 +9,7 @@ using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
+using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
@@ -17,137 +18,115 @@ using UnitConverter;
 namespace UnitConverter.Desktop
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Logika interakcji dla klasy MainWindow.xaml
     /// </summary>
     public partial class MainWindow : Window
     {
         public MainWindow()
         {
             InitializeComponent();
-            List<IConverter> converters = new List<IConverter>()
+
+            Unit.ItemsSource = new List<string>()
+            {
+                new TemperatureConverter().Name,
+                new LenghtConverter().Name,
+                new WeightConverter().Name,
+                new TimeConverter().Name,
+            };
+
+            Clock.Visibility = Visibility.Hidden;
+            ClockHour.Visibility = Visibility.Hidden;
+            ClockMinute.Visibility = Visibility.Hidden;
+        }
+
+        private void Submit_Click(object sender, RoutedEventArgs e)
+        {
+            List<IConverter> Converters = new List<IConverter>()
             {
                 new TemperatureConverter(),
                 new LenghtConverter(),
                 new WeightConverter(),
-                new SpeedConverter()
-
+                new TimeConverter(),
             };
-            firstList.ItemsSource = new List<string>()
+
+            string InputValue = Input.Text;
+            string UnitValue = Unit.Text;
+            string FromValue = From.Text;
+            string ToValue = To.Text;
+            string AnswerValue = "";
+            for (int i = 0; i < Converters.Count; i++)
             {
-             converters[0].Name,
-             converters[1].Name,
-             converters[2].Name,
-             converters[3].Name,
+                if (Converters[i].Name == UnitValue)
+                {
+                    AnswerValue = Converters[i].Convert(FromValue, ToValue, InputValue) + "";
+                }
+            }
+            Answer.Text = AnswerValue;
 
+            if ((string)Unit.SelectedItem == "Czas")
+            {
+                DateTime Time = DateTime.Parse(AnswerValue);
 
+                double Minute = double.Parse(Time.Minute.ToString());
+                double MinuteAngle = 6 * Minute;
+
+                double Hour = double.Parse(Time.Hour.ToString());
+                double HourAngle = 0.5 * (60 * Minute + Hour);
+
+                clockHourRotation.Angle = HourAngle;
+                clockMinuteRotation.Angle = MinuteAngle;
+            }
+        }
+
+        private void Unit_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Clock.Visibility = Visibility.Hidden;
+            ClockHour.Visibility = Visibility.Hidden;
+            ClockMinute.Visibility = Visibility.Hidden;
+
+            List<IConverter> Converters = new List<IConverter>()
+            {
+                new TemperatureConverter(),
+                new LenghtConverter(),
+                new WeightConverter(),
+                new TimeConverter(),
             };
-            int index = firstList.SelectedIndex;
 
-        }
-        private void ActionButton_Click(object sender, RoutedEventArgs e)
-        {
-            int firstListindex = firstList.SelectedIndex;
-            int secondListindex = secondList.SelectedIndex;
-            int thirdListindex = thirdList.SelectedIndex;
-            string inputValue = inputTextBox.Text.ToString();
+            List<string> Measurement = new List<string>();
 
-
-            decimal Value = decimal.Parse(inputValue);
-            if (firstListindex == 0)
+            for (int i = 0; i < Converters.Count; i++)
             {
-                decimal result = new TemperatureConverter().Convert(secondListindex, thirdListindex, Value);
-                resultTextBlock.Text = result.ToString();
+                if ((string)Unit.SelectedItem == Converters[i].Name)
+                {
+                    for (int j = 0; j < Converters[i].Units.Count; j++)
+                    {
+                        Measurement.Add(Converters[i].Units[j]);
+                    }
+                }
             }
-            else if (firstListindex == 1)
-            {
-                decimal result = new LenghtConverter().Convert(secondListindex, thirdListindex, Value);
-                resultTextBlock.Text = result.ToString();
-            }
-            else if (firstListindex == 2)
-            {
-                decimal result = new WeightConverter().Convert(secondListindex, thirdListindex, Value);
-                resultTextBlock.Text = result.ToString();
-            }
+            From.ItemsSource = Measurement;
+            To.ItemsSource = Measurement;
 
-            else if (firstListindex == 3)
+            if ((string)Unit.SelectedItem == new TimeConverter().Name)
             {
-                decimal result = new SpeedConverter().Convert(secondListindex, thirdListindex, Value);
-                resultTextBlock.Text = result.ToString();
+                Clock.Visibility = Visibility.Visible;
+                ClockHour.Visibility = Visibility.Visible;
+                ClockMinute.Visibility = Visibility.Visible;
+                ((Storyboard)Resources["ClockStart"]).Begin();
             }
-
-
         }
 
-        private void combobox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void Input_TextChanged(object sender, TextChangedEventArgs e)
         {
 
-            secondList.Items.Clear();
-            inputTextBox.Text = "";
-            resultTextBlock.Text = "";
-            int index1 = firstList.SelectedIndex;
-
-            if (index1 == 0)
-            {
-                secondList.Items.Add("Kelvin");
-                secondList.Items.Add("Celsjusz");
-                secondList.Items.Add("Farenhait");
-            }
-
-            else if (index1 == 1)
-            {
-                secondList.Items.Add("Kilometry");
-                secondList.Items.Add("Mile");
-
-            }
-            else if (index1 == 2)
-            {
-                secondList.Items.Add("Kilogramy");
-                secondList.Items.Add("Funty");
-
-            }
-            else if (index1 == 3)
-            {
-                secondList.Items.Add("KM/H");
-                secondList.Items.Add("MPH");
-
-            }
-
         }
 
-        private void comboboxSecond_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
-            thirdList.Items.Clear();
-            int index2 = firstList.SelectedIndex;
 
-
-            if (index2 == 0)
-            {
-                thirdList.Items.Add("Kelvin");
-                thirdList.Items.Add("Celsjusz");
-                thirdList.Items.Add("Farenhait");
-            }
-
-            else if (index2 == 1)
-            {
-                thirdList.Items.Add("Kilometry");
-                thirdList.Items.Add("Mile");
-
-            }
-            else if (index2 == 2)
-            {
-                thirdList.Items.Add("Kilogramy");
-                thirdList.Items.Add("Funty");
-
-            }
-            else if (index2 == 3)
-            {
-                thirdList.Items.Add("KM/H");
-                thirdList.Items.Add("MPH");
-
-            }
         }
 
-        private void inputTextBox_TextChanged(object sender, TextChangedEventArgs e)
+        private void TextBox_TextChanged_1(object sender, TextChangedEventArgs e)
         {
 
         }

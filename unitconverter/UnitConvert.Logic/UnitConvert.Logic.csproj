@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{7CE22C92-822A-4649-9023-A584EE29682D}</ProjectGuid>
+    <ProjectGuid>{2EDEB3EF-004A-4DD2-A785-1A40466AC2A9}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>UnitConverter.Logic</RootNamespace>
-    <AssemblyName>UnitConverter.Logic</AssemblyName>
+    <RootNamespace>UnitConvert.Logic</RootNamespace>
+    <AssemblyName>UnitConvert.Logic</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -41,11 +41,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="TimeConverter.cs" />
+    <Compile Include="IConverter - Time.cs" />
     <Compile Include="IConverter.cs" />
-    <Compile Include="LenghtConverter.cs" />
+    <Compile Include="LengthConverter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TemperatureConverter.cs" />
+    <Compile Include="TimeConverter.cs" />
     <Compile Include="WeightConverter.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

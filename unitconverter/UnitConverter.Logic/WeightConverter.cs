@@ -3,31 +3,44 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System;
+using System.Collections.Generic;
 
 namespace UnitConverter
 {
     public class WeightConverter : IConverter
     {
-        public string Name => "Konwerter Wagi";
+        public string Name => "Waga";
 
         public List<string> Units => new List<string>()
         {
-            "Kilogramy",//0
-            "Funty"//1
+            "kg",
+            "lbs"
         };
 
-        public decimal Convert(int fromUnit, int toUnit, decimal value)
+        public string Convert(string from, string to, string value)
         {
-            if (fromUnit == 0)
-            {
-                value = value * (decimal)2.2046;
-            }
+            decimal DecimalValue = decimal.Parse(value);
 
-            else
+            if (from == to)
             {
-                value = value / (decimal)2.2046;
+                return value;
             }
-            return value;
+            if (from == "kg")
+            {
+                if (to == "lbs")
+                {
+                    return Decimal.Multiply(DecimalValue, (decimal)2.205).ToString();
+                }
+            }
+            if (from == "lbs")
+            {
+                if (to == "kg")
+                {
+                    return Decimal.Divide(DecimalValue, (decimal)2.205).ToString();
+                }
+            }
+            throw new NotImplementedException();
         }
     }
 }

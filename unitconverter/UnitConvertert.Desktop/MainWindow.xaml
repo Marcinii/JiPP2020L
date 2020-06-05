@@ -5,62 +5,71 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:UnitConverter.Desktop"
         mc:Ignorable="d"
-        Title="Unit Covnerter" Height="450" Width="850" WindowStyle="ThreeDBorderWindow" Opacity="0.8" Icon="Conversion_icon-icons.com_51175.png" Topmost="True" Foreground="Red">
-    <Window.Background>
-        <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
-            <GradientStop Color="Black" Offset="1"/>
-            <GradientStop Color="#FF3C3B3B"/>
-        </LinearGradientBrush>
-    </Window.Background>
-    <Grid Height="419" VerticalAlignment="Bottom">
-        <Grid.Background>
-            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                <GradientStop Color="Black" Offset="0"/>
-                <GradientStop Color="#FF383838" Offset="1"/>
-            </LinearGradientBrush>
-        </Grid.Background>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="28*"/>
-            <RowDefinition Height="31*"/>
-            <RowDefinition Height="360"/>
-
-
-        </Grid.RowDefinitions>
-
+        Title="Converter " Height="440" Width="834" Background="#FFEAFFF0" Foreground="Black" Icon="Conversion_icon-icons.com_51175.png" BorderThickness="0,5,0,0" VerticalAlignment="Center" HorizontalAlignment="Center">
+    <Window.Resources>
+        <Storyboard x:Key="ClockStart">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[2].(RotateTransform.Angle)" Storyboard.TargetName="ClockMinute">
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="360"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[2].(RotateTransform.Angle)" Storyboard.TargetName="ClockHour">
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="-360"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+    </Window.Resources>
+    <Window.Triggers>
+        <EventTrigger RoutedEvent="FrameworkElement.Loaded">
+            <BeginStoryboard Storyboard="{StaticResource ClockStart}"/>
+        </EventTrigger>
+    </Window.Triggers>
+    <Grid Width="800" Margin="13,0,13,-21">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="150"/>
-            <ColumnDefinition Width="150"/>
-            <ColumnDefinition Width="150"/>
-            <ColumnDefinition Width="150"/>
-            <ColumnDefinition Width="0*"/>
-            <ColumnDefinition Width="242"/>
-
+            <ColumnDefinition Width="785"/>
         </Grid.ColumnDefinitions>
-
-
-
-        <ComboBox x:Name="firstList" SelectionChanged="combobox_SelectionChanged" Margin="44,10,71,322" Grid.ColumnSpan="2" Grid.Row="2"/>
-        <ComboBox x:Name="secondList" HorizontalAlignment="Left" Width="150" SelectionChanged="comboboxSecond_SelectionChanged" Margin="44,113,0,219" Grid.Row="2" Grid.ColumnSpan="2">
-            <ComboBox.Background>
-                <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
-                    <GradientStop Color="#FFF0F0F0" Offset="0"/>
-                    <GradientStop Color="#FFC51818" Offset="1"/>
-                </LinearGradientBrush>
-            </ComboBox.Background>
-        </ComboBox>
-        <ComboBox x:Name="thirdList" Grid.Column="2" HorizontalAlignment="Left" Width="150" Margin="52,114,0,218" Grid.Row="2" Background="White" Foreground="Black" BorderBrush="#FF939393" Grid.ColumnSpan="2"/>
-        <TextBox x:Name="inputTextBox" Background="White" TextChanged="inputTextBox_TextChanged" Grid.ColumnSpan="2" Margin="44,204,106,128" Grid.Row="2"/>
-        <Button x:Name="ActionButton" Content="Konwertuj" Grid.Column="5" Click="ActionButton_Click" Margin="1,287,23,47" Grid.Row="2" Foreground="White" BorderBrush="{x:Null}" Background="#FF7A7A7A" FontFamily="Consolas" FontSize="14" TextOptions.TextHintingMode="Animated" FontWeight="Bold"/>
-
-        <TextBlock x:Name="resultTextBlock" Grid.Column="2" Grid.Row="2" Margin="52,204,98,128" Grid.ColumnSpan="2" Foreground="Black" Background="White"></TextBlock>
-        <TextBlock  Grid.Column="2" Grid.Row="2" HorizontalAlignment="Right" Margin="0,168,50,161" Padding="0,7,0,0" Width="48" Foreground="White" FontFamily="Consolas" FontWeight="Bold"><Run Text="Wyni"/><Run Text="k"/><Run Text=":"/></TextBlock>
-        <TextBlock HorizontalAlignment="Left" Margin="44,175,0,0" Grid.Row="2" TextWrapping="Wrap" Text="Wprowadź wartość:" VerticalAlignment="Top" Grid.ColumnSpan="2" Width="172" Foreground="White" FontFamily="Consolas" FontWeight="Bold" Height="14"/>
-        <TextBlock HorizontalAlignment="Left" Margin="44,20,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Grid.ColumnSpan="2" Width="136" Height="21" Foreground="White" Grid.RowSpan="2" FontFamily="Consolas" FontWeight="Bold" TextDecorations="{x:Null}"><Run Text="Kategoria konwersji:"/><LineBreak/></TextBlock>
-        <TextBlock HorizontalAlignment="Left" Margin="44,92,0,0" Grid.Row="2" TextWrapping="Wrap" Text="Konwersja z:" VerticalAlignment="Top" Width="87" Foreground="White" FontFamily="Consolas" FontWeight="Bold" Height="14"/>
-        <TextBlock Grid.Column="2" HorizontalAlignment="Left" Margin="52,92,0,0" Grid.Row="2" TextWrapping="Wrap" Text="Konwersja do:" VerticalAlignment="Top" Foreground="#FFFBFBFB" FontFamily="Consolas" FontWeight="Bold" Height="14" Width="86"/>
-
-
-
-
+        <ComboBox Name="Unit"  HorizontalAlignment="Left" VerticalAlignment="Top" Width="772" SelectionChanged="Unit_SelectionChanged" Height="52" Margin="10,38,0,0"/>
+        <ComboBox Name="From" HorizontalAlignment="Left" Margin="10,109,0,0" VerticalAlignment="Top" Width="354" Height="43"/>
+        <ComboBox Name="To" HorizontalAlignment="Left" Margin="429,109,0,0" VerticalAlignment="Top" Width="354" Height="43"/>
+        <TextBox Name="Input" HorizontalAlignment="Left" Height="43" Margin="10,181,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="354" TextChanged="Input_TextChanged" Background="#FFD9D9FF" BorderBrush="{x:Null}" SelectionBrush="White"/>
+        <TextBlock x:Name="Answer" HorizontalAlignment="Left" Margin="10,250,0,0" VerticalAlignment="Top" Height="41" Width="354" FontFamily="Courier New" TextDecorations="{x:Null}" TextAlignment="Center" LineHeight="6" Foreground="Black" Background="#FFD9D9FF" FontSize="14"/>
+        <Button Name="Submit" Content="Konwertuj" HorizontalAlignment="Left" Margin="10,321,0,0" VerticalAlignment="Top" Width="772" Height="52" Click="Submit_Click"/>
+        <Ellipse Name="Clock"  Fill="#FFD9D9FF" HorizontalAlignment="Left" Height="120" Margin="641,164,0,0" VerticalAlignment="Top" Width="120" RenderTransformOrigin="0.5,0.5">
+            <Ellipse.Stroke>
+                <SolidColorBrush Color="#FF7433FF" Opacity="0.5"/>
+            </Ellipse.Stroke>
+            <Ellipse.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Ellipse.RenderTransform>
+        </Ellipse>
+        <Path Name="ClockMinute" Data="M232.94268,193.80679 L232.94268,133.48608" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="60" Margin="699.943,164,0,0" Stretch="Fill" Stroke="#FF6F1DFF" VerticalAlignment="Top" Width="2" RenderTransformOrigin="1,1">
+            <Path.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform x:Name="clockMinuteRotation" Angle="0"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Path.RenderTransform>
+        </Path>
+        <Path Name="ClockHour" Data="M232.94268,193.80679 L232.94268,133.48608" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="35" Margin="700.193,189.075,0,0" Stretch="Fill" Stroke="#FF6F1DFF" VerticalAlignment="Top" Width="2" RenderTransformOrigin="1,1">
+            <Path.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform x:Name="clockHourRotation" Angle="27.482"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Path.RenderTransform>
+        </Path>
+        <TextBox HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="Rodzaj konwersji:" VerticalAlignment="Top" Width="120" Margin="10,10,0,0" Background="{x:Null}" BorderBrush="{x:Null}"/>
+        <TextBox HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="Z jednostki: " VerticalAlignment="Top" Width="120" Margin="10,90,0,0" Background="{x:Null}" BorderBrush="{x:Null}"/>
+        <TextBox HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="Do jednostki:" VerticalAlignment="Top" Width="120" TextChanged="TextBox_TextChanged" Margin="429,90,0,0" Background="{x:Null}" BorderBrush="{x:Null}"/>
+        <TextBox HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="Liczba do konwersji:" VerticalAlignment="Top" Width="120" Margin="10,158,0,0" TextChanged="TextBox_TextChanged_1" Background="{x:Null}" BorderBrush="{x:Null}"/>
+        <TextBox HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="Wynik konwersji:" VerticalAlignment="Top" Width="120" Background="{x:Null}" BorderBrush="{x:Null}" Margin="10,227,0,0"/>
     </Grid>
 </Window>

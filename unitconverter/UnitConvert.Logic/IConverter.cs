@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System;
-using System.Collections.Generic;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace UnitConverter
 {
@@ -10,7 +10,6 @@ namespace UnitConverter
     {
         string Name { get; }
         List<string> Units { get; }
-
-        string Convert(string from, string to, string value);
+        decimal Convert(string unitFrom, string unitTo, decimal valueToConvert);
     }
 }

@@ -1,55 +1,34 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 namespace UnitConverter
 {
     class Program
     {
-        static void Main(string[] args)
+        static void Main()
         {
-            List<IConverter> converters = new List<IConverter>()
+            List<IConverter> Converters = new List<IConverter>()
             {
                 new TemperatureConverter(),
                 new LenghtConverter(),
                 new WeightConverter(),
-                new SpeedConverter()
-
+                new TimeConverter(),
             };
-            Console.WriteLine("Wybierz opcję konwersji:");
-            for (int i = 0; i < converters.Count; i++)
+
+            for (int i = 0; i < Converters.Count; i++)
             {
-                Console.WriteLine("({0}) {1}", i + 1, converters[i].Name);
+                System.Console.WriteLine("({0}) {1}", i, Converters[i].Name);
             }
-            string inputChoice = Console.ReadLine();
-            int index = Convert.ToInt32(inputChoice) - 1;
+            string userInputConverter = System.Console.ReadLine();
+            int converter = int.Parse(userInputConverter);
+            System.Console.WriteLine("Unit we are converting from: ");
+            string from = System.Console.ReadLine();
+            System.Console.WriteLine("Unit we are converting to: ");
+            string to = System.Console.ReadLine();
+            System.Console.WriteLine("Unit value: ");
+            string value = System.Console.ReadLine();
 
-            Console.WriteLine("Wybierz Z jakiej jednostki: ");
-
-            for (int i = 0; i < converters[index].Units.Count; i++)
-            {
-                Console.WriteLine("({0}) {1}", i + 1, converters[index].Units[i]);
-            }
-            string fUnit = Console.ReadLine();
-            int fromUnit = int.Parse(fUnit) - 1;
-
-
-            Console.WriteLine("Wybierz Do jakiej jednostki: ");
-            for (int i = 0; i < converters[index].Units.Count; i++)
-            {
-                Console.WriteLine("({0}) {1}", i + 1, converters[index].Units[i]);
-            }
-            string tUnit = Console.ReadLine();
-            int ToUnit = int.Parse(tUnit) - 1;
-
-            Console.WriteLine("Podaj liczbę do konwersji: ");
-            string getValue = Console.ReadLine();
-            decimal value = decimal.Parse(getValue);
-
-            decimal result = converters[index].Convert(fromUnit, ToUnit, value);
-
-            Console.WriteLine("Wynik konwersji: " + result);
-
-            Console.ReadKey();
+            string result = Converters[converter].Convert(from, to, value);
+            System.Console.WriteLine("{0}: {1}", to, result);
         }
     }
 }

@@ -3,35 +3,37 @@ using System.Collections.Generic;
 
 namespace UnitConverter
 {
-    public class TemperatureConverter : IConverter
+    public class TimeConverter : IConverter
     {
-        public string Name => "Temperatura";
+        public string Name => "Czas";
 
         public List<string> Units => new List<string>()
         {
-            "c°",
-            "f°"
+            "12h",
+            "24h"
         };
+
         public string Convert(string from, string to, string value)
         {
-            decimal DecimalValue = decimal.Parse(value);
+            DateTime DateTimeValue = DateTime.Parse(value);
 
             if (from == to)
             {
                 return value;
             }
-            if (from == "c°")
+            if (from == "12h")
             {
-                if (to == "f°")
+                DateTimeValue = DateTimeValue.AddHours(12);
+                if (to == "24h")
                 {
-                    return ((DecimalValue * 9 / 5) + 32).ToString();
+                    return DateTimeValue.ToString("H:mm");
                 }
             }
-            if (from == "f°")
+            if (from == "24h")
             {
-                if (to == "c°")
+                if (to == "12h")
                 {
-                    return ((DecimalValue - 32) * 5 / 9).ToString();
+                    return DateTimeValue.ToString("h:mm tt");
                 }
             }
             throw new NotImplementedException();

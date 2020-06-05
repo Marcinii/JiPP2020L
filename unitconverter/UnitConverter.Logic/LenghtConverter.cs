@@ -1,33 +1,61 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace UnitConverter
 {
     public class LenghtConverter : IConverter
     {
-        public string Name => "Konwerter Dystansu";
+        public string Name => "Długość";
 
         public List<string> Units => new List<string>()
         {
-            "Kilometry", //0
-            "Mile"//1
+            "km",
+            "mi",
+            "m"
         };
 
-        public decimal Convert(int fromUnit, int toUnit, decimal value)
+        public string Convert(string from, string to, string value)
         {
-            if (fromUnit == 0)
-            {
-                value = value * (decimal)0.62137;
-            }
-            else
-            {
-                value = value / (decimal)0.62137;
-            }
+            decimal DecimalValue = decimal.Parse(value);
 
-            return value;
+            if (from == to)
+            {
+                return value;
+            }
+            if (from == "km")
+            {
+                if (to == "mi")
+                {
+                    return Decimal.Divide(DecimalValue, (decimal)1.609).ToString();
+                }
+                if (to == "m")
+                {
+                    return Decimal.Multiply(DecimalValue, 1000).ToString();
+                }
+            }
+            if (from == "mi")
+            {
+                if (to == "km")
+                {
+                    return Decimal.Multiply(DecimalValue, (decimal)1.609).ToString();
+                }
+                if (to == "m")
+                {
+                    return Decimal.Multiply(DecimalValue, 1609).ToString();
+                }
+            }
+            if (from == "m")
+            {
+                if (to == "km")
+                {
+                    return Decimal.Divide(DecimalValue, 1000).ToString();
+                }
+                if (to == "mi")
+                {
+                    return Decimal.Divide(DecimalValue, 1609).ToString();
+                }
+            }
+            throw new NotImplementedException();
         }
     }
 }
