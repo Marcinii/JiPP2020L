@@ -1,0 +1,107 @@
+﻿<Window x:Class="Konwerter.Desktop.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Konwerter.Desktop"
+        xmlns:Gwiazdki="clr-namespace:KontrolkaOcena;assembly=KontrolkaOcena"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Window.Resources>
+
+        <Storyboard x:Key="AnimacjaKolo2" RepeatBehavior="Forever">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[2].(RotateTransform.Angle)" Storyboard.TargetName="Koleczko">
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="360"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+
+
+    </Window.Resources>
+    <Window.Triggers>
+        <EventTrigger RoutedEvent="FrameworkElement.Loaded">
+            <BeginStoryboard Storyboard="{StaticResource AnimacjaKolo2}"/>
+
+        </EventTrigger>
+    </Window.Triggers>
+
+
+    <Grid>
+
+        <Grid>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="35"/>
+                <ColumnDefinition Width="220"/>
+                <ColumnDefinition Width="150"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="35"/>
+                <RowDefinition Height="35"/>
+                <RowDefinition Height="15"/>
+                <RowDefinition Height="35"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="35"/>
+                <RowDefinition Height="15"/>
+                <RowDefinition Height="35"/>
+                <RowDefinition Height="15" />
+                <RowDefinition Height="15"/>
+                <RowDefinition Height="15"/>
+                <RowDefinition Height="35"/>
+                <RowDefinition Height="15"/>
+                <RowDefinition Height="35"/>
+                <RowDefinition Height="35"/>
+            </Grid.RowDefinitions>
+
+            <Label Grid.Column="1" Grid.Row="0" FontSize="14" FontFamily="Swis721 BlkOul BT" >Konwerter przedrostków SI</Label>
+            <Label Grid.Column="1" Grid.Row="1" FontSize="14" FontFamily="Swis721 BlkCn BT" >Wprowadz wartosc do konwersji</Label>
+            <Label Grid.Column="1" Grid.Row="3" FontSize="14" FontFamily="Swis721 BlkCn BT" >Wybierz przedrostek wyjsciowy</Label>
+            <Label Grid.Column="1" Grid.Row="7" FontSize="16" FontFamily="Swis721 BlkCn BT" >Wynik</Label>
+            <Label Grid.Column="1" Grid.Row="11" FontSize="16" FontFamily="Swis721 BlkCn BT" >Ocena aplikacji</Label>
+
+
+            <TextBox x:Name="textbox_in" Grid.Column="2" Grid.Row="1" FontSize="18" Background="#FFFFDD00" >1000</TextBox>
+            <ComboBox x:Name="combobox_rodzaj_konwersji" Grid.Column="2" Grid.Row="3" BorderBrush="#FFA28759"></ComboBox>
+            <TextBox x:Name="textbox_out" Grid.Column="2" Grid.Row="7" FontSize="18" Background="#FFFF944D" ></TextBox>
+
+            <Button x:Name="button_ok" Grid.Column="2" Grid.Row="5" Background="#FF009AFF" FontFamily="Sitka Text" FontSize="20">OK</Button>
+
+            <Gwiazdki:RateMe x:Name="WystawOcene" Grid.Column="2" Grid.Row="11" RateValueChanged="WystawOcene_RateValueChanged"/>
+
+            <Button  Grid.Row="9" Grid.ColumnSpan="4" Margin="0,0.4,10.4,0"/>
+
+        </Grid>
+
+
+
+        <Grid x:Name="GridZaslonka"  Visibility="hidden"  Background="#7F000000" Margin="0,0,0.2,-0.2">
+            <TextBlock  Foreground="#FFFCF4FF" FontSize="18" Margin="319.2,205.2,282,172.2"> Ładowanie danych</TextBlock>
+
+            <Path x:Name="Koleczko" Data="M132.6,28.892001 C75.323652,28.892 28.892,75.323652 28.892001,132.6 28.892,189.87634 75.323652,236.308 132.6,236.308 189.87634,236.308 236.308,189.87634 236.308,132.6 236.308,75.323652 189.87634,28.892 132.6,28.892001 z M132.6,0.5 C205.55681,0.5 264.7,59.643185 264.7,132.6 264.7,205.55681 205.55681,264.7 132.6,264.7 59.643185,264.7 0.5,205.55681 0.5,132.6 0.5,59.643185 59.643185,0.5 132.6,0.5 z" HorizontalAlignment="Left" Margin="291.003,119.171,0,0" Stretch="Fill" Stroke="Black" Width="203.412" RenderTransformOrigin="0.5,0.5"  Height="203.41" VerticalAlignment="Top">
+                <Path.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Path.RenderTransform>
+                <Path.Fill>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="Black" Offset="0.132"/>
+                        <GradientStop Color="#FF13A20F" Offset="0.545"/>
+                        <GradientStop Color="#FF0C6E0A" Offset="0.406"/>
+                        <GradientStop Color="White" Offset="0.957"/>
+                    </LinearGradientBrush>
+                </Path.Fill>
+            </Path>
+
+
+
+        </Grid>
+    </Grid>
+
+
+
+</Window>
