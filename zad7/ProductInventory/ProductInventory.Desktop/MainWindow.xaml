@@ -1,0 +1,482 @@
+﻿<Window x:Class="ProductInventory.Desktop.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ProductInventory.Desktop"
+        xmlns:commonControls="clr-namespace:Common.Controls;assembly=Common.Controls"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="800" Width="1500">
+    <Window.Resources>
+        <Storyboard x:Key="infoSB" RepeatBehavior="Forever">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="label">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="1"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Key="dotSB" RepeatBehavior="Forever">
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="ellipse">
+                <DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Hidden}"/>
+                <DiscreteObjectKeyFrame KeyTime="0:0:0.3" Value="{x:Static Visibility.Visible}"/>
+                <DiscreteObjectKeyFrame KeyTime="0:0:2.4" Value="{x:Static Visibility.Hidden}"/>
+            </ObjectAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="ellipse1">
+                <DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Hidden}"/>
+                <DiscreteObjectKeyFrame KeyTime="0:0:0.6" Value="{x:Static Visibility.Visible}"/>
+                <DiscreteObjectKeyFrame KeyTime="0:0:2.4" Value="{x:Static Visibility.Hidden}"/>
+            </ObjectAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="ellipse2">
+                <DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Hidden}"/>
+                <DiscreteObjectKeyFrame KeyTime="0:0:0.9" Value="{x:Static Visibility.Visible}"/>
+                <DiscreteObjectKeyFrame KeyTime="0:0:2.4" Value="{x:Static Visibility.Hidden}"/>
+            </ObjectAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="ellipse3">
+                <DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Hidden}"/>
+                <DiscreteObjectKeyFrame KeyTime="0:0:1.2" Value="{x:Static Visibility.Visible}"/>
+                <DiscreteObjectKeyFrame KeyTime="0:0:2.4" Value="{x:Static Visibility.Hidden}"/>
+            </ObjectAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="ellipse4">
+                <DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Hidden}"/>
+                <DiscreteObjectKeyFrame KeyTime="0:0:1.5" Value="{x:Static Visibility.Visible}"/>
+                <DiscreteObjectKeyFrame KeyTime="0:0:2.4" Value="{x:Static Visibility.Hidden}"/>
+            </ObjectAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="ellipse5">
+                <DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Hidden}"/>
+                <DiscreteObjectKeyFrame KeyTime="0:0:1.8" Value="{x:Static Visibility.Visible}"/>
+                <DiscreteObjectKeyFrame KeyTime="0:0:2.4" Value="{x:Static Visibility.Hidden}"/>
+            </ObjectAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="ellipse6">
+                <DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Hidden}"/>
+                <DiscreteObjectKeyFrame KeyTime="0:0:2.1" Value="{x:Static Visibility.Visible}"/>
+                <DiscreteObjectKeyFrame KeyTime="0:0:2.4" Value="{x:Static Visibility.Hidden}"/>
+            </ObjectAnimationUsingKeyFrames>
+        </Storyboard>
+    </Window.Resources>
+    <Window.Triggers>
+        <EventTrigger RoutedEvent="FrameworkElement.Loaded">
+            <BeginStoryboard Storyboard="{StaticResource infoSB}"/>
+            <BeginStoryboard Storyboard="{StaticResource dotSB}"/>
+        </EventTrigger>
+    </Window.Triggers>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="5*"/>
+            <ColumnDefinition Width="3*"/>
+            <ColumnDefinition Width="7*"/>
+        </Grid.ColumnDefinitions>
+
+        <Border Grid.Column="0" BorderBrush="Black" BorderThickness="1">
+            <Grid>
+                <Grid.RowDefinitions>
+
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+
+
+                </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="15*"/>
+                    <ColumnDefinition Width="20*"/>
+                    <ColumnDefinition Width="5*"/>
+                    <ColumnDefinition Width="5*"/>
+                    <ColumnDefinition Width="10*"/>
+                </Grid.ColumnDefinitions>
+
+                <Label Grid.Row="0" Grid.Column="0">Zamówienie NR</Label>
+                <TextBlock x:Name="OrderNumber" Grid.Row="0" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" Text="1"></TextBlock>
+                <Label Grid.Row="0" Grid.Column="2">Data:</Label>
+                <DatePicker x:Name="data" Grid.Row="0" Grid.Column="3" Grid.ColumnSpan="2"></DatePicker>
+
+                <Label Grid.Row="1" Grid.Column="0" Content="Typ"/>
+                <Label Grid.Row="1" Grid.Column="1" Content="Nazwa"/>
+                <Label Grid.Row="1" Grid.Column="2" Content="Cena"/>
+                <Label Grid.Row="1" Grid.Column="3" Content="Ilość"/>
+                <Label Grid.Row="1" Grid.Column="4" Content="Suma"/>
+
+                <!--==================================================================================-->
+                <Border Grid.Row="2" Grid.Column="0" Grid.RowSpan="7" BorderBrush="Black" BorderThickness="1">
+                    <TextBlock x:Name="water" Grid.Row="2" Grid.Column="0" Grid.RowSpan="7" VerticalAlignment="Center" HorizontalAlignment="Center" Text="{Binding Name}" />
+                </Border>
+
+                <ComboBox x:Name="nazwa00" Grid.Row="2" Grid.Column="1" SelectionChanged="nazwa00_SelectionChanged"/>
+                <ComboBox x:Name="nazwa01" Grid.Row="3" Grid.Column="1" SelectionChanged="nazwa01_SelectionChanged"/>
+                <ComboBox x:Name="nazwa02" Grid.Row="4" Grid.Column="1" SelectionChanged="nazwa02_SelectionChanged"/>
+                <ComboBox x:Name="nazwa03" Grid.Row="5" Grid.Column="1" SelectionChanged="nazwa03_SelectionChanged"/>
+                <ComboBox x:Name="nazwa04" Grid.Row="6" Grid.Column="1" SelectionChanged="nazwa04_SelectionChanged"/>
+                <ComboBox x:Name="nazwa05" Grid.Row="7" Grid.Column="1" SelectionChanged="nazwa05_SelectionChanged"/>
+                <ComboBox x:Name="nazwa06" Grid.Row="8" Grid.Column="1" SelectionChanged="nazwa06_SelectionChanged"/>
+
+                <TextBlock x:Name="price00" Grid.Row="2" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center" Text="{Binding Price}"/>
+                <TextBlock x:Name="price01" Grid.Row="3" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center" Text="{Binding Price}"/>
+                <TextBlock x:Name="price02" Grid.Row="4" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center" Text="{Binding Price}"/>
+                <TextBlock x:Name="price03" Grid.Row="5" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center" Text="{Binding Price}"/>
+                <TextBlock x:Name="price04" Grid.Row="6" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center" Text="{Binding Price}"/>
+                <TextBlock x:Name="price05" Grid.Row="7" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center" Text="{Binding Price}"/>
+                <TextBlock x:Name="price06" Grid.Row="8" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center" Text="{Binding Price}"/>
+
+                <TextBox x:Name="q00" Grid.Row="2" Grid.Column="3" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" TextChanged="q00_TextChanged"/>
+                <TextBox x:Name="q01" Grid.Row="3" Grid.Column="3" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" TextChanged="q01_TextChanged"/>
+                <TextBox x:Name="q02" Grid.Row="4" Grid.Column="3" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" TextChanged="q02_TextChanged"/>
+                <TextBox x:Name="q03" Grid.Row="5" Grid.Column="3" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" TextChanged="q03_TextChanged"/>
+                <TextBox x:Name="q04" Grid.Row="6" Grid.Column="3" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" TextChanged="q04_TextChanged"/>
+                <TextBox x:Name="q05" Grid.Row="7" Grid.Column="3" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" TextChanged="q05_TextChanged"/>
+                <TextBox x:Name="q06" Grid.Row="8" Grid.Column="3" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" TextChanged="q06_TextChanged"/>
+
+                <TextBlock x:Name="suma00" Grid.Row="2" Grid.Column="4" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                <TextBlock x:Name="suma01" Grid.Row="3" Grid.Column="4" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                <TextBlock x:Name="suma02" Grid.Row="4" Grid.Column="4" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                <TextBlock x:Name="suma03" Grid.Row="5" Grid.Column="4" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                <TextBlock x:Name="suma04" Grid.Row="6" Grid.Column="4" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                <TextBlock x:Name="suma05" Grid.Row="7" Grid.Column="4" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                <TextBlock x:Name="suma06" Grid.Row="8" Grid.Column="4" HorizontalAlignment="Center" VerticalAlignment="Center" />
+
+                <!--==================================================================================-->
+                <Border Grid.Row="9" Grid.Column="0" Grid.RowSpan="6" BorderBrush="Black" BorderThickness="1">
+                    <TextBlock x:Name="drink" Grid.Row="9" Grid.Column="0" Grid.RowSpan="6" VerticalAlignment="Center" HorizontalAlignment="Center" Text="{Binding Name}"/>
+                </Border>
+
+
+                <ComboBox x:Name="nazwa10" Grid.Row="9" Grid.Column="1" SelectionChanged="nazwa10_SelectionChanged"/>
+                <ComboBox x:Name="nazwa11" Grid.Row="10" Grid.Column="1" SelectionChanged="nazwa11_SelectionChanged"/>
+                <ComboBox x:Name="nazwa12" Grid.Row="11" Grid.Column="1" SelectionChanged="nazwa12_SelectionChanged"/>
+                <ComboBox x:Name="nazwa13" Grid.Row="12" Grid.Column="1" SelectionChanged="nazwa13_SelectionChanged"/>
+                <ComboBox x:Name="nazwa14" Grid.Row="13" Grid.Column="1" SelectionChanged="nazwa14_SelectionChanged"/>
+                <ComboBox x:Name="nazwa15" Grid.Row="14" Grid.Column="1" SelectionChanged="nazwa15_SelectionChanged"/>
+
+                <TextBlock x:Name="price10" Grid.Row="9" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                <TextBlock x:Name="price11" Grid.Row="10" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                <TextBlock x:Name="price12" Grid.Row="11" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                <TextBlock x:Name="price13" Grid.Row="12" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                <TextBlock x:Name="price14" Grid.Row="13" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                <TextBlock x:Name="price15" Grid.Row="14" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+
+                <TextBox x:Name="q10" Grid.Row="9" Grid.Column="3" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" TextChanged="q10_TextChanged"/>
+                <TextBox x:Name="q11" Grid.Row="10" Grid.Column="3" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" TextChanged="q11_TextChanged"/>
+                <TextBox x:Name="q12" Grid.Row="11" Grid.Column="3" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" TextChanged="q12_TextChanged"/>
+                <TextBox x:Name="q13" Grid.Row="12" Grid.Column="3" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" TextChanged="q13_TextChanged"/>
+                <TextBox x:Name="q14" Grid.Row="13" Grid.Column="3" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" TextChanged="q14_TextChanged"/>
+                <TextBox x:Name="q15" Grid.Row="14" Grid.Column="3" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" TextChanged="q15_TextChanged"/>
+
+                <TextBlock x:Name="suma10" Grid.Row="9" Grid.Column="4" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                <TextBlock x:Name="suma11" Grid.Row="10" Grid.Column="4" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                <TextBlock x:Name="suma12" Grid.Row="11" Grid.Column="4" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                <TextBlock x:Name="suma13" Grid.Row="12" Grid.Column="4" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                <TextBlock x:Name="suma14" Grid.Row="13" Grid.Column="4" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                <TextBlock x:Name="suma15" Grid.Row="14" Grid.Column="4" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                <!--==================================================================================-->
+                <Border Grid.Row="15" Grid.Column="0" Grid.RowSpan="5" BorderBrush="Black" BorderThickness="1">
+                    <TextBlock x:Name="bread" Grid.Row="15" Grid.Column="0" Grid.RowSpan="5" VerticalAlignment="Center" HorizontalAlignment="Center" Text="{Binding Name}"/>
+                </Border>
+
+
+                <ComboBox x:Name="nazwa20" Grid.Row="15" Grid.Column="1" SelectionChanged="nazwa20_SelectionChanged"/>
+                <ComboBox x:Name="nazwa21" Grid.Row="16" Grid.Column="1" SelectionChanged="nazwa21_SelectionChanged"/>
+                <ComboBox x:Name="nazwa22" Grid.Row="17" Grid.Column="1" SelectionChanged="nazwa22_SelectionChanged"/>
+                <ComboBox x:Name="nazwa23" Grid.Row="18" Grid.Column="1" SelectionChanged="nazwa23_SelectionChanged"/>
+                <ComboBox x:Name="nazwa24" Grid.Row="19" Grid.Column="1" SelectionChanged="nazwa24_SelectionChanged"/>
+
+                <TextBlock x:Name="price20" Grid.Row="15" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                <TextBlock x:Name="price21" Grid.Row="16" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                <TextBlock x:Name="price22" Grid.Row="17" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                <TextBlock x:Name="price23" Grid.Row="18" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                <TextBlock x:Name="price24" Grid.Row="19" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+
+                <TextBox x:Name="q20" Grid.Row="15" Grid.Column="3" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" TextChanged="q20_TextChanged"/>
+                <TextBox x:Name="q21" Grid.Row="16" Grid.Column="3" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" TextChanged="q21_TextChanged"/>
+                <TextBox x:Name="q22" Grid.Row="17" Grid.Column="3" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" TextChanged="q22_TextChanged"/>
+                <TextBox x:Name="q23" Grid.Row="18" Grid.Column="3" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" TextChanged="q23_TextChanged"/>
+                <TextBox x:Name="q24" Grid.Row="19" Grid.Column="3" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" TextChanged="q24_TextChanged"/>
+
+                <TextBlock x:Name="suma20" Grid.Row="15" Grid.Column="4" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                <TextBlock x:Name="suma21" Grid.Row="16" Grid.Column="4" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                <TextBlock x:Name="suma22" Grid.Row="17" Grid.Column="4" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                <TextBlock x:Name="suma23" Grid.Row="18" Grid.Column="4" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                <TextBlock x:Name="suma24" Grid.Row="19" Grid.Column="4" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                <!--==================================================================================-->
+                <Border Grid.Row="20" Grid.Column="0" Grid.RowSpan="4" BorderBrush="Black" BorderThickness="1">
+                    <TextBlock x:Name="mayonnaise" Grid.Row="20" Grid.Column="0" Grid.RowSpan="4" VerticalAlignment="Center" HorizontalAlignment="Center" Text="{Binding Name}"/>
+                </Border>
+
+
+                <ComboBox x:Name="nazwa30" Grid.Row="20" Grid.Column="1" SelectionChanged="nazwa30_SelectionChanged"/>
+                <ComboBox x:Name="nazwa31" Grid.Row="21" Grid.Column="1" SelectionChanged="nazwa31_SelectionChanged"/>
+                <ComboBox x:Name="nazwa32" Grid.Row="22" Grid.Column="1" SelectionChanged="nazwa32_SelectionChanged"/>
+                <ComboBox x:Name="nazwa33" Grid.Row="23" Grid.Column="1" SelectionChanged="nazwa33_SelectionChanged"/>
+
+                <TextBlock x:Name="price30" Grid.Row="20" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                <TextBlock x:Name="price31" Grid.Row="21" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                <TextBlock x:Name="price32" Grid.Row="22" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                <TextBlock x:Name="price33" Grid.Row="23" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+
+                <TextBox x:Name="q30" Grid.Row="20" Grid.Column="3" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" TextChanged="q30_TextChanged"/>
+                <TextBox x:Name="q31" Grid.Row="21" Grid.Column="3" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" TextChanged="q31_TextChanged"/>
+                <TextBox x:Name="q32" Grid.Row="22" Grid.Column="3" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" TextChanged="q32_TextChanged"/>
+                <TextBox x:Name="q33" Grid.Row="23" Grid.Column="3" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" TextChanged="q33_TextChanged"/>
+
+                <TextBlock x:Name="suma30" Grid.Row="20" Grid.Column="4" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                <TextBlock x:Name="suma31" Grid.Row="21" Grid.Column="4" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                <TextBlock x:Name="suma32" Grid.Row="22" Grid.Column="4" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                <TextBlock x:Name="suma33" Grid.Row="23" Grid.Column="4" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                <!--==================================================================================-->
+                <Border Grid.Row="24" Grid.Column="0" Grid.RowSpan="4" BorderBrush="Black" BorderThickness="1">
+                    <TextBlock x:Name="ketchup" Grid.Row="24" Grid.Column="0" Grid.RowSpan="4" VerticalAlignment="Center" HorizontalAlignment="Center" Text="{Binding Name}"/>
+                </Border>
+
+                <ComboBox x:Name="nazwa40" Grid.Row="24" Grid.Column="1" SelectionChanged="nazwa40_SelectionChanged"/>
+                <ComboBox x:Name="nazwa41" Grid.Row="25" Grid.Column="1" SelectionChanged="nazwa41_SelectionChanged"/>
+                <ComboBox x:Name="nazwa42" Grid.Row="26" Grid.Column="1" SelectionChanged="nazwa42_SelectionChanged"/>
+                <ComboBox x:Name="nazwa43" Grid.Row="27" Grid.Column="1" SelectionChanged="nazwa43_SelectionChanged"/>
+
+                <TextBlock x:Name="price40" Grid.Row="24" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                <TextBlock x:Name="price41" Grid.Row="25" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                <TextBlock x:Name="price42" Grid.Row="26" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                <TextBlock x:Name="price43" Grid.Row="27" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+
+                <TextBox x:Name="q40" Grid.Row="24" Grid.Column="3" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" TextChanged="q40_TextChanged"/>
+                <TextBox x:Name="q41" Grid.Row="25" Grid.Column="3" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" TextChanged="q41_TextChanged"/>
+                <TextBox x:Name="q42" Grid.Row="26" Grid.Column="3" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" TextChanged="q42_TextChanged"/>
+                <TextBox x:Name="q43" Grid.Row="27" Grid.Column="3" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" TextChanged="q43_TextChanged"/>
+
+                <TextBlock x:Name="suma40" Grid.Row="24" Grid.Column="4" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                <TextBlock x:Name="suma41" Grid.Row="25" Grid.Column="4" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                <TextBlock x:Name="suma42" Grid.Row="26" Grid.Column="4" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                <TextBlock x:Name="suma43" Grid.Row="27" Grid.Column="4" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+
+                <Button Grid.Row="28" Grid.Column="1" Grid.RowSpan="2" Content="ZAMAWIAM" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="10" FontWeight="Bold" Background="#FFDA2D2D" Click="Button_Click"/>
+                <Label Grid.Row="28" Grid.Column="2" Grid.ColumnSpan="2" Grid.RowSpan="2" Content="RAZEM :" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10" FontWeight="Bold"/>
+                <TextBlock x:Name="doZaplaty" Grid.Row="28" Grid.Column="4" Grid.RowSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10" FontWeight="Bold"/>
+
+            </Grid>
+        </Border>
+
+        <Border Grid.Column="1" BorderBrush="Black" BorderThickness="1">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="4*"/>
+                    <RowDefinition Height="38*"/>
+                    <RowDefinition Height="38*"/>
+                </Grid.RowDefinitions>
+                <Label Grid.Row="0" Content="ORDERS" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontWeight="Bold" FontSize="18"/>
+                <DataGrid x:Name="Orders" Grid.Row="1" Margin="15" ItemsSource="{Binding}" AutoGenerateColumns="False">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Width="1*" Header="Nr" Binding="{Binding Nr}"/>
+                        <DataGridTextColumn Width="1*" Header="Data" Binding="{Binding Data}"/>
+                        <DataGridTextColumn Width="1*" Header="Kwota" Binding="{Binding Kwota}"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+
+                <Grid Grid.Row="2">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="13*"/>
+                        <ColumnDefinition Width="4*"/>
+                        <ColumnDefinition Width="13*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="40*"/>
+                        <RowDefinition Height="40*"/>
+                        <RowDefinition Height="40*"/>
+                        <RowDefinition Height="40*"/>
+                        <RowDefinition Height="40*"/>
+                        <RowDefinition Height="40*"/>
+                        <RowDefinition Height="110*"/>
+                    </Grid.RowDefinitions>
+
+                    <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" Content="Nr" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+                    <TextBox x:Name="OrderNumerOd" Grid.Row="1" Grid.Column="0" Margin="20,10,20,10" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+                    <Label Grid.Row="1" Grid.Column="1" Content="-" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+                    <TextBox x:Name="OrderNumerDo" Grid.Row="1" Grid.Column="2" Margin="20,10,20,10" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+
+                    <Label Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3" Content="Data" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+                    <DatePicker x:Name="OrderDataOd" Grid.Row="3" Grid.Column="0" Margin="15,10,15,10" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+                    <Label Grid.Row="3" Grid.Column="1" Content="-" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+                    <DatePicker x:Name="OrderDataDo" Grid.Row="3" Grid.Column="2" Margin="15,10,15,10" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+
+                    <Label Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="3" Content="Kwota" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+                    <TextBox x:Name="OrderKwotaOd" Grid.Row="5" Grid.Column="0" Margin="20,10,20,10" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+                    <Label Grid.Row="5" Grid.Column="1" Content="-" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+                    <TextBox x:Name="OrderKwotaDo" Grid.Row="5" Grid.Column="2" Margin="20,10,20,10" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+
+                    <Grid Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="2">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="40*"/>
+                            <RowDefinition Height="70*"/>
+                        </Grid.RowDefinitions>
+                        <Label Grid.Row="0" Content="Jak się masz?" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+                        <commonControls:Rate Grid.Row="1" Margin="50,0,50,0"/>
+                    </Grid>
+
+                    <Button x:Name="OrderSubmitFilter" Grid.Row="6" Grid.Column="2" Content="Filtruj" Margin="20,40,20,40" Click="OrderSubmitFilter_Click"/>
+
+                </Grid>
+
+            </Grid>
+        </Border>
+
+        <Border Grid.Column="2" BorderBrush="Black" BorderThickness="1">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="4*"/>
+                    <RowDefinition Height="38*"/>
+                    <RowDefinition Height="38*"/>
+                </Grid.RowDefinitions>
+                <Label Grid.Row="0" Content="DETAILS" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontWeight="Bold" FontSize="18"/>
+                <DataGrid x:Name="Details" Grid.Row="1" Margin="15" ItemsSource="{Binding}" AutoGenerateColumns="False">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Width="3*" Header="Nr" Binding="{Binding Nr}"/>
+                        <DataGridTextColumn Width="10*" Header="Data" Binding="{Binding Data}"/>
+                        <DataGridTextColumn Width="10*" Header="Typ" Binding="{Binding Typ}"/>
+                        <DataGridTextColumn Width="22*" Header="Nazwa" Binding="{Binding Nazwa}"/>
+                        <DataGridTextColumn Width="10*" Header="Cena" Binding="{Binding Cena}"/>
+                        <DataGridTextColumn Width="5*" Header="Ilość" Binding="{Binding Ilosc}"/>
+                        <DataGridTextColumn Width="10*" Header="Suma" Binding="{Binding Suma}"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+
+                <Grid Grid.Row="2">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="35*"/>
+                        <ColumnDefinition Width="35*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Grid Grid.Column="0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="15*"/>
+                            <ColumnDefinition Width="5*"/>
+                            <ColumnDefinition Width="15*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="40*"/>
+                            <RowDefinition Height="40*"/>
+                            <RowDefinition Height="40*"/>
+                            <RowDefinition Height="40*"/>
+                            <RowDefinition Height="40*"/>
+                            <RowDefinition Height="40*"/>
+                            <RowDefinition Height="40*"/>
+                            <RowDefinition Height="40*"/>
+                            <RowDefinition Height="30*"/>
+                        </Grid.RowDefinitions>
+                        <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" Content="Nr" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+                        <TextBox x:Name="DetailsNrOd" Grid.Row="1" Grid.Column="0" Margin="20,10,20,10" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+                        <Label Grid.Row="1" Grid.Column="1" Content="-" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+                        <TextBox x:Name="DetailsNrDo" Grid.Row="1" Grid.Column="2" Margin="20,10,20,10" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+
+                        <Label Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3" Content="Data" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+                        <DatePicker x:Name="DetailsDataOd" Grid.Row="3" Grid.Column="0" Margin="15,10,15,10" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+                        <Label Grid.Row="3" Grid.Column="1" Content="-" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+                        <DatePicker x:Name="DetailsDataDo" Grid.Row="3" Grid.Column="2" Margin="15,10,15,10" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+
+                        <Label Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="3" Content="Typ" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+                        <TextBox x:Name="DetailsTyp" Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="3" Margin="20,10,20,10" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+                        <!--<Label Grid.Row="5" Grid.Column="1" Content="-" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+                        <TextBox Grid.Row="5" Grid.Column="2" Margin="20,10,20,10" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>-->
+
+                        <Label Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="3" Content="Suma" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+                        <TextBox x:Name="DetailsSumaOd" Grid.Row="7" Grid.Column="0" Margin="20,10,20,10" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+                        <Label Grid.Row="7" Grid.Column="1" Content="-" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+                        <TextBox x:Name="DetailsSumaDo" Grid.Row="7" Grid.Column="2" Margin="20,10,20,10" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+                    </Grid>
+
+                    <Grid Grid.Column="1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="15*"/>
+                            <ColumnDefinition Width="5*"/>
+                            <ColumnDefinition Width="15*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="40*"/>
+                            <RowDefinition Height="40*"/>
+                            <RowDefinition Height="40*"/>
+                            <RowDefinition Height="40*"/>
+                            <RowDefinition Height="40*"/>
+                            <RowDefinition Height="40*"/>
+                            <RowDefinition Height="110*"/>
+                        </Grid.RowDefinitions>
+                        <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" Content="Nazwa" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+                        <TextBox x:Name="DetailsNazwa" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" Margin="20,10,20,10" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+                        <!--<Label Grid.Row="1" Grid.Column="1" Content="-" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+                        <TextBox Grid.Row="1" Grid.Column="2" Margin="20,10,20,10" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>-->
+
+                        <Label Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3" Content="Cena" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+                        <TextBox x:Name="DetailsCenaOd" Grid.Row="3" Grid.Column="0" Margin="20,10,20,10" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+                        <Label Grid.Row="3" Grid.Column="1" Content="-" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+                        <TextBox x:Name="DetailsCenaDo" Grid.Row="3" Grid.Column="2" Margin="20,10,20,10" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+
+                        <Label Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="3" Content="Ilość" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+                        <TextBox x:Name="DetailsIloscOd" Grid.Row="5" Grid.Column="0" Margin="20,10,20,10" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+                        <Label Grid.Row="5" Grid.Column="1" Content="-" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+                        <TextBox x:Name="DetailsIloscDo" Grid.Row="5" Grid.Column="2" Margin="20,10,20,10" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+
+                        <Grid Grid.Row="6" Grid.Column="0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="40*"/>
+                                <RowDefinition Height="40*"/>
+                                <RowDefinition Height="30*"/>
+                            </Grid.RowDefinitions>
+
+                            <Label Grid.Row="0" Content="SUMA PŁATNOŚCI" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontWeight="Bold"/>
+                            <Border Grid.Row="1" BorderBrush="Black" BorderThickness="1">
+                                <TextBlock x:Name="DetailsPaymentSum" Text="test" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                            </Border>
+
+                        </Grid>
+
+                        <Button x:Name="DetailsSubmitFilter" Grid.Row="6" Grid.Column="2" Content="Filtruj" Margin="20,40,20,40" Click="DetailsSubmitFilter_Click"/>
+                    </Grid>
+
+                </Grid>
+
+
+            </Grid>
+        </Border>
+
+        <Grid x:Name="loader" Visibility="Hidden" Grid.ColumnSpan="3">
+            <Rectangle Fill="#A5000000"/>
+            <Label x:Name="label" Content="Sprawdzamy poprawność wprowadzonych danych" VerticalContentAlignment="Top" HorizontalContentAlignment="Center" FontSize="60" Margin="0,200,0,0" Foreground="#FF1AAD65" FontWeight="Bold"/>
+
+            <Ellipse x:Name="ellipse" Height="50" Width="50" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="100,0,0,300" Fill="#FF1AAD65"/>
+            <Ellipse x:Name="ellipse1" Height="50" Width="50" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="300,0,0,300" Fill="#FF1AAD65"/>
+            <Ellipse x:Name="ellipse2" Height="50" Width="50" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="500,0,0,300" Fill="#FF1AAD65"/>
+            <Ellipse x:Name="ellipse3" Height="50" Width="50" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="700,0,0,300" Fill="#FF1AAD65"/>
+            <Ellipse x:Name="ellipse4" Height="50" Width="50" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="900,0,0,300" Fill="#FF1AAD65"/>
+            <Ellipse x:Name="ellipse5" Height="50" Width="50" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="1100,0,0,300" Fill="#FF1AAD65"/>
+            <Ellipse x:Name="ellipse6" Height="50" Width="50" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="1300,0,0,300" Fill="#FF1AAD65"/>
+        </Grid>
+
+    </Grid>
+</Window>

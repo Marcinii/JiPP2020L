@@ -1,0 +1,11 @@
+C:\Users\HP\source\repos\ProductInventory\ProductInventory.Logic\bin\Debug\ProductInventory.Logic.dll
+C:\Users\HP\source\repos\ProductInventory\ProductInventory.Logic\bin\Debug\ProductInventory.Logic.pdb
+C:\Users\HP\source\repos\ProductInventory\ProductInventory.Logic\obj\Debug\ProductInventory.Logic.csproj.CoreCompileInputs.cache
+C:\Users\HP\source\repos\ProductInventory\ProductInventory.Logic\obj\Debug\ProductInventory.Logic.dll
+C:\Users\HP\source\repos\ProductInventory\ProductInventory.Logic\obj\Debug\ProductInventory.Logic.pdb
+C:\Users\HP\source\repos\secret\ProductInventory\ProductInventory.Logic\bin\Debug\ProductInventory.Logic.dll
+C:\Users\HP\source\repos\secret\ProductInventory\ProductInventory.Logic\bin\Debug\ProductInventory.Logic.pdb
+C:\Users\HP\source\repos\secret\ProductInventory\ProductInventory.Logic\obj\Debug\ProductInventory.Logic.csprojAssemblyReference.cache
+C:\Users\HP\source\repos\secret\ProductInventory\ProductInventory.Logic\obj\Debug\ProductInventory.Logic.csproj.CoreCompileInputs.cache
+C:\Users\HP\source\repos\secret\ProductInventory\ProductInventory.Logic\obj\Debug\ProductInventory.Logic.dll
+C:\Users\HP\source\repos\secret\ProductInventory\ProductInventory.Logic\obj\Debug\ProductInventory.Logic.pdb
