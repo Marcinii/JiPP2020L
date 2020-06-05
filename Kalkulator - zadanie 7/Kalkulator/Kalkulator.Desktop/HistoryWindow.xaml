@@ -1,0 +1,69 @@
+﻿<Window x:Class="Kalkulator.Desktop.HistoryWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Kalkulator.Desktop"
+        mc:Ignorable="d"
+        Title="HistoryWindow" Height="450" Width="800">
+    <Grid>
+        <StackPanel Margin="2,2,2,2">
+            <TextBlock FontSize="22" Background="#FF222AE6">Filtry:</TextBlock>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"></ColumnDefinition>
+                    <ColumnDefinition Width="1*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <StackPanel Grid.Column="0">
+                    <TextBlock Text="Od:" Background="#FF222AE6"></TextBlock>
+                    <DatePicker x:Name="StartDateDatePicker" Background="#FF222AE6"/>
+                </StackPanel>
+                <StackPanel Grid.Column="1">
+                    <TextBlock Text="Do:" Background="#FF222AE6"/>
+                    <DatePicker x:Name="EndDateDatePicker" Background="#FF222AE6"></DatePicker>
+                </StackPanel>
+            </Grid>
+            <StackPanel>
+                <TextBlock Background="#FF222AE6">Dzialanie arytmetyczne:</TextBlock>
+                <ComboBox x:Name="Kalkulator" DisplayMemberPath="Nazwa" BorderBrush="#FF222AE6">
+                    <ComboBox.Background>
+                        <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                            <GradientStop Color="#FFF0F0F0" Offset="0"/>
+                            <GradientStop Color="#FF222AE6" Offset="1"/>
+                        </LinearGradientBrush>
+                    </ComboBox.Background>
+                </ComboBox>
+            </StackPanel>
+            <StackPanel Margin="0,2">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*"></ColumnDefinition>
+                        <ColumnDefinition Width="1*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Button x:Name="filterButon" Content="Filtruj" Click="filterButon_Click" Grid.Column="0" Margin="0,0,2,0" Background="#FF222AE6"></Button>
+                    <Button x:Name="ClearfilterButon" Content="Wyczyść filtry" Grid.Column="1" Click="ClearfilterButon_Click" Background="#FF222AE6"/>
+                </Grid>
+            </StackPanel>
+            <StackPanel>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*"></ColumnDefinition>
+                        <ColumnDefinition Width="5*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Grid.Column="0" Background="#FF222AE6">Strona:</TextBlock>
+                    <ComboBox x:Name="PageSelectorComboBox" SelectionChanged="PageSelectorComboBox_SelectionChanged" Grid.Column="1" Background="#FF222AE6" BorderBrush="#FF222AE6"></ComboBox>
+                </Grid>
+
+            </StackPanel>
+            <DataGrid x:Name="HistoryDataGrid" AutoGenerateColumns="False" Height="250" Margin="0,2,0,0" Background="#FF222AE6">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Data" Binding="{Binding Date}" Width="3*" MinWidth="100"></DataGridTextColumn>
+                    <DataGridTextColumn Header="Dzialanie arytmetyczne" Binding="{Binding Dzialanie}" Width="4*" MinWidth="100"></DataGridTextColumn>
+                    <DataGridTextColumn Header="Pierwsza wartosc" Binding="{Binding PierwszaWartosc}" Width="3*" MinWidth="100"></DataGridTextColumn>
+                    <DataGridTextColumn Header="Druga wartosc" Binding="{Binding DrugaWartosc}" Width="3*" MinWidth="100"></DataGridTextColumn>
+                    <DataGridTextColumn Header="Wynik" Binding="{Binding WartoscPo}" Width="2*" MinWidth="100"></DataGridTextColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+        </StackPanel>
+    </Grid>
+</Window>

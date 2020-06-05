@@ -1,0 +1,65 @@
+﻿<Window x:Class="Kalkulator.Desktop.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Kalkulator.Desktop"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+        <StackPanel>
+            <Grid>
+            </Grid>
+            <Label Height="30" Background="DarkBlue" Foreground="White" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="3">Działanie arytmetyczne</Label>
+            <Grid>
+                <ComboBox x:Name="Kalkulator" Grid.Column="0"  Margin="10,5,10,5" SelectionChanged="Kalkulator_SelectionChanged">
+                    <ComboBox.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding Nazwa}"/>
+                        </DataTemplate>
+                    </ComboBox.ItemTemplate>
+                </ComboBox>
+            </Grid>
+            <Label Height="30" Background="DarkBlue" Foreground="White" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="3">Wpisz wartości</Label>
+            <Grid HorizontalAlignment="Right" Width="396">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                </Grid.ColumnDefinitions>
+                <TextBox x:Name="pierwsza"  Margin="10,5,10,5" Height="25" TextChanged="TextBox_TextChanged"/>
+                <TextBox x:Name="druga" Grid.Column="1" Margin="10,5,10,5" Height="25" TextChanged="TextBox_TextChanged_1"/>
+            </Grid>
+            <Button x:Name="Oblicz" Margin="10,5,10,5" Height="30" Background="DarkBlue" Foreground="White" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="3" Content="Oblicz" Click="Oblicz_Click"></Button>
+            <TextBox x:Name="Wynik" Margin="10,5,10,5" Height="25" TextChanged="TextBox_TextChanged_1"/>
+            <Button x:Name="toggleHistoryButton" Margin="10,5,10,5" Height="25" Content="Historia konwersji" Click="toggleHistoryButton_Click"></Button>
+        </StackPanel>
+        <Grid Grid.Column="1">
+            <StackPanel Margin="10">
+                <Rectangle
+                Name="MyRectangle"
+                Width="100" 
+                Height="100"
+                Fill="Blue">
+                    <Rectangle.Triggers>
+                        <!-- Animates the rectangle's opacity. -->
+                        <EventTrigger RoutedEvent="Rectangle.Loaded">
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <DoubleAnimation
+                                    Storyboard.TargetName="MyRectangle" 
+                                    Storyboard.TargetProperty="Opacity"
+                                    From="1.0" To="0.0" Duration="0:0:5" 
+                                    AutoReverse="True" RepeatBehavior="Forever" />
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger>
+                    </Rectangle.Triggers>
+                </Rectangle>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</Window>
