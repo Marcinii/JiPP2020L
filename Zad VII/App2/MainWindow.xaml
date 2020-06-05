@@ -1,0 +1,26 @@
+﻿<Window x:Class="App2.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:App2"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+        <TextBlock Grid.Column="1" HorizontalAlignment="Left" Margin="9.857,41,0,0" TextWrapping="Wrap" Text="Liczba liter" VerticalAlignment="Top" Height="36" Width="377" TextAlignment="Center" FontSize="24"/>
+        <Button x:Name="Analizuj" Content="Analizuj" HorizontalAlignment="Left" Margin="10,377,0,0" VerticalAlignment="Top" Width="377" Height="35" Click="Analizuj_Click"/>
+        <TextBlock x:Name="LetterNO" Grid.Column="1" HorizontalAlignment="Left" Margin="9.857,10,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Height="26" Width="377" TextAlignment="Center" FontSize="18"/>
+        <TextBlock Grid.Column="1" HorizontalAlignment="Left" Margin="9.857,113,0,0" TextWrapping="Wrap" Text="Entropia" VerticalAlignment="Top" Height="36" Width="377" TextAlignment="Center" FontSize="24"/>
+        <TextBlock x:Name="EntropyNO" Grid.Column="1" HorizontalAlignment="Left" Margin="9.857,82,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Height="26" Width="377" TextAlignment="Center" FontSize="18"/>
+        <DataGrid x:Name="StatsGrid" Grid.Column="1" HorizontalAlignment="Left" Height="218" Margin="9.857,154,0,0" VerticalAlignment="Top" Width="377"/>
+        <Button x:Name="StatsBT" Content="Załaduj" Grid.Column="1" HorizontalAlignment="Left" Margin="9.857,377,0,0" VerticalAlignment="Top" Width="377" Height="35" Click="StatsBT_Click"/>
+        <Rectangle x:Name="Loader" Grid.Column="1" Fill="#FF83CE2C" HorizontalAlignment="Left" Height="5" Margin="9.857,372,0,0" Stroke="Black" VerticalAlignment="Top" Width="0"/>
+        <local:TextInput x:Name="UserControl" HorizontalAlignment="Left" Height="362" Margin="10,10,0,0" VerticalAlignment="Top" Width="377"/>
+
+
+    </Grid>
+</Window>
