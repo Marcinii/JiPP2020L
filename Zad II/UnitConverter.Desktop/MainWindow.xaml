@@ -1,0 +1,39 @@
+﻿<Window x:Class="UnitConverter.Desktop.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:UnitConverter.Desktop"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Grid.Column="0">
+            <TextBlock Text="Wybierz rodzaj konwersji:" Margin="10 5 0 0"/>
+            <ComboBox x:Name="convertCB" Margin="10,5,10,5" SelectionChanged="convertCB_SelectionChanged">
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding Name}"/>
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
+            <WrapPanel HorizontalAlignment="Center">
+                <TextBlock Text="Z: " Margin="10,5,10,5"/>
+                <ComboBox x:Name="UnitFromCB" Margin="10,5,10,5"/>
+                <TextBlock Text="Na: " Margin="10,5,10,5"/>
+                <ComboBox x:Name="UnitToCB" Margin="10,5,10,5"/>
+            </WrapPanel>
+            <TextBlock Text="Wprowadź wartość do konwersji:" Margin="10 0 0 0"/>
+            <TextBox x:Name="ValueToTB" Margin="10,5,10,5"/>
+            <Button x:Name="RunButton" Content="Konwertuj" Margin="10,5,10,5" Click="RunButton_Click"/>
+        </StackPanel>
+        <StackPanel x:Name="ResultsPanel"  Grid.Column="1" VerticalAlignment="Top" Margin="10" Visibility="Hidden">
+            <TextBlock x:Name="ResultTB" Text="000" FontSize="30" HorizontalAlignment="Center" Margin="10 5 10 5"/>
+            <TextBlock Text="Wynik"  HorizontalAlignment="Center" Margin="10 5 10 5"/>
+        </StackPanel>
+    </Grid>
+</Window>
