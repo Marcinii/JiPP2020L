@@ -37,3 +37,16 @@ C:\Users\Admin\Desktop\zadanie 5\CommonControl\obj\Debug\CommonControl.csproj.Ge
 C:\Users\Admin\Desktop\zadanie 5\CommonControl\obj\Debug\CommonControl.csproj.CoreCompileInputs.cache
 C:\Users\Admin\Desktop\zadanie 5\CommonControl\obj\Debug\CommonControl.dll
 C:\Users\Admin\Desktop\zadanie 5\CommonControl\obj\Debug\CommonControl.pdb
+C:\Users\Admin\source\repos\JiPP2020L\zadanie 6\CommonControl\bin\Debug\CommonControl.dll
+C:\Users\Admin\source\repos\JiPP2020L\zadanie 6\CommonControl\bin\Debug\CommonControl.pdb
+C:\Users\Admin\source\repos\JiPP2020L\zadanie 6\CommonControl\obj\Debug\CommonControl.csprojAssemblyReference.cache
+C:\Users\Admin\source\repos\JiPP2020L\zadanie 6\CommonControl\obj\Debug\RateMe.g.cs
+C:\Users\Admin\source\repos\JiPP2020L\zadanie 6\CommonControl\obj\Debug\CommonControl_MarkupCompile.cache
+C:\Users\Admin\source\repos\JiPP2020L\zadanie 6\CommonControl\obj\Debug\CommonControl_MarkupCompile.lref
+C:\Users\Admin\source\repos\JiPP2020L\zadanie 6\CommonControl\obj\Debug\RateMe.baml
+C:\Users\Admin\source\repos\JiPP2020L\zadanie 6\CommonControl\obj\Debug\CommonControl.g.resources
+C:\Users\Admin\source\repos\JiPP2020L\zadanie 6\CommonControl\obj\Debug\CommonControl.Properties.Resources.resources
+C:\Users\Admin\source\repos\JiPP2020L\zadanie 6\CommonControl\obj\Debug\CommonControl.csproj.GenerateResource.cache
+C:\Users\Admin\source\repos\JiPP2020L\zadanie 6\CommonControl\obj\Debug\CommonControl.csproj.CoreCompileInputs.cache
+C:\Users\Admin\source\repos\JiPP2020L\zadanie 6\CommonControl\obj\Debug\CommonControl.dll
+C:\Users\Admin\source\repos\JiPP2020L\zadanie 6\CommonControl\obj\Debug\CommonControl.pdb
