@@ -54,7 +54,8 @@ namespace UnitConverter.Desktop
             };
             TypeFilter.SelectedIndex = 1;
 
-            FilterFromDB();
+            var Text = PageNumber.Text;
+            FilterFromDB(Text);
             using (ParadygmatyEntities context = new ParadygmatyEntities())
             {
                 var Ratings = context.RATINGS.ToList();
@@ -220,7 +221,8 @@ namespace UnitConverter.Desktop
         {
             tokenSource = new CancellationTokenSource();
             Loader.Visibility = Visibility.Visible;
-            Task getData = new Task(() => RefreshDB(tokenSource.Token), tokenSource.Token);
+            var Text = PageNumber.Text;
+            Task getData = new Task(() => RefreshDB(tokenSource.Token, Text), tokenSource.Token);
             getData.Start();
         }
 
@@ -233,7 +235,7 @@ namespace UnitConverter.Desktop
             tokenSource.Cancel();
         }
 
-        protected void RefreshDB(CancellationToken token)
+        protected void RefreshDB(CancellationToken token, string Text)
         {
             for (int i = 0; i < 10; i++)
             {
@@ -243,16 +245,14 @@ namespace UnitConverter.Desktop
                 }
                 Task.Delay(1000).Wait();
             }
-            Dispatcher.Invoke(() => {
-                FilterFromDB();
-                Loader.Visibility = Visibility.Hidden;
-            });
+
+            FilterFromDB(Text);
         }
 
-        protected void FilterFromDB()
+        protected void FilterFromDB(string Text)
         {
             int value;
-            int.TryParse(PageNumber.Text, out value);
+            int.TryParse(Text, out value);
             using (ParadygmatyEntities context = new ParadygmatyEntities())
             {
                 List<STATISTIC> StatisticsList = context.STATISTICS
@@ -274,8 +274,12 @@ namespace UnitConverter.Desktop
                 .Take(3)
                 .ToList();
 
-                StatisticsData.ItemsSource = StatisticsList;
-                PopularData.ItemsSource = PopularList;
+                Dispatcher.Invoke(() => {
+                    StatisticsData.ItemsSource = StatisticsList;
+                    PopularData.ItemsSource = PopularList;
+                    Loader.Visibility = Visibility.Hidden;
+                });
+                
             } 
         }
 
@@ -289,7 +293,8 @@ namespace UnitConverter.Desktop
             {
                 value--;
                 PageNumber.Text = value.ToString();
-                FilterFromDB();
+                var Text = PageNumber.Text;
+                FilterFromDB(Text);
             }
         }
 
@@ -301,7 +306,8 @@ namespace UnitConverter.Desktop
             int.TryParse(PageNumber.Text, out value);
             value++;
             PageNumber.Text = value.ToString();
-            FilterFromDB();
+            var Text = PageNumber.Text;
+            FilterFromDB(Text);
         }
 
         private void RatingControl_RatingValueChanged(object sender, Common.Controls.Rate.RatingEventArgs e)

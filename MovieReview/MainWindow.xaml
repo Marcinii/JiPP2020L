@@ -1,0 +1,35 @@
+﻿<Window x:Class="MovieReview.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:commonControls="clr-namespace:Common.Controls;assembly=Common.Controls"
+        xmlns:local="clr-namespace:MovieReview"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="650" Width="1000">
+    <Grid Background="#FFDCD4D4">
+        <Grid Margin="0,78,-0.4,0" Background="White" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="1*" />
+            </Grid.ColumnDefinitions>
+            <StackPanel Grid.Column="0" Margin="10">
+                <TextBlock FontSize="14" HorizontalAlignment="Center" Margin="15">Title</TextBlock>
+                <TextBox Height="30"/>
+                <TextBlock FontSize="14" HorizontalAlignment="Center" Margin="15">Release Date</TextBlock>
+                <TextBox Height="30"/>
+                <TextBlock FontSize="14" HorizontalAlignment="Center" Margin="15">Type</TextBlock>
+                <TextBox Height="30"/>
+                <TextBlock FontSize="14" HorizontalAlignment="Center" Margin="15">Description</TextBlock>
+                <TextBox Height="80"/>
+                <TextBlock FontSize="14" HorizontalAlignment="Center" Margin="5">Score</TextBlock>
+            </StackPanel>
+            <commonControls:Rate HorizontalAlignment="Left" Height="32" Margin="189,407,0,0" VerticalAlignment="Top" Width="121"/>
+
+        </Grid>
+        <Button x:Name="NewReview" Content="New Review" HorizontalAlignment="Left" Height="49" Margin="10,10,0,0" VerticalAlignment="Top" Width="192"/>
+        <Button x:Name="Filter" Content="Filter" HorizontalAlignment="Left" Height="49" Margin="795,11,0,0" VerticalAlignment="Top" Width="174"/>
+        <Button x:Name="AddReview" Content="Add Review" HorizontalAlignment="Left" Height="49" Margin="151,537,0,0" VerticalAlignment="Top" Width="192"/>
+    </Grid>
+
+</Window>
