@@ -11,7 +11,7 @@
         <Storyboard x:Key="visibilityStoryboard2">
             <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="border">
                 <DiscreteObjectKeyFrame KeyTime="0:0:0" Value="{x:Static Visibility.Hidden}"/>
-                <DiscreteObjectKeyFrame KeyTime="0:0:10" Value="{x:Static Visibility.Visible}"/>
+             
             </ObjectAnimationUsingKeyFrames>
         </Storyboard>
         <Storyboard x:Key="spinwait">
@@ -112,7 +112,7 @@
             <cc:ocena x:Name="StarControl" Grid.Column="1" Margin="0,0,0,84"/>
         </Grid>
 
-        <Grid x:Name="loadscreen" Visibility="Hidden" Grid.RowSpan="2" Grid.ColumnSpan="2"  Background="#7F000000">
+        <Grid x:Name="loadscreen" Grid.RowSpan="2" Grid.ColumnSpan="2"  Background="#7F000000" Visibility="Hidden">
 
             <Viewbox Width="48" Height="48">
                 <Canvas Width="24" Height="24">

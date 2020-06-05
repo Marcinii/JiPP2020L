@@ -419,7 +419,7 @@ namespace konwerter.deskop
 
             Thread thread = new Thread(() => zadanie6());
             thread.Start();
-            ((Storyboard)Resources["spinwait"]).Begin();
+            
         }
 
       
