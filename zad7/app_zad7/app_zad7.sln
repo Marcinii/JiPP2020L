@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29326.143
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "app_zad7", "app_zad7.csproj", "{498E197B-095C-41CB-A8EB-B35E558BCE3B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "bmi_logic", "..\bmi_logic\bmi_logic.csproj", "{D7B976DA-DEB5-4B68-B5AE-13340144A32A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{498E197B-095C-41CB-A8EB-B35E558BCE3B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{498E197B-095C-41CB-A8EB-B35E558BCE3B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{498E197B-095C-41CB-A8EB-B35E558BCE3B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{498E197B-095C-41CB-A8EB-B35E558BCE3B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D7B976DA-DEB5-4B68-B5AE-13340144A32A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D7B976DA-DEB5-4B68-B5AE-13340144A32A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D7B976DA-DEB5-4B68-B5AE-13340144A32A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D7B976DA-DEB5-4B68-B5AE-13340144A32A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {DDC70131-08A5-4959-8FD6-4ED13478B9A9}
+	EndGlobalSection
+EndGlobal
