@@ -65,6 +65,7 @@ namespace Konwerter
 
                 if (b == 1)
                 {
+                    Console.WriteLine("Hello");
                     Console.WriteLine("Wpisz dlugosc");
                     temp = float.Parse(Console.ReadLine());
                     oldTemp = temp;
