@@ -5,12 +5,12 @@ using System.Runtime.InteropServices;
 // Ogólne informacje o zestawie są kontrolowane poprzez następujący 
 // zestaw atrybutów. Zmień wartości tych atrybutów, aby zmodyfikować informacje
 // powiązane z zestawem.
-[assembly: AssemblyTitle("Konwerter_jednostek")]
+[assembly: AssemblyTitle("konwerter_jednostek_Z412_Karol_Babiarz")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("Konwerter_jednostek")]
-[assembly: AssemblyCopyright("Copyright ©  2020")]
+[assembly: AssemblyProduct("konwerter_jednostek_Z412_Karol_Babiarz")]
+[assembly: AssemblyCopyright("Prawa Zastrzezone ©  2020")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // Następujący identyfikator GUID jest identyfikatorem biblioteki typów w przypadku udostępnienia tego projektu w modelu COM
-[assembly: Guid("3b56d43d-4e21-45b0-9ae8-29dddad62e37")]
+[assembly: Guid("07b1f89a-fe49-4d03-b2b9-7f8b3a5f8ff7")]
 
 // Informacje o wersji zestawu zawierają następujące cztery wartości:
 //

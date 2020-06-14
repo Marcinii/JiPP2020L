@@ -1,0 +1,22 @@
+﻿<UserControl x:Class="UnitConverter.CustomControls.RateControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:UnitConverter.CustomControls"
+             mc:Ignorable="d" Height="47.581" Width="199.194">
+    <Grid x:Name="RatingGrid">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"></ColumnDefinition>
+            <ColumnDefinition Width="1*"></ColumnDefinition>
+            <ColumnDefinition Width="1*"></ColumnDefinition>
+            <ColumnDefinition Width="1*"></ColumnDefinition>
+            <ColumnDefinition Width="1*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="27.581" Margin="5,10,0,0" Stroke="Black" VerticalAlignment="Top" Width="29.506" Grid.Column="0" MouseLeftButtonDown="Rectangle_MouseLeftButtonDown"/>
+        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="27.581" Margin="5,10,0,0" Stroke="Black" VerticalAlignment="Top" Width="29.506" Grid.Column="1" MouseLeftButtonDown="Rectangle_MouseLeftButtonDown"/>
+        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="27.581" Margin="5,10,0,0" Stroke="Black" VerticalAlignment="Top" Width="29.506" Grid.Column="2" MouseLeftButtonDown="Rectangle_MouseLeftButtonDown"/>
+        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="27.581" Margin="5,10,0,0" Stroke="Black" VerticalAlignment="Top" Width="29.506" Grid.Column="3" MouseLeftButtonDown="Rectangle_MouseLeftButtonDown"/>
+        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="27.581" Margin="5,10,0,0" Stroke="Black" VerticalAlignment="Top" Width="29.506" Grid.Column="4" MouseLeftButtonDown="Rectangle_MouseLeftButtonDown"/>
+    </Grid>
+</UserControl>

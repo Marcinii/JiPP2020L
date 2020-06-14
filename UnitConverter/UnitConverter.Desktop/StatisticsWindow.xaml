@@ -1,0 +1,98 @@
+﻿<Window x:Class="UnitConverter.Desktop.StatisticsWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:UnitConverter.Desktop"
+        mc:Ignorable="d"
+        Title="StatisticsWindow" Height="946.294" Width="488.39" FontFamily="Consolas" FontSize="14">
+    <Window.Resources>
+        <Storyboard x:Key="Loading">
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="rectangle">
+                <DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Visible}"/>
+                <DiscreteObjectKeyFrame KeyTime="0:0:2" Value="{x:Static Visibility.Hidden}"/>
+            </ObjectAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="path">
+                <DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Visible}"/>
+            </ObjectAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="path">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="490"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:1.1" Value="-185"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:2.1" Value="491"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="path">
+                <EasingDoubleKeyFrame KeyTime="0:0:1.1" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:2.1" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+    </Window.Resources>
+    <Window.Triggers>
+    </Window.Triggers>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.4*"></RowDefinition>
+            <RowDefinition Height="0.7*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0">
+            <Grid Height="54" Background="#FF2b5797">
+                <Label FontSize="28" HorizontalAlignment="Center" Foreground="White">Statistics</Label>
+            </Grid>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"></ColumnDefinition>
+                    <ColumnDefinition Width="1*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <StackPanel Grid.Column="0">
+                    <Label Margin="12,0,0,0" Height="30">Converter Filter:</Label>
+                    <ComboBox x:Name="ConverterFilterComboBox" Margin="15,0,15,0" DisplayMemberPath="Name"></ComboBox>
+                    <Button x:Name="LoadStatsButton" Margin="15,60,15,0" Foreground="White" Background="#FF2B5797" FontSize="16" Click="LoadStatsButton_Click">Load</Button>
+                </StackPanel>
+                <StackPanel Grid.Column="1">
+                    <Label Margin="12,0,0,0" Height="30">Date Filters</Label>
+                    <Label Margin="12,0,0,0" Height="30">From:</Label>
+                    <DatePicker x:Name="FromDatePickerFilter" Margin="15,0,15,0"></DatePicker>
+                    <Label Margin="12,0,0,0" Height="30">To:</Label>
+                    <DatePicker x:Name="ToDatePickerFilter" Margin="15,0,15,0"></DatePicker>
+                </StackPanel>
+            </Grid>
+        </StackPanel>
+        <StackPanel Grid.Row="1">
+            <Grid Height="40">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0.4*"></ColumnDefinition>
+                    <ColumnDefinition Width="0.1*"></ColumnDefinition>
+                    <ColumnDefinition Width="0.4*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Button x:Name="PreviousPageButton" Grid.Column="0" Margin="80,8,20,8" Foreground="White" Background="#FF2B5797">Previous</Button>
+                <Label x:Name="PageLabel" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Content="1"></Label>
+                <Button x:Name="NextPageButton" Grid.Column="2" Margin="20,8,80,8" Foreground="White" Background="#FF2B5797">Next</Button>
+            </Grid>
+            <ListView x:Name="DbView" Height="Auto">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Width="Auto" Header="Date" DisplayMemberBinding="{Binding date}"></GridViewColumn>
+                        <GridViewColumn Width="Auto" Header="Converter" DisplayMemberBinding="{Binding converter}"></GridViewColumn>
+                        <GridViewColumn Width="Auto" Header="Input" DisplayMemberBinding="{Binding input_value}"></GridViewColumn>
+                        <GridViewColumn Width="Auto" Header="Unit" DisplayMemberBinding="{Binding input_unit}"></GridViewColumn>
+                        <GridViewColumn Width="Auto" Header="Output" DisplayMemberBinding="{Binding output_value}"></GridViewColumn>
+                        <GridViewColumn Width="Auto" Header="Unit" DisplayMemberBinding="{Binding output_unit}"></GridViewColumn>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+
+        </StackPanel>
+        <Rectangle x:Name="rectangle" Fill="#BF000000" Visibility="Hidden" HorizontalAlignment="Left" Height="905.294" Grid.RowSpan="2" Stroke="Black" VerticalAlignment="Top" Width="480.39"/>
+        <Path x:Name="path" Data="M0.5,2.5001819 L180.5,0.5000001" Stroke="#FF2B5797" Fill="#FFFF0000" HorizontalAlignment="Left" Height="5" Margin="2.5,93.666,0,0" Grid.Row="1" VerticalAlignment="Top" Width="181" RenderTransformOrigin="0.5,0.5" StrokeThickness="5" Visibility="Hidden">
+            <Path.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="0.458"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Path.RenderTransform>
+        </Path>
+
+    </Grid>
+</Window>

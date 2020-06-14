@@ -1,0 +1,50 @@
+﻿<Window x:Class="UnitConverter.Desktop.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:UnitConverter.Desktop"
+        xmlns:custom="clr-namespace:UnitConverter.CustomControls;assembly=UnitConverter.CustomControls"
+        mc:Ignorable="d"
+        Title="Unit Converter" Height="582.584" Width="488.39" FontFamily="Consolas" FontSize="14">
+    <Grid>
+        <StackPanel>
+            <Grid Height="54" Background="#FF2b5797">
+                <Label FontSize="28" HorizontalAlignment="Center" Foreground="White">UnitConverter</Label>
+            </Grid>
+            <ComboBox x:Name="ConverterComboBox" Margin="15" Height="30" SelectionChanged="ConverterComboBox_SelectionChanged" DisplayMemberPath="Name"></ComboBox>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"></ColumnDefinition>
+                    <ColumnDefinition Width="1*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <StackPanel Grid.Column="0">
+                    <Label Margin="12,0,0,0" FontWeight="Bold">From unit:</Label>
+                    <ComboBox x:Name="FromUnitComboBox" Margin="15,0,10,0"></ComboBox>
+                </StackPanel>
+                <StackPanel Grid.Column="1">
+                    <Label Margin="7,0,0,0" FontWeight="Bold">To unit:</Label>
+                    <ComboBox x:Name="ToUnitComboBox" Margin="10,0,15,0"></ComboBox>
+                </StackPanel>
+            </Grid>
+            <StackPanel>
+                <Label Margin="12,0,0,0" FontWeight="Bold">Value:</Label>
+                <TextBox x:Name="UserInputTextBox" Height="30" VerticalAlignment="Center" Margin="15,0,15,15"></TextBox>
+            </StackPanel>
+            <Button x:Name="ConvertButton" Height="30" Margin="80,0,80,0" Foreground="White" Background="#FF2B5797" FontSize="16">Convert</Button>
+            <TextBlock x:Name="OutputTextBlock" Margin="15,15,15,0" Height="30" HorizontalAlignment="Center" Text="" FontSize="18"/>
+
+            <Grid Height="246">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"></ColumnDefinition>
+                    <ColumnDefinition Width="1*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <StackPanel Grid.Column="0" VerticalAlignment="Bottom" Margin="0,0,0,10">
+                    <Label>Rate this app:</Label>
+                    <custom:RateControl x:Name="RateControl" UserRatingChanged="RateControl_UserRatingChanged" ></custom:RateControl>
+                </StackPanel>
+                <Button x:Name="StatisticsButton" Grid.Column="1" Height="30" Margin="15,0,15,15" VerticalAlignment="Bottom"  Foreground="White" Background="#FF2B5797" FontSize="16">Statistics</Button>
+            </Grid>
+        </StackPanel>
+    </Grid>
+</Window>
