@@ -21,5 +21,11 @@ namespace Logic.Services
 
         public float ConvertFromPoundsToKilograms(float lb)
             => lb / 2.2046f;
+
+        public float ConvertFromMetersToKilometers(float m)
+            => m * 0.001f;
+
+        public float ConvertFromKilometersToMeters(float km)
+            => km * 1000;
     }
 }
