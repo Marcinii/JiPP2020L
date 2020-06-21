@@ -1,8 +1,8 @@
-﻿using System;
+﻿using Logic.Services.Interfaces;
 
-namespace Logic
+namespace Logic.Services
 {
-    public class ConvertingService
+    public class ConvertingService : IConvertingService
     {
         public float ConvertFromCelsiusToFahrenheit(float cTemp)
             => (cTemp * 1.8f) + 32f;
