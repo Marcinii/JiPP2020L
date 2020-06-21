@@ -7,6 +7,63 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
+        <TabControl HorizontalAlignment="Center" Height="360" VerticalAlignment="Center" Width="780">
+            <TabItem Header="Common">
+                <Grid Background="#FFE5E5E5">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="89*"/>
+                        <ColumnDefinition Width="28*"/>
+                        <ColumnDefinition Width="29*"/>
+                        <ColumnDefinition Width="38*"/>
+                        <ColumnDefinition Width="47*"/>
+                        <ColumnDefinition Width="543*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBox x:Name="TemperatureConversionsInput" HorizontalAlignment="Left" Height="19" Margin="73,38,0,0" Text="TextBox" TextWrapping="Wrap" VerticalAlignment="Top" Width="290" Grid.ColumnSpan="6"/>
+                    <TextBox HorizontalAlignment="Left" Height="19" Margin="73,152,0,0" Text="TextBox" TextWrapping="Wrap" VerticalAlignment="Top" Width="290" Grid.ColumnSpan="6"/>
+                    <TextBox HorizontalAlignment="Left" Height="19" Margin="73,94,0,0" Text="TextBox" TextWrapping="Wrap" VerticalAlignment="Top" Width="290" Grid.ColumnSpan="6"/>
+                    <TextBox HorizontalAlignment="Left" Height="19" Margin="73,207,0,0" Text="TextBox" TextWrapping="Wrap" VerticalAlignment="Top" Width="290" Grid.ColumnSpan="6"/>
+                    <Label Content="Celsius to Fahrenheit" Grid.ColumnSpan="6" HorizontalAlignment="Left" Height="23" Margin="73,10,0,0" VerticalAlignment="Top" Width="290"/>
+                    <Label Content="Miles to Kilometers" Grid.ColumnSpan="6" HorizontalAlignment="Left" Height="23" Margin="73,68,0,0" VerticalAlignment="Top" Width="290"/>
+                    <Label Content="Kilograms to Pounds" Grid.ColumnSpan="6" HorizontalAlignment="Left" Height="30" Margin="73,122,0,0" VerticalAlignment="Top" Width="290" RenderTransformOrigin="0.5,0.5">
+                        <Label.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform/>
+                                <SkewTransform AngleX="0"/>
+                                <RotateTransform/>
+                                <TranslateTransform X="0"/>
+                            </TransformGroup>
+                        </Label.RenderTransform>
+                    </Label>
+                    <Label Content="Meters to Kilometers" Grid.ColumnSpan="6" HorizontalAlignment="Left" Height="23" Margin="73,182,0,0" VerticalAlignment="Top" Width="290"/>
+                    <CheckBox Content="Switch" Grid.Column="5" HorizontalAlignment="Left" Height="19" Margin="138,38,0,0" VerticalAlignment="Top" Width="92"/>
+                    <CheckBox Content="Switch" Grid.Column="5" HorizontalAlignment="Left" Height="19" Margin="138,97,0,0" VerticalAlignment="Top" Width="92"/>
+                    <CheckBox Content="Switch" Grid.Column="5" HorizontalAlignment="Left" Height="19" Margin="138,154,0,0" VerticalAlignment="Top" Width="92"/>
+                    <CheckBox Content="Switch" Grid.Column="5" HorizontalAlignment="Left" Height="19" Margin="138,207,0,0" VerticalAlignment="Top" Width="92"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Data capacity">
+                <Grid Background="#FFE5E5E5">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="4*"/>
+                        <ColumnDefinition Width="7*"/>
+                        <ColumnDefinition Width="247*"/>
+                    </Grid.ColumnDefinitions>
+                    <Label Content="Bits:" HorizontalAlignment="Left" Height="31" Margin="62,27,0,0" VerticalAlignment="Top" Width="139" Grid.Column="2"/>
+                    <Label Content="Kilobits:" HorizontalAlignment="Left" Height="31" Margin="62,104,0,0" VerticalAlignment="Top" Width="139" Grid.Column="2"/>
+                    <Label Content="Megabits:" HorizontalAlignment="Left" Height="31" Margin="62,183,0,0" VerticalAlignment="Top" Width="139" Grid.Column="2"/>
+                    <Label Content="Bytes:" HorizontalAlignment="Left" Height="31" Margin="507,27,0,0" VerticalAlignment="Top" Width="139" Grid.Column="2"/>
+                    <Label Content="Kilobytes:" HorizontalAlignment="Left" Height="31" Margin="507,104,0,0" VerticalAlignment="Top" Width="139" Grid.Column="2"/>
+                    <Label Content="Megabytes:" HorizontalAlignment="Left" Height="31" Margin="507,183,0,0" VerticalAlignment="Top" Width="139" Grid.Column="2"/>
+                    <TextBox x:Name="BitsInput" KeyDown="DataCapacityInput_EnterClicked_Handler" Grid.Column="2" HorizontalAlignment="Left" Height="31" Margin="62,51,0,0" Text="TextBox" TextWrapping="Wrap" VerticalAlignment="Top" Width="139"/>
+                    <TextBox x:Name="KilobitsInput" KeyDown="DataCapacityInput_EnterClicked_Handler" Grid.Column="2" HorizontalAlignment="Left" Height="31" Margin="62,130,0,0" Text="TextBox" TextWrapping="Wrap" VerticalAlignment="Top" Width="139"/>
+                    <TextBox x:Name="MegabitsInput" KeyDown="DataCapacityInput_EnterClicked_Handler" Grid.Column="2" HorizontalAlignment="Left" Height="31" Margin="62,210,0,0" Text="TextBox" TextWrapping="Wrap" VerticalAlignment="Top" Width="139"/>
+                    <TextBox x:Name="BytesInput" KeyDown="DataCapacityInput_EnterClicked_Handler" Grid.Column="2" HorizontalAlignment="Left" Height="31" Margin="507,51,0,0" Text="TextBox" TextWrapping="Wrap" VerticalAlignment="Top" Width="139"/>
+                    <TextBox x:Name="KilobytesInput" KeyDown="DataCapacityInput_EnterClicked_Handler" Grid.Column="2" HorizontalAlignment="Left" Height="31" Margin="507,130,0,0" Text="TextBox" TextWrapping="Wrap" VerticalAlignment="Top" Width="139"/>
+                    <TextBox x:Name="MegabytesInput" KeyDown="DataCapacityInput_EnterClicked_Handler" Grid.Column="2" HorizontalAlignment="Left" Height="31" Margin="507,210,0,0" Text="TextBox" TextWrapping="Wrap" VerticalAlignment="Top" Width="139"/>
+                </Grid>
+            </TabItem>
+        </TabControl>
+        <Label Content="CONVERTER" HorizontalAlignment="Center" Height="39" Margin="0,10,0,0" VerticalAlignment="Top" Width="108" FontSize="18"/>
 
     </Grid>
 </Window>

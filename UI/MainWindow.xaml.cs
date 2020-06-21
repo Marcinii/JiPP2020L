@@ -24,5 +24,13 @@ namespace UI
         {
             InitializeComponent();
         }
+
+        public void DataCapacityInput_EnterClicked_Handler(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Return)
+            {
+                
+            }
+        }
     }
 }
