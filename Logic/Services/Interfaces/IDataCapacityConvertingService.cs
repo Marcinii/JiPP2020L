@@ -2,7 +2,7 @@
 {
     public interface IDataCapacityConvertingService
     {
-        float Bites { get; set; }
+        float Bits { get; set; }
         float KiloBits { get; set; }
         float MegaBits { get; set; }
         float Bytes { get; set; }
