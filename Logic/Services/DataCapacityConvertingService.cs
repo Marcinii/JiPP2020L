@@ -16,12 +16,24 @@ namespace Logic.Services
             get => _bits;
             set
             {
-                _bits = value;
-                _kiloBits = value / 1000;
-                _megaBits = value / 1000000;
-                _bytes = value * 0.125f;
-                _kiloBytes = value * 0.000125f;
-                _megaBytes = value * 0.000000125f;
+                if (value < 0)
+                {
+                    _bits = 0;
+                    _kiloBits = 0;
+                    _megaBits = 0;
+                    _bytes = 0;
+                    _kiloBytes = 0;
+                    _megaBytes = 0;
+                }
+                else
+                {
+                    _bits = value;
+                    _kiloBits = value / 1000;
+                    _megaBits = value / 1000000;
+                    _bytes = value * 0.125f;
+                    _kiloBytes = value * 0.000125f;
+                    _megaBytes = value * 0.000000125f;
+                }
             }
         }
 
