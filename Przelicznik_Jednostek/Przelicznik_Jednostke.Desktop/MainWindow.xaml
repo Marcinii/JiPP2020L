@@ -5,14 +5,65 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Przelicznik_Jednostke.Desktop"
         mc:Ignorable="d"
-        Title="Przelicznik Jednostek" Height="700" Width="1000">
+        Title="Przelicznik Jednostek" 
+        Height="700"
+        Width="1000">
     <Grid>
-        <TextBox x:Name="TexBox_Number" HorizontalAlignment="Left" Height="25" Margin="25,75,0,0"  Text="" VerticalAlignment="Top" Width="200"/>
-        <ComboBox x:Name="ComboBox_Unit" HorizontalAlignment="Left" Height="25" Margin="25,45,0,0" VerticalAlignment="Top" Width="200"/>
-        <TextBlock HorizontalAlignment="Left" Height="25"  Margin="25,15,0,0" Text="Wybierz jednostki do przeliczenia" VerticalAlignment="Top" Width="200"/>
-        <Button x:Name="Button_Convert" Content="Przelicz" HorizontalAlignment="Left" Height="25" Margin="25,105,0,0" VerticalAlignment="Top" Width="200" Click="Button_Convert_Click"/>
-        <Label Content="Otrzymany wynik:" HorizontalAlignment="Left" Height="25" Width="200" Margin="25,135,0,0" VerticalAlignment="Top"/>
-        <TextBlock x:Name="TextBlock_Converted" Text="" HorizontalAlignment="Left" Height="25" Width="200" Margin="25,165,0,0" VerticalAlignment="Top"/>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+        <StackPanel Grid.Column="0">
+            <Grid Height="670">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                </Grid.ColumnDefinitions>
+                <StackPanel Grid.Column="0">
+                <TextBlock HorizontalAlignment="Left" Height="25"  Margin="25,15,0,0" Text="Wybierz jednostki do przeliczenia" VerticalAlignment="Top" Width="200"/>
+                <ComboBox x:Name="ComboBox_Unit" HorizontalAlignment="Left" Height="25" Margin="25,5,0,0" VerticalAlignment="Top" Width="200" SelectionChanged="ComboBox_Unit_SelectionChanged"/>
 
+                <TextBox x:Name="TexBox_Number" HorizontalAlignment="Left" Height="25" Margin="25,5,0,0"  Text="" VerticalAlignment="Top" Width="200"/>
+                <Button x:Name="Button_Convert" Content="Przelicz" HorizontalAlignment="Left" Height="25" Margin="25,5,0,0" VerticalAlignment="Top" Width="200" Click="Button_Convert_Click"/>
+                <Label x:Name="Score_Field" Content="Otrzymany wynik:" HorizontalAlignment="Left" Height="25" Width="200" Margin="25,5,0,0" VerticalAlignment="Top"/>
+                <TextBlock x:Name="TextBlock_Converted" Text="" HorizontalAlignment="Left" Height="25" Width="200" Margin="25,5,0,0" VerticalAlignment="Top"/>
+                </StackPanel>
+                <StackPanel Grid.Column="1">
+                    <Label x:Name="Set_Clock" HorizontalAlignment="Left" Height="25" Margin="25,15,0,0" Content="Wpisz godzinę w formacie 24H" Visibility="Hidden"/>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1*" />
+                            <ColumnDefinition Width="1*"/>
+                        </Grid.ColumnDefinitions>
+                        <StackPanel Grid.Column="0">
+                            <TextBox x:Name="GG" Height="25" Width="100" Margin="20,5,0,0" Visibility="Hidden" />
+                        </StackPanel>
+                        <StackPanel Grid.Column="1">
+                            <TextBox x:Name="MM" Height="25" Width="100" Margin="20,5,0,0" Visibility="Hidden"/>
+                        </StackPanel>
+                    </Grid>
+                    <Button x:Name="Button_Clock" Content="Zamień format na 12H" HorizontalAlignment="Left" Height="25" Margin="25,5,0,0" VerticalAlignment="Top" Width="200" Visibility="Hidden"/>
+                    <Label x:Name="Clock_define" HorizontalAlignment="Left" Height="25" Width="100" Margin="25,15,0,0" Content="Godzina:" Visibility="Hidden"/>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock x:Name="Converted_Hours" Height="25" Width="50" HorizontalAlignment="Left" Visibility="Hidden"/>
+                        <Label x:Name="Separator" HorizontalAlignment="Center" Height="25" Width="15" Content=":" Visibility="Hidden"/>
+                        <TextBlock x:Name="Converted_Minuts" Height="25" Width="50" HorizontalAlignment="Left" Visibility="Hidden"/>
+                        <TextBlock x:Name="AM_PM" Height="25" Width="50" HorizontalAlignment="Left" Visibility="Hidden"/>
+                    </StackPanel>
+                </StackPanel>
+                    
+                    
+                
+            </Grid>
+        </StackPanel>
+        <StackPanel Grid.Column="1">
+            
+                <Grid Margin="38,150,0,100">
+                    <Ellipse x:Uid="Zegar" x:Name="Tarcza" Fill="Orange" Height="420" Width="420" Margin="0,0,0,250" Stroke="Black"  Visibility="Hidden"/>
+                    <Rectangle x:Uid="Zegar" x:Name="Minutnik" Fill="Black" HorizontalAlignment="Left" Margin="197,0,0,460" Stroke="Black" Width="26" Height="210" Visibility="Hidden" />
+                    <Rectangle x:Uid="Zegar" x:Name="Godzina" Fill="Red" HorizontalAlignment="Left" Margin="197,85,0,460" Stroke="Black" Width="26" Height="125" Visibility="Hidden"  />
+                </Grid>
+            
+        </StackPanel>
     </Grid>
 </Window>

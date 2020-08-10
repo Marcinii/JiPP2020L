@@ -34,9 +34,10 @@ namespace Przelicznik_Jednostek
                         Console.WriteLine("Podaj temperature w stopniach Celcjusza: ");
                         // odesłanie do funkcji która tylko liczy
                         c = double.Parse(Console.ReadLine());
+                     double q = double.Parse(operacja.which_submition(2, c));
                         Console.WriteLine();
-                        Console.WriteLine($"Temperatura {c} stopni Celcjusza.");
-                      //  operacja.celcjusz(c);
+                        Console.WriteLine($"Temperatura {q} stopni Fahrenhita.");
+                      
                         Console.WriteLine();
 
                         break;
@@ -46,7 +47,8 @@ namespace Przelicznik_Jednostek
                         Console.WriteLine("Podaj temperature w stopniach Fahrenheita: ");
                         // odesłanie do funkcji która tylko liczy
                         f = double.Parse(Console.ReadLine());
-                        Console.WriteLine($"Temperatura {f} stopni Fahrenheita.");
+                        double zq = double.Parse(operacja.which_submition(1, f));
+                        Console.WriteLine($"Temperatura {zq} stopni Celcjusza.");
                       //  operacja.fahrenheit(f);
                         Console.WriteLine();
                         break;
@@ -87,7 +89,8 @@ namespace Przelicznik_Jednostek
                         Console.WriteLine("Podaj odleglosc w Kilometrach: ");
                         // odesłanie do funkcji która tylko liczy
                         km = double.Parse(Console.ReadLine());
-                        Console.WriteLine($"Odleglosc {km} w Kilometrach.");
+                        double q = double.Parse(operacja.which_submition(4, km));
+                        Console.WriteLine($"Odleglosc {q} w Milach.");
                       //  operacja.kilometry(km);
                         Console.WriteLine();
                         break;
@@ -97,7 +100,8 @@ namespace Przelicznik_Jednostek
                         Console.WriteLine("Podaj odleglosc w Milach: ");
                         // odesłanie do funkcji która tylko liczy
                         m = double.Parse(Console.ReadLine());
-                        Console.WriteLine($"Odleglosc {m} w Milach.");
+                        double zq = double.Parse(operacja.which_submition(3, m));
+                        Console.WriteLine($"Odleglosc {zq} w Kilometrach.");
                         //operacja.mile(m);
                         Console.WriteLine();
                         break;
@@ -139,7 +143,8 @@ namespace Przelicznik_Jednostek
 
                         // odesłanie do funkcji która tylko liczy
                         kg = double.Parse(Console.ReadLine());
-                        Console.WriteLine($"Waga {kg} w Kilogramach.");
+                        double q = double.Parse(operacja.which_submition(6, kg));
+                        Console.WriteLine($"Waga {q} w Funtach.");
                        // operacja.kilogramy(kg);
                         Console.WriteLine();
                         break;
@@ -149,7 +154,8 @@ namespace Przelicznik_Jednostek
                         Console.WriteLine("Podaj wage w Funtach: ");
                         // odesłanie do funkcji która tylko liczy
                         ibs = double.Parse(Console.ReadLine());
-                        Console.WriteLine($"Waga {ibs} w Funtach.");
+                        double zq = double.Parse(operacja.which_submition(2, ibs));
+                        Console.WriteLine($"Waga {zq} w Kilogramach.");
                       //  operacja.funty(ibs);
                         Console.WriteLine();
                         break;

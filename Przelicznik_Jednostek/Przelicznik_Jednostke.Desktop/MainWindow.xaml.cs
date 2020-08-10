@@ -34,9 +34,11 @@ namespace Przelicznik_Jednostke.Desktop
                 "Przelicz Yd na KM",
                 "Przelicz KG na Ibs",
                 "Przelicz Ibs na KG",
+                "Przelicz godziny z 24h na 12h",
             };
+            
         }
-
+        
         private void Button_Convert_Click(object sender, RoutedEventArgs e)
         {
             //Dzialania operacja = new Dzialania();
@@ -102,6 +104,57 @@ namespace Przelicznik_Jednostke.Desktop
                 int q = 8;
                 double jednostka = double.Parse(input);
                 TextBlock_Converted.Text = new Dzialania().which_submition(q, jednostka);
+
+            }
+           
+        }
+
+        private void ComboBox_Unit_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (ComboBox_Unit.SelectedItem == "Przelicz godziny z 24h na 12h")
+            {
+
+
+
+                Minutnik.Visibility = System.Windows.Visibility.Visible;
+                Tarcza.Visibility = System.Windows.Visibility.Visible;
+                Godzina.Visibility = System.Windows.Visibility.Visible;
+                TexBox_Number.Visibility = System.Windows.Visibility.Hidden;
+                Button_Convert.Visibility = System.Windows.Visibility.Hidden;
+                Score_Field.Visibility = System.Windows.Visibility.Hidden;
+                Set_Clock.Visibility = System.Windows.Visibility.Visible;
+                GG.Visibility = System.Windows.Visibility.Visible;
+                MM.Visibility = System.Windows.Visibility.Visible;
+                Button_Clock.Visibility = System.Windows.Visibility.Visible;
+                Clock_define.Visibility = System.Windows.Visibility.Visible;
+                Converted_Hours.Visibility = System.Windows.Visibility.Visible;
+                Separator.Visibility = System.Windows.Visibility.Visible;
+                Converted_Minuts.Visibility = System.Windows.Visibility.Visible;
+                AM_PM.Visibility = System.Windows.Visibility.Visible;
+
+            }
+            else
+            {
+
+                TexBox_Number.Visibility = System.Windows.Visibility.Visible;
+                Button_Convert.Visibility = System.Windows.Visibility.Visible;
+                Score_Field.Visibility = System.Windows.Visibility.Visible;
+
+                Set_Clock.Visibility = System.Windows.Visibility.Hidden;
+                GG.Visibility = System.Windows.Visibility.Hidden;
+                MM.Visibility = System.Windows.Visibility.Hidden;
+                Button_Clock.Visibility = System.Windows.Visibility.Hidden;
+                Clock_define.Visibility = System.Windows.Visibility.Hidden;
+                Converted_Hours.Visibility = System.Windows.Visibility.Hidden;
+                Separator.Visibility = System.Windows.Visibility.Hidden;
+                Converted_Minuts.Visibility = System.Windows.Visibility.Hidden;
+                AM_PM.Visibility = System.Windows.Visibility.Hidden;
+
+                Minutnik.Visibility = System.Windows.Visibility.Hidden;
+                Tarcza.Visibility = System.Windows.Visibility.Hidden;
+                Godzina.Visibility = System.Windows.Visibility.Hidden;
+
+
 
             }
         }
