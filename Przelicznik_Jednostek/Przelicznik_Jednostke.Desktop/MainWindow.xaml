@@ -20,13 +20,13 @@
                     <ColumnDefinition Width="1*"/>
                 </Grid.ColumnDefinitions>
                 <StackPanel Grid.Column="0">
-                <TextBlock HorizontalAlignment="Left" Height="25"  Margin="25,15,0,0" Text="Wybierz jednostki do przeliczenia" VerticalAlignment="Top" Width="200"/>
-                <ComboBox x:Name="ComboBox_Unit" HorizontalAlignment="Left" Height="25" Margin="25,5,0,0" VerticalAlignment="Top" Width="200" SelectionChanged="ComboBox_Unit_SelectionChanged"/>
+                    <TextBlock HorizontalAlignment="Left" Height="25"  Margin="25,15,0,0" Text="Wybierz jednostki do przeliczenia" VerticalAlignment="Top" Width="200"/>
+                    <ComboBox x:Name="ComboBox_Unit" HorizontalAlignment="Left" Height="25" Margin="25,5,0,0" VerticalAlignment="Top" Width="200" SelectionChanged="ComboBox_Unit_SelectionChanged"/>
 
-                <TextBox x:Name="TexBox_Number" HorizontalAlignment="Left" Height="25" Margin="25,5,0,0"  Text="" VerticalAlignment="Top" Width="200"/>
-                <Button x:Name="Button_Convert" Content="Przelicz" HorizontalAlignment="Left" Height="25" Margin="25,5,0,0" VerticalAlignment="Top" Width="200" Click="Button_Convert_Click"/>
-                <Label x:Name="Score_Field" Content="Otrzymany wynik:" HorizontalAlignment="Left" Height="25" Width="200" Margin="25,5,0,0" VerticalAlignment="Top"/>
-                <TextBlock x:Name="TextBlock_Converted" Text="" HorizontalAlignment="Left" Height="25" Width="200" Margin="25,5,0,0" VerticalAlignment="Top"/>
+                    <TextBox x:Name="TexBox_Number" HorizontalAlignment="Left" Height="25" Margin="25,5,0,0"  Text="" VerticalAlignment="Top" Width="200"/>
+                    <Button x:Name="Button_Convert" Content="Przelicz" HorizontalAlignment="Left" Height="25" Margin="25,5,0,0" VerticalAlignment="Top" Width="200" Click="Button_Convert_Click"/>
+                    <Label x:Name="Score_Field" Content="Otrzymany wynik:" HorizontalAlignment="Left" Height="25" Width="200" Margin="25,5,0,0" VerticalAlignment="Top"/>
+                    <TextBlock x:Name="TextBlock_Converted" Text="" HorizontalAlignment="Left" Height="25" Width="200" Margin="25,5,0,0" VerticalAlignment="Top"/>
                 </StackPanel>
                 <StackPanel Grid.Column="1">
                     <Label x:Name="Set_Clock" HorizontalAlignment="Left" Height="25" Margin="25,15,0,0" Content="Wpisz godzinę w formacie 24H" Visibility="Hidden"/>
@@ -36,34 +36,52 @@
                             <ColumnDefinition Width="1*"/>
                         </Grid.ColumnDefinitions>
                         <StackPanel Grid.Column="0">
-                            <TextBox x:Name="GG" Height="25" Width="100" Margin="20,5,0,0" Visibility="Hidden" />
+                            <TextBox x:Name="TextBox_GG" Height="25" Width="100" Margin="20,5,0,0"   Visibility="Hidden"/>
                         </StackPanel>
                         <StackPanel Grid.Column="1">
-                            <TextBox x:Name="MM" Height="25" Width="100" Margin="20,5,0,0" Visibility="Hidden"/>
+                            <TextBox x:Name="MM" Height="25" Width="100" Margin="20,5,0,0"  Visibility="Hidden"/>
                         </StackPanel>
                     </Grid>
-                    <Button x:Name="Button_Clock" Content="Zamień format na 12H" HorizontalAlignment="Left" Height="25" Margin="25,5,0,0" VerticalAlignment="Top" Width="200" Visibility="Hidden"/>
-                    <Label x:Name="Clock_define" HorizontalAlignment="Left" Height="25" Width="100" Margin="25,15,0,0" Content="Godzina:" Visibility="Hidden"/>
+                    <Button x:Name="Button_Clock" Content="Zamień format na 12H" HorizontalAlignment="Left" Height="25" Margin="25,5,0,0" VerticalAlignment="Top" Width="200" Click="Button_Clock_Click" Visibility="Hidden"/>
+                    <Label x:Name="Clock_define" HorizontalAlignment="Left" Height="25" Width="100" Margin="25,15,0,0" Content="Godzina:"  Visibility="Hidden"/>
                     <StackPanel Orientation="Horizontal">
-                        <TextBlock x:Name="Converted_Hours" Height="25" Width="50" HorizontalAlignment="Left" Visibility="Hidden"/>
-                        <Label x:Name="Separator" HorizontalAlignment="Center" Height="25" Width="15" Content=":" Visibility="Hidden"/>
-                        <TextBlock x:Name="Converted_Minuts" Height="25" Width="50" HorizontalAlignment="Left" Visibility="Hidden"/>
-                        <TextBlock x:Name="AM_PM" Height="25" Width="50" HorizontalAlignment="Left" Visibility="Hidden"/>
+                        <TextBlock x:Name="Converted_Hours" Height="25" Width="50" HorizontalAlignment="Left"  Visibility="Hidden"/>
+                        <Label x:Name="Separator" HorizontalAlignment="Center" Height="25" Width="15" Content=":"  Visibility="Hidden"/>
+                        <TextBlock x:Name="Converted_Minuts" Height="25" Width="50" HorizontalAlignment="Left"  Visibility="Hidden"/>
+                        <TextBlock x:Name="AM_PM" Height="25" Width="50" HorizontalAlignment="Left"  Visibility="Hidden"/>
                     </StackPanel>
                 </StackPanel>
-                    
-                    
-                
+
+
+
             </Grid>
         </StackPanel>
         <StackPanel Grid.Column="1">
-            
-                <Grid Margin="38,150,0,100">
-                    <Ellipse x:Uid="Zegar" x:Name="Tarcza" Fill="Orange" Height="420" Width="420" Margin="0,0,0,250" Stroke="Black"  Visibility="Hidden"/>
-                    <Rectangle x:Uid="Zegar" x:Name="Minutnik" Fill="Black" HorizontalAlignment="Left" Margin="197,0,0,460" Stroke="Black" Width="26" Height="210" Visibility="Hidden" />
-                    <Rectangle x:Uid="Zegar" x:Name="Godzina" Fill="Red" HorizontalAlignment="Left" Margin="197,85,0,460" Stroke="Black" Width="26" Height="125" Visibility="Hidden"  />
-                </Grid>
-            
+
+            <Grid >
+                <Ellipse x:Uid="Zegar" x:Name="Tarcza" Fill="Orange" Margin="60.917,45.833,69.25,258.334" Stroke="Black"   Visibility="Hidden"/>
+                <Rectangle x:Uid="Zegar" x:Name="Minutnik" Fill="Black" HorizontalAlignment="Left" Margin="232.167,52.5,0,449.583" Stroke="Black" Width="26" RenderTransformOrigin="0.5,1"  Visibility="Hidden" >
+                    <Rectangle.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform x:Name="Minutnik_wskazowka"/>
+                            <TranslateTransform X="1" Y="1"/>
+                        </TransformGroup>
+                    </Rectangle.RenderTransform>
+                </Rectangle>
+                <Rectangle x:Uid="Zegar" x:Name="Godzina" Fill="Red" HorizontalAlignment="Left" Margin="238.167,95.415,0,449.583" Stroke="Black" Width="26" Height="125" RenderTransformOrigin="0.5,1"  Visibility="Hidden"  >
+                    <Rectangle.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform x:Name="Godzina_wskazowka"/>
+                            <TranslateTransform X="1" Y="1"/>
+                        </TransformGroup>
+                    </Rectangle.RenderTransform>
+                </Rectangle>
+            </Grid>
+
         </StackPanel>
     </Grid>
 </Window>

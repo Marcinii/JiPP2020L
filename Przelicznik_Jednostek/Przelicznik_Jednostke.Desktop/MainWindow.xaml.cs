@@ -34,11 +34,124 @@ namespace Przelicznik_Jednostke.Desktop
                 "Przelicz Yd na KM",
                 "Przelicz KG na Ibs",
                 "Przelicz Ibs na KG",
+                "Przelicz KG na Gram",
+                "Przelicz Gram na KG",
+                "Przelicz Kelvin na C",
+                "Przelicz C na Kelvin",
+                "Przelicz Dżul na KiloDżul",
+                "Przelicz KiloDżul na Dżul",
                 "Przelicz godziny z 24h na 12h",
             };
             
         }
-        
+
+        private void Button_Clock_Click(object sender, RoutedEventArgs e)
+        {
+            string input = TextBox_GG.Text;
+            string input1 = MM.Text;
+            int q = 9;
+            double godzina = double.Parse(input);
+            double minuta = double.Parse(input1);
+            if (minuta <= 5 && minuta > 0)
+            {
+                Minutnik_wskazowka.Angle = 30;
+            }
+            else if (minuta <= 10 && minuta > 5)
+            {
+                Minutnik_wskazowka.Angle = 60;
+            }
+            else if (minuta <= 15 && minuta > 10)
+            {
+                Minutnik_wskazowka.Angle = 90;
+            }
+            else if (minuta <= 20 && minuta > 15)
+            {
+                Minutnik_wskazowka.Angle = 120;
+            }
+            else if (minuta <= 25 && minuta > 20)
+            {
+                Minutnik_wskazowka.Angle = 150;
+            }
+            else if (minuta <= 30 && minuta > 25)
+            {
+                Minutnik_wskazowka.Angle = 180;
+            }
+            else if (minuta <= 35 && minuta > 30)
+            {
+                Minutnik_wskazowka.Angle = 210;
+            }
+            else if (minuta <= 40 && minuta > 35)
+            {
+                Minutnik_wskazowka.Angle = 240;
+            }
+            else if (minuta <= 45 && minuta > 40)
+            {
+                Minutnik_wskazowka.Angle = 270;
+            }
+            else if (minuta <= 50 && minuta > 45)
+            {
+                Minutnik_wskazowka.Angle = 300;
+            }
+            else if (minuta <= 55 && minuta > 50)
+            {
+                Minutnik_wskazowka.Angle = 330;
+            }
+            else
+            {
+                Minutnik_wskazowka.Angle = 0;
+            }
+            Converted_Hours.Text = new Dzialania().which_submition(q, godzina);
+            Converted_Minuts.Text = MM.Text;
+            if (godzina == 1 || godzina == 13)
+            {
+                Godzina_wskazowka.Angle = 30;
+            }else if (godzina == 2 || godzina == 14)
+            {
+                Godzina_wskazowka.Angle = 60;
+            }
+            else if (godzina == 3 || godzina == 15)
+            {
+                Godzina_wskazowka.Angle = 90;
+            }
+            else if (godzina == 4 || godzina == 16)
+            {
+                Godzina_wskazowka.Angle = 120;
+            }
+            else if (godzina == 5 || godzina == 17)
+            {
+                Godzina_wskazowka.Angle = 150;
+            }
+            else if (godzina == 6 || godzina == 18)
+            {
+                Godzina_wskazowka.Angle = 180;
+            }
+            else if (godzina == 7 || godzina == 19)
+            {
+                Godzina_wskazowka.Angle = 210;
+            }
+            else if (godzina == 8 || godzina == 20)
+            {
+                Godzina_wskazowka.Angle = 240;
+            }
+            else if (godzina == 9 || godzina == 21)
+            {
+                Godzina_wskazowka.Angle = 270;
+            }
+            else if (godzina == 10 || godzina == 22)
+            {
+                Godzina_wskazowka.Angle = 300;
+            }
+            else if (godzina == 11 || godzina == 23)
+            {
+                Godzina_wskazowka.Angle = 330;
+            }else
+            {
+                Godzina_wskazowka.Angle = 0;
+            }
+
+           
+        }
+
         private void Button_Convert_Click(object sender, RoutedEventArgs e)
         {
             //Dzialania operacja = new Dzialania();
@@ -106,7 +219,55 @@ namespace Przelicznik_Jednostke.Desktop
                 TextBlock_Converted.Text = new Dzialania().which_submition(q, jednostka);
 
             }
-           
+            if (ComboBox_Unit.SelectedItem == "Przelicz KG na Gram")
+            {
+                string input = TexBox_Number.Text;
+                int q = 12;
+                double jednostka = double.Parse(input);
+                TextBlock_Converted.Text = new Dzialania().which_submition(q, jednostka);
+
+            }
+            if (ComboBox_Unit.SelectedItem == "Przelicz Gram na KG")
+            {
+                string input = TexBox_Number.Text;
+                int q = 13;
+                double jednostka = double.Parse(input);
+                TextBlock_Converted.Text = new Dzialania().which_submition(q, jednostka);
+
+            }
+            if (ComboBox_Unit.SelectedItem == "Przelicz Kelvin na C")
+            {
+                string input = TexBox_Number.Text;
+                int q = 10;
+                double jednostka = double.Parse(input);
+                TextBlock_Converted.Text = new Dzialania().which_submition(q, jednostka);
+
+            }
+            if (ComboBox_Unit.SelectedItem == "Przelicz C na Kelvin")
+            {
+                string input = TexBox_Number.Text;
+                int q = 11;
+                double jednostka = double.Parse(input);
+                TextBlock_Converted.Text = new Dzialania().which_submition(q, jednostka);
+
+            }
+            if (ComboBox_Unit.SelectedItem == "Przelicz Dżul na KiloDżul")
+            {
+                string input = TexBox_Number.Text;
+                int q = 14;
+                double jednostka = double.Parse(input);
+                TextBlock_Converted.Text = new Dzialania().which_submition(q, jednostka);
+
+            }
+            if (ComboBox_Unit.SelectedItem == "Przelicz KiloDżul na Dżul")
+            {
+                string input = TexBox_Number.Text;
+                int q = 15;
+                double jednostka = double.Parse(input);
+                TextBlock_Converted.Text = new Dzialania().which_submition(q, jednostka);
+
+            }
+
         }
 
         private void ComboBox_Unit_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -123,7 +284,7 @@ namespace Przelicznik_Jednostke.Desktop
                 Button_Convert.Visibility = System.Windows.Visibility.Hidden;
                 Score_Field.Visibility = System.Windows.Visibility.Hidden;
                 Set_Clock.Visibility = System.Windows.Visibility.Visible;
-                GG.Visibility = System.Windows.Visibility.Visible;
+                TextBox_GG.Visibility = System.Windows.Visibility.Visible;
                 MM.Visibility = System.Windows.Visibility.Visible;
                 Button_Clock.Visibility = System.Windows.Visibility.Visible;
                 Clock_define.Visibility = System.Windows.Visibility.Visible;
@@ -139,9 +300,8 @@ namespace Przelicznik_Jednostke.Desktop
                 TexBox_Number.Visibility = System.Windows.Visibility.Visible;
                 Button_Convert.Visibility = System.Windows.Visibility.Visible;
                 Score_Field.Visibility = System.Windows.Visibility.Visible;
-
                 Set_Clock.Visibility = System.Windows.Visibility.Hidden;
-                GG.Visibility = System.Windows.Visibility.Hidden;
+                TextBox_GG.Visibility = System.Windows.Visibility.Hidden;
                 MM.Visibility = System.Windows.Visibility.Hidden;
                 Button_Clock.Visibility = System.Windows.Visibility.Hidden;
                 Clock_define.Visibility = System.Windows.Visibility.Hidden;
@@ -149,7 +309,6 @@ namespace Przelicznik_Jednostke.Desktop
                 Separator.Visibility = System.Windows.Visibility.Hidden;
                 Converted_Minuts.Visibility = System.Windows.Visibility.Hidden;
                 AM_PM.Visibility = System.Windows.Visibility.Hidden;
-
                 Minutnik.Visibility = System.Windows.Visibility.Hidden;
                 Tarcza.Visibility = System.Windows.Visibility.Hidden;
                 Godzina.Visibility = System.Windows.Visibility.Hidden;
@@ -158,5 +317,7 @@ namespace Przelicznik_Jednostke.Desktop
 
             }
         }
+
+     
     }
 }

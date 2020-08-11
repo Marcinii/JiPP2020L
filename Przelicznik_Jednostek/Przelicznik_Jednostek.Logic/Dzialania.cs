@@ -61,15 +61,95 @@ namespace Przelicznik_Jednostek
         }
         private double jard(double yd)
         {
-            return yd * 1093.61;
+            return yd * 1093.61;//wynik w km
         }
         private double km_yd(double km)
         {
-            return km * 0.00091440271745352;
+            return km * 0.00091440271745352;//wynik w jard
+        }
+        private double kelvin(double k)
+        {
+            return k - 273.15;//wynik w celcjusz
+        }
+        private double celKel(double c)
+        {
+            return c + 273.15;//wynik w Kelvin
+        }
+        private double kilo(double kg)
+        {
+            return kg * 1000;//wynik w gram
+        }
+        private double gram(double g)
+        {
+            return g / 1000;//wynik w kg
+        }
+        private double joul(double j)
+        {
+            return j * 1000;//wynik w kilojoulach
+        }
+        private double Kjoul(double kJ)
+        {
+            return kJ / 1000;//wynik w joulach
         }
         private double clock_change (double zegarek)
         {
-            return 0;
+            if (zegarek < 13)
+            {
+                return zegarek;
+            }
+            else if (zegarek == 13)
+            {
+                return 1;
+            }
+            else if (zegarek == 14)
+            {
+                return 2;
+            }
+            else if (zegarek == 15)
+            {
+                return 3;
+            }
+            else if (zegarek == 16)
+            {
+                return 4;
+            }
+            else if (zegarek == 17)
+            {
+                return 5;
+            }
+            else if (zegarek == 18)
+            {
+                return 6;
+            }
+            else if (zegarek == 19)
+            {
+                return 7;
+            }
+            else if (zegarek == 20)
+            {
+                return 8;
+            }
+            else if (zegarek == 21)
+            {
+                return 9;
+            }
+            else if (zegarek == 22)
+            {
+                return 10;
+            }
+            else if (zegarek == 23)
+            {
+                return 11;
+            }
+            else if (zegarek == 24)
+            {
+                return 12;
+            }
+            else
+            {
+                return 0;
+            }
+
         }
         public string which_submition(int q, double z)
         {
@@ -104,6 +184,35 @@ namespace Przelicznik_Jednostek
             {
                 return km_yd(z).ToString();
             }
+            if (q == 9)
+            {
+                return clock_change(z).ToString();
+            }
+            if (q == 10)
+            {
+                return kelvin(z).ToString();
+            }
+            if (q == 11)
+            {
+                return celKel(z).ToString();
+            }
+            if (q == 12)
+            {
+                return kilo(z).ToString();
+            }
+            if (q == 13)
+            {
+                return gram(z).ToString();
+            }
+            if (q == 14)
+            {
+                return joul(z).ToString();
+            }
+            if (q == 15)
+            {
+                return Kjoul(z).ToString();
+            }
+
             else return 0.ToString();
         }
 
