@@ -1,0 +1,6 @@
+C:\Users\Brajanek\source\repos\Zad1Poprawka\Zad1Poprawka\bin\Debug\Zad1Poprawka.exe.config
+C:\Users\Brajanek\source\repos\Zad1Poprawka\Zad1Poprawka\bin\Debug\Zad1Poprawka.exe
+C:\Users\Brajanek\source\repos\Zad1Poprawka\Zad1Poprawka\bin\Debug\Zad1Poprawka.pdb
+C:\Users\Brajanek\source\repos\Zad1Poprawka\Zad1Poprawka\obj\Debug\Zad1Poprawka.csprojAssemblyReference.cache
+C:\Users\Brajanek\source\repos\Zad1Poprawka\Zad1Poprawka\obj\Debug\Zad1Poprawka.exe
+C:\Users\Brajanek\source\repos\Zad1Poprawka\Zad1Poprawka\obj\Debug\Zad1Poprawka.pdb
