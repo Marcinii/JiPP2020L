@@ -1,0 +1,17 @@
+C:\Users\Brajanek\source\repos\Converter\Converter.Desktop\obj\Debug\Converter.Desktop.csprojAssemblyReference.cache
+C:\Users\Brajanek\source\repos\Converter\Converter.Desktop\obj\Debug\MainWindow.g.cs
+C:\Users\Brajanek\source\repos\Converter\Converter.Desktop\obj\Debug\App.g.cs
+C:\Users\Brajanek\source\repos\Converter\Converter.Desktop\obj\Debug\Converter.Desktop_MarkupCompile.cache
+C:\Users\Brajanek\source\repos\Converter\Converter.Desktop\obj\Debug\Converter.Desktop_MarkupCompile.lref
+C:\Users\Brajanek\source\repos\Converter\Converter.Desktop\bin\Debug\Converter.Desktop.exe.config
+C:\Users\Brajanek\source\repos\Converter\Converter.Desktop\bin\Debug\Converter.Desktop.exe
+C:\Users\Brajanek\source\repos\Converter\Converter.Desktop\bin\Debug\Converter.Desktop.pdb
+C:\Users\Brajanek\source\repos\Converter\Converter.Desktop\bin\Debug\Converter.Logic.dll
+C:\Users\Brajanek\source\repos\Converter\Converter.Desktop\bin\Debug\Converter.Logic.pdb
+C:\Users\Brajanek\source\repos\Converter\Converter.Desktop\obj\Debug\MainWindow.baml
+C:\Users\Brajanek\source\repos\Converter\Converter.Desktop\obj\Debug\Converter.Desktop.g.resources
+C:\Users\Brajanek\source\repos\Converter\Converter.Desktop\obj\Debug\Converter.Desktop.Properties.Resources.resources
+C:\Users\Brajanek\source\repos\Converter\Converter.Desktop\obj\Debug\Converter.Desktop.csproj.GenerateResource.cache
+C:\Users\Brajanek\source\repos\Converter\Converter.Desktop\obj\Debug\Converter.Desktop.csproj.CopyComplete
+C:\Users\Brajanek\source\repos\Converter\Converter.Desktop\obj\Debug\Converter.Desktop.exe
+C:\Users\Brajanek\source\repos\Converter\Converter.Desktop\obj\Debug\Converter.Desktop.pdb

@@ -1,0 +1,5 @@
+C:\Users\Brajanek\source\repos\Converter\Converter.Logic\bin\Debug\Converter.Logic.dll
+C:\Users\Brajanek\source\repos\Converter\Converter.Logic\bin\Debug\Converter.Logic.pdb
+C:\Users\Brajanek\source\repos\Converter\Converter.Logic\obj\Debug\Converter.Logic.csprojAssemblyReference.cache
+C:\Users\Brajanek\source\repos\Converter\Converter.Logic\obj\Debug\Converter.Logic.dll
+C:\Users\Brajanek\source\repos\Converter\Converter.Logic\obj\Debug\Converter.Logic.pdb
