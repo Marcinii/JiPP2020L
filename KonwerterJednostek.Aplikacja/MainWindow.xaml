@@ -1,0 +1,41 @@
+﻿<Window x:Class="KonwerterJednostek.Aplikacja.GlowneOkno"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:custom="clr-namespace:KonwerterJednostek.Kontrolki;assembly=KonwerterJednostek.Kontrolki"
+        mc:Ignorable="d"
+        Title="KonwerterJednostek" Height="530" Width="400" FontFamily="Felix Titling" FontSize="14">
+    <Grid>
+        <StackPanel>
+            <Grid Background="Black">
+                <Label FontSize="28" Foreground="White">KONWERTER</Label>
+            </Grid>
+            <Grid>
+                <StackPanel Grid.Column="1" VerticalAlignment="Bottom" Margin="0,0,0,10">
+                    <Label>Ocen aplikacje</Label>
+                    <custom:KontrolkaOceny x:Name="KontrolkaOceny" OcenaUleglaZmianie="OcenaZmieniona" ></custom:KontrolkaOceny>
+                </StackPanel>
+            </Grid>
+                <StackPanel>
+                    <Label>Konwerter</Label>
+                    <ComboBox x:Name="KonwerterWybor" Margin="15" Height="30" SelectionChanged="KonwerterWybrany" DisplayMemberPath="Nazwa"></ComboBox>
+                    <StackPanel>
+                        <Label>JEDNOSTKA WEJSCIOWA</Label>
+                        <ComboBox x:Name="JednostkaWejsciowaWybor"></ComboBox>
+                    </StackPanel>
+                    <StackPanel>
+                        <Label>JEDNOSTKA WYJSCIOWA</Label>
+                        <ComboBox x:Name="JednostkaWyjsciowaWybor"></ComboBox>
+                    </StackPanel>
+                </StackPanel>
+            <StackPanel>
+                <Label>WARTOSC</Label>
+                <TextBox x:Name="PoleWartosciWejsciowej" Height="30" VerticalAlignment="Center"></TextBox>
+            </StackPanel>
+            <Button Grid.Column="0" x:Name="PrzyciskKonwertuj" Height="35" Margin="70,20,70,0"  Background="Black" Foreground="White" FontSize="14">KONWERTUJ</Button>
+            <TextBlock Grid.Column="1" x:Name="PoleTekstoweWyjsciowe" Height="30" HorizontalAlignment="Center" Text="" FontSize="18"/>
+            <Button Grid.Column="0" x:Name="PrzyciskStatystyki" Height="35" Margin="70,20,70,0"  Background="Black" Foreground="White" FontSize="14">WYNIKI</Button>
+        </StackPanel>
+    </Grid>
+</Window>
