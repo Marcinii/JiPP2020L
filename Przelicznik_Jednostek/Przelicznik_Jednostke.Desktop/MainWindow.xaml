@@ -45,10 +45,10 @@
                     <Button x:Name="Button_Clock" Content="Zamień format na 12H" HorizontalAlignment="Left" Height="25" Margin="25,5,0,0" VerticalAlignment="Top" Width="200" Click="Button_Clock_Click" Visibility="Hidden"/>
                     <Label x:Name="Clock_define" HorizontalAlignment="Left" Height="25" Width="100" Margin="25,15,0,0" Content="Godzina:"  Visibility="Hidden"/>
                     <StackPanel Orientation="Horizontal">
-                        <TextBlock x:Name="Converted_Hours" Height="25" Width="50" HorizontalAlignment="Left"  Visibility="Hidden"/>
+                        <TextBlock x:Name="Converted_Hours" Height="25" Width="50" HorizontalAlignment="Left"  Visibility="Visible"/>
                         <Label x:Name="Separator" HorizontalAlignment="Center" Height="25" Width="15" Content=":"  Visibility="Hidden"/>
-                        <TextBlock x:Name="Converted_Minuts" Height="25" Width="50" HorizontalAlignment="Left"  Visibility="Hidden"/>
-                        <TextBlock x:Name="AM_PM" Height="25" Width="50" HorizontalAlignment="Left"  Visibility="Hidden"/>
+                        <TextBlock x:Name="Converted_Minuts" Height="25" Width="50" HorizontalAlignment="Left"  Visibility="Visible"/>
+                        <TextBlock x:Name="AM_PM" Height="25" Width="50" HorizontalAlignment="Left"  Visibility="Visible"/>
                     </StackPanel>
                 </StackPanel>
 

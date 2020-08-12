@@ -105,7 +105,8 @@ namespace Przelicznik_Jednostke.Desktop
             if (godzina == 1 || godzina == 13)
             {
                 Godzina_wskazowka.Angle = 30;
-            }else if (godzina == 2 || godzina == 14)
+            }
+            else if (godzina == 2 || godzina == 14)
             {
                 Godzina_wskazowka.Angle = 60;
             }
@@ -144,11 +145,20 @@ namespace Przelicznik_Jednostke.Desktop
             else if (godzina == 11 || godzina == 23)
             {
                 Godzina_wskazowka.Angle = 330;
-            }else
+            }
+            else
             {
                 Godzina_wskazowka.Angle = 0;
             }
 
+            if (godzina < 13)
+            {
+                AM_PM.Text = "AM";
+            }
+            else
+            {
+                AM_PM.Text = "PM";
+            }
            
         }
 
@@ -276,7 +286,7 @@ namespace Przelicznik_Jednostke.Desktop
             {
 
 
-
+                TextBlock_Converted.Visibility = System.Windows.Visibility.Hidden;
                 Minutnik.Visibility = System.Windows.Visibility.Visible;
                 Tarcza.Visibility = System.Windows.Visibility.Visible;
                 Godzina.Visibility = System.Windows.Visibility.Visible;
@@ -312,12 +322,12 @@ namespace Przelicznik_Jednostke.Desktop
                 Minutnik.Visibility = System.Windows.Visibility.Hidden;
                 Tarcza.Visibility = System.Windows.Visibility.Hidden;
                 Godzina.Visibility = System.Windows.Visibility.Hidden;
-
+                TextBlock_Converted.Visibility = System.Windows.Visibility.Visible;
 
 
             }
         }
 
-     
+      
     }
 }
