@@ -1,28 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\stead\\source\\repos\\KonwerterJednostek\\Moduł 2 - konwerter jednostek\\KonwerterJednostek.Console.csproj": {}
+    "C:\\Users\\stead\\source\\repos\\KonwerterJednostek\\KonwerterJednostek.Console\\KonwerterJednostek.Console.csproj": {}
   },
   "projects": {
-    "C:\\Users\\stead\\source\\repos\\KonwerterJednostek\\KonwerterJednostek.Logic\\KonwerterJednostek.Logic.csproj": {
+    "C:\\Users\\stead\\source\\repos\\KonwerterJednostek\\KonwerterJednostek.Console\\KonwerterJednostek.Console.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\stead\\source\\repos\\KonwerterJednostek\\KonwerterJednostek.Logic\\KonwerterJednostek.Logic.csproj",
-        "projectName": "KonwerterJednostek.Logic",
-        "projectPath": "C:\\Users\\stead\\source\\repos\\KonwerterJednostek\\KonwerterJednostek.Logic\\KonwerterJednostek.Logic.csproj"
-      },
-      "frameworks": {
-        "net472": {}
-      }
-    },
-    "C:\\Users\\stead\\source\\repos\\KonwerterJednostek\\Moduł 2 - konwerter jednostek\\KonwerterJednostek.Console.csproj": {
-      "version": "1.0.0",
-      "restore": {
-        "projectUniqueName": "C:\\Users\\stead\\source\\repos\\KonwerterJednostek\\Moduł 2 - konwerter jednostek\\KonwerterJednostek.Console.csproj",
+        "projectUniqueName": "C:\\Users\\stead\\source\\repos\\KonwerterJednostek\\KonwerterJednostek.Console\\KonwerterJednostek.Console.csproj",
         "projectName": "KonwerterJednostek.Console",
-        "projectPath": "C:\\Users\\stead\\source\\repos\\KonwerterJednostek\\Moduł 2 - konwerter jednostek\\KonwerterJednostek.Console.csproj",
+        "projectPath": "C:\\Users\\stead\\source\\repos\\KonwerterJednostek\\KonwerterJednostek.Console\\KonwerterJednostek.Console.csproj",
         "packagesPath": "C:\\Users\\stead\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\stead\\source\\repos\\KonwerterJednostek\\Moduł 2 - konwerter jednostek\\obj\\",
+        "outputPath": "C:\\Users\\stead\\source\\repos\\KonwerterJednostek\\KonwerterJednostek.Console\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\stead\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -69,6 +58,17 @@
           },
           "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.101\\RuntimeIdentifierGraph.json"
         }
+      }
+    },
+    "C:\\Users\\stead\\source\\repos\\KonwerterJednostek\\KonwerterJednostek.Logic\\KonwerterJednostek.Logic.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\stead\\source\\repos\\KonwerterJednostek\\KonwerterJednostek.Logic\\KonwerterJednostek.Logic.csproj",
+        "projectName": "KonwerterJednostek.Logic",
+        "projectPath": "C:\\Users\\stead\\source\\repos\\KonwerterJednostek\\KonwerterJednostek.Logic\\KonwerterJednostek.Logic.csproj"
+      },
+      "frameworks": {
+        "net472": {}
       }
     }
   }

@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29806.167
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KonwerterJednostek.Console", "Moduł 2 - konwerter jednostek\KonwerterJednostek.Console.csproj", "{E00AFE77-096F-405D-8E94-B1DDD007C7A5}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KonwerterJednostek.Console", "KonwerterJednostek.Console\KonwerterJednostek.Console.csproj", "{E00AFE77-096F-405D-8E94-B1DDD007C7A5}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KonwerterJednostek.Logic", "KonwerterJednostek.Logic\KonwerterJednostek.Logic.csproj", "{C8AC9766-5CD8-4FB5-AF5E-F8D4D61982F7}"
 EndProject

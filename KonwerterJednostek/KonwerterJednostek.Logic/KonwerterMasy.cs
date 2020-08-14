@@ -42,5 +42,6 @@ namespace KonwerterJednostek
                 return 0;
             }
         }
+        public override string ToString() { return Name; }
     }
 }

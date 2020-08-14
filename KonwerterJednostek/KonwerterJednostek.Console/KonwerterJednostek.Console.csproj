@@ -3,7 +3,7 @@
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <TargetFramework>netcoreapp3.1</TargetFramework>
-    <RootNamespace>Moduł_2___konwerter_jednostek</RootNamespace>
+    <RootNamespace>KonwerterJednostek.Console</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>

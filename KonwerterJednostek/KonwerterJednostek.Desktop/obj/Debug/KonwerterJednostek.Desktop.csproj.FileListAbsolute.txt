@@ -26,3 +26,6 @@ C:\Users\stead\source\repos\KonwerterJednostek\KonwerterJednostek.Desktop\obj\De
 C:\Users\stead\source\repos\KonwerterJednostek\KonwerterJednostek.Desktop\obj\Debug\KonwerterJednostek.Desktop.csproj.GenerateResource.cache
 C:\Users\stead\source\repos\KonwerterJednostek\KonwerterJednostek.Desktop\obj\Debug\KonwerterJednostek.Desktop.exe
 C:\Users\stead\source\repos\KonwerterJednostek\KonwerterJednostek.Desktop\obj\Debug\KonwerterJednostek.Desktop.pdb
+C:\Users\stead\source\repos\KonwerterJednostek\KonwerterJednostek.Desktop\bin\Debug\KonwerterJednostek.Logic.dll
+C:\Users\stead\source\repos\KonwerterJednostek\KonwerterJednostek.Desktop\bin\Debug\KonwerterJednostek.Logic.pdb
+C:\Users\stead\source\repos\KonwerterJednostek\KonwerterJednostek.Desktop\obj\Debug\KonwerterJednostek.Desktop.csproj.CopyComplete

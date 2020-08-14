@@ -5,74 +5,60 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:KonwerterJednostek.Desktop"
         mc:Ignorable="d"
-        Title="Konwerter jednostek" Height="408.311" Width="800
-        
-        ">
-    <Grid Margin="0,0,2,0">
+        Title="Konwerter jednostek" Height="337" Width="500">
+    <Window.Resources>
+        <Storyboard x:Key="TarczaStory">
+            <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)" Storyboard.TargetName="Tarcza">
+                <EasingColorKeyFrame KeyTime="0:0:1" Value="#FF59BD4B"/>
+                <EasingColorKeyFrame KeyTime="0:0:2" Value="#FFDDE3DC"/>
+            </ColorAnimationUsingKeyFrames>
+        </Storyboard>
+    </Window.Resources>
+
+    <Grid Background="#FFF3F3F3">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="150*"/>
+            <RowDefinition Height="169*"/>
+        </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="0*"/>
-            <ColumnDefinition/>
+            <ColumnDefinition Width="38*"/>
+            <ColumnDefinition Width="199*"/>
+            <ColumnDefinition Width="9*"/>
         </Grid.ColumnDefinitions>
-        <Label Content="                            Wybierz i użyj jednego z konwerterów" HorizontalAlignment="Left" Margin="100,10,0,0" VerticalAlignment="Top" Width="600" FontSize="18" Grid.Column="1" Height="34" Background="#FF95CFFF"/>
-        <TextBox Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="30" Margin="186,88,0,0" TextWrapping="Wrap" Text="Wpisz wartość " VerticalAlignment="Top" Width="140" FontSize="16" TextAlignment="Center" TextChanged="TextBox_TextChanged_1"/>
-        <Label Grid.ColumnSpan="2" Content="Konwerter temperatury" HorizontalAlignment="Left" Margin="311,123,0,0" VerticalAlignment="Top" Width="181" FontSize="16"/>
-        <Label Grid.ColumnSpan="2" Content="Konwerter masy" HorizontalAlignment="Left" Margin="341,49,0,0" VerticalAlignment="Top" Width="135" FontSize="16"/>
-        <Label Grid.ColumnSpan="2" Content="Konwerter czasu" HorizontalAlignment="Left" Margin="326,194,0,0" VerticalAlignment="Top" Width="146" FontSize="16" Height="37"/>
-        <Label Grid.ColumnSpan="2" Content="Konwerter długości" HorizontalAlignment="Left" Margin="326,271,0,0" VerticalAlignment="Top" FontSize="16"/>
-        <Button Grid.ColumnSpan="2" Content="Oblicz!" HorizontalAlignment="Left" Margin="343,88,0,0" VerticalAlignment="Top" Width="112" Height="30" FontSize="16"/>
-        <ComboBox Grid.ColumnSpan="2" HorizontalAlignment="Left" Margin="29,88,0,0" VerticalAlignment="Top" Width="140" Height="30" SelectionChanged="ComboBox_SelectionChanged_1">
-            <ComboBoxItem Selected="ComboBoxItem_Selected">
-                kg => funty
-            </ComboBoxItem>
-            <ComboBoxItem Selected="ComboBoxItem_Selected">
-                funty => kg
-            </ComboBoxItem>
-        </ComboBox>
-        <TextBlock Grid.ColumnSpan="2" HorizontalAlignment="Left" Margin="577,88,0,0" TextWrapping="Wrap" Text="Wynik" VerticalAlignment="Top" Height="30" Width="99" FontSize="20" TextAlignment="Center"/>
-        <TextBox Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="30" Margin="186,159,0,0" TextWrapping="Wrap" Text="Wpisz wartość " VerticalAlignment="Top" Width="140" FontSize="16" TextAlignment="Center"/>
-        <Button Grid.ColumnSpan="2" Content="Oblicz!" HorizontalAlignment="Left" Margin="343,159,0,0" VerticalAlignment="Top" Width="112" Height="30" FontSize="16"/>
-        <TextBlock Grid.ColumnSpan="2" HorizontalAlignment="Left" Margin="577,159,0,0" TextWrapping="Wrap" Text="Wynik" VerticalAlignment="Top" Height="30" Width="99" FontSize="20" TextAlignment="Center"/>
-        <ComboBox SelectedIndex="0" Grid.ColumnSpan="2" HorizontalAlignment="Left" Margin="29,236,0,0" VerticalAlignment="Top" Width="140" Height="30">
-            <ComboBoxItem>
-                minuty => godziny
-            </ComboBoxItem>
-            <ComboBoxItem>
-                godziny => minuty
-            </ComboBoxItem>
-        </ComboBox>
-        <ComboBox SelectedIndex="0" Grid.ColumnSpan="2" HorizontalAlignment="Left" Margin="29,159,0,0" VerticalAlignment="Top" Width="140" Height="30">
-            <ComboBoxItem>
-                Celsjusza => Farenheita
-            </ComboBoxItem>
-            <ComboBoxItem>
-                Farenheita => Celsjusza
-            </ComboBoxItem>
-        </ComboBox>
-        <TextBox Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="30" Margin="186,236,0,0" TextWrapping="Wrap" Text="Wpisz wartość " VerticalAlignment="Top" Width="140" FontSize="16" TextAlignment="Center"/>
-        <Button Grid.ColumnSpan="2" Content="Oblicz!" HorizontalAlignment="Left" Margin="343,236,0,0" VerticalAlignment="Top" Width="112" Height="30" FontSize="16"/>
-        <TextBlock Grid.ColumnSpan="2" HorizontalAlignment="Left" Margin="577,236,0,0" TextWrapping="Wrap" Text="Wynik" VerticalAlignment="Top" Height="30" Width="99" FontSize="20" TextAlignment="Center"/>
-        <ComboBox SelectedIndex="0" Grid.ColumnSpan="2" HorizontalAlignment="Left" Margin="29,307,0,0" VerticalAlignment="Top" Width="140" Height="30">
-            <ComboBoxItem>
-                km => mile
-            </ComboBoxItem>
-            <ComboBoxItem>
-                mile => km
-            </ComboBoxItem>
-            <ComboBoxItem>
-                km => m
-            </ComboBoxItem>
-            <ComboBoxItem>
-                m => km
-            </ComboBoxItem>
-            <ComboBoxItem>
-                m => mile
-            </ComboBoxItem>
-            <ComboBoxItem>
-                mile => m
-            </ComboBoxItem>
-        </ComboBox>
-        <Button Grid.ColumnSpan="2" Content="Oblicz!" HorizontalAlignment="Left" Margin="341,307,0,0" VerticalAlignment="Top" Width="112" Height="30" FontSize="16"/>
-        <TextBox Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="30" Margin="186,307,0,0" TextWrapping="Wrap" Text="Wpisz wartość " VerticalAlignment="Top" Width="140" FontSize="16" TextAlignment="Center"/>
-        <TextBlock Grid.ColumnSpan="2" HorizontalAlignment="Left" Margin="577,304,0,0" TextWrapping="Wrap" Text="Wynik" VerticalAlignment="Top" Height="30" Width="99" FontSize="20" TextAlignment="Center"/>
+        <ComboBox x:Name="Category" HorizontalAlignment="Left" Height="30" Margin="38,54,0,0" VerticalAlignment="Top" Width="217" SelectionChanged="selectionChanged" Grid.ColumnSpan="2"/>
+        <ComboBox x:Name="UnitFrom" HorizontalAlignment="Left" Height="30" Margin="38,110,0,0" VerticalAlignment="Top" Width="217" Grid.ColumnSpan="2"/>
+        <ComboBox x:Name="UnitTo" HorizontalAlignment="Left" Height="30" Margin="38,22,0,0" VerticalAlignment="Top" Width="217" Grid.Row="1" Grid.ColumnSpan="2"/>
+
+        <Button x:Name="Makeit" Content="Konwertuj" HorizontalAlignment="Left" Height="48" Margin="99,75,0,0" Width="80" FontSize="13" Background="#FF75FD3B" VerticalAlignment="Top" Click="Convert" Grid.Row="1" Grid.Column="1"/>
+        <Label x:Name="Converted" Content="Wynik" HorizontalAlignment="Left" Height="48" Width="120" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="13" Margin="230,75,0,0" VerticalAlignment="Top" BorderBrush="#FFE7B6B6" Background="#FFFF5353" Grid.Row="1" Grid.Column="1"/>
+
+        <TextBox x:Name="Toconvert" HorizontalAlignment="Left" Height="48" TextWrapping="Wrap" Text="0" Width="117" FontSize="20" TextAlignment="Center" VerticalContentAlignment="Center" VerticalAlignment="Top" Margin="38,75,0,0" Grid.Row="1" Grid.ColumnSpan="2"/>
+        <Ellipse x:Name="Tarcza" Fill="#FFFFEE42" HorizontalAlignment="Left" Height="152" Margin="213,44,0,0" Stroke="Black" VerticalAlignment="Top" Width="151" Grid.RowSpan="2" Grid.Column="1"/>
+        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="54" Margin="289,67,0,0" Stroke="Black" VerticalAlignment="Top" Width="0" Grid.Column="1"/>
+        <Rectangle x:Name="Minutowa" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="59" Margin="289,62,0,0" Stroke="Black" VerticalAlignment="Top" Width="1" RenderTransformOrigin="0.5,1" Grid.Column="1">
+            <Rectangle.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Rectangle.RenderTransform>
+        </Rectangle>
+        <Rectangle x:Name="Godzinowa" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="33" Margin="289,87,0,0" Stroke="Black" VerticalAlignment="Top" Width="2" RenderTransformOrigin="0.5,1" Grid.Column="1">
+            <Rectangle.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="90"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Rectangle.RenderTransform>
+        </Rectangle>
+        <TextBlock HorizontalAlignment="Left" Margin="38,1,0,0" TextWrapping="Wrap" Text="Konwertuj na:" VerticalAlignment="Top" Width="186" Grid.ColumnSpan="2" Grid.Row="1"/>
+        <TextBlock HorizontalAlignment="Left" Margin="38,89,0,0" TextWrapping="Wrap" Text="Konwertuj z:" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
+        <TextBlock HorizontalAlignment="Left" Margin="38,33,0,0" TextWrapping="Wrap" Text="Wybierz konwerter:" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
+
+
     </Grid>
 </Window>

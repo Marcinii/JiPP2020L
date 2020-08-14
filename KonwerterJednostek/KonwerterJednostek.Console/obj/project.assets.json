@@ -31,11 +31,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\stead\\source\\repos\\KonwerterJednostek\\Moduł 2 - konwerter jednostek\\KonwerterJednostek.Console.csproj",
+      "projectUniqueName": "C:\\Users\\stead\\source\\repos\\KonwerterJednostek\\KonwerterJednostek.Console\\KonwerterJednostek.Console.csproj",
       "projectName": "KonwerterJednostek.Console",
-      "projectPath": "C:\\Users\\stead\\source\\repos\\KonwerterJednostek\\Moduł 2 - konwerter jednostek\\KonwerterJednostek.Console.csproj",
+      "projectPath": "C:\\Users\\stead\\source\\repos\\KonwerterJednostek\\KonwerterJednostek.Console\\KonwerterJednostek.Console.csproj",
       "packagesPath": "C:\\Users\\stead\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\stead\\source\\repos\\KonwerterJednostek\\Moduł 2 - konwerter jednostek\\obj\\",
+      "outputPath": "C:\\Users\\stead\\source\\repos\\KonwerterJednostek\\KonwerterJednostek.Console\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\stead\\AppData\\Roaming\\NuGet\\NuGet.Config",
