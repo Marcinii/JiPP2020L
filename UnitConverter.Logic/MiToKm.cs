@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Konwerter_console
-{
+namespace UnitConverter.Logic
+{ 
     public class MiToKm : Iconverter
     {
         public string name => "Mile na Kilometry";

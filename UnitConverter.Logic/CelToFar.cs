@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Konwerter_console
+namespace UnitConverter.Logic
 {
     public class CelToFar :Iconverter
     {

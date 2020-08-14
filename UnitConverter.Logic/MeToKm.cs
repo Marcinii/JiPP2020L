@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Konwerter_console
-{
+namespace UnitConverter.Logic
+{ 
     public class MeToKm :Iconverter
     {
         public string name => "Metry na Kilometry";
