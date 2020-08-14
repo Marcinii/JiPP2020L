@@ -1,0 +1,10 @@
+C:\Users\kiemi\Desktop\JiPP2020L-Z410-Michal-Pietrucha\zadanie 2\unitConverterv2\bin\Debug\unitConverterv2.exe.config
+C:\Users\kiemi\Desktop\JiPP2020L-Z410-Michal-Pietrucha\zadanie 2\unitConverterv2\bin\Debug\unitConverterv2.exe
+C:\Users\kiemi\Desktop\JiPP2020L-Z410-Michal-Pietrucha\zadanie 2\unitConverterv2\bin\Debug\unitConverterv2.pdb
+C:\Users\kiemi\Desktop\JiPP2020L-Z410-Michal-Pietrucha\zadanie 2\unitConverterv2\bin\Debug\UnitConverterv2.Logic.dll
+C:\Users\kiemi\Desktop\JiPP2020L-Z410-Michal-Pietrucha\zadanie 2\unitConverterv2\bin\Debug\UnitConverterv2.Logic.pdb
+C:\Users\kiemi\Desktop\JiPP2020L-Z410-Michal-Pietrucha\zadanie 2\unitConverterv2\obj\Debug\unitConverterv2.Console.csprojAssemblyReference.cache
+C:\Users\kiemi\Desktop\JiPP2020L-Z410-Michal-Pietrucha\zadanie 2\unitConverterv2\obj\Debug\unitConverterv2.Console.csproj.CoreCompileInputs.cache
+C:\Users\kiemi\Desktop\JiPP2020L-Z410-Michal-Pietrucha\zadanie 2\unitConverterv2\obj\Debug\unitConverterv2.Console.csproj.CopyComplete
+C:\Users\kiemi\Desktop\JiPP2020L-Z410-Michal-Pietrucha\zadanie 2\unitConverterv2\obj\Debug\unitConverterv2.exe
+C:\Users\kiemi\Desktop\JiPP2020L-Z410-Michal-Pietrucha\zadanie 2\unitConverterv2\obj\Debug\unitConverterv2.pdb

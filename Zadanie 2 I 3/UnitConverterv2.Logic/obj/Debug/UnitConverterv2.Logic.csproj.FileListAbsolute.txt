@@ -1,0 +1,6 @@
+C:\Users\kiemi\Desktop\JiPP2020L-Z410-Michal-Pietrucha\zadanie 2\UnitConverterv2.Logic\bin\Debug\UnitConverterv2.Logic.dll
+C:\Users\kiemi\Desktop\JiPP2020L-Z410-Michal-Pietrucha\zadanie 2\UnitConverterv2.Logic\bin\Debug\UnitConverterv2.Logic.pdb
+C:\Users\kiemi\Desktop\JiPP2020L-Z410-Michal-Pietrucha\zadanie 2\UnitConverterv2.Logic\obj\Debug\UnitConverterv2.Logic.csprojAssemblyReference.cache
+C:\Users\kiemi\Desktop\JiPP2020L-Z410-Michal-Pietrucha\zadanie 2\UnitConverterv2.Logic\obj\Debug\UnitConverterv2.Logic.csproj.CoreCompileInputs.cache
+C:\Users\kiemi\Desktop\JiPP2020L-Z410-Michal-Pietrucha\zadanie 2\UnitConverterv2.Logic\obj\Debug\UnitConverterv2.Logic.dll
+C:\Users\kiemi\Desktop\JiPP2020L-Z410-Michal-Pietrucha\zadanie 2\UnitConverterv2.Logic\obj\Debug\UnitConverterv2.Logic.pdb
