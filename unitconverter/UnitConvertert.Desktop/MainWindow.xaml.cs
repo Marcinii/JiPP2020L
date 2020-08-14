@@ -130,5 +130,11 @@ namespace UnitConverter.Desktop
         {
 
         }
+        
+        private void ButtonClicked(object sender, RoutedEventArgs e)
+        {
+            Window_stat subWindow = new Window_stat();
+            subWindow.Show();
+        }
     }
 }
