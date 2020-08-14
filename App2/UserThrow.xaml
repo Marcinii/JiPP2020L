@@ -1,0 +1,31 @@
+﻿<UserControl x:Name="UserResults" x:Class="App2.UserThrow"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:App2"
+             mc:Ignorable="d" 
+             d:DesignHeight="210" d:DesignWidth="376">
+
+    <Grid Background="White">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+        <Label x:Name="V1" Grid.Row="0" Grid.Column="0" Content="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="48" Visibility="Hidden" ></Label>
+        <Label Grid.Row="0" Grid.Column="0" Content="Kość I" VerticalAlignment="Bottom" HorizontalAlignment="Center"></Label>
+
+        <Label x:Name="V2" Grid.Row="1" Grid.Column="0" Content="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="48" Visibility="Hidden" ></Label>
+        <Label Grid.Row="1" Grid.Column="0" Content="Kość II" VerticalAlignment="Bottom" HorizontalAlignment="Center"></Label>
+
+        <Label x:Name="V3" Grid.Row="0" Grid.Column="1" Content="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="48" Visibility="Hidden" ></Label>
+        <Label Grid.Row="0" Grid.Column="1" Content="Kość III" VerticalAlignment="Bottom" HorizontalAlignment="Center"></Label>
+
+        <Label x:Name="V4" Grid.Row="1" Grid.Column="1" Content="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="48" Visibility="Hidden" ></Label>
+        <Label Grid.Row="1" Grid.Column="1" Content="Kość IV" VerticalAlignment="Bottom" HorizontalAlignment="Center"></Label>
+    </Grid>
+</UserControl>

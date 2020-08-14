@@ -1,0 +1,36 @@
+﻿<Window x:Class="App2.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:App2"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Column="0">
+            <Label Content="Wybierz jaką kostką chcesz rzucić:" HorizontalAlignment="Left" Margin="15,25,0,0" VerticalAlignment="Top" Width="200"/>
+            <ComboBox x:Name="DiceType" HorizontalAlignment="Left" Margin="215,26,0,0" VerticalAlignment="Top" Width="160" Height="25" SelectionChanged="DiceType_SelectionChanged">
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding name}"/>
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
+            <Label Content="Iloma kostami chcesz rzucić :" HorizontalAlignment="Left" Margin="20,59,0,0" VerticalAlignment="Top" Width="165"/>
+            <Button x:Name="ThrowButton" Content="Rzuć kostami" HorizontalAlignment="Left" Margin="20,109,0,0" VerticalAlignment="Top" Width="75" Height="25" Click="ThrowButton_Click"/>
+            <local:UserThrow x:Name="Results" HorizontalAlignment="Left" Height="210" Margin="10,199,0,0" VerticalAlignment="Top" Width="376"/>
+            <Slider x:Name="AmountSlider" HorizontalAlignment="Left" Margin="246,67,0,0" VerticalAlignment="Top" Width="93" SmallChange="1" ValueChanged="AmountSlider_ValueChanged" Maximum="4"/>
+            <Label x:Name="AmountValue" Content="0" HorizontalAlignment="Left" Margin="190,59,0,0" VerticalAlignment="Top"/>
+            <Button x:Name="Stats" Content="Statystyki" HorizontalAlignment="Left" Margin="300,109,0,0" VerticalAlignment="Top" Width="75" Height="25" Click="Stats_Click"/>
+        </Grid>
+        <Grid Grid.Column="1">
+            <DataGrid x:Name="StatisticsGrid" HorizontalAlignment="Left" Height="399" Margin="10,10,0,0" VerticalAlignment="Top" Width="376"/>
+            <Rectangle x:Name="ProgessRectangle" Fill="#FF00FF17" HorizontalAlignment="Left" Height="399" Margin="10,10,0,0" Stroke="Black" VerticalAlignment="Bottom" Width="376" Opacity="0.5" Visibility="Hidden"/>
+
+        </Grid>
+    </Grid>
+</Window>
