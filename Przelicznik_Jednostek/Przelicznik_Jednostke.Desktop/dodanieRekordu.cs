@@ -27,5 +27,21 @@ namespace Przelicznik_Jednostke.Desktop
                 context.SaveChanges();
             }
         }
+        public static void dodajOcene(int ocenaq)
+        {
+            using (model_danych context = new model_danych())
+            {
+               ocenaDBO dodajOcene = new ocenaDBO()
+                {
+
+                    ocena = ocenaq
+
+            };
+            context.OcenaDBOs.Add(dodajOcene);
+            context.SaveChanges();
+        }
+            
+        }
+
     }
 }

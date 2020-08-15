@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Przelicznik_Jednostek.Logic
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Przelicznik_Jednostke.Desktop", "Przelicznik_Jednostke.Desktop\Przelicznik_Jednostke.Desktop.csproj", "{740C9E30-EA91-4785-B032-7D529ED7FB6B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Statistic.Controls", "Statistic.Controls\Statistic.Controls.csproj", "{8DC50A69-AAC4-4580-8987-C4362B4F75C1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{740C9E30-EA91-4785-B032-7D529ED7FB6B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{740C9E30-EA91-4785-B032-7D529ED7FB6B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{740C9E30-EA91-4785-B032-7D529ED7FB6B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8DC50A69-AAC4-4580-8987-C4362B4F75C1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8DC50A69-AAC4-4580-8987-C4362B4F75C1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8DC50A69-AAC4-4580-8987-C4362B4F75C1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8DC50A69-AAC4-4580-8987-C4362B4F75C1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

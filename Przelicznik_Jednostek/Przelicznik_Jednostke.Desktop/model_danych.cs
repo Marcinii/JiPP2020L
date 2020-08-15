@@ -23,6 +23,8 @@ namespace Przelicznik_Jednostke.Desktop
 
         // public virtual DbSet<MyEntity> MyEntities { get; set; }
        public virtual DbSet<daneBazaDBO> bazaDane { get; set; }
+
+        public virtual DbSet<ocenaDBO> OcenaDBOs { get; set; }
        
     }
 

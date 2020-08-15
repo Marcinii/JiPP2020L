@@ -73,11 +73,28 @@ namespace Przelicznik_Jednostke.Desktop
                v13,
                v14
 
-            }; 
+            };
             //   wyswietlRekordy nowe = new wyswietlRekordy();
             //  DataGrid1.ItemsSource = nowe.stat();
+            ocena();
+           
+            rateControl.RateValueChanged += RateControl_RateValueChanged;
             
-            
+        }
+        
+        private void RateControl_RateValueChanged(int value)
+        {
+            dodanieRekordu.dodajOcene(value);
+            ocena();
+        }
+        public void ocena()
+        {
+            model_danych md = new model_danych();
+            var target = md.OcenaDBOs.Average(d => d.ocena);
+            Totu.Text = target.ToString();
+           
+
+
         }
         public void wyswietl()
         {

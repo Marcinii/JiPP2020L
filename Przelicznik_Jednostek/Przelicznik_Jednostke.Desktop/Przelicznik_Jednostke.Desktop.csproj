@@ -132,6 +132,10 @@
       <Project>{20f7a0c1-f70d-4540-a5c9-087d99cd2e78}</Project>
       <Name>Przelicznik_Jednostek.Logic</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Statistic.Controls\Statistic.Controls.csproj">
+      <Project>{8dc50a69-aac4-4580-8987-c4362b4f75c1}</Project>
+      <Name>Statistic.Controls</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

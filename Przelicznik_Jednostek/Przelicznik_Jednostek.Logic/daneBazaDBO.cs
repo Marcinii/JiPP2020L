@@ -17,4 +17,10 @@ using System.Threading.Tasks;
             public string jed_po { get; set; }
             public DateTime data_konwersji { get; set; }
         }
+    public class ocenaDBO
+    {
+        [Key]
+        public int id { get; set; }
+        public int ocena { get; set; }
+    }
     }

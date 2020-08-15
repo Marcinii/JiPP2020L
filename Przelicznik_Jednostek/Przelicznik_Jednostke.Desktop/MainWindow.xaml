@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Przelicznik_Jednostke.Desktop"
+        xmlns:commonControls="clr-namespace:Statistic.Controls;assembly=Statistic.Controls"
         mc:Ignorable="d"
         Title="Przelicznik Jednostek" 
         Height="700"
@@ -79,29 +80,51 @@
         <StackPanel Grid.Column="1">
 
             <Grid Height="700">
-                <Ellipse x:Uid="Zegar" x:Name="Tarcza" Fill="Orange" Margin="61,46,154,357" Stroke="Black"   Visibility="Hidden" />
-                <Rectangle x:Uid="Zegar" x:Name="Minutnik" Fill="Black" HorizontalAlignment="Left" Margin="196,62,0,506" Stroke="Black" Width="8" RenderTransformOrigin="0.5,1"   Visibility="Hidden"  >
-                    <Rectangle.RenderTransform>
-                        <TransformGroup>
-                            <ScaleTransform/>
-                            <SkewTransform/>
-                            <RotateTransform x:Name="Minutnik_wskazowka"/>
-                            <TranslateTransform X="1" Y="1"/>
-                        </TransformGroup>
-                    </Rectangle.RenderTransform>
-                </Rectangle>
-                <Rectangle x:Uid="Zegar" x:Name="Godzina" Fill="Red" HorizontalAlignment="Left" Margin="196,99,0,506" Stroke="Black" Width="9" RenderTransformOrigin="0.5,1"    Visibility="Hidden"  >
-                    <Rectangle.RenderTransform>
-                        <TransformGroup>
-                            <ScaleTransform/>
-                            <SkewTransform/>
-                            <RotateTransform x:Name="Godzina_wskazowka"/>
-                            <TranslateTransform X="1" Y="1"/>
-                        </TransformGroup>
-                    </Rectangle.RenderTransform>
-                </Rectangle>
+                <StackPanel>
+                    <Grid Height="500">
+                        <Ellipse x:Uid="Zegar" x:Name="Tarcza" Fill="Orange" Margin="61,46,144,165" Stroke="Black"  Visibility="Hidden" />
+                        <Rectangle x:Uid="Zegar" x:Name="Minutnik" Fill="Black" HorizontalAlignment="Left" Margin="202,53,0,310" Stroke="Black" Width="8" RenderTransformOrigin="0.5,1"  Visibility="Hidden" >
+                            <Rectangle.RenderTransform>
+                                <TransformGroup>
+                                    <ScaleTransform/>
+                                    <SkewTransform/>
+                                    <RotateTransform x:Name="Minutnik_wskazowka"/>
+                                    <TranslateTransform X="1" Y="1"/>
+                                </TransformGroup>
+                            </Rectangle.RenderTransform>
+                        </Rectangle>
+                        <Rectangle x:Uid="Zegar" x:Name="Godzina" Fill="Red" HorizontalAlignment="Left" Margin="201,101,0,310" Stroke="Black" Width="9" RenderTransformOrigin="0.5,1"   Visibility="Hidden"   >
+                            <Rectangle.RenderTransform>
+                                <TransformGroup>
+                                    <ScaleTransform/>
+                                    <SkewTransform/>
+                                    <RotateTransform x:Name="Godzina_wskazowka"/>
+                                    <TranslateTransform X="1" Y="1"/>
+                                </TransformGroup>
+                            </Rectangle.RenderTransform>
+                        </Rectangle>
+                    </Grid>
 
+                    <StackPanel>
+                        <Grid >
+                            <Grid.ColumnDefinitions >
+                                <ColumnDefinition Width="1*"/>
+                                <ColumnDefinition Width="1*"/>
+                            </Grid.ColumnDefinitions>
+                            
+                            <commonControls:OcenMnie x:Name="rateControl" Grid.Column="1" Margin="5,5,5,5"/>
+                            <StackPanel>
+                    
+                                <Label Margin="5,5,5,5">Oceń aplikację</Label>
+                                <WrapPanel> 
+                                    <Label x:Name="ocenaTak" Margin="5,5,5,5">Ocena aplikacji:  </Label>
+                                    <TextBlock x:Name="Totu"  Margin="5,5,5,5"></TextBlock> 
+                                </WrapPanel>
+                            </StackPanel>
 
+            </Grid>
+                    </StackPanel>
+                </StackPanel>
             </Grid>
 
         </StackPanel>
