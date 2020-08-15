@@ -9,6 +9,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UnitConverter.Library", "Un
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitConverter.Desktop", "UnitConverter.Desktop\UnitConverter.Desktop.csproj", "{92D3D92C-1CFE-482D-A595-198D5A3F2D30}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitConverter.WpfControls", "UnitConverter.WpfControls\UnitConverter.WpfControls.csproj", "{B906B0A7-7F84-4A1B-9FFF-23B3D7CDDDCE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{92D3D92C-1CFE-482D-A595-198D5A3F2D30}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{92D3D92C-1CFE-482D-A595-198D5A3F2D30}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{92D3D92C-1CFE-482D-A595-198D5A3F2D30}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B906B0A7-7F84-4A1B-9FFF-23B3D7CDDDCE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B906B0A7-7F84-4A1B-9FFF-23B3D7CDDDCE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B906B0A7-7F84-4A1B-9FFF-23B3D7CDDDCE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B906B0A7-7F84-4A1B-9FFF-23B3D7CDDDCE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

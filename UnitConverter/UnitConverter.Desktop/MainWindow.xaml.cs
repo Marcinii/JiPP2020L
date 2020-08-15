@@ -5,6 +5,7 @@ using System.Windows;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
 using UnitConverter.Library;
+using UnitConverter.WpfControls;
 
 namespace UnitConverter.Desktop
 {
@@ -18,13 +19,23 @@ namespace UnitConverter.Desktop
             new PressureConverter(),
             new TimeConverter(),
         };
+        private RelayCommand PrevBtnCmd, NextBtnCmd, ConvertBtnCmd, LoadStatsBtnCmd;
         private int CurrentPage = 1;
 
         public MainWindow()
         {
             InitializeComponent();
+            LoadRating();
             ConverterComboBox.ItemsSource = Converters;
             ConverterStatsComboBox.ItemsSource = Converters;
+            PrevBtnCmd = new RelayCommand(c => PrevBtnClickCommand());
+            NextBtnCmd= new RelayCommand(c => NextBtnClickCommand());
+            ConvertBtnCmd = new RelayCommand(c => ConvertBtnClickCommand());
+            LoadStatsBtnCmd = new RelayCommand(c => LoadStatsBtnClickCommand());
+            PreviousPageButton.Command = PrevBtnCmd;
+            NextPageButton.Command = NextBtnCmd;
+            ConvertButton.Command = ConvertBtnCmd;
+            LoadStatsButton.Command = LoadStatsBtnCmd;
         }
 
         private void SetError(string error)
@@ -127,11 +138,6 @@ namespace UnitConverter.Desktop
             }
         }
 
-        private void ConvertButtonClick(object sender, RoutedEventArgs e)
-        {
-            Convert();
-        }
-
 
         private void SaveResultToDb(double inputValue, double outputValue, string inputUnit, string outputUnit, string converter)
         {
@@ -178,7 +184,7 @@ namespace UnitConverter.Desktop
                 {
                     var select = db.Statistics.Where(s => s.Converter == converter);
                     AddFilters(select, startDate, endDate);
-                    return select.OrderBy(s => s.Id).Skip(20*(page-1)).ToList();
+                    return select.OrderBy(s => s.Id).Skip(20 * (page - 1)).ToList();
                 }
             }
             catch (InvalidOperationException _)
@@ -216,21 +222,72 @@ namespace UnitConverter.Desktop
             StatsListView.ItemsSource = stats;
         }
 
-        private void PreviousPageButton_Click(object sender, RoutedEventArgs e)
+        private void PrevBtnClickCommand()
         {
             DecPage();
             ReloadStatisticsView();
         }
 
-        private void NextPageButton_Click(object sender, RoutedEventArgs e)
+        private void NextBtnClickCommand()
         {
             IncPage();
             ReloadStatisticsView();
         }
 
-        private void LoadStatsButton_Click(object sender, RoutedEventArgs e)
+        private void LoadStatsBtnClickCommand()
         {
             ReloadStatisticsView();
+
+        }
+
+        private void ConvertBtnClickCommand()
+        {
+            Convert();
+        }
+
+        private void SaveRating(int rating)
+        {
+            try
+            {
+                using (var db = new RatingsTableModel())
+                {
+                    db.Ratings.Add(new Rating
+                    {
+                        Rating1 = rating,
+                        Date = DateTime.Now,
+                    });
+                    db.SaveChanges();
+                }
+            }
+            catch (InvalidOperationException _)
+            {
+                SetError("Failed saving rating to database");
+            }
+        }
+
+        private void LoadRating()
+        {
+            try
+            {
+                using (var db = new RatingsTableModel())
+                {
+                    var last = db.Ratings.OrderByDescending(r => r.Id).FirstOrDefault();
+                    if (last != null)
+                    {
+                        var rating = db.Ratings.Where(r => r.Id == last.Id).Take(1).SingleOrDefault().Rating1;
+                        RatingControlView.FillN(rating);
+                    }
+                }
+            }
+            catch (InvalidOperationException _)
+            {
+                SetError("Failed loading rating from database");
+            }
+        }
+
+        private void RatingControl_RatingChangedEventHandler(object sender, WpfControls.RatingControl.RatingArgs e)
+        {
+            SaveRating(e.UserRating);
         }
     }
 }

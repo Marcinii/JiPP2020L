@@ -64,6 +64,25 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Rating.cs">
+      <DependentUpon>RatingsTable.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RatingsTable.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RatingsTable.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RatingsTable.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RatingsTable.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RatingsTable.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RatingsTable.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="RelayCommand.cs" />
     <Compile Include="Statistic.cs">
       <DependentUpon>StatisticsTable.tt</DependentUpon>
     </Compile>
@@ -117,6 +136,13 @@
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>StatisticsTable.Designer.cs</LastGenOutput>
     </EntityDeploy>
+    <EntityDeploy Include="RatingsTable.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>RatingsTable.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="RatingsTable.edmx.diagram">
+      <DependentUpon>RatingsTable.edmx</DependentUpon>
+    </None>
     <None Include="StatisticsTable.edmx.diagram">
       <DependentUpon>StatisticsTable.edmx</DependentUpon>
     </None>
@@ -129,8 +155,22 @@
       <Project>{49a4ade6-71ce-4bac-bdb4-ca091aeafeb5}</Project>
       <Name>UnitConverter.Library</Name>
     </ProjectReference>
+    <ProjectReference Include="..\UnitConverter.WpfControls\UnitConverter.WpfControls.csproj">
+      <Project>{b906b0a7-7f84-4a1b-9fff-23b3d7cdddce}</Project>
+      <Name>UnitConverter.WpfControls</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="RatingsTable.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>RatingsTable.edmx</DependentUpon>
+      <LastGenOutput>RatingsTable.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="RatingsTable.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>RatingsTable.edmx</DependentUpon>
+      <LastGenOutput>RatingsTable.cs</LastGenOutput>
+    </Content>
     <Content Include="StatisticsTable.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>StatisticsTable.Context.cs</LastGenOutput>

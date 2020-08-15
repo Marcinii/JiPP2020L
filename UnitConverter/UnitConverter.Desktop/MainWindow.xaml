@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:UnitConverter.Desktop"
+        xmlns:customControls="clr-namespace:UnitConverter.WpfControls;assembly=UnitConverter.WpfControls"
         mc:Ignorable="d"
         Title="UnitCovnerter" Height="1000" Width="800" FontFamily="Consolas" FontSize="15">
     <Window.Resources>
@@ -22,7 +23,19 @@
     <Grid>
         <StackPanel>
             <Grid>
-                <Label HorizontalAlignment="Center" FontSize="20" FontWeight="Bold" Foreground="#FF951818">UnitConverter</Label>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"></ColumnDefinition>
+                    <ColumnDefinition Width="1*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Grid Grid.Column="0">
+                    <Label HorizontalAlignment="Center" FontSize="20" FontWeight="Bold" Foreground="#FF951818">UnitConverter</Label>
+                </Grid>
+                <Grid Grid.Column="1">
+                    <StackPanel>
+                        <Label FontWeight="Bold" Foreground="#FF951818">Rate me:</Label>
+                        <customControls:RatingControl x:Name="RatingControlView" RatingChangedEventHandler="RatingControl_RatingChangedEventHandler"></customControls:RatingControl>
+                    </StackPanel>
+                </Grid>
             </Grid>
             <Grid Height="200">
                 <Grid.ColumnDefinitions>
@@ -40,8 +53,12 @@
                     </StackPanel>
                 </Grid>
                 <Grid Grid.Column="1">
-                    <StackPanel Margin="0,0,0,-20">
-                        <Button Margin="0,20,0,0" x:Name="ConvertButton" Height="35" Click="ConvertButtonClick" Background="#FF951818" Foreground="White" FontSize="16">Convert</Button>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="205*"/>
+                        <ColumnDefinition Width="191*"/>
+                    </Grid.ColumnDefinitions>
+                    <StackPanel Margin="0,0,0,-20" Grid.ColumnSpan="2">
+                        <Button Margin="0,20,0,0" x:Name="ConvertButton" Height="35" Background="#FF951818" Foreground="White" FontSize="16">Convert</Button>
                         <TextBlock Margin="20" x:Name="OutputTextBlock" FontSize="15" Height="25" Foreground="Black"/>
                         <Grid x:Name="grid" Visibility="Hidden">
                             <Ellipse Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="87.334" Margin="138,0,0,0" Stroke="Black" Width="94.667"/>
@@ -59,7 +76,7 @@
                 <StackPanel Grid.Column="0">
                     <Label FontWeight="Bold" Foreground="#FF951818">Converter:</Label>
                     <ComboBox x:Name="ConverterStatsComboBox" DisplayMemberPath="Name"></ComboBox>
-                    <Button Margin="0,20,0,0" x:Name="LoadStatsButton" Height="35" Click="LoadStatsButton_Click" Background="#FF951818" Foreground="White" FontSize="16">Load</Button>
+                    <Button Margin="0,20,0,0" x:Name="LoadStatsButton" Height="35" Background="#FF951818" Foreground="White" FontSize="16">Load</Button>
                 </StackPanel>
                 <StackPanel Grid.Column="1">
                     <Label FontWeight="Bold" Foreground="#FF951818">From:</Label>
@@ -74,9 +91,9 @@
                     <ColumnDefinition Width="0.33*"></ColumnDefinition>
                     <ColumnDefinition Width="0.33*"></ColumnDefinition>
                 </Grid.ColumnDefinitions>
-                <Button x:Name="PreviousPageButton" Grid.Column="0" Height="35" Background="#FF951818" Click="PreviousPageButton_Click" Foreground="White" FontSize="16">Previous</Button>
+                <Button x:Name="PreviousPageButton" Grid.Column="0" Height="35" Background="#FF951818" Foreground="White" FontSize="16">Previous</Button>
                 <Label x:Name="PageLabel" Grid.Column="1" Foreground="Black" FontWeight="Bold" Content="1" HorizontalAlignment="Center"></Label>
-                <Button x:Name="NextPageButton" Grid.Column="2" Height="35" Background="#FF951818" Click="NextPageButton_Click" Foreground="White" FontSize="16">Next</Button>
+                <Button x:Name="NextPageButton" Grid.Column="2" Height="35" Background="#FF951818" Foreground="White" FontSize="16">Next</Button>
             </Grid>
             <StackPanel>
                 <ListView x:Name="StatsListView">
