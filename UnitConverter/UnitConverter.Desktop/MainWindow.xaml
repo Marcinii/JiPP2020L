@@ -59,7 +59,7 @@
                 <StackPanel Grid.Column="0">
                     <Label FontWeight="Bold" Foreground="#FF951818">Converter:</Label>
                     <ComboBox x:Name="ConverterStatsComboBox" DisplayMemberPath="Name"></ComboBox>
-                    <Button Margin="0,20,0,0" x:Name="LoadStatsButton" Height="35" Background="#FF951818" Foreground="White" FontSize="16">Load</Button>
+                    <Button Margin="0,20,0,0" x:Name="LoadStatsButton" Height="35" Click="LoadStatsButton_Click" Background="#FF951818" Foreground="White" FontSize="16">Load</Button>
                 </StackPanel>
                 <StackPanel Grid.Column="1">
                     <Label FontWeight="Bold" Foreground="#FF951818">From:</Label>
@@ -68,6 +68,31 @@
                     <DatePicker x:Name="EndDatePicker"></DatePicker>
                 </StackPanel>
             </Grid>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0.33*"></ColumnDefinition>
+                    <ColumnDefinition Width="0.33*"></ColumnDefinition>
+                    <ColumnDefinition Width="0.33*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Button x:Name="PreviousPageButton" Grid.Column="0" Height="35" Background="#FF951818" Click="PreviousPageButton_Click" Foreground="White" FontSize="16">Previous</Button>
+                <Label x:Name="PageLabel" Grid.Column="1" Foreground="Black" FontWeight="Bold" Content="1" HorizontalAlignment="Center"></Label>
+                <Button x:Name="NextPageButton" Grid.Column="2" Height="35" Background="#FF951818" Click="NextPageButton_Click" Foreground="White" FontSize="16">Next</Button>
+            </Grid>
+            <StackPanel>
+                <ListView x:Name="StatsListView">
+                    <ListView.View>
+                        <GridView>
+                            <GridViewColumn Header="Id" DisplayMemberBinding="{Binding Id}"></GridViewColumn>
+                            <GridViewColumn Header="Konwerter" DisplayMemberBinding="{Binding Converter}"></GridViewColumn>
+                            <GridViewColumn Header="Date" DisplayMemberBinding="{Binding Date}"></GridViewColumn>
+                            <GridViewColumn Header="Value" DisplayMemberBinding="{Binding Value}"></GridViewColumn>
+                            <GridViewColumn Header="Unit" DisplayMemberBinding="{Binding Unit}"></GridViewColumn>
+                            <GridViewColumn Header="Output Value" DisplayMemberBinding="{Binding OutputValue}"></GridViewColumn>
+                            <GridViewColumn Header="Output Unit" DisplayMemberBinding="{Binding OutputUnit}"></GridViewColumn>
+                        </GridView>
+                    </ListView.View>
+                </ListView>
+            </StackPanel>
         </StackPanel>
     </Grid>
 </Window>

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Windows;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
@@ -17,11 +18,13 @@ namespace UnitConverter.Desktop
             new PressureConverter(),
             new TimeConverter(),
         };
+        private int CurrentPage = 1;
 
         public MainWindow()
         {
             InitializeComponent();
             ConverterComboBox.ItemsSource = Converters;
+            ConverterStatsComboBox.ItemsSource = Converters;
         }
 
         private void SetError(string error)
@@ -68,6 +71,7 @@ namespace UnitConverter.Desktop
                 {
                     var outValue = converter.Convert(val, u);
                     SetValue(outValue, OtherUnit(u, converter));
+                    SaveResultToDb(val, outValue, u, OtherUnit(u, converter), converter.Name);
                     if (converter.Name == "Time")
                     {
                         SetClockHour(outValue);
@@ -126,6 +130,107 @@ namespace UnitConverter.Desktop
         private void ConvertButtonClick(object sender, RoutedEventArgs e)
         {
             Convert();
+        }
+
+
+        private void SaveResultToDb(double inputValue, double outputValue, string inputUnit, string outputUnit, string converter)
+        {
+            try
+            {
+                using (var db = new StatisticsTableModel())
+                {
+                    db.Statistics.Add(new Statistic
+                    {
+                        Converter = converter,
+                        Value = inputValue,
+                        Unit = inputUnit,
+                        OutputValue = outputValue,
+                        OutputUnit = outputUnit,
+                        Date = DateTime.Now,
+                    });
+                    db.SaveChanges();
+                }
+            }
+            catch (InvalidOperationException _)
+            {
+            }
+        }
+
+        private IQueryable<Statistic> AddFilters(IQueryable<Statistic> select, DateTime? startDate, DateTime? endDate)
+        {
+            if (startDate != null)
+            {
+                select = select.Where(s => s.Date >= startDate.Value);
+            }
+            if (endDate != null)
+            {
+                select = select.Where(s => s.Date >= endDate.Value);
+            }
+
+            return select;
+        }
+
+        private List<Statistic> LoadStatsFromDb(string converter, DateTime? startDate, DateTime? endDate, int page)
+        {
+            try
+            {
+                using (var db = new StatisticsTableModel())
+                {
+                    var select = db.Statistics.Where(s => s.Converter == converter);
+                    AddFilters(select, startDate, endDate);
+                    return select.OrderBy(s => s.Id).Skip(20*(page-1)).ToList();
+                }
+            }
+            catch (InvalidOperationException _)
+            {
+                SetError("Failed loading data from database");
+                return new List<Statistic> { };
+            }
+        }
+
+        private void SetCurrentPageLabel()
+        {
+            PageLabel.Content = CurrentPage.ToString();
+        }
+
+        private void IncPage()
+        {
+            CurrentPage++;
+            SetCurrentPageLabel();
+        }
+        private void DecPage()
+        {
+            if (CurrentPage > 1)
+            {
+                CurrentPage--;
+                SetCurrentPageLabel();
+            }
+        }
+
+        private void ReloadStatisticsView()
+        {
+            var startDate = StartDatePicker.SelectedDate;
+            var endDate = EndDatePicker.SelectedDate;
+            var converter = ((IConverter)ConverterStatsComboBox.SelectedItem).Name;
+            var stats = LoadStatsFromDb(converter, startDate, endDate, CurrentPage);
+            StatsListView.ItemsSource = stats;
+        }
+
+        private void PreviousPageButton_Click(object sender, RoutedEventArgs e)
+        {
+            DecPage();
+            ReloadStatisticsView();
+        }
+
+        private void NextPageButton_Click(object sender, RoutedEventArgs e)
+        {
+            IncPage();
+            ReloadStatisticsView();
+        }
+
+        private void LoadStatsButton_Click(object sender, RoutedEventArgs e)
+        {
+            ReloadStatisticsView();
         }
     }
 }
