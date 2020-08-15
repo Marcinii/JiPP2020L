@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using System.Windows;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
@@ -122,6 +123,12 @@ namespace UnitConverter.Desktop
             animation.Begin();
         }
 
+        private void ShowLoadingAnimation()
+        {
+            var animation = (Storyboard)FindResource("LoadingAnimation");
+            animation.Begin();
+        }
+
         private void SetClockHour(double hour)
         {
             RotateTransform setHour = new RotateTransform();
@@ -218,8 +225,7 @@ namespace UnitConverter.Desktop
             var startDate = StartDatePicker.SelectedDate;
             var endDate = EndDatePicker.SelectedDate;
             var converter = ((IConverter)ConverterStatsComboBox.SelectedItem).Name;
-            var stats = LoadStatsFromDb(converter, startDate, endDate, CurrentPage);
-            StatsListView.ItemsSource = stats;
+            LoadWithThread(converter, startDate, endDate, CurrentPage);
         }
 
         private void PrevBtnClickCommand()
@@ -288,6 +294,21 @@ namespace UnitConverter.Desktop
         private void RatingControl_RatingChangedEventHandler(object sender, WpfControls.RatingControl.RatingArgs e)
         {
             SaveRating(e.UserRating);
+        }
+
+        private void LoadWithThread(string converter, DateTime? startDate, DateTime? endDate, int page)
+        {
+            ShowLoadingAnimation();
+            Thread t = new Thread(() =>
+            {
+                var stats = LoadStatsFromDb(converter, startDate, endDate, page);
+                Thread.Sleep(2345);
+                Dispatcher.Invoke(() =>
+                {
+                    StatsListView.ItemsSource = stats;
+                });
+            });
+            t.Start();
         }
     }
 }
