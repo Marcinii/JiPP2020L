@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Logic.Externals;
 using Logic.Model;
 using Logic.Model.Enums;
 using Logic.Model.Queries;
@@ -8,7 +9,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Infrastructure.Repositories
 {
-    public class ConversionRepository
+    public class ConversionRepository : IConversionRepository
     {
         private readonly ConversionContext _conversionContext;
         public ConversionRepository(ConversionContext conversionContext)

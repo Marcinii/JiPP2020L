@@ -1,7 +1,11 @@
 ﻿using System.Globalization;
 using System.Windows;
 using System.Windows.Input;
+using Infrastructure;
+using Infrastructure.Repositories;
+using Logic.Externals;
 using Logic.Services;
+using Microsoft.EntityFrameworkCore;
 
 namespace UI
 {
@@ -13,6 +17,7 @@ namespace UI
         private readonly DataCapacityConvertingService _dataCapacityConvertingService;
         private readonly ConvertingService _convertingService;
         private readonly TimeConvertingService _timeConvertingService;
+        private readonly IConversionRepository _conversionRepository;
         public MainWindow()
         {
             InitializeComponent();
@@ -221,14 +226,10 @@ namespace UI
 
         public void TimerInput_EnterClicked_Handler(object sender, KeyEventArgs e)
         {
-            if (e.Key == Key.Return)
-            {
-                var value = TimerInput.Text;
-                var result = _timeConvertingService.Convert(value);
-                TimerResultLabel.Content = result.Success ? result.TimeValue : result.Message;
-            }
-
-            
+            if (e.Key != Key.Return) return;
+            var value = TimerInput.Text;
+            var result = _timeConvertingService.Convert(value);
+            TimerResultLabel.Content = result.Success ? result.TimeValue : result.Message;
         }
     }
 }

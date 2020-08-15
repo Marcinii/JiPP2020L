@@ -11,7 +11,7 @@
             <ColumnDefinition Width="91*"/>
             <ColumnDefinition Width="309*"/>
         </Grid.ColumnDefinitions>
-        <TabControl HorizontalAlignment="Left" Height="360" VerticalAlignment="Center" Width="780" Grid.ColumnSpan="3" Margin="10,0,0,0">
+        <TabControl HorizontalAlignment="Left" Height="360" VerticalAlignment="Center" Width="780" Grid.ColumnSpan="4" Margin="10,0,0,0">
             <TabItem Header="Common">
                 <Grid Background="#FFE5E5E5">
                     <Grid.ColumnDefinitions>
@@ -72,6 +72,16 @@
                     <TextBox x:Name="TimerInput" KeyDown="TimerInput_EnterClicked_Handler" HorizontalAlignment="Left" Height="31" Margin="33,63,0,0" Text="0" TextWrapping="Wrap" VerticalAlignment="Top" Width="139" Grid.Column="1"/>
                     <Label x:Name="TimerResultLabel" Content="0" HorizontalAlignment="Left" Height="31" Margin="33,114,0,0" VerticalAlignment="Top" Width="325" Grid.Column="1"/>
                     <Ellipse HorizontalAlignment="Left" Height="164" Stroke="Black" VerticalAlignment="Center" Width="165" Grid.Column="1" Margin="420,0,0,0"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="History" Height="20" VerticalAlignment="Top">
+                <Grid Background="#FFE5E5E5">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <DataGrid x:Name="ConversionsDataGrid" Margin="0,31,0,0"/>
+                    <Button Content="Load data" HorizontalAlignment="Center" Margin="0,6,0,0" VerticalAlignment="Top" Width="754"/>
+
                 </Grid>
             </TabItem>
         </TabControl>
