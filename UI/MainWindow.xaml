@@ -28,7 +28,7 @@
                     <TextBox x:Name="MToKmConversionsInput" KeyDown="MToKmConversionsInput_EnterClicked_Handler" HorizontalAlignment="Left" Height="19" Margin="73,207,0,0" Text="0" TextWrapping="Wrap" VerticalAlignment="Top" Width="290" Grid.ColumnSpan="6"/>
                     <Label x:Name="TemperatureLabel" Content="Celsius to Fahrenheit" Grid.ColumnSpan="6" HorizontalAlignment="Left" Height="23" Margin="73,10,0,0" VerticalAlignment="Top" Width="290"/>
                     <Label x:Name="MiToKmLabel" Content="Miles to Kilometers" Grid.ColumnSpan="6" HorizontalAlignment="Left" Height="23" Margin="73,68,0,0" VerticalAlignment="Top" Width="290"/>
-                    <Label x:Name="KmToLbLabel" Content="Kilograms to Pounds" Grid.ColumnSpan="6" HorizontalAlignment="Left" Height="30" Margin="73,122,0,0" VerticalAlignment="Top" Width="290" RenderTransformOrigin="0.5,0.5"></Label>
+                    <Label x:Name="KmToLbLabel" Content="Kilograms to Pounds" Grid.ColumnSpan="6" HorizontalAlignment="Left" Height="30" Margin="73,122,0,0" VerticalAlignment="Top" Width="290" RenderTransformOrigin="0.5,0.5"/>
                     <Label x:Name="MToKmLabel" Content="Meters to Kilometers" Grid.ColumnSpan="6" HorizontalAlignment="Left" Height="23" Margin="73,182,0,0" VerticalAlignment="Top" Width="290"/>
                     <CheckBox x:Name="TemperatureSwitch" Checked="TemperatureCheckBoxChanged" Unchecked="TemperatureCheckBoxChanged" Content="Switch" Grid.Column="5" HorizontalAlignment="Left" Height="19" Margin="138,38,0,0" VerticalAlignment="Top" Width="92"/>
                     <CheckBox x:Name="MiToKmSwitch" Checked="MiToKmCheckBoxChanged" Unchecked="MiToKmCheckBoxChanged" Content="Switch" Grid.Column="5" HorizontalAlignment="Left" Height="19" Margin="138,97,0,0" VerticalAlignment="Top" Width="92"/>
@@ -65,11 +65,13 @@
             <TabItem Header="Clock" Height="20" VerticalAlignment="Top">
                 <Grid Background="#FFE5E5E5">
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="741*"/>
+                        <ColumnDefinition Width="29*"/>
+                        <ColumnDefinition Width="745*"/>
                     </Grid.ColumnDefinitions>
-                    <Label Content="Time format - 23:59" HorizontalAlignment="Left" Height="31" Margin="62,27,0,0" VerticalAlignment="Top" Width="139"/>
-                    <TextBox HorizontalAlignment="Left" Height="31" Margin="62,63,0,0" Text="0" TextWrapping="Wrap" VerticalAlignment="Top" Width="139"/>
-                    <Ellipse HorizontalAlignment="Left" Height="164" Margin="319,0,0,0" Stroke="Black" VerticalAlignment="Center" Width="165"/>
+                    <Label Content="Time format - 23:59" HorizontalAlignment="Left" Height="31" Margin="33,27,0,0" VerticalAlignment="Top" Width="139" Grid.Column="1"/>
+                    <TextBox x:Name="TimerInput" KeyDown="TimerInput_EnterClicked_Handler" HorizontalAlignment="Left" Height="31" Margin="33,63,0,0" Text="0" TextWrapping="Wrap" VerticalAlignment="Top" Width="139" Grid.Column="1"/>
+                    <Label x:Name="TimerResultLabel" Content="0" HorizontalAlignment="Left" Height="31" Margin="33,114,0,0" VerticalAlignment="Top" Width="325" Grid.Column="1"/>
+                    <Ellipse HorizontalAlignment="Left" Height="164" Stroke="Black" VerticalAlignment="Center" Width="165" Grid.Column="1" Margin="420,0,0,0"/>
                 </Grid>
             </TabItem>
         </TabControl>

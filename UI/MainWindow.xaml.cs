@@ -12,11 +12,13 @@ namespace UI
     {
         private readonly DataCapacityConvertingService _dataCapacityConvertingService;
         private readonly ConvertingService _convertingService;
+        private readonly TimeConvertingService _timeConvertingService;
         public MainWindow()
         {
             InitializeComponent();
             _dataCapacityConvertingService = new DataCapacityConvertingService();
             _convertingService = new ConvertingService();
+            _timeConvertingService = new TimeConvertingService();
         }
 
         public void BitsInput_EnterClicked_Handler(object sender, KeyEventArgs e)
@@ -215,6 +217,18 @@ namespace UI
             MToKmLabel.Content = (MToKmSwitch.IsChecked != null && MToKmSwitch.IsChecked.Value)
                 ? "Kilometers to Meters"
                 : "Meters to Kilometers";
+        }
+
+        public void TimerInput_EnterClicked_Handler(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Return)
+            {
+                var value = TimerInput.Text;
+                var result = _timeConvertingService.Convert(value);
+                TimerResultLabel.Content = result.Success ? result.TimeValue : result.Message;
+            }
+
+            
         }
     }
 }

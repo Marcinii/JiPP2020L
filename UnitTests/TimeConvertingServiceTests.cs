@@ -9,7 +9,7 @@ namespace UnitTests
     {
         [Theory()]
         [InlineData("00:00")]
-        [InlineData("24:59")]
+        [InlineData("23:59")]
         public void Validate_IfTimeArgumentIsCorrect_ShouldReturnTrue(string time)
         {
             // Arrange
