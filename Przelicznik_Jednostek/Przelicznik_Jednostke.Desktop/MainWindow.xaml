@@ -14,7 +14,7 @@
             <ColumnDefinition Width="1*"/>
         </Grid.ColumnDefinitions>
         <StackPanel Grid.Column="0">
-            
+
             <Grid Height="250">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="1*"/>
@@ -51,26 +51,36 @@
                         <TextBlock x:Name="Converted_Minuts" Height="25" Width="50" HorizontalAlignment="Left"  Visibility="Visible"/>
                         <TextBlock x:Name="AM_PM" Height="25" Width="50" HorizontalAlignment="Left"  Visibility="Visible"/>
                     </StackPanel>
+                    <StackPanel>
+                        <Label Content="Top 3 konwersji" HorizontalAlignment="Left" Margin="5,5,0,0" VerticalAlignment="Top"/>
+
+                        <Button x:Name="sprawdz" Content="Sprawdź" Height="25" Margin="10,0,0,0" Click="Sprawdz_Click"/>
+
+
+                    </StackPanel>
                 </StackPanel>
-               
+
 
 
             </Grid>
-            <DataGrid x:Name="DataGrid1" Height="300" Width="400" AutoGenerateColumns="True" Margin="23,0" >
-                
-            </DataGrid>
+            <DataGrid x:Name="DataGrid1" Height="300" Width="auto" AutoGenerateColumns="True" Margin="0,0,0,0" />
             <WrapPanel>
                 <Button x:Name="poprzedniaStrona" Content="Wstecz" Width="55" Margin="125,5,25,25"  VerticalAlignment="Top" HorizontalAlignment="Left" Height="25" Click="poprzedniaStrona_Click"/>
                 <Button x:Name="nextStrona" Content="Następna" Width="55" Margin="25,5,25,25" VerticalAlignment="Top" HorizontalAlignment="Left" Height="25" Click="nextStrona_Click"/>
+
+            </WrapPanel>
+            <WrapPanel>
+                <Label Content="Filtr: " Height="25"/>
+                <ComboBox x:Name="ComboBox_Filtr" HorizontalAlignment="Left" Height="25" Margin="25,5,0,0" VerticalAlignment="Top" Width="200" SelectionChanged="ComboBox_Filtr_SelectionChanged"/>
 
             </WrapPanel>
 
         </StackPanel>
         <StackPanel Grid.Column="1">
 
-            <Grid >
-                <Ellipse x:Uid="Zegar" x:Name="Tarcza" Fill="Orange" Margin="60.917,45.833,69.25,258.334" Stroke="Black"   Visibility="Hidden"/>
-                <Rectangle x:Uid="Zegar" x:Name="Minutnik" Fill="Black" HorizontalAlignment="Left" Margin="232.167,52.5,0,449.583" Stroke="Black" Width="26" RenderTransformOrigin="0.5,1"  Visibility="Hidden" >
+            <Grid Height="700">
+                <Ellipse x:Uid="Zegar" x:Name="Tarcza" Fill="Orange" Margin="61,46,154,357" Stroke="Black"   Visibility="Hidden" />
+                <Rectangle x:Uid="Zegar" x:Name="Minutnik" Fill="Black" HorizontalAlignment="Left" Margin="196,62,0,506" Stroke="Black" Width="8" RenderTransformOrigin="0.5,1"   Visibility="Hidden"  >
                     <Rectangle.RenderTransform>
                         <TransformGroup>
                             <ScaleTransform/>
@@ -80,7 +90,7 @@
                         </TransformGroup>
                     </Rectangle.RenderTransform>
                 </Rectangle>
-                <Rectangle x:Uid="Zegar" x:Name="Godzina" Fill="Red" HorizontalAlignment="Left" Margin="238.167,95.415,0,449.583" Stroke="Black" Width="26" Height="125" RenderTransformOrigin="0.5,1"  Visibility="Hidden"  >
+                <Rectangle x:Uid="Zegar" x:Name="Godzina" Fill="Red" HorizontalAlignment="Left" Margin="196,99,0,506" Stroke="Black" Width="9" RenderTransformOrigin="0.5,1"    Visibility="Hidden"  >
                     <Rectangle.RenderTransform>
                         <TransformGroup>
                             <ScaleTransform/>
@@ -90,6 +100,8 @@
                         </TransformGroup>
                     </Rectangle.RenderTransform>
                 </Rectangle>
+
+
             </Grid>
 
         </StackPanel>

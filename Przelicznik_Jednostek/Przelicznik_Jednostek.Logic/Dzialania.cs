@@ -204,11 +204,11 @@ namespace Przelicznik_Jednostek
             {
                 return gram(z).ToString();
             }
-            if (q == 14)
+            if (q == 15)
             {
                 return joul(z).ToString();
             }
-            if (q == 15)
+            if (q == 14)
             {
                 return Kjoul(z).ToString();
             }

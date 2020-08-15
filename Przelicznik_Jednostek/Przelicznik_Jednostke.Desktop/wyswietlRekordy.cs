@@ -16,6 +16,7 @@ namespace Przelicznik_Jednostke.Desktop
             {
                 List<daneBazaDBO> baza = context.bazaDane.ToList();
                 return baza.ToString();
+                
             }
             
         }

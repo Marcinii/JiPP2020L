@@ -11,7 +11,7 @@ namespace Przelicznik_Jednostke.Desktop
 {
    public class dodanieRekordu
     {
-        public static void dodajRekord(string kowerjsa, double przed, double po)
+        public static void dodajRekord(string kowerjsa, string przed, string po)
         {
             using (model_danych context = new model_danych())
             {

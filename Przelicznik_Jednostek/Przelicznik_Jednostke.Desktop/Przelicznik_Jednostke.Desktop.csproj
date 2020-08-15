@@ -67,6 +67,15 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Migrations\202008150656174_InitialCreate.cs" />
+    <Compile Include="Migrations\202008150656174_InitialCreate.designer.cs">
+      <DependentUpon>202008150656174_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202008150801123_InitMigration.cs" />
+    <Compile Include="Migrations\202008150801123_InitMigration.designer.cs">
+      <DependentUpon>202008150801123_InitMigration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="model_danych.cs" />
     <Compile Include="wyswietlRekordy.cs" />
     <Page Include="MainWindow.xaml">
@@ -97,6 +106,12 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <EmbeddedResource Include="Migrations\202008150656174_InitialCreate.resx">
+      <DependentUpon>202008150656174_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202008150801123_InitMigration.resx">
+      <DependentUpon>202008150801123_InitMigration.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>

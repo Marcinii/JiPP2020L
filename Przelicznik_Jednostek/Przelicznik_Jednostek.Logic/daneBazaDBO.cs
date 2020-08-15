@@ -13,8 +13,8 @@ using System.Threading.Tasks;
             [Key]
             public int id_konwersja { get; set; }
             public string typ_konwersji { get; set; }
-            public double jed_przed { get; set; }
-            public double jed_po { get; set; }
+            public string jed_przed { get; set; }
+            public string jed_po { get; set; }
             public DateTime data_konwersji { get; set; }
         }
     }

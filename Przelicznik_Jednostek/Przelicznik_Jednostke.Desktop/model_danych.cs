@@ -14,7 +14,7 @@ namespace Przelicznik_Jednostke.Desktop
         // If you wish to target a different database and/or database provider, modify the 'Model_danych' 
         // connection string in the application configuration file.
         public model_danych()
-            : base("name=model_danych")
+            : base("name=model-danych")
         {
         }
 
@@ -23,6 +23,7 @@ namespace Przelicznik_Jednostke.Desktop
 
         // public virtual DbSet<MyEntity> MyEntities { get; set; }
        public virtual DbSet<daneBazaDBO> bazaDane { get; set; }
+       
     }
 
     //public class MyEntity
