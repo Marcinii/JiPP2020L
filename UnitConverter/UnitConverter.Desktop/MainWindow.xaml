@@ -6,6 +6,19 @@
         xmlns:local="clr-namespace:UnitConverter.Desktop"
         mc:Ignorable="d"
         Title="UnitCovnerter" Height="1000" Width="800" FontFamily="Consolas" FontSize="15">
+    <Window.Resources>
+        <Storyboard x:Key="ShowClock">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="grid">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:2" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="grid">
+                <DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Visible}"/>
+            </ObjectAnimationUsingKeyFrames>
+        </Storyboard>
+    </Window.Resources>
+    <Window.Triggers>
+    </Window.Triggers>
     <Grid>
         <StackPanel>
             <Grid>
@@ -27,9 +40,13 @@
                     </StackPanel>
                 </Grid>
                 <Grid Grid.Column="1">
-                    <StackPanel>
+                    <StackPanel Margin="0,0,0,-20">
                         <Button Margin="0,20,0,0" x:Name="ConvertButton" Height="35" Click="ConvertButtonClick" Background="#FF951818" Foreground="White" FontSize="16">Convert</Button>
                         <TextBlock Margin="20" x:Name="OutputTextBlock" FontSize="15" Height="25" Foreground="Black"/>
+                        <Grid x:Name="grid" Visibility="Hidden">
+                            <Ellipse Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="87.334" Margin="138,0,0,0" Stroke="Black" Width="94.667"/>
+                            <Path Data="M184.33333,45.25 L183.83366,-0.25" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="46.5" Margin="183.833,-0.25,0,0" Stretch="Fill" Stroke="Black" VerticalAlignment="Top" Width="1.5"/>
+                        </Grid>
                     </StackPanel>
                 </Grid>
             </Grid>

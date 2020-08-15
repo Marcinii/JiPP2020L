@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Windows;
+using System.Windows.Media.Animation;
 using UnitConverter.Library;
 
 namespace UnitConverter.Desktop
@@ -13,6 +14,7 @@ namespace UnitConverter.Desktop
             new WeightConverter(),
             new TemperatureConverter(),
             new PressureConverter(),
+            new TimeConverter(),
         };
 
         public MainWindow()
@@ -29,6 +31,11 @@ namespace UnitConverter.Desktop
         private void SetValue(double value, string unit)
         {
             OutputTextBlock.Text = value.ToString() + " " + unit;
+        }
+
+        private string CurrentConverter()
+        {
+            return ((IConverter)ConverterComboBox.SelectedItem).Name;
         }
 
         private void Convert()
@@ -85,9 +92,19 @@ namespace UnitConverter.Desktop
             InputUnitComboBox.ItemsSource = converter.Units;
         }
 
+        private void ShowClockAnimation()
+        {
+            var animation = (Storyboard)FindResource("ShowClock");
+            animation.Begin();
+        }
+
         private void ConverterSelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
         {
             SetCurrentConverterUnits();
+            if (CurrentConverter() == "Time")
+            {
+                ShowClockAnimation();
+            }
         }
 
         private void ConvertButtonClick(object sender, RoutedEventArgs e)

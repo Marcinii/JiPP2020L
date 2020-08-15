@@ -1,10 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace UnitConverter.Library
 {
-    class TimeConverter : IConverter
+    public class TimeConverter : IConverter
     {
         public string Name => "Time";
         public List<string> Units => new List<string> { "am", "pm", "24h" };
