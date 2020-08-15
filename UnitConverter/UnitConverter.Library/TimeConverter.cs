@@ -12,11 +12,11 @@ namespace UnitConverter.Library
         {
             if (inputUnit == "am")
             {
-                return inputValue * 2;
+                return inputValue;
             }
             else if (inputUnit == "pm")
             {
-                return inputValue;
+                return inputValue * 2;
             }
             else if (inputUnit == "24h")
             {

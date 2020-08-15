@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Windows;
+using System.Windows.Media;
 using System.Windows.Media.Animation;
 using UnitConverter.Library;
 
@@ -67,6 +68,10 @@ namespace UnitConverter.Desktop
                 {
                     var outValue = converter.Convert(val, u);
                     SetValue(outValue, OtherUnit(u, converter));
+                    if (converter.Name == "Time")
+                    {
+                        SetClockHour(outValue);
+                    }
                     return;
                 }
             }
@@ -76,6 +81,10 @@ namespace UnitConverter.Desktop
 
         public string OtherUnit(string unit, IConverter converter)
         {
+            if (converter.Name == "Time")
+            {
+                return "";
+            }
             foreach (string u in converter.Units)
             {
                 if (u != unit)
@@ -96,6 +105,13 @@ namespace UnitConverter.Desktop
         {
             var animation = (Storyboard)FindResource("ShowClock");
             animation.Begin();
+        }
+
+        private void SetClockHour(double hour)
+        {
+            RotateTransform setHour = new RotateTransform();
+            setHour.Angle = hour * 30;
+            HourPath.RenderTransform = setHour;
         }
 
         private void ConverterSelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)

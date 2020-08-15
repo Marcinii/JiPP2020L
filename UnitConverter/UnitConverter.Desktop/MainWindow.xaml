@@ -45,7 +45,7 @@
                         <TextBlock Margin="20" x:Name="OutputTextBlock" FontSize="15" Height="25" Foreground="Black"/>
                         <Grid x:Name="grid" Visibility="Hidden">
                             <Ellipse Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="87.334" Margin="138,0,0,0" Stroke="Black" Width="94.667"/>
-                            <Path Data="M184.33333,45.25 L183.83366,-0.25" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="46.5" Margin="183.833,-0.25,0,0" Stretch="Fill" Stroke="Black" VerticalAlignment="Top" Width="1.5"/>
+                            <Path x:Name="HourPath" Data="M184.33333,45.25 L183.83366,-0.25" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="46.5" Margin="183.833,-0.25,0,0" Stretch="Fill" Stroke="Black" VerticalAlignment="Top" Width="1.5" RenderTransformOrigin="0.444,1.004"/>
                         </Grid>
                     </StackPanel>
                 </Grid>
