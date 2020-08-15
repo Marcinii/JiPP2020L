@@ -1,0 +1,12 @@
+C:\Users\Brajanek\source\repos\Zad5Poprawka\Converter\Common.Controls\bin\Debug\Common.Controls.dll
+C:\Users\Brajanek\source\repos\Zad5Poprawka\Converter\Common.Controls\bin\Debug\Common.Controls.pdb
+C:\Users\Brajanek\source\repos\Zad5Poprawka\Converter\Common.Controls\obj\Debug\Common.Controls.csprojAssemblyReference.cache
+C:\Users\Brajanek\source\repos\Zad5Poprawka\Converter\Common.Controls\obj\Debug\RateMe.g.cs
+C:\Users\Brajanek\source\repos\Zad5Poprawka\Converter\Common.Controls\obj\Debug\Common.Controls_MarkupCompile.cache
+C:\Users\Brajanek\source\repos\Zad5Poprawka\Converter\Common.Controls\obj\Debug\Common.Controls_MarkupCompile.lref
+C:\Users\Brajanek\source\repos\Zad5Poprawka\Converter\Common.Controls\obj\Debug\RateMe.baml
+C:\Users\Brajanek\source\repos\Zad5Poprawka\Converter\Common.Controls\obj\Debug\Common.Controls.g.resources
+C:\Users\Brajanek\source\repos\Zad5Poprawka\Converter\Common.Controls\obj\Debug\Common.Controls.Properties.Resources.resources
+C:\Users\Brajanek\source\repos\Zad5Poprawka\Converter\Common.Controls\obj\Debug\Common.Controls.csproj.GenerateResource.cache
+C:\Users\Brajanek\source\repos\Zad5Poprawka\Converter\Common.Controls\obj\Debug\Common.Controls.dll
+C:\Users\Brajanek\source\repos\Zad5Poprawka\Converter\Common.Controls\obj\Debug\Common.Controls.pdb

@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ConvertersDataBaseModelStoreContainer" CdmEntityContainer="ConvertersDataBaseEntities1">
+    <EntitySetMapping Name="Converter">
+      <EntityTypeMapping TypeName="ConvertersDataBaseModel.Converter">
+        <MappingFragment StoreEntitySet="Converter">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="ConverterName" ColumnName="ConverterName" />
+          <ScalarProperty Name="ConversionFrom" ColumnName="ConversionFrom" />
+          <ScalarProperty Name="ConversionTo" ColumnName="ConversionTo" />
+          <ScalarProperty Name="ConversionDate" ColumnName="ConversionDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OcenaAplikacji">
+      <EntityTypeMapping TypeName="ConvertersDataBaseModel.OcenaAplikacji">
+        <MappingFragment StoreEntitySet="OcenaAplikacji">
+          <ScalarProperty Name="ocenaApki" ColumnName="ocenaApki" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

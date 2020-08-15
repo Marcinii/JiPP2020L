@@ -1,0 +1,225 @@
+﻿<Window x:Class="Converter.Desktop.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Converter.Desktop"
+        xmlns:commonControls="clr-namespace:Common.Controls;assembly=Common.Controls"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="480" Width="868">
+    <Window.Resources>
+        <Storyboard x:Key="rotatingClock">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[2].(RotateTransform.Angle)" Storyboard.TargetName="path">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:5" Value="360"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Key="Loading" RepeatBehavior="Forever">
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="ellipse2">
+                <DiscreteObjectKeyFrame KeyTime="0:0:0.5" Value="{x:Static Visibility.Visible}"/>
+                <DiscreteObjectKeyFrame KeyTime="0:0:2" Value="{x:Static Visibility.Hidden}"/>
+            </ObjectAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="ellipse">
+                <DiscreteObjectKeyFrame KeyTime="0:0:1" Value="{x:Static Visibility.Visible}"/>
+                <DiscreteObjectKeyFrame KeyTime="0:0:2.5" Value="{x:Static Visibility.Hidden}"/>
+            </ObjectAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="ellipse1">
+                <DiscreteObjectKeyFrame KeyTime="0:0:1.5" Value="{x:Static Visibility.Visible}"/>
+                <DiscreteObjectKeyFrame KeyTime="0:0:3" Value="{x:Static Visibility.Hidden}"/>
+            </ObjectAnimationUsingKeyFrames>
+        </Storyboard>
+    </Window.Resources>
+
+
+
+
+
+    <Grid Background="#FF9E9E9E" Margin="0,0,2,-3">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="24*"/>
+            <ColumnDefinition Width="191*"/>
+            <ColumnDefinition Width="215*"/>
+            <ColumnDefinition Width="430*"/>
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Grid.ColumnSpan="3">
+            <Label x:Name="programNameLabel" Margin="8,5,34,2" Background="#FF9E9E9E" Content="Konwerter Jednostek" FontFamily="Wide Latin" FontWeight="Bold" FontSize="18" FontStyle="Italic" Height="37" RenderTransformOrigin="0.497,0.837">
+                <Label.Effect>
+                    <DropShadowEffect/>
+                </Label.Effect>
+            </Label>
+            <ComboBox x:Name="converterComboBox" Margin="10,5,10,5" SelectionChanged="ComboBox_SelectionChanged">
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding name}"/>
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
+
+
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="172*"/>
+                    <ColumnDefinition Width="26"/>
+                    <ColumnDefinition Width="121*"/>
+                    <ColumnDefinition Width="77*"/>
+                </Grid.ColumnDefinitions>
+                <ComboBox x:Name="unitFromComboBox" Margin="10,5,10,5" Grid.ColumnSpan="2"/>
+                <ComboBox x:Name="unitToComboBox" Grid.Column="2" Margin="10,5,10,5" Grid.ColumnSpan="2"/>
+
+
+            </Grid>
+
+            <Grid>
+                <TextBox x:Name="inputTextBox" Grid.Column="2" Margin="139,5,10,5" Height="25"/>
+                <Label x:Name="Label1" Margin ="5,4,257,0" Content="Wartość do konwersji:" FontFamily="Segoe UI Historic" FontWeight="Bold"/>
+            </Grid>
+
+            <Button x:Name="convertButton" Margin="10,5,10,5" Height="25" Click="convertButton_Click" Content="Konwertuj" RenderTransformOrigin="0.5,0.5"/>
+            <TextBlock x:Name="outputTextBlock" Margin="10,5,10,5" Height="25"/>
+
+
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                </Grid.ColumnDefinitions>
+                <Label>Ocen aplikacje:</Label>
+                <commonControls:RateMe x:Name="rateControl" Grid.Column="1" RateValueChanged="rateControl_RateValueChanged"/>
+
+
+            </Grid>
+
+
+
+        </StackPanel>
+        <DataGrid x:Name="logsOutputDataGird" HorizontalAlignment="Left" Height="136" Margin="0,277,0,0" VerticalAlignment="Top" Width="420" SelectionChanged="DataGrid_SelectionChanged_1" Grid.Column="3"/>
+
+        <Path x:Name="path" Grid.Column="3" Margin="10,20,230,245.635" Stroke="Black" Data="M77.328003,142.32173 C77.757668,142.32173 78.141762,142.39497 78.480286,142.54146 78.81881,142.68794 79.103622,142.89789 79.334732,143.17133 79.565834,143.44475 79.74324,143.77678 79.866928,144.16739 79.990616,144.558 80.052467,144.99744 80.052467,145.4857 80.052467,145.94794 79.987366,146.36948 79.857162,146.75032 79.726959,147.13117 79.544678,147.45831 79.310318,147.73174 79.075958,148.00517 78.79277,148.21838 78.460754,148.37137 78.128738,148.52435 77.760925,148.60085&#xD;&#xA;77.3573,148.60085 76.940659,148.60085 76.56144,148.51134 76.219666,148.33231 75.877884,148.15328 75.583305,147.90752 75.335922,147.59502 75.088539,147.28253 74.896492,146.91634 74.759781,146.49641 74.62307,146.07651 74.554718,145.62569 74.554718,145.14392 74.554718,144.75981 74.624702,144.39687 74.764664,144.05508 74.904633,143.7133 75.098305,143.41383 75.345688,143.15668 75.593071,142.89952 75.886024,142.69608 76.224548,142.54634 76.563072,142.39661&#xD;&#xA;76.930893,142.32173 77.328003,142.32173 z M78.509583,135.48599 C77.643745,135.48601 76.859276,135.67806 76.156189,136.06215 75.453102,136.44626 74.852554,136.99149 74.35453,137.69785 73.856514,138.40421 73.47242,139.2538 73.202248,140.2466 72.932083,141.23941 72.796997,142.34453 72.796997,143.56194 72.796997,144.558 72.897903,145.45316 73.099716,146.24741 73.301529,147.04166 73.596107,147.71384 73.983459,148.26395 74.370804,148.81406 74.842789,149.2356 75.399399,149.52857 75.956009,149.82152 76.585854,149.968&#xD;&#xA;77.28894,149.968 77.920418,149.968 78.506325,149.85245 79.046661,149.62134 79.586998,149.39021 80.052467,149.06633 80.443069,148.64967 80.833672,148.23303 81.139648,147.73825 81.360985,147.16534 81.582329,146.59245 81.693001,145.9642 81.693001,145.28064 81.693001,144.63612 81.598602,144.0502 81.409813,143.52287 81.221024,142.99555 80.952477,142.54146 80.604195,142.16061 80.255905,141.77976 79.836006,141.48517 79.344498,141.27684 78.852989,141.06853&#xD;&#xA;78.301254,140.96436 77.689308,140.96436 76.205017,140.96436 75.140625,141.54703 74.496124,142.71236 L74.457062,142.71236 C74.457062,141.82697 74.553093,141.02295 74.745132,140.30031 74.93718,139.57768 75.212234,138.96083 75.57029,138.44978 75.928337,137.93874 76.358002,137.54323 76.859276,137.26329 77.360558,136.98335 77.923676,136.84338 78.548637,136.84338 79.34938,136.84338 80.111053,137.02893 80.833672,137.40001 L80.833672,135.88638 C80.247765,135.61946 79.473068,135.48601 78.509583,135.48599 z M76.823997,77.759011 L76.823997,78.026009 78.533417,78.026009 78.998581,78.580369 77.775566,79.606606 77.694107,79.602563 C76.991447,79.532418 76.360817,79.222787 75.888,78.758012 L75.782806,78.632676 z M77.999405,73.747292 C78.617821,73.747292 79.192322,73.932091 79.668884,74.248582 L79.860001,74.403588 79.860001,78.026009 78.533417,78.026009 77.695656,77.027604 76.823997,77.759011 76.823997,73.984177 76.837128,73.977959 C77.194366,73.829423 77.587128,73.747292 77.999405,73.747292 z M18.835373,72.881386 C19.239031,72.881386 19.611765,72.967644 19.953571,73.140168 20.29538,73.312684 20.589985,73.556817 20.837389,73.872567 21.084793,74.188309 21.278484,74.567528 21.418463,75.010224 21.558441,75.45292 21.628429,75.944443 21.628431,76.484795 21.628429,76.855874 21.558441,77.202546 21.418463,77.524804 21.278484,77.847062 21.08642,78.127 20.842272,78.364625 20.598124,78.602242 20.311657,78.791039 19.982868,78.931008 19.654083,79.070985 19.304136,79.140969&#xD;&#xA;18.933031,79.140969 18.509842,79.140969 18.124086,79.069352 17.775768,78.926125 17.42745,78.782906 17.129589,78.576203 16.882187,78.306031 16.634783,78.035859 16.444345,77.70546 16.310879,77.314851 16.17741,76.924233 16.110676,76.481538 16.110676,75.986764 16.110676,75.537553 16.180666,75.122529 16.320644,74.741677 16.460623,74.360833 16.652685,74.032067 16.896833,73.755379 17.140984,73.478699 17.429077,73.263863 17.761122,73.110871 18.093161,72.957879&#xD;&#xA;18.451246,72.881386 18.835373,72.881386 z M18.972095,71.524003 C18.321033,71.524003 17.720428,71.637932 17.170282,71.865784 16.620132,72.093644 16.144857,72.414277 15.744453,72.827676 15.344051,73.241074 15.031541,73.734223 14.806925,74.307122 14.582308,74.880021 14.47,75.511513 14.47,76.2016 14.47,76.846108 14.570915,77.435288 14.772743,77.969124 14.974573,78.502961 15.257785,78.963563 15.62238,79.350922 15.986976,79.738282 16.419931,80.037751 16.921249,80.249329 17.422567,80.460915 17.972715,80.566704&#xD;&#xA;18.571692,80.566704 20.056114,80.566704 21.097815,79.964509 21.696791,78.760117 L21.735855,78.760117 C21.735855,79.704102 21.644705,80.540665 21.462408,81.269814 21.280111,81.998955 21.016432,82.612542 20.671368,83.110573 20.326305,83.608613 19.904741,83.987832 19.406679,84.248238 18.908617,84.508645 18.343821,84.638856 17.71229,84.638856 16.833355,84.638856 16.006508,84.420762 15.231742,83.984574 L15.231742,85.517731 C15.93489,85.843247 16.748718,86.005997 17.673225,86.005997 18.571692,86.005997 19.372499,85.825341 20.075647,85.464028 20.778793,85.102708 21.374516,84.575379 21.862812,83.882043 22.351109,83.188698 22.722214,82.34237 22.976126,81.343049 23.230043,80.343728 23.357,79.202813 23.357,77.920296 23.357,76.898194 23.25934,75.990014 23.064022,75.195771 22.868704,74.40152 22.585491,73.732598 22.214388,73.188988 21.843281,72.645386 21.38591,72.231988&#xD;&#xA;20.842272,71.948792 20.298635,71.665597 19.675243,71.524003 18.972095,71.524003 z M136.70694,70.345002 C135.47639,70.345002 134.41513,70.611924 133.52315,71.14576 L133.52315,72.698449 C134.38908,72.034402 135.31688,71.702386 136.30653,71.702386 138.06445,71.702386 138.94342,72.496628 138.94342,74.085129 138.94342,75.803826 137.791,76.663178 135.48616,76.663178 L134.38257,76.663178 134.38257,78.020562 135.54475,78.020562 C138.14909,78.020562 139.45126,78.935242 139.45126,80.764619 139.45126,81.181275 139.37477,81.555611 139.22176,81.887635 139.06876,82.219651 138.85065,82.502846 138.56741,82.737221 138.28419,82.971589 137.94563,83.15062 137.55173,83.274308 137.15782,83.398003 136.71672,83.459855 136.22839,83.459855 135.01088,83.459855 133.93007,83.088769 132.98599,82.346604 L132.98599,84.065301 C133.77382,84.573106 134.83508,84.827004 136.1698,84.827004 136.89902,84.827004 137.56638,84.72609 138.17189,84.524277 138.77739,84.322457 139.29663,84.037636 139.7296,83.669808 140.16258,83.30198 140.49788,82.859284 140.73553,82.341721 140.97318,81.824158 141.092,81.249627 141.092,80.618142 141.092,80.149399 141.00899,79.721352 140.84296,79.334 140.67694,78.946641 140.44743,78.609734 140.15443,78.323281 139.86145,78.036835 139.51312,77.804093&#xD;&#xA;139.10945,77.625062 138.70578,77.44603 138.2663,77.330476 137.791,77.27839 L137.791,77.239335 C139.65311,76.712006 140.58415,75.527138 140.58415,73.684746 140.58415,73.189973 140.49138,72.737511 140.30582,72.327363 140.12025,71.917222 139.8582,71.565667 139.51964,71.272706 139.18106,70.979745 138.77414,70.751893 138.29884,70.589135 137.82356,70.426377 137.29292,70.345002 136.70694,70.345002 z M79.860001,16.986434 L79.860001,19.306687 79.785362,19.614062 C79.760132,19.780888 79.74752,19.958699 79.74752,20.147494 L79.860001,20.147494 79.860001,21.583001 78.077644,21.583001 78.077644,20.889661 C78.077644,20.290719 78.142746,19.76339 78.272949,19.307675 78.40316,18.85196 78.617996,18.419028 78.917465,18.008883 79.142075,17.701276 79.418854,17.393666 79.747826,17.086056 z M82.169334,7.3451225 C81.368576,7.3451244 80.68988,7.4606807 80.133255,7.6917936 79.57663,7.9229071 79.073715,8.2565562 78.624504,8.6927401 L78.624504,10.411442 C78.852364,10.157544 79.098129,9.9264314 79.361794,9.7181041 79.625458,9.5097758 79.898888,9.3307444 80.182083,9.181008 80.465279,9.0312745 80.756615,8.9140908 81.056084,8.829457 81.355553,8.7448241 81.661537,8.7025067 81.97403,8.7025077 82.3386,8.7025067 82.677132,8.7545897 82.989624,8.8587529 83.302116,8.962917 83.573921,9.1207902 83.805038,9.3323714 84.036148,9.5439546 84.218437,9.8092467 84.351898,10.128248 84.485359,10.447249 84.552086,10.821587&#xD;&#xA;84.552086,11.251262 84.552086,11.635367 84.508141,11.998312 84.420258,12.340099 84.332367,12.681886 84.184258,13.018791 83.975929,13.350813 83.767601,13.682834 83.492546,14.014856 83.150757,14.346878 82.808968,14.678899 82.384171,15.027198 81.876373,15.39177 81.173271,15.906079 80.579208,16.368304 80.094193,16.778449 L79.860001,16.986434 79.860001,12.435003 76.823997,12.435003 76.823997,73.984177 76.576111,74.101556 C75.645309,74.598603 75.013435,75.568017 75.013435,76.682503 75.013435,77.290406 75.201431,77.855141 75.523392,78.323609 L75.782806,78.632676 30.660524,116.49477 31.963457,118.04754 77.775566,79.606606 77.999405,79.617715 C79.648506,79.617715 80.985374,78.303574 80.985374,76.682503 80.985374,75.871972 80.651154,75.138161 80.110802,74.606995 L79.860001,74.403588 79.860001,21.583001 86.720001,21.583001 86.720001,20.147494 79.860001,20.147494 79.860001,19.306687 79.898888,19.146546 C79.999794,18.856841 80.175575,18.567136 80.426216,18.277428 80.676865,17.987725 81.015396,17.676861 81.441818,17.34484 81.86824,17.012818 82.410217,16.612439 83.067749,16.143702 83.595078,15.766109 84.054054,15.395026 84.444664,15.030453 84.835281,14.66588 85.159172,14.285031 85.416321,13.887905 85.673477,13.490783 85.865532,13.067617 85.992477,12.618411 86.119431,12.169205 86.182907,11.667918 86.182907,11.114547 86.182907,10.509096 86.080368,9.9720017&#xD;&#xA;85.875298,9.5032641 85.670219,9.0345284 85.388657,8.64066 85.030594,8.3216569 84.672523,8.0026576 84.249359,7.7601516 83.761093,7.5941407 83.27282,7.4281299 82.742241,7.3451244 82.169334,7.3451225 z M72.698174,7.2669999 C72.450783,7.4818384 72.157822,7.7015588 71.81929,7.9261615 71.480759,8.1507642 71.121063,8.3656022 70.740211,8.5706736 70.359367,8.775747 69.972008,8.9612882 69.578133,9.127299 69.184265,9.2933099 68.811554,9.4251429 68.459999,9.5227944 L68.459999,11.143843 C68.772491,11.065721 69.093124,10.958302 69.42189,10.821588 69.750656,10.684872 70.063148,10.538392 70.359367,10.382146 70.655579,10.225901 70.922501,10.068028 71.160126,9.908528 71.397751,9.749027 71.578407,9.6074292 71.702103,9.4837338 L71.702103,21.583001 73.303627,21.583001 73.303627,7.2669999 z M78,0.5 C120.80206,0.50000209 155.5,34.608067 155.5,76.682503 155.5,118.75694 120.80206,152.86501 78,152.86501 35.197929,152.86501 0.5,118.75694 0.5,76.682503 0.5,34.608067 35.197929,0.50000209 78,0.5 z" RenderTransformOrigin="0.50000000009552,0.500000002821569" Stretch="Fill">
+            <Path.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Path.RenderTransform>
+            <Path.Fill>
+                <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+                    <GradientStop Color="#FFDCB7B7" Offset="0"/>
+                    <GradientStop Color="#FF5FC0D6" Offset="1"/>
+                    <GradientStop Color="#FFD8B7B7" Offset="0.297"/>
+                </LinearGradientBrush>
+            </Path.Fill>
+        </Path>
+
+
+
+
+
+
+
+        <Label Content="Konwerter Czasu&#xA;" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="3" Margin="188,0,0,0" Width="101" Height="42"/>
+        <TextBox x:Name="hourTextBox" Grid.Column="3" HorizontalAlignment="Left" Height="23" Margin="198,41,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="25"/>
+        <TextBox x:Name="minuteTextBox" Grid.Column="3" HorizontalAlignment="Left" Height="23" Margin="228,41,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="25" RenderTransformOrigin="1.16,0.565"/>
+        <ComboBox x:Name="timeComboBox" Grid.Column="3" HorizontalAlignment="Left" Margin="267,41,0,0" VerticalAlignment="Top" Width="144" SelectionChanged="timeComboBox_SelectionChanged" Height="23"/>
+        <TextBlock x:Name="timeOutput" Grid.Column="3" HorizontalAlignment="Left" Margin="248,69,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="81" Height="29"/>
+        <CheckBox x:Name="runAnimationCheckBox" Content="Animacja&#xD;&#xA;&#xA;" Grid.Column="3" HorizontalAlignment="Left" Margin="10,0,0,402" VerticalAlignment="Bottom" Checked="CheckBox_Checked" Height="47" Width="68"/>
+        <Button x:Name="last20Logs" Content="Pokaż logi" Grid.Column="3" HorizontalAlignment="Left" Margin="0,256,0,0" VerticalAlignment="Top" Width="78" Height="21" Click="last20Logs_Click"/>
+        <Button x:Name="pageLeftButton" Content="&lt;" Grid.Column="3" HorizontalAlignment="Left" Margin="86,419,0,0" VerticalAlignment="Top" Width="71" Click="pageLeftButton_Click" Height="20"/>
+        <Button x:Name="pageRightButton" Content="&gt;" Grid.Column="3" HorizontalAlignment="Left" Margin="248,419,0,0" VerticalAlignment="Top" Width="71" Click="pageRightButton_Click" Height="20"/>
+        <Label Content="Sortuj według konwertera:" Grid.Column="3" HorizontalAlignment="Left" Margin="140,251,0,0" VerticalAlignment="Top" Width="146" Height="26"/>
+        <ComboBox x:Name="sortTypeComboBox" Grid.Column="3" HorizontalAlignment="Left" Margin="300,255,0,0" VerticalAlignment="Top" Width="120" Height="21" SelectionChanged="ComboBox_SelectionChanged_1"/>
+        <Label x:Name="label2" Content="Page" Grid.Column="3" HorizontalAlignment="Left" Margin="171,416,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.44,0.423" Width="72" Height="26"/>
+
+
+
+        <DatePicker x:Name="datePicker1" Grid.Column="3" HorizontalAlignment="Left" Margin="5,230,0,0" VerticalAlignment="Top" Width="130" RenderTransformOrigin="-0.107,0.25" Height="24"/>
+        <DatePicker x:Name="datePicker2" Grid.Column="3" HorizontalAlignment="Left" Margin="156,230,0,0" VerticalAlignment="Top" Width="133" RenderTransformOrigin="0.085,0.583" Height="24"/>
+        <Button x:Name="dataSortButton" Content="DataSort&#xD;&#xA;" Grid.Column="3" HorizontalAlignment="Left" Margin="300,230,0,0" VerticalAlignment="Top" Width="111" Height="20" Click="dataSortButton_Click" RenderTransformOrigin="0.87,-1"/>
+
+        <Grid x:Name="loaderGrid" Grid.ColumnSpan="4" Background="Black" Opacity="0.95" Visibility="Hidden"/>
+        <Ellipse x:Name="ellipse2" Grid.Column="2" HorizontalAlignment="Left" Height="19" Margin="167,206,0,0" Stroke="Black" VerticalAlignment="Top" Width="19" Visibility="Hidden" RenderTransformOrigin="-0.432,-1.435">
+            <Ellipse.Fill>
+                <LinearGradientBrush
+
+                    StartPoint="0.5,0" MappingMode="RelativeToBoundingBox" EndPoint="0.5,1"
+       >
+
+                    <GradientStop
+
+                        Color="#FFDCB7B7" Offset="0"
+      />
+
+                    <GradientStop
+
+                        Color="#FF5FC0D6" Offset="1"
+      />
+
+                    <GradientStop
+
+                        Color="#FFD8B7B7" Offset="0.297"
+      />
+
+                </LinearGradientBrush>
+
+            </Ellipse.Fill>
+        </Ellipse>
+        <Ellipse x:Name="ellipse" Grid.Column="3" HorizontalAlignment="Left" Height="19" Margin="0,206,0,0" Stroke="Black" VerticalAlignment="Top" Width="19" Visibility="Hidden" RenderTransformOrigin="-0.522,-1.033">
+            <Ellipse.Fill>
+                <LinearGradientBrush
+
+                    StartPoint="0.5,0" MappingMode="RelativeToBoundingBox" EndPoint="0.5,1"
+       >
+
+                    <GradientStop
+
+                        Color="#FFDCB7B7" Offset="0"
+      />
+
+                    <GradientStop
+
+                        Color="#FF5FC0D6" Offset="1"
+      />
+
+                    <GradientStop
+
+                        Color="#FFD8B7B7" Offset="0.297"
+      />
+
+                </LinearGradientBrush>
+
+            </Ellipse.Fill>
+        </Ellipse>
+        <Ellipse x:Name="ellipse1" Grid.Column="3" HorizontalAlignment="Left" Height="19" Margin="45,206,0,0" Stroke="Black" VerticalAlignment="Top" Width="19" RenderTransformOrigin="0.026,0.56" Visibility="Hidden">
+            <Ellipse.Fill>
+                <LinearGradientBrush
+
+                    StartPoint="0.5,0" MappingMode="RelativeToBoundingBox" EndPoint="0.5,1"
+       >
+
+                    <GradientStop
+
+                        Color="#FFDCB7B7" Offset="0"
+      />
+
+                    <GradientStop
+
+                        Color="#FF5FC0D6" Offset="1"
+      />
+
+                    <GradientStop
+
+                        Color="#FFD8B7B7" Offset="0.297"
+      />
+
+                </LinearGradientBrush>
+
+            </Ellipse.Fill>
+        </Ellipse>
+
+
+    </Grid>
+
+
+</Window>

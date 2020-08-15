@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ConvertersDataBaseModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Converter">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ConverterName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ConversionFrom" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ConversionTo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ConversionDate" Type="DateTime" Nullable="false" Precision="3" />
+  </EntityType>
+  <EntityContainer Name="ConvertersDataBaseEntities1" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Converter" EntityType="Self.Converter" />
+  </EntityContainer>
+</Schema>
