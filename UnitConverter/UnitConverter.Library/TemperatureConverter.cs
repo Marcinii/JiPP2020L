@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace UnitConverter
+namespace UnitConverter.Library
 {
     public class TemperatureConverter : IConverter
     {
         public string Name => "Temperature";
-        public List<string> Units => new List<string> { "km", "mi" };
+        public List<string> Units => new List<string> { "C", "F" };
 
         private double CelsiusToFahrenheit(double temperature)
         {

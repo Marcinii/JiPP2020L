@@ -2,7 +2,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace UnitConverter
+namespace UnitConverter.Library
 {
     public class DistanceConverter : IConverter
     {

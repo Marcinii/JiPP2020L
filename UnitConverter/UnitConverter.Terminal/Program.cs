@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace UnitConverter
+namespace UnitConverter.Terminal
 {
     class Program
     {

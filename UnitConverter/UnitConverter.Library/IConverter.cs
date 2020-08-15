@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace UnitConverter
+namespace UnitConverter.Library
 {
-    interface IConverter
+    public interface IConverter
     {
         string Name { get; }
         List<string> Units { get; }
