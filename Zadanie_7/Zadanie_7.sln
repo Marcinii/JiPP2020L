@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Zadanie_7", "Zadanie_7\Zada
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Zadanie7.Logic", "Zadanie7.Logic\Zadanie7.Logic.csproj", "{089C58D8-ADCD-4C77-AB98-B0641553E39B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Statistic.Controls", "..\Przelicznik_Jednostek\Statistic.Controls\Statistic.Controls.csproj", "{8DC50A69-AAC4-4580-8987-C4362B4F75C1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{089C58D8-ADCD-4C77-AB98-B0641553E39B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{089C58D8-ADCD-4C77-AB98-B0641553E39B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{089C58D8-ADCD-4C77-AB98-B0641553E39B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8DC50A69-AAC4-4580-8987-C4362B4F75C1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8DC50A69-AAC4-4580-8987-C4362B4F75C1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8DC50A69-AAC4-4580-8987-C4362B4F75C1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8DC50A69-AAC4-4580-8987-C4362B4F75C1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -43,5 +43,19 @@ namespace Zadanie7.Logic
                 return "0";
             }
         }
+        public string coWpisać(string v1)
+        {
+            if(v1 == "Zadanie_7.trojkat")
+            {
+                return "Trójkąt";
+            }else if (v1 == "Zadanie_7.kwadrat")
+            {
+                return "Kwadrat";
+            }
+            else
+            {
+                return "Wystąpił błąd";
+            }
+        }
     }
 }

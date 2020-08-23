@@ -22,6 +22,8 @@ namespace Zadanie_7
 
         // public virtual DbSet<MyEntity> MyEntities { get; set; }
         public virtual DbSet<MyBase> data { get; set; }
+
+        public virtual DbSet<MyRate> rates { get; set; }
     }
 
     //public class MyEntity
