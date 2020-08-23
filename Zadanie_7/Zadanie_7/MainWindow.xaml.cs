@@ -31,14 +31,14 @@ namespace Zadanie_7
             wybierzFigura.ItemsSource = new figuraChanged().pobierz();
            
             RatingControls.RateValueChanged += RatingControls_RateValueChanged;
-           // wyswietlOcene();
+            wyswietlOcene();
         }
 
         private void RatingControls_RateValueChanged(int value)
         {
             MessageBox.Show($"Dziękujemy za Twoją ocenę! {value}");
             dodanieRekordu.dodajOcene(value);
-          //  wyswietlOcene();
+            wyswietlOcene();
         }
 
        
