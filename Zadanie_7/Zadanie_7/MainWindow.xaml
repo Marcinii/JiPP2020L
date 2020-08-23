@@ -13,7 +13,14 @@
                 <EasingDoubleKeyFrame KeyTime="0:0:1" Value="360"/>
             </DoubleAnimationUsingKeyFrames>
         </Storyboard>
+        <Storyboard x:Key="LoadingScreen" RepeatBehavior="Forever">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[2].(RotateTransform.Angle)" Storyboard.TargetName="rectangle">
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="360"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+
     </Window.Resources>
+    
 
     <Grid>
         <Grid.ColumnDefinitions>
@@ -83,32 +90,47 @@
             </WrapPanel>
             <Grid Height="225">
                 <StackPanel>
-                <Path x:Name="path" Data="M75,41 C56.222319,41 41,56.222319 41,75 41,93.777683 56.222319,109 75,109 93.777683,109 109,93.777683 109,75 109,56.222319 93.777683,41 75,41 z M75,0.5 C116.14521,0.5 149.5,33.854786 149.5,75 149.5,116.14521 116.14521,149.5 75,149.5 33.854786,149.5 0.5,116.14521 0.5,75 0.5,33.854786 33.854786,0.5 75,0.5 z" HorizontalAlignment="Left" Height="150" Margin="68.5,0,0,0" Stretch="Fill" VerticalAlignment="Top" Width="150" RenderTransformOrigin="0.5,0.5">
-                    <Path.RenderTransform>
-                        <TransformGroup>
-                            <ScaleTransform/>
-                            <SkewTransform/>
-                            <RotateTransform/>
-                            <TranslateTransform/>
-                        </TransformGroup>
-                    </Path.RenderTransform>
-                    <Path.Fill>
-                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                            <GradientStop Color="#FFFF08DD" Offset="0"/>
-                            <GradientStop Color="#FF0023FF" Offset="0.964"/>
-                            <GradientStop Color="#FFFFF300" Offset="0.245"/>
-                            <GradientStop Color="#FF00FF17" Offset="0.478"/>
-                            <GradientStop Color="Red" Offset="0.759"/>
-                        </LinearGradientBrush>
-                    </Path.Fill>
-                </Path>
-                <WrapPanel>
-                    <Button Margin="10,5,10,5" Height="25" Width="40" x:Name="statr_Button" Content="Start" Click="Statr_Button_Click"/>
+                    <Path x:Name="path" Data="M75,41 C56.222319,41 41,56.222319 41,75 41,93.777683 56.222319,109 75,109 93.777683,109 109,93.777683 109,75 109,56.222319 93.777683,41 75,41 z M75,0.5 C116.14521,0.5 149.5,33.854786 149.5,75 149.5,116.14521 116.14521,149.5 75,149.5 33.854786,149.5 0.5,116.14521 0.5,75 0.5,33.854786 33.854786,0.5 75,0.5 z" HorizontalAlignment="Left" Height="150" Margin="68.5,0,0,0" Stretch="Fill" VerticalAlignment="Top" Width="150" RenderTransformOrigin="0.5,0.5">
+                        <Path.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform/>
+                                <SkewTransform/>
+                                <RotateTransform/>
+                                <TranslateTransform/>
+                            </TransformGroup>
+                        </Path.RenderTransform>
+                        <Path.Fill>
+                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                <GradientStop Color="#FFFF08DD" Offset="0"/>
+                                <GradientStop Color="#FF0023FF" Offset="0.964"/>
+                                <GradientStop Color="#FFFFF300" Offset="0.245"/>
+                                <GradientStop Color="#FF00FF17" Offset="0.478"/>
+                                <GradientStop Color="Red" Offset="0.759"/>
+                            </LinearGradientBrush>
+                        </Path.Fill>
+                    </Path>
+                    <WrapPanel>
+                        <Button Margin="10,5,10,5" Height="25" Width="40" x:Name="statr_Button" Content="Start" Click="Statr_Button_Click"/>
                         <Button Margin="180,5,10,5" Height="25" Width="40" x:Name="stop_Button" Content="Stop" RenderTransformOrigin="4.625,0.726" Click="Stop_Button_Click"/>
                     </WrapPanel>
                 </StackPanel>
             </Grid>
         </StackPanel>
-        <DataGrid x:Name="wysiwetla" Grid.Column="2" Margin="10,5,10,5" Width="500" MaxHeight="600" MinHeight="200"/>
+        <StackPanel Grid.Column="2">
+            <Button Grid.Column="2" x:Name="loadDate" Height="25" Margin="50,5,10,5" HorizontalAlignment="Left" VerticalAlignment="Center" Content="Załaduj dane" Click="loadDate_Click"/>
+            <DataGrid x:Name="wysiwetla" Grid.Column="2" Margin="10,5,10,5" Width="500" MaxHeight="600" MinHeight="200"/>
+        </StackPanel>
+        <Rectangle Grid.ColumnSpan="3" Fill="#72000000" Visibility="Hidden" x:Name="opoznij"/>
+        <Label Grid.ColumnSpan="3" Content="Please wait... Lading data...." x:Name="komunikat" HorizontalAlignment="Center" VerticalAlignment="Center" Visibility="Hidden" FontWeight="Bold" FontSize="20" />
+        <Rectangle x:Name="rectangle" Height="25" Width="25" VerticalAlignment="Center" Visibility="Hidden" Fill="DarkBlue" Grid.Column="2" Margin="258,328,314,316" RenderTransformOrigin="-10.32,0.28">
+            <Rectangle.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Rectangle.RenderTransform>
+        </Rectangle>
     </Grid>
 </Window>

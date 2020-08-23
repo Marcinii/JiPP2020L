@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -13,6 +14,7 @@ using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 using Zadanie7.Logic;
 
 namespace Zadanie_7
@@ -27,16 +29,16 @@ namespace Zadanie_7
             InitializeComponent();
 
             wybierzFigura.ItemsSource = new figuraChanged().pobierz();
-            wyswietlDane();
+           
             RatingControls.RateValueChanged += RatingControls_RateValueChanged;
-            wyswietlOcene();
+           // wyswietlOcene();
         }
 
         private void RatingControls_RateValueChanged(int value)
         {
             MessageBox.Show($"Dziękujemy za Twoją ocenę! {value}");
             dodanieRekordu.dodajOcene(value);
-            wyswietlOcene();
+          //  wyswietlOcene();
         }
 
        
@@ -50,7 +52,17 @@ namespace Zadanie_7
         {
             Model1 model = new Model1();
             var wysiweitl = from d in model.data.OrderBy(e => e.id) select d;
-            wysiwetla.ItemsSource = wysiweitl.ToList();
+            Thread.Sleep(5000);
+            Dispatcher.Invoke(() => {
+
+                wysiwetla.ItemsSource = wysiweitl.ToList();
+
+                opoznij.Visibility = Visibility.Hidden;
+                rectangle.Visibility = Visibility.Hidden;
+                komunikat.Visibility = Visibility.Hidden;
+                ((Storyboard)Resources["LoadingScreen"]).Stop();
+
+            });
         }
         private void WybierzFigura_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -66,98 +78,98 @@ namespace Zadanie_7
 
                 if (zak == 1)
                 {
-                    wypisz.Visibility = System.Windows.Visibility.Visible;
-                    a.Visibility = System.Windows.Visibility.Visible;
-                    blok1.Visibility = System.Windows.Visibility.Visible;
-                    submitButton.Visibility = System.Windows.Visibility.Visible;
-                    h.Visibility = System.Windows.Visibility.Hidden;
-                    blok2.Visibility = System.Windows.Visibility.Hidden;
-                    b.Visibility = System.Windows.Visibility.Visible;
-                    blok3.Visibility = System.Windows.Visibility.Visible;
-                    c.Visibility = System.Windows.Visibility.Visible;
-                    blok4.Visibility = System.Windows.Visibility.Visible;
-                    wynikTO.Visibility = System.Windows.Visibility.Visible;
-                    wynik.Visibility = System.Windows.Visibility.Visible;
+                    wypisz.Visibility = Visibility.Visible;
+                    a.Visibility = Visibility.Visible;
+                    blok1.Visibility = Visibility.Visible;
+                    submitButton.Visibility = Visibility.Visible;
+                    h.Visibility = Visibility.Hidden;
+                    blok2.Visibility = Visibility.Hidden;
+                    b.Visibility = Visibility.Visible;
+                    blok3.Visibility = Visibility.Visible;
+                    c.Visibility = Visibility.Visible;
+                    blok4.Visibility = Visibility.Visible;
+                    wynikTO.Visibility = Visibility.Visible;
+                    wynik.Visibility = Visibility.Visible;
            
                 }
                 else if (zak == 2)
                 {
-                    wypisz.Visibility = System.Windows.Visibility.Visible;
-                    a.Visibility = System.Windows.Visibility.Visible;
-                    blok1.Visibility = System.Windows.Visibility.Visible;
-                    submitButton.Visibility = System.Windows.Visibility.Visible;
-                    h.Visibility = System.Windows.Visibility.Hidden;
-                    blok2.Visibility = System.Windows.Visibility.Hidden;
-                    b.Visibility = System.Windows.Visibility.Hidden;
-                    blok3.Visibility = System.Windows.Visibility.Hidden;
-                    c.Visibility = System.Windows.Visibility.Hidden;
-                    blok4.Visibility = System.Windows.Visibility.Hidden;
-                    wynikTO.Visibility = System.Windows.Visibility.Visible;
-                    wynik.Visibility = System.Windows.Visibility.Visible;
+                    wypisz.Visibility = Visibility.Visible;
+                    a.Visibility = Visibility.Visible;
+                    blok1.Visibility = Visibility.Visible;
+                    submitButton.Visibility = Visibility.Visible;
+                    h.Visibility = Visibility.Hidden;
+                    blok2.Visibility = Visibility.Hidden;
+                    b.Visibility = Visibility.Hidden;
+                    blok3.Visibility = Visibility.Hidden;
+                    c.Visibility = Visibility.Hidden;
+                    blok4.Visibility = Visibility.Hidden;
+                    wynikTO.Visibility = Visibility.Visible;
+                    wynik.Visibility = Visibility.Visible;
               
                 }
                 else if (zak == 3)
                 {
-                    wypisz.Visibility = System.Windows.Visibility.Visible;
-                    a.Visibility = System.Windows.Visibility.Visible;
-                    blok1.Visibility = System.Windows.Visibility.Visible;
-                    submitButton.Visibility = System.Windows.Visibility.Visible;
-                    h.Visibility = System.Windows.Visibility.Visible;
-                    blok2.Visibility = System.Windows.Visibility.Visible;
-                    b.Visibility = System.Windows.Visibility.Hidden;
-                    blok3.Visibility = System.Windows.Visibility.Hidden;
-                    c.Visibility = System.Windows.Visibility.Hidden;
-                    blok4.Visibility = System.Windows.Visibility.Hidden;
-                    wynikTO.Visibility = System.Windows.Visibility.Visible;
-                    wynik.Visibility = System.Windows.Visibility.Visible;
+                    wypisz.Visibility = Visibility.Visible;
+                    a.Visibility = Visibility.Visible;
+                    blok1.Visibility = Visibility.Visible;
+                    submitButton.Visibility = Visibility.Visible;
+                    h.Visibility = Visibility.Visible;
+                    blok2.Visibility = Visibility.Visible;
+                    b.Visibility = Visibility.Hidden;
+                    blok3.Visibility = Visibility.Hidden;
+                    c.Visibility = Visibility.Hidden;
+                    blok4.Visibility = Visibility.Hidden;
+                    wynikTO.Visibility = Visibility.Visible;
+                    wynik.Visibility = Visibility.Visible;
                    
                 }
                 else if (zak == 4)
                 {
-                    wypisz.Visibility = System.Windows.Visibility.Visible;
-                    a.Visibility = System.Windows.Visibility.Visible;
-                    blok1.Visibility = System.Windows.Visibility.Visible;
-                    submitButton.Visibility = System.Windows.Visibility.Visible;
-                    h.Visibility = System.Windows.Visibility.Hidden;
-                    blok2.Visibility = System.Windows.Visibility.Hidden;
-                    b.Visibility = System.Windows.Visibility.Hidden;
-                    blok3.Visibility = System.Windows.Visibility.Hidden;
-                    c.Visibility = System.Windows.Visibility.Hidden;
-                    blok4.Visibility = System.Windows.Visibility.Hidden;
-                    wynikTO.Visibility = System.Windows.Visibility.Hidden;
-                    wynik.Visibility = System.Windows.Visibility.Hidden;
+                    wypisz.Visibility = Visibility.Visible;
+                    a.Visibility = Visibility.Visible;
+                    blok1.Visibility = Visibility.Visible;
+                    submitButton.Visibility = Visibility.Visible;
+                    h.Visibility = Visibility.Hidden;
+                    blok2.Visibility = Visibility.Hidden;
+                    b.Visibility = Visibility.Hidden;
+                    blok3.Visibility = Visibility.Hidden;
+                    c.Visibility = Visibility.Hidden;
+                    blok4.Visibility = Visibility.Hidden;
+                    wynikTO.Visibility = Visibility.Hidden;
+                    wynik.Visibility = Visibility.Hidden;
                     
                 }
                 else
                 {
-                    wypisz.Visibility = System.Windows.Visibility.Hidden;
-                    a.Visibility = System.Windows.Visibility.Hidden;
-                    blok1.Visibility = System.Windows.Visibility.Hidden;
-                    submitButton.Visibility = System.Windows.Visibility.Hidden;
-                    h.Visibility = System.Windows.Visibility.Hidden;
-                    blok2.Visibility = System.Windows.Visibility.Hidden;
-                    b.Visibility = System.Windows.Visibility.Hidden;
-                    blok3.Visibility = System.Windows.Visibility.Hidden;
-                    c.Visibility = System.Windows.Visibility.Hidden;
-                    blok4.Visibility = System.Windows.Visibility.Hidden;
-                    wynikTO.Visibility = System.Windows.Visibility.Hidden;
-                    wynik.Visibility = System.Windows.Visibility.Hidden;
+                    wypisz.Visibility = Visibility.Hidden;
+                    a.Visibility = Visibility.Hidden;
+                    blok1.Visibility = Visibility.Hidden;
+                    submitButton.Visibility = Visibility.Hidden;
+                    h.Visibility = Visibility.Hidden;
+                    blok2.Visibility = Visibility.Hidden;
+                    b.Visibility = Visibility.Hidden;
+                    blok3.Visibility = Visibility.Hidden;
+                    c.Visibility = Visibility.Hidden;
+                    blok4.Visibility = Visibility.Hidden;
+                    wynikTO.Visibility = Visibility.Hidden;
+                    wynik.Visibility = Visibility.Hidden;
                    
                 }
             }
             if (value2 == "Zadanie_7.trojkat")
             {
-                dla_trojkat.Visibility = System.Windows.Visibility.Visible;
-                dla_kwadrat.Visibility = System.Windows.Visibility.Hidden;
+                dla_trojkat.Visibility = Visibility.Visible;
+                dla_kwadrat.Visibility = Visibility.Hidden;
             }else if (value2 == "Zadanie_7.kwadrat")
             {
-                dla_trojkat.Visibility = System.Windows.Visibility.Hidden;
-                dla_kwadrat.Visibility = System.Windows.Visibility.Visible;
+                dla_trojkat.Visibility = Visibility.Hidden;
+                dla_kwadrat.Visibility = Visibility.Visible;
             }
             else
             {
-                dla_trojkat.Visibility = System.Windows.Visibility.Hidden;
-                dla_kwadrat.Visibility = System.Windows.Visibility.Hidden;
+                dla_trojkat.Visibility = Visibility.Hidden;
+                dla_kwadrat.Visibility = Visibility.Hidden;
             }
         }
 
@@ -170,78 +182,78 @@ namespace Zadanie_7
           
             if (zak == 1)
             {
-                wypisz.Visibility = System.Windows.Visibility.Visible;
-                a.Visibility = System.Windows.Visibility.Visible;
-                blok1.Visibility = System.Windows.Visibility.Visible;
-                submitButton.Visibility = System.Windows.Visibility.Visible;
-                h.Visibility = System.Windows.Visibility.Hidden;
-                blok2.Visibility = System.Windows.Visibility.Hidden;
-                b.Visibility = System.Windows.Visibility.Visible;
-                blok3.Visibility = System.Windows.Visibility.Visible;
-                c.Visibility = System.Windows.Visibility.Visible;
-                blok4.Visibility = System.Windows.Visibility.Visible;
-                wynikTO.Visibility = System.Windows.Visibility.Visible;
-                wynik.Visibility = System.Windows.Visibility.Visible;
+                wypisz.Visibility = Visibility.Visible;
+                a.Visibility = Visibility.Visible;
+                blok1.Visibility = Visibility.Visible;
+                submitButton.Visibility = Visibility.Visible;
+                h.Visibility = Visibility.Hidden;
+                blok2.Visibility = Visibility.Hidden;
+                b.Visibility = Visibility.Visible;
+                blok3.Visibility = Visibility.Visible;
+                c.Visibility = Visibility.Visible;
+                blok4.Visibility = Visibility.Visible;
+                wynikTO.Visibility = Visibility.Visible;
+                wynik.Visibility = Visibility.Visible;
             }
             else if(zak == 2)
             {
-                wypisz.Visibility = System.Windows.Visibility.Visible;
-                a.Visibility = System.Windows.Visibility.Visible;
-                blok1.Visibility = System.Windows.Visibility.Visible;
-                submitButton.Visibility = System.Windows.Visibility.Visible;
-                h.Visibility = System.Windows.Visibility.Hidden;
-                blok2.Visibility = System.Windows.Visibility.Hidden;
-                b.Visibility = System.Windows.Visibility.Hidden;
-                blok3.Visibility = System.Windows.Visibility.Hidden;
-                c.Visibility = System.Windows.Visibility.Hidden;
-                blok4.Visibility = System.Windows.Visibility.Hidden;
-                wynikTO.Visibility = System.Windows.Visibility.Visible;
-                wynik.Visibility = System.Windows.Visibility.Visible;
+                wypisz.Visibility = Visibility.Visible;
+                a.Visibility = Visibility.Visible;
+                blok1.Visibility = Visibility.Visible;
+                submitButton.Visibility = Visibility.Visible;
+                h.Visibility = Visibility.Hidden;
+                blok2.Visibility = Visibility.Hidden;
+                b.Visibility = Visibility.Hidden;
+                blok3.Visibility = Visibility.Hidden;
+                c.Visibility = Visibility.Hidden;
+                blok4.Visibility = Visibility.Hidden;
+                wynikTO.Visibility = Visibility.Visible;
+                wynik.Visibility = Visibility.Visible;
             }
             else if (zak == 3)
             {
-                wypisz.Visibility = System.Windows.Visibility.Visible;
-                a.Visibility = System.Windows.Visibility.Visible;
-                blok1.Visibility = System.Windows.Visibility.Visible;
-                submitButton.Visibility = System.Windows.Visibility.Visible;
-                h.Visibility = System.Windows.Visibility.Visible;
-                blok2.Visibility = System.Windows.Visibility.Visible;
-                b.Visibility = System.Windows.Visibility.Hidden;
-                blok3.Visibility = System.Windows.Visibility.Hidden;
-                c.Visibility = System.Windows.Visibility.Hidden;
-                blok4.Visibility = System.Windows.Visibility.Hidden;
-                wynikTO.Visibility = System.Windows.Visibility.Visible;
-                wynik.Visibility = System.Windows.Visibility.Visible;
+                wypisz.Visibility = Visibility.Visible;
+                a.Visibility = Visibility.Visible;
+                blok1.Visibility = Visibility.Visible;
+                submitButton.Visibility = Visibility.Visible;
+                h.Visibility = Visibility.Visible;
+                blok2.Visibility = Visibility.Visible;
+                b.Visibility = Visibility.Hidden;
+                blok3.Visibility = Visibility.Hidden;
+                c.Visibility = Visibility.Hidden;
+                blok4.Visibility = Visibility.Hidden;
+                wynikTO.Visibility = Visibility.Visible;
+                wynik.Visibility = Visibility.Visible;
             }
             else if (zak == 4)
             {
-                wypisz.Visibility = System.Windows.Visibility.Visible;
-                a.Visibility = System.Windows.Visibility.Visible;
-                blok1.Visibility = System.Windows.Visibility.Visible;
-                submitButton.Visibility = System.Windows.Visibility.Visible;
-                h.Visibility = System.Windows.Visibility.Hidden;
-                blok2.Visibility = System.Windows.Visibility.Hidden;
-                b.Visibility = System.Windows.Visibility.Hidden;
-                blok3.Visibility = System.Windows.Visibility.Hidden;
-                c.Visibility = System.Windows.Visibility.Hidden;
-                blok4.Visibility = System.Windows.Visibility.Hidden;
-                wynikTO.Visibility = System.Windows.Visibility.Hidden;
-                wynik.Visibility = System.Windows.Visibility.Hidden;
+                wypisz.Visibility = Visibility.Visible;
+                a.Visibility = Visibility.Visible;
+                blok1.Visibility = Visibility.Visible;
+                submitButton.Visibility = Visibility.Visible;
+                h.Visibility = Visibility.Hidden;
+                blok2.Visibility = Visibility.Hidden;
+                b.Visibility = Visibility.Hidden;
+                blok3.Visibility = Visibility.Hidden;
+                c.Visibility = Visibility.Hidden;
+                blok4.Visibility = Visibility.Hidden;
+                wynikTO.Visibility = Visibility.Hidden;
+                wynik.Visibility = Visibility.Hidden;
             }
             else
             {
-                wypisz.Visibility = System.Windows.Visibility.Hidden;
-                a.Visibility = System.Windows.Visibility.Hidden;
-                blok1.Visibility = System.Windows.Visibility.Hidden;
-                submitButton.Visibility = System.Windows.Visibility.Hidden;
-                h.Visibility = System.Windows.Visibility.Hidden;
-                blok2.Visibility = System.Windows.Visibility.Hidden;
-                b.Visibility = System.Windows.Visibility.Hidden;
-                blok3.Visibility = System.Windows.Visibility.Hidden;
-                c.Visibility = System.Windows.Visibility.Hidden;
-                blok4.Visibility = System.Windows.Visibility.Hidden;
-                wynikTO.Visibility = System.Windows.Visibility.Hidden;
-                wynik.Visibility = System.Windows.Visibility.Hidden;
+                wypisz.Visibility = Visibility.Hidden;
+                a.Visibility = Visibility.Hidden;
+                blok1.Visibility = Visibility.Hidden;
+                submitButton.Visibility = Visibility.Hidden;
+                h.Visibility = Visibility.Hidden;
+                blok2.Visibility = Visibility.Hidden;
+                b.Visibility = Visibility.Hidden;
+                blok3.Visibility = Visibility.Hidden;
+                c.Visibility = Visibility.Hidden;
+                blok4.Visibility = Visibility.Hidden;
+                wynikTO.Visibility = Visibility.Hidden;
+                wynik.Visibility = Visibility.Hidden;
             }
         }
 
@@ -262,7 +274,7 @@ namespace Zadanie_7
             string zapis = new coWidoczne().coWpisać(wybierzFigura.SelectedItem.ToString());
 
             dodanieRekordu.dodajeRekord(zapis, value1, a, b, c, h, value3);
-            wyswietlDane();
+          
         }
 
         private void Statr_Button_Click(object sender, RoutedEventArgs e)
@@ -274,6 +286,16 @@ namespace Zadanie_7
         private void Stop_Button_Click(object sender, RoutedEventArgs e)
         {
             ((Storyboard)Resources["CircleSpin"]).Stop();
+        }
+
+        private void loadDate_Click(object sender, RoutedEventArgs e)
+        {
+            opoznij.Visibility = Visibility.Visible;
+            rectangle.Visibility = Visibility.Visible;
+            komunikat.Visibility = Visibility.Visible;
+            ((Storyboard)Resources["LoadingScreen"]).Begin();
+            Thread thread = new Thread(() => wyswietlDane());
+            thread.Start();
         }
     }
 }
