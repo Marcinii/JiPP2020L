@@ -90,7 +90,11 @@ namespace Zadanie_7
                     blok4.Visibility = Visibility.Visible;
                     wynikTO.Visibility = Visibility.Visible;
                     wynik.Visibility = Visibility.Visible;
-           
+                    blok1.Text = "0";
+                    blok2.Text = "0";
+                    blok3.Text = "0";
+                    blok4.Text = "0";
+
                 }
                 else if (zak == 2)
                 {
@@ -106,7 +110,11 @@ namespace Zadanie_7
                     blok4.Visibility = Visibility.Hidden;
                     wynikTO.Visibility = Visibility.Visible;
                     wynik.Visibility = Visibility.Visible;
-              
+                    blok1.Text = "0";
+                    blok2.Text = "0";
+                    blok3.Text = "0";
+                    blok4.Text = "0";
+
                 }
                 else if (zak == 3)
                 {
@@ -122,7 +130,11 @@ namespace Zadanie_7
                     blok4.Visibility = Visibility.Hidden;
                     wynikTO.Visibility = Visibility.Visible;
                     wynik.Visibility = Visibility.Visible;
-                   
+                    blok1.Text = "0";
+                    blok2.Text = "0";
+                    blok3.Text = "0";
+                    blok4.Text = "0";
+
                 }
                 else if (zak == 4)
                 {
@@ -136,9 +148,13 @@ namespace Zadanie_7
                     blok3.Visibility = Visibility.Hidden;
                     c.Visibility = Visibility.Hidden;
                     blok4.Visibility = Visibility.Hidden;
-                    wynikTO.Visibility = Visibility.Hidden;
-                    wynik.Visibility = Visibility.Hidden;
-                    
+                    wynikTO.Visibility = Visibility.Visible;
+                    wynik.Visibility = Visibility.Visible;
+                    blok1.Text = "0";
+                    blok2.Text = "0";
+                    blok3.Text = "0";
+                    blok4.Text = "0";
+
                 }
                 else
                 {
@@ -154,22 +170,39 @@ namespace Zadanie_7
                     blok4.Visibility = Visibility.Hidden;
                     wynikTO.Visibility = Visibility.Hidden;
                     wynik.Visibility = Visibility.Hidden;
-                   
+                    blok1.Text = "0";
+                    blok2.Text = "0";
+                    blok3.Text = "0";
+                    blok4.Text = "0";
+
                 }
             }
             if (value2 == "Zadanie_7.trojkat")
             {
                 dla_trojkat.Visibility = Visibility.Visible;
                 dla_kwadrat.Visibility = Visibility.Hidden;
-            }else if (value2 == "Zadanie_7.kwadrat")
+                blok1.Text = "0";
+                blok2.Text = "0";
+                blok3.Text = "0";
+                blok4.Text = "0";
+            }
+            else if (value2 == "Zadanie_7.kwadrat")
             {
                 dla_trojkat.Visibility = Visibility.Hidden;
                 dla_kwadrat.Visibility = Visibility.Visible;
+                blok1.Text = "0";
+                blok2.Text = "0";
+                blok3.Text = "0";
+                blok4.Text = "0";
             }
             else
             {
                 dla_trojkat.Visibility = Visibility.Hidden;
                 dla_kwadrat.Visibility = Visibility.Hidden;
+                blok1.Text = "0";
+                blok2.Text = "0";
+                blok3.Text = "0";
+                blok4.Text = "0";
             }
         }
 
@@ -194,6 +227,10 @@ namespace Zadanie_7
                 blok4.Visibility = Visibility.Visible;
                 wynikTO.Visibility = Visibility.Visible;
                 wynik.Visibility = Visibility.Visible;
+                blok1.Text = "0";
+                blok2.Text = "0";
+                blok3.Text = "0";
+                blok4.Text = "0";
             }
             else if(zak == 2)
             {
@@ -209,6 +246,10 @@ namespace Zadanie_7
                 blok4.Visibility = Visibility.Hidden;
                 wynikTO.Visibility = Visibility.Visible;
                 wynik.Visibility = Visibility.Visible;
+                blok1.Text = "0";
+                blok2.Text = "0";
+                blok3.Text = "0";
+                blok4.Text = "0";
             }
             else if (zak == 3)
             {
@@ -224,6 +265,10 @@ namespace Zadanie_7
                 blok4.Visibility = Visibility.Hidden;
                 wynikTO.Visibility = Visibility.Visible;
                 wynik.Visibility = Visibility.Visible;
+                blok1.Text = "0";
+                blok2.Text = "0";
+                blok3.Text = "0";
+                blok4.Text = "0";
             }
             else if (zak == 4)
             {
@@ -237,8 +282,12 @@ namespace Zadanie_7
                 blok3.Visibility = Visibility.Hidden;
                 c.Visibility = Visibility.Hidden;
                 blok4.Visibility = Visibility.Hidden;
-                wynikTO.Visibility = Visibility.Hidden;
-                wynik.Visibility = Visibility.Hidden;
+                wynikTO.Visibility = Visibility.Visible;
+                wynik.Visibility = Visibility.Visible;
+                blok1.Text = "0";
+                blok2.Text = "0";
+                blok3.Text = "0";
+                blok4.Text = "0";
             }
             else
             {
@@ -254,6 +303,10 @@ namespace Zadanie_7
                 blok4.Visibility = Visibility.Hidden;
                 wynikTO.Visibility = Visibility.Hidden;
                 wynik.Visibility = Visibility.Hidden;
+                blok1.Text = "0";
+                blok2.Text = "0";
+                blok3.Text = "0";
+                blok4.Text = "0";
             }
         }
 
@@ -264,7 +317,7 @@ namespace Zadanie_7
             double.TryParse(blok1.Text, out a);
             double.TryParse(blok2.Text, out h);
             double.TryParse(blok3.Text, out b);
-            double.TryParse(blok4.Text,out c);
+            double.TryParse(blok4.Text, out c);
 
             string value1 = coLiczysz.SelectedItem.ToString();
             string value2 =((Ifigury)wybierzFigura.SelectedItem).oblicz(value1,a,b,c,h).ToString();

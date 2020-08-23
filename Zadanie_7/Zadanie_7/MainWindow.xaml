@@ -121,7 +121,7 @@
             <DataGrid x:Name="wysiwetla" Grid.Column="2" Margin="10,5,10,5" Width="500" MaxHeight="600" MinHeight="200"/>
         </StackPanel>
         <Rectangle Grid.ColumnSpan="3" Fill="#72000000" Visibility="Hidden" x:Name="opoznij"/>
-        <Label Grid.ColumnSpan="3" Content="Please wait... Lading data...." x:Name="komunikat" HorizontalAlignment="Center" VerticalAlignment="Center" Visibility="Hidden" FontWeight="Bold" FontSize="20" />
+        <Label Grid.ColumnSpan="3" Content="Please wait... Loading data...." x:Name="komunikat" HorizontalAlignment="Center" VerticalAlignment="Center" Visibility="Hidden" FontWeight="Bold" FontSize="20" />
         <Rectangle x:Name="rectangle" Height="25" Width="25" VerticalAlignment="Center" Visibility="Hidden" Fill="DarkBlue" Grid.Column="2" Margin="258,328,314,316" RenderTransformOrigin="-10.32,0.28">
             <Rectangle.RenderTransform>
                 <TransformGroup>

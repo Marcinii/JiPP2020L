@@ -34,10 +34,7 @@ namespace Statistic.Controls
                 _rateValue = value;
 
                 UpdateButton();
-                if(RateValueChanged != null)
-                {
-                    RateValueChanged(_rateValue);
-                }
+                RateValueChanged?.Invoke(_rateValue);
             }
             
         }
