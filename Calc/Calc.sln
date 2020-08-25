@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29911.84
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CalcLogic", "CalcLogic\CalcLogic.csproj", "{C5574B4A-A4A5-4B06-9141-CEB4671049B5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CalcDesktop", "CalcDesktop\CalcDesktop.csproj", "{F2ECE838-FA42-486E-9F5D-96BC39A75AA7}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C5574B4A-A4A5-4B06-9141-CEB4671049B5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C5574B4A-A4A5-4B06-9141-CEB4671049B5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C5574B4A-A4A5-4B06-9141-CEB4671049B5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C5574B4A-A4A5-4B06-9141-CEB4671049B5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F2ECE838-FA42-486E-9F5D-96BC39A75AA7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F2ECE838-FA42-486E-9F5D-96BC39A75AA7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F2ECE838-FA42-486E-9F5D-96BC39A75AA7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F2ECE838-FA42-486E-9F5D-96BC39A75AA7}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D94D5F91-6E18-4440-8B14-B6D964646AC2}
+	EndGlobalSection
+EndGlobal
