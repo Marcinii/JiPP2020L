@@ -66,7 +66,7 @@ namespace KonwerterJednostek2.Desktop
             EventHandler handler = this.CanExecuteChangedInternal;
             if (handler != null)
             {
-                //DispatcherHelper.BeginInvokeOnUIThread(() => handler.Invoke(this, EventArgs.Empty));
+
                 handler.Invoke(this, EventArgs.Empty);
             }
         }

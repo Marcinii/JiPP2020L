@@ -16,9 +16,6 @@ using System.Windows.Shapes;
 
 namespace KonwerterJednostek2.Desktop
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window
     {
         int strona = 0;
@@ -28,6 +25,9 @@ namespace KonwerterJednostek2.Desktop
         public MainWindow()
         {
             InitializeComponent();
+
+            LoadingPanel.Visibility = Visibility.Hidden;
+            arrows.Visibility = Visibility.Hidden;
 
             Category.ItemsSource = new List<iKonwerter>()
             {
@@ -61,7 +61,7 @@ namespace KonwerterJednostek2.Desktop
                 String.IsNullOrEmpty(Toconvert.Text) != true);
             Makeit.Command = convertCommand;
 
-            refreshCommand = new RelayCommand(obj => Refresh());
+            refreshCommand = new RelayCommand(obj => RefreshClicked());
             RefreshButton.Command = refreshCommand;
 
             pagebackCommand = new RelayCommand(obj => pageback());
@@ -149,17 +149,39 @@ namespace KonwerterJednostek2.Desktop
         }
 
         private RelayCommand refreshCommand;
+
+        private void RefreshClicked()
+        {
+            LoadingPanel.Visibility = Visibility.Visible;
+
+            arrows.Visibility = Visibility.Visible;
+
+            Storyboard sb = this.FindResource("LoadingStory") as Storyboard;
+            Storyboard.SetTarget(sb, arrows);
+            sb.Begin();
+
+            Task t1 = new Task(() => Refresh());
+
+            t1.Start();
+        }
+
         private void Refresh()
         {
+
+            Task.Delay(5000).Wait();
+
             using (KonwerterJednostekDataEntities2 context = new KonwerterJednostekDataEntities2())
             {
-                List<Log> logi = zwrocOdfiltrowaneLogi(context).ToList();
-                LogList.ItemsSource = logi.Take(logperpage);
-                maxpage = logi.Count() / 10;
+
+                Dispatcher.Invoke(() => {
+                    List<Log> logi = zwrocOdfiltrowaneLogi(context).ToList();
+                    LogList.ItemsSource = logi.Take(logperpage);
+                    maxpage = logi.Count() / 10;
+                    LoadingPanel.Visibility = Visibility.Hidden;
+                    arrows.Visibility = Visibility.Hidden;
+                });
             }
-
             strona = 0;
-
         }
 
         private void LogList_SelectionChanged(object sender, SelectionChangedEventArgs e)

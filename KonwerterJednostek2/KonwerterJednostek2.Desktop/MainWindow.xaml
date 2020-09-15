@@ -14,6 +14,16 @@
                 <EasingColorKeyFrame KeyTime="0:0:2" Value="#FFDDE3DC"/>
             </ColorAnimationUsingKeyFrames>
         </Storyboard>
+        <Storyboard x:Key="LoadingStory">
+            <PointAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransformOrigin)" Storyboard.TargetName="arrows">
+                <EasingPointKeyFrame KeyTime="0" Value="0.5,0.5"/>
+                <EasingPointKeyFrame KeyTime="0:0:5" Value="0.5,0.5"/>
+            </PointAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[2].(RotateTransform.Angle)" Storyboard.TargetName="arrows">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:5" Value="-1080"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
     </Window.Resources>
 
     <Grid Background="#FFF3F3F3" Margin="0,0,0.333,0.333">
@@ -52,9 +62,9 @@
             </Rectangle.RenderTransform>
         </Rectangle>
         <DataGrid x:Name="LogList" HorizontalAlignment="Left" Height="221" Margin="483,33,0,0" VerticalAlignment="Top" Width="377" SelectionChanged="LogList_SelectionChanged" Grid.ColumnSpan="2"/>
-        <Button x:Name="RefreshButton" Content="Odśwież" HorizontalAlignment="Left" Height="46" Margin="641,264,0,0" VerticalAlignment="Top" Width="65" Background="#FFE5E5E5"/>
-        <Button x:Name="back" Content="Wróć" HorizontalAlignment="Left" Height="46" Margin="572,264,0,0" VerticalAlignment="Top" Width="49" Background="#FFE5E5E5" />
-        <Button x:Name="next" Content="Dalej" HorizontalAlignment="Left" Height="46" Margin="728,264,0,0" VerticalAlignment="Top" Width="47" Background="#FFE5E5E5" />
+        <Button x:Name="RefreshButton" Content="Odśwież" HorizontalAlignment="Left" Height="46" Margin="641,264,0,0" VerticalAlignment="Top" Width="65"/>
+        <Button x:Name="back" Content="Wróć" HorizontalAlignment="Left" Height="46" Margin="572,264,0,0" VerticalAlignment="Top" Width="49" />
+        <Button x:Name="next" Content="Dalej" HorizontalAlignment="Left" Height="46" Margin="728,264,0,0" VerticalAlignment="Top" Width="47" />
         <ComboBox x:Name="FiltrTyp" HorizontalAlignment="Left" Height="22" Margin="483,6,0,0" VerticalAlignment="Top" Width="81"/>
         <DatePicker x:Name="Zakresod" HorizontalAlignment="Left" Height="22" Margin="564,6,0,0" VerticalAlignment="Top" Width="105" Text="Zakres od"/>
         <DatePicker x:Name="Zakresdo" HorizontalAlignment="Left" Height="22" Margin="669,6,0,0" VerticalAlignment="Top" Width="106" Text="Zakres od"/>
@@ -64,7 +74,31 @@
         <TextBlock HorizontalAlignment="Left" Margin="38,143,0,0" TextWrapping="Wrap" Text="Konwertuj na:" VerticalAlignment="Top" Width="186"/>
         <commonControls:RateButton x:Name="rateControl" Margin="140,289,568.667,10" RateChanged="RateControl_RateChanged"/>
         <TextBlock HorizontalAlignment="Left" Margin="38,297,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="102" Height="22"><Run Text="Oceń aplikację:"/><LineBreak/><Run/></TextBlock>
-
-
+        <Rectangle x:Name="LoadingPanel" Fill="#7F0C0C0C" Grid.ColumnSpan="2" Margin="0"/>
+        <Path Data="M-176.9,117.3" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="1" Margin="-176.9,117.3,0,0" Stretch="Fill" Stroke="Black" VerticalAlignment="Top" Width="1"/>
+        <Canvas x:Name="arrows" Margin="641,117,143.667,141">
+            <Canvas.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Canvas.RenderTransform>
+            <Path Data="M 194.35,10.84
+           C 100.14,10.84 23.33,86.69 21.72,180.51
+             21.72,180.51 0.00,181.48 0.00,181.48
+             0.00,181.48 46.83,256.16 46.83,256.16
+             46.83,256.16 86.82,177.61 86.82,177.61
+             86.82,177.61 65.25,178.58 65.25,178.58
+             67.84,109.62 124.75,54.31 194.35,54.31
+             265.60,54.31 323.55,112.27 323.55,183.51
+             323.55,254.75 265.60,312.72 194.35,312.72
+             161.79,312.72 130.70,300.58 106.79,278.51
+             106.79,278.51 77.34,310.47 77.34,310.47
+             109.28,339.94 150.84,356.16 194.35,356.16
+             289.55,356.16 367.00,278.72 367.00,183.52
+             367.00,88.31 289.55,10.84 194.35,10.84 Z" Fill="#FF2BA536" HorizontalAlignment="Left" Height="80" Stretch="Fill" Stroke="Black" VerticalAlignment="Top" Width="80" RenderTransformOrigin="0.5,0.5"/>
+        </Canvas>
     </Grid>
 </Window>
