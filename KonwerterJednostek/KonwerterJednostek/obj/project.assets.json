@@ -1,11 +1,29 @@
 {
   "version": 3,
   "targets": {
-    ".NETCoreApp,Version=v3.1": {}
+    ".NETCoreApp,Version=v3.1": {
+      "KonwerterJednostek.Logic/1.0.0": {
+        "type": "project",
+        "compile": {
+          "bin/placeholder/KonwerterJednostek.Logic.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/KonwerterJednostek.Logic.dll": {}
+        }
+      }
+    }
   },
-  "libraries": {},
+  "libraries": {
+    "KonwerterJednostek.Logic/1.0.0": {
+      "type": "project",
+      "path": "../KonwerterJednostek.Logic/KonwerterJednostek.Logic.csproj",
+      "msbuildProject": "../KonwerterJednostek.Logic/KonwerterJednostek.Logic.csproj"
+    }
+  },
   "projectFileDependencyGroups": {
-    ".NETCoreApp,Version=v3.1": []
+    ".NETCoreApp,Version=v3.1": [
+      "KonwerterJednostek.Logic >= 1.0.0"
+    ]
   },
   "packageFolders": {
     "C:\\Users\\Czaro\\.nuget\\packages\\": {}
@@ -13,11 +31,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Czaro\\source\\repos\\KonwerterJednostek\\KonwerterJednostek\\KonwerterJednostek.csproj",
-      "projectName": "KonwerterJednostek",
-      "projectPath": "C:\\Users\\Czaro\\source\\repos\\KonwerterJednostek\\KonwerterJednostek\\KonwerterJednostek.csproj",
+      "projectUniqueName": "C:\\Users\\Czaro\\Source\\Repos\\JiPP2020L\\KonwerterJednostek\\KonwerterJednostek\\KonwerterJednostek.Console.csproj",
+      "projectName": "KonwerterJednostek.Console",
+      "projectPath": "C:\\Users\\Czaro\\Source\\Repos\\JiPP2020L\\KonwerterJednostek\\KonwerterJednostek\\KonwerterJednostek.Console.csproj",
       "packagesPath": "C:\\Users\\Czaro\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Czaro\\source\\repos\\KonwerterJednostek\\KonwerterJednostek\\obj\\",
+      "outputPath": "C:\\Users\\Czaro\\Source\\Repos\\JiPP2020L\\KonwerterJednostek\\KonwerterJednostek\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Czaro\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -32,7 +50,11 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\Czaro\\Source\\Repos\\JiPP2020L\\KonwerterJednostek\\KonwerterJednostek.Logic\\KonwerterJednostek.Logic.csproj": {
+              "projectPath": "C:\\Users\\Czaro\\Source\\Repos\\JiPP2020L\\KonwerterJednostek\\KonwerterJednostek.Logic\\KonwerterJednostek.Logic.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

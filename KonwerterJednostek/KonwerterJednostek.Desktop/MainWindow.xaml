@@ -1,0 +1,26 @@
+﻿<Window x:Class="KonwerterJednostek.Desktop.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:KonwerterJednostek.Desktop"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="34*"/>
+            <RowDefinition Height="385*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="164"/>
+            <ColumnDefinition Width="158"/>
+            <ColumnDefinition Width="200"/>
+            <ColumnDefinition Width="270"/>
+        </Grid.ColumnDefinitions>
+        <Label Grid.Row="0" Grid.Column="0" Grid.RowSpan="2" UseLayoutRounding="False" Content="Wprowadź wartość konwersji"/>
+        <Button x:Name="actionButton" Content="Wynik" Grid.Column="2" Margin="5,5,5,5" Click="actionButton_Click"/>
+        <TextBlock x:Name="outputTextblock" Grid.Column="3" Grid.RowSpan="2" Margin="5,5,5,5"/>
+        <TextBox x:Name="inputTextbox" Grid.Column="1" Margin="5,5,5,5"/>
+        <ComboBox x:Name="comboBox" Grid.Column="1" Grid.Row="1" VerticalAlignment="Top" Margin="5,5,5,0" Height="22" SelectionChanged="comboBox_SelectionChanged" SelectedIndex="0"/>
+    </Grid>
+</Window>

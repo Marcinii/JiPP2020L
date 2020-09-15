@@ -1,0 +1,6 @@
+C:\Users\Czaro\source\repos\KonwerterJednostek\KonwerterJednostek.Logic\bin\Debug\KonwerterJednostek.Logic.dll
+C:\Users\Czaro\source\repos\KonwerterJednostek\KonwerterJednostek.Logic\bin\Debug\KonwerterJednostek.Logic.pdb
+C:\Users\Czaro\source\repos\KonwerterJednostek\KonwerterJednostek.Logic\obj\Debug\KonwerterJednostek.Logic.csprojAssemblyReference.cache
+C:\Users\Czaro\source\repos\KonwerterJednostek\KonwerterJednostek.Logic\obj\Debug\KonwerterJednostek.Logic.csproj.CoreCompileInputs.cache
+C:\Users\Czaro\source\repos\KonwerterJednostek\KonwerterJednostek.Logic\obj\Debug\KonwerterJednostek.Logic.dll
+C:\Users\Czaro\source\repos\KonwerterJednostek\KonwerterJednostek.Logic\obj\Debug\KonwerterJednostek.Logic.pdb
