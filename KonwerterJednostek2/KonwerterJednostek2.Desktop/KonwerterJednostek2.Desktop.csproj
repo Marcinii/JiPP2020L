@@ -64,6 +64,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Rate.cs">
+      <DependentUpon>converterEntities2.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RelayCommand.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -133,6 +137,10 @@
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\KonwerterJednostek2.Controls\KonwerterJednostek2.Controls.csproj">
+      <Project>{9e88f790-667f-4ae5-bf12-c10fc1c7db3f}</Project>
+      <Name>KonwerterJednostek2.Controls</Name>
+    </ProjectReference>
     <ProjectReference Include="..\KonwerterJednostek2.Logic\KonwerterJednostek2.Logic.csproj">
       <Project>{9b7e4685-83a6-4b3c-82d4-142ab2dc9514}</Project>
       <Name>KonwerterJednostek2.Logic</Name>

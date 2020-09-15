@@ -39,13 +39,42 @@ namespace KonwerterJednostek2.Desktop
             };
             FiltrTyp.ItemsSource = Category.ItemsSource;
 
+            using (KonwerterJednostekDataEntities2 context = new KonwerterJednostekDataEntities2())
+            {
+                List<Rate> rate = context.Rate.ToList();
+                if (rate.Count > 0)
+                {
+                    Console.WriteLine(rate.Last().rate1);
+                    rateControl.RateV = rate.Last().rate1.GetValueOrDefault(0);
+                }
+
+            };
 
 
 
             Tarcza.Visibility = Visibility.Hidden;
             Godzinowa.Visibility = Visibility.Hidden;
             Minutowa.Visibility = Visibility.Hidden;
+
+
+            convertCommand = new RelayCommand(obj => Convert(), obj => UnitFrom.SelectedItem != null && UnitTo.SelectedItem != null &&
+                String.IsNullOrEmpty(Toconvert.Text) != true);
+            Makeit.Command = convertCommand;
+
+            refreshCommand = new RelayCommand(obj => Refresh());
+            RefreshButton.Command = refreshCommand;
+
+            pagebackCommand = new RelayCommand(obj => pageback());
+            back.Command = pagebackCommand;
+
+            pagenextCommand = new RelayCommand(obj => pagenext());
+            next.Command = pagenextCommand;
+
+            showtop3Command = new RelayCommand(obj => showtop3());
+            Top3.Command = showtop3Command;
         }
+
+
 
         private void selectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -67,7 +96,8 @@ namespace KonwerterJednostek2.Desktop
             }
         }
 
-        private void Convert(object sender, RoutedEventArgs e)
+        private RelayCommand convertCommand;
+        private void Convert()
         {
             if (((iKonwerter)Category.SelectedItem).Name == "KonwerterZegar")
             {
@@ -100,7 +130,7 @@ namespace KonwerterJednostek2.Desktop
                 Converted.Content = ((iKonwerter)Category.SelectedItem).convert(value, UnitFrom.Text, UnitTo.Text);
             }
 
-            using (converterEntities context = new converterEntities())
+            using (KonwerterJednostekDataEntities2 context = new KonwerterJednostekDataEntities2())
             {
                 Log log = new Log()
                 {
@@ -118,9 +148,10 @@ namespace KonwerterJednostek2.Desktop
             }
         }
 
-        private void Refresh(object sender, RoutedEventArgs e)
+        private RelayCommand refreshCommand;
+        private void Refresh()
         {
-            using (converterEntities context = new converterEntities())
+            using (KonwerterJednostekDataEntities2 context = new KonwerterJednostekDataEntities2())
             {
                 List<Log> logi = zwrocOdfiltrowaneLogi(context).ToList();
                 LogList.ItemsSource = logi.Take(logperpage);
@@ -131,32 +162,40 @@ namespace KonwerterJednostek2.Desktop
 
         }
 
-        private void pageback(object sender, RoutedEventArgs e)
+        private void LogList_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private RelayCommand pagebackCommand;
+        private void pageback()
         {
             strona--;
 
-            using (converterEntities context = new converterEntities())
+            using (KonwerterJednostekDataEntities2 context = new KonwerterJednostekDataEntities2())
             {
                 LogList.ItemsSource = zwrocOdfiltrowaneLogi(context).ToList().Skip(strona * 10).Take(logperpage);
             }
         }
 
-        private void pagenext(object sender, RoutedEventArgs e)
+        private RelayCommand pagenextCommand;
+        private void pagenext()
         {
             if (strona != maxpage)
             {
                 strona++;
             }
 
-            using (converterEntities context = new converterEntities())
+            using (KonwerterJednostekDataEntities2 context = new KonwerterJednostekDataEntities2())
             {
                 LogList.ItemsSource = zwrocOdfiltrowaneLogi(context).ToList().Skip(strona * 10).Take(logperpage);
             }
         }
 
-        private void showtop3(object sender, RoutedEventArgs e)
+        private RelayCommand showtop3Command;
+        private void showtop3()
         {
-            using (converterEntities context = new converterEntities())
+            using (KonwerterJednostekDataEntities2 context = new KonwerterJednostekDataEntities2())
             {
                 LogList.ItemsSource = zwrocOdfiltrowaneLogi(context).GroupBy(l => new { l.Typ, l.JednostkaZ, l.JednostkaDo })
                     .Select(g => new { g.Key.Typ, g.Key.JednostkaZ, g.Key.JednostkaDo, count = g.Count() })
@@ -166,7 +205,7 @@ namespace KonwerterJednostek2.Desktop
             }
         }
 
-        private IQueryable<Log> zwrocOdfiltrowaneLogi(converterEntities context)
+        private IQueryable<Log> zwrocOdfiltrowaneLogi(KonwerterJednostekDataEntities2 context)
         {
             IQueryable<Log> log = context.Log.Where(l => l.Typ == l.Typ);
             if (((iKonwerter)FiltrTyp.SelectedItem) != null)
@@ -190,9 +229,18 @@ namespace KonwerterJednostek2.Desktop
             return log;
         }
 
-        private void LogList_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void RateControl_RateChanged(object sender, KonwerterJednostek2.Controls.RateArgs e)
         {
+            using (KonwerterJednostekDataEntities2 context = new KonwerterJednostekDataEntities2())
+            {
+                Rate r = new Rate()
+                {
+                    rate1 = e.Value
+                };
 
+                context.Rate.Add(r);
+                context.SaveChanges();
+            }
         }
     }
 }

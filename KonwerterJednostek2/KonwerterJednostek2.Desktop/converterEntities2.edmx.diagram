@@ -6,6 +6,7 @@
     <edmx:Diagrams>
       <Diagram DiagramId="73db25cd0a1a41058b6d05dd26bf1ac9" Name="Diagram1">
         <EntityTypeShape EntityType="KonwerterJednostekDataModel.Log" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="KonwerterJednostekDataModel.Rate" Width="1.5" PointX="2.375" PointY="0.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

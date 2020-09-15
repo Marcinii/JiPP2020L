@@ -17,8 +17,16 @@
           <Property Name="WartoscPrzed" Type="varchar" MaxLength="20" Nullable="false" />
           <Property Name="WartoscPo" Type="varchar" MaxLength="20" Nullable="false" />
         </EntityType>
+        <EntityType Name="Rate">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="rate1" Type="int" Nullable="false" />
+        </EntityType>
         <EntityContainer Name="KonwerterJednostekDataModelStoreContainer">
           <EntitySet Name="Log" EntityType="Self.Log" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Rate" EntityType="Self.Rate" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
@@ -38,7 +46,15 @@
         </EntityType>
         <EntityContainer Name="KonwerterJednostekDataEntities2" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Log" EntityType="Self.Log" />
+          <EntitySet Name="Rates" EntityType="KonwerterJednostekDataModel.Rate" />
         </EntityContainer>
+        <EntityType Name="Rate">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="rate1" Type="Int32" Nullable="false" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -55,6 +71,14 @@
                 <ScalarProperty Name="Data" ColumnName="Data" />
                 <ScalarProperty Name="WartoscPrzed" ColumnName="WartoscPrzed" />
                 <ScalarProperty Name="WartoscPo" ColumnName="WartoscPo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Rates">
+            <EntityTypeMapping TypeName="KonwerterJednostekDataModel.Rate">
+              <MappingFragment StoreEntitySet="Rate">
+                <ScalarProperty Name="rate1" ColumnName="rate1" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

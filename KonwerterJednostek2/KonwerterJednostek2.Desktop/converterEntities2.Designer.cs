@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model 'C:\Users\stead\Desktop\JiPP2020L-96bedb3ad9a76cb3a1a23d75cfe781c53343eb23\Converter.Desktop\converterEntities2.edmx'. 
+﻿// T4 code generation is enabled for model 'C:\Users\stead\Desktop\KonwerterJednostek2\KonwerterJednostek2.Desktop\converterEntities2.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.

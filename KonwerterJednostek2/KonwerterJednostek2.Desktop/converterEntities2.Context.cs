@@ -13,10 +13,10 @@ namespace KonwerterJednostek2.Desktop
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class converterEntities : DbContext
+    public partial class KonwerterJednostekDataEntities2 : DbContext
     {
-        public converterEntities()
-            : base("name=converterEntities")
+        public KonwerterJednostekDataEntities2()
+            : base("name=KonwerterJednostekDataEntities2")
         {
         }
     
@@ -26,5 +26,6 @@ namespace KonwerterJednostek2.Desktop
         }
     
         public virtual DbSet<Log> Log { get; set; }
+        public virtual DbSet<Rate> Rate { get; set; }
     }
 }

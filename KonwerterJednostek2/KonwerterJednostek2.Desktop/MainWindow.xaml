@@ -4,8 +4,9 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:KonwerterJednostek2.Desktop"
+        xmlns:commonControls="clr-namespace:KonwerterJednostek2.Controls;assembly=Converter.Controls"
         mc:Ignorable="d"
-        Title="Konwerter jednostek" Height="350" Width="899.553">
+        Title="Konwerter jednostek" Height="368.001" Width="899.553">
     <Window.Resources>
         <Storyboard x:Key="TarczaStory">
             <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)" Storyboard.TargetName="Tarcza">
@@ -15,7 +16,7 @@
         </Storyboard>
     </Window.Resources>
 
-    <Grid Background="#FFF3F3F3">
+    <Grid Background="#FFF3F3F3" Margin="0,0,0.333,0.333">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="764*"/>
             <ColumnDefinition Width="29*"/>
@@ -24,7 +25,7 @@
         <ComboBox x:Name="UnitFrom" HorizontalAlignment="Left" Height="39" Margin="38,94,0,0" VerticalAlignment="Top" Width="202"/>
         <ComboBox x:Name="UnitTo" HorizontalAlignment="Left" Height="37" Margin="38,159,0,0" VerticalAlignment="Top" Width="202"/>
 
-        <Button x:Name="Makeit" Content="Konwertuj" HorizontalAlignment="Left" Height="50" Margin="160,225,0,0" Width="80" FontSize="13" Background="#FF75FD3B" VerticalAlignment="Top" Click="Convert"/>
+        <Button x:Name="Makeit" Content="Konwertuj" HorizontalAlignment="Left" Height="50" Margin="160,225,0,0" Width="80" FontSize="13" Background="#FF75FD3B" VerticalAlignment="Top"/>
         <Label x:Name="Converted" Content="Wynik" HorizontalAlignment="Left" Height="50" Width="113" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="13" Margin="245,225,0,0" VerticalAlignment="Top" BorderBrush="#FFE7B6B6" Background="#FFFF5353"/>
 
         <TextBox x:Name="Toconvert" HorizontalAlignment="Left" Height="50" TextWrapping="Wrap" Text="0" Width="117" FontSize="20" TextAlignment="Center" VerticalContentAlignment="Center" VerticalAlignment="Top" Margin="38,225,0,0"/>
@@ -50,17 +51,19 @@
                 </TransformGroup>
             </Rectangle.RenderTransform>
         </Rectangle>
-        <DataGrid x:Name="LogList" HorizontalAlignment="Left" Height="221" Margin="483,22,0,0" VerticalAlignment="Top" Width="377" SelectionChanged="LogList_SelectionChanged"/>
-        <Button x:Name="RefreshButton" Content="Odśwież" HorizontalAlignment="Left" Height="46" Margin="640,248,0,0" VerticalAlignment="Top" Width="65" Click="Refresh" Background="#FFE5E5E5"/>
-        <Button x:Name="back" Content="Wróć" HorizontalAlignment="Left" Height="46" Margin="575,248,0,0" VerticalAlignment="Top" Width="49" Click="pageback" Background="#FFE5E5E5"/>
-        <Button x:Name="next" Content="Dalej" HorizontalAlignment="Left" Height="46" Margin="719,248,0,0" VerticalAlignment="Top" Width="47" Click="pagenext" Background="#FFE5E5E5"/>
-        <ComboBox x:Name="FiltrTyp" HorizontalAlignment="Left" Height="22" Margin="483,0,0,0" VerticalAlignment="Top" Width="81"/>
-        <DatePicker x:Name="Zakresod" HorizontalAlignment="Left" Height="22" Margin="564,0,0,0" VerticalAlignment="Top" Width="105" Text="Zakres od"/>
-        <DatePicker x:Name="Zakresdo" HorizontalAlignment="Left" Height="22" Margin="669,0,0,0" VerticalAlignment="Top" Width="106" Text="Zakres od"/>
-        <Button x:Name="Top3" Content="TOP 3" HorizontalAlignment="Left" Height="22" Margin="775,0,0,0" VerticalAlignment="Top" Width="85" Click="showtop3"/>
+        <DataGrid x:Name="LogList" HorizontalAlignment="Left" Height="221" Margin="483,33,0,0" VerticalAlignment="Top" Width="377" SelectionChanged="LogList_SelectionChanged" Grid.ColumnSpan="2"/>
+        <Button x:Name="RefreshButton" Content="Odśwież" HorizontalAlignment="Left" Height="46" Margin="641,264,0,0" VerticalAlignment="Top" Width="65" Background="#FFE5E5E5"/>
+        <Button x:Name="back" Content="Wróć" HorizontalAlignment="Left" Height="46" Margin="572,264,0,0" VerticalAlignment="Top" Width="49" Background="#FFE5E5E5" />
+        <Button x:Name="next" Content="Dalej" HorizontalAlignment="Left" Height="46" Margin="728,264,0,0" VerticalAlignment="Top" Width="47" Background="#FFE5E5E5" />
+        <ComboBox x:Name="FiltrTyp" HorizontalAlignment="Left" Height="22" Margin="483,6,0,0" VerticalAlignment="Top" Width="81"/>
+        <DatePicker x:Name="Zakresod" HorizontalAlignment="Left" Height="22" Margin="564,6,0,0" VerticalAlignment="Top" Width="105" Text="Zakres od"/>
+        <DatePicker x:Name="Zakresdo" HorizontalAlignment="Left" Height="22" Margin="669,6,0,0" VerticalAlignment="Top" Width="106" Text="Zakres od"/>
+        <Button x:Name="Top3" Content="TOP 3" HorizontalAlignment="Left" Height="22" Margin="775,6,0,0" VerticalAlignment="Top" Width="85" Grid.ColumnSpan="2"/>
         <TextBlock HorizontalAlignment="Left" Margin="38,17,0,0" TextWrapping="Wrap" Text="Wybierz konwerter:" VerticalAlignment="Top"/>
         <TextBlock HorizontalAlignment="Left" Margin="38,78,0,0" TextWrapping="Wrap" Text="Konwertuj z:" VerticalAlignment="Top"/>
         <TextBlock HorizontalAlignment="Left" Margin="38,143,0,0" TextWrapping="Wrap" Text="Konwertuj na:" VerticalAlignment="Top" Width="186"/>
+        <commonControls:RateButton x:Name="rateControl" Margin="140,289,568.667,10" RateChanged="RateControl_RateChanged"/>
+        <TextBlock HorizontalAlignment="Left" Margin="38,297,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="102" Height="22"><Run Text="Oceń aplikację:"/><LineBreak/><Run/></TextBlock>
 
 
     </Grid>
