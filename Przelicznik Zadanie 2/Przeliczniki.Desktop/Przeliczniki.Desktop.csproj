@@ -64,6 +64,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Komenda.cs" />
+    <Compile Include="Oceny.cs">
+      <DependentUpon>PrzelicznikBazaOceny.tt</DependentUpon>
+    </Compile>
     <Compile Include="Przeliczenia.cs">
       <DependentUpon>PrzeliczeniaBaza.tt</DependentUpon>
     </Compile>
@@ -77,10 +81,20 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>PrzeliczeniaBaza.tt</DependentUpon>
     </Compile>
-    <Compile Include="PrzeliczeniaBaza.Designer.cs">
+    <Compile Include="PrzelicznikBazaOceny.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>PrzeliczeniaBaza.edmx</DependentUpon>
+      <DependentUpon>PrzelicznikBazaOceny.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PrzelicznikBazaOceny.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PrzelicznikBazaOceny.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PrzelicznikBazaOceny.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PrzelicznikBazaOceny.edmx</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -125,11 +139,22 @@
     <None Include="PrzeliczeniaBaza.edmx.diagram">
       <DependentUpon>PrzeliczeniaBaza.edmx</DependentUpon>
     </None>
+    <EntityDeploy Include="PrzelicznikBazaOceny.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>PrzelicznikBazaOceny.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="PrzelicznikBazaOceny.edmx.diagram">
+      <DependentUpon>PrzelicznikBazaOceny.edmx</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Przelicznik.Controls\Przelicznik.Controls.csproj">
+      <Project>{f2d32888-b8c7-4a17-8d1c-241a904b1134}</Project>
+      <Name>Przelicznik.Controls</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Przelicznik.Logic\Przelicznik.Logic.csproj">
       <Project>{2096f8b9-7c7e-4edc-bc86-219c4d69ac97}</Project>
       <Name>Przelicznik.Logic</Name>
@@ -148,6 +173,16 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>PrzeliczeniaBaza.edmx</DependentUpon>
       <LastGenOutput>PrzeliczeniaBaza.cs</LastGenOutput>
+    </Content>
+    <Content Include="PrzelicznikBazaOceny.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>PrzelicznikBazaOceny.edmx</DependentUpon>
+      <LastGenOutput>PrzelicznikBazaOceny.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="PrzelicznikBazaOceny.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>PrzelicznikBazaOceny.edmx</DependentUpon>
+      <LastGenOutput>PrzelicznikBazaOceny.cs</LastGenOutput>
     </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

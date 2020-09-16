@@ -6,6 +6,8 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
+using Przelicznik.Controls;
+using Przelicznik.Desktop;
 
 namespace Przeliczniki.Desktop
 {
@@ -41,8 +43,17 @@ namespace Przeliczniki.Desktop
                 Nazwy.Add(p.Name);
             }
 
-            KonwerterStatystykiWybor.ItemsSource = Nazwy;
+            przelicznikStatystykiWybor.ItemsSource = Nazwy;
+            Kocena.UstawKolor(OstatniaOcena());
+            DodajKomendy();
+        }
 
+        private void DodajKomendy()
+        {
+            ObliczPrzycisk.Command = new Komenda(x => ObliczPrzyciskKomenda());
+            StronaMinus.Command = new Komenda(x => StronaMinusKomenda());
+            StronaPlus.Command = new Komenda(x => StronaPlusKomenda());
+            WybierzPrzycisk.Command = new Komenda(x => WybierzPrzyciskKomenda());
         }
 
         private void WyborPrzelicznikComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -74,7 +85,7 @@ namespace Przeliczniki.Desktop
             }
         }
 
-        private void ObliczPrzycisk_Click(object sender, RoutedEventArgs e)
+        private void ObliczPrzyciskKomenda()
         {
             if (czyPrzelicznikCzasu && PoleWejsciowe.Text != "")
             {
@@ -111,7 +122,7 @@ namespace Przeliczniki.Desktop
             }
         }
 
-        private void ZapiszWynikDoBazy(double wartosc, double wynik, string konwerter, string jednostkaZ, string jednostkaDo)
+        private void ZapiszWynikDoBazy(double wartosc, double wynik, string przelicznik, string jednostkaZ, string jednostkaDo)
         {
             try
             {
@@ -119,7 +130,7 @@ namespace Przeliczniki.Desktop
                 {
                     baza.Przeliczenias.Add(new Przeliczenia
                     {
-                        konwerter = konwerter,
+                        konwerter = przelicznik,
                         wartosc = wartosc,
                         data = DateTime.Now,
                         jednostkaZ = jednostkaZ,
@@ -135,12 +146,12 @@ namespace Przeliczniki.Desktop
             }
         }
 
-        private void WybierzPrzycisk_Click(object sender, RoutedEventArgs e)
+        private void WybierzPrzyciskKomenda()
         {
             WczytajStatystyki();
         }
 
-        private void StronaMinus_Click(object sender, RoutedEventArgs e)
+        private void StronaMinusKomenda()
         {
             if (obecnaStrona != 1)
             {
@@ -150,21 +161,23 @@ namespace Przeliczniki.Desktop
             WczytajStatystyki();
         }
 
-        private void StronaPlus_Click(object sender, RoutedEventArgs e)
+        private void StronaPlusKomenda()
         {
             obecnaStrona = obecnaStrona + 1;
             KtoraStrona.Content = (int.Parse(KtoraStrona.Content.ToString()) + 1).ToString();
             WczytajStatystyki();
         }
 
+        
+
         private void WczytajStatystyki()
         {
-            var konwerter = KonwerterStatystykiWybor.SelectedItem == null ? "" : KonwerterStatystykiWybor.SelectedItem.ToString();
-            var statystyki = WczytajZBazy(20, (obecnaStrona - 1) * 20, DataOdWybor.SelectedDate, DataDoWybor.SelectedDate, konwerter);
+            var przelicznik = przelicznikStatystykiWybor.SelectedItem == null ? "" : przelicznikStatystykiWybor.SelectedItem.ToString();
+            var statystyki = WczytajZBazy(20, (obecnaStrona - 1) * 20, DataOdWybor.SelectedDate, DataDoWybor.SelectedDate, przelicznik);
             Statystyki.ItemsSource = statystyki;
         }
 
-        private List<Przeliczenia> WczytajZBazy(int ileWczytaj, int ilePomin, DateTime? dataOd, DateTime? dataDo, string konwerter)
+        private List<Przeliczenia> WczytajZBazy(int ileWczytaj, int ilePomin, DateTime? dataOd, DateTime? dataDo, string przelicznik)
         {
             var przeliczenia = new List<Przeliczenia> { };
             try
@@ -180,9 +193,9 @@ namespace Przeliczniki.Desktop
                     {
                         zapytanie = zapytanie.Where(p => p.data <= dataDo);
                     }
-                    if (konwerter != "")
+                    if (przelicznik != "")
                     {
-                        zapytanie = zapytanie.Where(p => p.konwerter == konwerter);
+                        zapytanie = zapytanie.Where(p => p.konwerter == przelicznik);
                     }
 
                     var wynik = zapytanie.OrderBy(p => p.id).Skip(ilePomin).ToList();
@@ -201,5 +214,49 @@ namespace Przeliczniki.Desktop
 
             return przeliczenia;
         }
+        private void ZapiszOcene(int ocena)
+        {
+            try
+            {
+                using (var baza = new PrzeliczeniaOceny())
+                {
+                    baza.Ocenies.Add(new Oceny
+                    {
+                        ocena = ocena
+                    });
+                    baza.SaveChanges();
+                }
+            }
+            catch (Exception e)
+            {
+                PoleWyjsciowe.Text = e.Message;
+            }
+        }
+
+        private int OstatniaOcena()
+        {
+            try
+            {
+                using (var baza = new PrzeliczeniaOceny())
+                {
+                    var ocena = baza.Ocenies.Where(o => o.id == baza.Ocenies.OrderByDescending(x => x.id).FirstOrDefault().id).FirstOrDefault();
+                    if (ocena == null)
+                    {
+                        return 0;
+                    }
+                    return ocena.ocena;
+                }
+            }
+            catch (InvalidOperationException ex)
+            { return 0; }
+        }
+
+        private void OcenaZmiana(object sender, OcenaKontrolka.PrzesylaneArgumenty e)
+        {
+            var ocena = e.WysylanaOcena;
+            Kocena.UstawKolor(ocena);
+            ZapiszOcene(ocena);
+        }
+
     }
 }

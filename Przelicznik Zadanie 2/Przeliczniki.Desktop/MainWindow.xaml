@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Przeliczniki.Desktop"
+        xmlns:kontrolki="clr-namespace:Przelicznik.Controls;assembly=Przelicznik.Controls"
         mc:Ignorable="d"
         Title="Przelicznik" Height="1160.239" Width="833.645"  FontFamily="Consolas" WindowStyle="ThreeDBorderWindow" SnapsToDevicePixels="True" ResizeMode="CanMinimize">
     <Window.Resources>
@@ -32,7 +32,19 @@
     <Grid Background="#1E1E24" >
         <StackPanel>
             <Grid>
-                <TextBlock Text="Przelicznik" HorizontalAlignment="Center" Foreground="#FFCF99" FontSize="40"></TextBlock>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"></ColumnDefinition>
+                    <ColumnDefinition Width="1*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Grid Grid.Column="0">
+                    <TextBlock Text="Przelicznik" HorizontalAlignment="Left" Foreground="#FFCF99" FontSize="40"></TextBlock>
+                </Grid>
+                <Grid Grid.Column="1">
+                    <StackPanel>
+                        <Label Foreground="#FFF8F0" FontSize="20">Oceń tę aplikację:</Label>
+                        <kontrolki:OcenaKontrolka x:Name="Kocena" OcenaZmienionaEvent="OcenaZmiana"></kontrolki:OcenaKontrolka>
+                    </StackPanel>
+                </Grid>
             </Grid>
             <Grid>
                 <Grid.ColumnDefinitions>
@@ -78,7 +90,7 @@
                 </Grid>
             </Grid>
 
-            <Button x:Name="ObliczPrzycisk" HorizontalAlignment="Center" Background="#FFCF99" Width="170" Height="50" FontSize="32" Foreground="#1E1E24" Click="ObliczPrzycisk_Click">Oblicz</Button>
+            <Button x:Name="ObliczPrzycisk" HorizontalAlignment="Center" Background="#FFCF99" Width="170" Height="50" FontSize="32" Foreground="#1E1E24" >Oblicz</Button>
             <TextBlock x:Name="PoleWyjsciowe" Height="100" Width="800" FontSize="12" Foreground="#DB4C40" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,50,0,0" TextAlignment="Center" Text=""></TextBlock>
 
             <Grid>
@@ -97,9 +109,9 @@
                 </Grid>
                 <Grid Grid.Column="1">
                     <StackPanel>
-                        <Label Foreground="#FFF8F0" FontSize="20">Konwerter:</Label>
-                        <ComboBox x:Name="KonwerterStatystykiWybor" Width="200" Height="30" HorizontalAlignment="Left" Margin="20,0,0,0" Background="#FFCF99" ></ComboBox>
-                        <Button x:Name="WybierzPrzycisk" Margin="20,20,0,0" HorizontalAlignment="Left"  Background="#FFCF99" Width="170" Height="50" FontSize="32" Foreground="#1E1E24" Click="WybierzPrzycisk_Click">Wybierz</Button>
+                        <Label Foreground="#FFF8F0" FontSize="20">przelicznik:</Label>
+                        <ComboBox x:Name="przelicznikStatystykiWybor" Width="200" Height="30" HorizontalAlignment="Left" Margin="20,0,0,0" Background="#FFCF99" ></ComboBox>
+                        <Button x:Name="WybierzPrzycisk" Margin="20,20,0,0" HorizontalAlignment="Left"  Background="#FFCF99" Width="170" Height="50" FontSize="32" Foreground="#1E1E24" >Wybierz</Button>
 
                     </StackPanel>
                 </Grid>
@@ -111,13 +123,13 @@
                     <ColumnDefinition Width="0.33*"></ColumnDefinition>
                 </Grid.ColumnDefinitions>
                 <Grid Grid.Column="0">
-                    <Button x:Name="StronaMinus" Height="50" Background="#00000000" HorizontalAlignment="Center" FontSize="40" Foreground="#FFCF99" Click="StronaMinus_Click" >&lt;---</Button>
+                    <Button x:Name="StronaMinus" Height="50" Background="#00000000" HorizontalAlignment="Center" FontSize="40" Foreground="#FFCF99" >&lt;---</Button>
                 </Grid>
                 <Grid Grid.Column="1">
                     <Label x:Name="KtoraStrona" Height="50" Background="#00000000" HorizontalAlignment="Center" FontSize="40" Foreground="#FFCF99">1</Label> 
                 </Grid>
                 <Grid Grid.Column="2">
-                    <Button x:Name="StronaPlus" Height="50" Background="#00000000" HorizontalAlignment="Center" FontSize="40" Foreground="#FFCF99" Click="StronaPlus_Click">---&gt;</Button>
+                    <Button x:Name="StronaPlus" Height="50" Background="#00000000" HorizontalAlignment="Center" FontSize="40" Foreground="#FFCF99">---&gt;</Button>
                 </Grid>
             </Grid>
             <StackPanel Height="457">
@@ -125,7 +137,7 @@
                     <ListView.View>
                         <GridView>
                             <GridViewColumn Header="data" DisplayMemberBinding="{Binding data}"></GridViewColumn>
-                            <GridViewColumn Header="konwerter" DisplayMemberBinding="{Binding konwerter}"></GridViewColumn>
+                            <GridViewColumn Header="przelicznik" DisplayMemberBinding="{Binding przelicznik}"></GridViewColumn>
                             <GridViewColumn Header="wartosc" DisplayMemberBinding="{Binding wartosc}"></GridViewColumn>
                             <GridViewColumn Header="jednostkaZ" DisplayMemberBinding="{Binding jednostkaZ}"></GridViewColumn>
                             <GridViewColumn Header="wynik" DisplayMemberBinding="{Binding wynik}"></GridViewColumn>
