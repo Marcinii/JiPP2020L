@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Przeliczniki.Desktop"
         mc:Ignorable="d"
-        Title="Przelicznik" Height="1009.239" Width="833.645"  FontFamily="Consolas" WindowStyle="ThreeDBorderWindow" SnapsToDevicePixels="True" ResizeMode="CanMinimize">
+        Title="Przelicznik" Height="1160.239" Width="833.645"  FontFamily="Consolas" WindowStyle="ThreeDBorderWindow" SnapsToDevicePixels="True" ResizeMode="CanMinimize">
     <Window.Resources>
 
         <Storyboard x:Key="ZegarPokaz">
@@ -41,8 +41,8 @@
                 </Grid.ColumnDefinitions>
                 <Grid Grid.Column="0">
                     <StackPanel>
-                        <Label Foreground="#FFF8F0" FontSize="20">Konwerter:</Label>
-                        <ComboBox x:Name="WyborKonwerterComboBox" Width="200" Height="30" HorizontalAlignment="Left" Margin="20,0,0,0" Background="#FFCF99" SelectionChanged="WyborKonwerterComboBox_SelectionChanged"></ComboBox>
+                        <Label Foreground="#FFF8F0" FontSize="20">Przelicznik:</Label>
+                        <ComboBox x:Name="WyborPrzelicznikComboBox" Width="200" Height="30" HorizontalAlignment="Left" Margin="20,0,0,0" Background="#FFCF99" SelectionChanged="WyborPrzelicznikComboBox_SelectionChanged"></ComboBox>
                         <Label Foreground="#FFF8F0" FontSize="20">Jednostka wejściowa:</Label>
                         <ComboBox x:Name="WyborJednostkaWejscComboBox" Width="200" Height="30" HorizontalAlignment="Left" Margin="20,0,0,0" Background="#FFCF99" SelectionChanged="WyborJednostkaWejscComboBox_SelectionChanged"></ComboBox>
                         <Label Foreground="#FFF8F0" FontSize="20">Jednostka Wyjściowa:</Label>
@@ -79,8 +79,61 @@
             </Grid>
 
             <Button x:Name="ObliczPrzycisk" HorizontalAlignment="Center" Background="#FFCF99" Width="170" Height="50" FontSize="32" Foreground="#1E1E24" Click="ObliczPrzycisk_Click">Oblicz</Button>
-            <TextBlock x:Name="PoleWyjsciowe" Height="50" Width="200" FontSize="30" Foreground="#DB4C40" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,50,0,0" TextAlignment="Center" Text=""></TextBlock>
+            <TextBlock x:Name="PoleWyjsciowe" Height="100" Width="800" FontSize="12" Foreground="#DB4C40" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,50,0,0" TextAlignment="Center" Text=""></TextBlock>
 
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"></ColumnDefinition>
+                    <ColumnDefinition Width="1*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Grid Grid.Column="0">
+                    <StackPanel>
+                        <Label Foreground="#FFF8F0" FontSize="20">Data od:</Label>
+                        <DatePicker x:Name="DataOdWybor" Width="200" Height="30" HorizontalAlignment="Left" Margin="20,0,0,0" Background="#FFCF99" ></DatePicker>
+                        <Label Foreground="#FFF8F0" FontSize="20">Data do:</Label>
+                        <DatePicker x:Name="DataDoWybor" Width="200" Height="30" HorizontalAlignment="Left" Margin="20,0,0,0" Background="#FFCF99" ></DatePicker>
+
+                    </StackPanel>
+                </Grid>
+                <Grid Grid.Column="1">
+                    <StackPanel>
+                        <Label Foreground="#FFF8F0" FontSize="20">Konwerter:</Label>
+                        <ComboBox x:Name="KonwerterStatystykiWybor" Width="200" Height="30" HorizontalAlignment="Left" Margin="20,0,0,0" Background="#FFCF99" ></ComboBox>
+                        <Button x:Name="WybierzPrzycisk" Margin="20,20,0,0" HorizontalAlignment="Left"  Background="#FFCF99" Width="170" Height="50" FontSize="32" Foreground="#1E1E24" Click="WybierzPrzycisk_Click">Wybierz</Button>
+
+                    </StackPanel>
+                </Grid>
+            </Grid>
+            <Grid Margin="0,20">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0.33*"></ColumnDefinition>
+                    <ColumnDefinition Width="0.33*"></ColumnDefinition>
+                    <ColumnDefinition Width="0.33*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Grid Grid.Column="0">
+                    <Button x:Name="StronaMinus" Height="50" Background="#00000000" HorizontalAlignment="Center" FontSize="40" Foreground="#FFCF99" Click="StronaMinus_Click" >&lt;---</Button>
+                </Grid>
+                <Grid Grid.Column="1">
+                    <Label x:Name="KtoraStrona" Height="50" Background="#00000000" HorizontalAlignment="Center" FontSize="40" Foreground="#FFCF99">1</Label> 
+                </Grid>
+                <Grid Grid.Column="2">
+                    <Button x:Name="StronaPlus" Height="50" Background="#00000000" HorizontalAlignment="Center" FontSize="40" Foreground="#FFCF99" Click="StronaPlus_Click">---&gt;</Button>
+                </Grid>
+            </Grid>
+            <StackPanel Height="457">
+                <ListView x:Name="Statystyki">
+                    <ListView.View>
+                        <GridView>
+                            <GridViewColumn Header="data" DisplayMemberBinding="{Binding data}"></GridViewColumn>
+                            <GridViewColumn Header="konwerter" DisplayMemberBinding="{Binding konwerter}"></GridViewColumn>
+                            <GridViewColumn Header="wartosc" DisplayMemberBinding="{Binding wartosc}"></GridViewColumn>
+                            <GridViewColumn Header="jednostkaZ" DisplayMemberBinding="{Binding jednostkaZ}"></GridViewColumn>
+                            <GridViewColumn Header="wynik" DisplayMemberBinding="{Binding wynik}"></GridViewColumn>
+                            <GridViewColumn Header="jednostkaDo" DisplayMemberBinding="{Binding jednostkaDo}"></GridViewColumn>
+                        </GridView>
+                    </ListView.View>
+                </ListView>
+            </StackPanel>
 
         </StackPanel>
     </Grid>
