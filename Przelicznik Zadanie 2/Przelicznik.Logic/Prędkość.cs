@@ -1,10 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
 
-namespace ConsoleApp2
+namespace Przelicznik.Logic
 {
-   public class Prędkość : PrzelicznikI
+    public class Prędkość : PrzelicznikI
     {
         public string Name => "Konwerter Prędkości";
 
@@ -14,7 +12,7 @@ namespace ConsoleApp2
             "mph"
         };
 
-    public double przelicz(string jednostka1, string jednostka2, double liczba)
+        public double przelicz(string jednostka1, string jednostka2, double liczba)
         {
             if (jednostka1 == "m/s" && jednostka2 == "mph")
             {
@@ -25,6 +23,11 @@ namespace ConsoleApp2
                 return liczba * 0.4470400;
             }
             else return 0;
+        }
+
+        public string przeliczCzas(string czas)
+        {
+            return "";
         }
     }
 }

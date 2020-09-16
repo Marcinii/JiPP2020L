@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace ConsoleApp2
+namespace Przelicznik.Logic
 {
    public class Długości : PrzelicznikI
     {
@@ -27,6 +27,10 @@ namespace ConsoleApp2
                 }
                 else return 0;
             }
+        }
+        public string przeliczCzas(string czas)
+        {
+            return "";
         }
     }
 }

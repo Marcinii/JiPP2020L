@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace ConsoleApp2
+namespace Przelicznik.Logic
 {
     public class Masa : PrzelicznikI
     {
@@ -56,6 +56,10 @@ namespace ConsoleApp2
             {
                 return 0;
             }
+        }
+        public string przeliczCzas(string czas)
+        {
+            return "";
         }
     }
 }

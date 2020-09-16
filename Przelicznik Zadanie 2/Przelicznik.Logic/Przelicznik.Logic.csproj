@@ -41,8 +41,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Czasu.cs" />
     <Compile Include="Długości.cs" />
     <Compile Include="Masa.cs" />
+    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="PrzelicznikI.cs" />
     <Compile Include="Prędkość.cs" />

@@ -1,18 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
 using System.Windows.Documents;
-using System.Windows.Input;
+using Przelicznik.Logic;
+using System.Collections.Generic;
+using System.Windows.Media.Animation;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-using ConsoleApp2;
 
 namespace Przeliczniki.Desktop
 {
@@ -21,73 +14,90 @@ namespace Przeliczniki.Desktop
     /// </summary>
     public partial class MainWindow : Window
     {
+
+        PrzelicznikI obecnyPrzelicznik;
+        bool czyPrzelicznikCzasu = false;
+        string jednostkaZ, jednostkaDo;
+
+        List<PrzelicznikI> Przeliczniki = new List<PrzelicznikI>
+        {
+            new Czasu(),
+            new Długości(),
+            new Prędkość(),
+            new Temperatury(),
+            new Masa(),
+        };
+
         public MainWindow()
         {
             InitializeComponent();
+            WyborKonwerterComboBox.ItemsSource = Przeliczniki;
             
-            
         }
-        private void TempCombobox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+
+        private void WyborKonwerterComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if (this.userInputTemp.Text != null && this.TempZ.SelectedValue != null && this.TempDo.SelectedValue != null)
+            if (((PrzelicznikI)WyborKonwerterComboBox.SelectedItem).Name == "Przelicznik czasu")
             {
-                Temperatury przelicznik = new Temperatury();
-                double liczba = Convert.ToDouble (this.userInputTemp.Text);
-
-                string tempZ = (string)((ComboBoxItem)((ComboBox)this.TempZ).SelectedValue).Content;
-                string tempNa = (string)((ComboBoxItem)((ComboBox)this.TempDo).SelectedValue).Content;
-                this.wynikTemp.Text = Math.Round(przelicznik.przelicz(tempZ, tempNa, liczba), 1, MidpointRounding.ToEven).ToString();
+                czyPrzelicznikCzasu = true;
+                ZegarUklad.Visibility = Visibility.Visible;
+                var animacja = (Storyboard)FindResource("ZegarPokaz");
+                animacja.Begin();
             }
-            return;
-        }
-
-        private void MasaCombobox_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            if (this.userInputMasa.Text != null && this.MasaZ.SelectedValue != null && this.MasaDo.SelectedValue != null)
+            else
             {
-                Masa przelicznik = new Masa();
-                double liczba = Convert.ToDouble(this.userInputMasa.Text);
-
-                string masaZ = (string)((ComboBoxItem)((ComboBox)this.MasaZ).SelectedValue).Content;
-                string masaDo = (string)((ComboBoxItem)((ComboBox)this.MasaDo).SelectedValue).Content;
-                this.wynikMasa.Text = Math.Round(przelicznik.przelicz(masaZ, masaDo, liczba), 1, MidpointRounding.ToEven).ToString();
+                czyPrzelicznikCzasu = false;
+                ZegarUklad.Visibility = Visibility.Hidden;
             }
-            return;
+
+            obecnyPrzelicznik = (PrzelicznikI)WyborKonwerterComboBox.SelectedItem;
+
+            WyborJednostkaWejscComboBox.ItemsSource = obecnyPrzelicznik.jednostka;
+            WyborJednostkaWyjscComboBox.ItemsSource = obecnyPrzelicznik.jednostka;
         }
-        private void PredkCombobox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+
+        private void WyborJednostkaWyjscComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if (this.userInputPredk.Text != null && this.PredkoscZ.SelectedValue != null && this.PredkoscDo.SelectedValue != null)
+            if (WyborJednostkaWyjscComboBox.SelectedItem != null)
             {
-                Prędkość przelicznik = new Prędkość();
-                double liczba = Convert.ToDouble(this.userInputPredk.Text);
-
-                string PredkoscZ = (string)((ComboBoxItem)((ComboBox)this.PredkoscZ).SelectedValue).Content;
-                string PredkoscDo = (string)((ComboBoxItem)((ComboBox)this.PredkoscDo).SelectedValue).Content;
-
-                this.wynikPredk.Text = Math.Round(przelicznik.przelicz(PredkoscZ, PredkoscDo, liczba), 1, MidpointRounding.ToEven).ToString();
+                jednostkaDo = WyborJednostkaWyjscComboBox.SelectedItem.ToString();
             }
-            return;
         }
 
-
-
-        private void DlugCombobox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void ObliczPrzycisk_Click(object sender, RoutedEventArgs e)
         {
-            if (this.userInputDlug.Text != null && this.DlugoscZ.SelectedValue != null && this.DlugoscDo.SelectedValue != null)
+            if (czyPrzelicznikCzasu && PoleWejsciowe.Text != "")
             {
-                Długości przelicznik = new Długości();
-                double liczba = Convert.ToDouble(this.userInputDlug.Text);
+                PoleWyjsciowe.Text = obecnyPrzelicznik.przeliczCzas(PoleWejsciowe.Text);
+                var wartosc = "";
+                if (PoleWejsciowe.Text.Split(' ').Length == 2)
+                {
+                    wartosc = PoleWejsciowe.Text.Split(' ')[0];
+                }
+                else
+                {
+                    wartosc = PoleWejsciowe.Text;
+                }
 
-                string DlugoscZ = (string)((ComboBoxItem)((ComboBox)this.DlugoscZ).SelectedValue).Content;
-                string DlugoscDo = (string)((ComboBoxItem)((ComboBox)this.DlugoscDo).SelectedValue).Content;
-                
-                this.wynikDlug.Text = Math.Round(przelicznik.przelicz(DlugoscZ, DlugoscDo, liczba), 1,MidpointRounding.ToEven).ToString();
+                RotateTransform obrot = new RotateTransform(int.Parse(wartosc) * 30);
+                WskazowkaSciezka.RenderTransform = obrot;
             }
-            return;
+            else
+            {
+                if (jednostkaZ != "" && jednostkaDo != "" && PoleWejsciowe.Text != "")
+                {
+                    var wyjscie = obecnyPrzelicznik.przelicz(jednostkaZ, jednostkaDo, Double.Parse(PoleWejsciowe.Text));
+                    PoleWyjsciowe.Text = wyjscie.ToString() + " " + jednostkaDo;
+                }
+            }
         }
-         private void Klikniecie(object sender, RoutedEventArgs e)
+
+        private void WyborJednostkaWejscComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            this.Close();
+            if (WyborJednostkaWejscComboBox.SelectedItem != null)
+            {
+                jednostkaZ = WyborJednostkaWejscComboBox.SelectedItem.ToString();
+            }
         }
     }
 }

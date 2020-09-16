@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace ConsoleApp2
+namespace Przelicznik.Logic
 {
     public class Temperatury : PrzelicznikI
     {
@@ -25,6 +25,11 @@ namespace ConsoleApp2
                 return (liczba - 32.00) / 1.8000;
             }
             else return 0;
+        }
+
+        public string przeliczCzas(string czas)
+        {
+            return "";
         }
     }
 }
