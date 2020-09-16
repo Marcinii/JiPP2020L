@@ -16,3 +16,21 @@ C:\Users\kiemi\source\repos\JiPP2020L\Zadanie 2\UnitConverter.Desktop\obj\Debug\
 C:\Users\kiemi\source\repos\JiPP2020L\Zadanie 2\UnitConverter.Desktop\obj\Debug\UnitConverter.Desktop.csproj.CopyComplete
 C:\Users\kiemi\source\repos\JiPP2020L\Zadanie 2\UnitConverter.Desktop\obj\Debug\UnitConverter.Desktop.exe
 C:\Users\kiemi\source\repos\JiPP2020L\Zadanie 2\UnitConverter.Desktop\obj\Debug\UnitConverter.Desktop.pdb
+C:\Users\kiemi\source\repos\JiPP2020L\Zadanie 2 I 3\UnitConverter.Desktop\bin\Debug\UnitConverter.Desktop.exe.config
+C:\Users\kiemi\source\repos\JiPP2020L\Zadanie 2 I 3\UnitConverter.Desktop\bin\Debug\UnitConverter.Desktop.exe
+C:\Users\kiemi\source\repos\JiPP2020L\Zadanie 2 I 3\UnitConverter.Desktop\bin\Debug\UnitConverter.Desktop.pdb
+C:\Users\kiemi\source\repos\JiPP2020L\Zadanie 2 I 3\UnitConverter.Desktop\bin\Debug\UnitConverterv2.Logic.dll
+C:\Users\kiemi\source\repos\JiPP2020L\Zadanie 2 I 3\UnitConverter.Desktop\bin\Debug\UnitConverterv2.Logic.pdb
+C:\Users\kiemi\source\repos\JiPP2020L\Zadanie 2 I 3\UnitConverter.Desktop\obj\Debug\UnitConverter.Desktop.csprojAssemblyReference.cache
+C:\Users\kiemi\source\repos\JiPP2020L\Zadanie 2 I 3\UnitConverter.Desktop\obj\Debug\MainWindow.g.cs
+C:\Users\kiemi\source\repos\JiPP2020L\Zadanie 2 I 3\UnitConverter.Desktop\obj\Debug\App.g.cs
+C:\Users\kiemi\source\repos\JiPP2020L\Zadanie 2 I 3\UnitConverter.Desktop\obj\Debug\UnitConverter.Desktop_MarkupCompile.cache
+C:\Users\kiemi\source\repos\JiPP2020L\Zadanie 2 I 3\UnitConverter.Desktop\obj\Debug\UnitConverter.Desktop_MarkupCompile.lref
+C:\Users\kiemi\source\repos\JiPP2020L\Zadanie 2 I 3\UnitConverter.Desktop\obj\Debug\MainWindow.baml
+C:\Users\kiemi\source\repos\JiPP2020L\Zadanie 2 I 3\UnitConverter.Desktop\obj\Debug\UnitConverter.Desktop.g.resources
+C:\Users\kiemi\source\repos\JiPP2020L\Zadanie 2 I 3\UnitConverter.Desktop\obj\Debug\UnitConverter.Desktop.Properties.Resources.resources
+C:\Users\kiemi\source\repos\JiPP2020L\Zadanie 2 I 3\UnitConverter.Desktop\obj\Debug\UnitConverter.Desktop.csproj.GenerateResource.cache
+C:\Users\kiemi\source\repos\JiPP2020L\Zadanie 2 I 3\UnitConverter.Desktop\obj\Debug\UnitConverter.Desktop.csproj.CoreCompileInputs.cache
+C:\Users\kiemi\source\repos\JiPP2020L\Zadanie 2 I 3\UnitConverter.Desktop\obj\Debug\UnitConverter.Desktop.csproj.CopyComplete
+C:\Users\kiemi\source\repos\JiPP2020L\Zadanie 2 I 3\UnitConverter.Desktop\obj\Debug\UnitConverter.Desktop.exe
+C:\Users\kiemi\source\repos\JiPP2020L\Zadanie 2 I 3\UnitConverter.Desktop\obj\Debug\UnitConverter.Desktop.pdb

@@ -1,0 +1,45 @@
+﻿<Window x:Class="Ksiegarnia.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:a="clr-namespace:Ksiegarnia.Loading;assembly=Ksiegarnia.Loading"
+        xmlns:local="clr-namespace:Ksiegarnia"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="500" Width="636.253">
+    <Grid>
+        <Grid Panel.ZIndex="1">
+            <a:LoadingControl x:Name="LoadingPanel" Visibility="Hidden"></a:LoadingControl>
+        </Grid>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="7*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+            <DataGrid x:Name="ItemsGrid" HorizontalAlignment="Center" Height="383" Margin="5,0,0,0" VerticalAlignment="Top" Width="350" Grid.Row="1"/>
+            <ComboBox Name="ItemSelction" HorizontalAlignment="Center" VerticalAlignment="Center" Width="140" Height="27" SelectedIndex="0" FontSize="16" FontWeight="Bold">
+                <ComboBoxItem>Book</ComboBoxItem>
+                <ComboBoxItem>Magazine</ComboBoxItem>
+            </ComboBox>
+            <Grid Grid.Row="1" Grid.Column="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Button x:Name="LoadFromDatabaseButton" Content="Load" HorizontalAlignment="Center" VerticalAlignment="Center" Width="93" Height="27" FontSize="14" Click="LoadFromDatabaseButton_Click"/>
+                <Button x:Name="CreateNewButton" Content="Insert New" Width="100" Height="27" FontSize="14" Click="InsertNewButton_Click" Grid.Column="0" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                <Button x:Name="AddButton" Content="Add" Grid.Column="2" HorizontalAlignment="Left" Grid.Row="1" VerticalAlignment="Center" Width="100" Click="AddButton_Click" IsEnabled="False" Height="27"/>
+                <Button x:Name="EditButton" Content="Edit" Width="100" Height="27" FontSize="14" Click="EditButton_Click" Grid.Column="0" Grid.Row="2"/>
+            </Grid>
+        </Grid>
+    </Grid>
+</Window>
