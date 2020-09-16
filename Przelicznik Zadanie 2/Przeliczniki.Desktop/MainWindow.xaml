@@ -7,7 +7,6 @@
         mc:Ignorable="d"
         Title="Przelicznik" Height="1160.239" Width="833.645"  FontFamily="Consolas" WindowStyle="ThreeDBorderWindow" SnapsToDevicePixels="True" ResizeMode="CanMinimize">
     <Window.Resources>
-
         <Storyboard x:Key="ZegarPokaz">
             <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="ZegarUklad">
                 <DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Visible}"/>
@@ -25,9 +24,90 @@
                 <EasingDoubleKeyFrame KeyTime="0:0:2" Value="2880"/>
             </DoubleAnimationUsingKeyFrames>
         </Storyboard>
+        <Storyboard x:Key="Wczytywanie">
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="grid">
+                <DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Visible}"/>
+                <DiscreteObjectKeyFrame KeyTime="0:0:1" Value="{x:Static Visibility.Visible}"/>
+                <DiscreteObjectKeyFrame KeyTime="0:0:2" Value="{x:Static Visibility.Hidden}"/>
+            </ObjectAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="grid">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0.1"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:2" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="ellipse1">
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="-53.069"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:2" Value="-31.151"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="ellipse1">
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="70.329"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:2" Value="15.449"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[2].(RotateTransform.Angle)" Storyboard.TargetName="ellipse1">
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="220.676"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:2" Value="-51.716"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="ellipse2">
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="-75.9"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:2" Value="-1.318"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="ellipse2">
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="-46.134"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:2" Value="-30.997"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[2].(RotateTransform.Angle)" Storyboard.TargetName="ellipse2">
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="220.676"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:2" Value="-94.875"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="ellipse3">
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="53.069"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:2" Value="49.766"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="ellipse3">
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="-70.329"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:2" Value="2.404"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[2].(RotateTransform.Angle)" Storyboard.TargetName="ellipse3">
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="220.676"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:2" Value="-51.716"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="ellipse4">
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="70.034"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:2" Value="12.868"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="ellipse4">
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="61.96"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:2" Value="52.274"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[2].(RotateTransform.Angle)" Storyboard.TargetName="ellipse4">
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="220.676"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:2" Value="-51.716"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="ellipse5">
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="2.638"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:2" Value="9.878"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="ellipse5">
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="0.978"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:2" Value="10.105"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[2].(RotateTransform.Angle)" Storyboard.TargetName="ellipse5">
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="220.676"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:2" Value="-51.716"/>
+            </DoubleAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="rectangle">
+                <DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Visible}"/>
+                <DiscreteObjectKeyFrame KeyTime="0:0:2" Value="{x:Static Visibility.Hidden}"/>
+            </ObjectAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="rectangle">
+                <EasingDoubleKeyFrame KeyTime="0:0:2" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
 
     </Window.Resources>
     <Window.Triggers>
+        <EventTrigger RoutedEvent="FrameworkElement.Loaded">
+            <BeginStoryboard Storyboard="{StaticResource Wczytywanie}"/>
+        </EventTrigger>
     </Window.Triggers>
     <Grid Background="#1E1E24" >
         <StackPanel>
@@ -126,7 +206,7 @@
                     <Button x:Name="StronaMinus" Height="50" Background="#00000000" HorizontalAlignment="Center" FontSize="40" Foreground="#FFCF99" >&lt;---</Button>
                 </Grid>
                 <Grid Grid.Column="1">
-                    <Label x:Name="KtoraStrona" Height="50" Background="#00000000" HorizontalAlignment="Center" FontSize="40" Foreground="#FFCF99">1</Label> 
+                    <Label x:Name="KtoraStrona" Height="50" Background="#00000000" HorizontalAlignment="Center" FontSize="40" Foreground="#FFCF99">1</Label>
                 </Grid>
                 <Grid Grid.Column="2">
                     <Button x:Name="StronaPlus" Height="50" Background="#00000000" HorizontalAlignment="Center" FontSize="40" Foreground="#FFCF99">---&gt;</Button>
@@ -148,6 +228,61 @@
             </StackPanel>
 
         </StackPanel>
+        <Rectangle x:Name="rectangle" Height="1160.239" Width="833.645" Fill="#BB000000" Visibility="Hidden"></Rectangle>
+        <Grid x:Name="grid" Visibility="Hidden">
+            <Ellipse x:Name="ellipse1" Fill="#FFCF99" HorizontalAlignment="Left" Height="138" Margin="342,517,0,0" VerticalAlignment="Top" Width="138" RenderTransformOrigin="0.5,0.5">
+                <Ellipse.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Ellipse.RenderTransform>
+            </Ellipse>
+            <Ellipse x:Name="ellipse2" Fill="#FFCF99" HorizontalAlignment="Left" Height="138" Margin="375,571,0,0" VerticalAlignment="Top" Width="138" RenderTransformOrigin="0.5,0.5">
+                <Ellipse.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Ellipse.RenderTransform>
+            </Ellipse>
+            <Ellipse x:Name="ellipse3" Fill="#FFCF99" HorizontalAlignment="Left" Height="138" Margin="315,607,0,0" VerticalAlignment="Top" Width="138" RenderTransformOrigin="0.5,0.5">
+                <Ellipse.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Ellipse.RenderTransform>
+            </Ellipse>
+            <Ellipse x:Name="ellipse4" Fill="#FFCF99" HorizontalAlignment="Left" Height="138" Margin="282,544,0,0" VerticalAlignment="Top" Width="138" RenderTransformOrigin="0.5,0.5">
+                <Ellipse.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Ellipse.RenderTransform>
+            </Ellipse>
+            <Ellipse x:Name="ellipse5" Fill="#DB4C40" HorizontalAlignment="Left" Height="48" Margin="372,607,0,0" VerticalAlignment="Top" Width="48" RenderTransformOrigin="0.5,0.5">
+                <Ellipse.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Ellipse.RenderTransform>
+            </Ellipse>
+
+        </Grid>
+
     </Grid>
 
 

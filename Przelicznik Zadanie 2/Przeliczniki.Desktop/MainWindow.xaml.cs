@@ -8,6 +8,7 @@ using System.Windows.Media;
 using System.Windows.Media.Animation;
 using Przelicznik.Controls;
 using Przelicznik.Desktop;
+using System.Threading;
 
 namespace Przeliczniki.Desktop
 {
@@ -173,8 +174,29 @@ namespace Przeliczniki.Desktop
         private void WczytajStatystyki()
         {
             var przelicznik = przelicznikStatystykiWybor.SelectedItem == null ? "" : przelicznikStatystykiWybor.SelectedItem.ToString();
-            var statystyki = WczytajZBazy(20, (obecnaStrona - 1) * 20, DataOdWybor.SelectedDate, DataDoWybor.SelectedDate, przelicznik);
-            Statystyki.ItemsSource = statystyki;
+            var dataOd = DataOdWybor.SelectedDate;
+            var dataDo = DataDoWybor.SelectedDate;
+            Thread watek = new Thread(() =>
+            {
+                WczytajStatystykiWatek(20, (obecnaStrona - 1) * 20, dataOd, dataDo, przelicznik);
+            });
+
+            watek.Start();
+        }
+
+        private void WczytajStatystykiWatek(int ileWczytaj, int ilePomin, DateTime? dataOd, DateTime? dataDo, string przelicznik)
+        {
+            Dispatcher.Invoke(() =>
+            {
+                var animacja = (Storyboard)FindResource("Wczytywanie");
+                animacja.Begin();
+            });
+
+            Thread.Sleep(2000);
+            Dispatcher.Invoke(() =>
+            {
+                Statystyki.ItemsSource = WczytajZBazy(ileWczytaj, ilePomin, dataOd, dataDo, przelicznik); ;
+            });
         }
 
         private List<Przeliczenia> WczytajZBazy(int ileWczytaj, int ilePomin, DateTime? dataOd, DateTime? dataDo, string przelicznik)
