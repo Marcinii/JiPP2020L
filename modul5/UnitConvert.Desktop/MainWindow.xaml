@@ -1,0 +1,72 @@
+﻿<Window x:Class="UnitConvert.Desktop.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:UnitConvert.Desktop"
+        xmlns:commonControls="clr-namespace:Common.Controls;assembly=Common.Controls"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid Background="#FFA1BBB5">
+        <commonControls:RateMe x:Name="rateControl" Margin="63,290,549,95" RateValueChanged="rateControl_RateValueChanged" Loaded="rateControl_Loaded" Background="#FFB0B0B0" Foreground="White" />
+        <TextBox x:Name="inputTextBoxt" HorizontalAlignment="Left" Height="23" Margin="430,27,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="inputTextBoxl" HorizontalAlignment="Left" Height="23" Margin="430,63,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="inputTextBoxw" HorizontalAlignment="Left" Height="23" Margin="430,110,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Temperatura" HorizontalAlignment="Left" Margin="21,21,0,372"/>
+        <Label Content="Długość" HorizontalAlignment="Left" Margin="21,64,0,0" VerticalAlignment="Top"/>
+        <Label Content="Masa" HorizontalAlignment="Left" Margin="21,106,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.495,-2.538"/>
+        <Button Content="Konwertuj" HorizontalAlignment="Left" Margin="580,25,0,0" VerticalAlignment="Top" Width="107" Height="23" Click="Button_Clickt" Background="#FFD5E4D1"/>
+        <Button Content="Konwertuj" HorizontalAlignment="Left" Margin="580,63,0,0" VerticalAlignment="Top" Width="107" Height="23" Click="Button_Clickl" Background="#FFD5E4D1"/>
+        <Button Content="Konwertuj" HorizontalAlignment="Left" Margin="580,110,0,0" VerticalAlignment="Top" Width="107" Height="23" Click="Button_Clickw" Background="#FFD5E4D1"/>
+        <TextBlock x:Name="outputTextBlockt" HorizontalAlignment="Left" Margin="430,50,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="26" Width="120"/>
+        <TextBlock x:Name="outputTextBlockl" HorizontalAlignment="Left" Margin="430,150,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="26" Width="120"/>
+        <TextBlock x:Name="outputTextBlockw" HorizontalAlignment="Left" Margin="430,250,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="26" Width="120"/>
+        <ComboBox x:Name="combobox_tjeden" HorizontalAlignment="Left" Margin="123,25,0,0" VerticalAlignment="Top" Width="120"/>
+        <ComboBox x:Name="combobox_tdwa" HorizontalAlignment="Left" Margin="282,25,0,0" VerticalAlignment="Top" Width="120"/>
+        <ComboBox x:Name="combobox_ljeden" HorizontalAlignment="Left" Margin="123,64,0,0" VerticalAlignment="Top" Width="120"/>
+        <ComboBox x:Name="combobox_ldwa" HorizontalAlignment="Left" Margin="282,64,0,0" VerticalAlignment="Top" Width="120"/>
+        <ComboBox x:Name="combobox_wjeden" HorizontalAlignment="Left" Margin="123,110,0,0" VerticalAlignment="Top" Width="120"/>
+        <ComboBox x:Name="combobox_wdwa" HorizontalAlignment="Left" Margin="282,110,0,0" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Czas" HorizontalAlignment="Left" Margin="21,148
+               ,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.735,-1.962"/>
+        <ComboBox x:Name="combobox_tg" HorizontalAlignment="Left" Margin="123,154,0,0" VerticalAlignment="Top" Width="120"/>
+        <ComboBox x:Name="combobox_tm" HorizontalAlignment="Left" Margin="282,154,0,0" VerticalAlignment="Top" Width="120"/>
+        <Button Content="Konwertuj" HorizontalAlignment="Left" Margin="580,155,0,0" VerticalAlignment="Top" Width="107" Height="22" Click="Button_Clickti" Background="#FFD5E4D1"/>
+        <TextBlock x:Name="outputTextBlock_th" HorizontalAlignment="Left" Margin="430,350,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="26" Width="40"/>
+        <TextBlock x:Name="outputTextBlock_tm" HorizontalAlignment="Left" Margin="470,350,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="26" Width="40"/>
+        <TextBlock x:Name="outputTextBlock_ap" HorizontalAlignment="Left" Margin="510,350,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="26" Width="40"/>
+        <Ellipse HorizontalAlignment="Left" Margin="580,200,0,0" Fill="#FFD5E4D1" Width="200" Height="200" Stroke="Black"/>
+        <Line Name="RED" X1="90" Y1="120" X2="90" Y2="0" Stroke="#FFF98876" StrokeThickness="3" RenderTransformOrigin=".5,.5" Margin="580,200,0,0" Width="180" Height="180">
+            <Line.RenderTransform>
+                <RotateTransform x:Name="noFreeze" />
+            </Line.RenderTransform>
+            <Line.Triggers>
+                <EventTrigger RoutedEvent="Loaded">
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <DoubleAnimation Storyboard.TargetName="RED"
+                                             Storyboard.TargetProperty="(Line.RenderTransform).(RotateTransform.Angle)"
+                                             To="360" Duration="0:1:0"
+                                             AutoReverse="False" RepeatBehavior="Forever"/>
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+            </Line.Triggers>
+        </Line>
+        <Line Name="BlackM" X1="90" Y1="120" X2="90" Y2="0" Stroke="Black" StrokeThickness="3" RenderTransformOrigin=".5,.5" Margin="580,200,0,0" Width="180" Height="180">
+            <Line.RenderTransform>
+                <RotateTransform x:Name="noFreezeM" />
+            </Line.RenderTransform>
+        </Line>
+        <Line Name="BlackH" X1="90" Y1="110" X2="90" Y2="30" Stroke="Black" StrokeThickness="3" RenderTransformOrigin=".5,.5" Margin="580,200,0,0" Width="180" Height="180">
+            <Line.RenderTransform>
+                <RotateTransform x:Name="noFreezeH" />
+            </Line.RenderTransform>
+        </Line>
+        <TextBox x:Name="inputTextBoxw_Copy" HorizontalAlignment="Left" Height="23" Margin="430,154,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <TextBox HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="Konwersja z:" VerticalAlignment="Top" Width="120" TextChanged="TextBox_TextChanged" Margin="123,0,0,0" BorderBrush="{x:Null}" Background="{x:Null}"/>
+        <TextBox HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="Konwersja do:" VerticalAlignment="Top" Width="120" TextChanged="TextBox_TextChanged" Margin="282,0,0,0" BorderBrush="{x:Null}" Background="{x:Null}"/>
+        <TextBox HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="Liczba:" VerticalAlignment="Top" Width="120" TextChanged="TextBox_TextChanged" Margin="430,-1,0,0" BorderBrush="{x:Null}" Background="{x:Null}"/>
+        <TextBox HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="Oceń aplikację:" VerticalAlignment="Top" Width="120" TextChanged="TextBox_TextChanged" Margin="63,262,0,0" BorderBrush="{x:Null}" Background="{x:Null}"/>
+    </Grid>
+</Window>
