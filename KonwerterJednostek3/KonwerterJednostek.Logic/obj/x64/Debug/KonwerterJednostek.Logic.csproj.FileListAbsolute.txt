@@ -1,0 +1,6 @@
+C:\Users\Czaro\Source\Repos\JiPP2020L\KonwerterJednostek\KonwerterJednostek.Logic\bin\x64\Debug\KonwerterJednostek.Logic.dll
+C:\Users\Czaro\Source\Repos\JiPP2020L\KonwerterJednostek\KonwerterJednostek.Logic\bin\x64\Debug\KonwerterJednostek.Logic.pdb
+C:\Users\Czaro\Source\Repos\JiPP2020L\KonwerterJednostek\KonwerterJednostek.Logic\obj\x64\Debug\KonwerterJednostek.Logic.csprojAssemblyReference.cache
+C:\Users\Czaro\Source\Repos\JiPP2020L\KonwerterJednostek\KonwerterJednostek.Logic\obj\x64\Debug\KonwerterJednostek.Logic.csproj.CoreCompileInputs.cache
+C:\Users\Czaro\Source\Repos\JiPP2020L\KonwerterJednostek\KonwerterJednostek.Logic\obj\x64\Debug\KonwerterJednostek.Logic.dll
+C:\Users\Czaro\Source\Repos\JiPP2020L\KonwerterJednostek\KonwerterJednostek.Logic\obj\x64\Debug\KonwerterJednostek.Logic.pdb

@@ -1,0 +1,13 @@
+C:\Users\Czaro\source\repos\KonwerterJednostek\KonwerterJednostek\bin\Debug\netcoreapp3.1\KonwerterJednostek.exe
+C:\Users\Czaro\source\repos\KonwerterJednostek\KonwerterJednostek\bin\Debug\netcoreapp3.1\KonwerterJednostek.deps.json
+C:\Users\Czaro\source\repos\KonwerterJednostek\KonwerterJednostek\bin\Debug\netcoreapp3.1\KonwerterJednostek.runtimeconfig.json
+C:\Users\Czaro\source\repos\KonwerterJednostek\KonwerterJednostek\bin\Debug\netcoreapp3.1\KonwerterJednostek.runtimeconfig.dev.json
+C:\Users\Czaro\source\repos\KonwerterJednostek\KonwerterJednostek\bin\Debug\netcoreapp3.1\KonwerterJednostek.dll
+C:\Users\Czaro\source\repos\KonwerterJednostek\KonwerterJednostek\bin\Debug\netcoreapp3.1\KonwerterJednostek.pdb
+C:\Users\Czaro\source\repos\KonwerterJednostek\KonwerterJednostek\obj\Debug\netcoreapp3.1\KonwerterJednostek.csprojAssemblyReference.cache
+C:\Users\Czaro\source\repos\KonwerterJednostek\KonwerterJednostek\obj\Debug\netcoreapp3.1\KonwerterJednostek.csproj.CoreCompileInputs.cache
+C:\Users\Czaro\source\repos\KonwerterJednostek\KonwerterJednostek\obj\Debug\netcoreapp3.1\KonwerterJednostek.AssemblyInfoInputs.cache
+C:\Users\Czaro\source\repos\KonwerterJednostek\KonwerterJednostek\obj\Debug\netcoreapp3.1\KonwerterJednostek.AssemblyInfo.cs
+C:\Users\Czaro\source\repos\KonwerterJednostek\KonwerterJednostek\obj\Debug\netcoreapp3.1\KonwerterJednostek.dll
+C:\Users\Czaro\source\repos\KonwerterJednostek\KonwerterJednostek\obj\Debug\netcoreapp3.1\KonwerterJednostek.pdb
+C:\Users\Czaro\source\repos\KonwerterJednostek\KonwerterJednostek\obj\Debug\netcoreapp3.1\KonwerterJednostek.genruntimeconfig.cache
