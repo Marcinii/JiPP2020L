@@ -1,0 +1,26 @@
+C:\Users\Samrion\Desktop\Nowy folder (11)\Zadanie 2 I 3\UnitConverter.RatingControl\obj\Debug\UnitConverter.RatingControl.csprojAssemblyReference.cache
+C:\Users\Samrion\Desktop\Nowy folder (11)\Zadanie 2 I 3\UnitConverter.RatingControl\obj\Debug\UserControl1.g.cs
+C:\Users\Samrion\Desktop\Nowy folder (11)\Zadanie 2 I 3\UnitConverter.RatingControl\obj\Debug\UnitConverter.RatingControl_MarkupCompile.cache
+C:\Users\Samrion\Desktop\Nowy folder (11)\Zadanie 2 I 3\UnitConverter.RatingControl\obj\Debug\UnitConverter.RatingControl_MarkupCompile.lref
+C:\Users\Samrion\Desktop\Nowy folder (11)\Zadanie 2 I 3\UnitConverter.RatingControl\bin\Debug\UnitConverter.RatingControl.dll
+C:\Users\Samrion\Desktop\Nowy folder (11)\Zadanie 2 I 3\UnitConverter.RatingControl\bin\Debug\UnitConverter.RatingControl.pdb
+C:\Users\Samrion\Desktop\Nowy folder (11)\Zadanie 2 I 3\UnitConverter.RatingControl\obj\Debug\UserControl1.baml
+C:\Users\Samrion\Desktop\Nowy folder (11)\Zadanie 2 I 3\UnitConverter.RatingControl\obj\Debug\UnitConverter.RatingControl.g.resources
+C:\Users\Samrion\Desktop\Nowy folder (11)\Zadanie 2 I 3\UnitConverter.RatingControl\obj\Debug\UnitConverter.RatingControl.Properties.Resources.resources
+C:\Users\Samrion\Desktop\Nowy folder (11)\Zadanie 2 I 3\UnitConverter.RatingControl\obj\Debug\UnitConverter.RatingControl.csproj.GenerateResource.cache
+C:\Users\Samrion\Desktop\Nowy folder (11)\Zadanie 2 I 3\UnitConverter.RatingControl\obj\Debug\UnitConverter.RatingControl.csproj.CoreCompileInputs.cache
+C:\Users\Samrion\Desktop\Nowy folder (11)\Zadanie 2 I 3\UnitConverter.RatingControl\obj\Debug\UnitConverter.RatingControl.dll
+C:\Users\Samrion\Desktop\Nowy folder (11)\Zadanie 2 I 3\UnitConverter.RatingControl\obj\Debug\UnitConverter.RatingControl.pdb
+C:\Users\kiemi\Desktop\Zadanie 4 i 5\UnitConverter.RatingControl\bin\Debug\UnitConverter.RatingControl.dll
+C:\Users\kiemi\Desktop\Zadanie 4 i 5\UnitConverter.RatingControl\bin\Debug\UnitConverter.RatingControl.pdb
+C:\Users\kiemi\Desktop\Zadanie 4 i 5\UnitConverter.RatingControl\obj\Debug\UnitConverter.RatingControl.csprojAssemblyReference.cache
+C:\Users\kiemi\Desktop\Zadanie 4 i 5\UnitConverter.RatingControl\obj\Debug\UserControl1.g.cs
+C:\Users\kiemi\Desktop\Zadanie 4 i 5\UnitConverter.RatingControl\obj\Debug\UnitConverter.RatingControl_MarkupCompile.cache
+C:\Users\kiemi\Desktop\Zadanie 4 i 5\UnitConverter.RatingControl\obj\Debug\UnitConverter.RatingControl_MarkupCompile.lref
+C:\Users\kiemi\Desktop\Zadanie 4 i 5\UnitConverter.RatingControl\obj\Debug\UserControl1.baml
+C:\Users\kiemi\Desktop\Zadanie 4 i 5\UnitConverter.RatingControl\obj\Debug\UnitConverter.RatingControl.g.resources
+C:\Users\kiemi\Desktop\Zadanie 4 i 5\UnitConverter.RatingControl\obj\Debug\UnitConverter.RatingControl.Properties.Resources.resources
+C:\Users\kiemi\Desktop\Zadanie 4 i 5\UnitConverter.RatingControl\obj\Debug\UnitConverter.RatingControl.csproj.GenerateResource.cache
+C:\Users\kiemi\Desktop\Zadanie 4 i 5\UnitConverter.RatingControl\obj\Debug\UnitConverter.RatingControl.csproj.CoreCompileInputs.cache
+C:\Users\kiemi\Desktop\Zadanie 4 i 5\UnitConverter.RatingControl\obj\Debug\UnitConverter.RatingControl.dll
+C:\Users\kiemi\Desktop\Zadanie 4 i 5\UnitConverter.RatingControl\obj\Debug\UnitConverter.RatingControl.pdb

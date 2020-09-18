@@ -1,0 +1,20 @@
+C:\Users\kiemi\Desktop\JiPP2020L-Z410-Michal-Pietrucha\zadanie 2\UnitConverterv2.Logic\bin\Debug\UnitConverterv2.Logic.dll
+C:\Users\kiemi\Desktop\JiPP2020L-Z410-Michal-Pietrucha\zadanie 2\UnitConverterv2.Logic\bin\Debug\UnitConverterv2.Logic.pdb
+C:\Users\kiemi\Desktop\JiPP2020L-Z410-Michal-Pietrucha\zadanie 2\UnitConverterv2.Logic\obj\Debug\UnitConverterv2.Logic.csprojAssemblyReference.cache
+C:\Users\kiemi\Desktop\JiPP2020L-Z410-Michal-Pietrucha\zadanie 2\UnitConverterv2.Logic\obj\Debug\UnitConverterv2.Logic.csproj.CoreCompileInputs.cache
+C:\Users\kiemi\Desktop\JiPP2020L-Z410-Michal-Pietrucha\zadanie 2\UnitConverterv2.Logic\obj\Debug\UnitConverterv2.Logic.dll
+C:\Users\kiemi\Desktop\JiPP2020L-Z410-Michal-Pietrucha\zadanie 2\UnitConverterv2.Logic\obj\Debug\UnitConverterv2.Logic.pdb
+C:\Users\Samrion\Desktop\Nowy folder (11)\Zadanie 2 I 3\UnitConverterv2.Logic\bin\Debug\UnitConverterv2.Logic.dll
+C:\Users\Samrion\Desktop\Nowy folder (11)\Zadanie 2 I 3\UnitConverterv2.Logic\bin\Debug\UnitConverterv2.Logic.pdb
+C:\Users\Samrion\Desktop\Nowy folder (11)\Zadanie 2 I 3\UnitConverterv2.Logic\obj\Debug\UnitConverterv2.Logic.csprojAssemblyReference.cache
+C:\Users\Samrion\Desktop\Nowy folder (11)\Zadanie 2 I 3\UnitConverterv2.Logic\obj\Debug\UnitConverterv2.Logic.csproj.CoreCompileInputs.cache
+C:\Users\Samrion\Desktop\Nowy folder (11)\Zadanie 2 I 3\UnitConverterv2.Logic\obj\Debug\UnitConverterv2.Logic.dll
+C:\Users\Samrion\Desktop\Nowy folder (11)\Zadanie 2 I 3\UnitConverterv2.Logic\obj\Debug\UnitConverterv2.Logic.pdb
+C:\Users\Samrion\Desktop\Nowy folder (11)\Zadanie 2 I 3\UnitConverterv2.Logic\bin\Debug\UnitConverterv2.Logic.dll.config
+C:\Users\Samrion\Desktop\Nowy folder (11)\Zadanie 2 I 3\UnitConverterv2.Logic\bin\Debug\EntityFramework.dll
+C:\Users\Samrion\Desktop\Nowy folder (11)\Zadanie 2 I 3\UnitConverterv2.Logic\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Samrion\Desktop\Nowy folder (11)\Zadanie 2 I 3\UnitConverterv2.Logic\bin\Debug\EntityFramework.xml
+C:\Users\Samrion\Desktop\Nowy folder (11)\Zadanie 2 I 3\UnitConverterv2.Logic\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Samrion\Desktop\Nowy folder (11)\Zadanie 2 I 3\UnitConverterv2.Logic\obj\Debug\UnitConverterv2.Logic.csproj.CopyComplete
+C:\Users\Samrion\Desktop\Nowy folder (11)\Zadanie 2 I 3\UnitConverterv2.Logic\obj\Debug\UnitConverterv2.Logic.Migrations.uniDBSchema.resources
+C:\Users\Samrion\Desktop\Nowy folder (11)\Zadanie 2 I 3\UnitConverterv2.Logic\obj\Debug\UnitConverterv2.Logic.csproj.GenerateResource.cache

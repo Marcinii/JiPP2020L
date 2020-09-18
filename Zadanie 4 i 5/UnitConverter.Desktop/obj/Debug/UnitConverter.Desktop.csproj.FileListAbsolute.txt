@@ -1,0 +1,86 @@
+C:\Users\kiemi\source\repos\JiPP2020L\Zadanie 2\UnitConverter.Desktop\bin\Debug\UnitConverter.Desktop.exe.config
+C:\Users\kiemi\source\repos\JiPP2020L\Zadanie 2\UnitConverter.Desktop\bin\Debug\UnitConverter.Desktop.exe
+C:\Users\kiemi\source\repos\JiPP2020L\Zadanie 2\UnitConverter.Desktop\bin\Debug\UnitConverter.Desktop.pdb
+C:\Users\kiemi\source\repos\JiPP2020L\Zadanie 2\UnitConverter.Desktop\bin\Debug\UnitConverterv2.Logic.dll
+C:\Users\kiemi\source\repos\JiPP2020L\Zadanie 2\UnitConverter.Desktop\bin\Debug\UnitConverterv2.Logic.pdb
+C:\Users\kiemi\source\repos\JiPP2020L\Zadanie 2\UnitConverter.Desktop\obj\Debug\UnitConverter.Desktop.csprojAssemblyReference.cache
+C:\Users\kiemi\source\repos\JiPP2020L\Zadanie 2\UnitConverter.Desktop\obj\Debug\MainWindow.g.cs
+C:\Users\kiemi\source\repos\JiPP2020L\Zadanie 2\UnitConverter.Desktop\obj\Debug\App.g.cs
+C:\Users\kiemi\source\repos\JiPP2020L\Zadanie 2\UnitConverter.Desktop\obj\Debug\UnitConverter.Desktop_MarkupCompile.cache
+C:\Users\kiemi\source\repos\JiPP2020L\Zadanie 2\UnitConverter.Desktop\obj\Debug\UnitConverter.Desktop_MarkupCompile.lref
+C:\Users\kiemi\source\repos\JiPP2020L\Zadanie 2\UnitConverter.Desktop\obj\Debug\MainWindow.baml
+C:\Users\kiemi\source\repos\JiPP2020L\Zadanie 2\UnitConverter.Desktop\obj\Debug\UnitConverter.Desktop.g.resources
+C:\Users\kiemi\source\repos\JiPP2020L\Zadanie 2\UnitConverter.Desktop\obj\Debug\UnitConverter.Desktop.Properties.Resources.resources
+C:\Users\kiemi\source\repos\JiPP2020L\Zadanie 2\UnitConverter.Desktop\obj\Debug\UnitConverter.Desktop.csproj.GenerateResource.cache
+C:\Users\kiemi\source\repos\JiPP2020L\Zadanie 2\UnitConverter.Desktop\obj\Debug\UnitConverter.Desktop.csproj.CoreCompileInputs.cache
+C:\Users\kiemi\source\repos\JiPP2020L\Zadanie 2\UnitConverter.Desktop\obj\Debug\UnitConverter.Desktop.csproj.CopyComplete
+C:\Users\kiemi\source\repos\JiPP2020L\Zadanie 2\UnitConverter.Desktop\obj\Debug\UnitConverter.Desktop.exe
+C:\Users\kiemi\source\repos\JiPP2020L\Zadanie 2\UnitConverter.Desktop\obj\Debug\UnitConverter.Desktop.pdb
+C:\Users\kiemi\source\repos\JiPP2020L\Zadanie 2 I 3\UnitConverter.Desktop\bin\Debug\UnitConverter.Desktop.exe.config
+C:\Users\kiemi\source\repos\JiPP2020L\Zadanie 2 I 3\UnitConverter.Desktop\bin\Debug\UnitConverter.Desktop.exe
+C:\Users\kiemi\source\repos\JiPP2020L\Zadanie 2 I 3\UnitConverter.Desktop\bin\Debug\UnitConverter.Desktop.pdb
+C:\Users\kiemi\source\repos\JiPP2020L\Zadanie 2 I 3\UnitConverter.Desktop\bin\Debug\UnitConverterv2.Logic.dll
+C:\Users\kiemi\source\repos\JiPP2020L\Zadanie 2 I 3\UnitConverter.Desktop\bin\Debug\UnitConverterv2.Logic.pdb
+C:\Users\kiemi\source\repos\JiPP2020L\Zadanie 2 I 3\UnitConverter.Desktop\obj\Debug\UnitConverter.Desktop.csprojAssemblyReference.cache
+C:\Users\kiemi\source\repos\JiPP2020L\Zadanie 2 I 3\UnitConverter.Desktop\obj\Debug\MainWindow.g.cs
+C:\Users\kiemi\source\repos\JiPP2020L\Zadanie 2 I 3\UnitConverter.Desktop\obj\Debug\App.g.cs
+C:\Users\kiemi\source\repos\JiPP2020L\Zadanie 2 I 3\UnitConverter.Desktop\obj\Debug\UnitConverter.Desktop_MarkupCompile.cache
+C:\Users\kiemi\source\repos\JiPP2020L\Zadanie 2 I 3\UnitConverter.Desktop\obj\Debug\UnitConverter.Desktop_MarkupCompile.lref
+C:\Users\kiemi\source\repos\JiPP2020L\Zadanie 2 I 3\UnitConverter.Desktop\obj\Debug\MainWindow.baml
+C:\Users\kiemi\source\repos\JiPP2020L\Zadanie 2 I 3\UnitConverter.Desktop\obj\Debug\UnitConverter.Desktop.g.resources
+C:\Users\kiemi\source\repos\JiPP2020L\Zadanie 2 I 3\UnitConverter.Desktop\obj\Debug\UnitConverter.Desktop.Properties.Resources.resources
+C:\Users\kiemi\source\repos\JiPP2020L\Zadanie 2 I 3\UnitConverter.Desktop\obj\Debug\UnitConverter.Desktop.csproj.GenerateResource.cache
+C:\Users\kiemi\source\repos\JiPP2020L\Zadanie 2 I 3\UnitConverter.Desktop\obj\Debug\UnitConverter.Desktop.csproj.CoreCompileInputs.cache
+C:\Users\kiemi\source\repos\JiPP2020L\Zadanie 2 I 3\UnitConverter.Desktop\obj\Debug\UnitConverter.Desktop.csproj.CopyComplete
+C:\Users\kiemi\source\repos\JiPP2020L\Zadanie 2 I 3\UnitConverter.Desktop\obj\Debug\UnitConverter.Desktop.exe
+C:\Users\kiemi\source\repos\JiPP2020L\Zadanie 2 I 3\UnitConverter.Desktop\obj\Debug\UnitConverter.Desktop.pdb
+C:\Users\Samrion\Desktop\Nowy folder (11)\Zadanie 2 I 3\UnitConverter.Desktop\bin\Debug\UnitConverter.Desktop.exe.config
+C:\Users\Samrion\Desktop\Nowy folder (11)\Zadanie 2 I 3\UnitConverter.Desktop\bin\Debug\UnitConverter.Desktop.exe
+C:\Users\Samrion\Desktop\Nowy folder (11)\Zadanie 2 I 3\UnitConverter.Desktop\bin\Debug\UnitConverter.Desktop.pdb
+C:\Users\Samrion\Desktop\Nowy folder (11)\Zadanie 2 I 3\UnitConverter.Desktop\bin\Debug\UnitConverterv2.Logic.dll
+C:\Users\Samrion\Desktop\Nowy folder (11)\Zadanie 2 I 3\UnitConverter.Desktop\bin\Debug\UnitConverterv2.Logic.pdb
+C:\Users\Samrion\Desktop\Nowy folder (11)\Zadanie 2 I 3\UnitConverter.Desktop\obj\Debug\UnitConverter.Desktop.csprojAssemblyReference.cache
+C:\Users\Samrion\Desktop\Nowy folder (11)\Zadanie 2 I 3\UnitConverter.Desktop\obj\Debug\MainWindow.g.cs
+C:\Users\Samrion\Desktop\Nowy folder (11)\Zadanie 2 I 3\UnitConverter.Desktop\obj\Debug\App.g.cs
+C:\Users\Samrion\Desktop\Nowy folder (11)\Zadanie 2 I 3\UnitConverter.Desktop\obj\Debug\UnitConverter.Desktop_MarkupCompile.cache
+C:\Users\Samrion\Desktop\Nowy folder (11)\Zadanie 2 I 3\UnitConverter.Desktop\obj\Debug\UnitConverter.Desktop_MarkupCompile.lref
+C:\Users\Samrion\Desktop\Nowy folder (11)\Zadanie 2 I 3\UnitConverter.Desktop\obj\Debug\MainWindow.baml
+C:\Users\Samrion\Desktop\Nowy folder (11)\Zadanie 2 I 3\UnitConverter.Desktop\obj\Debug\UnitConverter.Desktop.g.resources
+C:\Users\Samrion\Desktop\Nowy folder (11)\Zadanie 2 I 3\UnitConverter.Desktop\obj\Debug\UnitConverter.Desktop.Properties.Resources.resources
+C:\Users\Samrion\Desktop\Nowy folder (11)\Zadanie 2 I 3\UnitConverter.Desktop\obj\Debug\UnitConverter.Desktop.csproj.GenerateResource.cache
+C:\Users\Samrion\Desktop\Nowy folder (11)\Zadanie 2 I 3\UnitConverter.Desktop\obj\Debug\UnitConverter.Desktop.csproj.CoreCompileInputs.cache
+C:\Users\Samrion\Desktop\Nowy folder (11)\Zadanie 2 I 3\UnitConverter.Desktop\obj\Debug\UnitConverter.Desktop.csproj.CopyComplete
+C:\Users\Samrion\Desktop\Nowy folder (11)\Zadanie 2 I 3\UnitConverter.Desktop\obj\Debug\UnitConverter.Desktop.exe
+C:\Users\Samrion\Desktop\Nowy folder (11)\Zadanie 2 I 3\UnitConverter.Desktop\obj\Debug\UnitConverter.Desktop.pdb
+C:\Users\Samrion\Desktop\Nowy folder (11)\Zadanie 2 I 3\UnitConverter.Desktop\bin\Debug\EntityFramework.dll
+C:\Users\Samrion\Desktop\Nowy folder (11)\Zadanie 2 I 3\UnitConverter.Desktop\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Samrion\Desktop\Nowy folder (11)\Zadanie 2 I 3\UnitConverter.Desktop\bin\Debug\UnitConverterv2.Logic.dll.config
+C:\Users\Samrion\Desktop\Nowy folder (11)\Zadanie 2 I 3\UnitConverter.Desktop\bin\Debug\EntityFramework.xml
+C:\Users\Samrion\Desktop\Nowy folder (11)\Zadanie 2 I 3\UnitConverter.Desktop\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Samrion\Desktop\Nowy folder (11)\Zadanie 2 I 3\UnitConverter.Desktop\bin\Debug\UnitConverter.RatingControl.dll
+C:\Users\Samrion\Desktop\Nowy folder (11)\Zadanie 2 I 3\UnitConverter.Desktop\bin\Debug\UnitConverter.RatingControl.pdb
+C:\Users\kiemi\Desktop\Zadanie 4 i 5\UnitConverter.Desktop\bin\Debug\UnitConverter.Desktop.exe.config
+C:\Users\kiemi\Desktop\Zadanie 4 i 5\UnitConverter.Desktop\bin\Debug\UnitConverter.Desktop.exe
+C:\Users\kiemi\Desktop\Zadanie 4 i 5\UnitConverter.Desktop\bin\Debug\UnitConverter.Desktop.pdb
+C:\Users\kiemi\Desktop\Zadanie 4 i 5\UnitConverter.Desktop\bin\Debug\EntityFramework.dll
+C:\Users\kiemi\Desktop\Zadanie 4 i 5\UnitConverter.Desktop\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\kiemi\Desktop\Zadanie 4 i 5\UnitConverter.Desktop\bin\Debug\UnitConverter.RatingControl.dll
+C:\Users\kiemi\Desktop\Zadanie 4 i 5\UnitConverter.Desktop\bin\Debug\UnitConverterv2.Logic.dll
+C:\Users\kiemi\Desktop\Zadanie 4 i 5\UnitConverter.Desktop\bin\Debug\UnitConverter.RatingControl.pdb
+C:\Users\kiemi\Desktop\Zadanie 4 i 5\UnitConverter.Desktop\bin\Debug\UnitConverterv2.Logic.pdb
+C:\Users\kiemi\Desktop\Zadanie 4 i 5\UnitConverter.Desktop\bin\Debug\UnitConverterv2.Logic.dll.config
+C:\Users\kiemi\Desktop\Zadanie 4 i 5\UnitConverter.Desktop\bin\Debug\EntityFramework.xml
+C:\Users\kiemi\Desktop\Zadanie 4 i 5\UnitConverter.Desktop\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\kiemi\Desktop\Zadanie 4 i 5\UnitConverter.Desktop\obj\Debug\UnitConverter.Desktop.csprojAssemblyReference.cache
+C:\Users\kiemi\Desktop\Zadanie 4 i 5\UnitConverter.Desktop\obj\Debug\MainWindow.g.cs
+C:\Users\kiemi\Desktop\Zadanie 4 i 5\UnitConverter.Desktop\obj\Debug\App.g.cs
+C:\Users\kiemi\Desktop\Zadanie 4 i 5\UnitConverter.Desktop\obj\Debug\UnitConverter.Desktop_MarkupCompile.cache
+C:\Users\kiemi\Desktop\Zadanie 4 i 5\UnitConverter.Desktop\obj\Debug\UnitConverter.Desktop_MarkupCompile.lref
+C:\Users\kiemi\Desktop\Zadanie 4 i 5\UnitConverter.Desktop\obj\Debug\MainWindow.baml
+C:\Users\kiemi\Desktop\Zadanie 4 i 5\UnitConverter.Desktop\obj\Debug\UnitConverter.Desktop.g.resources
+C:\Users\kiemi\Desktop\Zadanie 4 i 5\UnitConverter.Desktop\obj\Debug\UnitConverter.Desktop.Properties.Resources.resources
+C:\Users\kiemi\Desktop\Zadanie 4 i 5\UnitConverter.Desktop\obj\Debug\UnitConverter.Desktop.csproj.GenerateResource.cache
+C:\Users\kiemi\Desktop\Zadanie 4 i 5\UnitConverter.Desktop\obj\Debug\UnitConverter.Desktop.csproj.CoreCompileInputs.cache
+C:\Users\kiemi\Desktop\Zadanie 4 i 5\UnitConverter.Desktop\obj\Debug\UnitConverter.Desktop.csproj.CopyComplete
+C:\Users\kiemi\Desktop\Zadanie 4 i 5\UnitConverter.Desktop\obj\Debug\UnitConverter.Desktop.exe
+C:\Users\kiemi\Desktop\Zadanie 4 i 5\UnitConverter.Desktop\obj\Debug\UnitConverter.Desktop.pdb
