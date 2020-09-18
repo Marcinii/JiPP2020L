@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29911.84
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VEHICLEIMPORT", "Storage\VEHICLEIMPORT.csproj", "{BD761EAC-5C61-49EE-BC20-B87C15A716A8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VEHICLEIMPORT.Logic", "Storage.Logic\VEHICLEIMPORT.Logic.csproj", "{F4A58289-FED8-48F5-89A4-A24FE07B7E16}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BD761EAC-5C61-49EE-BC20-B87C15A716A8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BD761EAC-5C61-49EE-BC20-B87C15A716A8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BD761EAC-5C61-49EE-BC20-B87C15A716A8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BD761EAC-5C61-49EE-BC20-B87C15A716A8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F4A58289-FED8-48F5-89A4-A24FE07B7E16}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F4A58289-FED8-48F5-89A4-A24FE07B7E16}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F4A58289-FED8-48F5-89A4-A24FE07B7E16}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F4A58289-FED8-48F5-89A4-A24FE07B7E16}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3B1868D7-3C82-4770-8405-817FACC1EB6C}
+	EndGlobalSection
+EndGlobal
