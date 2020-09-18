@@ -5,6 +5,7 @@
   },
   "projects": {
     "C:\\Users\\Czaro\\source\\repos\\JiPP2020L\\KonwerterJednostek4\\KonwerterJednostek.Logic\\KonwerterJednostek.Logic.csproj": {
+      "version": "1.0.0",
       "restore": {
         "projectUniqueName": "C:\\Users\\Czaro\\source\\repos\\JiPP2020L\\KonwerterJednostek4\\KonwerterJednostek.Logic\\KonwerterJednostek.Logic.csproj",
         "projectName": "KonwerterJednostek.Logic",
@@ -66,7 +67,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.402\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.201\\RuntimeIdentifierGraph.json"
         }
       }
     }
