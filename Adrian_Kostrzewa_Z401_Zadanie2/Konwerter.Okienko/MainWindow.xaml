@@ -1,0 +1,22 @@
+﻿<Window x:Class="Konwerter.Okienko.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Konwerter.Okienko"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="262.5" Width="460.87">
+    <Grid Margin="0,10,2,0">
+        <Label Content="Wprowadż wartość" HorizontalAlignment="Left" Height="39" Margin="93,13,0,0" VerticalAlignment="Top" Width="149"/>
+        <Button x:Name="Oblicz" Content="Oblicz" HorizontalAlignment="Left" Height="35" Margin="93,108,0,0" VerticalAlignment="Top" Width="197" Click="Oblicz_Click"/>
+        <TextBox x:Name="Wartosc" HorizontalAlignment="Left" Height="39" Margin="93,52,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="134"/>
+        <TextBlock x:Name="Wynik" HorizontalAlignment="Left" Height="39" Margin="93,165,0,0" TextWrapping="Wrap" Text="Wynik" VerticalAlignment="Top" Width="144"/>
+        <ComboBox x:Name="Lista" HorizontalAlignment="Left" Height="25" Margin="290,52,0,0" VerticalAlignment="Top" Width="125" SelectionChanged="Lista_SelectionChanged">
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding Nazwa}"/>
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
+    </Grid>
+</Window>
