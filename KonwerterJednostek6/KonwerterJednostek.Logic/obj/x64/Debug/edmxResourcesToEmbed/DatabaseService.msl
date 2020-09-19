@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="statystykiModelStoreContainer" CdmEntityContainer="statystykiEntities1">
+    <EntitySetMapping Name="stats">
+      <EntityTypeMapping TypeName="statystykiModel.stats">
+        <MappingFragment StoreEntitySet="stats">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="convType" ColumnName="convType" />
+          <ScalarProperty Name="unitFrom" ColumnName="unitFrom" />
+          <ScalarProperty Name="unitTo" ColumnName="unitTo" />
+          <ScalarProperty Name="convDate" ColumnName="convDate" />
+          <ScalarProperty Name="convValue" ColumnName="convValue" />
+          <ScalarProperty Name="convertedValue" ColumnName="convertedValue" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="rate">
+      <EntityTypeMapping TypeName="statystykiModel.rate">
+        <MappingFragment StoreEntitySet="rate">
+          <ScalarProperty Name="rateValue" ColumnName="rateValue" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

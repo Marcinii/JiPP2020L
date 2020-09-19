@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v3.1",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v3.1": {
+      "KonwerterJednostek/1.0.0": {
+        "runtime": {
+          "KonwerterJednostek.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "KonwerterJednostek/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

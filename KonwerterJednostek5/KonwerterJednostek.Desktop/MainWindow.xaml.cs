@@ -220,7 +220,6 @@ namespace KonwerterJednostek.Desktop
                 if (st.Skip(skip).Count() > skip && st.Skip(skip).Count() > 20)
                 {
                     skip += 20;
-                    Console.WriteLine(skip);
                     outputDataGrid.ItemsSource = st.Skip(skip);
                 }
             }
@@ -233,7 +232,6 @@ namespace KonwerterJednostek.Desktop
                 if (st.Take(skip).Count() >= skip && skip - 20 >= 0)
                 {
                     skip -= 20;
-                    Console.WriteLine(skip);
                     outputDataGrid.ItemsSource = st.Skip(skip).Take(20);
                 }
             }
