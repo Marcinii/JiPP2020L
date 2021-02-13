@@ -1,0 +1,9 @@
+C:\Users\Maria\source\repos\ConsoleApp2\UnitConverter.Logic\bin\Debug\UnitConverter.Logic.dll
+C:\Users\Maria\source\repos\ConsoleApp2\UnitConverter.Logic\bin\Debug\UnitConverter.Logic.pdb
+C:\Users\Maria\source\repos\ConsoleApp2\UnitConverter.Logic\obj\Debug\UnitConverter.Logic.dll
+C:\Users\Maria\source\repos\ConsoleApp2\UnitConverter.Logic\obj\Debug\UnitConverter.Logic.pdb
+C:\Users\Alexel\Source\Repos\JiPP2020L\UnitConverter.Logic\bin\Debug\UnitConverter.Logic.dll
+C:\Users\Alexel\Source\Repos\JiPP2020L\UnitConverter.Logic\bin\Debug\UnitConverter.Logic.pdb
+C:\Users\Alexel\Source\Repos\JiPP2020L\UnitConverter.Logic\obj\Debug\UnitConverter.Logic.csprojAssemblyReference.cache
+C:\Users\Alexel\Source\Repos\JiPP2020L\UnitConverter.Logic\obj\Debug\UnitConverter.Logic.dll
+C:\Users\Alexel\Source\Repos\JiPP2020L\UnitConverter.Logic\obj\Debug\UnitConverter.Logic.pdb
