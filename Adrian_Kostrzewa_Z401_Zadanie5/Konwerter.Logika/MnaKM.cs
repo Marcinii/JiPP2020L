@@ -1,0 +1,24 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Konwerter
+{
+    public class MnaKM : Ikonwenter
+    {
+        public string Nazwa => "D:Mile_KM";
+
+        public List<string> Jednostki => new List<string>()
+        {
+            "M",
+            "KM"
+        };
+
+        public double Konwer(string z, string n, double w)
+        {
+            return w * 1.609344D;
+        }
+    }
+}
